@@ -1,61 +1,90 @@
-{title: Feeling good}
-
 Feeling Good - Muse
-
 Posted by AidanHarkin
 
-[Verse 1]
 
-[Bm]Birds flying high, you k[A]now how I feel[G][F#]
-[Bm]Sun in the sky, you know[A] how I feel[G][F#]
-[Bm]Reeds driftin' on by, yo[A]u know how I feel[G][F#]
+[Verse 1]
+[tab][ch]Bm[/ch]           [ch]A[/ch]      [ch]G[/ch]             [ch]F#[/ch]
+Birds flying high, you know how I feel[/tab]
+[tab][ch]Bm[/ch]           [ch]A[/ch]      [ch]G[/ch]             [ch]F#[/ch]
+Sun in the sky, you know how I feel[/tab]
+[tab][ch]Bm[/ch]           [ch]A[/ch]     [ch]G[/ch]              [ch]F#[/ch]
+Reeds driftin' on by, you know how I feel[/tab]
+
 
 [Chorus]
+[tab]       [ch]Bm[/ch]
+It's a new dawn[/tab]
+[tab]       [ch]A[/ch]
+It's a new day[/tab]
+[tab]       [ch]G[/ch]
+It's a new life[/tab]
+[tab]    [ch]F#[/ch]
+For me[/tab]
+[tab]                  [ch]Bm[/ch]  [ch]A[/ch]  [ch]G[/ch]  [ch]F#[/ch]  [ch]F#[/ch]  [ch]A[/ch]  [ch]F#[/ch]  [ch]A[/ch]  [ch]Bm[/ch]
+And I'm feeling good[/tab]
 
-It's a [Bm]new dawn
-It's a [A]new day
-It's a [G]new life
-For [F#]me
-And I'm feeling go[Bm]od[A][G][F#][F#][A][F#][A][Bm]
 
 [Verse 2]
+[tab][ch]Bm[/ch]           [ch]A[/ch]      [ch]G[/ch]             [ch]F#[/ch]
+Fish in the sea, you know how I feel[/tab]
+[tab][ch]Bm[/ch]           [ch]A[/ch]      [ch]G[/ch]             [ch]F#[/ch]
+River running free, you know how I feel[/tab]
+[tab][ch]Bm[/ch]           [ch]A[/ch]      [ch]G[/ch]             [ch]F#[/ch]
+Blossom in the tree, you know how I feel[/tab]
 
-[Bm]Fish in the sea, you kno[A]w how I feel[G][F#]
-[Bm]River running free, you [A]know how I feel[G][F#]
-[Bm]Blossom in the tree, you[A] know how I feel[G][F#]
 
 [Chorus]
+[tab]       [ch]Bm[/ch]
+It's a new dawn[/tab]
+[tab]       [ch]A[/ch]
+It's a new day[/tab]
+[tab]       [ch]G[/ch]
+It's a new life[/tab]
+[tab]     [ch]F#[/ch]
+For me[/tab]
+[tab]                  [ch]Bm[/ch]  [ch]A[/ch]  [ch]G[/ch]  [ch]F#[/ch]  [ch]F#[/ch]  [ch]A[/ch]  [ch]F#[/ch]  [ch]A[/ch]  [ch]Bm[/ch]
+And I'm feeling good[/tab]
 
-It's a [Bm]new dawn
-It's a [A]new day
-It's a [G]new life
-For m[F#]e
-And I'm feeling go[Bm]od[A][G][F#][F#][A][F#][A][Bm]
 
 [Verse 3]
+[tab][ch]Bm[/ch]           [ch]A[/ch]     [ch]G[/ch]              [ch]F#[/ch]
+Dragonfly out in the sun, you know what I mean[/tab]
+[tab][ch]Bm[/ch]           [ch]A[/ch]     [ch]G[/ch]              [ch]F#[/ch]
+Butterflies all havin' fun, you know what I mean[/tab]
+[tab][ch]Bm[/ch]           [ch]A[/ch]     [ch]G[/ch]             [ch]F#[/ch]
+Sleep in peace when the day is done, that's what I mean[/tab]
 
-[Bm]Dragonfly out in the sun[A], you know what I[G] mean[F#]
-[Bm]Butterflies all havin' f[A]un, you know what[G] I mean[F#]
-[Bm]Sleep in peace when the [A]day is done, that[G]'s what I mean[F#]
 
 [Chorus]
+[tab]      [ch]Bm[/ch]
+And this old world[/tab]
+[tab]       [ch]A[/ch]
+Is a new world[/tab]
+[tab]       [ch]G[/ch]
+And a bold world[/tab]
+[tab]     [ch]F#[/ch]
+For me[/tab]
+[tab]                  [ch]Bm[/ch]  [ch]A[/ch]  [ch]G[/ch]  [ch]F#[/ch]  [ch]F#[/ch]  [ch]A[/ch]  [ch]F#[/ch]  [ch]A[/ch]  [ch]Bm[/ch]
+And I'm feeling good[/tab]
 
-And th[Bm]is old world
-Is a ne[A]w world
-And a b[G]old world
-For m[F#]e
-And I'm feeling go[Bm]od[A][G][F#][F#][A][F#][A][Bm]
 
 [Verse 4]
+[tab][ch]Bm[/ch]              [ch]A[/ch]      [ch]G[/ch]             [ch]F#[/ch]
+Stars when you shine, you know how I feel[/tab]
+[tab][ch]Bm[/ch]          [ch]A[/ch]    [ch]G[/ch]              [ch]F#[/ch]
+Scent of a pine, you know how I feel[/tab]
+[tab][ch]Bm[/ch]         [ch]A[/ch]         [ch]G[/ch]              [ch]F#[/ch]
+Freedom is mine, and you know how I feel[/tab]
 
-[Bm]Stars when you shine, you k[A]now how I feel[G][F#]
-[Bm]Scent of a pine, you kn[A]ow how I feel[G][F#]
-[Bm]Freedom is mine, and y[A]ou know how I feel[G][F#]
 
 [Chorus]
-
-It's a [Bm]new dawn
-It's a [A]new day
-It's a [G]new life
-For [F#]me
-And I'm feeling goo[Bm]d[A][G][F#][F#][A][F#][A][Bm]
+[tab]       [ch]Bm[/ch]
+It's a new dawn[/tab]
+[tab]       [ch]A[/ch]
+It's a new day[/tab]
+[tab]       [ch]G[/ch]
+It's a new life[/tab]
+[tab]    [ch]F#[/ch]
+For me[/tab]
+[tab]                   [ch]Bm[/ch] [ch]A[/ch] [ch]G[/ch] [ch]F#[/ch] [ch]F#[/ch] [ch]A[/ch] [ch]F#[/ch] [ch]A[/ch] [ch]Bm[/ch]
+And I'm feeling good[/tab]

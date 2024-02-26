@@ -1,92 +1,119 @@
-{title: Otherside}
-
 Strumming pattern: D DU UDU
-
 * = play the strumming pattern x2 on this chord
 
 [Intro]
-
-[Am]   [F]   [C]   [G]
+[ch]Am[/ch]   [ch]F[/ch]   [ch]C[/ch]   [ch]G[/ch]
 
 [Chorus]
-
-[Am] How long, how long will I[F] slide?[C]
-[G]Separate my siiii-iiide[Am][F]
-I [C]don't, don't belie[G]ve it's baaa-aaad[Am][F]
-[C]Slittin' my throat it's all I ever[G]
+[tab][ch]Am[/ch]             [ch]F[/ch]           [ch]C[/ch]
+ How long, how long will I slide?[/tab]
+[tab][ch]G[/ch]            [ch]Am[/ch]   [ch]F[/ch]
+Separate my siiii-iiide[/tab]
+[tab]  [ch]C[/ch]      [ch]G[/ch]                  [ch]Am[/ch]   [ch]F[/ch]
+I don't, don't believe it's baaa-aaad[/tab]
+[tab][ch]C[/ch]                       [ch]G[/ch]
+Slittin' my throat it's all I ever[/tab]
 
 [Verse 1]
-
-[Am]   I heard your voice through a photograph[Em]
-[Am]   I thought it up and brought up the past[Em]
-[Am]   Once you know you can never go ba[Em]ck
-I've got to [G]take it on the otherside[A]
+[tab][ch]Am[/ch]                              [ch]Em[/ch]
+   I heard your voice through a photograph[/tab]
+[tab][ch]Am[/ch]                             [ch]Em[/ch]
+   I thought it up and brought up the past[/tab]
+[tab][ch]Am[/ch]                       [ch]Em[/ch]
+   Once you know you can never go back[/tab]
+[tab]            [ch]G[/ch]              [ch]A[/ch]*
+I've got to take it on the otherside[/tab]
 
 [Verse 2]
-
-[Am]  Centuries are what it meant to me[Em]
-[Am]  A cemetery where I marry the s[Em]ea
-[Am]  Stranger things never change my m[Em]ind
-I've got to [G]take it on the otherside[A]
-[G]Take it on the otherside[A]
-[G]Take it on
-[A]Take it on
+[tab][ch]Am[/ch]                      [ch]Em[/ch]
+  Centuries are what it meant to me[/tab]
+[tab][ch]Am[/ch]                   [ch]Em[/ch]
+  A cemetery where I marry the sea[/tab]
+[tab][ch]Am[/ch]                      [ch]Em[/ch]
+  Stranger things never change my mind[/tab]
+[tab]            [ch]G[/ch]              [ch]A[/ch]
+I've got to take it on the otherside[/tab]
+[tab][ch]G[/ch]              [ch]A[/ch]
+Take it on the otherside[/tab]
+[tab][ch]G[/ch]*
+Take it on[/tab]
+[tab][ch]A[/ch]*
+Take it on[/tab]
 
 [Chorus]
-
-[Am] How long, how long will I[F] slide?[C]
-[G]Separate my siiii-iiide[Am][F]
-I [C]don't, don't belie[G]ve it's baaa-aaad[Am][F]
-[C]Slittin' my throat it's all I ever[G]
+[tab][ch]Am[/ch]             [ch]F[/ch]           [ch]C[/ch]
+ How long, how long will I slide?[/tab]
+[tab][ch]G[/ch]            [ch]Am[/ch]   [ch]F[/ch]
+Separate my siiii-iiide[/tab]
+[tab]  [ch]C[/ch]      [ch]G[/ch]                  [ch]Am[/ch]   [ch]F[/ch]
+I don't, don't believe it's baaa-aaad[/tab]
+[tab][ch]C[/ch]                       [ch]G[/ch]
+Slittin' my throat it's all I ever[/tab]
 
 [Verse 3]
-
-[Am]  Pour my life into a paper cup[Em]
-[Am]  The ashtray's full and I'm spillin' my[Em] guts
-[Am]  She wants to know am I still a slu[Em]t
-I've got to [G]take it on the otherside[A]
+[tab][ch]Am[/ch]                    [ch]Em[/ch]
+  Pour my life into a paper cup[/tab]
+[tab][ch]Am[/ch]                           [ch]Em[/ch]
+  The ashtray's full and I'm spillin' my guts[/tab]
+[tab][ch]Am[/ch]                       [ch]Em[/ch]
+  She wants to know am I still a slut[/tab]
+[tab]            [ch]G[/ch]              [ch]A[/ch]*
+I've got to take it on the otherside[/tab]
 
 [Verse 4]
-
-[Am]  Scarlet starlet and she's in my bed[Em]
-[Am]  A candidate for a soul mate b[Em]led
-[Am]  Push the trigger and pull the th[Em]read
-I've got to [G]take it on the otherside[A]
-[G]Take it on the otherside[A]
-[G]Take it on
-[A]Take it on
+[tab][ch]Am[/ch]                          [ch]Em[/ch]
+  Scarlet starlet and she's in my bed[/tab]
+[tab][ch]Am[/ch]                  [ch]Em[/ch]
+  A candidate for a soul mate bled[/tab]
+[tab][ch]Am[/ch]                     [ch]Em[/ch]
+  Push the trigger and pull the thread[/tab]
+[tab]            [ch]G[/ch]              [ch]A[/ch]
+I've got to take it on the otherside[/tab]
+[tab][ch]G[/ch]              [ch]A[/ch]
+Take it on the otherside[/tab]
+[tab][ch]G[/ch]*
+Take it on[/tab]
+[tab][ch]A[/ch]*
+Take it on[/tab]
 
 [Chorus]
-
-[Am] How long, how long will I[F] slide?[C]
-[G]Separate my siiii-iiide[Am][F]
-I [C]don't, don't belie[G]ve it's baaa-aaad[Am][F]
-[C]Slittin' my throat it's all I ever[G]
+[tab][ch]Am[/ch]             [ch]F[/ch]           [ch]C[/ch]
+ How long, how long will I slide?[/tab]
+[tab][ch]G[/ch]            [ch]Am[/ch]   [ch]F[/ch]
+Separate my siiii-iiide[/tab]
+[tab]  [ch]C[/ch]      [ch]G[/ch]                  [ch]Am[/ch]   [ch]F[/ch]
+I don't, don't believe it's baaa-aaad[/tab]
+[tab][ch]C[/ch]                       [ch]G[/ch]
+Slittin' my throat it's all I ever[/tab]
 
 [Instrumental]
-
-[Em]* - [C]*
-[Em]* - [C]*
+[ch]Em[/ch]* - [ch]C[/ch]*
+[ch]Em[/ch]* - [ch]C[/ch]*
 
 [Bridge]
-
-[Em]  Turn me on take me for a hard ride
-[C]  Burn me out leave me on the otherside
-[Em]  I yell and tell it that it's not my friend
-[C]  I tear it down I tear it down, and then it's born again
+[tab][ch]Em[/ch]*
+  Turn me on take me for a hard ride[/tab]
+[tab][ch]C[/ch]*
+  Burn me out leave me on the otherside[/tab]
+[tab][ch]Em[/ch]*
+  I yell and tell it that it's not my friend[/tab]
+[tab][ch]C[/ch]*
+  I tear it down I tear it down, and then it's born again[/tab]
 
 [Guitar Solo]
-
-[Am]   [F]   [C]   [G]
+[ch]Am[/ch]   [ch]F[/ch]   [ch]C[/ch]   [ch]G[/ch]
 
 [Chorus]
-
-[Am]  How long, how long will I[F] slide?[C]
-[G]Separate my siiii-iiide[Am][F]
-I [C]don't, don't belie[G]ve it's baaa-aaad[Am][F]
-[C]Slittin' my throat it's all I ever[G]
+[tab][ch]Am[/ch]              [ch]F[/ch]           [ch]C[/ch]
+  How long, how long will I slide?[/tab]
+[tab][ch]G[/ch]           [ch]Am[/ch]    [ch]F[/ch]
+Separate my siiii-iiide[/tab]
+[tab]  [ch]C[/ch]      [ch]G[/ch]                  [ch]Am[/ch]   [ch]F[/ch]
+I don't, don't believe it's baaa-aaad[/tab]
+[tab][ch]C[/ch]                       [ch]G[/ch]
+Slittin' my throat it's all I ever[/tab]
 
 [tab][ch]Am[/ch]   [ch]F[/ch]       [ch]C[/ch]      [ch]G[/ch]                  [ch]Am[/ch]    [ch]F[/ch]
-
 Haaa-aaad, I don't, don't believe it's saaa-aaad[/tab]
-[C]Slitting my throat, it's all I ever[G][Am]
+[tab][ch]C[/ch]                        [ch]G[/ch]          [ch]Am[/ch]
+Slitting my throat, it's all I ever[/tab]

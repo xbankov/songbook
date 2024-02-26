@@ -1,77 +1,79 @@
-{title: }
-
 [Intro]
-
-
 
 [ch]Am[/ch]    [ch]F/C[/ch]    [ch]C[/ch]    [ch]G[/ch]    [ch]C[/ch]
 
 
-
 [Verse]
 
-
-
 [tab][ch]C[/ch]
-
 Someone told me long ago[/tab]
-[C]There's a calm before the storm, I know[G]
-It's been coming fo[C]r some time
+[tab][ch]C[/ch]                                   [ch]G[/ch]
+There's a calm before the storm, I know[/tab]
+[tab]                   [ch]C[/ch]
+It's been coming for some time[/tab]
 
 [tab][ch]C[/ch]
-
 When it's over, so they say[/tab]
-[C]It'll rain a sunny day, I know[G]
-Shining down like w[C]ater
+[tab][ch]C[/ch]                          [ch]G[/ch]
+It'll rain a sunny day, I know[/tab]
+[tab]                   [ch]C[/ch]
+Shining down like water[/tab]
+
 
 [Chorus]
 
-
-
 [tab][ch]F[/ch]         [ch]G[/ch]
-
 I wanna know[/tab]
-Have you [C]ever seen the ra[C/B]in[Am][Am/G]
-[F]I wanna know[G]
-Have you [C]ever seen the ra[C/B]in[Am][Am/G]
-[F]Coming down on a sun[G]ny day[C]
+[tab]         [ch]C[/ch]    [ch]C/B[/ch]      [ch]Am[/ch]    [ch]Am/G[/ch]
+Have you ever seen the rain[/tab]
+[tab][ch]F[/ch]         [ch]G[/ch]
+I wanna know[/tab]
+[tab]         [ch]C[/ch]    [ch]C/B[/ch]      [ch]Am[/ch]    [ch]Am/G[/ch]
+Have you ever seen the rain[/tab]
+[tab][ch]F[/ch]        [ch]G[/ch]               [ch]C[/ch]
+Coming down on a sunny day[/tab]
+
 
 [Verse]
 
-
-
 [tab][ch]C[/ch]
-
 Yesterday and days before[/tab]
-[C]Sun is cold and rain is hard, I know[G]
-Been that way for al[C]l my time
+[tab][ch]C[/ch]                                [ch]G[/ch]
+Sun is cold and rain is hard, I know[/tab]
+[tab]                    [ch]C[/ch]
+Been that way for all my time[/tab]
 
 [tab][ch]C[/ch]
-
 'Til forever on it goes[/tab]
-[C]Through the circle fast and slow, I know[G]
-It can't stop, I wo[C]nder
+[tab][ch]C[/ch]                                    [ch]G[/ch]
+Through the circle fast and slow, I know[/tab]
+[tab]                   [ch]C[/ch]
+It can't stop, I wonder[/tab]
+
 
 [Chorus]
 
-
-
 [tab][ch]F[/ch]         [ch]G[/ch]
-
 I wanna know[/tab]
-Have you [C]ever seen the ra[C/B]in[Am][Am/G]
-[F]I wanna know[G]
-Have you [C]ever seen the ra[C/B]in[Am][Am/G]
-[F]Coming down on a sun[G]ny day[C]
+[tab]         [ch]C[/ch]    [ch]C/B[/ch]      [ch]Am[/ch]    [ch]Am/G[/ch]
+Have you ever seen the rain[/tab]
+[tab][ch]F[/ch]         [ch]G[/ch]
+I wanna know[/tab]
+[tab]         [ch]C[/ch]    [ch]C/B[/ch]      [ch]Am[/ch]    [ch]Am/G[/ch]
+Have you ever seen the rain[/tab]
+[tab][ch]F[/ch]        [ch]G[/ch]                [ch]C[/ch]
+Coming down on a sunny day[/tab]
+
 
 [Chorus]
 
-
-
 [tab][ch]F[/ch]         [ch]G[/ch]
-
 I wanna know[/tab]
-Have you [C]ever seen the ra[C/B]in[Am][Am/G]
-[F]I wanna know[G]
-Have you [C]ever seen the ra[C/B]in[Am][Am/G]
-[F]Coming down on a sun[G]ny day[C][G][C]
+[tab]         [ch]C[/ch]    [ch]C/B[/ch]      [ch]Am[/ch]    [ch]Am/G[/ch]
+Have you ever seen the rain[/tab]
+[tab][ch]F[/ch]         [ch]G[/ch]
+I wanna know[/tab]
+[tab]         [ch]C[/ch]    [ch]C/B[/ch]      [ch]Am[/ch]    [ch]Am/G[/ch]
+Have you ever seen the rain[/tab]
+[tab][ch]F[/ch]        [ch]G[/ch]                [ch]C[/ch]     [ch]G[/ch]    [ch]C[/ch]
+Coming down on a sunny day[/tab]

@@ -1,11 +1,8 @@
-{title: Carry on wayward son}
-
 CARRY ON WAYWARD SON by KANSAS
-
 Lyrics, Chords, and that awesome riff!
 
-[Intro]
 
+[Intro]
 N.C.
 Carry on my wayward son
 N.C.
@@ -15,103 +12,126 @@ Lay your weary head to rest
 N.C.
 Don't you cry no more
 
+
 [Riff]
 
-
-
 [tab]e|--------------|--------------|--------------|--------------|
-
 B|--------------|--------------|--------------|--------------|
 G|--------------|--------------|--4--7--4-----|--------------|
 D|-----------5--|-----------7--|----------7-5-|--7-----7-----| x2
 A|--7--5--7-----|--7--5--7-----|--------------|----5-----4---|
 E|--------------|--------------|--------------|--------------|[/tab]
+
 
 [Verse 1]
+[tab][ch]Em[/ch]     [ch]D[/ch]              [ch]C[/ch]         [ch]D[/ch]
+Once I rose above the noise and confusion[/tab]
+[tab][ch]Em[/ch]      [ch]D[/ch]             [ch]C[/ch]           [ch]D[/ch]
+Just to get a glimpse beyond this illusion[/tab]
+[tab][ch]Am[/ch]    [ch]G[/ch]            [ch]F[/ch]     [ch]F[/ch] [ch]G[/ch]
+I was soaring ever higher[/tab]
+[tab][ch]Am[/ch]    [ch]G[/ch]        [ch]D[/ch]
+But I flew too high[/tab]
+[tab][ch]Em[/ch]        [ch]D[/ch]                [ch]C[/ch]           [ch]D[/ch]
+Though my eyes could see I still was a blind man[/tab]
+[tab][ch]Em[/ch]        [ch]D[/ch]                  [ch]C[/ch]           [ch]D[/ch]
+Though my mind could think I still was a mad man[/tab]
+[tab][ch]Am[/ch]         [ch]G[/ch]               [ch]F[/ch]      [ch]F[/ch] [ch]G[/ch]
+I hear the voices when I'm dreaming[/tab]
+[tab][ch]Am[/ch]    [ch]G[/ch]         [ch]D[/ch]
+I can hear them say[/tab]
 
-[Em]Once I rose above [D]the noise and confusion[C][D]
-[Em]Just to get a glimp[D]se beyond this illusion[C][D]
-[Am]I was soaring eve[G]r higher[F][F][G]
-[Am]But I flew too hi[G]gh[D]
-[Em]Though my eyes could [D]see I still was a blind man[C][D]
-[Em]Though my mind could [D]think I still was a mad man[C][D]
-[Am]I hear the voices when[G] I'm dreaming[F][F][G]
-[Am]I can hear them s[G]ay[D]
 
 [Chorus]
-
-[Em]Carry on my waywa[G]rd son[D][C]
-[Em]There'll be peace when [G]you are done[D]
-[Em]Lay your weary head [G]to rest[D][C]
+[tab][ch]Em[/ch]    [ch]G[/ch]     [ch]D[/ch]       [ch]C[/ch]
+Carry on my wayward son[/tab]
+[tab][ch]Em[/ch]          [ch]G[/ch]          [ch]D[/ch]
+There'll be peace when you are done[/tab]
+[tab][ch]Em[/ch]       [ch]G[/ch]     [ch]D[/ch]       [ch]C[/ch]
+Lay your weary head to rest[/tab]
 N.C.
 Don't you cry no more
 
+
 [Riff]
 
-
-
 [tab]e|--------------|--------------|--------------|--------------|
-
 B|--------------|--------------|--------------|--------------|
 G|--------------|--------------|--4--7--4-----|--------------|
 D|-----------5--|-----------7--|----------7-5-|--7-----7-----| x2
 A|--7--5--7-----|--7--5--7-----|--------------|----5-----4---|
 E|--------------|--------------|--------------|--------------|[/tab]
 
-[Verse 2]
 
-[Em]Masquerading as a[D] man with a reason[C][D]
-[Em]My charade is the[D] event of the season[C][D]
-[Am]And if I claim to be[G] a wise man[F][F][G]
-[Am]It surely means that [G]I don't know[D]
-[Em]On a stormy sea [D]of moving emotion[C][D]
-[Em]Tossed about, I'm l[D]ike a ship on the ocean[C][D]
-[Am]I set a course for [G]winds of fortune[F][F][G]
-[Am]But I hear the vo[G]ices say[D]
+[Verse 2]
+[tab][ch]Em[/ch]    [ch]D[/ch]           [ch]C[/ch]          [ch]D[/ch]
+Masquerading as a man with a reason[/tab]
+[tab][ch]Em[/ch]    [ch]D[/ch]           [ch]C[/ch]            [ch]D[/ch]
+My charade is the event of the season[/tab]
+[tab][ch]Am[/ch]       [ch]G[/ch]             [ch]F[/ch]       [ch]F[/ch] [ch]G[/ch]
+And if I claim to be a wise man[/tab]
+[tab][ch]Am[/ch]        [ch]G[/ch]                  [ch]D[/ch]
+It surely means that I don't know[/tab]
+[tab][ch]Em[/ch]   [ch]D[/ch]             [ch]C[/ch]       [ch]D[/ch]
+On a stormy sea of moving emotion[/tab]
+[tab][ch]Em[/ch]      [ch]D[/ch]                [ch]C[/ch]           [ch]D[/ch]
+Tossed about, I'm like a ship on the ocean[/tab]
+[tab][ch]Am[/ch]      [ch]G[/ch]                   [ch]F[/ch]     [ch]F[/ch] [ch]G[/ch]
+I set a course for winds of fortune[/tab]
+[tab][ch]Am[/ch]    [ch]G[/ch]               [ch]D[/ch]
+But I hear the voices say[/tab]
+
 
 [Chorus]
-
-[Em]Carry on my waywa[G]rd son[D][C]
-[Em]There'll be peace when [G]you are done[D]
-[Em]Lay your weary head [G]to rest[D][C]
+[tab][ch]Em[/ch]    [ch]G[/ch]     [ch]D[/ch]       [ch]C[/ch]
+Carry on my wayward son[/tab]
+[tab][ch]Em[/ch]          [ch]G[/ch]          [ch]D[/ch]
+There'll be peace when you are done[/tab]
+[tab][ch]Em[/ch]       [ch]G[/ch]     [ch]D[/ch]       [ch]C[/ch]
+Lay your weary head to rest[/tab]
 N.C.
 Don't you cry no more
+
 
 (Instrumental)
 
 
-
 [Riff]
 
-
-
 [tab]e|--------------|--------------|--------------|--------------|
-
 B|--------------|--------------|--------------|--------------|
 G|--------------|--------------|--4--7--4-----|--------------|
 D|-----------5--|-----------7--|----------7-5-|--7-----7-----| x2
 A|--7--5--7-----|--7--5--7-----|--------------|----5-----4---|
 E|--------------|--------------|--------------|--------------|[/tab]
 
-[Bridge]
 
-[Em]   Carry on
-You will [D]always remember[C]
-[Em]   Carry on
-Nothing [D]equals the splendor[C]
-[Am]Now your life's no l[G]onger empty[F]
-[Am]Surely Heaven wait[G]s for you[D]
+[Bridge]
+[tab][ch]Em[/ch] N.C.
+   Carry on[/tab]
+[tab]         [ch]D[/ch]      [ch]C[/ch]
+You will always remember[/tab]
+[tab][ch]Em[/ch] N.C.
+   Carry on[/tab]
+[tab]        [ch]D[/ch]          [ch]C[/ch]
+Nothing equals the splendor[/tab]
+[tab][ch]Am[/ch]       [ch]G[/ch]                [ch]F[/ch]
+Now your life's no longer empty[/tab]
+[tab][ch]Am[/ch]     [ch]G[/ch]                [ch]D[/ch]
+Surely Heaven waits for you[/tab]
+
 
 [Chorus]
+[tab][ch]Em[/ch]    [ch]G[/ch]     [ch]D[/ch]       [ch]C[/ch]
+Carry on my wayward son[/tab]
+[tab][ch]Em[/ch]          [ch]G[/ch]          [ch]D[/ch]
+There'll be peace when you are done[/tab]
+[tab][ch]Em[/ch]       [ch]G[/ch]     [ch]D[/ch]       [ch]C[/ch]
+Lay your weary head to rest[/tab]
+[tab]N.C.                                         [ch]Bm7[/ch]
+Don't you cry {vocal echo: Don't you cry} no more[/tab]
 
-[Em]Carry on my waywa[G]rd son[D][C]
-[Em]There'll be peace when [G]you are done[D]
-[Em]Lay your weary head [G]to rest[D][C]
-Don't you cry {vocal echo: Don't you cry} no [Bm7]more
 
 [Submitted by JP Leong at hleong@worldnet.att.net]
 
-
-
 Note: This is based on Carry on Wayward Son, music done in a possibly different key.
-

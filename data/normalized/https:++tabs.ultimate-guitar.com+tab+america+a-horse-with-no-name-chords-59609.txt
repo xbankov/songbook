@@ -1,69 +1,111 @@
-{title: A horse with no name}
-
 [Intro]
-
-[Em]    [Em]   [D6/9]  [D6/9]  x2
+[ch]Em[/ch]    [ch]Em[/ch]   [ch]D6/9[/ch]  [ch]D6/9[/ch]  x2
 
 [Verse 1]
+[tab]       [ch]Em[/ch]                [ch]D6/9[/ch]
+On the first part of the journey[/tab]
+[tab]      [ch]Em[/ch]                 [ch]D6/9[/ch]
+I was looking at all the life[/tab]
+[tab]           [ch]Em[/ch]                   [ch]D6/9[/ch]
+There were plants and birds and rocks and things[/tab]
+[tab]           [ch]Em[/ch]                 [ch]D6/9[/ch]
+There were sand and hills and rings[/tab]
+[tab]    [ch]Em[/ch]                      [ch]D6/9[/ch]
+The first thing I met was a fly with a buzz[/tab]
+[tab]        [ch]Em[/ch]            [ch]D6/9[/ch]
+And the sky with no clouds[/tab]
+[tab]    [ch]Em[/ch]                    [ch]D6/9[/ch]
+The heat was hot and the ground was dry[/tab]
+[tab]        [ch]Em[/ch]                [ch]D6/9[/ch]
+But the air was full of sound[/tab]
 
-On the [Em]first part of the journey[D6/9]
-I was [Em]looking at all the life[D6/9]
-There were [Em]plants and birds and rocks and t[D6/9]hings
-There were [Em]sand and hills and rings[D6/9]
-The [Em]first thing I met was a fly with a [D6/9]buzz
-And the [Em]sky with no clouds[D6/9]
-The [Em]heat was hot and the ground was d[D6/9]ry
-But the [Em]air was full of sound[D6/9]
 
 [Chorus]
+[tab]     [ch]Em9[/ch]                          [ch]Dmaj9[/ch]
+I've been through the desert on a horse with no name[/tab]
+[tab]        [ch]Em9[/ch]                   [ch]Dmaj9[/ch]
+It felt good to be out of the rain[/tab]
+[tab]        [ch]Em9[/ch]              [ch]Dmaj9[/ch]
+In the desert you can remember your name[/tab]
+[tab]              [ch]Em9[/ch]                [ch]Dmaj9[/ch]
+'Cause there ain't no one for to give you no pain[/tab]
+[tab][ch]Em9[/ch]         [ch]Dmaj9[/ch]
+La, la, la lala la la la, la, la[/tab]
+[tab][ch]Em9[/ch]         [ch]Dmaj9[/ch]
+La, la, la lala la la la, la, la[/tab]
 
-I've [Em9]been through the desert on a horse with [Dmaj9]no name
-It felt [Em9]good to be out of the rain[Dmaj9]
-In the d[Em9]esert you can remember your [Dmaj9]name
-'Cause there a[Em9]in't no one for to give you no[Dmaj9] pain
-[Em9]La, la, la lala la la l[Dmaj9]a, la, la
-[Em9]La, la, la lala la la l[Dmaj9]a, la, la
 
 [Verse 2]
+[tab]      [ch]Em[/ch]              [ch]D6/9[/ch]
+After two days in the desert sun[/tab]
+[tab]    [ch]Em[/ch]                [ch]D6/9[/ch]
+My skin began to turn red[/tab]
+[tab]       [ch]Em[/ch]               [ch]D6/9[/ch]
+After three days in the desert fun[/tab]
+[tab]      [ch]Em[/ch]                 [ch]D6/9[/ch]
+I was looking at a river bed[/tab]
+[tab]        [ch]Em[/ch]                 [ch]D6/9[/ch]
+And the story it told of a river that flowed[/tab]
+[tab]        [ch]Em[/ch]                  [ch]D6/9[/ch]
+Made me sad to think it was dead[/tab]
 
-After [Em]two days in the desert sun[D6/9]
-My s[Em]kin began to turn red[D6/9]
-After t[Em]hree days in the desert fun[D6/9]
-I was [Em]looking at a river bed[D6/9]
-And the [Em]story it told of a river that [D6/9]flowed
-Made me [Em]sad to think it was dead[D6/9]
 
 [Chorus]
+[tab]             [ch]Em9[/ch]                          [ch]Dmaj9[/ch]
+You see I've been through the desert on a horse with no name[/tab]
+[tab]         [ch]Em9[/ch]                  [ch]Dmaj9[/ch]
+It felt good to be out of the rain[/tab]
+[tab]       [ch]Em9[/ch]             [ch]Dmaj9[/ch]
+In the desert you can remember your name[/tab]
+[tab]       [ch]Em9[/ch]                       [ch]Dmaj9[/ch]
+'Cause there ain't no one for to give you no pain[/tab]
+[tab]    [ch]Em9[/ch]        [ch]Dmaj9[/ch]
+La, la, la lala la la la, la, la[/tab]
+[tab]     [ch]Em9[/ch]         [ch]Dmaj9[/ch]
+La, la, la lala la la la, la, la[/tab]
 
-You see I've [Em9]been through the desert on a horse with [Dmaj9]no name
-It felt g[Em9]ood to be out of the rain[Dmaj9]
-In the [Em9]desert you can remember you[Dmaj9]r name
-'Cause [Em9]there ain't no one for to give you no[Dmaj9] pain
-La, [Em9]la, la lala la la la, [Dmaj9]la, la
-La, l[Em9]a, la lala la la la, la[Dmaj9], la
 
 [Verse 3]
+[tab]      [ch]Em[/ch]                  [ch]D6/9[/ch]
+After nine days I let the horse run free[/tab]
+[tab]           [ch]Em[/ch]                   [ch]D6/9[/ch]
+'Cause the desert had turned to sea[/tab]
+[tab]           [ch]Em[/ch]                   [ch]D6/9[/ch]
+There were plants and birds and rocks and things[/tab]
+[tab]           [ch]Em[/ch]                 [ch]D6/9[/ch]
+There were sand and hills and rings[/tab]
+[tab]    [ch]Em[/ch]                         [ch]D6/9[/ch]
+The ocean is a desert with its life underground[/tab]
+[tab]      [ch]Em[/ch]               [ch]D6/9[/ch]
+And a perfect disguise above[/tab]
+[tab]          [ch]Em[/ch]            [ch]D6/9[/ch]
+Under the cities lies a heart made of ground[/tab]
+[tab]        [ch]Em[/ch]                  [ch]D6/9[/ch]
+But the humans will give no love[/tab]
 
-After [Em]nine days I let the horse run f[D6/9]ree
-'Cause the [Em]desert had turned to sea[D6/9]
-There were [Em]plants and birds and rocks and t[D6/9]hings
-There were [Em]sand and hills and rings[D6/9]
-The [Em]ocean is a desert with its life underg[D6/9]round
-And a [Em]perfect disguise above[D6/9]
-Under the [Em]cities lies a heart made [D6/9]of ground
-But the [Em]humans will give no love[D6/9]
 
 [Chorus]
-
-You see, I've [Em9]been through the desert on a horse with [Dmaj9]no name
-It felt [Em9]good to be out of the rain[Dmaj9]
-In the [Em9]desert you can remember your[Dmaj9] name
-'Cause [Em9]there ain't no one for to give you no[Dmaj9] pain
-[Em9]La, la, la lala la la l[Dmaj9]a, la, la
-[Em9]La, la, la lala la la l[Dmaj9]a, la, la
-[Em9]La, la, la lala la la l[Dmaj9]a, la, la
-[Em9]La, la, la lala la la l[Dmaj9]a, la, la
-[Em9]La, la, la lala la la l[Dmaj9]a, la, la
-[Em9]La, la, la lala la la l[Dmaj9]a, la, la
-[Em9]La, la, la lala la la l[Dmaj9]a, la, la
-[Em9]La, la, la lala la la l[Dmaj9]a, la, la
+[tab]              [ch]Em9[/ch]                          [ch]Dmaj9[/ch]
+You see, I've been through the desert on a horse with no name[/tab]
+[tab]        [ch]Em9[/ch]                   [ch]Dmaj9[/ch]
+It felt good to be out of the rain[/tab]
+[tab]       [ch]Em9[/ch]              [ch]Dmaj9[/ch]
+In the desert you can remember your name[/tab]
+[tab]       [ch]Em9[/ch]                       [ch]Dmaj9[/ch]
+'Cause there ain't no one for to give you no pain[/tab]
+[tab][ch]Em9[/ch]         [ch]Dmaj9[/ch]
+La, la, la lala la la la, la, la[/tab]
+[tab][ch]Em9[/ch]         [ch]Dmaj9[/ch]
+La, la, la lala la la la, la, la[/tab]
+[tab][ch]Em9[/ch]         [ch]Dmaj9[/ch]
+La, la, la lala la la la, la, la[/tab]
+[tab][ch]Em9[/ch]         [ch]Dmaj9[/ch]
+La, la, la lala la la la, la, la[/tab]
+[tab][ch]Em9[/ch]         [ch]Dmaj9[/ch]
+La, la, la lala la la la, la, la[/tab]
+[tab][ch]Em9[/ch]         [ch]Dmaj9[/ch]
+La, la, la lala la la la, la, la[/tab]
+[tab][ch]Em9[/ch]         [ch]Dmaj9[/ch]
+La, la, la lala la la la, la, la[/tab]
+[tab][ch]Em9[/ch]         [ch]Dmaj9[/ch]
+La, la, la lala la la la, la, la[/tab]

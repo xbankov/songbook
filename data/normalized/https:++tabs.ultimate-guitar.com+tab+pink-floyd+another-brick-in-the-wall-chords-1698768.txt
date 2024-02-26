@@ -1,103 +1,83 @@
-{title: Another brick in the wall}
-
 Another Brick In The Wall - Pink Floyd
-
 COMPLETE VERSION - PARTS 1 2 AND 3
 
 [Intro]
 
-
-
 [tab][ch]Dm[/ch] 
-
 (Slow for first part)[/tab]
 
 [Verse Part 1]
 
-
-
 [tab][ch]Dm[/ch]
-
 Daddy's flown across the ocean...Leaving just a memory[/tab]
-[Dm]Snapshot in the family album...Daddy what else did you leave for me?[G]
-[G]Daddy, what'd'ja leave behind for me?[Dm]
+[tab][ch]Dm[/ch]                                                               [ch]G[/ch]
+Snapshot in the family album...Daddy what else did you leave for me?[/tab]
+[tab][ch]G[/ch]                                 [ch]Dm[/ch]
+Daddy, what'd'ja leave behind for me?[/tab]
 
 [Chorus]
 
-
-
 [tab][ch]F[/ch]                 [ch]C[/ch]                   [ch]Dm[/ch]
-
 All in all it was just a brick in the wall![/tab]
-[F]All in all it was all just bricks[C] in the wall! ("You! Yes, you![Dm] Stand still laddy!)
+[tab][ch]F[/ch]                     [ch]C[/ch]                  [ch]Dm[/ch]
+All in all it was all just bricks in the wall! ("You! Yes, you! Stand still laddy!)[/tab]
 
 [Verse Part 2]
 
-
-
 [tab][ch]Dm[/ch] 
-
 We don’t need no education! We don’t need no thought control! [/tab]
-[Dm]No dark sarcasm in the class room! Teacher leave those kids alone![G]
-[G]Hey! Teacher! Leave them kids alone![Dm]
+[tab][ch]Dm[/ch]                                                          [ch]G[/ch]  
+No dark sarcasm in the class room! Teacher leave those kids alone![/tab]
+[tab][ch]G[/ch]                                 [ch]Dm[/ch]
+Hey! Teacher! Leave them kids alone![/tab]
 
 [Chorus]
 
-
-
 [tab][ch]F[/ch]                     [ch]C[/ch]                   [ch]Dm[/ch]
-
 All in all it’s just another brick in the wall![/tab]
-[F]All in all you’re just another bric[C]k in the wall![Dm]
+[tab][ch]F[/ch]                       [ch]C[/ch]                   [ch]Dm[/ch]
+All in all you’re just another brick in the wall![/tab]
 
 [Verse]
 
-
-
 [tab][ch]Dm[/ch] 
-
 We don’t need no education! We don’t need no thought control! [/tab]
-[Dm]No dark sarcasm in the class room! Teacher leave those kids alone![G]
+[tab][ch]Dm[/ch]                                                          [ch]G[/ch]  
+No dark sarcasm in the class room! Teacher leave those kids alone![/tab]
         
-[G]Hey! Teacher! Leave them kids alone![Dm]
+[tab][ch]G[/ch]                                 [ch]Dm[/ch]
+Hey! Teacher! Leave them kids alone![/tab]
 
 [Chorus]
 
-
-
 [tab][ch]F[/ch]                     [ch]C[/ch]                   [ch]Dm[/ch]
-
 All in all it’s just another brick in the wall![/tab]
-[F]All in all you’re just another bric[C]k in the wall![Dm]
+[tab][ch]F[/ch]                       [ch]C[/ch]                   [ch]Dm[/ch]
+All in all you’re just another brick in the wall![/tab]
 
 [Solo]
-
-[Dm] [G/D] [Dm] [G/D]
-[Dm] [G/D] [Dm] [G/D]
-[Dm] [C/D] [Bb/D] [C/D]
-[Dm]
+[ch]Dm[/ch] [ch]G/D[/ch] [ch]Dm[/ch] [ch]G/D[/ch]
+[ch]Dm[/ch] [ch]G/D[/ch] [ch]Dm[/ch] [ch]G/D[/ch]
+[ch]Dm[/ch] [ch]C/D[/ch] [ch]Bb/D[/ch] [ch]C/D[/ch]
+[ch]Dm[/ch]
 
 "Wrong, Do it again!"
-
 "If you don't eat yer meat, you can't have any pudding. How can you
 have any pudding if you don't eat yer meat?"
 "You! Yes, you behind the bikesheds, stand still laddy!"
 
 [Verse Part 3]
 
-
-
 [tab][ch]Dm[/ch]
-
 I don't need no arms around me...And I don't need no drugs to calm me![/tab]
-[Dm]I have seen the writing on the wall...Don't think I need anything at all![G]
-[G]No! Don't think I'll need anything at all![Dm]
+[tab][ch]Dm[/ch]                                                                   [ch]G[/ch]
+I have seen the writing on the wall...Don't think I need anything at all![/tab]
+[tab][ch]G[/ch]                                      [ch]Dm[/ch]
+No! Don't think I'll need anything at all![/tab]
 
 [Chorus]
 
-
-
 [tab][ch]F[/ch]                 [ch]C[/ch]                       [ch]Dm[/ch]
-
 All in all it was all just bricks in the wall![/tab]
-[F]All in all you were all just br[C]icks in the wall![Dm]
+[tab][ch]F[/ch]                   [ch]C[/ch]                       [ch]Dm[/ch]
+All in all you were all just bricks in the wall![/tab]

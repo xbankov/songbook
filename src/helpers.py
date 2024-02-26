@@ -121,7 +121,7 @@ def normalize_txt(raw_filename, norm_filename):
             traceback.print_exc()
             tab = ""
         title = get_ug_title(raw_filename)
-        tab = normalize_ultimate_guitar(tab, title)
+        # tab = normalize_ultimate_guitar(tab, title)
 
     elif "supermusic" in str(raw_filename):
         tab = ""
@@ -173,6 +173,7 @@ def extract(music_folder, csv_path):
         songs_dict_list = [
             {"title": song.title, "uri": song.uri, "status": "Not Downloaded"}
             for song in songs
+            if any(website in song.uri for website in config.SUPPORTED)
         ]
         df = pd.DataFrame(songs_dict_list)
         df.to_csv(csv_path, index=False)

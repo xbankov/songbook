@@ -1,62 +1,88 @@
-{title: Hey there delilah}
-
 [Intro]
-
-[D]  [F#m]  [D]  [F#m]
+[ch]D[/ch]  [ch]F#m[/ch]  [ch]D[/ch]  [ch]F#m[/ch]
 
 [Verse 1]
-
-[D]Hey there Delilah, what’s it like in New[F#m] York City? 
-I’m a [D]thousand miles away, but girl tonight you l[F#m]ook so pretty, 
-Yes you [Bm]do, Time Square[G] can’t shine as bright as you[A], [Bm]
-I swear it’s [A]true.
-[D]Hey there Delilah, don’t you worry about[F#m] the distance, 
-I’m right [D]there if you get lonely, give this song anothe[F#m]r listen, 
-Close your [Bm]eyes, listen to m[G]y voice it’s my disguise[A], [Bm]
-I’m by your [A]side.
+[tab][ch]D[/ch]                            [ch]F#m[/ch]
+Hey there Delilah, what’s it like in New York City? [/tab]
+[tab]      [ch]D[/ch]                               [ch]F#m[/ch]
+I’m a thousand miles away, but girl tonight you look so pretty, [/tab]
+[tab]        [ch]Bm[/ch]  [ch]G[/ch]                 [ch]A[/ch]                  [ch]Bm[/ch]
+Yes you do, Time Square can’t shine as bright as you, [/tab]
+[tab]             [ch]A[/ch]
+I swear it’s true.[/tab]
+[tab][ch]D[/ch]                            [ch]F#m[/ch]
+Hey there Delilah, don’t you worry about the distance, [/tab]
+[tab]          [ch]D[/ch]                                  [ch]F#m[/ch]
+I’m right there if you get lonely, give this song another listen, [/tab]
+[tab]           [ch]Bm[/ch]    [ch]G[/ch]            [ch]A[/ch]                [ch]Bm[/ch]
+Close your eyes, listen to my voice it’s my disguise, [/tab]
+[tab]            [ch]A[/ch]
+I’m by your side.[/tab]
 
 [Chorus]
-
-[D]Oh it’s what you do to me, Oh it’s[Bm] what you do to[D] me, [Bm][A]
-[D]Oh it’s what you do to me, Oh it’s[Bm] what you do to[D] me, [Bm]
-What you do to [D]me.
+[tab][ch]D[/ch]                      [ch]Bm[/ch]  [ch]D[/ch]                      [ch]Bm[/ch]     [ch]A[/ch]
+Oh it’s what you do to me, Oh it’s what you do to me, [/tab]
+[tab][ch]D[/ch]                      [ch]Bm[/ch]  [ch]D[/ch]                      [ch]Bm[/ch]
+Oh it’s what you do to me, Oh it’s what you do to me, [/tab]
+[tab]               [ch]D[/ch]
+What you do to me.[/tab]
 
 [Verse 2]
-
-[D]Hey there Delilah, I know times are g[F#m]etting hard, 
-But just be[D]lieve me girl some day, I'll pay the bills with [F#m]this guitar, 
-We'll have it [Bm]good, we'll have [G]the life we knew we would,[A] [Bm]
-My word is [A]good.
-[D]Hey there Delilah, I’ve got so much lef[F#m]t to say, 
-If every [D]simple song I wrote to you, would take your b[F#m]reath away,
-I’d write it [Bm]all, even more i[G]n love with me you’d fal[A]l, [Bm]
-We’d have it [A]all.
+[tab][ch]D[/ch]                         [ch]F#m[/ch]
+Hey there Delilah, I know times are getting hard, [/tab]
+[tab]           [ch]D[/ch]                                    [ch]F#m[/ch]
+But just believe me girl some day, I'll pay the bills with this guitar, [/tab]
+[tab]              [ch]Bm[/ch]    [ch]G[/ch]              [ch]A[/ch]               [ch]Bm[/ch]
+We'll have it good, we'll have the life we knew we would, [/tab]
+[tab]           [ch]A[/ch]
+My word is good.[/tab]
+[tab][ch]D[/ch]                           [ch]F#m[/ch]
+Hey there Delilah, I’ve got so much left to say, [/tab]
+[tab]         [ch]D[/ch]                                 [ch]F#m[/ch]
+If every simple song I wrote to you, would take your breath away,[/tab]
+[tab]             [ch]Bm[/ch]   [ch]G[/ch]            [ch]A[/ch]                  [ch]Bm[/ch]
+I’d write it all, even more in love with me you’d fall, [/tab]
+[tab]             [ch]A[/ch]
+We’d have it all.[/tab]
 
 [Chorus]
-
-[D]Oh it’s what you do to me, Oh it’s[Bm] what you do to[D] me, [Bm][A]
-[D]Oh it’s what you do to me, Oh it’s[Bm] what you do to[D] me, [Bm][A]
+[tab][ch]D[/ch]                      [ch]Bm[/ch]  [ch]D[/ch]                      [ch]Bm[/ch]    [ch]A[/ch]
+Oh it’s what you do to me, Oh it’s what you do to me, [/tab]
+[tab][ch]D[/ch]                      [ch]Bm[/ch]  [ch]D[/ch]                      [ch]Bm[/ch]    [ch]A[/ch]
+Oh it’s what you do to me, Oh it’s what you do to me, [/tab]
 
 [Bridge]
-
-A [G]thousand miles seems pretty far, but they’ve got[A] planes and trains and cars, 
-I’d [D]walk to you if I had no other way [Bm]
-Our [G]friends would all make fun of us, and we'll just [A]laugh along because, 
-We [D]know that none of them have felt this way, [Bm]
-De[G]lilah I can promise you, that by the time[A] that we get through, 
-The [Bm]world will never ever be the same, and you’re to blame.[A]
+[tab]  [ch]G[/ch]                                    [ch]A[/ch]
+A thousand miles seems pretty far, but they’ve got planes and trains and cars, [/tab]
+[tab]    [ch]D[/ch]                             [ch]Bm[/ch]
+I’d walk to you if I had no other way [/tab]
+[tab]    [ch]G[/ch]                                     [ch]A[/ch]
+Our friends would all make fun of us, and we'll just laugh along because, [/tab]
+[tab]   [ch]D[/ch]                                     [ch]Bm[/ch]
+We know that none of them have felt this way, [/tab]
+[tab]  [ch]G[/ch]                             [ch]A[/ch]
+Delilah I can promise you, that by the time that we get through, [/tab]
+[tab]    [ch]Bm[/ch]                                               [ch]A[/ch]
+The world will never ever be the same, and you’re to blame.[/tab]
 
 [Verse 3]
-
-[D]Hey there Delilah you be good, and d[F#m]on’t you miss me, 
-Two more [D]years and you’ll be done with school, and I'll be mak[F#m]ing history, 
-Like I [Bm]do, you’ll know[G] it's all because of you, [A][Bm]
-[G]We can do whatever we wan[A]t to, [Bm]
-[G]Hey there Delilah here'[A]s to you, this one’s for yo[Bm]u.[A]
+[tab][ch]D[/ch]                        [ch]F#m[/ch]
+Hey there Delilah you be good, and don’t you miss me, [/tab]
+[tab]         [ch]D[/ch]                                         [ch]F#m[/ch]
+Two more years and you’ll be done with school, and I'll be making history, [/tab]
+[tab]       [ch]Bm[/ch]  [ch]G[/ch]                [ch]A[/ch]              [ch]Bm[/ch]
+Like I do, you’ll know it's all because of you, [/tab]
+[tab][ch]G[/ch]             [ch]A[/ch]            [ch]Bm[/ch]
+We can do whatever we want to, [/tab]
+[tab][ch]G[/ch]           [ch]A[/ch]               [ch]Bm[/ch]                  [ch]A[/ch]
+Hey there Delilah here's to you, this one’s for you.[/tab]
 
 [Final Chorus]
-
-[D]Oh it’s what you do to me, Oh it’s[Bm] what you do to[D] me, [Bm][A]
-[D]Oh it’s what you do to me, Oh it’s[Bm] what you do to[D] me, [Bm]
-What you do to [D]me.
-Ohh[Bm]h[D][Bm][D][Bm][D][Bm][D][D]
+[tab][ch]D[/ch]                      [ch]Bm[/ch]  [ch]D[/ch]                      [ch]Bm[/ch]    [ch]A[/ch]
+Oh it’s what you do to me, Oh it’s what you do to me, [/tab]
+[tab][ch]D[/ch]                      [ch]Bm[/ch]  [ch]D[/ch]                      [ch]Bm[/ch]
+Oh it’s what you do to me, Oh it’s what you do to me, [/tab]
+[tab]               [ch]D[/ch]
+What you do to me.[/tab]
+[tab]   [ch]Bm[/ch]   [ch]D[/ch]    [ch]Bm[/ch]    [ch]D[/ch]    [ch]Bm[/ch]   [ch]D[/ch]    [ch]Bm[/ch]   [ch]D[/ch] [ch]D[/ch] (full strum)
+Ohhh[/tab]

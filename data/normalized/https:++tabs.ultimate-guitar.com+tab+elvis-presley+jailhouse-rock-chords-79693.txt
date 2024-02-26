@@ -1,127 +1,136 @@
-{title: Jailhouse rock}
-
 Tune guitar down one semitone for best effect
 
-
-
 [Intro]
+[ch]D#[/ch]  [ch]E[/ch]   [ch]D#[/ch]  [ch]E[/ch]
 
-[D#]  [E]   [D#]  [E]
 
 [Verse]
 
-
-
 [tab][ch]D#[/ch]  [ch]E[/ch]                                        
-
 The warden threw a party in the county jail[/tab]
-[D#]    Prison band[E] was there and they began to wail
-[D#]    Band was ju[E]mpin' and the joint began to swing
-[D#]    Should've h[E]eard those knocked out jailbirds sing
+[tab][ch]D#[/ch]  [ch]E[/ch]                                        
+    Prison band was there and they began to wail[/tab]
+[tab][ch]D#[/ch]  [ch]E[/ch]                                        
+    Band was jumpin' and the joint began to swing[/tab]
+[tab][ch]D#[/ch]  [ch]E[/ch]                                       
+    Should've heard those knocked out jailbirds sing[/tab]
+
 
 [Chorus]
 
-
-
 [tab]      [ch]A7[/ch]
-
 Let's rock![/tab]
-Everybody let's [E]rock!
-Every[B7]body in the whole cell block[A7]
-Was a-[E]dancin' to the Jailhouse R[A7]ock![E]
+[tab]                [ch]E[/ch]
+Everybody let's rock![/tab]
+[tab]     [ch]B7[/ch]                     [ch]A7[/ch]
+Everybody in the whole cell block[/tab]
+[tab]      [ch]E[/ch]              [ch]A7[/ch]        [ch]E[/ch]
+Was a-dancin' to the Jailhouse Rock![/tab]
+
 
 [Verse]
-
-
 
 [tab][ch]D#[/ch]  [ch]E[/ch]                                        
-
     Spider Murphy played the tenor saxophone[/tab]
-[D#]    Little Joe [E]was blowin' on the slide trombone
-[D#]    The drummer[E] boy for Illinois went crash, boom, bang!
-[D#]    The whole r[E]hythm section was the purple gang
+[tab][ch]D#[/ch]  [ch]E[/ch]                                        
+    Little Joe was blowin' on the slide trombone[/tab]
+[tab][ch]D#[/ch]  [ch]E[/ch]                                        
+    The drummer boy for Illinois went crash, boom, bang![/tab]
+[tab][ch]D#[/ch]  [ch]E[/ch]                                        
+    The whole rhythm section was the purple gang[/tab]
+
 
 [Chorus]
 
-
-
 [tab]      [ch]A7[/ch]
-
 Let's rock![/tab]
-Everybody let's [E]rock!
-Every[B7]body in the whole cell block[A7]
-Was a-[E]dancin' to the Jailhouse R[A7]ock![E]
+[tab]                [ch]E[/ch]
+Everybody let's rock![/tab]
+[tab]     [ch]B7[/ch]                     [ch]A7[/ch]
+Everybody in the whole cell block[/tab]
+[tab]      [ch]E[/ch]              [ch]A7[/ch]        [ch]E[/ch]
+Was a-dancin' to the Jailhouse Rock![/tab]
+
 
 [Verse]
-
-
 
 [tab][ch]D#[/ch]  [ch]E[/ch]                                       
-
     Number forty seven said to number three:[/tab]
-[D#]    "You're the[E] cutest jailbird I ever did see.
-[D#]  I sure would [E]be delighted with your company
-[D#]    Come on and[E] do the Jailhouse Rock with me."
+[tab][ch]D#[/ch]  [ch]E[/ch]                                        
+    "You're the cutest jailbird I ever did see.[/tab]
+[tab][ch]D#[/ch]  [ch]E[/ch]                                        
+  I sure would be delighted with your company[/tab]
+[tab][ch]D#[/ch]  [ch]E[/ch]                                        
+    Come on and do the Jailhouse Rock with me."[/tab]
+
 
 [Chorus]
 
-
-
 [tab]      [ch]A7[/ch]
-
 Let's rock![/tab]
-Everybody let's [E]rock!
-Every[B7]body in the whole cell block[A7]
-Was a-[E]dancin' to the Jailhouse R[A7]ock! Rock Rock[E]
+[tab]                [ch]E[/ch]
+Everybody let's rock![/tab]
+[tab]     [ch]B7[/ch]                     [ch]A7[/ch]
+Everybody in the whole cell block[/tab]
+[tab]      [ch]E[/ch]              [ch]A7[/ch]        [ch]E[/ch]
+Was a-dancin' to the Jailhouse Rock! Rock Rock[/tab]
+
 
 [Instrumental]
+[ch]A7[/ch]   [ch]A7[/ch]   [ch]E[/ch]   [ch]E[/ch]   [ch]B7[/ch]   [ch]A7[/ch]   [ch]E[/ch]   [ch]E[/ch]
 
-[A7]   [A7]   [E]   [E]   [B7]   [A7]   [E]   [E]
 
 [Verse]
-
-
 
 [tab][ch]D#[/ch]  [ch]E[/ch]                                        
-
     The sad sack was a-sittin' on a block of stone[/tab]
-[D#]    Way over in[E] the corner weeping all alone
-[D#]    The warden [E]said: "Hey, buddy, don't you be no square.
-[D#]    If you can'[E]t find a partner use a wooden chair!"
+[tab][ch]D#[/ch]  [ch]E[/ch]                                        
+    Way over in the corner weeping all alone[/tab]
+[tab][ch]D#[/ch]  [ch]E[/ch]                                      
+    The warden said: "Hey, buddy, don't you be no square.[/tab]
+[tab][ch]D#[/ch]  [ch]E[/ch]            N.C.                            
+    If you can't find a partner use a wooden chair!"[/tab]
+
 
 [Chorus]
 
-
-
 [tab]      [ch]A7[/ch]
-
 Let's rock![/tab]
-Everybody let's [E]rock!
-Every[B7]body in the whole cell block[A7]
-Was a-[E]dancin' to the Jailhouse R[A7]ock![E]
+[tab]                [ch]E[/ch]
+Everybody let's rock![/tab]
+[tab]     [ch]B7[/ch]                     [ch]A7[/ch]
+Everybody in the whole cell block[/tab]
+[tab]      [ch]E[/ch]              [ch]A7[/ch]        [ch]E[/ch]
+Was a-dancin' to the Jailhouse Rock![/tab]
+
 
 [Verse]
 
-
-
 [tab][ch]D#[/ch]  [ch]E[/ch]                                       
-
     Shifty Henry said to Bugs: "For Heaven's sakes,[/tab]
-[D#]    No one's lo[E]okin'; now's our chance to make a break
-[D#]    Bugsy turne[E]d to Shifty and he said "Nix, nix;
-[D#]    I wanna sti[E]ck around a while and get my kicks."
+[tab][ch]D#[/ch]  [ch]E[/ch]                                        
+    No one's lookin'; now's our chance to make a break[/tab]
+[tab][ch]D#[/ch]  [ch]E[/ch]                                       
+    Bugsy turned to Shifty and he said "Nix, nix;[/tab]
+[tab][ch]D#[/ch]  [ch]E[/ch]                                        
+    I wanna stick around a while and get my kicks."[/tab]
+
 
 [Chorus]
 
-
-
 [tab]      [ch]A7[/ch]
-
 Let's rock![/tab]
-Everybody let's [E]rock!
-Every[B7]body in the whole cell block[A7]
-Was a-[E]dancin' to the Jailhouse R[A7]ock![E]
-Was a-[E]dancin' to the Jailhouse R[A7]ock![E]
-Was a-[E]dancin' to the Jailhouse R[A7]ock![E]
-Was a-[E]dancin' to the Jailhouse R[A7]ock![E]
-Was a-[E]dancin' to the Jailhouse R[A7]ock![E]
+[tab]                [ch]E[/ch]
+Everybody let's rock![/tab]
+[tab]     [ch]B7[/ch]                     [ch]A7[/ch]
+Everybody in the whole cell block[/tab]
+[tab]      [ch]E[/ch]              [ch]A7[/ch]        [ch]E[/ch]
+Was a-dancin' to the Jailhouse Rock![/tab]
+[tab]      [ch]E[/ch]              [ch]A7[/ch]        [ch]E[/ch]
+Was a-dancin' to the Jailhouse Rock![/tab]
+[tab]      [ch]E[/ch]              [ch]A7[/ch]        [ch]E[/ch]
+Was a-dancin' to the Jailhouse Rock![/tab]
+[tab]      [ch]E[/ch]              [ch]A7[/ch]        [ch]E[/ch]
+Was a-dancin' to the Jailhouse Rock![/tab]
+[tab]      [ch]E[/ch]              [ch]A7[/ch]        [ch]E[/ch]
+Was a-dancin' to the Jailhouse Rock![/tab]

@@ -1,73 +1,88 @@
-{title: Ring of fire}
-
 [Intro]
-
-[G]    [C] [G]      [G]    [D] [G]
+[ch]G[/ch]    [ch]C[/ch] [ch]G[/ch]      [ch]G[/ch]    [ch]D[/ch] [ch]G[/ch]
 
 [Verse]
-
-[G]Love Is A Burning Thi[C]ng[G][C][G]
-And It Makes A [D]Fiery Ring[G][D][G]
-Bound By [C]Wild Desire[G][C][G]
-I Fell Into A [D]Ring Of Fire[G]
+[tab][ch]G[/ch]         [ch]C[/ch]       [ch]G[/ch]       [ch]C[/ch] [ch]G[/ch]
+Love Is A Burning Thing[/tab]
+[tab]               [ch]D[/ch]     [ch]G[/ch]     [ch]D[/ch] [ch]G[/ch]
+And It Makes A Fiery Ring[/tab]
+[tab]         [ch]C[/ch]    [ch]G[/ch]       [ch]C[/ch] [ch]G[/ch]
+Bound By Wild Desire[/tab]
+[tab]              [ch]D[/ch]       [ch]G[/ch]
+I Fell Into A Ring Of Fire[/tab]
 
 [Chorus]
-
-[D]I Fell Into A Burning Rin[C]g Of Fire[G]
-I Went [D]Down, Down, Down
-And The [C]Flames Went Higher[G]
+[tab][ch]D[/ch]             [ch]C[/ch]               [ch]G[/ch]
+I Fell Into A Burning Ring Of Fire[/tab]
+[tab]       [ch]D[/ch]
+I Went Down, Down, Down[/tab]
+[tab]        [ch]C[/ch]           [ch]G[/ch]
+And The Flames Went Higher[/tab]
 
 And It Burns, Burns, Burns
-
-The [D]Ring Of Fire[G]
-The [D]Ring Of Fire[G]
+[tab]    [ch]D[/ch]       [ch]G[/ch]
+The Ring Of Fire[/tab]
+[tab]    [ch]D[/ch]       [ch]G[/ch]
+The Ring Of Fire[/tab]
 
 [Interlude]
-
-[G]    [C] [G]    [G]    [D] [G]
-[G]    [C] [G]    [G]    [D] [G]
+[ch]G[/ch]    [ch]C[/ch] [ch]G[/ch]    [ch]G[/ch]    [ch]D[/ch] [ch]G[/ch]
+[ch]G[/ch]    [ch]C[/ch] [ch]G[/ch]    [ch]G[/ch]    [ch]D[/ch] [ch]G[/ch]
 
 [Chorus]
-
-[D]I Fell Into A Burning Rin[C]g Of Fire[G]
-I Went [D]Down, Down, Down
-And The [C]Flames Went Higher[G]
+[tab][ch]D[/ch]             [ch]C[/ch]               [ch]G[/ch]
+I Fell Into A Burning Ring Of Fire[/tab]
+[tab]       [ch]D[/ch]
+I Went Down, Down, Down[/tab]
+[tab]        [ch]C[/ch]           [ch]G[/ch]
+And The Flames Went Higher[/tab]
 
 And It Burns, Burns, Burns
-
-The [D]Ring Of Fire[G]
-The [D]Ring Of Fire[G]
+[tab]    [ch]D[/ch]       [ch]G[/ch]
+The Ring Of Fire[/tab]
+[tab]    [ch]D[/ch]       [ch]G[/ch]
+The Ring Of Fire[/tab]
 
 [Verse]
-
-The Taste Of [C]Love Is Sweet[G][C][G]
-When Hearts Like [D]Ours Meet[G][D][G]
-I Fell For You [C]Like A Child[G][C][G]
-Ohh, But The [D]Fire Went Wild[G]
-
-[Chorus]
-
-[D]I Fell Into A Burning Rin[C]g Of Fire[G]
-I Went [D]Down, Down, Down
-And The [C]Flames Went Higher[G]
-
-And It Burns, Burns, Burns
-
-The [D]Ring Of Fire[G]
-The [D]Ring Of Fire[G]
+[tab]             [ch]C[/ch]       [ch]G[/ch]      [ch]C[/ch] [ch]G[/ch]
+The Taste Of Love Is Sweet[/tab]
+[tab]                 [ch]D[/ch]    [ch]G[/ch]     [ch]D[/ch] [ch]G[/ch]
+When Hearts Like Ours Meet[/tab]
+[tab]               [ch]C[/ch]      [ch]G[/ch]     [ch]C[/ch] [ch]G[/ch]
+I Fell For You Like A Child[/tab]
+[tab]             [ch]D[/ch]         [ch]G[/ch]   
+Ohh, But The Fire Went Wild[/tab]
 
 [Chorus]
-
-[D]I Fell Into A Burning Rin[C]g Of Fire[G]
-I Went [D]Down, Down, Down
-And The [C]Flames Went Higher[G]
-
-And It Burns, Burns, Burns
-
-The [D]Ring Of Fire[G]
-The [D]Ring Of Fire[G]
+[tab][ch]D[/ch]             [ch]C[/ch]               [ch]G[/ch]
+I Fell Into A Burning Ring Of Fire[/tab]
+[tab]       [ch]D[/ch]
+I Went Down, Down, Down[/tab]
+[tab]        [ch]C[/ch]           [ch]G[/ch]
+And The Flames Went Higher[/tab]
 
 And It Burns, Burns, Burns
+[tab]    [ch]D[/ch]       [ch]G[/ch]
+The Ring Of Fire[/tab]
+[tab]    [ch]D[/ch]       [ch]G[/ch]
+The Ring Of Fire[/tab]
 
-The [D]Ring Of Fire[G]
-The [D]Ring Of Fire (repea[G]t until fade)
+[Chorus]
+[tab][ch]D[/ch]             [ch]C[/ch]               [ch]G[/ch]
+I Fell Into A Burning Ring Of Fire[/tab]
+[tab]       [ch]D[/ch]
+I Went Down, Down, Down[/tab]
+[tab]        [ch]C[/ch]           [ch]G[/ch]
+And The Flames Went Higher[/tab]
+
+And It Burns, Burns, Burns
+[tab]    [ch]D[/ch]       [ch]G[/ch]
+The Ring Of Fire[/tab]
+[tab]    [ch]D[/ch]       [ch]G[/ch]
+The Ring Of Fire[/tab]
+
+And It Burns, Burns, Burns
+[tab]    [ch]D[/ch]       [ch]G[/ch]
+The Ring Of Fire[/tab]
+[tab]    [ch]D[/ch]       [ch]G[/ch]
+The Ring Of Fire (repeat until fade)[/tab]

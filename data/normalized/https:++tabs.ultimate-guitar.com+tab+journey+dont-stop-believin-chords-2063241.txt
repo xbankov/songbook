@@ -1,69 +1,78 @@
-{title: Dont stop believin}
-
 Don’t Stop Believin’ by Journey
 
-
-
 [Intro] (Piano/Bass)
-
-[E]   [B]   [C#m]   [A]
-[E]   [B]   [G#m]   [A]
+[ch]E[/ch]   [ch]B[/ch]   [ch]C#m[/ch]   [ch]A[/ch]
+[ch]E[/ch]   [ch]B[/ch]   [ch]G#m[/ch]   [ch]A[/ch]
 
 [Verse 1]
-
-[E]   Just a small town [B]girl,    livin' in a lonely[C#m] world[A]
-[E]   She took the midnight tr[B]ain going anywhere[G#m][A]
-[E]   Just a city boy,  [B]  born and raised in[C#m] South Detroit[A]
-[E]   He took the midnight tr[B]ain going anywhere[G#m][A]
+[tab][ch]E[/ch]         [ch]B[/ch]               [ch]C#m[/ch]             [ch]A[/ch]
+   Just a small town girl,    livin' in a lonely world[/tab]
+[tab][ch]E[/ch]               [ch]B[/ch]                    [ch]G#m[/ch]  [ch]A[/ch]
+   She took the midnight train going anywhere[/tab]
+[tab][ch]E[/ch]         [ch]B[/ch]        [ch]C#m[/ch]                    [ch]A[/ch]
+   Just a city boy,    born and raised in South Detroit[/tab]
+[tab][ch]E[/ch]              [ch]B[/ch]                    [ch]G#m[/ch]  [ch]A[/ch]
+   He took the midnight train going anywhere[/tab]
 
 [Break] (Guitar entrance 4 bars in)
-
-[E]   [B]   [C#m]   [A]
-[E]   [B]   [G#m]   [A]
+[ch]E[/ch]   [ch]B[/ch]   [ch]C#m[/ch]   [ch]A[/ch]
+[ch]E[/ch]   [ch]B[/ch]   [ch]G#m[/ch]   [ch]A[/ch]
 
 [Verse 2]
-
-[E]  A singer in a smoky room, [B]   the smell of wine [C#m]and cheap perfume[A]
-[E]  For a smile they can share the n[B]ight, it goes on and on and on and o[G#m]n[A]
+[tab][ch]E[/ch]                [ch]B[/ch]         [ch]C#m[/ch]                       [ch]A[/ch]
+  A singer in a smoky room,    the smell of wine and cheap perfume[/tab]
+[tab][ch]E[/ch]                      [ch]B[/ch]                        [ch]G#m[/ch]            [ch]A[/ch]
+  For a smile they can share the night, it goes on and on and on and on[/tab]
 
 [Chorus]
-
-[A]Strangers waitin'   up and do[E]wn the boulevard
-Their [A]shadows searchin' in the night[E]
-[A]Streetlights, people,   livin' ju[E]st to find emotion
-[A]Hidin', somewhere in the night[B][E][B][E][A]
+[tab][ch]A[/ch]                 [ch]E[/ch]
+Strangers waitin'   up and down the boulevard[/tab]
+[tab]      [ch]A[/ch]                         [ch]E[/ch]
+Their shadows searchin' in the night[/tab]
+[tab][ch]A[/ch]                     [ch]E[/ch]
+Streetlights, people,   livin' just to find emotion[/tab]
+[tab][ch]A[/ch]                         [ch]B[/ch]  [ch]E[/ch]    [ch]B[/ch]  [ch]E[/ch] [ch]A[/ch]
+Hidin', somewhere in the night[/tab]
 
 [Break]
-
-[E]   [B]   [C#m]   [A]
+[ch]E[/ch]   [ch]B[/ch]   [ch]C#m[/ch]   [ch]A[/ch]
 
 [Verse 3]
-
-[E]   Workin' hard to get my fill[B],    everybody wants a [C#m]thrill[A]
-[E]   Payin' anything to roll the di[B]ce, just one more time[G#m][A]
-[E]   Some'll win, some will [B]lose,    some are born to s[C#m]ing the blues[A]
-[E]   Oh, the movie never ends;[B] it goes on and on and on and o[G#m]n[A]
+[tab][ch]E[/ch]                  [ch]B[/ch]           [ch]C#m[/ch]           [ch]A[/ch]
+   Workin' hard to get my fill,    everybody wants a thrill[/tab]
+[tab][ch]E[/ch]                     [ch]B[/ch]                   [ch]G#m[/ch]       [ch]A[/ch]
+   Payin' anything to roll the dice, just one more time[/tab]
+[tab][ch]E[/ch]              [ch]B[/ch]               [ch]C#m[/ch]                  [ch]A[/ch]
+   Some'll win, some will lose,    some are born to sing the blues[/tab]
+[tab][ch]E[/ch]                [ch]B[/ch]                   [ch]G#m[/ch]            [ch]A[/ch]
+   Oh, the movie never ends; it goes on and on and on and on[/tab]
 
 [Chorus]
-
-[A]Strangers waitin'   up and do[E]wn the boulevard
-Their [A]shadows searchin' in the night[E]
-[A]Streetlights, people,   livin' ju[E]st to find emotion
-[A]Hidin', somewhere in the night[B][E][B][E][A]
+[tab][ch]A[/ch]                 [ch]E[/ch]
+Strangers waitin'   up and down the boulevard[/tab]
+[tab]      [ch]A[/ch]                         [ch]E[/ch]
+Their shadows searchin' in the night[/tab]
+[tab][ch]A[/ch]                     [ch]E[/ch]
+Streetlights, people,   livin' just to find emotion[/tab]
+[tab][ch]A[/ch]                         [ch]B[/ch]  [ch]E[/ch]    [ch]B[/ch]  [ch]E[/ch] [ch]A[/ch]
+Hidin', somewhere in the night[/tab]
 
 [Guitar Solo]
-
-[E]   [B]   [C#m]   [A]
-[E]   [B]   [G#m]   [A]
+[ch]E[/ch]   [ch]B[/ch]   [ch]C#m[/ch]   [ch]A[/ch]
+[ch]E[/ch]   [ch]B[/ch]   [ch]G#m[/ch]   [ch]A[/ch]
 
 [Outro]
-
-[E]Don't stop believin',   [B]  hold on to that fe[C#m]elin'[A]
-[E]Streetlights, people, oh-[B]oh-o-------h[G#m][A]
-[E]Don't stop believin',   [B] hold o-----n[C#m][A]
-[E]Streetlights, people, oh-[B]oh-o-------h[G#m][A]
-[E]Don't stop believin',   [B]  hold on to that fe[C#m]elin'[A]
-[E]Streetlights, people, oh-[B]oh-o-------h[G#m][A]
+[tab][ch]E[/ch]            [ch]B[/ch]        [ch]C#m[/ch]                 [ch]A[/ch]
+Don't stop believin',     hold on to that feelin'[/tab]
+[tab][ch]E[/ch]             [ch]B[/ch]             [ch]G#m[/ch]   [ch]A[/ch]
+Streetlights, people, oh-oh-o-------h[/tab]
+[tab][ch]E[/ch]            [ch]B[/ch]        [ch]C#m[/ch]        [ch]A[/ch]
+Don't stop believin',    hold o-----n[/tab]
+[tab][ch]E[/ch]             [ch]B[/ch]             [ch]G#m[/ch]   [ch]A[/ch]
+Streetlights, people, oh-oh-o-------h[/tab]
+[tab][ch]E[/ch]            [ch]B[/ch]        [ch]C#m[/ch]                 [ch]A[/ch]
+Don't stop believin',     hold on to that feelin'[/tab]
+[tab][ch]E[/ch]             [ch]B[/ch]             [ch]G#m[/ch]   [ch]A[/ch]
+Streetlights, people, oh-oh-o-------h[/tab]
 
 (Fade out)
-

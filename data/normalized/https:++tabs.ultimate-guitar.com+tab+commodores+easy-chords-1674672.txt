@@ -1,0 +1,147 @@
+Song: Easy
+Artist: Commodores
+Composer: Lionel Richie
+Album: Commodores
+
+Tabbed by DJ  26th Oct 2014
+
+To hear the song, copy and paste this link:
+https://www.youtube.com/watch?v=0XRrYgByp28
+
+CAPO: 1st fret (Will then sound in the recorded key of Ab)
+
+IMPORTANT NOTE:
+IGNORE ANY CHORD BOX DIAGRAMS the website automatically imposes,
+they often don't show the best option for a particular chord sequence.
+Just follow the voicings with the numbers listed below:
+
+Chord names and fret positions are relative to the capo:
+[ch]G[/ch]   = 320003   [ch]Gsus4[/ch] = 320013   [ch]F/C[/ch]   = x33211   [ch]Cm7[/ch]    = x35343
+[ch]Bm7[/ch] = x24232   [ch]Fmaj7[/ch] = 133210   [ch]Bb/D[/ch]  = xx0221   [ch]Gb[/ch]     = 244322
+[ch]Am7[/ch] = x02010   [ch]Em7[/ch]   = 022030   [ch]C[/ch]     = x32010   [ch]Db/F[/ch]   = xx3121
+[ch]C/D[/ch] = xx0010   [ch]Dm7[/ch]   = xx0211   [ch]Bbm7[/ch]  = x13121   [ch]D7sus4[/ch] = xx0213
+[ch]F[/ch]   = xx3211   [ch]F/G[/ch]   = 303211   [ch]Db/Eb[/ch] = xx1121
+[ch]C/E[/ch] = xx2010   [ch]Bb/F[/ch]  = 113331   [ch]Ab[/ch]    = 466544
+
+[* If you find the Chorus 4 key change too tricky, just stay 
+in G by going back to Chorus 2 and use that as the final chorus]
+
+Please take a second to scroll down to the bottom of the page
+and select a star rating for my tab, it would be appreciated
+=================================================================
+
+[Intro]
+[tab]   [ch]G[/ch]     [ch]Bm7[/ch]      [ch]Am7[/ch]   [ch]C/D[/ch]      [ch]G[/ch]     [ch]Bm7[/ch]      [ch]Am7[/ch]
+|  /  /  /  /  |  /  /  /  /  |  /  /  /  /  |  /  /  /  /  |[/tab]
+
+[Verse 1]
+[tab][ch]G[/ch]                   [ch]Bm7[/ch]                     [ch]Am7[/ch]             [ch]C/D[/ch]
+   I know it sounds funny, but I just can't stand the pain,[/tab]
+[tab][ch]G[/ch]            [ch]Bm7[/ch]              [ch]Am7[/ch]     [ch]C/D[/ch]
+   Girl, I'm leaving you to - morrow,[/tab]
+[tab][ch]G[/ch]           [ch]Bm7[/ch]                          [ch]Am7[/ch]          [ch]C/D[/ch]
+   Seems to me, girl, you know I've done all I can,[/tab]
+[tab][ch]G[/ch]             [ch]Bm7[/ch]                 [ch]Am7[/ch]                 [ch]C/D[/ch]
+   You see, I begged, stole and I borrowed, ...yeah![/tab]
+
+[Chorus 1]
+[tab]                   [ch]G[/ch]        [ch]Bm7[/ch]      [ch]Am7[/ch]
+Oo, that's why I'm easy----,[/tab]
+                       (Ah, ah - ah, ah!)
+
+[tab]    [ch]C/D[/ch]              [ch]G[/ch]         [ch]Bm7[/ch]      [ch]Am7[/ch]
+I'm easy like Sunday morning---------,[/tab]
+                          (Ah, ah - ah, ah!)
+
+[tab][ch]C/D[/ch]                  [ch]G[/ch]         [ch]Bm7[/ch]      [ch]Am7[/ch]
+      That's why I'm easy------------------,[/tab]
+                          (Ah, ah - ah, ah!)
+
+[tab]    [ch]C/D[/ch]              [ch]F[/ch]   [ch]C/E[/ch]  [ch]C/D[/ch]   [ch]G[/ch]
+I'm easy like Sunday mor------------ning[/tab]
+
+[Verse 2]
+[tab][ch]G[/ch]              [ch]Bm7[/ch]                     [ch]Am7[/ch]           [ch]C/D[/ch]
+    Why in the world would anybody put chains on me?     Yeah![/tab]
+[tab][ch]G[/ch]        [ch]Bm7[/ch]                  [ch]Am7[/ch]    [ch]D7sus4[/ch]
+    I've paid my dues to make it,[/tab]
+[tab][ch]G[/ch]             [ch]Bm7[/ch]                      [ch]Am7[/ch]            [ch]C/D[/ch]
+    Everybody wants me to be what they want me to be,[/tab]
+[tab][ch]G[/ch]           [ch]Bm7[/ch]                 [ch]Am7[/ch]               [ch]C/D[/ch]
+    I'm not happy when I try to fake it, ...no![/tab]
+
+[Chorus 2]
+[tab]                   [ch]G[/ch]         [ch]Bm7[/ch]      [ch]Am7[/ch]
+Oo, that's why I'm easy----, yeah,[/tab]
+                        (Ah, ah - ah, ah!)
+
+[tab]    [ch]C/D[/ch]              [ch]G[/ch]         [ch]Bm7[/ch]      [ch]Am7[/ch]
+I'm easy like Sunday morning--------,[/tab]
+                          (Ah, ah - ah, ah!)
+
+[tab][ch]C/D[/ch]                 [ch]G[/ch]        [ch]Bm7[/ch]      [ch]Am7[/ch]
+     That's why I'm easy----------------,[/tab]
+                        (Ah, ah - ah, ah!)
+
+[tab]    [ch]C/D[/ch]              [ch]F[/ch]   [ch]C/E[/ch]  [ch]C/D[/ch]  [ch]G[/ch]
+I'm easy like Sunday mor-----------ning[/tab]
+
+[Bridge]
+[tab][ch]Gsus4[/ch] [ch]G[/ch]              [ch]Fmaj7[/ch]    [ch]Em7[/ch] [ch]Dm7[/ch]   [ch]F/G[/ch]
+          I wanna be high, ...so  high,[/tab]
+[tab]        [ch]Em7[/ch] [ch]Fmaj7[/ch]                        [ch]Em7[/ch] [ch]Dm7[/ch]   [ch]F/G[/ch]
+I wanna be  free to know the things I do are right,[/tab]
+[tab]        [ch]Em7[/ch] [ch]Fmaj7[/ch]    [ch]Em7[/ch]  [ch]Dm7[/ch] [ch]F/G[/ch]
+I wanna be  free, ...just me,   ...woh, babe![/tab]
+
+[tab]  [ch]Bb/F[/ch]  [ch]F/C[/ch]      [ch]Bb/D[/ch]   [ch]C[/ch]        Oooo!
+|  /  /  /  /  |  /  /  /  /  |[/tab]
+
+[Middle- 8 solo]
+[tab]   [ch]G[/ch]    [ch]Bm7[/ch]      [ch]Am7[/ch]   [ch]C/D[/ch]       [ch]G[/ch]    [ch]Bm7[/ch]      [ch]Am7[/ch]  [ch]D7sus4[/ch]
+|  /  /  /  /  |  /  /  /  /  |  /  /  /  /  |  /  /  /  /  |[/tab]
+
+[tab]   [ch]G[/ch]    [ch]Bm7[/ch]      [ch]Am7[/ch]   [ch]C/D[/ch]       [ch]G[/ch]    [ch]Bm7[/ch]       [ch]Am7[/ch]
+|  /  /  /  /  |  /  /  /  /  |  /  /  /  /  |  /  /  /  /  |[/tab]
+
+[Chorus 3]
+[tab]               [ch]G[/ch]       [ch]Bm7[/ch]      [ch]Am7[/ch]
+That's why I'm easy----,[/tab]
+                  (Ah, ah - ah, ah!)
+
+[tab]    [ch]C/D[/ch]              [ch]G[/ch]        [ch]Bm7[/ch]      [ch]Am7[/ch]
+I'm easy like Sunday morning, yeah--------,[/tab]
+                         (Ah, ah - ah, ah!)
+
+[tab][ch]C/D[/ch]                 [ch]G[/ch]         [ch]Bm7[/ch]      [ch]Am7[/ch]
+     That's why I'm easy------------------,[/tab]
+                         (Ah, ah - ah, ah!)
+
+[tab]    [ch]C/D[/ch]              [ch]G[/ch]         [ch]Bm7[/ch]        [ch]Am7[/ch]
+I'm easy like Sunday morning!       Woh - oh![/tab]
+                          (Ah, ah - ah,   ah!)
+
+[Chorus 4] *
+[tab][ch]Am7[/ch] [ch]Bbm7[/ch]             [ch]Ab[/ch]        [ch]Cm7[/ch]      [ch]Bbm7[/ch]
+          'Cause I'm easy------------------,[/tab]
+                          (Ah, ah - ah, ah!)
+
+[tab]     [ch]Db/Eb[/ch]            [ch]Ab[/ch]          [ch]Cm7[/ch]         [ch]Bbm7[/ch]
+Woo! Easy like Sunday morning----,     yeah - eh,[/tab]
+                             (Ah, ah - ah,    ah!)
+
+[tab][ch]Db/Eb[/ch]             [ch]Ab[/ch]           [ch]Cm7[/ch]      [ch]Bbm7[/ch]
+       'Cause I'm easy, yeah - eh----------,[/tab]
+                         (Ah,  ah - ah, ah!)
+
+[tab][ch]Db/Eb[/ch]            [ch]Ab[/ch]          [ch]Cm7[/ch]      [ch]Bbm7[/ch]
+Easy like Sunday morning----![/tab]
+                        (Ah, ah - ah, ah!)
+
+[Suggestion for coda]
+[tab][ch]Db/Eb[/ch]            [ch]Ab[/ch]      [ch]Cm7[/ch]    [ch]Bbm7[/ch]
+      'Cause I'm easy---------------,[/tab]
+                    (Ah, ah -ah, ah!)
+
+[tab][ch]Db/Eb[/ch]            [ch]Gb[/ch]   [ch]Db/F[/ch]  [ch]Db/Eb[/ch]  [ch]Ab[/ch]
+Easy like Sunday mor---------------ning[/tab]

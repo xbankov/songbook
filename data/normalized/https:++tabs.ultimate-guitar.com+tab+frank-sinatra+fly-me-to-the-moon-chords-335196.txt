@@ -1,47 +1,41 @@
-{title: Fly me to the moon}
-
 Fly Me To The Moon chords
-
 Frank Sinatra 1964 (It Might As Well be Swing)
 
 [tab][ch]Am[/ch] *          [ch]Dm7[/ch]          [ch]G7[/ch]             [ch]Cmaj7[/ch] **
-
 Fly me to the moon, let me play among the stars,[/tab]
-[F]Let me see what spring is l[Dm]ike on Jupiter and Mars,[E7][Am][A7]
+[tab][ch]F[/ch] *             [ch]Dm[/ch]                [ch]E7[/ch]          [ch]Am[/ch]  [ch]A7[/ch]
+Let me see what spring is like on Jupiter and Mars,[/tab]
 
 [tab]   [ch]Dm7[/ch]         [ch]G7[/ch]  [ch]C[/ch]       [ch]Am[/ch]
-
 In other words,    hold my hand![/tab]
-In [Dm7]other words,    baby ki[G7]ss me![C][E]
+[tab]   [ch]Dm7[/ch]         [ch]G7[/ch]  [ch]C[/ch]         [ch]E[/ch]
+In other words,    baby kiss me![/tab]
 
 [tab][ch]Am[/ch]                 [ch]Dm7[/ch]              [ch]G7[/ch]           [ch]Cmaj7[/ch]
-
 Fill my heart with song, and let me sing forever more[/tab]
-[F]you are all I long for al[Dm]l I worship & adore[E7][Am][A7]
+[tab][ch]F[/ch]             [ch]Dm[/ch] *           [ch]E7[/ch]         [ch]Am[/ch]   [ch]A7[/ch]
+you are all I long for all I worship & adore[/tab]
 
 [tab]   [ch]Dm7[/ch]         [ch]G7[/ch]  [ch]C[/ch]         [ch]Am[/ch]   [ch]E7[/ch]
-
 In other words,    please be true![/tab]
-In [Dm7]other words     I love [G7]you[Fm][C]
+[tab]   [ch]Dm7[/ch]         [ch]G7[/ch]  [ch]Fm[/ch]     [ch]C[/ch]
+In other words     I love you[/tab]
 
 [ch]Am[/ch] [ch]Dm7[/ch] [ch]G7[/ch] [ch]Cmaj7[/ch]  [ch]F[/ch] [ch]Dm[/ch] [ch]E[/ch] [ch]Am[/ch]   [ch]Dm7[/ch] [ch]G7[/ch] [ch]Em[/ch] [ch]A7[/ch] [ch]E7[/ch]   [ch]Dm7[/ch] [ch]G7[/ch] [ch]C[/ch]
 
-
-
 [tab][ch]Am[/ch]                 [ch]Dm7[/ch]              [ch]G7[/ch]           [ch]Cmaj7[/ch]
-
 Fill my heart with song, and let me sing forever more[/tab]
-[F]you are all I long for al[Dm]l I worship & adore[E7][Am][A7]
+[tab][ch]F[/ch]             [ch]Dm[/ch]             [ch]E7[/ch]         [ch]Am[/ch]   [ch]A7[/ch]
+you are all I long for all I worship & adore[/tab]
 
 [tab]   [ch]Dm7[/ch]         [ch]G7[/ch]  [ch]C[/ch]         [ch]Am[/ch]
-
 In other words,    please be true![/tab]
-In [Dm7]other words[G7]
-In [Dm7]other words  I love you![G][G7][C]
+[tab]   [ch]Dm7[/ch]        [ch]G7[/ch]
+In other words[/tab]
+[tab]   [ch]Dm7[/ch]          [ch]G[/ch] [ch]G7[/ch]   [ch]C[/ch]
+In other words  I love you![/tab]
 
 *  It has been suggested that Am7, Dm7 and Fmaj7 could be used as an option
-
 ** It has been suggested that instead of ending with Cmaj7 try ending with C then Cmaj7
 
 Set8
-

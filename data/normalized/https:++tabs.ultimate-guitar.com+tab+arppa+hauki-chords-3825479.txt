@@ -1,0 +1,68 @@
+[tab][Intro]
+   [ch]Bb[/ch]                    [ch]Gm[/ch]                    [ch]Dm[/ch]               [ch]F[/ch]
+e|---------------------|---------------------|----------------|-----------------|
+B|----------6----------|----------8----------|----------------|--------------6--|
+G|-7--7-5-7---7--7-5-7-|-7--7-5-7---7--7-5---|----------5-----|-----------5-----|
+D|---------------------|-------------------8-|-7--5-7-8-----8-|-7-7-5-7-8-------|
+A|---------------------|---------------------|----------------|-----------------|
+E|---------------------|---------------------|----------------|-----------------|[/tab]
+
+
+[Verse 1]
+[tab]   [ch]Bb[/ch]                                      [ch]Gm[/ch]
+Se piha alko käydä aika pieneksi, mun teki mieli muuttua sieneksi[/tab]
+[tab][ch]Dm[/ch]                           [ch]F[/ch]
+Syksy metsässä kyhnyttää, ja luottaa että joku mut talteen kerää[/tab]
+[tab][ch]Bb[/ch]                            [ch]Gm[/ch]
+Se piha kävi pieneksi, ja mun mielenmaisema vieheeksi[/tab]
+[tab]     [ch]Dm[/ch]                                 [ch]F[/ch]
+Joka juuttuu rannan kivikkoon, ku se ei jaksa enää päivänvaloo[/tab]
+[tab][ch]Bb[/ch]                             [ch]Gm[/ch]
+Siellä aikani mutrussa suu, mä mietin että tästä ei mitään tuu[/tab]
+[tab]       [ch]Dm[/ch]                              [ch]F[/ch]
+Kunnes paikalle ui valtava hauki, joka selitti kaiken tän minulle auki[/tab]
+
+[Interlude]
+[ch]Bb[/ch]  [ch]Gm[/ch]  [ch]Dm[/ch]  [ch]F[/ch]
+
+[Verse 2]
+[tab]   [ch]Bb[/ch]                               [ch]Gm[/ch]
+Ja aina välillä iltaisin, mä tuolle samalle rannalle harhailin[/tab]
+[tab]   [ch]Cm[/ch]                             [ch]F[/ch]
+Ja toivoin että kuulla saan, tuon hauen kaunista laulantaa[/tab]
+[tab]      [ch]Bb[/ch]                        [ch]Gm[/ch]
+Mutta sanomalehti vedenalainen, otsikoillaan kertoi sen[/tab]
+[tab]    [ch]Cm[/ch]                                    [ch]F[/ch]
+Tuo hauki vaihtanut on maisemaa, se halus suuria lavoja valloittaa[/tab]
+
+[Interlude]
+[ch]Bb[/ch]  [ch]Gm[/ch]  [ch]Dm[/ch]  [ch]F[/ch]   [ch]Bb[/ch]  [ch]Gm[/ch]  [ch]Dm[/ch]  [ch]F[/ch]
+
+[Verse 3]
+[tab]       [ch]Bb[/ch]                                [ch]Gm[/ch]
+Vaikka vannoin että mä palais en, tuolle ahtaalle pihalle takaisin[/tab]
+[tab]      [ch]Dm[/ch]                               [ch]F[/ch]
+Siinä hetkessä taisin unohtaa, ei pidä liikaa huomiseen tuijottaa[/tab]
+[tab]       [ch]Bb[/ch]                        [ch]Gm[/ch]
+Jos en muuta siltä illalta, niin yhtä laulua rikkaampana[/tab]
+[tab][ch]Dm[/ch]                          [ch]F[/ch]
+Alkoi matkani kotiin päin[/tab]
+
+[Chorus]
+[tab][ch]Bb[/ch]                                     [ch]Gm[/ch]
+Ehkä tää päivä kun yksin sä oot, on se päivä kun taivaalle ilmaantuu[/tab]
+[tab]   [ch]Dm[/ch]                           [ch]F[/ch]
+Kristallipallo valtava, joka on täytetty lohtulauseilla[/tab]
+[tab][ch]Bb[/ch]                                     [ch]Gm[/ch]
+Ehkä tää päivä kun yksin sä oot, on se päivä kun taivaalla kirkastuu[/tab]
+[tab]   [ch]Dm[/ch]                          [ch]F[/ch]
+Ja puiden latvoista putoaa, ne laulut jotka meinasit unohtaa[/tab]
+[tab][ch]Bb[/ch]                                     [ch]Gm[/ch]
+Ehkä tää päivä kun yksin sä oot, on se päivä kun taivaalle ilmaantuu[/tab]
+[tab]   [ch]Dm[/ch]                           [ch]F[/ch]
+Kristallipallo valtava, joka on täytetty lohtulauseilla[/tab]
+[tab][ch]Bb[/ch]                                     [ch]Gm[/ch]
+Ehkä tää päivä kun yksin sä oot, on se päivä kun taivaalla kirkastuu[/tab]
+
+[Outro]
+[ch]Dm[/ch]  [ch]F[/ch]  [ch]Bb[/ch]

@@ -1,51 +1,56 @@
-{title: Zombie}
-
 [Intro] 
-
-[Em] [C] [G] [D/F#]  x4
+[ch]Em[/ch] [ch]C[/ch] [ch]G[/ch] [ch]D/F#[/ch]  x4
 
 [Verse 1]
-
-[Em]Another head hangs l[C]owly, child is slowly taken[G][D/F#]
-[Em]And the violence caused such[C] silence, who are we mistaken [G][D/F#]
-But you [Em]see it's not me, it's not my family[C]
-In your [G]head, in your head, they are fighting [D/F#]
-With their [Em]tanks and their bombs and their bombs and t[C]heir guns 
-in your h[G]ead, in your head, they are crying[D/F#]
+[tab][ch]Em[/ch]       [ch]C[/ch]                [ch]G[/ch]                [ch]D/F#[/ch] 
+Another head hangs lowly, child is slowly taken[/tab]
+[tab][ch]Em[/ch]               [ch]C[/ch]                    [ch]G[/ch]               [ch]D/F#[/ch] 
+And the violence caused such silence, who are we mistaken [/tab]
+[tab]        [ch]Em[/ch]                        [ch]C[/ch] 
+But you see it's not me, it's not my family[/tab]
+[tab]        [ch]G[/ch]                               [ch]D/F#[/ch] 
+In your head, in your head, they are fighting [/tab]
+[tab]           [ch]Em[/ch]                              [ch]C[/ch]                                                         
+With their tanks and their bombs and their bombs and their guns [/tab]
+[tab]         [ch]G[/ch]                             [ch]D/F#[/ch]
+in your head, in your head, they are crying[/tab]
 
 [Chorus 1]
-
-In your [Em]head, in your head, zombi[C]e, zombie, zombie [G][D/F#]
-What's in your [Em]head, in your head, zombi[C]e, zombie, zombie [G][D/F#]
+[tab]        [ch]Em[/ch]            [ch]C[/ch]            [ch]G[/ch]             [ch]D/F#[/ch] 
+In your head, in your head, zombie, zombie, zombie [/tab]
+[tab]               [ch]Em[/ch]            [ch]C[/ch]            [ch]G[/ch]             [ch]D/F#[/ch] 
+What's in your head, in your head, zombie, zombie, zombie [/tab]
 
 [Instrumental]
-
-[Em] [C] [G] [D/F#] x2
+[ch]Em[/ch] [ch]C[/ch] [ch]G[/ch] [ch]D/F#[/ch] x2
 
 [Verse 2]
-
-[Em]Another mother's brea[C]king heart is taking over[G][D/F#]
-[Em]When the violence causes sile[C]nce, we must be mistaken[G][D/F#]
-It's the [Em]same old theme since 1916[C]
-In your [G]head, in your head, they're still fighting[D/F#]
-With their [Em]tanks and their bombs and their bombs and t[C]heir guns
-In your [G]head, in your head, they're dying[D/F#]
+[tab][ch]Em[/ch]        [ch]C[/ch]                  [ch]G[/ch]              [ch]D/F#[/ch] 
+Another mother's breaking heart is taking over[/tab]
+[tab][ch]Em[/ch]                [ch]C[/ch]               [ch]G[/ch]            [ch]D/F#[/ch] 
+When the violence causes silence, we must be mistaken[/tab]
+[tab]         [ch]Em[/ch]                   [ch]C[/ch]  
+It's the same old theme since 1916[/tab]
+[tab]        [ch]G[/ch]                                  [ch]D/F#[/ch] 
+In your head, in your head, they're still fighting[/tab]
+[tab]           [ch]Em[/ch]                              [ch]C[/ch]  
+With their tanks and their bombs and their bombs and their guns[/tab]
+[tab]        [ch]G[/ch]                            [ch]D/F#[/ch] 
+In your head, in your head, they're dying[/tab]
 
 [Chorus 2]
-
-In your [Em]head, in your head, zombi[C]e, zombie, zombie [G][D/F#]
-What's in your [Em]head, in your head, zombi[C]e, zombie, zombie [G][D/F#]
+[tab]        [ch]Em[/ch]            [ch]C[/ch]            [ch]G[/ch]             [ch]D/F#[/ch] 
+In your head, in your head, zombie, zombie, zombie [/tab]
+[tab]               [ch]Em[/ch]            [ch]C[/ch]            [ch]G[/ch]             [ch]D/F#[/ch] 
+What's in your head, in your head, zombie, zombie, zombie [/tab]
 
 [Instrumental]
-
-[Em] [C] [G] [D/F#] x2
-[Em] [C] [Em] [C] x2
+[ch]Em[/ch] [ch]C[/ch] [ch]G[/ch] [ch]D/F#[/ch] x2
+[ch]Em[/ch] [ch]C[/ch] [ch]Em[/ch] [ch]C[/ch] x2
 
 [Solo]
-
-[Em] [C] [G] [D/F#] x3
+[ch]Em[/ch] [ch]C[/ch] [ch]G[/ch] [ch]D/F#[/ch] x3
 
 [Outro]
-
-[Em] [C] [Em] [C]
-[Em] [C] [Em]
+[ch]Em[/ch] [ch]C[/ch] [ch]Em[/ch] [ch]C[/ch]
+[ch]Em[/ch] [ch]C[/ch] [ch]Em[/ch]

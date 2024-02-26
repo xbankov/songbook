@@ -1,65 +1,86 @@
-{title: Free fallin}
-
 Capo 8th fret to match Petty's recording.
 
-
-
 [Intro]
+[ch]A[/ch]   [ch]D[/ch]   [ch]D[/ch]   [ch]A[/ch]   [ch]E[/ch]
+[ch]A[/ch]
 
-[A]   [D]   [D]   [A]   [E]
-[A]
 
 [Verse]
+[tab]        [ch]A[/ch]    [ch]D[/ch]     [ch]D[/ch]   [ch]A[/ch]     [ch]E[/ch]
+she's a good girl, loves her mama[/tab]
+[tab]      [ch]A[/ch]  [ch]D[/ch]      [ch]D[/ch]  [ch]A[/ch]    [ch]E[/ch]
+loves Jesus and America too[/tab]
+[tab]        [ch]A[/ch]    [ch]D[/ch]     [ch]D[/ch]      [ch]A[/ch]    [ch]E[/ch]
+she's a good girl, crazy 'bout Elvis[/tab]
+[tab]      [ch]A[/ch]  [ch]D[/ch]           [ch]D[/ch]  [ch]A[/ch]      [ch]E[/ch]
+loves horses and her boyfriend too[/tab]
 
-she's a [A]good girl, loves[D] her mama[D][A][E]
-loves [A]Jesus and Amer[D]ica too[D][A][E]
-she's a [A]good girl, crazy[D] 'bout Elvis[D][A][E]
-loves [A]horses and her[D] boyfriend too[D][A][E]
 
 [Interlude]
+[ch]A[/ch]   [ch]D[/ch]   [ch]D[/ch]   [ch]A[/ch]   [ch]E[/ch]
 
-[A]   [D]   [D]   [A]   [E]
-
-[Verse]
-
-it's a [A]long day livin' [D]in Reseda[D][A][E]
-there's a [A]free-way runnin'[D] through the ya[D]rd[A][E]
-and I'm a [A]bad boy, cause [D]I don't even miss her[D][A][E]
-I'm a [A]bad boy for bre[D]akin' her heart[D][A][E]
-
-[Chorus]
-
-now I'm [A]free,           [D]free fallin'[D][A][E][A][D][D][A][E]
-ya, I'm [A]free,           [D]free fallin'[D][A][E][A][D][D][A][E]
 
 [Verse]
+[tab]       [ch]A[/ch]    [ch]D[/ch]   [ch]D[/ch]      [ch]A[/ch]  [ch]E[/ch]
+it's a long day livin' in Reseda[/tab]
+[tab]          [ch]A[/ch]    [ch]D[/ch]   [ch]D[/ch]       [ch]A[/ch]           [ch]E[/ch]
+there's a free-way runnin' through the yard[/tab]
+[tab]          [ch]A[/ch]   [ch]D[/ch]            [ch]D[/ch]     [ch]A[/ch]    [ch]E[/ch]
+and I'm a bad boy, cause I don't even miss her[/tab]
+[tab]      [ch]A[/ch]   [ch]D[/ch]       [ch]D[/ch]   [ch]A[/ch]        [ch]E[/ch]
+I'm a bad boy for breakin' her heart[/tab]
 
-all th[A]e vampires walki[D]n' through the [D]valley[A][E]
-move west[A] down Ventura Bo[D]ulevard[D][A][E]
-and all the [A]bad boys are st[D]anding in the shadow[D]s[A][E]
-all t[A]he good girls are a[D]t home with broken heart[A]s[E]
 
 [Chorus]
+[tab]        [ch]A[/ch]    [ch]D[/ch]   [ch]D[/ch]   [ch]A[/ch]   [ch]E[/ch]      [ch]A[/ch]    [ch]D[/ch]   [ch]D[/ch]   [ch]A[/ch]   [ch]E[/ch]
+now I'm free,           free fallin'[/tab]
+[tab]        [ch]A[/ch]    [ch]D[/ch]   [ch]D[/ch]   [ch]A[/ch]   [ch]E[/ch]      [ch]A[/ch]    [ch]D[/ch]   [ch]D[/ch]   [ch]A[/ch]   [ch]E[/ch]
+ya, I'm free,           free fallin'[/tab]
 
-now I'm [A]free,           [D]free fallin'[D][A][E][A][D][D][A][E]
-ya, I'm [A]free,           [D]free fallin'[D][A][E][A][D][D][A][E]
-now I'm [A]free,           [D]free fallin'[D][A][E][A][D][D][A][E]
-ya, I'm [A]free,           [D]free fallin'[D][A][E][A][D][D][A][E]
+
+[Verse]
+[tab]      [ch]A[/ch]    [ch]D[/ch]   [ch]D[/ch]         [ch]A[/ch]           [ch]E[/ch]
+all the vampires walkin' through the valley[/tab]
+[tab]         [ch]A[/ch]    [ch]D[/ch]   [ch]D[/ch]   [ch]A[/ch]     [ch]E[/ch]
+move west down Ventura Boulevard[/tab]
+[tab]            [ch]A[/ch]   [ch]D[/ch]        [ch]D[/ch]    [ch]A[/ch]          [ch]E[/ch]
+and all the bad boys are standing in the shadows[/tab]
+[tab]     [ch]A[/ch]       [ch]D[/ch]            [ch]A[/ch]                [ch]E[/ch]
+all the good girls are at home with broken hearts[/tab]
+
+
+[Chorus]
+[tab]        [ch]A[/ch]    [ch]D[/ch]   [ch]D[/ch]   [ch]A[/ch]   [ch]E[/ch]      [ch]A[/ch]    [ch]D[/ch]   [ch]D[/ch]   [ch]A[/ch]   [ch]E[/ch]
+now I'm free,           free fallin'[/tab]
+[tab]        [ch]A[/ch]    [ch]D[/ch]   [ch]D[/ch]   [ch]A[/ch]   [ch]E[/ch]      [ch]A[/ch]    [ch]D[/ch]   [ch]D[/ch]   [ch]A[/ch]   [ch]E[/ch]
+ya, I'm free,           free fallin'[/tab]
+[tab]        [ch]A[/ch]    [ch]D[/ch]   [ch]D[/ch]   [ch]A[/ch]   [ch]E[/ch]      [ch]A[/ch]    [ch]D[/ch]   [ch]D[/ch]   [ch]A[/ch]   [ch]E[/ch]
+now I'm free,           free fallin'[/tab]
+[tab]        [ch]A[/ch]    [ch]D[/ch]   [ch]D[/ch]   [ch]A[/ch]   [ch]E[/ch]      [ch]A[/ch]    [ch]D[/ch]   [ch]D[/ch]   [ch]A[/ch]   [ch]E[/ch]
+ya, I'm free,           free fallin'[/tab]
+
 
 [Bridge]
+[tab]        [ch]A[/ch]     [ch]Asus4[/ch]     [ch]A[/ch]  [ch]E[/ch]
+I wanna glide down over Mulholland[/tab]
+[tab]        [ch]A[/ch]     [ch]Asus4[/ch]  [ch]Asus4[/ch]   [ch]A[/ch]  [ch]E[/ch]
+I wanna write her name in the sky[/tab]
+[tab]        [ch]A[/ch]     [ch]Asus4[/ch]     [ch]A[/ch]  [ch]E[/ch]
+I wanna free fall out into nothin'[/tab]
+[tab]        [ch]A[/ch]     [ch]Asus4[/ch]  [ch]Asus4[/ch] [ch]A[/ch]  [ch]E[/ch]
+gonna leave this world for a while[/tab]
 
-I wanna [A]glide down over M[Asus4]ulholland[A][E]
-I wanna [A]write her name in[Asus4] the sky[Asus4][A][E]
-I wanna [A]free fall out int[Asus4]o nothin'[A][E]
-gonna le[A]ave this world fo[Asus4]r a while[Asus4][A][E]
 
 [Chorus]
+[tab]        [ch]A[/ch]    [ch]D[/ch]   [ch]D[/ch]   [ch]A[/ch]   [ch]E[/ch]      [ch]A[/ch]    [ch]D[/ch]   [ch]D[/ch]   [ch]A[/ch]   [ch]E[/ch]
+now I'm free,           free fallin'[/tab]
+[tab]        [ch]A[/ch]    [ch]D[/ch]   [ch]D[/ch]   [ch]A[/ch]   [ch]E[/ch]      [ch]A[/ch]    [ch]D[/ch]   [ch]D[/ch]   [ch]A[/ch]   [ch]E[/ch]
+ya, I'm free,           free fallin'[/tab]
+[tab]        [ch]A[/ch]    [ch]D[/ch]   [ch]D[/ch]   [ch]A[/ch]   [ch]E[/ch]      [ch]A[/ch]    [ch]D[/ch]   [ch]D[/ch]   [ch]A[/ch]   [ch]E[/ch]
+now I'm free,           free fallin'[/tab]
+[tab]        [ch]A[/ch]    [ch]D[/ch]   [ch]D[/ch]   [ch]A[/ch]   [ch]E[/ch]      [ch]A[/ch]    [ch]D[/ch]   [ch]D[/ch]   [ch]A[/ch]   [ch]E[/ch]
+ya, I'm free,           free fallin'[/tab]
 
-now I'm [A]free,           [D]free fallin'[D][A][E][A][D][D][A][E]
-ya, I'm [A]free,           [D]free fallin'[D][A][E][A][D][D][A][E]
-now I'm [A]free,           [D]free fallin'[D][A][E][A][D][D][A][E]
-ya, I'm [A]free,           [D]free fallin'[D][A][E][A][D][D][A][E]
 
 [Outro]
-
-[D] [A]
+[ch]D[/ch] [ch]A[/ch]

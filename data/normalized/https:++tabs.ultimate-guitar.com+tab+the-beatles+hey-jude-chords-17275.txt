@@ -1,66 +1,85 @@
-{title: Hey jude}
-
 [Verse 1]
-
-Hey [F]Jude, don't make it bad[C]
-Take [F/C]a   sad song an[C7]d make it bette[C7sus4]r[C7][F]
-Re[Bb]member to let her into your heart[F]
-and then you can [C]start to make it better[F]
+[tab]    [ch]F[/ch]                   [ch]C[/ch]
+Hey Jude, don't make it bad[/tab]
+[tab]     [ch]F/C[/ch] [ch]C7[/ch]  [ch]C7sus4[/ch]   [ch]C7[/ch]      [ch]F[/ch]
+Take a   sad song and make it better[/tab]
+[tab]  [ch]Bb[/ch]                          [ch]F[/ch]
+Remember to let her into your heart[/tab]
+[tab]                 [ch]C[/ch]                [ch]F[/ch]
+and then you can start to make it better[/tab]
 
 [Verse 2]
-
-Hey [F]Jude, don't be afraid[C]
-You [F/C]were made to  go[C7] out and get her[C7sus4][C7][F]
-The [Bb]minute you let her under your skin[F]
-then you be[C]gin to make it better[F][Fmaj7][F7]
+[tab]    [ch]F[/ch]               [ch]C[/ch]
+Hey Jude, don't be afraid[/tab]
+[tab]    [ch]F/C[/ch]  [ch]C7[/ch]   [ch]C7sus4[/ch] [ch]C7[/ch]      [ch]F[/ch]
+You were made to  go out and get her[/tab]
+[tab]    [ch]Bb[/ch]                            [ch]F[/ch]
+The minute you let her under your skin[/tab]
+[tab]           [ch]C[/ch]              [ch]F[/ch]        [ch]Fmaj7[/ch] [ch]F7[/ch]
+then you begin to make it better[/tab]
 
 [Chorus]
-
-And anytime you feel the [Bb]pain, hey Jude, refra[Bb/A]in[Gm]
-Don't [Bb/F]carry the world upon [C/E]your shoulders[C][F][Fmaj7][F7]
-For well you know that it's a [Bb]fool who plays it co[Bb/A]ol[Gm]
-by [Bb/F]making his world a lit[C/E]tle colder[C][F]
+[tab]                         [ch]Bb[/ch]        [ch]Bb/A[/ch]    [ch]Gm[/ch]
+And anytime you feel the pain, hey Jude, refrain[/tab]
+[tab]      [ch]Bb/F[/ch]      [ch]C/E[/ch]    [ch]C[/ch]        [ch]F[/ch]         [ch]Fmaj7[/ch] [ch]F7[/ch]
+Don't carry the world upon your shoulders[/tab]
+[tab]                              [ch]Bb[/ch]       [ch]Bb/A[/ch]     [ch]Gm[/ch]
+For well you know that it's a fool who plays it cool[/tab]
+[tab]   [ch]Bb/F[/ch]       [ch]C/E[/ch]     [ch]C[/ch]      [ch]F[/ch]
+by making his world a little colder[/tab]
 
 [Interlude]
-
-[F]Na na na  na na   na [F7]na  na naa[C][C7][C][F][C7]
+[tab][ch]F[/ch]         [ch]F7[/ch]      [ch]C[/ch]      [ch]C7[/ch]        [ch]C[/ch]  [ch]F[/ch]  [ch]C7[/ch]
+Na na na  na na   na na  na naa[/tab]
 
 [Verse 3]
-
-Hey [F]Jude, don't let me down[C]
-You [F/C]have found her, [C7]now go and get he[C7sus4]r[C7][F]
-Re[Bb]member to let her into you heart[F]
-then you can [C]start to make it better[F][Fmaj7][F7]
+[tab]    [ch]F[/ch]                  [ch]C[/ch]
+Hey Jude, don't let me down[/tab]
+[tab]    [ch]F/C[/ch]  [ch]C7[/ch]    [ch]C7sus4[/ch]   [ch]C7[/ch]     [ch]F[/ch]
+You have found her, now go and get her[/tab]
+[tab]  [ch]Bb[/ch]                         [ch]F[/ch]
+Remember to let her into you heart[/tab]
+[tab]             [ch]C[/ch]                [ch]F[/ch]       [ch]Fmaj7[/ch]  [ch]F7[/ch]
+then you can start to make it better[/tab]
 
 [Chorus]
-
-So let it out and let it [Bb]in, hey Jude, begin[Bb/A][Gm]
-You're [Bb/F]waiting for someone to [C/E]perform with[C][F][Fmaj7][F7]
-And don't you know that it's just [Bb]you, hey Jude, you'l[Bb/A]l do[Gm]
-The [Bb/F]movement you need is on [C/E]your shoulders[C][F]
+[tab]                         [ch]Bb[/ch]      [ch]Bb/A[/ch]    [ch]Gm[/ch]
+So let it out and let it in, hey Jude, begin[/tab]
+[tab]       [ch]Bb/F[/ch]        [ch]C/E[/ch]     [ch]C[/ch]     [ch]F[/ch]            [ch]Fmaj7[/ch]  [ch]F7[/ch]
+You're waiting for someone to perform with[/tab]
+[tab]                                  [ch]Bb[/ch]       [ch]Bb/A[/ch]         [ch]Gm[/ch]
+And don't you know that it's just you, hey Jude, you'll do[/tab]
+[tab]    [ch]Bb/F[/ch]         [ch]C/E[/ch]     [ch]C[/ch]       [ch]F[/ch]
+The movement you need is on your shoulders[/tab]
 
 [Interlude]
-
-[F]Na na na  na na   na [F7]na  na naa    yeah[C][C7][C][F][C7]
+[tab][ch]F[/ch]         [ch]F7[/ch]      [ch]C[/ch]      [ch]C7[/ch]        [ch]C[/ch]  [ch]F[/ch]  [ch]C7[/ch]
+Na na na  na na   na na  na naa    yeah[/tab]
 
 [Verse 4]
-
-Hey [F]Jude, don't make it bad[C]
-Take [F/C]a   sad song an[C7]d make it bette[C7sus4]r[C7][F]
-Re[Bb]member to let her under your skin[F]
-and then you'll [C]begin to make it better, bet[F]ter, better, better, better, better, ahhhhhh!
+[tab]    [ch]F[/ch]                   [ch]C[/ch]
+Hey Jude, don't make it bad[/tab]
+[tab]     [ch]F/C[/ch] [ch]C7[/ch]  [ch]C7sus4[/ch]   [ch]C7[/ch]      [ch]F[/ch]
+Take a   sad song and make it better[/tab]
+[tab]  [ch]Bb[/ch]                           [ch]F[/ch]
+Remember to let her under your skin[/tab]
+[tab]                [ch]C[/ch]                [ch]F[/ch]
+and then you'll begin to make it better, better, better, better, better, better, ahhhhhh![/tab]
 
 [Outro]
-
-[F]Na na na   na na na na[Eb]
-[Bb]Na na na na
-Hey [F]Jude
+[tab][ch]F[/ch]          [ch]Eb[/ch]
+Na na na   na na na na[/tab]
+[tab][ch]Bb[/ch]
+Na na na na[/tab]
+[tab]    [ch]F[/ch]
+Hey Jude[/tab]
 
 [tab][ch]F[/ch]          [ch]Eb[/ch]
-
 Na na na   na na na na[/tab]
-[Bb]Na na na na
-Hey [F]Jude
+[tab][ch]Bb[/ch]
+Na na na na[/tab]
+[tab]    [ch]F[/ch]
+Hey Jude[/tab]
+
 
 (Repeat and fade)
-

@@ -1,7 +1,4 @@
-{title: Pumped up kicks}
-
 -----------------------------------------------------------------------------
-
                     Pumped Up Kicks - Foster The People
 -----------------------------------------------------------------------------
 Tabbed by: J-Dawg
@@ -9,14 +6,10 @@ Email: Unstoppabull1@live.com
 
 Link to the acoustic version - https://www.youtube.com/watch?v=YAZwmT4sjy0
 
-
-
 Tuning: standard
-
 Capo 7
 
 [tab]-Verse-
-
       [ch]Em[/ch]          [ch]G[/ch]         [ch]D[/ch]         [ch]A[/ch]
 e|----0-0-0-------3-3-333---2-2-202---0-0-000---------|
 B|----0-0-0-------3-3-333---3-3-333---2-2-222---------|
@@ -25,49 +18,79 @@ D|----2-2-2-------0-0-000---0-0-000---2-2-222---------|
 A|----2-2-2-------2-2-222-------------0-0-000---------|
 E|----0-0-0---2---3-3-333-----------------------------|[/tab]
 
-[Verse]
-
-[Em]Robert's got a quick hand[G]
-He'll [D]look around the room
-He won't [A]tell you his plan
-He's [Em]got a rolled cigarette[G]
-hanging [D]out his mouth
-He's a [A]cowboy kid
-Yeah, he [Em]found a six-shooter gun[G]
-In his [D]dad's closet
-with a [A]box of fun things
-And [Em]I don't even know what[G]
-But he's [D]coming for you, yeah, he's coming for [A]you
-
-[Chorus]
-
-[Em]All the other kids with the pumped up k[G]icks
-You'd better [D]run, better run, outrun my gu[A]n
-[Em]All the other kids with the pumped up k[G]icks
-You'd better [D]run, better run, faster than [A]my bullet
 
 [Verse]
+[tab][ch]Em[/ch]                        [ch]G[/ch]
+Robert's got a quick hand[/tab]
+[tab]      [ch]D[/ch]
+He'll look around the room[/tab]
+[tab]         [ch]A[/ch]
+He won't tell you his plan[/tab]
+[tab]     [ch]Em[/ch]                     [ch]G[/ch]
+He's got a rolled cigarette[/tab]
+[tab]        [ch]D[/ch]
+hanging out his mouth[/tab]
+[tab]       [ch]A[/ch]
+He's a cowboy kid[/tab]
+[tab]         [ch]Em[/ch]                      [ch]G[/ch]
+Yeah, he found a six-shooter gun[/tab]
+[tab]       [ch]D[/ch]
+In his dad's closet[/tab]
+[tab]       [ch]A[/ch]
+with a box of fun things[/tab]
+[tab]    [ch]Em[/ch]                   [ch]G[/ch]
+And I don't even know what[/tab]
+[tab]         [ch]D[/ch]                          [ch]A[/ch]
+But he's coming for you, yeah, he's coming for you[/tab]
 
-[Em]Daddy works a long day[G]
-He be [D]coming home late, yeah, he's coming home[A] late
-And he's [Em]bringing me a surprise[G]
-Because [D]dinner's in the kitchen and it's packed in i[A]ce
-I've [Em]waited for a long time[G]
-Yeah, the [D]slight of my hand is now a quick pull [A]trigger
-I [Em]reason with my cigarette[G]
-And say your [D]hair's on fire
-You must have [A]lost your wits, yeah
 
 [Chorus]
+[tab][ch]Em[/ch]                          [ch]G[/ch]
+All the other kids with the pumped up kicks[/tab]
+[tab]             [ch]D[/ch]                 [ch]A[/ch]
+You'd better run, better run, outrun my gun[/tab]
+[tab][ch]Em[/ch]                          [ch]G[/ch]
+All the other kids with the pumped up kicks[/tab]
+[tab]             [ch]D[/ch]                 [ch]A[/ch]
+You'd better run, better run, faster than my bullet[/tab]
 
-[Em]All the other kids with the pumped up k[G]icks
-You'd better [D]run, better run, outrun my g[A]un
-[Em]All the other kids with the pumped up k[G]icks
-You'd better [D]run, better run, faster than[A] my bullet
+
+[Verse]
+[tab][ch]Em[/ch]                    [ch]G[/ch]
+Daddy works a long day[/tab]
+[tab]      [ch]D[/ch]                            [ch]A[/ch]
+He be coming home late, yeah, he's coming home late[/tab]
+[tab]         [ch]Em[/ch]                    [ch]G[/ch]
+And he's bringing me a surprise[/tab]
+[tab]        [ch]D[/ch]                                [ch]A[/ch]
+Because dinner's in the kitchen and it's packed in ice[/tab]
+[tab]     [ch]Em[/ch]                     [ch]G[/ch]
+I've waited for a long time[/tab]
+[tab]          [ch]D[/ch]                          [ch]A[/ch]
+Yeah, the slight of my hand is now a quick pull trigger[/tab]
+[tab]  [ch]Em[/ch]                      [ch]G[/ch]
+I reason with my cigarette[/tab]
+[tab]             [ch]D[/ch]
+And say your hair's on fire[/tab]
+[tab]              [ch]A[/ch]
+You must have lost your wits, yeah[/tab]
+
+
+[Chorus]
+[tab][ch]Em[/ch]                          [ch]G[/ch]
+All the other kids with the pumped up kicks[/tab]
+[tab]             [ch]D[/ch]                [ch]A[/ch]
+You'd better run, better run, outrun my gun[/tab]
+[tab][ch]Em[/ch]                          [ch]G[/ch]
+All the other kids with the pumped up kicks[/tab]
+[tab]             [ch]D[/ch]                [ch]A[/ch]
+You'd better run, better run, faster than my bullet[/tab]
 
 [tab][ch]Em[/ch]                          [ch]G[/ch]
-
 All the other kids with the pumped up kicks[/tab]
-You'd better [D]run, better run, outrun my g[A]un
-[Em]All the other kids with the pumped up k[G]icks
-You'd better [D]run, better run, faster than[A] my bullet
+[tab]             [ch]D[/ch]                [ch]A[/ch]
+You'd better run, better run, outrun my gun[/tab]
+[tab][ch]Em[/ch]                          [ch]G[/ch]
+All the other kids with the pumped up kicks[/tab]
+[tab]             [ch]D[/ch]                [ch]A[/ch]
+You'd better run, better run, faster than my bullet[/tab]

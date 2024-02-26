@@ -1,84 +1,107 @@
-{title: Lemon tree}
-
 Original key is Fm but tuned a bit sharp.
 
-
-
 Except the chords marked *, each chord is preceded by the lowest string of the
-
 chord. Example: the chord Em is played as this: the lowest string (E) is played,
 and the 5 other are played after; the E string, and the 5 others again. As this,
 each chord is played twice! The chords marked ** are played once.
 
-[Chords]
 
-[F#dim7]  xx1212
-[G]       320033
+[Chords]
+[ch]F#dim7[/ch]  xx1212
+[ch]G[/ch]       320033
+
 
 [Intro]
-
-[Am] [Em] [Am] [Em] [Dm] [Em] [Am]  [Em]**  [Am]*
+[ch]Am[/ch] [ch]Em[/ch] [ch]Am[/ch] [ch]Em[/ch] [ch]Dm[/ch] [ch]Em[/ch] [ch]Am[/ch]  [ch]Em[/ch]**  [ch]Am[/ch]*
 
 [Verse 1]
-
-I'm [Am]sitting here in a boring room[Em],
-It's [Am]just another rainy Sunday afternoon.[Em]
-I'm [Am]wasting my time, I got nothing to [Em]do.
-I'm [Am]hanging around, I'm waiting for[Em] you,
-But [Dm]nothing ever happens - a[Em]nd I wonder.[Am][Em][Am]
+[tab]    [ch]Am[/ch]                [ch]Em[/ch]
+I'm sitting here in a boring room,[/tab]
+[tab]     [ch]Am[/ch]                        [ch]Em[/ch]
+It's just another rainy Sunday afternoon.[/tab]
+[tab]    [ch]Am[/ch]                     [ch]Em[/ch]
+I'm wasting my time, I got nothing to do.[/tab]
+[tab]    [ch]Am[/ch]                  [ch]Em[/ch]
+I'm hanging around, I'm waiting for you,[/tab]
+[tab]    [ch]Dm[/ch]           [ch]Em[/ch]              [ch]Am[/ch]       [ch]Em[/ch]**  [ch]Am[/ch]*
+But nothing ever happens - and I wonder.[/tab]
 
 [Verse 2]
-
-I'm [Am]driving around - in my car,[Em]
-I'm [Am]driving too fast, I'm driving too[Em] far.
-I'd [Am]like to change my point of vi[Em]ew
-I [Am]feel so lonely, I'm waiting for[Em] you
-But [Dm]nothing ever happens - a[Em]nd I wonder.[Am][Em][Am]
+[tab]    [ch]Am[/ch]               [ch]Em[/ch]
+I'm driving around - in my car,[/tab]
+[tab]    [ch]Am[/ch]                    [ch]Em[/ch]
+I'm driving too fast, I'm driving too far.[/tab]
+[tab]    [ch]Am[/ch]                [ch]Em[/ch]
+I'd like to change my point of view[/tab]
+[tab]  [ch]Am[/ch]                  [ch]Em[/ch]
+I feel so lonely, I'm waiting for you[/tab]
+[tab]    [ch]Dm[/ch]           [ch]Em[/ch]              [ch]Am[/ch]       [ch]Em[/ch]**  [ch]Am[/ch]*
+But nothing ever happens - and I wonder.[/tab]
 
 [Chorus]
-
-I [C]wonder how, I wonder why[G]
-[Am]Yesterday you told me 'bout the blue blue s[Em]ky
-And [F]all that I can see is just[G] a yellow lemon tree.[C][G7]
-I'm [C]turning my head - up and down[G],
-I'm [Am]turning turning turning turning turning aro[Em]und
-And [F]all that I can see is just[F#dim7] another lemon tree.[G][G7]
+[tab]  [ch]C[/ch]             [ch]G[/ch]
+I wonder how, I wonder why[/tab]
+[tab][ch]Am[/ch]                              [ch]Em[/ch]
+Yesterday you told me 'bout the blue blue sky[/tab]
+[tab]    [ch]F[/ch]              [ch]G[/ch]                    [ch]C[/ch]           [ch]G7[/ch]
+And all that I can see is just a yellow lemon tree.[/tab]
+[tab]    [ch]C[/ch]                 [ch]G[/ch]
+I'm turning my head - up and down,[/tab]
+[tab]    [ch]Am[/ch]                              [ch]Em[/ch]
+I'm turning turning turning turning turning around[/tab]
+[tab]    [ch]F[/ch]              [ch]F#dim7[/ch]              [ch]G[/ch]           [ch]G7[/ch]
+And all that I can see is just another lemon tree.[/tab]
 
 [Interlude]
-
-[Am]Dam     dadoudi[Am]....[Em][Em][Am][Am][Em][Em][Dm][Dm][Em][Em][Am][Em][Am]
+[tab][ch]Am[/ch]  [ch]Am[/ch]  [ch]Em[/ch]  [ch]Em[/ch]  [ch]Am[/ch]  [ch]Am[/ch]  [ch]Em[/ch]  [ch]Em[/ch]  [ch]Dm[/ch]  [ch]Dm[/ch]  [ch]Em[/ch]  [ch]Em[/ch]  [ch]Am[/ch]    [ch]Em[/ch]**  [ch]Am[/ch]*
+Dam     dadoudi....[/tab]
 
 [Verse 3]
-
-I'm [Am]sitting here, I miss the po[Em]wer.
-I'd [Am]like to go out, taking a showe[Em]r,
-But [Am]there's a heavy cloud inside my h[Em]ead.
-I [Am]feel so tired, put myself into b[Em]ed,
-Where [Dm]nothing ever happens - a[Em]nd I wonder.[Am][Em][Am]
+[tab]    [ch]Am[/ch]              [ch]Em[/ch]
+I'm sitting here, I miss the power.[/tab]
+[tab]    [ch]Am[/ch]                 [ch]Em[/ch]
+I'd like to go out, taking a shower,[/tab]
+[tab]    [ch]Am[/ch]                    [ch]Em[/ch]
+But there's a heavy cloud inside my head.[/tab]
+[tab]  [ch]Am[/ch]                   [ch]Em[/ch]
+I feel so tired, put myself into bed,[/tab]
+[tab]      [ch]Dm[/ch]           [ch]Em[/ch]              [ch]Am[/ch]       [ch]Em[/ch]**  [ch]Am[/ch]*
+Where nothing ever happens - and I wonder.[/tab]
 
 [Bridge]
-
-[E]Isolation - Is not good[Am] for me,
-[G]Isolation - I don't wan[C]t to sit on a lemon tree.[E]
+[tab][ch]E[/ch]           [ch]Am[/ch]
+Isolation - Is not good for me,[/tab]
+[tab][ch]G[/ch]           [ch]C[/ch]               [ch]E[/ch]
+Isolation - I don't want to sit on a lemon tree.[/tab]
 
 [Verse 4]
-
-I'm [Am]stepping around in a desert of j[Em]oy
-[Am]Baby, anyhow I'll get another toy[Em]
-And [Dm]everything will happen - an[Em]d you wonder.[Am][Em][Am]
+[tab]    [ch]Am[/ch]                   [ch]Em[/ch]
+I'm stepping around in a desert of joy[/tab]
+[tab][ch]Am[/ch]                    [ch]Em[/ch]
+Baby, anyhow I'll get another toy[/tab]
+[tab]    [ch]Dm[/ch]              [ch]Em[/ch]               [ch]Am[/ch]       [ch]Em[/ch]**  [ch]Am[/ch]*
+And everything will happen - and you wonder.[/tab]
 
 [Chorus]
-
-I [C]wonder how, I wonder why[G]
-[Am]Yesterday you told me 'bout the blue blue s[Em]ky
-And [F]all that I can see is just[G] a yellow lemon tree.[C][G7]
-I'm [C]turning my head - up and down[G],
-I'm [Am]turning turning turning turning turning aro[Em]und
-And [F]all that I can see is just[F#dim7] another lemon tree.[G][G7]
+[tab]  [ch]C[/ch]             [ch]G[/ch]
+I wonder how, I wonder why[/tab]
+[tab][ch]Am[/ch]                              [ch]Em[/ch]
+Yesterday you told me 'bout the blue blue sky[/tab]
+[tab]    [ch]F[/ch]              [ch]G[/ch]                    [ch]C[/ch]           [ch]G7[/ch]
+And all that I can see is just a yellow lemon tree.[/tab]
+[tab]    [ch]C[/ch]                 [ch]G[/ch]
+I'm turning my head - up and down,[/tab]
+[tab]    [ch]Am[/ch]                              [ch]Em[/ch]
+I'm turning turning turning turning turning around[/tab]
+[tab]    [ch]F[/ch]              [ch]F#dim7[/ch]              [ch]G[/ch]           [ch]G7[/ch]
+And all that I can see is just another lemon tree.[/tab]
 
 [Outro]
-
-I [C]wonder how, I wonder why[G]
-[Am]Yesterday you told me 'bout the blue blue s[Em]ky
-And [F]all that I can see, and al[G]l that I can see,[F][G]
-And [F]all that I can see is just[G] a yellow lemon tree.[C]
+[tab]  [ch]C[/ch]             [ch]G[/ch]
+I wonder how, I wonder why[/tab]
+[tab][ch]Am[/ch]                              [ch]Em[/ch]
+Yesterday you told me 'bout the blue blue sky[/tab]
+[tab]    [ch]F[/ch]              [ch]G[/ch]        [ch]F[/ch]              [ch]G[/ch]
+And all that I can see, and all that I can see,[/tab]
+[tab]    [ch]F[/ch]              [ch]G[/ch]                    [ch]C[/ch]
+And all that I can see is just a yellow lemon tree.[/tab]

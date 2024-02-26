@@ -1,12 +1,8 @@
-{title: Unintended}
-
 Muse - Unintended
-
 Taken from the album "Showbiz"
 Transcribed by the Purple Beast (iam@theendoftheearth.co.uk)
 
 [Chords used]
-
 E:     022100
 B7:    x21202
 Am:    x02210
@@ -18,60 +14,71 @@ B7/F#: (2)21202
 (Bass plays F#, you could play that bass note or just a regular B7)
 
 Am/G:    3x2210
-
 Am/F#:   2x2210
 Asus2/F: 1x2200
 Esus4:   022200
 
-[Intro]
 
-[E](Arpeggio pluck [B7]around the chords)
+[Intro]
+[tab][ch]E[/ch]    [ch]B7[/ch]
+(Arpeggio pluck around the chords)[/tab]
 
 [Verse 1] (Arpeggio picking)
-
-[E]You could be my unintended[Am]
-[D]Choice to live my life extend[G]ed
-[C]You could be the one I'll al[B7]ways love[E]
-[E]You could be the one who lis[Am]tens
-[D]To my deepest inquisition[G]s
-[C]You could be the one I'll al[B7]ways love[E]
+[tab][ch]E[/ch]               [ch]Am[/ch]
+You could be my unintended[/tab]
+[tab][ch]D[/ch]                 [ch]G[/ch]
+Choice to live my life extended[/tab]
+[tab][ch]C[/ch]                [ch]B7[/ch]              [ch]E[/ch]
+You could be the one I'll always love[/tab]
+[tab][ch]E[/ch]                [ch]Am[/ch]
+You could be the one who listens[/tab]
+[tab][ch]D[/ch]             [ch]G[/ch]
+To my deepest inquisitions[/tab]
+[tab][ch]C[/ch]                [ch]B7[/ch]              [ch]E[/ch]
+You could be the one I'll always love[/tab]
 
 [Chorus]
-
-[E]I'll be there, as soon as I c[Am]an
-[D]But I'm busy, mending bro[G]ken
-[C]Pieces of, the life I had [B7]before[E]
+[tab][ch]E[/ch]                 [ch]Am[/ch]
+I'll be there, as soon as I can[/tab]
+[tab][ch]D[/ch]             [ch]G[/ch]
+But I'm busy, mending broken[/tab]
+[tab][ch]C[/ch]              [ch]B7[/ch]            [ch]E[/ch]
+Pieces of, the life I had before[/tab]
 
 [Verse 2]
-
-[E]First, there was the one who cha[Am]llenged
-[D]All my dreams and all my bala[G]nce
-[C]She could never be as good [B7]as you[E]
-[E]You could be my unintended[Am]
-[D]Choice to live my life extend[G]ed
-[C]You should be the one I'll al[B7]ways love[E]
+[tab][ch]E[/ch]                    [ch]Am[/ch]
+First, there was the one who challenged[/tab]
+[tab][ch]D[/ch]                 [ch]G[/ch]
+All my dreams and all my balance[/tab]
+[tab][ch]C[/ch]               [ch]B7[/ch]             [ch]E[/ch]
+She could never be as good as you[/tab]
+[tab][ch]E[/ch]               [ch]Am[/ch]
+You could be my unintended[/tab]
+[tab][ch]D[/ch]                 [ch]G[/ch]
+Choice to live my life extended[/tab]
+[tab][ch]C[/ch]                 [ch]B7[/ch]               [ch]E[/ch]
+You should be the one I'll always love[/tab]
 
 [Link]
-
-[Em/G]  [B7/F#]
+[ch]Em/G[/ch]  [ch]B7/F#[/ch]
 
 [Chorus]
-
-[E]I'll be there, as soon as I c[Am]an
-[D]But I'm busy, mending all[G] the
-[C]Pieces of, the life I had [B7]before[E]
+[tab][ch]E[/ch]                 [ch]Am[/ch]
+I'll be there, as soon as I can[/tab]
+[tab][ch]D[/ch]             [ch]G[/ch]
+But I'm busy, mending all the[/tab]
+[tab][ch]C[/ch]              [ch]B7[/ch]            [ch]E[/ch]
+Pieces of, the life I had before[/tab]
 
 [tab][ch]E[/ch]                 [ch]Am[/ch]
-
 I'll be there, as soon as I can[/tab]
-[D]But I'm busy, mending bro[G]ken
-[C]Pieces of, the life I had [B7]before[E]
+[tab][ch]D[/ch]             [ch]G[/ch]
+But I'm busy, mending broken[/tab]
+[tab][ch]C[/ch]              [ch]B7[/ch]            [ch]E[/ch]
+Pieces of, the life I had before[/tab]
 
 Before you
 
-
-
 [Outro]
-
-[Am]  [Am/G]  [Am/F#]  [Asus2/F]
-[Esus4]     [E]
+[ch]Am[/ch]  [ch]Am/G[/ch]  [ch]Am/F#[/ch]  [ch]Asus2/F[/ch]
+[ch]Esus4[/ch]     [ch]E[/ch]

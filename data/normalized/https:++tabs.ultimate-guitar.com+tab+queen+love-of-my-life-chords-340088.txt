@@ -1,46 +1,54 @@
-{title: Love of my life}
-
-{capo: 3}
-
 Capo: 3rd fret
-
 For original chords transpose +3 to F
 
 [Intro]
-
-[D]   [Bm]   [Em]   [A]       
-[D]   [Bm]   [G]  [D]  [E]
+[ch]D[/ch]   [ch]Bm[/ch]   [ch]Em[/ch]   [ch]A[/ch]       
+[ch]D[/ch]   [ch]Bm[/ch]   [ch]G[/ch]  [ch]D[/ch]  [ch]E[/ch]
 
 [Verse 1]
-
-[A]Love of my life - you've hurt me,[F#m]
-You've [Bm]broken my heart and now you lea[E]ve me.[E7]
-[A]Love of my life can't [A7]you see?[D]
-Bring it [Bm]back, bring it back,[F#m]
-Don't [G]take it away from me[D], because you don't know, [G]what it means to [D]me.[Bm][Em][A][D]
+[tab][ch]A[/ch]                        [ch]F#m[/ch]
+Love of my life - you've hurt me,[/tab]
+[tab]       [ch]Bm[/ch]                  [ch]E[/ch]         [ch]E7[/ch]
+You've broken my heart and now you leave me.[/tab]
+[tab][ch]A[/ch]          [ch]A7[/ch]             [ch]D[/ch]
+Love of my life can't you see?[/tab]
+[tab]         [ch]Bm[/ch]             [ch]F#m[/ch]
+Bring it back, bring it back,[/tab]
+[tab]      [ch]G[/ch]        [ch]D[/ch]              [ch]G[/ch]     [ch]D[/ch]   [ch]Bm[/ch]    [ch]Em[/ch]    [ch]A[/ch]                [ch]D[/ch]         
+Don't take it away from me, because you don't know, what it means to me.[/tab]
 
 [Verse 2]
-
-[A]Love of my life don't leave me,[F#m]
-You've [Bm]taken my love, and now desert [E]me,[E7]
-[A]Love of my life can't [A7]you see,[D]
-Bring it [Bm]back, bring it back,[F#m]
-Don't [G]take it away from me[D] because you don't know -[G] what it means to[D] me.[Bm][Em][A][D]
+[tab][ch]A[/ch]                     [ch]F#m[/ch]
+Love of my life don't leave me,[/tab]
+[tab]       [ch]Bm[/ch]                 [ch]E[/ch]     [ch]E7[/ch]
+You've taken my love, and now desert me,[/tab]
+[tab][ch]A[/ch]          [ch]A7[/ch]             [ch]D[/ch]
+Love of my life can't you see,[/tab]
+[tab]         [ch]Bm[/ch]             [ch]F#m[/ch]
+Bring it back, bring it back,[/tab]
+[tab]      [ch]G[/ch]        [ch]D[/ch]             [ch]G[/ch]     [ch]D[/ch]   [ch]Bm[/ch]    [ch]Em[/ch]     [ch]A[/ch]                [ch]D[/ch]   
+Don't take it away from me because you don't know - what it means to me.[/tab]
 
 [Verse 3]
-
-[Bm]You will remember - When this is blo[F#m]wn over
-And [G]everything's all by the way -[D][F#]
-[Bm]When I grow older I will be t[F#m]here at your side to remind you[B][Cdim][B]
-How [Em]I still love you - still lov[A]e you.[D]
+[tab][ch]Bm[/ch]                       [ch]F#m[/ch]
+You will remember - When this is blown over[/tab]
+[tab]    [ch]G[/ch]                       [ch]D[/ch]      [ch]F#[/ch]
+And everything's all by the way -[/tab]
+[tab][ch]Bm[/ch]                [ch]F#m[/ch]                     [ch]B[/ch]        [ch]Cdim[/ch]  [ch]B[/ch]
+When I grow older I will be there at your side to remind you[/tab]
+[tab]    [ch]Em[/ch]               [ch]A[/ch]            [ch]D[/ch]
+How I still love you - still love you.[/tab]
 
 [Verse 4]
-
-Hurry [Bm]back - hurry back,[F#m]
-Please[G] bring it back home to me[D],
-be[G]cause you don't k[D]now what it mea[Bm]ns to me - [Em][A][D]
+[tab]      [ch]Bm[/ch]           [ch]F#m[/ch]
+Hurry back - hurry back,[/tab]
+[tab]      [ch]G[/ch]             [ch]D[/ch]
+Please bring it back home to me,[/tab]
+[tab]  [ch]G[/ch]     [ch]D[/ch]   [ch]Bm[/ch]    [ch]Em[/ch]   [ch]A[/ch]                [ch]D[/ch]       
+because you don't know what it means to me - [/tab]
 
 [Outro]
-
-[Bm]Love of my life
-[F#m]Love of my life ...[Em][Gm][D]
+[tab][ch]Bm[/ch]       
+Love of my life[/tab]
+[tab][ch]F#m[/ch]                 [ch]Em[/ch]  [ch]Gm[/ch]  [ch]D[/ch]
+Love of my life ...[/tab]

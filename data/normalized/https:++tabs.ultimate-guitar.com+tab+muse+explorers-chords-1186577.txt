@@ -1,131 +1,131 @@
-{title: Explorers}
-
 [Intro]
+[ch]C[/ch] [ch]Cdim7[/ch] [ch]Ddim7[/ch]
 
-[C] [Cdim7] [Ddim7]
 
 [Verse 1]
 
-
-
 [tab][ch]C[/ch]               [ch]C7[/ch]               [ch]F[/ch]
-
 Once I hoped to seek the new and unknown.[/tab]
-This [Fm]planet's overrun.[C]
-There's [D/F#]nothing left for you or for [Fm]me.[C]
-[F7]Don't give in.[Fm7]
-[F]We can walk[G][C]
+[tab]     [ch]Fm[/ch]           [ch]C[/ch]
+This planet's overrun.[/tab]
+[tab]        [ch]D/F#[/ch]             [ch]Fm[/ch]         [ch]C[/ch]
+There's nothing left for you or for me.[/tab]
+[tab][ch]F7[/ch]         [ch]Fm7[/ch]
+Don't give in.[/tab]
+[tab][ch]F[/ch]  [ch]G[/ch]   [ch]C[/ch]
+We can walk[/tab]
 
 [tab][ch]C[/ch]
-
 Through the fields.[/tab]
-And [C7]feeling nature's glow.[F]
-But [Fm]all the land is owned.[C]
-There's [D/F#]none left for you or for [Fm]me.[C]
-[F7]Who will win? cause [Fm7]I concede.[F][G][C]
+[tab]    [ch]C7[/ch]               [ch]F[/ch]
+And feeling nature's glow.[/tab]
+[tab]    [ch]Fm[/ch]              [ch]C[/ch]
+But all the land is owned.[/tab]
+[tab]        [ch]D/F#[/ch]          [ch]Fm[/ch]         [ch]C[/ch]
+There's none left for you or for me.[/tab]
+[tab][ch]F7[/ch]       [ch]Fm7[/ch]        [ch]F[/ch] [ch]G[/ch]  [ch]C[/ch]
+Who will win? cause I concede.[/tab]
+
 
 [Chorus]
 
-
-
 [tab][ch]C[/ch]       [ch]Am[/ch]      [ch]Em[/ch]                [ch]F[/ch]
-
 Free me free me free me from this world.[/tab]
-I don't be[Dm]long here it was a mista[G]ke imprisoning my soul.[E7/G#][Am]
-Can you [F/A]free me free me fro[G/B]m this world?[C]
+[tab]          [ch]Dm[/ch]           [ch]G[/ch]               [ch]E7/G#[/ch]        [ch]Am[/ch]
+I don't belong here it was a mistake imprisoning my soul.[/tab]
+[tab]        [ch]F/A[/ch]     [ch]G/B[/ch]               [ch]C[/ch]
+Can you free me free me from this world?[/tab]
+
 
 ["Interlude"]
+[ch]C[/ch] [ch]Cdim7[/ch] [ch]Ddim7[/ch]
 
-[C] [Cdim7] [Ddim7]
 
 [Verse 2]
 
-
-
 [tab][ch]C[/ch]
-
 A world lush in bloom.[/tab]
-With [C7]rivers running wild.[F]
-They'll [Fm/Ab]be re-routed South.[C]
-[D/F#]With none left for you or for [Fm/Ab]me.[C]
-[F7]Don't give in and hear[Fm7] the.[F][G]
+[tab]     [ch]C7[/ch]             [ch]F[/ch]
+With rivers running wild.[/tab]
+[tab]        [ch]Fm/Ab[/ch]        [ch]C[/ch]
+They'll be re-routed South.[/tab]
+[tab][ch]D/F#[/ch]               [ch]Fm/Ab[/ch]      [ch]C[/ch]
+With none left for you or for me.[/tab]
+[tab][ch]F7[/ch]         [ch]Fm7[/ch]    [ch]F[/ch]    [ch]G[/ch]
+Don't give in and hear the.[/tab]
 
 [tab][ch]C[/ch]                [ch]C7[/ch]                  [ch]F[/ch]
-
 Engines roar and save our crops from drought.[/tab]
-But [Fm/Ab]when the black gold's in doubt.[C]
-There's [D/F#]none left for you or for [Fm/Ab]me.[C]
-[F7]Fuse helium-3.[Fm7]
-[F]Our last hope.[G][C]
+[tab]    [ch]Fm/Ab[/ch]                    [ch]C[/ch]
+But when the black gold's in doubt.[/tab]
+[tab]        [ch]D/F#[/ch]          [ch]Fm/Ab[/ch]      [ch]C[/ch]
+There's none left for you or for me.[/tab]
+[tab][ch]F7[/ch]      [ch]Fm7[/ch]
+Fuse helium-3.[/tab]
+[tab][ch]F[/ch]   [ch]G[/ch]    [ch]C[/ch]
+Our last hope.[/tab]
 
 [tab][ch]C[/ch]               [ch]Am[/ch]      [ch]Em[/ch]                [ch]F[/ch]
-
 And free me and free me free me from this world.[/tab]
-We don't be[Dm]long here.
-It [G]was a mistake imprisoning o[E7/G#]ur souls.[Am]
-Can you [F/A]free me and free me fro[G/B]m this world?[Am]
+[tab]           [ch]Dm[/ch]
+We don't belong here.[/tab]
+[tab]   [ch]G[/ch]               [ch]E7/G#[/ch]         [ch]Am[/ch]
+It was a mistake imprisoning our souls.[/tab]
+[tab]        [ch]F/A[/ch]         [ch]G/B[/ch]               [ch]Am[/ch]
+Can you free me and free me from this world?[/tab]
+
 
 [Instrumental]
-
-
 
 [ch]Dm[/ch] [ch]G[/ch] [ch]C[/ch] [ch]F[/ch] [ch]A[/ch] [ch]Dm[/ch] [ch]Bb[/ch] [ch]C[/ch] [ch]A[/ch]
 
 
-
 [Chorus]
 
-
-
 [tab][ch]D[/ch]
-
 Free me[/tab]
-[Bm]I'll free you
-[F#m]Free us from this world.[G]
-We don't be[Em]long here.
-It [A]was a mistake imprisoning o[F#7/A#]ur souls.[Bm]
-Can you [G]free me and free me fro[A]m this world?[D]
+[tab][ch]Bm[/ch]
+I'll free you[/tab]
+[tab][ch]F#m[/ch]               [ch]G[/ch]
+Free us from this world.[/tab]
+[tab]           [ch]Em[/ch]
+We don't belong here.[/tab]
+[tab]   [ch]A[/ch]               [ch]F#7/A#[/ch]        [ch]Bm[/ch]
+It was a mistake imprisoning our souls.[/tab]
+[tab]        [ch]G[/ch]           [ch]A[/ch]                 [ch]D[/ch]
+Can you free me and free me from this world?[/tab]
+
 
 [Backing Vocals chorus)
 
-
-
 [tab][ch]D[/ch]
-
 (Free me)[/tab]
 
 [tab][ch]Bm[/ch]
-
 (Free me) [/tab]
 
 [tab][ch]F#m[/ch]                [ch]G[/ch]
-
 (Free me from this world) [/tab]
+
 
 [Chorus]
 
-
-
 [tab][ch]Em[/ch]                       [ch]A[/ch]        
-
 Running around in        circles feeling[/tab]
 (I don't belong here, it was a mistake im-)
-[F#7/A#]Caged by endless rules[Bm]
+[tab][ch]F#7/A#[/ch]           [ch]Bm[/ch]   
+Caged by endless rules[/tab]
 (-prisoning  our  souls)
-Can you [G/B]free me, free me fro[A/C#]m this world?[D]
+[tab]        [ch]G/B[/ch]      [ch]A/C#[/ch]              [ch]D[/ch]
+Can you free me, free me from this world?[/tab]
+
 
 [Outro] 
 
-
-
 [ch]D[/ch] [ch]D7[/ch] [ch]G[/ch] [ch]Gm[/ch] [ch]D[/ch] [ch]E/G#[/ch] 
 
-
-
 [tab][ch]Em[/ch] [ch]D[/ch] [ch]E7[/ch] [ch]Em7[/ch] 
-
         Go to [/tab]
 
 [tab][ch]D[/ch]
-
 Sleep[/tab]

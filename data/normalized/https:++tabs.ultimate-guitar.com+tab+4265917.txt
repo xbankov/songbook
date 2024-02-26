@@ -1,0 +1,55 @@
+G* - can play a single note fill, G F# E
+G** - shorten to G F# before the A chord
+
+[Intro]
+[ch]D[/ch] [ch]A[/ch] [ch]Bm[/ch] [ch]Em[/ch] [ch]A[/ch]    x2
+
+[Verse 1]
+[tab][ch]D[/ch]     [ch]A[/ch]     [ch]Bm[/ch]       [ch]Em[/ch]       [ch]A[/ch]
+Minne mennä voin kun tiedä mä en[/tab]
+[tab]       [ch]D[/ch]      [ch]A[/ch]     [ch]Bm[/ch]         [ch]Em[/ch]    [ch]A[/ch]
+Mistä löytää oikean väärän tai rakkauden[/tab]
+
+[Chorus]
+[tab]       [ch]Bm[/ch]           [ch]F#m[/ch]         [ch]G[/ch]       [ch]Em[/ch]                       [ch]A[/ch]
+Mullon kartta väärinpäin ja sen alla on jalat joihin luulin että luottaa mä voin[/tab]
+[tab]    [ch]Bm[/ch]            [ch]F#m[/ch]       [ch]G[/ch]          [ch]Em[/ch]                     [ch]A[/ch]
+Nyt menee mäntyjä päin eikä kerran tai kaksi vaan niin etten lasketuksi saa[/tab]
+
+[ch]Em[/ch]  [ch]A[/ch]
+
+[Verse 2]
+[tab]     [ch]D[/ch]        [ch]A[/ch]          [ch]Bm[/ch]         [ch]Em[/ch]        [ch]A[/ch]
+Kuka kirjaili kaiken tän niin etten kiinni mä saa[/tab]
+[tab][ch]D[/ch]       [ch]A[/ch]      [ch]Bm[/ch]         [ch]Em[/ch]      [ch]A[/ch]
+Uidakko mukana virran vai pois vaeltaa[/tab]
+
+[Chorus]
+[tab]       [ch]Bm[/ch]           [ch]F#m[/ch]         [ch]G[/ch]    [ch]Em[/ch]                       [ch]A[/ch]
+Mullon kartta väärinpäin ja sen alla jalat joihin luulin että luottaa mä voin[/tab]
+[tab]    [ch]Bm[/ch]            [ch]F#m[/ch]       [ch]G[/ch]          [ch]Em[/ch]                    [ch]A[/ch]
+Nyt menee mäntyjä päin eikä kerran tai kaksi vaan niin etten lasketuksi saa[/tab]
+
+[Interlude]
+[ch]D[/ch] [ch]A[/ch] [ch]Bm[/ch] [ch]Em[/ch] [ch]A[/ch]    x2
+
+[Verse 3]
+[tab][ch]D[/ch]     [ch]A[/ch]     [ch]Bm[/ch]       [ch]Em[/ch]       [ch]A[/ch]
+Minne mennä voin kun tiedä mä en[/tab]
+[tab]       [ch]D[/ch]      [ch]A[/ch]     [ch]Bm[/ch]          [ch]Em[/ch]    [ch]A[/ch]
+Mistä löytää oikean väärän tai rakkauden[/tab]
+
+[Chorus]
+[tab]       [ch]Bm[/ch]           [ch]F#m[/ch]         [ch]G[/ch]       [ch]Em[/ch]                       [ch]A[/ch]
+Mullon kartta väärinpäin ja sen alla on jalat joihin luulin että luottaa mä voin[/tab]
+[tab]    [ch]Bm[/ch]            [ch]F#m[/ch]       [ch]G[/ch]          [ch]Em[/ch]                     [ch]A[/ch]
+Nyt menee mäntyjä päin eikä kerran tai kaksi vaan niin etten lasketuksi saa[/tab]
+
+[tab][ch]Bm[/ch]           [ch]F#m[/ch]         [ch]G[/ch]       [ch]Em[/ch]                       [ch]A[/ch]
+Kartta väärinpäin ja sen alla on jalat joihin luulin että luottaa mä voin[/tab]
+[tab]    [ch]Bm[/ch]            [ch]F#m[/ch]       [ch]G[/ch]          [ch]Em[/ch]                     [ch]A[/ch]
+Nyt menee mäntyjä päin eikä kerran tai kaksi vaan niin etten lasketuksi saa[/tab]
+
+[Outro]
+[ch]Bm[/ch] [ch]F#m[/ch] [ch]Em[/ch] [ch]G[/ch]* x3
+[ch]Bm[/ch] [ch]F#m[/ch] [ch]Em[/ch] [ch]G[/ch]** [ch]A[/ch] [ch]D[/ch]

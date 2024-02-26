@@ -12,3 +12,4 @@ FORCE = {
     "NORMALIZE": True,
 }
 SLEEP = 2
+SUPPORTED = ["supermusic", "ultimate-guitar"]
