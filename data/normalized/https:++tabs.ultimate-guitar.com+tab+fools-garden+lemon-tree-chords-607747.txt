@@ -1,0 +1,84 @@
+{title: Lemon tree}
+
+Original key is Fm but tuned a bit sharp.
+
+
+
+Except the chords marked *, each chord is preceded by the lowest string of the
+
+chord. Example: the chord Em is played as this: the lowest string (E) is played,
+and the 5 other are played after; the E string, and the 5 others again. As this,
+each chord is played twice! The chords marked ** are played once.
+
+[Chords]
+
+[F#dim7]  xx1212
+[G]       320033
+
+[Intro]
+
+[Am] [Em] [Am] [Em] [Dm] [Em] [Am]  [Em]**  [Am]*
+
+[Verse 1]
+
+I'm [Am]sitting here in a boring room[Em],
+It's [Am]just another rainy Sunday afternoon.[Em]
+I'm [Am]wasting my time, I got nothing to [Em]do.
+I'm [Am]hanging around, I'm waiting for[Em] you,
+But [Dm]nothing ever happens - a[Em]nd I wonder.[Am][Em][Am]
+
+[Verse 2]
+
+I'm [Am]driving around - in my car,[Em]
+I'm [Am]driving too fast, I'm driving too[Em] far.
+I'd [Am]like to change my point of vi[Em]ew
+I [Am]feel so lonely, I'm waiting for[Em] you
+But [Dm]nothing ever happens - a[Em]nd I wonder.[Am][Em][Am]
+
+[Chorus]
+
+I [C]wonder how, I wonder why[G]
+[Am]Yesterday you told me 'bout the blue blue s[Em]ky
+And [F]all that I can see is just[G] a yellow lemon tree.[C][G7]
+I'm [C]turning my head - up and down[G],
+I'm [Am]turning turning turning turning turning aro[Em]und
+And [F]all that I can see is just[F#dim7] another lemon tree.[G][G7]
+
+[Interlude]
+
+[Am]Dam     dadoudi[Am]....[Em][Em][Am][Am][Em][Em][Dm][Dm][Em][Em][Am][Em][Am]
+
+[Verse 3]
+
+I'm [Am]sitting here, I miss the po[Em]wer.
+I'd [Am]like to go out, taking a showe[Em]r,
+But [Am]there's a heavy cloud inside my h[Em]ead.
+I [Am]feel so tired, put myself into b[Em]ed,
+Where [Dm]nothing ever happens - a[Em]nd I wonder.[Am][Em][Am]
+
+[Bridge]
+
+[E]Isolation - Is not good[Am] for me,
+[G]Isolation - I don't wan[C]t to sit on a lemon tree.[E]
+
+[Verse 4]
+
+I'm [Am]stepping around in a desert of j[Em]oy
+[Am]Baby, anyhow I'll get another toy[Em]
+And [Dm]everything will happen - an[Em]d you wonder.[Am][Em][Am]
+
+[Chorus]
+
+I [C]wonder how, I wonder why[G]
+[Am]Yesterday you told me 'bout the blue blue s[Em]ky
+And [F]all that I can see is just[G] a yellow lemon tree.[C][G7]
+I'm [C]turning my head - up and down[G],
+I'm [Am]turning turning turning turning turning aro[Em]und
+And [F]all that I can see is just[F#dim7] another lemon tree.[G][G7]
+
+[Outro]
+
+I [C]wonder how, I wonder why[G]
+[Am]Yesterday you told me 'bout the blue blue s[Em]ky
+And [F]all that I can see, and al[G]l that I can see,[F][G]
+And [F]all that I can see is just[G] a yellow lemon tree.[C]

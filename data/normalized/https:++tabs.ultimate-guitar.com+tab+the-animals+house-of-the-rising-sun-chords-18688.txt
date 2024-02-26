@@ -1,0 +1,66 @@
+{title: House of the rising sun}
+
+In the Animals' recording the organ often plays 7th chords, 
+
+when the guitar does not.
+
+[Intro]
+
+| [ch]Am[/ch] | [ch]C[/ch] | [ch]D[/ch] | [ch]F[/ch] |
+| [ch]Am[/ch] | [ch]E[/ch] | [ch]Am[/ch] | [ch]E[/ch] |
+
+[Verse 1] 
+
+There [Am]is a house in Ne[C]w Orleans[D][F]
+They [Am]call the "Rising Sun"[C][E][E]
+And it's [Am]been the ruin of man[C]y a poor boy[D][F]
+And [Am]God, I know, I'm o[E]ne               (orga[Am]n plays E7)[C][D][F][Am][E][Am][E]
+
+[Verse 2]
+
+My [Am]mother was a tailo[C]r (organ: F7)[D][F]
+She [Am]sewed my new blue je[C]ans (organ: E7)[E][E]
+My [Am]father was a gambl[C]ing man[D][F]
+[Am]Down in New Orleans[E].            (orga[Am]n plays E7)[C][D][F][Am][E][Am][E]
+
+[Verse 3]
+
+Now the [Am]only thing a gam[C]bler needs (organ: [D]F7)[F]
+Is a [Am]suitcase and a trunk[C] (organ: E7)[E][E]
+And the [Am]only time, he's [C]satisfied,[D][F]
+Is [Am]when he's on a drunk [E]             (orga[Am]n plays E7)[C][D][F][Am][E][Am][E]
+
+[Organ Solo]
+
+| [ch]Am[/ch] | [ch]C[/ch] | [ch]D[/ch] | [ch]F[/ch] |
+| [ch]Am[/ch] | [ch]C[/ch] | [ch]E[/ch] | % |
+| [ch]Am[/ch] | [ch]C[/ch] | [ch]D[/ch] | [ch]F[/ch] |
+| [ch]Am[/ch] | [ch]E[/ch] |
+| [ch]Am[/ch] | [ch]C/E[/ch] | [ch]D[/ch] | [ch]F[/ch] |
+| [ch]Am[/ch] | [ch]E[/ch] | [ch]Am[/ch] | [ch]E[/ch] |
+
+[Verse 4]
+
+Oh, [Am]mother, tell your [C]children (organ: F7)[D][F]
+Not to [Am]do what I have done[C] (organ: E7)[E][E]
+[Am]Spend your lives in si[C]n and misery[D][F]
+In the [Am]House of Rising Sun [E]             (organ[Am] plays E7)[C][D][F][Am][E][Am][E]
+
+[Verse 5]
+
+Well, I got [Am]one foot on the plat[C]form (organ plays [D]F7)[F]
+The [Am]other foot on the trai[C]n (organ: E7)[E][E]
+I'm [Am]going back to New[C] Orleans (organ: F7[D])[F]
+To [Am]wear that ball and ch[E]ain             (orga[Am]n plays E7#9)[C][D][F][Am][E][Am][E]
+
+[Verse 6]
+
+Well, there [Am]is a house in Ne[C]w Orleans (organ: F7[D])[F]
+They [Am]call the "Rising Sun"[C] (organ: E7)[E][E]
+And it's [Am]been the ruin of man[C]y a poor boy[D][F]
+And [Am]God, I know, I'm o[E7]ne[Am][C][D][F7][Am][E7]
+
+[Coda]
+
+(a[Am] tempo)[Dm][Am][Dm][Am][Dm]
+  [Am] (ritardando)   [Dm]  (organ plays A[Am]m9; guitar equiv[Dm]alent: x-0-5-5-5[Am]-7)
