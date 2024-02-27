@@ -1,10 +1,14 @@
+{title: Bohemian rhapsody}
+
 Artist: Queen
+
 Song: Bohemian Rhapsody
 Album: A Night At The Opera (1975)
 Provided By Ben Brown
 Capo 3
 
 This is meant to be a simpler way to play a highly complex song.  Not all the chords may sound 100%
+
 true to the record, but that was not my goal in this tab.  Some of the chords may look more difficult 
 at first for beginners, but most of them are actually a lot easier to play than they look.  Authors, please 
 refrain from complexifying any part of the song if you can help it.  I'm 100% open to changes but want to 
@@ -14,87 +18,61 @@ and I hope you enjoy!
 [Intro]
 
 [tab][ch]Em7[/ch]
-Is this the real life[/tab]
-[tab][ch]A7[/ch]
-Is this just fantasy[/tab]
-[tab][ch]D7[/ch]          [ch]Am7[/ch] [ch]D7[/ch]
-Caught in a landslide[/tab]
-[tab]    [ch]G[/ch]
-No escape from reality[/tab]
-[tab][ch]Em[/ch]
-Open your eyes[/tab]
-[tab]     [ch]G7[/ch]                   [ch]C[/ch]
-Look up to the skies and see[/tab]
-[tab][ch]Am[/ch]                   [ch]D7[/ch]
-I'm just a poor boy, I need no sympathy[/tab]
-[tab]            [ch]G#[/ch]   [ch]G[/ch]     [ch]F#[/ch]   [ch]G[/ch]
-Because I'm easy come, easy go,[/tab]
-[tab][ch]G#[/ch]     [ch]G[/ch]     [ch]F#[/ch]     [ch]G[/ch]
-little high, little low,[/tab]
-[tab][ch]C[/ch]           [ch]G/B[/ch]         [ch]Bbdim7[/ch]         [ch]D7/A[/ch]
-Any way the wind blows, doesn't really matter to me,[/tab]
-[tab]   [ch]G[/ch]
-To me[/tab]
 
+Is this the real life[/tab]
+[A7]Is this just fantasy
+[D7]Caught in a [Am7]lan[D7]dslide
+No e[G]scape from reality
+[Em]Open your eyes
+Look [G7]up to the skies and s[C]ee
+[Am]I'm just a poor boy, [D7]I need no sympathy
+Because I'm [G#]easy [G]come, e[F#]asy g[G]o,
+[G#]little [G]high, l[F#]ittle l[G]ow,
+[C]Any way the w[G/B]ind blows, [Bbdim7]doesn't rea[D7/A]lly matter to me,
+To [G]me
 
 [Verse]
 
 [tab][ch]G[/ch]          [ch]Em[/ch]
+
 Mama, just killed a man,[/tab]
-[tab]      [ch]Am[/ch]
-Put a gun against his head,[/tab]
-[tab]          [ch]Am[/ch]                 [ch]D[/ch]
-Pulled my trigger, now he's dead,[/tab]
-[tab][ch]G[/ch]              [ch]Em[/ch]
-Mama, life had just begun,[/tab]
-[tab]    [ch]Am[/ch]                [ch]Am/G#[/ch]     [ch]Am/G[/ch] [ch]Am/F#[/ch]   [ch]Am/F[/ch] [ch]Am/E[/ch]
-But now I've gone and thrown it all  away[/tab]
-[tab][ch]C[/ch]    [ch]G[/ch] [ch]Am[/ch]
-Mama ooooh,[/tab]
-[tab]       [ch]Dm[/ch]
-Didn't mean to make you cry[/tab]
-[tab]   [ch]G[/ch]                               [ch]C[/ch]
-If I'm not back again this time tomorrow[/tab]
-[tab]      [ch]G[/ch]         [ch]Am[/ch]        [ch]Fm[/ch]                [ch]C[/ch]
-Carry on, carry on, as if nothing really matters[/tab]
+Put a [Am]gun against his head,
+Pulled my [Am]trigger, now he's d[D]ead,
+[G]Mama, life had j[Em]ust begun,
+But [Am]now I've gone and [Am/G#]thrown [Am/G]it [Am/F#]all  [Am/F]awa[Am/E]y
+[C]Mama o[G]ooo[Am]h,
+Didn't [Dm]mean to make you cry
+If [G]I'm not back again this time tomo[C]rrow
+Carry [G]on, carry o[Am]n, as if n[Fm]othing really matt[C]ers
 
 [ch]G[/ch]
-
 
 [Verse]
 
 [tab][ch]G[/ch]            [ch]Em[/ch]
-Too late, my time has come,[/tab]
-[tab]      [ch]Am[/ch]
-Sends shivers down my spine[/tab]
-[tab]       [ch]Am[/ch]               [ch]D[/ch]
-Body's aching all the time,[/tab]
-[tab][ch]G[/ch]                        [ch]Em[/ch]
-Goodbye everybody - I've got to go[/tab]
-[tab]      [ch]Am[/ch]              [ch]Am/G#[/ch]    [ch]Am/G[/ch] [ch]Am/F#[/ch]    [ch]Am/F[/ch] [ch]Am/E[/ch]
-Gotta leave you all behind and face   the truth[/tab]
-[tab][ch]C[/ch]    [ch]G[/ch] [ch]Am[/ch]
-Mama ooooh (any way the wind blows)[/tab]
-[tab][ch]Dm[/ch]
-I don't want to die,[/tab]
-[tab]  [ch]G[/ch]                                      [ch]C[/ch]
-I sometimes wish I'd never been born at all[/tab]
 
+Too late, my time has come,[/tab]
+Sends [Am]shivers down my spine
+Body's [Am]aching all the ti[D]me,
+[G]Goodbye everybody - I've g[Em]ot to go
+Gotta [Am]leave you all be[Am/G#]hind a[Am/G]nd [Am/F#]face  [Am/F] th[Am/E]e truth
+[C]Mama o[G]ooo[Am]h (any way the wind blows)
+[Dm]I don't want to die,
+I [G]sometimes wish I'd never been born at al[C]l
 
 [Solo]
 
 | [ch]C[/ch] [ch]G[/ch] | [ch]Am[/ch]  | [ch]Dm[/ch]  | [ch]G[/ch]   |
-| [ch]C[/ch] [ch]G[/ch] | [ch]Am[/ch]  | [ch]Dm[/ch]  | [ch]Bb[/ch]  [ch]Bb[/ch] [ch]A[/ch] [ch]G#[/ch] [ch]G[/ch] | [ch]F#[/ch]   |
 
+| [C] [G] | [Am]  | [Dm]  | [Bb]  [Bb] [A] [G#] [G] | [F#]   |
 
 [Interlude 1]
 
 [tab][ch]B[/ch] [ch]F#[/ch]    [ch]F[/ch]      [ch]F#[/ch]    [ch]B[/ch]    [ch]F#[/ch]   [ch]F[/ch]
+
 I see a little silhouetto of a man,[/tab]
-[tab][ch]F#[/ch]   [ch]B[/ch]       [ch]F#[/ch]   [ch]B[/ch]       [ch]F#[/ch]       [ch]F[/ch]      [ch]F#[/ch] [ch]B[/ch]  [ch]F#[/ch]
-Scaramouche, scaramouche, will you do the Fandango[/tab]
-[tab][ch]A#[/ch]              [ch]F[/ch]          [ch]A[/ch]         [ch]C#[/ch]          [ch]F#[/ch]
-Thunderbolt and lightning, very very frightening me[/tab]
+[F#]Scara[B]mouche, s[F#]caram[B]ouche, wi[F#]ll you do[F] the Fan[F#]dan[B]go[F#]
+[A#]Thunderbolt and [F]lightning, v[A]ery very fr[C#]ightening me[F#]
 N.C.
 Galileo, Galileo
 N.C.
@@ -103,72 +81,58 @@ N.C.
 Galileo, Figaro - Magnifico
 
 [tab][ch]G#[/ch]  [ch]G[/ch]      [ch]F#[/ch]   [ch]G[/ch]    [ch]G#[/ch] [ch]G[/ch]    [ch]F#[/ch]    [ch]G[/ch]
-I'm just a poor boy, no-body loves me.[/tab]
-[tab][ch]F[/ch]    [ch]C[/ch]      [ch]Cdim[/ch] [ch]C[/ch]   [ch]F[/ch]      [ch]C[/ch]    [ch]Cdim[/ch] [ch]C[/ch]
-He's just a poor boy from a poor fami-ly.[/tab]
-[tab][ch]F[/ch]             [ch]C/E[/ch]            [ch]D[/ch]        [ch]G[/ch]    [ch]F[/ch]  [ch]C/E[/ch]  [ch]D#dim[/ch]  [ch]Dm7[/ch]
-Spare him his life from this monstrosity.[/tab]
-[tab][ch]G#[/ch]   [ch]G[/ch]     [ch]F#[/ch]   [ch]G[/ch]   [ch]G#[/ch]       [ch]G[/ch]      [ch]F#[/ch]   [ch]G[/ch]  [ch]C[/ch]  [ch]G[/ch]
-Easy come, easy go, will you let me go?  Bismillah![/tab]
-[tab][ch]C[/ch]      [ch]G[/ch]                     [ch]G[/ch]  [ch]C[/ch]  [ch]G[/ch]
-No, we will not let you go.  Bismillah![/tab]
-[tab][ch]G[/ch]                        [ch]G[/ch]  [ch]C[/ch]  [ch]G[/ch]     [ch]G[/ch]
-We will not let you go.  Bismillah!  We will not let you go.[/tab]
-[tab][ch]G[/ch]                     [ch]G[/ch]                         [ch]D#7[/ch]
-Will not let you go.  Will not let you go. Ahhhhhhhhh[/tab]
-[tab][ch]G#m[/ch] [ch]F#[/ch]  [ch]B[/ch]   [ch]A#[/ch]  [ch]D#[/ch]  [ch]G[/ch]   [ch]C[/ch]    N.C.
-No, no, no, no, no, no, no.  Oh, mama mia, mama mia[/tab]
-[tab]     [ch]C[/ch]           [ch]G[/ch]      [ch]C[/ch]   [ch]F[/ch]         [ch]B[/ch]          [ch]Em[/ch]       [ch]G[/ch]
-Mama mia, let me go.  Beelzebub has a devil put aside for me,[/tab]
 
+I'm just a poor boy, no-body loves me.[/tab]
+[F]He's j[C]ust a po[Cdim]or [C]boy f[F]rom a po[C]or fam[Cdim]i-l[C]y.
+[F]Spare him his l[C/E]ife from this [D]monstrosit[G]y.[F][C/E][D#dim][Dm7]
+[G#]Easy [G]come, e[F#]asy g[G]o, wi[G#]ll you le[G]t me go?[F#]  Bis[G]mill[C]ah![G]
+[C]No, we w[G]ill not let you go.  Bi[G]smil[C]lah![G]
+[G]We will not let you go.  B[G]ismi[C]llah[G]!  We w[G]ill not let you go.
+[G]Will not let you go.  W[G]ill not let you go. Ahhhhhh[D#7]hhh
+[G#m]No,[F#] no,[B] no, [A#]no, [D#]no, [G]no, n[C]o.  Oh, mama mia, mama mia
+Mama [C]mia, let me g[G]o.  Beel[C]zebub[F] has a devi[B]l put aside [Em]for me,[G]
 
 [Riff]
 
 | [ch]C[/ch]   | [ch]C[/ch]   | [ch]C[/ch]   | [ch]D[/ch]   |
 
-
 [Interlude 2]
 
 [tab][ch]G[/ch]                                   [ch]C[/ch]          [ch]G[/ch]   [ch]Bb[/ch]
-  So you think you can stone me and spit in my eye[/tab]
-[tab][ch]G[/ch]                                  [ch]C[/ch]           [ch]F[/ch]
-  So you think you can love me and leave me to die[/tab]
-[tab][ch]Dm[/ch]  [ch]G[/ch]     [ch]Dm[/ch]                    [ch]G[/ch]
-Oh, baby - can't do this to me, baby[/tab]
-[tab][ch]Dm[/ch]             [ch]G[/ch]     [ch]Dm[/ch]             [ch]G[/ch]           [ch]C[/ch]
-Just gotta get out - just gotta get right outta here[/tab]
 
+  So you think you can stone me and spit in my eye[/tab]
+[G]  So you think you can love me and l[C]eave me to di[F]e
+[Dm]Oh, [G]baby - [Dm]can't do this to me, b[G]aby
+[Dm]Just gotta get [G]out - j[Dm]ust gotta get r[G]ight outta he[C]re
 
 [Riff/Instrumental]
 
 |([ch]C[/ch])  | [ch]C[/ch]   | [ch]C[/ch]   | [ch]D[/ch]   | N.C.|
-| [ch]Ab[/ch]  | [ch]F[/ch]   | [ch]G[/ch]   | [ch]G[/ch]   | [ch]G[/ch]   |
-| [ch]C[/ch]  [ch]G[/ch]  | [ch]Am[/ch]  [ch]E[/ch] [ch]Am[/ch] | [ch]E[/ch] [ch]Am[/ch] [ch]G[/ch] [ch]C[/ch] | [ch]B[/ch]  [ch]Em[/ch] | [ch]F[/ch]  [ch]C[/ch]  |
 
+| [Ab]  | [F]   | [G]   | [G]   | [G]   |
+| [C]  [G]  | [Am]  [E] [Am] | [E] [Am] [G] [C] | [B]  [Em] | [F]  [C]  |
 
 [Outro]
 
 [tab][ch]Am[/ch]                [ch]Em[/ch]
-Nothing really matters,[/tab]
-[tab][ch]Am[/ch]         [ch]Em[/ch]
-Anyone can see,[/tab]
-[tab][ch]Am[/ch]                [ch]Fm[/ch]    [ch]F/G[/ch]                       [ch]C[/ch]
-Nothing really matters, nothing really matters to me,[/tab]
 
+Nothing really matters,[/tab]
+[Am]Anyone can [Em]see,
+[Am]Nothing really mat[Fm]ters, [F/G]nothing really matters to[C] me,
 
 [Instrumental]
 
 |([ch]C[/ch]) [ch]F/C[/ch] | [ch]C[/ch]  [ch]Cdim[/ch] |
-| [ch]G/B[/ch]  [ch]Gm/Bb[/ch] | [ch]A[/ch]    [ch]Bbdim[/ch] | [ch]A[/ch] [ch]A7[/ch] [ch]D[/ch]    |
 
+| [G/B]  [Gm/Bb] | [A]    [Bbdim] | [A] [A7] [D]    |
 
 [Coda]
 
 [tab][ch]G[/ch]   [ch]D/F#[/ch]    [ch]Ddim/F[/ch] [ch]Em7[/ch]    [ch]D[/ch]
+
 Any way the wind   blows ...[/tab]
 
-
 [tab]G       x-x-5-4-3-x
+
 D/F#    x-x-4-2-3-x[/tab]
-[tab]Ddim/F  x-x-3-1-3-x
-Em7     x-x-2-0-3-x[/tab]
+Em7     x-x-2-0-3-x

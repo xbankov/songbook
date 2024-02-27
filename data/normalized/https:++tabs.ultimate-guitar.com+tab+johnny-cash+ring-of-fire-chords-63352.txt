@@ -1,88 +1,73 @@
+{title: Ring of fire}
+
 [Intro]
-[ch]G[/ch]    [ch]C[/ch] [ch]G[/ch]      [ch]G[/ch]    [ch]D[/ch] [ch]G[/ch]
+
+[G]    [C] [G]      [G]    [D] [G]
 
 [Verse]
-[tab][ch]G[/ch]         [ch]C[/ch]       [ch]G[/ch]       [ch]C[/ch] [ch]G[/ch]
-Love Is A Burning Thing[/tab]
-[tab]               [ch]D[/ch]     [ch]G[/ch]     [ch]D[/ch] [ch]G[/ch]
-And It Makes A Fiery Ring[/tab]
-[tab]         [ch]C[/ch]    [ch]G[/ch]       [ch]C[/ch] [ch]G[/ch]
-Bound By Wild Desire[/tab]
-[tab]              [ch]D[/ch]       [ch]G[/ch]
-I Fell Into A Ring Of Fire[/tab]
+
+[G]Love Is A B[C]urning Th[G]ing[C][G]
+And It Makes A [D]Fiery R[G]ing[D][G]
+Bound By [C]Wild D[G]esire[C][G]
+I Fell Into A [D]Ring Of F[G]ire
 
 [Chorus]
-[tab][ch]D[/ch]             [ch]C[/ch]               [ch]G[/ch]
-I Fell Into A Burning Ring Of Fire[/tab]
-[tab]       [ch]D[/ch]
-I Went Down, Down, Down[/tab]
-[tab]        [ch]C[/ch]           [ch]G[/ch]
-And The Flames Went Higher[/tab]
+
+[D]I Fell Into A B[C]urning Ring Of Fi[G]re
+I Went [D]Down, Down, Down
+And The [C]Flames Went H[G]igher
 
 And It Burns, Burns, Burns
-[tab]    [ch]D[/ch]       [ch]G[/ch]
-The Ring Of Fire[/tab]
-[tab]    [ch]D[/ch]       [ch]G[/ch]
-The Ring Of Fire[/tab]
+
+The [D]Ring Of F[G]ire
+The [D]Ring Of F[G]ire
 
 [Interlude]
-[ch]G[/ch]    [ch]C[/ch] [ch]G[/ch]    [ch]G[/ch]    [ch]D[/ch] [ch]G[/ch]
-[ch]G[/ch]    [ch]C[/ch] [ch]G[/ch]    [ch]G[/ch]    [ch]D[/ch] [ch]G[/ch]
+
+[G]    [C] [G]    [G]    [D] [G]
+[G]    [C] [G]    [G]    [D] [G]
 
 [Chorus]
-[tab][ch]D[/ch]             [ch]C[/ch]               [ch]G[/ch]
-I Fell Into A Burning Ring Of Fire[/tab]
-[tab]       [ch]D[/ch]
-I Went Down, Down, Down[/tab]
-[tab]        [ch]C[/ch]           [ch]G[/ch]
-And The Flames Went Higher[/tab]
+
+[D]I Fell Into A B[C]urning Ring Of Fi[G]re
+I Went [D]Down, Down, Down
+And The [C]Flames Went H[G]igher
 
 And It Burns, Burns, Burns
-[tab]    [ch]D[/ch]       [ch]G[/ch]
-The Ring Of Fire[/tab]
-[tab]    [ch]D[/ch]       [ch]G[/ch]
-The Ring Of Fire[/tab]
+
+The [D]Ring Of F[G]ire
+The [D]Ring Of F[G]ire
 
 [Verse]
-[tab]             [ch]C[/ch]       [ch]G[/ch]      [ch]C[/ch] [ch]G[/ch]
-The Taste Of Love Is Sweet[/tab]
-[tab]                 [ch]D[/ch]    [ch]G[/ch]     [ch]D[/ch] [ch]G[/ch]
-When Hearts Like Ours Meet[/tab]
-[tab]               [ch]C[/ch]      [ch]G[/ch]     [ch]C[/ch] [ch]G[/ch]
-I Fell For You Like A Child[/tab]
-[tab]             [ch]D[/ch]         [ch]G[/ch]   
-Ohh, But The Fire Went Wild[/tab]
+
+The Taste Of [C]Love Is S[G]weet[C][G]
+When Hearts Like [D]Ours M[G]eet[D][G]
+I Fell For You [C]Like A C[G]hild[C][G]
+Ohh, But The [D]Fire Went W[G]ild
 
 [Chorus]
-[tab][ch]D[/ch]             [ch]C[/ch]               [ch]G[/ch]
-I Fell Into A Burning Ring Of Fire[/tab]
-[tab]       [ch]D[/ch]
-I Went Down, Down, Down[/tab]
-[tab]        [ch]C[/ch]           [ch]G[/ch]
-And The Flames Went Higher[/tab]
+
+[D]I Fell Into A B[C]urning Ring Of Fi[G]re
+I Went [D]Down, Down, Down
+And The [C]Flames Went H[G]igher
 
 And It Burns, Burns, Burns
-[tab]    [ch]D[/ch]       [ch]G[/ch]
-The Ring Of Fire[/tab]
-[tab]    [ch]D[/ch]       [ch]G[/ch]
-The Ring Of Fire[/tab]
+
+The [D]Ring Of F[G]ire
+The [D]Ring Of F[G]ire
 
 [Chorus]
-[tab][ch]D[/ch]             [ch]C[/ch]               [ch]G[/ch]
-I Fell Into A Burning Ring Of Fire[/tab]
-[tab]       [ch]D[/ch]
-I Went Down, Down, Down[/tab]
-[tab]        [ch]C[/ch]           [ch]G[/ch]
-And The Flames Went Higher[/tab]
+
+[D]I Fell Into A B[C]urning Ring Of Fi[G]re
+I Went [D]Down, Down, Down
+And The [C]Flames Went H[G]igher
 
 And It Burns, Burns, Burns
-[tab]    [ch]D[/ch]       [ch]G[/ch]
-The Ring Of Fire[/tab]
-[tab]    [ch]D[/ch]       [ch]G[/ch]
-The Ring Of Fire[/tab]
+
+The [D]Ring Of F[G]ire
+The [D]Ring Of F[G]ire
 
 And It Burns, Burns, Burns
-[tab]    [ch]D[/ch]       [ch]G[/ch]
-The Ring Of Fire[/tab]
-[tab]    [ch]D[/ch]       [ch]G[/ch]
-The Ring Of Fire (repeat until fade)[/tab]
+
+The [D]Ring Of F[G]ire
+The [D]Ring Of F[G]ire (repeat until fade)

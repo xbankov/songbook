@@ -1,89 +1,75 @@
+{title: I want to break free}
+
 [Intro 1] (fade in)
-| [ch]C#m[/ch]     | [ch]F#4[/ch] [ch]F#[/ch]  |
-| [ch]A[/ch]   [ch]B[/ch]   | [ch]C#m[/ch]   [ch]B[/ch] |
-| [ch]A[/ch]   [ch]B[/ch]   | [ch]C#m[/ch]   [ch]B[/ch] |
-| [ch]A[/ch]   [ch]B[/ch]   | [ch]E[/ch]       | [ch]E[/ch]       |
+
+| [C#m]     | [F#4] [F#]  |
+| [A]   [B]   | [C#m]   [B] |
+| [A]   [B]   | [C#m]   [B] |
+| [A]   [B]   | [E]       | [E]       |
 
 [Intro 2]
-| [ch]E[/ch]   | [ch]E[/ch]   | [ch]A[/ch]   | [ch]A[/ch]   |
-[tab]| [ch]E[/ch]   | [ch]E[/ch]   | [ch]B[/ch]   | [ch]A[/ch]   |
-| E   | E N.C.[/tab]
+
+| [E]   | [E]   | [A]   | [A]   |
+| [E]E   | E[E] N.C.[B][A]
 
 [Verse 1]
-[tab]                [ch]E[/ch]
-I want to break free[/tab]
+
+I want to break [E]free
 I want to break free
 I want to break free from your lies
-[tab]                                  [ch]A[/ch]
-You're so self satisfied, I don't need you[/tab]
-[tab]                  [ch]E[/ch]
-I've got to break free[/tab]
-[tab]    [ch]B[/ch]      [ch]A[/ch]                       [ch]E[/ch]
-God knows, God knows I want to break free[/tab]
+You're so self satisfied, I don't [A]need you
+I've got to break [E]free
+God [B]knows, G[A]od knows I want to break [E]free
 
 [Verse 2]
-[tab]N.C.           [ch]E[/ch]
-I've fallen in love[/tab]
-[tab]               [ch]E[/ch]
-I've fallen in love for the first time[/tab]
-[tab]                          [ch]A[/ch]
-This time I know it's for real [/tab]
-[tab]                [ch]E[/ch]
-I've fallen in love, yeah[/tab]
-[tab]    [ch]B[/ch]      [ch]A[/ch]                        [ch]E[/ch]      [ch]A[/ch] [ch]E[/ch] [ch]A[/ch] [ch]E[/ch]
-God knows, God knows I've fallen in love[/tab]
+
+I've fallen in [E]love
+I've fallen in [E]love for the first time
+This time I know it's for [A]real 
+I've fallen in l[E]ove, yeah
+God [B]knows, G[A]od knows I've fallen in lo[E]ve[A][E][A][E]
 
 [Bridge]
-[tab]     [ch]B[/ch]                [ch]A[/ch]
-It's strange but it's true[/tab]
-[tab][ch]B[/ch]                             [ch]A[/ch]
- I can't get over the way you love me like you do[/tab]
-[tab]      [ch]C#m[/ch]
-But I have to be sure[/tab]
-[tab]       [ch]F#sus4[/ch]        [ch]F#[/ch]
-When I walk out that door[/tab]
-[tab][ch]A[/ch]          [ch]B[/ch]          [ch]C#m[/ch]        [ch]B[/ch]
- Oh, how I want to be free, baby[/tab]
-[tab][ch]A[/ch]          [ch]B[/ch]          [ch]C#m[/ch]   [ch]B[/ch]
- Oh, how I want to be free[/tab]
-[tab] [ch]A[/ch]        [ch]B[/ch]           [ch]E[/ch]      N.C.
-Oh, how I want to break free[/tab]
+
+It's [B]strange but it's t[A]rue
+[B] I can't get over the way you l[A]ove me like you do
+But I [C#m]have to be sure
+When I [F#sus4]walk out t[F#]hat door
+[A] Oh, how I w[B]ant to be fr[C#m]ee, baby[B]
+[A] Oh, how I w[B]ant to be fr[C#m]ee[B]
+O[A]h, how I w[B]ant to break [E]free
 
 [Solo]
-| [ch]E[/ch]   | [ch]E[/ch]   | [ch]E[/ch]   | [ch]E[/ch]   |
-| [ch]A[/ch]   | [ch]A[/ch]   | [ch]E[/ch]   | [ch]E[/ch]   |
-| [ch]B[/ch]   | [ch]A[/ch]   | [ch]E[/ch]   | [ch]E[/ch] N.C.|
+
+| [E]   | [E]   | [E]   | [E]   |
+| [A]   | [A]   | [E]   | [E]   |
+| [B]   | [A]   | [E]   | [E] N.C.|
 
 [Interlude]
-| [ch]E[/ch]   | [ch]E[/ch]   | [ch]E[/ch]   | [ch]E[/ch]   |
-| [ch]A[/ch]   | [ch]A[/ch]   | [ch]E[/ch]   | [ch]E[/ch]   |
-| [ch]B[/ch]   | [ch]A[/ch]   | [ch]E[/ch]   | [ch]E[/ch]   |
-| [ch]B[/ch]   | [ch]A[/ch]   | [ch]E[/ch]   | [ch]E[/ch] N.C.
+
+| [E]   | [E]   | [E]   | [E]   |
+| [A]   | [A]   | [E]   | [E]   |
+| [B]   | [A]   | [E]   | [E]   |
+| [B]   | [A]   | [E]   | [E] N.C.
 
 [Verse 3]
-[tab]                    [ch]E[/ch]
-But life still goes on[/tab]
-[tab]                    [ch]E[/ch]
-I can't get used to living without, living without[/tab]
-[tab]                          [ch]A[/ch]
-Living without you by my side[/tab]
-[tab]                      [ch]E[/ch]
-I don't want to live alone, hey[/tab]
-[tab]    [ch]B[/ch]     [ch]A[/ch]                     [ch]E[/ch]
-God knows   got to make it on my own[/tab]
+
+But life still goes [E]on
+I can't get used to [E]living without, living without
+Living without you by my s[A]ide
+I don't want to live a[E]lone, hey
+God [B]knows  [A] got to make it on my o[E]wn
 
 [Outro]
-[tab]                   [ch]B[/ch]
-So baby, can't you see[/tab]
-[tab][ch]A[/ch]                 [ch]E[/ch]
-  I've got to break free[/tab]
-[tab]N.C.              [ch]E[/ch]
-I've got to break free[/tab]
-[tab]            [ch]E[/ch]
-I want to break free, yeah[/tab]
-[ch]E[/ch]
+
+So baby, can't you [B]see
+[A]  I've got to break[E] free
+I've got to break [E]free
+I want to br[E]eak free, yeah
+[E]
 
 [tab][ch]E[/ch]
+
 I want, I want, I want, I want to break free...[/tab]
 
 (fade out)

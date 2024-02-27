@@ -1,25 +1,23 @@
+{title: Somebody that i used to know}
+
 [Intro]
 
 [ch]Am[/ch]  [ch]G[/ch]  [ch]Am[/ch]  [ch]G[/ch]  x5
 
-
 [Verse 1]
 
 [tab][ch]Am[/ch]        [ch]G[/ch]               [ch]Am[/ch]      [ch]G[/ch]        [ch]Am[/ch]   [ch]G[/ch]  [ch]Am[/ch]  [ch]G[/ch]
-  Now and then I think of when we were together[/tab]
-[tab][ch]Am[/ch]              [ch]G[/ch]                [ch]Am[/ch]    [ch]G[/ch]         [ch]Am[/ch]  [ch]G[/ch]  [ch]Am[/ch]  [ch]G[/ch]
-  Like when you said you felt so happy you could die[/tab]
-[tab][ch]Am[/ch]       [ch]G[/ch]                  [ch]Am[/ch]        [ch]G[/ch]
-  Told myself that you were right for me[/tab]
-[tab][ch]Am[/ch]            [ch]G[/ch]              [ch]Am[/ch]     [ch]G[/ch]
-  But felt so lonely in your company[/tab]
-[tab][ch]Am[/ch]             [ch]G[/ch]                [ch]Am[/ch]     [ch]G[/ch]          [ch]Am[/ch]  [ch]G[/ch]  [ch]Am[/ch]  [ch]G[/ch]
-  But that was love and it's an ache I still remember[/tab]
 
+  Now and then I think of when we were together[/tab]
+[Am]  Like when you [G]said you felt so h[Am]appy y[G]ou could di[Am]e[G][Am][G]
+[Am]  Told my[G]self that you were r[Am]ight for m[G]e
+[Am]  But felt so [G]lonely in your c[Am]ompany[G]
+[Am]  But that was [G]love and it's an a[Am]che I s[G]till remembe[Am]r[G][Am][G]
 
 [Instrumental]
 
 [tab]   [ch]Am[/ch]      [ch]G[/ch]         [ch]Am[/ch]      [ch]G[/ch]         [ch]Am[/ch]      [ch]G[/ch]         [ch]Am[/ch]      [ch]G[/ch]
+
 e|-----------------|-----------------|-----------------|-----------------|
 B|-5---------------|---------8-----5-|-----------------|-----------------|
 G|-----------------|-----------------|-7---------------|---------4-------|
@@ -28,6 +26,7 @@ A|-----------------|-----------------|-----------------|-----------------|
 E|-----------------|-----------------|-----------------|-----------------|[/tab]
 
 [tab]   [ch]Am[/ch]      [ch]G[/ch]         [ch]Am[/ch]      [ch]G[/ch]         [ch]Am[/ch]      [ch]G[/ch]         [ch]Am[/ch]      [ch]G[/ch]
+
 e|-----------------|-----------------|-----------------|-----------------|
 B|-5---------------|---------8-----5-|-----------------|-----------------|
 G|-----------------|-----------------|-7---------------|-----------------|
@@ -35,122 +34,87 @@ D|-----------------|-----------------|-------7-----7---|-----------------|
 A|-----------------|-----------------|-----------------|-----------------|
 E|-----------------|-----------------|-----------------|-----------------|[/tab]
 
-
 [Verse 2]
 
 [tab][ch]Am[/ch]            [ch]G[/ch]           [ch]Am[/ch]      [ch]G[/ch]        [ch]Am[/ch]    [ch]G[/ch]  [ch]Am[/ch]  [ch]G[/ch]
-You can get addicted to a certain kind of sadness[/tab]
-[tab][ch]Am[/ch]          [ch]G[/ch]             [ch]Am[/ch]
-  Like resignation to the end[/tab]
-[tab][ch]G[/ch]          [ch]Am[/ch]  [ch]G[/ch]  [ch]Am[/ch]  [ch]G[/ch]
-Always the end[/tab]
-[tab][ch]Am[/ch]           [ch]G[/ch]                   [ch]Am[/ch]       [ch]G[/ch]
-  So when we found that we could not make sense[/tab]
-[tab][ch]Am[/ch]         [ch]G[/ch]                  [ch]Am[/ch]       [ch]G[/ch]
-  Well you said that we would still be friends[/tab]
-[tab][ch]Am[/ch]           [ch]G[/ch]              [ch]Am[/ch]        [ch]G[/ch]       [ch]Am[/ch]  [ch]G[/ch]  [ch]Am[/ch]  [ch]G[/ch]
-  But I'll admit that I was glad that it was over[/tab]
 
+You can get addicted to a certain kind of sadness[/tab]
+[Am]  Like resig[G]nation to the e[Am]nd
+[G]Always the e[Am]nd[G][Am][G]
+[Am]  So when we [G]found that we could n[Am]ot make s[G]ense
+[Am]  Well you [G]said that we would s[Am]till be f[G]riends
+[Am]  But I'll ad[G]mit that I was g[Am]lad that i[G]t was ove[Am]r[G][Am][G]
 
 [Chorus]
 
 [tab][ch]Am[/ch]        [ch]G[/ch]              [ch]F[/ch]      [ch]G[/ch]
+
   But you didn't have to cut me off[/tab]
-[tab][ch]Am[/ch]         [ch]G[/ch]             [ch]F[/ch]
-  Make out like it never happened[/tab]
-[tab]         [ch]G[/ch]          [ch]Am[/ch]
-And that we were nothing[/tab]
-[tab]    [ch]G[/ch]            [ch]F[/ch]         [ch]G[/ch]
-And I don't even need your love[/tab]
-[tab]        [ch]Am[/ch]              [ch]G[/ch]
-But you treat me like a stranger[/tab]
-[tab]         [ch]F[/ch]        [ch]G[/ch]
-And that feels so rough[/tab]
-[tab][ch]Am[/ch]    [ch]G[/ch]              [ch]F[/ch]        [ch]G[/ch]
-  You didn't have to stoop so low[/tab]
-[tab][ch]Am[/ch]          [ch]G[/ch]                    [ch]F[/ch]
-  Have your friends collect your records[/tab]
-[tab]         [ch]G[/ch]              [ch]Am[/ch]
-And then change your number[/tab]
-[tab]  [ch]G[/ch]                  [ch]F[/ch]         [ch]G[/ch]
-I guess that I don't need that though[/tab]
+[Am]  Make out [G]like it never h[F]appened
+And that [G]we were noth[Am]ing
+And [G]I don't even n[F]eed your lo[G]ve
+But you [Am]treat me like a [G]stranger
+And that [F]feels so r[G]ough
+[Am]  You [G]didn't have to s[F]toop so lo[G]w
+[Am]  Have your [G]friends collect your r[F]ecords
+And then [G]change your numb[Am]er
+I [G]guess that I don't n[F]eed that th[G]ough
+[Am]Now you're just some[G]body that I u[F]sed to kn[G]ow
+
+[ch]Am[/ch]  [ch]G[/ch]  [ch]F[/ch]  [ch]G[/ch]
+
 [tab][ch]Am[/ch]                  [ch]G[/ch]           [ch]F[/ch]       [ch]G[/ch]
+
 Now you're just somebody that I used to know[/tab]
 
 [ch]Am[/ch]  [ch]G[/ch]  [ch]F[/ch]  [ch]G[/ch]
 
 [tab][ch]Am[/ch]                  [ch]G[/ch]           [ch]F[/ch]       [ch]G[/ch]
+
 Now you're just somebody that I used to know[/tab]
-
-[ch]Am[/ch]  [ch]G[/ch]  [ch]F[/ch]  [ch]G[/ch]
-
-[tab][ch]Am[/ch]                  [ch]G[/ch]           [ch]F[/ch]       [ch]G[/ch]
-Now you're just somebody that I used to know[/tab]
-
 
 [Interlude]
 
 [ch]Am[/ch]  [ch]G[/ch]  [ch]Am[/ch]  [ch]G[/ch]  x4
 
-
 [Verse 3]
- 
-[tab][ch]Am[/ch]        [ch]G[/ch]               [ch]Am[/ch]                [ch]G[/ch]           [ch]Am[/ch]  [ch]G[/ch]  [ch]Am[/ch]  [ch]G[/ch]
-  Now and then I think of all the times you screwed me over[/tab]
-[tab][ch]Am[/ch]             [ch]G[/ch]              [ch]F[/ch]                [ch]G[/ch]        [ch]Am[/ch]  [ch]G[/ch]  [ch]Am[/ch]  [ch]G[/ch]
-  But had me believing it was always something that I'd done[/tab]
-[tab][ch]G[/ch]
-  And I don't wanna live that way[/tab]
-[tab][ch]G[/ch]
-  Reading into every word you say[/tab]
-[tab][ch]G[/ch]
-  You said that you could let it go[/tab]
-[tab]      [ch]G[/ch]                                 N.C.
-And I wouldn't catch you hung up on somebody that you used to know...[/tab]
 
+ 
+[Am]  Now and [G]then I think of a[Am]ll the times you s[G]crewed me ove[Am]r[G][Am][G]
+[Am]  But had me be[G]lieving it was a[F]lways something th[G]at I'd don[Am]e[G][Am][G]
+[G]  And I don't wanna live that way
+[G]  Reading into every word you say
+[G]  You said that you could let it go
+And I [G]wouldn't catch you hung up on somebody that you used to know...
 
 [Chorus]
 
 [tab][ch]Am[/ch]        [ch]G[/ch]              [ch]F[/ch]      [ch]G[/ch]
-  But you didn't have to cut me off[/tab]
-[tab][ch]Am[/ch]         [ch]G[/ch]             [ch]F[/ch]
-  Make out like it never happened[/tab]
-[tab]         [ch]G[/ch]         [ch]Am[/ch]
-And that we were nothing[/tab]
-[tab]    [ch]G[/ch]            [ch]F[/ch]         [ch]G[/ch]
-And I don't even need your love[/tab]
-[tab]        [ch]Am[/ch]              [ch]G[/ch]
-But you treat me like a stranger[/tab]
-[tab]         [ch]F[/ch]        [ch]G[/ch]
-And that feels so rough[/tab]
-[tab][ch]Am[/ch]    [ch]G[/ch]              [ch]F[/ch]        [ch]G[/ch]
-  You didn't have to stoop so low[/tab]
-[tab][ch]Am[/ch]          [ch]G[/ch]                    [ch]F[/ch]
-  Have your friends collect your records[/tab]
-[tab]         [ch]G[/ch]              [ch]Am[/ch]
-And then change your number[/tab]
-[tab]  [ch]G[/ch]                  [ch]F[/ch]         [ch]G[/ch]
-I guess that I don't need that though[/tab]
-[tab][ch]Am[/ch]                  [ch]G[/ch]           [ch]F[/ch]       [ch]G[/ch]
-Now you're just somebody that I used to know[/tab]
 
+  But you didn't have to cut me off[/tab]
+[Am]  Make out [G]like it never h[F]appened
+And that [G]we were not[Am]hing
+And [G]I don't even n[F]eed your lo[G]ve
+But you [Am]treat me like a [G]stranger
+And that [F]feels so r[G]ough
+[Am]  You [G]didn't have to s[F]toop so lo[G]w
+[Am]  Have your [G]friends collect your r[F]ecords
+And then [G]change your numb[Am]er
+I [G]guess that I don't n[F]eed that th[G]ough
+[Am]Now you're just some[G]body that I u[F]sed to kn[G]ow
 
 [Outro]
 
 [tab]      [ch]Am[/ch]  [ch]G[/ch]   [ch]F[/ch]       [ch]G[/ch]
+
 Somebody   (I used to know)[/tab]
-[tab]      [ch]Am[/ch]                      [ch]G[/ch]           [ch]F[/ch]       [ch]G[/ch]
-Somebody (Now you're just somebody that I used to know)[/tab]
-[tab]      [ch]Am[/ch]  [ch]G[/ch]   [ch]F[/ch]       [ch]G[/ch]
-Somebody   (I used to know)[/tab]
-[tab]       [ch]Am[/ch]                     [ch]G[/ch]           [ch]F[/ch]       [ch]G[/ch]
-Somebody (Now you're just somebody that I used to know)[/tab]
+Somebo[Am]dy (Now you're just some[G]body that I u[F]sed to kn[G]ow)
+Somebo[Am]dy  [G] (I u[F]sed to kn[G]ow)
+Somebod[Am]y (Now you're just some[G]body that I u[F]sed to kn[G]ow)
 
 [tab][ch]Am[/ch]  [ch]G[/ch]    [ch]F[/ch]       [ch]G[/ch]
+
        I used to know[/tab]
-[tab][ch]Am[/ch]  [ch]G[/ch]         [ch]F[/ch]       [ch]G[/ch]
-       That I used to know[/tab]
-[tab][ch]Am[/ch]  [ch]G[/ch]    [ch]F[/ch]       [ch]G[/ch]
-       I used to know[/tab]
-[tab]      [ch]Am[/ch]  [ch]G[/ch]  [ch]F[/ch]  [ch]G[/ch]
-Somebody...[/tab]
+[Am]    [G]   That I u[F]sed to kn[G]ow
+[Am]    [G]   I u[F]sed to kn[G]ow
+Somebo[Am]dy..[G].[F][G]

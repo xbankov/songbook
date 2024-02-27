@@ -1,86 +1,63 @@
+{title: Radioactive}
+
 Note about strumming patterns: the intro of the song has a more uptempo feel,
+
 but the main body of the song including the chorus is definitely at a slow tempo.
 
 [ch]G6sus2[/ch]  3x223x
 
 [Intro]
-[ch]Am[/ch]  [ch]C[/ch]  [ch]G6[/ch]    x3
-[ch]G6sus2[/ch]
+
+[Am]  [C]  [G6]    x3
+[G6sus2]
 
 [Verse 1]
-[tab][ch]Am[/ch]           [ch]C[/ch]             [ch]G[/ch]
-  I'm waking up to ash and dust[/tab]
-[tab]          [ch]D[/ch]                    [ch]Am[/ch]
-I wipe my brow and I sweat my rust[/tab]
-[tab]              [ch]C[/ch]             [ch]G[/ch]   N.C.
-I'm breathing in the chemicals  (Gasp)[/tab]
-[tab][ch]Am[/ch]             [ch]C[/ch]           [ch]G[/ch]                 [ch]D[/ch]                   [ch]Am[/ch]
-  I'm breaking in, shaping up, then checking out on the prison bus[/tab]
-[tab]        [ch]C[/ch]            [ch]G[/ch]
-This is it, the apocalypse[/tab]
-[tab]  [ch]D[/ch]
-Whoa[/tab]
+
+[Am]  I'm waking [C]up to ash and d[G]ust
+I wipe my [D]brow and I sweat my ru[Am]st
+I'm breathing [C]in the chemical[G]s  (Gasp)
+[Am]  I'm breaking [C]in, shaping u[G]p, then checking ou[D]t on the prison bus[Am]
+This is [C]it, the apocal[G]ypse
+Wh[D]oa
 
 [Chorus 1]
-[tab]           [ch]Am[/ch]            [ch]C[/ch]    
-I'm waking up, I feel it in my bones[/tab]
-[tab] [ch]G[/ch]                [ch]D[/ch]
-Enough to make my systems blow[/tab]
-[tab][ch]Am[/ch]                     [ch]C[/ch]
-Welcome to the new age, to the new age[/tab]
-[tab][ch]G[/ch]                      [ch]D[/ch]
-Welcome to the new age, to the new age[/tab]
-[tab][ch]Am[/ch]     [ch]C[/ch]         [ch]G[/ch]            [ch]D[/ch]
-  Whoa, whoa, I'm radioactive, radioactive[/tab]
-[tab][ch]Am[/ch]     [ch]C[/ch]         [ch]G[/ch]            [ch]D[/ch]
-  Whoa, whoa, I'm radioactive, radioactive[/tab]
+
+I'm waking [Am]up, I feel it [C]in my bones
+E[G]nough to make my s[D]ystems blow
+[Am]Welcome to the new age,[C] to the new age
+[G]Welcome to the new age, [D]to the new age
+[Am]  Whoa,[C] whoa, I'm [G]radioactive, r[D]adioactive
+[Am]  Whoa,[C] whoa, I'm [G]radioactive, r[D]adioactive
 
 [Verse 2]
-[tab][ch]Am[/ch]              [ch]C[/ch]             [ch]G[/ch]
-   I raise my flags, dye my clothes[/tab]
-[tab]           [ch]D[/ch]            [ch]Am[/ch]
-It's a revolution, I suppose[/tab]
-[tab]               [ch]C[/ch]                [ch]G[/ch]
-We're painted red to fit right in[/tab]
-[tab]  [ch]D[/ch]
-Whoa[/tab]
-[tab][ch]Am[/ch]              [ch]C[/ch]           [ch]G[/ch]                 [ch]D[/ch]                  [ch]Am[/ch]
-   I'm breaking in, shaping up, then checking out on the prison bus[/tab]
-[tab]        [ch]C[/ch]            [ch]G[/ch]
-This is it, the apocalypse[/tab]
-[tab]  [ch]D[/ch]
-Whoa[/tab]
+
+[Am]   I raise my fl[C]ags, dye my clo[G]thes
+It's a revo[D]lution, I supp[Am]ose
+We're painted r[C]ed to fit right in[G]
+Wh[D]oa
+[Am]   I'm breaking [C]in, shaping u[G]p, then checking ou[D]t on the prison bus[Am]
+This is [C]it, the apocal[G]ypse
+Wh[D]oa
 
 [Chorus 2]
-[tab]           [ch]Am[/ch]            [ch]C[/ch]
-I'm waking up, I feel it in my bones[/tab]
-[tab] [ch]G[/ch]                [ch]D[/ch]
-Enough to make my systems blow[/tab]
-[tab][ch]Am[/ch]                     [ch]C[/ch]
-Welcome to the new age, to the new age[/tab]
-[tab][ch]G[/ch]                      [ch]D[/ch]
-Welcome to the new age, to the new age[/tab]
-[tab][ch]Am[/ch]     [ch]C[/ch]         [ch]G[/ch]            [ch]D[/ch]
-  Whoa, whoa, I'm radioactive, radioactive[/tab]
-[tab][ch]Am[/ch]     [ch]C[/ch]         [ch]G[/ch]            [ch]D[/ch]
-  Whoa, whoa, I'm radioactive, radioactive[/tab]
+
+I'm waking [Am]up, I feel it [C]in my bones
+E[G]nough to make my s[D]ystems blow
+[Am]Welcome to the new age,[C] to the new age
+[G]Welcome to the new age, [D]to the new age
+[Am]  Whoa,[C] whoa, I'm [G]radioactive, r[D]adioactive
+[Am]  Whoa,[C] whoa, I'm [G]radioactive, r[D]adioactive
 
 [Bridge]
-[tab][ch]Am[/ch]         [ch]Cmaj7[/ch] [ch]G[/ch]           [ch]D[/ch]
-All systems go, sun hasn't died[/tab]
-[tab][ch]Am[/ch]         [ch]Cmaj7[/ch]  [ch]G[/ch]                [ch]D[/ch]
-Deep in my bones, straight from inside[/tab]
+
+[Am]All systems[Cmaj7] go[G], sun hasn't [D]died
+[Am]Deep in my [Cmaj7]bone[G]s, straight from i[D]nside
 
 [Chorus 3]
-[tab]           [ch]Am[/ch]            [ch]C[/ch]
-I'm waking up, I feel it in my bones[/tab]
-[tab] [ch]G[/ch]                [ch]D[/ch]
-Enough to make my systems blow[/tab]
-[tab][ch]Am[/ch]                     [ch]C[/ch]
-Welcome to the new age, to the new age[/tab]
-[tab][ch]G[/ch]                      [ch]D[/ch]
-Welcome to the new age, to the new age[/tab]
-[tab][ch]Am[/ch]     [ch]C[/ch]         [ch]G[/ch]            [ch]D[/ch]
-  Whoa, whoa, I'm radioactive, radioactive[/tab]
-[tab][ch]Am[/ch]     [ch]C[/ch]         [ch]G[/ch]            [ch]D[/ch]
-  Whoa, whoa, I'm radioactive, radioactive[/tab]
+
+I'm waking [Am]up, I feel it [C]in my bones
+E[G]nough to make my s[D]ystems blow
+[Am]Welcome to the new age,[C] to the new age
+[G]Welcome to the new age, [D]to the new age
+[Am]  Whoa,[C] whoa, I'm [G]radioactive, r[D]adioactive
+[Am]  Whoa,[C] whoa, I'm [G]radioactive, r[D]adioactive

@@ -1,71 +1,48 @@
+{title: Mad world}
+
 [Intro]
-[ch]Em[/ch]   [ch]A[/ch]
-[ch]Em[/ch]   [ch]A[/ch]
+
+[Em]   [A]
+[Em]   [A]
 
 [Verse 1]
-[tab][ch]Em[/ch]                     [ch]G[/ch]
-   All around me are familiar faces[/tab]
-[tab][ch]D[/ch]                [ch]A[/ch]
-Worn out places, worn out faces[/tab]
-[tab][ch]Em[/ch]                            [ch]G[/ch]
-   Bright and early for their daily races[/tab]
-[tab][ch]D[/ch]              [ch]A[/ch]
-Going nowhere, going nowhere[/tab]
-[tab][ch]Em[/ch]                         [ch]G[/ch]
-   Their tears are filling up their glasses[/tab]
-[tab][ch]D[/ch]              [ch]A[/ch]
-No expression, no expression[/tab]
-[tab][ch]Em[/ch]                         [ch]G[/ch]
-   Hide my head, I want to drown my sorrow[/tab]
-[tab][ch]D[/ch]            [ch]A[/ch]
-No tomorrow, no tomorrow[/tab]
+
+[Em]   All around me are fa[G]miliar faces
+[D]Worn out places, w[A]orn out faces
+[Em]   Bright and early for their [G]daily races
+[D]Going nowhere, g[A]oing nowhere
+[Em]   Their tears are filling [G]up their glasses
+[D]No expression, n[A]o expression
+[Em]   Hide my head, I want to [G]drown my sorrow
+[D]No tomorrow, n[A]o tomorrow
 
 [Chorus]
-[tab][ch]Em[/ch]                     [ch]A[/ch]                      [ch]Em[/ch]
-   And I find it kinda funny, I find it kinda sad[/tab]
-[tab]                        [ch]A[/ch]                            [ch]Em[/ch]
-The dreams in which I'm dying are the best I've ever had[/tab]
-[tab]                  [ch]A[/ch]                           [ch]Em[/ch]
-I find it hard to tell you, I find it hard to take[/tab]
-[tab]                   [ch]A[/ch]
-When people run in circles, it's a very, very[/tab]
-[tab][ch]Em[/ch]      [ch]A[/ch]
-   Mad world[/tab]
-[tab][ch]Em[/ch]      [ch]A[/ch]
-   Mad world[/tab]
+
+[Em]   And I find it kinda [A]funny, I find it kinda s[Em]ad
+The dreams in which I'm [A]dying are the best I've ever h[Em]ad
+I find it hard to [A]tell you, I find it hard to t[Em]ake
+When people run in [A]circles, it's a very, very
+[Em]   Mad w[A]orld
+[Em]   Mad w[A]orld
 
 [Verse 2]
-[tab][ch]Em[/ch]                          [ch]G[/ch]
-   Children waiting for the day they feel good[/tab]
-[tab][ch]D[/ch]               [ch]A[/ch]
-Happy birthday, happy birthday[/tab]
-[tab][ch]Em[/ch]                         [ch]G[/ch]
-   And I feel the way that every child should[/tab]
-[tab][ch]D[/ch]               [ch]A[/ch]
-Sit and listen, sit and listen[/tab]
-[tab][ch]Em[/ch]                           [ch]G[/ch]
-   Went to school, and I was very nervous[/tab]
-[tab][ch]D[/ch]               [ch]A[/ch]
-No one knew me, no one knew me[/tab]
-[tab][ch]Em[/ch]                         [ch]G[/ch]
-   Hello, teacher, tell me what's my lesson[/tab]
-[tab][ch]D[/ch]                      [ch]A[/ch]
-Look right through me, look right through me[/tab]
+
+[Em]   Children waiting for the [G]day they feel good
+[D]Happy birthday, h[A]appy birthday
+[Em]   And I feel the way that [G]every child should
+[D]Sit and listen, s[A]it and listen
+[Em]   Went to school, and I was [G]very nervous
+[D]No one knew me, n[A]o one knew me
+[Em]   Hello, teacher, tell me [G]what's my lesson
+[D]Look right through me, l[A]ook right through me
 
 [Chorus]
-[tab][ch]Em[/ch]                     [ch]A[/ch]                      [ch]Em[/ch]
-   And I find it kinda funny, I find it kinda sad[/tab]
-[tab]                        [ch]A[/ch]                            [ch]Em[/ch]
-The dreams in which I'm dying are the best I've ever had[/tab]
-[tab]                  [ch]A[/ch]                           [ch]Em[/ch]
-I find it hard to tell you, I find it hard to take[/tab]
-[tab]                   [ch]A[/ch]
-When people run in circles, it's a very, very[/tab]
-[tab][ch]Em[/ch]      [ch]A[/ch]
-   Mad world[/tab]
-[tab][ch]Em[/ch]      [ch]A[/ch]
-   Mad world[/tab]
-[tab][ch]Em[/ch]              [ch]A[/ch]
-   Enlarging your world[/tab]
-[tab][ch]Em[/ch]      [ch]A[/ch]
-   Mad world[/tab]
+
+[Em]   And I find it kinda [A]funny, I find it kinda s[Em]ad
+The dreams in which I'm [A]dying are the best I've ever h[Em]ad
+I find it hard to [A]tell you, I find it hard to t[Em]ake
+When people run in [A]circles, it's a very, very
+[Em]   Mad w[A]orld
+[Em]   Mad w[A]orld
+[Em]   Enlarging you[A]r world
+[Em]   Mad w[A]orld

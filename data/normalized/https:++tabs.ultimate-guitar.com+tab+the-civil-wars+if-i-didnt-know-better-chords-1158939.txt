@@ -1,6 +1,9 @@
+{title: If i didnt know better}
+
 [Intro]
 
 [tab]   [ch]Am[/ch]
+
 e|--------------------|
 B|--------------------|
 G|--------------------|
@@ -8,57 +11,46 @@ D|--------------------| x2
 A|--------------------|
 E|----------0--0-3--3-|[/tab]
 
-
 [Verse 1]
 
 [tab] [ch]Am[/ch]
-If I didn't know better I'd hang my hat right there[/tab]
-[tab] [ch]E[/ch]                          [ch]Am[/ch]
-If I didn't know better I'd follow you up the stairs[/tab]
-[tab][ch]Am[/ch]
-Stop saying those sweet things you know I like to hear[/tab]
-[tab]  [ch]E[/ch]                              [ch]Am[/ch]
-The horns are blowing louder and they're destroying me[/tab]
 
+If I didn't know better I'd hang my hat right there[/tab]
+I[E]f I didn't know better I'd f[Am]ollow you up the stairs
+[Am]Stop saying those sweet things you know I like to hear
+Th[E]e horns are blowing louder and t[Am]hey're destroying me
 
 [Chorus]
 
 [tab][ch]Dm[/ch]        [ch]Am[/ch]
-Why do I keep drinking[/tab]
-[tab][ch]Dm[/ch]             [ch]Am[/ch]
-Wasting my time on you[/tab]
-[tab]   [ch]Dm[/ch]        [ch]E[/ch]
-If I didn't know better[/tab]
-[tab]    N.C.     [ch]Am[/ch]
-But damnit, I do[/tab]
 
+Why do I keep drinking[/tab]
+[Dm]Wasting my time[Am] on you
+If [Dm]I didn't k[E]now better
+But damnit, I[Am] do
 
 [Verse 2]
 
 [tab]          [ch]Am[/ch]
-There's a hole in what you're saying, I can plainly see[/tab]
-[tab]    [ch]E[/ch]                               [ch]Am[/ch]
-You have a lover that's waiting but baby you're right here with me[/tab]
-[tab]         [ch]Am[/ch]
-Ooh, you might as well be the devil, keeping me out past three[/tab]
-[tab]             [ch]E[/ch]                           [ch]Am[/ch]
-Well, you're the one with that apple, so baby you can't blame me[/tab]
 
+There's a hole in what you're saying, I can plainly see[/tab]
+You [E]have a lover that's waiting but b[Am]aby you're right here with me
+Ooh, you [Am]might as well be the devil, keeping me out past three
+Well, you're [E]the one with that apple, so b[Am]aby you can't blame me
 
 [Chorus]
 
 [tab]    [ch]Dm[/ch]        [ch]Am[/ch]
+
 Oh, why don't you keep drinking[/tab]
-[tab][ch]Dm[/ch]               [ch]Am[/ch]
-Get me one night with you[/tab]
-[tab]   [ch]Dm[/ch]        [ch]E[/ch]
-If I didn't know better[/tab]
-[tab]    N.C.     [ch]Am[/ch]
-But damnit, I do[/tab]
+[Dm]Get me one night [Am]with you
+If [Dm]I didn't k[E]now better
+But damnit, I[Am] do
 
 (do intro bit one more time here)
 
 [tab]   [ch]Am[/ch]
+
 e|--------------------|
 B|--------------------|
 G|--------------------|
@@ -67,8 +59,7 @@ A|--------------------|
 E|----------0--0-3--3-|[/tab]
 
 [tab][ch]Am[/ch]
+
    Oh, you know that I do[/tab]
-[tab]                       [ch]Am[/ch]
-Oh baby, you're right here with me[/tab]
-[tab]                         [ch]Am[/ch]
-Oh baby, you know that I do[/tab]
+Oh baby, you're right h[Am]ere with me
+Oh baby, you know that I [Am]do

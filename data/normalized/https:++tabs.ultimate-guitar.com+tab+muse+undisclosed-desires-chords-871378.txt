@@ -1,12 +1,15 @@
+{title: Undisclosed desires}
+
 Artist: Muse
+
 Song: Undisclosed Desires
 Album: The Resistance
 
 Capo 3
 
-
 [tab][Intro]
-    [ch]Am7[/ch]                            [ch]Em[/ch]
+
+    [Am7]                            [Em]
 e|------------------------------------------------------------------|
 B|----------1--------------1---0-----------0---------------0--------|
 G|------0------0-------0---------------0-------0-------0-------0----|
@@ -14,88 +17,59 @@ D|----2---2--2---2---2---2---2---2---2---2---2---2-------2---2---2--| x2
 A|--0--------------0---------------------------------2--------------|
 E|---------------------------------0---------------0----------------|[/tab]
 
-
 [Verse]
-[tab][ch]C[/ch] 
- I know you've suffered[/tab]
-[tab]       [ch]Em[/ch]
- But I don't want you to hide[/tab]
-[tab][ch]C[/ch]
- It's cold and loveless[/tab]
-[tab]         [ch]Em[/ch]
- I won't let you be denied[/tab]
+
+[C] I know you've suffered
+ But I [Em]don't want you to hide
+[C] It's cold and loveless
+ I won't [Em]let you be denied
 
 [tab] [ch]C[/ch]
+
  Soothing[/tab]
-[tab]      [ch]Em[/ch]
- I'll make you feel pure[/tab]
-[tab]     [ch]C[/ch]
- And trust me[/tab]
-[tab] [ch]Em[/ch]
- You can be sure[/tab]
-
+ I'll [Em]make you feel pure
+ And [C]trust me
+ [Em]You can be sure
 
 [Chorus]
-[tab][ch]Am[/ch]         [ch]C[/ch]             [ch]Em[/ch]               [ch]G[/ch]
- I want to reconcile the violence in your heart[/tab]
-[tab][ch]Am[/ch]         [ch]C[/ch]              [ch]Em[/ch]                  [ch]G[/ch]
- I want to recognize your beauty's not just a mask[/tab]
-[tab][ch]Am[/ch]         [ch]C[/ch]            [ch]Em[/ch]               [ch]G[/ch]
- I want to exorcise the demons from your past[/tab]
-[tab][ch]Am[/ch]         [ch]C[/ch]           [ch]Em[/ch]            [ch]G[/ch]             [ch]C[/ch]         
- I want to satisfy the undisclosed desires in your heart[/tab]
 
+[Am] I want to [C]reconcile the v[Em]iolence in your h[G]eart
+[Am] I want to [C]recognize your b[Em]eauty's not just a m[G]ask
+[Am] I want to [C]exorcise the d[Em]emons from your p[G]ast
+[Am] I want to [C]satisfy the u[Em]ndisclosed des[G]ires in your he[C]art
 
 [Verse]
- You trick your lovers
-[tab]             [ch]Em[/ch]
- That you're wicked and divine[/tab]
-[tab][ch]C[/ch]
- You may be a sinner[/tab]
-[tab]          [ch]Em[/ch]
- But your innocence is mine[/tab]
-[tab] [ch]C[/ch]
- Please me[/tab]
-[tab] [ch]Em[/ch]
- Show me how it's done[/tab]
-[tab] [ch]C[/ch]
- Tease me[/tab]
-[tab] [ch]Em[/ch]
- You are the one[/tab]
 
+ You trick your lovers
+ That you're [Em]wicked and divine
+[C] You may be a sinner
+ But your [Em]innocence is mine
+ [C]Please me
+ [Em]Show me how it's done
+ [C]Tease me
+ [Em]You are the one
 
 [Chorus]
-[tab][ch]Am[/ch]         [ch]C[/ch]             [ch]Em[/ch]               [ch]G[/ch]
- I want to reconcile the violence in your heart[/tab]
-[tab][ch]Am[/ch]         [ch]C[/ch]              [ch]Em[/ch]                  [ch]G[/ch]
- I want to recognize your beauty's not just a mask[/tab]
-[tab][ch]Am[/ch]         [ch]C[/ch]            [ch]Em[/ch]               [ch]G[/ch]
- I want to exorcise the demons from your past[/tab]
-[tab][ch]Am[/ch]         [ch]C[/ch]           [ch]Em[/ch]            [ch]G[/ch]             [ch]C[/ch]         
- I want to satisfy the undisclosed desires in your heart[/tab]
 
+[Am] I want to [C]reconcile the v[Em]iolence in your h[G]eart
+[Am] I want to [C]recognize your b[Em]eauty's not just a m[G]ask
+[Am] I want to [C]exorcise the d[Em]emons from your p[G]ast
+[Am] I want to [C]satisfy the u[Em]ndisclosed des[G]ires in your he[C]art
 
 [ch]Am[/ch] [ch]Em[/ch] x2
 
 [Verse]
-[tab] [ch]C[/ch]
- Please me[/tab]
-[tab] [ch]Em[/ch]
- Show me how it's done[/tab]
-[tab] [ch]C[/ch]
- Trust me[/tab]
-[tab] [ch]Em[/ch]
- You are the one[/tab]
 
+ [C]Please me
+ [Em]Show me how it's done
+ [C]Trust me
+ [Em]You are the one
 
 [Chorus]
-[tab][ch]Am[/ch]         [ch]C[/ch]             [ch]Em[/ch]               [ch]G[/ch]
- I want to reconcile the violence in your heart[/tab]
-[tab][ch]Am[/ch]         [ch]C[/ch]              [ch]Em[/ch]                  [ch]G[/ch]
- I want to recognize your beauty's not just a mask[/tab]
-[tab][ch]Am[/ch]         [ch]C[/ch]            [ch]Em[/ch]               [ch]G[/ch]
- I want to exorcise the demons from your past[/tab]
-[tab][ch]Am[/ch]         [ch]C[/ch]           [ch]Em[/ch]            [ch]G[/ch]             [ch]C[/ch]         
- I want to satisfy the undisclosed desires in your heart[/tab]
+
+[Am] I want to [C]reconcile the v[Em]iolence in your h[G]eart
+[Am] I want to [C]recognize your b[Em]eauty's not just a m[G]ask
+[Am] I want to [C]exorcise the d[Em]emons from your p[G]ast
+[Am] I want to [C]satisfy the u[Em]ndisclosed des[G]ires in your he[C]art
 
 [ch]C[/ch] [ch]Em[/ch] x2

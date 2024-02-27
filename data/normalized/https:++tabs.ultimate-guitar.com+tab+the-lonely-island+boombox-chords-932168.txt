@@ -1,4 +1,7 @@
+{title: Boombox}
+
 Song: Boombox
+
 Artist: The Lonely Island ft. Julian Casablancas
 Album: Incredibad
 
@@ -7,90 +10,61 @@ Capo 1
 Intro: [ch]Em[/ch] [ch]G[/ch] [ch]Am[/ch] [ch]B5[/ch] [ch]D[/ch]
 
 [tab] [ch]Em[/ch]                         [ch]G[/ch]
-Imagine in your mind a posh country club[/tab]
-[tab]    [ch]Am[/ch]                         [ch]B5[/ch]       [ch]D[/ch]
-The stuffy old money where the poor get snubbed[/tab]
-[tab] [ch]Em[/ch]                      [ch]G[/ch]
-The spread is bland sauerkraut and boiled goose[/tab]
-[tab]        [ch]Am[/ch]                       [ch]B5[/ch]       [ch]D[/ch]
-There's no way these people will ever cut loose[/tab]
-[tab]           [ch]Em[/ch]                        [ch]G[/ch]
-But then I walk in the room, hold my boombox high[/tab]
-[tab]    [ch]Am[/ch]                       [ch]B5[/ch]        [ch]D[/ch]
-And what happened next, will blow your mind[/tab]
 
+Imagine in your mind a posh country club[/tab]
+The [Am]stuffy old money where the [B5]poor get [D]snubbed
+T[Em]he spread is bland sauer[G]kraut and boiled goose
+There's [Am]no way these people will [B5]ever cut [D]loose
+But then I [Em]walk in the room, hold my [G]boombox high
+And [Am]what happened next, will [B5]blow your [D]mind
 
 Chorus:
-[tab][ch]Em[/ch]                      [ch]Am[/ch]
-Everything got outta control[/tab]
-[tab]    [ch]D[/ch]               [ch]G[/ch]       [ch]D/F#[/ch]
-The music was so entrancing[/tab]
-[tab][ch]Em[/ch]                      [ch]Am[/ch]
-Everyone got out on the floor[/tab]
-[tab]         [ch]D[/ch]                         [ch]G[/ch]       [ch]D/F#[/ch]
-It was a bunch of old white people dancing[/tab]
+
+[Em]Everything got outta con[Am]trol
+The [D]music was so entr[G]ancing[D/F#]
+[Em]Everyone got out on the [Am]floor
+It was a [D]bunch of old white people d[G]ancing[D/F#]
 
 [tab]    [ch]Em[/ch]               [ch]G[/ch]
+
 The Big Apple, where people never dance[/tab]
-[tab][ch]Am[/ch]                    [ch]B5[/ch]        [ch]D[/ch]
-Spirits go down while profits expand[/tab]
-[tab]    [ch]Em[/ch]                         [ch]G[/ch]
-The cops or the dealers, who's got the juice[/tab]
-[tab]    [ch]Am[/ch]                            [ch]B5[/ch]     [ch]D[/ch]
-The street vendors peddling their boiled goose[/tab]
-[tab]   [ch]Em[/ch]                        [ch]G[/ch]
-So many types of people will never get along[/tab]
-[tab]       [ch]Am[/ch]                      [ch]B5[/ch]        [ch]D[/ch]
-Till I bust out my boombox and play this song[/tab]
+[Am]Spirits go down while [B5]profits ex[D]pand
+The [Em]cops or the dealers, who's [G]got the juice
+The [Am]street vendors peddling their [B5]boiled [D]goose
+So [Em]many types of people will [G]never get along
+Till I [Am]bust out my boombox and [B5]play this [D]song
 
 Chorus:
-[tab][ch]Em[/ch]                            [ch]Am[/ch]
-The music washed away all the hate[/tab]
-[tab]      [ch]D[/ch]              [ch]G[/ch]        [ch]D/F#[/ch]
-And society started advancing[/tab]
-[tab]      [ch]Em[/ch]                   [ch]Am[/ch]
-Every demographic was represented[/tab]
-[tab]         [ch]D[/ch]                    [ch]G[/ch]       [ch]D/F#[/ch]
-It was a rainbow coalition of dancing[/tab]
-[tab][ch]Em[/ch]   [ch]Am[/ch]
-Whoa[/tab]
-[tab][ch]D[/ch]                    [ch]G[/ch]           [ch]D/F#[/ch]
-Everyone was wearing fingerless gloves[/tab]
-[tab][ch]Em[/ch]    [ch]Am[/ch]
-Whoah oh[/tab]
-[tab]        [ch]D[/ch]                     [ch]G[/ch]       [ch]D/F#[/ch]
-I saw a Spanish guy doing the Bartman[/tab]
+
+[Em]The music washed away all the [Am]hate
+And so[D]ciety started ad[G]vancing[D/F#]
+Every [Em]demographic was repre[Am]sented
+It was a [D]rainbow coalition of d[G]ancing[D/F#]
+[Em]Whoa[Am]
+[D]Everyone was wearing f[G]ingerless glo[D/F#]ves
+[Em]Whoah [Am]oh
+I saw a [D]Spanish guy doing the B[G]artman[D/F#]
 
 [tab][ch]Em[/ch]                  [ch]G[/ch]
+
 Transport now to an old folks home[/tab]
-[tab]          [ch]Am[/ch]                          [ch]B5[/ch]      [ch]D[/ch]
-Where the elderly are tossed on their brittle bones[/tab]
-[tab]    [ch]Em[/ch]                              [ch]G[/ch]
-The orderlies are stealing, there's no excuse[/tab]
-[tab][ch]Am[/ch]                          [ch]B5[/ch]     [ch]D[/ch]
-Everyday for lunch they eat boiled goose[/tab]
-[tab]     [ch]Em[/ch]                             [ch]G[/ch]
-So I grabbed my boombox and hit the turbo base[/tab]
-[tab]    [ch]Am[/ch]                       [ch]B5[/ch]       [ch]D[/ch]
-And what happened next was a total disgrace[/tab]
+Where the [Am]elderly are tossed on their [B5]brittle [D]bones
+The [Em]orderlies are stealing, there's [G]no excuse
+[Am]Everyday for lunch they eat [B5]boiled [D]goose
+So I [Em]grabbed my boombox and hit the [G]turbo base
+And [Am]what happened next was a [B5]total dis[D]grace
 
 Chorus:
-[tab][ch]Em[/ch]                       [ch]Am[/ch]
-Everybody started having sex[/tab]
-[tab]    [ch]D[/ch]                 [ch]G[/ch]       [ch]D/F#[/ch]
-The music was way too powerful[/tab]
-[tab]           [ch]Em[/ch]                      [ch]Am[/ch]
-A bunch of old people fucking like rabbits[/tab]
-[tab]          [ch]D[/ch]                  [ch]G[/ch]      [ch]D/F#[/ch]
-It was disgusting to say the least, oh[/tab]
-[tab]  [ch]Em[/ch]                     [ch]Am[/ch]
-A boombox can change the world[/tab]
-[tab]          [ch]D[/ch]                       [ch]G[/ch]       [ch]D/F#[/ch]
-You gotta know your limits with a boombox[/tab]
-[tab][ch]Em[/ch]                    [ch]A[/ch]
-This was a cautionary tale[/tab]
-[tab]  [ch]D[/ch]                [ch]G[/ch]    [ch]D/F#[/ch]
-A boombox is not a toy[/tab]
+
+[Em]Everybody started having [Am]sex
+The [D]music was way too p[G]owerful[D/F#]
+A bunch of [Em]old people fucking like [Am]rabbits
+It was dis[D]gusting to say the l[G]east, oh[D/F#]
+A [Em]boombox can change the [Am]world
+You gotta [D]know your limits with a b[G]oombox[D/F#]
+[Em]This was a cautionary [A]tale
+A [D]boombox is not a t[G]oy[D/F#]
 
 [ch]Em[/ch] [ch]G[/ch] [ch]Am[/ch] [ch]B5[/ch] [ch]D[/ch]
-[ch]Em[/ch]
+
+[Em]

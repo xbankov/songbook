@@ -1,166 +1,98 @@
+{title: Cant stop}
+
 [Verse 1]
-[tab][ch]Em[/ch]
-Can't stop, addicted to the shindig [/tab]
-[tab][ch]D[/ch]
-Chop top, he says I'm gonna win big [/tab]
-[tab][ch]Bm[/ch]
-Choose not a life of imitation [/tab]
-[tab][ch]C[/ch]
-Distant cousin to the reservation [/tab]
-[tab][ch]Em[/ch]
-Defunct, the pistol that you pay for [/tab]
-[tab][ch]D[/ch]
-This punk, the feeling that you stay for [/tab]
-[tab][ch]Bm[/ch]
-In time I want to be your best friend [/tab]
-[tab][ch]C[/ch]
-Eastside love is living on the westend [/tab]
-[tab][ch]Em[/ch]
-Knocked out, but boy you better come to [/tab]
-[tab][ch]D[/ch]
-Don't die, you know the truth as some do [/tab]
-[tab][ch]Bm[/ch]
-Go write your message on the pavement [/tab]
-[tab][ch]C[/ch]
-Burn so bright, I wonder what the wave meant [/tab]
-[tab][ch]Em[/ch]
-White heat is screaming in the jungle [/tab]
-[tab][ch]D[/ch]
-Complete the motion if you stumble [/tab]
-[tab][ch]Bm[/ch]
-Go ask the dust for any answers [/tab]
-[tab][ch]C[/ch]
-Come back strong with 50 belly dancers [/tab]
+
+[Em]Can't stop, addicted to the shindig 
+[D]Chop top, he says I'm gonna win big 
+[Bm]Choose not a life of imitation 
+[C]Distant cousin to the reservation 
+[Em]Defunct, the pistol that you pay for 
+[D]This punk, the feeling that you stay for 
+[Bm]In time I want to be your best friend 
+[C]Eastside love is living on the westend 
+[Em]Knocked out, but boy you better come to 
+[D]Don't die, you know the truth as some do 
+[Bm]Go write your message on the pavement 
+[C]Burn so bright, I wonder what the wave meant 
+[Em]White heat is screaming in the jungle 
+[D]Complete the motion if you stumble 
+[Bm]Go ask the dust for any answers 
+[C]Come back strong with 50 belly dancers 
 
 [Chorus]
-[tab]     [ch]G[/ch]
-The world I love[/tab]
-[tab]     [ch]D[/ch]
-The tears I've dropped[/tab]
-[tab]   [ch]Bm[/ch]
-To be part of[/tab]
-[tab]     [ch]C[/ch]
-the wave can't stop[/tab]
-[tab][ch]G[/ch]           [ch]D[/ch]        [ch]Bm[/ch]      [ch]C[/ch]
-Ever wonder if it's all for you[/tab]
-[tab]     [ch]G[/ch]
-The world I love[/tab]
-[tab]      [ch]D[/ch]
-The trains I hop[/tab]
-[tab]   [ch]Bm[/ch]
-To be part of[/tab]
-[tab]     [ch]C[/ch]
-The wave can't stop[/tab]
-[tab] [ch]G[/ch]                 [ch]D[/ch]         [ch]Bm[/ch] [ch]C[/ch]
-Come and tell me when it's time to[/tab]
+
+The w[G]orld I love
+The t[D]ears I've dropped
+To [Bm]be part of
+the w[C]ave can't stop
+[G]Ever wonder i[D]f it's all[Bm] for you[C]
+The w[G]orld I love
+The tr[D]ains I hop
+To [Bm]be part of
+The w[C]ave can't stop
+C[G]ome and tell me whe[D]n it's time[Bm] to[C]
 
 [Verse 2]
-[tab][ch]Em[/ch]
-Sweetheart is bleeding in the snowcone [/tab]
-[tab][ch]D[/ch]
-So smart, she's leading me to ozone [/tab]
-[tab][ch]Bm[/ch]
-Music, the great communicator [/tab]
-[tab][ch]C[/ch]
-Use two sticks to make it in the nature [/tab]
-[tab][ch]Em[/ch]
-I'll get you into penetration [/tab]
-[tab][ch]D[/ch]
-The gender of a generation [/tab]
-[tab][ch]Bm[/ch]
-The birth of every other nation [/tab]
-[tab][ch]C[/ch]
-Worth your weight, the gold of meditation [/tab]
-[tab][ch]Em[/ch]
-This chapter's going to be a close one [/tab]
-[tab][ch]D[/ch]
-Smoke rings, I know you're going to blow one [/tab]
-[tab][ch]Bm[/ch]
-All on a spaceship, persevering [/tab]
-[tab][ch]C[/ch]
-Use my hands for everything but steering [/tab]
-[tab][ch]Em[/ch]
-Can't stop the spirits when they need you [/tab]
-[tab][ch]D[/ch]
-Mop tops are happy when they feed you [/tab]
-[tab][ch]Bm[/ch]
-Jay butterfly is in the treetop [/tab]
-[tab][ch]C[/ch]
-Birds that blow the meaning into bebop[/tab]
+
+[Em]Sweetheart is bleeding in the snowcone 
+[D]So smart, she's leading me to ozone 
+[Bm]Music, the great communicator 
+[C]Use two sticks to make it in the nature 
+[Em]I'll get you into penetration 
+[D]The gender of a generation 
+[Bm]The birth of every other nation 
+[C]Worth your weight, the gold of meditation 
+[Em]This chapter's going to be a close one 
+[D]Smoke rings, I know you're going to blow one 
+[Bm]All on a spaceship, persevering 
+[C]Use my hands for everything but steering 
+[Em]Can't stop the spirits when they need you 
+[D]Mop tops are happy when they feed you 
+[Bm]Jay butterfly is in the treetop 
+[C]Birds that blow the meaning into bebop
 
 [Chorus]
-[tab]     [ch]G[/ch]
-The world I love[/tab]
-[tab]     [ch]D[/ch]
-The tears I've dropped[/tab]
-[tab]   [ch]Bm[/ch]
-To be part of[/tab]
-[tab]     [ch]C[/ch]
-the wave can't stop[/tab]
-[tab][ch]G[/ch]           [ch]D[/ch]        [ch]Bm[/ch]      [ch]C[/ch]
-Ever wonder if it's all for you[/tab]
-[tab]     [ch]G[/ch]
-The world I love[/tab]
-[tab]      [ch]D[/ch]
-The trains I hop[/tab]
-[tab]   [ch]Bm[/ch]
-To be part of[/tab]
-[tab]     [ch]C[/ch]
-The wave can't stop[/tab]
-[tab] [ch]G[/ch]                 [ch]D[/ch]         [ch]Bm[/ch] [ch]C[/ch]
-Come and tell me when it's time to[/tab]
+
+The w[G]orld I love
+The t[D]ears I've dropped
+To [Bm]be part of
+the w[C]ave can't stop
+[G]Ever wonder i[D]f it's all[Bm] for you[C]
+The w[G]orld I love
+The tr[D]ains I hop
+To [Bm]be part of
+The w[C]ave can't stop
+C[G]ome and tell me whe[D]n it's time[Bm] to[C]
 
 [Interlude]
-[tab][ch]Em[/ch]                  [ch]D[/ch]                   [ch]Bm[/ch]              [ch]C[/ch]
-Wait a minute, I'm passing out, win or lose, just like you [/tab]
-[tab][ch]Em[/ch]                       [ch]D[/ch]              [ch]Bm[/ch]             [ch]C[/ch]
-Far more shockin' than anything I ever knew, how 'bout you [/tab]
-[tab][ch]Em[/ch]                [ch]D[/ch]                  [ch]Bm[/ch]             [ch]C[/ch]
-Ten more reasons why I need somebody new, just like you [/tab]
-[tab][ch]Em[/ch]                       [ch]D[/ch]              [ch]Bm[/ch]             [ch]C[/ch]
-Far more shockin' than anything I ever knew, right on cue [/tab]
+
+[Em]Wait a minute, I'm p[D]assing out, win or lo[Bm]se, just like yo[C]u 
+[Em]Far more shockin' than an[D]ything I ever kn[Bm]ew, how 'bout y[C]ou 
+[Em]Ten more reasons w[D]hy I need somebody n[Bm]ew, just like y[C]ou 
+[Em]Far more shockin' than an[D]ything I ever kn[Bm]ew, right on cu[C]e 
 
 [Verse 3]
-[tab][ch]Em[/ch]
-Can't stop, addicted to the shindig [/tab]
-[tab][ch]D[/ch]
-Chop top, he says I'm gonna win big [/tab]
-[tab][ch]Bm[/ch]
-Choose not a life of imitation [/tab]
-[tab][ch]C[/ch]
-Distant cousin to the reservation [/tab]
-[tab][ch]Em[/ch]
-Defunct, the pistol that you pay for [/tab]
-[tab][ch]D[/ch]
-This punk, the feeling that you stay for [/tab]
-[tab][ch]Bm[/ch]
-In time I want to be your best friend [/tab]
-[tab][ch]C[/ch]
-Eastside love is living on the westend [/tab]
-[tab][ch]Em[/ch]
-Knocked out, but boy you better come to [/tab]
-[tab] [ch]D[/ch]
-Don't die, you know the truth as some do [/tab]
-[tab][ch]Bm[/ch]
-Go write your message on the pavement [/tab]
-[tab][ch]C[/ch]
-Burn so bright, I wonder what the wave meant [/tab]
-[tab][ch]Em[/ch]
-Kick start the golden generator [/tab]
-[tab][ch]D[/ch]
-Sweet talk but don't intimidate her [/tab]
-[tab][ch]Bm[/ch]
-Can't stop the Gods from engineering [/tab]
-[tab][ch]C[/ch]
-Feel no need for any interfering [/tab]
-[tab][ch]Em[/ch]
-Your image in the dictionary [/tab]
-[tab][ch]D[/ch]
-This life is more than ordinary [/tab]
-[tab][ch]Bm[/ch]
-Can I get two, maybe even three of these?[/tab]
-[tab][ch]C[/ch]
-Comin' from space to teach you of the Pleiades [/tab]
+
+[Em]Can't stop, addicted to the shindig 
+[D]Chop top, he says I'm gonna win big 
+[Bm]Choose not a life of imitation 
+[C]Distant cousin to the reservation 
+[Em]Defunct, the pistol that you pay for 
+[D]This punk, the feeling that you stay for 
+[Bm]In time I want to be your best friend 
+[C]Eastside love is living on the westend 
+[Em]Knocked out, but boy you better come to 
+D[D]on't die, you know the truth as some do 
+[Bm]Go write your message on the pavement 
+[C]Burn so bright, I wonder what the wave meant 
+[Em]Kick start the golden generator 
+[D]Sweet talk but don't intimidate her 
+[Bm]Can't stop the Gods from engineering 
+[C]Feel no need for any interfering 
+[Em]Your image in the dictionary 
+[D]This life is more than ordinary 
+[Bm]Can I get two, maybe even three of these?
+[C]Comin' from space to teach you of the Pleiades 
 N.C.
 Can't stop the spirits when they need you 
 N.C.

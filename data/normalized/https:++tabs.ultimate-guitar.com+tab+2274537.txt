@@ -1,133 +1,94 @@
+{title: }
+
 [Verse 1]
-[tab][ch]Am[/ch]               [ch]G[/ch]                    [ch]F[/ch]
-Ráno mě probouzí tma sahám si na zápěstí,[/tab]
-[tab]          [ch]E[/ch]           [ch]Dm[/ch]         [ch]E[/ch]
-zda mi to ještě tluče zda-li mám ještě štěstí,[/tab]
-[tab][ch]Am[/ch]               [ch]G[/ch]                  [ch]F[/ch]
-nebo je po mně a já mám voskované boty,[/tab]
-[tab]        [ch]E[/ch]           [ch]Dm[/ch]        [ch]E[/ch]        [ch]Am[/ch]
-ráno co ráno stejné probuzení do nicoty.[/tab]
+
+[Am]Ráno mě probouzí [G]tma sahám si na zápěst[F]í,
+zda mi to [E]ještě tluče z[Dm]da-li mám j[E]eště štěstí,
+[Am]nebo je po mně a [G]já mám voskované bot[F]y,
+ráno co [E]ráno stejné p[Dm]robuzení d[E]o nicoty.[Am]
 
 [Verse 2]
-[tab][ch]Am[/ch]            [ch]G[/ch]                    [ch]F[/ch]
-Není co, není jak, není proč, není kam,[/tab]
-[tab]            [ch]E[/ch]           [ch]Dm[/ch]         [ch]E[/ch]
-není s kým, není o čem, každý je v sobě sám.[/tab]
-[tab][ch]Am[/ch]             [ch]G[/ch]                      [ch]F[/ch]
-Vyzáblý Don Quijote sedlá svou Rosinantu[/tab]
-[tab]         [ch]E[/ch]           [ch]Dm[/ch]     [ch]E[/ch]        [ch]Am[/ch]
-a Bůh je slepý řidič sedící u volantu.[/tab]
+
+[Am]Není co, není [G]jak, není proč, není k[F]am,
+není s kým, [E]není o čem, k[Dm]aždý je v s[E]obě sám.
+[Am]Vyzáblý Don Qui[G]jote sedlá svou Rosinant[F]u
+a Bůh je [E]slepý řidič s[Dm]edící u[E] volantu.[Am]
 
 [Chorus]
-[tab][ch]E[/ch]       [ch]F[/ch]         [ch]Dm[/ch]        [ch]E[/ch]
-Zapínám telefon - záznamník cizích citů,[/tab]
-[tab]              [ch]F[/ch]          [ch]Dm[/ch]      [ch]E[/ch]
-špatné zprávy chodí jako policie za úsvitu,[/tab]
-[tab][ch]Dm[/ch]                 [ch]G7[/ch]
-jsem napůl bdělý a napůl ještě v noční pauze,[/tab]
-[tab][ch]C[/ch]                    [ch]E[/ch]
-měl bych se smát ale mám úsměv Mikymauze,[/tab]
-[tab][ch]Am[/ch]       [ch]Am/G[/ch]    [ch]F[/ch] [ch]E[/ch] [ch]Am[/ch]
-rána bych zrušil.[/tab]
+
+[E]Zapínám t[F]elefon - zá[Dm]znamník ci[E]zích citů,
+špatné zprávy [F]chodí jako p[Dm]olicie z[E]a úsvitu,
+[Dm]jsem napůl bdělý a [G7]napůl ještě v noční pauze,
+[C]měl bych se smát ale m[E]ám úsměv Mikymauze,
+[Am]rána bych[Am/G] zruši[F]l.[E][Am]
 
 [Verse 3]
-[tab][ch]Am[/ch]              [ch]G[/ch]              [ch]F[/ch]
-Dobrý muž v rádiu pouští Čikoreu,[/tab]
-[tab]        [ch]E[/ch]         [ch]Dm[/ch]         [ch]E[/ch]
-opravdu veselo je asi jako v mauzoleu,[/tab]
-[tab][ch]Am[/ch]                 [ch]G[/ch]                [ch]F[/ch]
-ve frontě na mumii mám kruhy pod očima,[/tab]
-[tab]       [ch]E[/ch]        [ch]Dm[/ch]         [ch]E[/ch]       [ch]Am[/ch]
-růžový rozbřesk fakt už mě nedojímá.[/tab]
+
+[Am]Dobrý muž v rádi[G]u pouští Čikoreu[F],
+opravdu [E]veselo je a[Dm]si jako v m[E]auzoleu,
+[Am]ve frontě na mumii [G]mám kruhy pod očim[F]a,
+růžový [E]rozbřesk f[Dm]akt už mě n[E]edojímá.[Am]
 
 [Verse 4]
-[tab][ch]Am[/ch]             [ch]G[/ch]                     [ch]F[/ch]
-Povídáš něco o tom co bychom dělat měli,[/tab]
-[tab]       [ch]E[/ch]          [ch]Dm[/ch]         [ch]E[/ch]
-pomalu vychládají naše důlky na posteli,[/tab]
-[tab][ch]Am[/ch]                  [ch]G[/ch]                [ch]F[/ch]
-všechno se halí v šeru, čí to bylo vinou,[/tab]
-[tab]        [ch]E[/ch]           [ch]Dm[/ch]       [ch]E[/ch]        [ch]Am[/ch]
-že dřevorubec máchl mezi nás širočinou.[/tab]
+
+[Am]Povídáš něco o [G]tom co bychom dělat měl[F]i,
+pomalu [E]vychládají n[Dm]aše důlky n[E]a posteli,
+[Am]všechno se halí v še[G]ru, čí to bylo vin[F]ou,
+že dřevo[E]rubec máchl m[Dm]ezi nás š[E]iročinou.[Am]
 
 [Chorus]
-[tab][ch]E[/ch]       [ch]F[/ch]         [ch]Dm[/ch]         [ch]E[/ch]
-Postele rozdělené na dva suverénní státy,[/tab]
-[tab]       [ch]F[/ch]           [ch]Dm[/ch]            [ch]E[/ch]
-ozdoby na tapetách jsou jak pohraniční dráty,[/tab]
-[tab][ch]Dm[/ch]                    [ch]G7[/ch]
-ve spánku nepřijde to spánek je sladká mdloba,[/tab]
-[tab][ch]C[/ch]                    [ch]E[/ch]
-že byla ve mně láska je jenom pustá zloba,[/tab]
-[tab][ch]Am[/ch]       [ch]Am/G[/ch]    [ch]F[/ch] [ch]E[/ch] [ch]Am[/ch]
-dráty bych zrušil.[/tab]
+
+[E]Postele r[F]ozdělené na[Dm] dva suveré[E]nní státy,
+ozdoby [F]na tapetách j[Dm]sou jak pohran[E]iční dráty,
+[Dm]ve spánku nepřijde to [G7]spánek je sladká mdloba,
+[C]že byla ve mně láska j[E]e jenom pustá zloba,
+[Am]dráty byc[Am/G]h zruš[F]il.[E][Am]
 
 [Verse 5]
-[tab][ch]Am[/ch]                  [ch]G[/ch]                     [ch]F[/ch]
-Prokletá hodina, ta minuta, ta krátká chvíle,[/tab]
-[tab]         [ch]E[/ch]             [ch]Dm[/ch]         [ch]E[/ch]
-kdy věci nejsou černé, ale nejsou ani bílé,[/tab]
-[tab][ch]Am[/ch]                [ch]G[/ch]                 [ch]F[/ch]
-kdy není tma, ale ještě ani vidno není,[/tab]
-[tab]         [ch]E[/ch]      [ch]Dm[/ch]            [ch]E[/ch]       [ch]Am[/ch]
-bdění je bolest bez slastného umrtvení.[/tab]
+
+[Am]Prokletá hodina, ta [G]minuta, ta krátká chvíl[F]e,
+kdy věci [E]nejsou černé, a[Dm]le nejsou a[E]ni bílé,
+[Am]kdy není tma, ale [G]ještě ani vidno nen[F]í,
+bdění je [E]bolest b[Dm]ez slastného u[E]mrtvení.[Am]
 
 [Verse 6]
-[tab][ch]Am[/ch]              [ch]G[/ch]                    [ch]F[/ch]
-Zběsile mi to tepe a tupě píchá v třísle,[/tab]
-[tab]         [ch]E[/ch]             [ch]Dm[/ch]      [ch]E[/ch]
-usnout a nevzbudit se, nemuset na nic myslet,[/tab]
-[tab][ch]Am[/ch]              [ch]G[/ch]                  [ch]F[/ch]
-opřený o kolena poslouchám tvoje slzy,[/tab]
-[tab]         [ch]E[/ch]           [ch]Dm[/ch]        [ch]E[/ch]       [ch]Am[/ch]
-na život už je pozdě a na smrt ještě brzy.[/tab]
+
+[Am]Zběsile mi to te[G]pe a tupě píchá v třís[F]le,
+usnout a [E]nevzbudit se, n[Dm]emuset n[E]a nic myslet,
+[Am]opřený o kolena [G]poslouchám tvoje slz[F]y,
+na život [E]už je pozdě a[Dm] na smrt j[E]eště brzy[Am].
 
 [Chorus]
-[tab][ch]E[/ch]       [ch]F[/ch]            [ch]Dm[/ch]       [ch]E[/ch]
-Co bylo kdysi včera, je, jako nebylo by,[/tab]
-[tab]        [ch]F[/ch]        [ch]Dm[/ch]         [ch]E[/ch]
-káva je vypita a není žádná do zásoby,[/tab]
-[tab][ch]Dm[/ch]                      [ch]G7[/ch]
-věci, co nechceš, ať se stanou, ty se stejně stanou[/tab]
-[tab][ch]C[/ch]                      [ch]E[/ch]
-a chleba s máslem padá na zem vždycky blbou stranou,[/tab]
-[tab][ch]Am[/ch]       [ch]Am/G[/ch]    [ch]F[/ch] [ch]E[/ch] [ch]Am[/ch]
-máslo bych zrušil.[/tab]
+
+[E]Co bylo k[F]dysi včera, je[Dm], jako ne[E]bylo by,
+káva je [F]vypita a n[Dm]ení žádná d[E]o zásoby,
+[Dm]věci, co nechceš, ať se [G7]stanou, ty se stejně stanou
+[C]a chleba s máslem padá n[E]a zem vždycky blbou stranou,
+[Am]máslo byc[Am/G]h zruš[F]il.[E][Am]
 
 [Verse 7]
-[tab][ch]Am[/ch]            [ch]G[/ch]                   [ch]F[/ch]
-Povídáš o naději a slova se ti pletou,[/tab]
-[tab]        [ch]E[/ch]          [ch]Dm[/ch]        [ch]E[/ch]
-jak špionážní družice letící nad planetou,[/tab]
-[tab][ch]Am[/ch]                    [ch]G[/ch]                   [ch]F[/ch]
-svlíknout se z pyžama, to by šlo ještě lehce,[/tab]
-[tab]           [ch]E[/ch]             [ch]Dm[/ch]           [ch]E[/ch]            [ch]Am[/ch]
-dvacet let mluvil jsem a teď už se mi mluvit nechce.[/tab]
+
+[Am]Povídáš o nadě[G]ji a slova se ti plet[F]ou,
+jak špio[E]nážní družic[Dm]e letící n[E]ad planetou,
+[Am]svlíknout se z pyžama,[G] to by šlo ještě lehc[F]e,
+dvacet let [E]mluvil jsem a t[Dm]eď už se mi m[E]luvit nechce.[Am]
 
 [Verse 8]
-[tab][ch]Am[/ch]                [ch]G[/ch]                 [ch]F[/ch]
-Z plakátu na záchodě prasátko vypasené,[/tab]
-[tab]        [ch]E[/ch]          [ch]Dm[/ch]         [ch]E[/ch]
-kyne mi zatímco se kolem voda dolů žene,[/tab]
-[tab][ch]Am[/ch]                   [ch]G[/ch]                [ch]F[/ch]
-všechno je vyřčeno a odnášeno do septiku,[/tab]
-[tab]          [ch]E[/ch]          [ch]Dm[/ch]            [ch]E[/ch]       [ch]Am[/ch]
-jenom mně tady zbývá prodýchat pár okamžiků.[/tab]
+
+[Am]Z plakátu na zácho[G]dě prasátko vypasen[F]é,
+kyne mi [E]zatímco se k[Dm]olem voda d[E]olů žene,
+[Am]všechno je vyřčeno a [G]odnášeno do septik[F]u,
+jenom mně [E]tady zbývá p[Dm]rodýchat pár o[E]kamžiků.[Am]
 
 [Chorus]
-[tab][ch]E[/ch]        [ch]F[/ch]         [ch]Dm[/ch]       [ch]E[/ch]
-Sahám si na zápěstí a venku už je zítra,[/tab]
-[tab]       [ch]F[/ch]        [ch]Dm[/ch]        [ch]E[/ch]
-hodiny odbíjejí signály Dobrého jitra,[/tab]
-[tab][ch]Dm[/ch]                 [ch]G7[/ch]
-jsem napůl bdělý a napůl ještě v noční pauze,[/tab]
-[tab][ch]C[/ch]                    [ch]E[/ch]
-měl bych se smát ale mám úsměv Mikymauze,[/tab]
-[tab][ch]Am[/ch]       [ch]Am/G[/ch]    [ch]F[/ch] [ch]E[/ch] [ch]Am[/ch]
-lásku bych zrušil.[/tab]
+
+[E]Sahám si n[F]a zápěstí a[Dm] venku už[E] je zítra,
+hodiny [F]odbíjejí s[Dm]ignály Dob[E]rého jitra,
+[Dm]jsem napůl bdělý a [G7]napůl ještě v noční pauze,
+[C]měl bych se smát ale m[E]ám úsměv Mikymauze,
+[Am]lásku byc[Am/G]h zruš[F]il.[E][Am]
 
 [Outro]
-[tab][ch]Am[/ch]               [ch]G[/ch]                    [ch]F[/ch]
-Ráno mě probouzí tma sahám si na zápěstí,[/tab]
-[tab]          [ch]E[/ch]           [ch]Dm[/ch]         [ch]E[/ch]
-zda mi to ještě tluče jestli mám ještě štěstí. x3[/tab]
+
+[Am]Ráno mě probouzí [G]tma sahám si na zápěst[F]í,
+zda mi to [E]ještě tluče j[Dm]estli mám j[E]eště štěstí. x3

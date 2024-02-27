@@ -1,14 +1,17 @@
+{title: Seven nation army}
+
 [Verse Riff]
 
 [tab]G|----------------------------------------------------------------------|
+
 D|------5-----------------5-----------------5-----------------5---------| (x10)
 A|-7--7---7-5-3-2--/-7--7---7-5-3-2--/-7--7---7-5-3-2--/-7--7---7-5-3-2-|
 E|-0-----------------0-----------------0-----------------0--------------|[/tab]
 
-
 [Pre/Post-Chorus Riff]
 
 [tab]e|------------------0-0-0-0-0-0-0-0-|
+
 B|------------------2-2-2-2-2-2-2-2-|
 G|-4-4-4-4-4-4-4-4--2-2-2-2-2-2-2-2-|
 D|-5-5-5-5-5-5-5-5--2-2-2-2-2-2-2-2-|
@@ -16,16 +19,18 @@ A|-5-5-5-5-5-5-5-5--0-0-0-0-0-0-0-0-|
 E|-3-3-3-3-3-3-3-3------------------|[/tab]
 
 [tab](Bass)
+
 G|----------------------------------|
 D|----------------------------------|
 A|------------------0-0-0-0-0-0-0-0-|
 E|-3-3-3-3-3-3-3-3------------------|[/tab]
 
-
 [Chorus Riff]
+
 (Gtr w/Distortion + 3 string slide)
 
 [tab]e|-0----------------------|
+
 B|-8--8/-12-\-8-\7-\5--\4-|
 G|-9--9/-12-\-9-\7-\5--\4-|
 D|-9--9/-12-\-9-\7-\5--\4-|
@@ -33,12 +38,14 @@ A|-7--7/-10-\-7-\5-\3--\2-|
 E|-0----------------------|[/tab]
 
 [tab](Bass)
+
 G|----------------|
 D|------5---------|
 A|-7--7---7-5-3-2-|
 E|-0--------------|[/tab]
 
 [tab](Gtr)
+
 e|-0----------------------------|
 B|-8--8/-12-\-8-\7-\5-/7-\-5-\4-|
 G|-9--9/-12-\-9-\7-\5-/7-\-5-\4-|
@@ -47,94 +54,75 @@ A|-7--7/-10-\-7-\5-\3-/5-\-3-\2-|
 E|-0----------------------------|[/tab]
 
 [tab](Bass)
+
 G|--------------------|
 D|------5-------------|
 A|-7--7---7-5-3-5-3-2-|
 E|-0------------------|[/tab]
 
-
 [Verse 1]
-[tab]          [ch]Em[/ch]            [ch]G[/ch]  [ch]C[/ch]  [ch]B[/ch]
-I'm gonna fight 'em off[/tab]
-[tab]               [ch]Em[/ch]            [ch]G[/ch]       [ch]C[/ch]    [ch]B[/ch]
-A seven nation army couldn't hold me back[/tab]
-[tab]              [ch]Em[/ch]         [ch]G[/ch]  [ch]C[/ch]  [ch]B[/ch]
-They're gonna rip it off[/tab]
-[tab]             [ch]Em[/ch]           [ch]G[/ch]       [ch]C[/ch]    [ch]B[/ch]
-Taking their time right behind my back[/tab]
-[tab]        [ch]Em[/ch]           [ch]G[/ch]       [ch]C[/ch]
-And I'm talking to myself at night[/tab]
-[tab]          [ch]B[/ch]        [ch]Em[/ch]  [ch]G[/ch]  [ch]C[/ch]  [ch]B[/ch]
-Because I can't forget[/tab]
-[tab][ch]Em[/ch]             [ch]G[/ch]          [ch]C[/ch]
-Back and forth through my mind[/tab]
-[tab]         [ch]B[/ch]   [ch]Em[/ch]    [ch]G[/ch]  [ch]C[/ch]  [ch]B[/ch]
-Behind a cigarette[/tab]
-[tab]      [ch]G[/ch]                      [ch]A[/ch]
-And a message coming from my eyes says leave it alone[/tab]
+
+I'm gonna [Em]fight 'em off[G][C][B]
+A seven nation [Em]army couldn't [G]hold me b[C]ack[B]
+They're gonna [Em]rip it off[G][C][B]
+Taking their [Em]time right be[G]hind my b[C]ack[B]
+And I'm [Em]talking to my[G]self at n[C]ight
+Because I [B]can't forg[Em]et[G][C][B]
+[Em]Back and forth [G]through my m[C]ind
+Behind a [B]cigar[Em]ette[G][C][B]
+And a [G]message coming from my e[A]yes says leave it alone
 
 [Instrumental Chorus]
-[ch]Em[/ch] [ch]G[/ch] [ch]C[/ch] [ch]B[/ch] x4
-[ch]G[/ch]   [ch]A[/ch]
+
+[Em] [G] [C] [B] x4
+[G]   [A]
 
 [Interlude]
-[ch]Em[/ch] [ch]G[/ch] [ch]C[/ch] [ch]B[/ch] x4
+
+[Em] [G] [C] [B] x4
 
 [Verse 2]
-[tab]            [ch]Em[/ch]            [ch]G[/ch]  [ch]C[/ch]  [ch]B[/ch]
-Don't wanna hear about it[/tab]
-[tab]               [ch]Em[/ch]            [ch]G[/ch]       [ch]C[/ch]    [ch]B[/ch]
-Every single one's got a story to tell[/tab]
-[tab]          [ch]Em[/ch]            [ch]G[/ch]  [ch]C[/ch]  [ch]B[/ch]
-Everyone knows about it[/tab]
-[tab]               [ch]Em[/ch]            [ch]G[/ch]       [ch]C[/ch]    [ch]B[/ch]
-From the Queen of England to the hounds of Hell[/tab]
-[tab]          [ch]Em[/ch]            [ch]G[/ch]  [ch]C[/ch]  [ch]B[/ch]
-And if I catch it coming back my way[/tab]
-[tab]               [ch]Em[/ch]            [ch]G[/ch]       [ch]C[/ch]    [ch]B[/ch]
-I'm gonna serve it to you[/tab]
-[tab]          [ch]Em[/ch]            [ch]G[/ch]  [ch]C[/ch]  [ch]B[/ch]
-And that ain't what you want to hear[/tab]
-[tab]               [ch]Em[/ch]            [ch]G[/ch]       [ch]C[/ch]    [ch]B[/ch]
-But that's what I'll do[/tab]
-[tab]      [ch]G[/ch]                      [ch]A[/ch]
-And a feeling coming from my bones says find a home[/tab]
+
+Don't wanna [Em]hear about it[G][C][B]
+Every single on[Em]e's got a stor[G]y to tell[C][B]
+Everyone k[Em]nows about it[G][C][B]
+From the Queen [Em]of England to [G]the hound[C]s of H[B]ell
+And if I c[Em]atch it coming[G] bac[C]k my[B] way
+I'm gonna serve[Em] it to you[G][C][B]
+And that a[Em]in't what you [G]want[C] to [B]hear
+But that's what[Em] I'll do[G][C][B]
+And a [G]feeling coming from my b[A]ones says find a home
 
 [Solo]
-[ch]Em[/ch] [ch]G[/ch] [ch]C[/ch] [ch]B[/ch] x8
-[ch]G[/ch]   [ch]A[/ch]
+
+[Em] [G] [C] [B] x8
+[G]   [A]
 
 [Interlude]
-[ch]Em[/ch] [ch]G[/ch] [ch]C[/ch] [ch]B[/ch] x4
+
+[Em] [G] [C] [B] x4
 
 [Verse 3]
-[tab]             [ch]Em[/ch]      [ch]G[/ch]  [ch]C[/ch]  [ch]B[/ch]
-I'm goin' to Wichita[/tab]
-[tab]               [ch]Em[/ch]            [ch]G[/ch]       [ch]C[/ch]    [ch]B[/ch]
-Far from this opera, forever more[/tab]
-[tab]          [ch]Em[/ch]             [ch]G[/ch]  [ch]C[/ch]  [ch]B[/ch]
-I'm gonna work the straw[/tab]
-[tab]               [ch]Em[/ch]            [ch]G[/ch]       [ch]C[/ch]    [ch]B[/ch]
-Make the sweat drip out of every pore[/tab]
-[tab]          [ch]Em[/ch]            [ch]G[/ch]  [ch]C[/ch]  [ch]B[/ch]
-And I'm bleeding and I'm bleeding and I'm bleeding[/tab]
-[tab]               [ch]Em[/ch]            [ch]G[/ch]       [ch]C[/ch]    [ch]B[/ch]
-Right before the Lord[/tab]
-[tab]        [ch]Em[/ch]              [ch]G[/ch]            [ch]C[/ch]
-All the words are gonna bleed from me[/tab]
-[tab]           [ch]B[/ch]         [ch]Em[/ch]   [ch]G[/ch]  [ch]C[/ch]  [ch]B[/ch]
-And I will think no more[/tab]
-[tab]        [ch]G[/ch]                     [ch]A[/ch]
-And the stains coming from my blood tell me go back home[/tab]
+
+I'm goin' to [Em]Wichita[G][C][B]
+Far from this o[Em]pera, forever [G]more[C][B]
+I'm gonna [Em]work the straw[G][C][B]
+Make the sweat [Em]drip out of ev[G]ery pore[C][B]
+And I'm bl[Em]eeding and I'm[G] ble[C]edin[B]g and I'm bleeding
+Right before th[Em]e Lord[G][C][B]
+All the [Em]words are gonna [G]bleed from me[C]
+And I will [B]think no mo[Em]re[G][C][B]
+And the [G]stains coming from my b[A]lood tell me go back home
 
 [Instrumental Chorus]
-[ch]Em[/ch] [ch]G[/ch] [ch]C[/ch] [ch]B[/ch] x4
-[ch]Em[/ch]
 
+[Em] [G] [C] [B] x4
+[Em]
 
 **************************
 
 | /  slide up
+
 | \  slide down
 
 **************************

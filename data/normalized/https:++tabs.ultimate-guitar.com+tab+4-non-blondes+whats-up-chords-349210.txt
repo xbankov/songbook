@@ -1,3 +1,5 @@
+{title: Whats up}
+
 "What's Up" by 4 Non Blondes
 
 Capo II
@@ -7,9 +9,8 @@ Capo II
 [ch]G[/ch]  [ch]Am[/ch]  [ch]C[/ch]  [ch]G[/ch] ,
 
 Tab is not relative to the capo.
-[tab]                [ch]G[/ch]                         [ch]Am[/ch]
-      .  .[/tab]
-[tab]e|------------|-------------------------|---------------------------|
+
+      .  .[G][Am]
 B|------------|-------------------------|---------------------------|
 G|-/9-9--9--9-|-------------------------|------------2----------2---|
 D|------------|-7-----------------7-7-\-|-4-----2h4-----4--2--4---4-|
@@ -17,6 +18,7 @@ A|------------|-------------------------|---------------------------|
 E|------------|-------------------------|---------------------------|[/tab]
 
 [tab]   C                           G                         (over verse)
+
 e|---------------------------|--------------------------|-------------
 B|------------------------5b-|--------------------------|-------------
 G|-2------------------7---5b-|--------------------------|-------------
@@ -27,102 +29,72 @@ E|---------------------------|--------------------------|-------------[/tab]
 / = slide up, \ = slide down, . = staccato, h = hammer on, b = bend (slight)
 
 [Verse 1]
-[tab][ch]G[/ch]
-  Twenty-five years and my life is still[/tab]
-[tab][ch]Am[/ch]
-Trying to get up that great big hill[/tab]
-[tab]   [ch]C[/ch]               [ch]G[/ch]
-Of hope for a destination[/tab]
-[tab]  [ch]G[/ch]
-I realized quickly when I knew I should[/tab]
-[tab]         [ch]Am[/ch]
-That the world was made up of this brotherhood[/tab]
-[tab]   [ch]C[/ch]                      [ch]G[/ch]
-Of man, for whatever that means[/tab]
+
+[G]  Twenty-five years and my life is still
+[Am]Trying to get up that great big hill
+Of [C]hope for a destin[G]ation
+I [G]realized quickly when I knew I should
+That the [Am]world was made up of this brotherhood
+Of [C]man, for whatever that m[G]eans
 
 [Pre-Chorus]
-[tab]         [ch]G[/ch]
-And so I cry sometimes when I'm lying in bed[/tab]
-[tab]        [ch]Am[/ch]
-Just to get it all out, what's in my head[/tab]
-[tab]      [ch]C[/ch]                         [ch]G[/ch]
-and I - I am feeling a little peculiar[/tab]
-[tab]         [ch]G[/ch]
-And so I wake in the morning and I step outside[/tab]
-[tab]      [ch]Am[/ch]
-and I take a deep breath and I get real high and[/tab]
-[tab]  [ch]C[/ch]                                             [ch]G[/ch]
-I scream from the top of my lungs "What's going on?"[/tab]
+
+And so I [G]cry sometimes when I'm lying in bed
+Just to [Am]get it all out, what's in my head
+and I [C]- I am feeling a little pec[G]uliar
+And so I [G]wake in the morning and I step outside
+and I [Am]take a deep breath and I get real high and
+I [C]scream from the top of my lungs "What's going o[G]n?"
 
 [Chorus]
-[tab]            [ch]G[/ch]           [ch]Am[/ch]
-And I said "Heyeyeyeyey Heyeyey"[/tab]
-[tab]        [ch]C[/ch]                 [ch]G[/ch]
-I said "Hey, what's going on?"[/tab]
-[tab]            [ch]G[/ch]           [ch]Am[/ch]
-And I said "Heyeyeyeyey Heyeyey"[/tab]
-[tab]        [ch]C[/ch]                 [ch]G[/ch]
-I said "Hey, what's going on?"[/tab]
+
+And I said "[G]Heyeyeyeyey H[Am]eyeyey"
+I said "[C]Hey, what's going o[G]n?"
+And I said "[G]Heyeyeyeyey H[Am]eyeyey"
+I said "[C]Hey, what's going o[G]n?"
 
 [Interlude]
-[tab][ch]G[/ch]      [ch]Am[/ch]  [ch]C[/ch]   [ch]G[/ch]
- Ooh, Ooh Ooh[/tab]
-[tab][ch]G[/ch]      [ch]Am[/ch]  [ch]C[/ch]   [ch]G[/ch]
- Ooh, Ooh Ooh[/tab]
+
+[G] Ooh, Oo[Am]h Oo[C]h[G]
+[G] Ooh, Oo[Am]h Oo[C]h[G]
 
 [Verse 2]
-[tab]      [ch]G[/ch]                    [ch]Am[/ch]
-And I try, oh my God, do I try[/tab]
-[tab]              [ch]C[/ch]                  [ch]G[/ch]
-I try all the time, in this institution[/tab]
-[tab]      [ch]G[/ch]                     [ch]Am[/ch]
-And I pray, oh my God, do I pray[/tab]
-[tab]                    [ch]C[/ch]
-I pray every single day[/tab]
-[tab]          [ch]G[/ch]
-For a revolution[/tab]
+
+And I [G]try, oh my God, do I t[Am]ry
+I try all the [C]time, in this instit[G]ution
+And I [G]pray, oh my God, do I p[Am]ray
+I pray every single [C]day
+For a revo[G]lution
 
 [Pre-Chorus]
-[tab]         [ch]G[/ch]
-And so I cry sometimes when I'm lying in bed[/tab]
-[tab]        [ch]Am[/ch]
-Just to get it all out, what's in my head[/tab]
-[tab]      [ch]C[/ch]                         [ch]G[/ch]
-and I - I am feeling a little peculiar[/tab]
-[tab]         [ch]G[/ch]
-And so I wake in the morning and I step outside[/tab]
-[tab]      [ch]Am[/ch]
-and I take a deep breath and I get real high and[/tab]
-[tab]  [ch]C[/ch]                                             [ch]G[/ch]
-I scream from the top of my lungs "What's going on?"[/tab]
+
+And so I [G]cry sometimes when I'm lying in bed
+Just to [Am]get it all out, what's in my head
+and I [C]- I am feeling a little pec[G]uliar
+And so I [G]wake in the morning and I step outside
+and I [Am]take a deep breath and I get real high and
+I [C]scream from the top of my lungs "What's going o[G]n?"
 
 [Chorus]
-[tab]            [ch]G[/ch]           [ch]Am[/ch]
-And I said "Heyeyeyeyey Heyeyey"[/tab]
-[tab]        [ch]C[/ch]                 [ch]G[/ch]
-I said "Hey, what's going on?"[/tab]
-[tab]            [ch]G[/ch]           [ch]Am[/ch]
-And I said "Heyeyeyeyey Heyeyey"[/tab]
-[tab]        [ch]C[/ch]                 [ch]G[/ch]
-I said "Hey, what's going on?"[/tab]
+
+And I said "[G]Heyeyeyeyey H[Am]eyeyey"
+I said "[C]Hey, what's going o[G]n?"
+And I said "[G]Heyeyeyeyey H[Am]eyeyey"
+I said "[C]Hey, what's going o[G]n?"
 
 [tab]            [ch]G[/ch]           [ch]Am[/ch]
+
 And I said "Heyeyeyeyey Heyeyey"[/tab]
-[tab]        [ch]C[/ch]                 [ch]G[/ch]
-I said "Hey, what's going on?"[/tab]
-[tab]            [ch]G[/ch]           [ch]Am[/ch]
-And I said "Heyeyeyeyey HeyeYEYEYE"[/tab]
-[tab]        [ch]C[/ch]                 [ch]G[/ch]
-I said "Hey, what's going on?"[/tab]
+I said "[C]Hey, what's going o[G]n?"
+And I said "[G]Heyeyeyeyey H[Am]eyeYEYEYE"
+I said "[C]Hey, what's going o[G]n?"
 
 [Interlude]
-[tab][ch]G[/ch]      [ch]Am[/ch]  [ch]C[/ch]   [ch]G[/ch]
- Ooh, Ooh Ooh[/tab]
+
+[G] Ooh, Oo[Am]h Oo[C]h[G]
 
 [Outro]
-[tab][ch]G[/ch]
-  Twenty-five years and my life is still[/tab]
-[tab][ch]Am[/ch]                                      [ch]C[/ch]
-Trying to get up that great big hill of hope[/tab]
-[tab]            [ch]G[/ch]
-For a destination[/tab]
+
+[G]  Twenty-five years and my life is still
+[Am]Trying to get up that great big hill of [C]hope
+For a destin[G]ation

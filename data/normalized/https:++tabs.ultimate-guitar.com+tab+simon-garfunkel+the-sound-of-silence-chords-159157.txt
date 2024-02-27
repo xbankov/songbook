@@ -1,81 +1,52 @@
+{title: The sound of silence}
+
 [Verse 1]
-[tab][ch]Am[/ch]                        [ch]G[/ch]
-   Hello darkness, my old friend,[/tab]
-[tab]                           [ch]Am[/ch]
-I've come to talk with you again,[/tab]
-[tab]                     [ch]F[/ch]       [ch]C[/ch]
-Because a vision softly creeping,[/tab]
-[tab]                       [ch]F[/ch]       [ch]C[/ch]
-Left its seeds while I was sleeping,[/tab]
-[tab]        [ch]F[/ch]                             [ch]C[/ch]
-And the vision that was planted in my brain[/tab]
-[tab]            [ch]C/B[/ch]  [ch]Am[/ch]
-Still remains[/tab]
-[tab][ch]C[/ch]           [ch]G[/ch]        [ch]Am[/ch]
-Within the sound of silence.[/tab]
+
+[Am]   Hello darkness, my old [G]friend,
+I've come to talk with you [Am]again,
+Because a vision soft[F]ly creepi[C]ng,
+Left its seeds while I [F]was sleep[C]ing,
+And the [F]vision that was planted in my b[C]rain
+Still remain[C/B]s[Am]
+[C]Within the so[G]und of sil[Am]ence.
 
 [Verse 2]
-[tab]                             [ch]G[/ch]
-In restless dreams I walked alone[/tab]
-[tab]                        [ch]Am[/ch]
-Narrow streets of cobblestone,[/tab]
-[tab]                   [ch]F[/ch]        [ch]C[/ch]
-'neath the halo of a street lamp,[/tab]
-[tab]                          [ch]F[/ch]        [ch]C[/ch]
-I turned my collar to the cold and damp[/tab]
-[tab]        [ch]F[/ch]                                        [ch]C[/ch]
-When my eyes were stabbed by the flash of a neon light[/tab]
-[tab]                    [ch]C/B[/ch]  [ch]Am[/ch]
-That split the night[/tab]
-[tab] [ch]C[/ch]              [ch]G[/ch]        [ch]Am[/ch]
-And touched the sound of silence.[/tab]
+
+In restless dreams I walked a[G]lone
+Narrow streets of cobble[Am]stone,
+'neath the halo of [F]a street l[C]amp,
+I turned my collar to the [F]cold and d[C]amp
+When my [F]eyes were stabbed by the flash of a neon l[C]ight
+That split the night[C/B][Am]
+A[C]nd touched the s[G]ound of si[Am]lence.
 
 [Verse 3]
-[tab]                         [ch]G[/ch]
-And in the naked light I saw[/tab]
-[tab]                           [ch]Am[/ch]
-Ten thousand people, maybe more.[/tab]
-[tab]                   [ch]F[/ch]       [ch]C[/ch]
-People talking without speaking,[/tab]
-[tab]                   [ch]F[/ch]        [ch]C[/ch]
-People hearing without listening,[/tab]
-[tab]               [ch]F[/ch]                       [ch]C[/ch]
-People writing songs that voices never share[/tab]
-[tab]              [ch]C/B[/ch]  [ch]Am[/ch]
-And no one dare[/tab]
-[tab][ch]C[/ch]           [ch]G[/ch]        [ch]Am[/ch]
-Disturb the sound of silence.[/tab]
+
+And in the naked light I [G]saw
+Ten thousand people, maybe [Am]more.
+People talking with[F]out speak[C]ing,
+People hearing with[F]out listen[C]ing,
+People writing [F]songs that voices never s[C]hare
+And no one dar[C/B]e[Am]
+[C]Disturb the s[G]ound of si[Am]lence.
 
 [Verse 4]
-[tab]                         [ch]G[/ch]
-Fools said I, you do not know[/tab]
-[tab]                      [ch]Am[/ch]
-Silence like a cancer grows.[/tab]
-[tab]                     [ch]F[/ch]           [ch]C[/ch]
-Hear my words that I might teach you,[/tab]
-[tab]                    [ch]F[/ch]           [ch]C[/ch]
-Take my arms that I might reach you.[/tab]
-[tab]       [ch]F[/ch]                           [ch]C[/ch]   [ch]C/B[/ch] [ch]Am[/ch] 
-But my words like silent raindrops fell,[/tab]
-[tab]   [ch]C[/ch]
-And echoed[/tab]
-[tab]       [ch]G[/ch]        [ch]Am[/ch]
-In the wells of silence[/tab]
+
+Fools said I, you do not [G]know
+Silence like a cancer [Am]grows.
+Hear my words that I [F]might teach y[C]ou,
+Take my arms that I [F]might reach y[C]ou.
+But my [F]words like silent raindrops f[C]ell,[C/B][Am]
+And[C] echoed
+In the [G]wells of s[Am]ilence
 
 [Verse 5]
-[tab]                         [ch]G[/ch]
-And the people bowed and prayed[/tab]
-[tab]                     [ch]Am[/ch]
-To the neon God they made.[/tab]
-[tab]                         [ch]F[/ch]      [ch]C[/ch]
-And the sign flashed out its warning,[/tab]
-[tab]                      [ch]F[/ch]     [ch]C[/ch]
-In the words that it was forming.[/tab]
-[tab]                       [ch]F[/ch]
-And the sign said, the words of the prophets[/tab]
-[tab]                           [ch]C[/ch]
-Are written on the subway walls[/tab]
-[tab]             [ch]C[/ch]     [ch]C/B[/ch] [ch]Am[/ch]
-And tenement halls.[/tab]
-[tab]         [ch]C[/ch]           [ch]G[/ch]         [ch]Am[/ch]
-And whisper'd in the sounds of silence.[/tab]
+
+And the people bowed and [G]prayed
+To the neon God they [Am]made.
+And the sign flashed out [F]its warn[C]ing,
+In the words that it w[F]as form[C]ing.
+And the sign said, the [F]words of the prophets
+Are written on the subway w[C]alls
+And tenement [C]halls.[C/B][Am]
+And whisp[C]er'd in the s[G]ounds of si[Am]lence.

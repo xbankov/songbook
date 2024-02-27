@@ -1,6 +1,9 @@
+{title: Jolene}
+
 [Intro]
 
 [tab]   [ch]Am[/ch]               
+
 e|----------------|----------------|
 B|------0-----0h1-|--0-----1p0-----|
 G|--2-------------|--------------0-|
@@ -9,73 +12,49 @@ A|0-------0-------|0-------0-------|
 E|----------------|----------------| x4[/tab]
 
 [Chorus]
-[tab]  [ch]Am[/ch]      [ch]C[/ch]       [ch]G[/ch]       [ch]Am[/ch]
-Jolene, Jolene, Jolene, Jolene[/tab]
-[tab]     [ch]G[/ch]                                  [ch]Am[/ch]
-I'm begging of you, please don't take my man[/tab]
-[tab]  [ch]Am[/ch]      [ch]C[/ch]       [ch]G[/ch]      [ch]Am[/ch]
-Jolene, Jolene, Jolene, Jolene[/tab]
-[tab]   [ch]G[/ch]                   [ch]Em[/ch]             [ch]Am[/ch]
-Please don't take him just because you can[/tab]
+
+Jo[Am]lene, Jo[C]lene, Jol[G]ene, Jole[Am]ne
+I'm b[G]egging of you, please don't take my [Am]man
+Jo[Am]lene, Jo[C]lene, Jol[G]ene, Jol[Am]ene
+Ple[G]ase don't take him ju[Em]st because you [Am]can
 
 [Verse]
-[tab]       [ch]Am[/ch]        [ch]C[/ch]
-Your beauty is beyond compare[/tab]
-[tab]       [ch]G[/ch]                [ch]Am[/ch]
-With flaming locks of auburn hair[/tab]
-[tab]       [ch]G[/ch]             [ch]Em[/ch]              [ch]Am[/ch]
-With ivory skin and eyes of emerald green[/tab]
-[tab]       [ch]Am[/ch]             [ch]C[/ch]
-Your smile is like a breath of spring[/tab]
-[tab]       [ch]G[/ch]                  [ch]Am[/ch]
-Your voice is soft like summer rain[/tab]
-[tab]       [ch]G[/ch]         [ch]Em[/ch]             [ch]Am[/ch]
-And I cannot compete with you, Jolene[/tab]
+
+Your be[Am]auty is be[C]yond compare
+With fl[G]aming locks of aub[Am]urn hair
+With iv[G]ory skin and ey[Em]es of emerald gr[Am]een
+Your sm[Am]ile is like a b[C]reath of spring
+Your vo[G]ice is soft like sum[Am]mer rain
+And I c[G]annot compe[Em]te with you, Jo[Am]lene
 
 [Verse]
-[tab]    [ch]Am[/ch]             [ch]C[/ch]
-He talks about you in his sleep[/tab]
-[tab]     [ch]G[/ch]                [ch]Am[/ch]
-There's nothing I can do to keep[/tab]
-[tab]       [ch]G[/ch]             [ch]Em[/ch]               [ch]Am[/ch]
-From crying when he calls your name, Jolene[/tab]
-[tab]    [ch]Am[/ch]            [ch]C[/ch]
-And I can easily understand[/tab]
-[tab]    [ch]G[/ch]                 [ch]Am[/ch]
-How you could easily take my man[/tab]
-[tab]         [ch]G[/ch]                  [ch]Em[/ch]           [ch]Am[/ch]
-But you don't know what he means to me, Jolene[/tab]
+
+He t[Am]alks about you [C]in his sleep
+There[G]'s nothing I can d[Am]o to keep
+From cr[G]ying when he ca[Em]lls your name, Jo[Am]lene
+And [Am]I can easily u[C]nderstand
+How [G]you could easily ta[Am]ke my man
+But you d[G]on't know what he me[Em]ans to me, Jo[Am]lene
 
 [Chorus]
-[tab]  [ch]Am[/ch]      [ch]C[/ch]       [ch]G[/ch]       [ch]Am[/ch]
-Jolene, Jolene, Jolene, Jolene[/tab]
-[tab]      [ch]G[/ch]                                 [ch]Am[/ch]
-I'm begging of you, please don't take my man[/tab]
-[tab]  [ch]Am[/ch]      [ch]C[/ch]       [ch]G[/ch]       [ch]Am[/ch]
-Jolene, Jolene, Jolene, Jolene[/tab]
-[tab]  [ch]G[/ch]                    [ch]Em[/ch]             [ch]Am[/ch]
-Please don't take him just because you can[/tab]
+
+Jo[Am]lene, Jo[C]lene, Jol[G]ene, Jole[Am]ne
+I'm be[G]gging of you, please don't take my [Am]man
+Jo[Am]lene, Jo[C]lene, Jol[G]ene, Jole[Am]ne
+Pl[G]ease don't take him ju[Em]st because you [Am]can
 
 [Verse]
-[tab][ch]Am[/ch]                    [ch]C[/ch]
-You could have your choice of men[/tab]
-[tab]    [ch]G[/ch]              [ch]Am[/ch]
-But I could never love again[/tab]
-[tab]   [ch]G[/ch]           [ch]Em[/ch]           [ch]Am[/ch]
-He's the only one for me, Jolene[/tab]
-[tab]   [ch]Am[/ch]               [ch]C[/ch]
-I had to have this talk with you[/tab]
-[tab]    [ch]G[/ch]           [ch]Am[/ch]
-My happiness depends on you[/tab]
-[tab]        [ch]G[/ch]          [ch]Em[/ch]            [ch]Am[/ch]
-And whatever you decide to do, Jolene[/tab]
+
+[Am]You could have your ch[C]oice of men
+But [G]I could never lo[Am]ve again
+He'[G]s the only on[Em]e for me, Jol[Am]ene
+I h[Am]ad to have this t[C]alk with you
+My h[G]appiness depe[Am]nds on you
+And what[G]ever you dec[Em]ide to do, Jol[Am]ene
 
 [Chorus]
-[tab]  [ch]Am[/ch]      [ch]C[/ch]       [ch]G[/ch]       [ch]Am[/ch]
-Jolene, Jolene, Jolene, Jolene[/tab]
-[tab]      [ch]G[/ch]                                 [ch]Am[/ch]
-I'm begging of you, please don't take my man[/tab]
-[tab]  [ch]Am[/ch]      [ch]C[/ch]       [ch]G[/ch]       [ch]Am[/ch]
-Jolene, Jolene, Jolene, Jolene[/tab]
-[tab]  [ch]G[/ch]                    [ch]Em[/ch]            [ch]Am[/ch]
-Please don't take him even though you can[/tab]
+
+Jo[Am]lene, Jo[C]lene, Jol[G]ene, Jole[Am]ne
+I'm be[G]gging of you, please don't take my [Am]man
+Jo[Am]lene, Jo[C]lene, Jol[G]ene, Jole[Am]ne
+Pl[G]ease don't take him ev[Em]en though you [Am]can

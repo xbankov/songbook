@@ -1,148 +1,108 @@
-[Intro]
-[ch]Am[/ch] [ch]B[/ch] [ch]E[/ch] [ch]F[/ch] [ch]G[/ch]
+{title: Time is running out}
 
+[Intro]
+
+[Am] [B] [E] [F] [G]
 
 [Verse 1]
-[tab][ch]Am[/ch]
-I think I'm drowning[/tab]
-[tab][ch]B[/ch]
-asphyxiated[/tab]
-[tab][ch]E[/ch]
-I wanna break this spell[/tab]
-[tab][ch]F[/ch]            [ch]G[/ch]
-that you've created[/tab]
+
+[Am]I think I'm drowning
+[B]asphyxiated
+[E]I wanna break this spell
+[F]that you've cr[G]eated
 
 [tab][ch]Am[/ch]
+
 you're something beautiful[/tab]
-[tab][ch]B[/ch]
-a contradiction[/tab]
-[tab][ch]E[/ch]
-I wanna play the game[/tab]
-[tab][ch]F[/ch]           [ch]G[/ch]
-I want the friction[/tab]
+[B]a contradiction
+[E]I wanna play the game
+[F]I want the fr[G]iction
 
 [tab][ch]Am[/ch]       [ch]B[/ch]      [ch]E[/ch]         [ch]F[/ch]    [ch]G[/ch]
-you will be the death of me[/tab]
-[tab][ch]Am[/ch]       [ch]B[/ch]      [ch]E[/ch]         [ch]F[/ch]    [ch]G[/ch]
-you will be the death of me[/tab]
 
+you will be the death of me[/tab]
+[Am]you will [B]be the d[E]eath of me[F][G]
 
 [Pre-Chorus 1]
-[tab][ch]F[/ch]
-bury it[/tab]
-[tab][ch]G[/ch]               [ch]Am[/ch]           [ch]G[/ch]
-I won't let you bury it[/tab]
-[tab]                 [ch]F[/ch]                    
-I won't let you smother it[/tab]
-[tab][ch]G[/ch]               [ch]Am[/ch]           [ch]C[/ch]
-I won't let you murder it[/tab]
 
+[F]bury it
+[G]I won't let you b[Am]ury it[G]
+I won't let you s[F]mother it
+[G]I won't let you m[Am]urder it[C]
 
 [Chorus 1]
-[tab]            [ch]F[/ch]
-our time is running out[/tab]
-[tab][ch]G[/ch]            [ch]Am[/ch]            [ch]C[/ch]
-our time is running out[/tab]
-[tab]                  [ch]F[/ch]
-you can't push it underground[/tab]
-[tab][ch]G[/ch]                  [ch]Am[/ch]            [ch]F[/ch]    [ch]G[/ch]
-you can't stop it screaming out[/tab]
 
+our time is [F]running out
+[G]our time is ru[Am]nning out[C]
+you can't push it [F]underground
+[G]you can't stop it sc[Am]reaming out[F][G]
 
 [Break 1]
-[ch]Am[/ch] [ch]B[/ch] [ch]E[/ch] [ch]F[/ch] [ch]G[/ch]
 
+[Am] [B] [E] [F] [G]
 
 [Verse 2]
-[tab][ch]Am[/ch]
-I wanted freedom[/tab]
-[tab][ch]B[/ch]
-bound and restricted[/tab]
-[tab][ch]E[/ch]
-I tried to give you up[/tab]
-[tab][ch]F[/ch]         [ch]G[/ch]
-but I'm addicted[/tab]
+
+[Am]I wanted freedom
+[B]bound and restricted
+[E]I tried to give you up
+[F]but I'm add[G]icted
 
 [tab][ch]Am[/ch]
+
 now that you know I'm trapped[/tab]
-[tab][ch]B[/ch]
-sense of elation[/tab]
-[tab][ch]E[/ch]
-you'd never dream of[/tab]
-[tab][ch]F[/ch]         [ch]G[/ch]
-breaking this fixation[/tab]
+[B]sense of elation
+[E]you'd never dream of
+[F]breaking th[G]is fixation
 
 [tab][ch]Am[/ch]        [ch]B[/ch]          [ch]E[/ch]           [ch]F[/ch]    [ch]G[/ch]
+
 you will squeeze the life out of me[/tab]
 
-
 [Pre-Chorus 2]
-[tab][ch]F[/ch]
-bury it[/tab]
-[tab][ch]G[/ch]                [ch]Am[/ch]           [ch]G[/ch]
-I won't let you bury it[/tab]
-[tab]                 [ch]F[/ch]                    
-I won't let you smother it[/tab]
-[tab][ch]G[/ch]               [ch]Am[/ch]           [ch]C[/ch]
-I won't let you murder it[/tab]
 
+[F]bury it
+[G]I won't let you bu[Am]ry it[G]
+I won't let you s[F]mother it
+[G]I won't let you m[Am]urder it[C]
 
 [Chorus 2]
-[tab][ch]F[/ch]
-our time is running out[/tab]
-[tab][ch]G[/ch]            [ch]Am[/ch]            [ch]C[/ch]
-our time is running out[/tab]
-[tab]                  [ch]F[/ch]
-you can't push it underground[/tab]
-[tab][ch]G[/ch]                  [ch]Am[/ch]           
-you can't stop it screaming out[/tab]
-[tab][ch]C[/ch]
-how did it come to this?[/tab]
-[tab][ch]Dm[/ch]           [ch]Am[/ch]
-oo-oo-ohh, yeah, yeah, yeah, yeah, yeah[/tab]
-[tab][ch]Dm[/ch]           [ch]Am[/ch]
-oo-oo-ohh, yeah, yeah, yeah, yeah, yeah[/tab]
-[tab][ch]Dm[/ch]           [ch]Am[/ch]              [ch]E[/ch]
-oo-oo-ohh, yeah, yeah, yeah, yeah, yeah![/tab]
 
+[F]our time is running out
+[G]our time is ru[Am]nning out[C]
+you can't push it [F]underground
+[G]you can't stop it sc[Am]reaming out
+[C]how did it come to this?
+[Dm]oo-oo-ohh, ye[Am]ah, yeah, yeah, yeah, yeah
+[Dm]oo-oo-ohh, ye[Am]ah, yeah, yeah, yeah, yeah
+[Dm]oo-oo-ohh, ye[Am]ah, yeah, yeah, [E]yeah, yeah!
 
 [Break 2]
-[ch]Am[/ch] [ch]B[/ch] [ch]E[/ch] [ch]F[/ch] [ch]G[/ch] x2
 
+[Am] [B] [E] [F] [G] x2
 
 [Verse 3]
-[tab][ch]Am[/ch]        [ch]B[/ch]        [ch]E[/ch]          [ch]F[/ch]    [ch]G[/ch]
-you will suck the life out of me[/tab]
 
+[Am]you will s[B]uck the li[E]fe out of me[F][G]
 
 [Pre-Chorus 3]
-[tab][ch]F[/ch]
-bury it[/tab]
-[tab][ch]G[/ch]               [ch]Am[/ch]           [ch]G[/ch]
-I won't let you bury it[/tab]
-[tab]                 [ch]F[/ch]                    
-I won't let you smother it[/tab]
-[tab][ch]G[/ch]               [ch]Am[/ch]           [ch]C[/ch]
-I won't let you murder it[/tab]
 
+[F]bury it
+[G]I won't let you b[Am]ury it[G]
+I won't let you s[F]mother it
+[G]I won't let you m[Am]urder it[C]
 
 [Chorus 3]
-[tab]            [ch]F[/ch]
-our time is running out[/tab]
-[tab][ch]G[/ch]           [ch]Am[/ch]            [ch]C[/ch]
-our time is running out[/tab]
-[tab]                  [ch]F[/ch]
-you can't push it underground[/tab]
-[tab][ch]G[/ch]                 [ch]Am[/ch]           
-you can't stop it screaming out[/tab]
-[tab][ch]C[/ch]
-how did it come to this?[/tab]
-[tab][ch]Dm[/ch]           [ch]Am[/ch]
-oo-oo-ohh, yeah, yeah, yeah, yeah, yeah[/tab]
-[tab][ch]Dm[/ch]           [ch]Am[/ch]
-oo-oo-ohh, yeah, yeah, yeah, yeah, yeah[/tab]
-[tab][ch]Dm[/ch]           [ch]Am[/ch]              [ch]E[/ch]
-oo-oo-ohh, yeah, yeah, yeah, yeah, yeah![/tab]
+
+our time is [F]running out
+[G]our time is r[Am]unning out[C]
+you can't push it [F]underground
+[G]you can't stop it s[Am]creaming out
+[C]how did it come to this?
+[Dm]oo-oo-ohh, ye[Am]ah, yeah, yeah, yeah, yeah
+[Dm]oo-oo-ohh, ye[Am]ah, yeah, yeah, yeah, yeah
+[Dm]oo-oo-ohh, ye[Am]ah, yeah, yeah, [E]yeah, yeah!
 
 [Outro]
-[ch]Am[/ch]
+
+[Am]

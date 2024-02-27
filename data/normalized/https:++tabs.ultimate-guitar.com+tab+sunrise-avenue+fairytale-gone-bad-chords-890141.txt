@@ -1,114 +1,88 @@
+{title: Fairytale gone bad}
+
+{capo: 1}
+
 Capo: 1
 
 [Verse 1]
 
 [tab]               [ch]Am[/ch]      [ch]Fmaj7[/ch]
+
 1. This is the end you know[/tab]
-[tab][ch]C[/ch]
-Lady, the plans we had went all wrong[/tab]
-[tab][ch]G[/ch]                    [ch]D[/ch]                   [ch]Am[/ch]
-We ain't nothing but fight and shout and tears[/tab]
+[C]Lady, the plans we had went all wrong
+[G]We ain't nothing but f[D]ight and shout and te[Am]ars
 
 [tab]                          [ch]Fmaj7[/ch]
-We got to a point I can't stand[/tab]
-[tab]     [ch]C[/ch]
-I've had it to the limit; I can't be your man[/tab]
-[tab][ch]G[/ch]                   [ch]D[/ch]                [ch]Am[/ch]
-I ain't more than a minute away from walking[/tab]
 
+We got to a point I can't stand[/tab]
+I've [C]had it to the limit; I can't be your man
+[G]I ain't more than a m[D]inute away from wa[Am]lking
 
 [Pre-Chorus]
 
 [tab][ch]F[/ch]          [ch]C[/ch]              [ch]F[/ch]
-  We can't cry the pain away[/tab]
-[tab]         [ch]C[/ch]      [ch]G[/ch]       [ch]F[/ch]
-We can't find a need to stay[/tab]
-[tab]         [ch]C[/ch]  [ch]G[/ch]             [ch]F[/ch]              [ch]G[/ch]
-I slowly realized there's nothing on our side[/tab]
 
+  We can't cry the pain away[/tab]
+We can't [C]find a n[G]eed to st[F]ay
+I slowly [C]real[G]ized there's no[F]thing on our sid[G]e
 
 [Chorus]
 
 [tab][ch]Am[/ch]                        [ch]Fmaj7[/ch]
-Out of my life, Out of my mind[/tab]
-[tab]                            [ch]G[/ch]
-Out of the tears we can't deny[/tab]
-[tab]           [ch]C/G[/ch]             [ch]F[/ch]  
-We need to swallow all our pride[/tab]
-[tab]                        [ch]G[/ch]
-And leave this mess behind[/tab]
-[tab][ch]Am[/ch]                        [ch]Fmaj7[/ch]
-Out of my head, Out of my bed[/tab]
-[tab]                                  [ch]G[/ch]
-Out of the dreams we had, they're bad[/tab]
-[tab]               [ch]C/G[/ch]             [ch]F[/ch]
-Tell them it's me who made you sad[/tab]
-[tab]                   [ch]Am[/ch]
-Tell them the fairytale gone bad[/tab]
 
+Out of my life, Out of my mind[/tab]
+Out of the tears we can't de[G]ny
+We need to [C/G]swallow all our[F] pride
+And leave this mess behi[G]nd
+[Am]Out of my head, Out of my [Fmaj7]bed
+Out of the dreams we had, they're [G]bad
+Tell them it's [C/G]me who made you[F] sad
+Tell them the fairy[Am]tale gone bad
 
 [Verse 2]
 
 [tab]           [ch]Am[/ch]          [ch]Fmaj7[/ch]
-2. Another night and I bleed[/tab]
-[tab]     [ch]C[/ch]
-They all make mistakes and so did we[/tab]
-[tab]    [ch]G[/ch]                       [ch]D[/ch]               [ch]Am[/ch]
-But we did something we can never turn back right[/tab]
-[tab]                  [ch]Fmaj7[/ch]
-Find a new one to fool[/tab]
-[tab][ch]C[/ch]                   
-Leave and don't look back. I won't follow[/tab]
-[tab][ch]G[/ch]                     [ch]D[/ch]               [ch]Am[/ch]
-We have nothing left. It's the end of our time[/tab]
 
+2. Another night and I bleed[/tab]
+They [C]all make mistakes and so did we
+But [G]we did something we can n[D]ever turn back ri[Am]ght
+Find a new one to [Fmaj7]fool
+[C]Leave and don't look back. I won't follow
+[G]We have nothing left. I[D]t's the end of ou[Am]r time
 
 [Pre-Chorus]
 
 [tab][ch]F[/ch]          [ch]C[/ch]       [ch]G[/ch]     [ch]F[/ch]
+
   We can't cry the pain away[/tab]
-[tab]         [ch]C[/ch]      [ch]G[/ch]       [ch]F[/ch]
-We can't find a need to stay[/tab]
-[tab]                [ch]C[/ch]       [ch]G[/ch]     [ch]F[/ch]                  [ch]G[/ch]
-There's no more rabbits in my hat to make things right[/tab]
+We can't [C]find a n[G]eed to st[F]ay
+There's no more [C]rabbits i[G]n my ha[F]t to make things rig[G]ht
 
 [Chorus]
 
 [tab][ch]Am[/ch]                        [ch]Fmaj7[/ch]
+
 Out of my life, Out of my mind[/tab]
-[tab]                           [ch]G[/ch]
-Out of the tears we can't deny[/tab]
-[tab]           [ch]C/G[/ch]             [ch]F[/ch]  
-We need to swallow all our pride[/tab]
-[tab]                        [ch]G[/ch]
-And leave this mess behind[/tab]
-[tab][ch]Am[/ch]                        [ch]Fmaj7[/ch]
-Out of my head, Out of my bed[/tab]
-[tab]                                  [ch]G[/ch]
-Out of the dreams we had, they're bad[/tab]
-[tab]               [ch]C/G[/ch]             [ch]F[/ch]
-Tell them it's me who made you sad[/tab]
-[tab]                   [ch]G[/ch]         [ch]Am[/ch]
-Tell them the fairytale gone bad[/tab]
+Out of the tears we can't d[G]eny
+We need to [C/G]swallow all our[F] pride
+And leave this mess behi[G]nd
+[Am]Out of my head, Out of my [Fmaj7]bed
+Out of the dreams we had, they're [G]bad
+Tell them it's [C/G]me who made you[F] sad
+Tell them the fairy[G]tale gone b[Am]ad
 
 [tab][ch]Am[/ch]                        [ch]Fmaj7[/ch]
-Out of my life, Out of my mind[/tab]
-[tab]                            [ch]G[/ch]
-Out of the tears we can't deny[/tab]
-[tab]           [ch]C/G[/ch]             [ch]F[/ch]  
-We need to swallow all our pride[/tab]
-[tab]                        [ch]G[/ch]
-And leave this mess behind[/tab]
-[tab][ch]Am[/ch]                        [ch]Fmaj7[/ch]
-Out of my head, Out of my bed[/tab]
-[tab]                                  [ch]G[/ch]
-Out of the dreams we had, they're bad[/tab]
-[tab]               [ch]C/G[/ch]             [ch]F[/ch]
-Tell them it's me who made you sad[/tab]
-[tab]                   [ch]G[/ch]         [ch]Am[/ch]
-Tell them the fairytale gone bad[/tab]
 
+Out of my life, Out of my mind[/tab]
+Out of the tears we can't de[G]ny
+We need to [C/G]swallow all our[F] pride
+And leave this mess behi[G]nd
+[Am]Out of my head, Out of my [Fmaj7]bed
+Out of the dreams we had, they're [G]bad
+Tell them it's [C/G]me who made you[F] sad
+Tell them the fairy[G]tale gone b[Am]ad
 
 [tab][ch]Am[/ch]
+
 Tell them the fairytale gone bad...[/tab]
 Tell them the fairytale gone bad...

@@ -1,28 +1,21 @@
+{title: Wild world}
+
 [Intro]
-[tab][ch]Am[/ch]        [ch]D7[/ch]                  [ch]G[/ch]                              
- La-la-la-la-la-la-la-la, la, la[/tab]
-[tab]          [ch]C[/ch]                   [ch]F[/ch]       
- La-la-la-la-la-la-la-la, la, la[/tab]
-[tab]          [ch]Dm[/ch]                  [ch]E[/ch]      [ch]Esus4[/ch]  [ch]E[/ch]
- La-la-la-la-la-la-la-la, la, la-la, la[/tab]
+
+[Am] La-la-la-[D7]la-la-la-la-la, la, [G]la
+ La-la-la-[C]la-la-la-la-la, la, l[F]a
+ La-la-la-[Dm]la-la-la-la-la, la, [E]la-la, l[Esus4]a[E]
 
 [Verse 1]
-[tab][ch]Am[/ch]             [ch]D7[/ch]                 [ch]G[/ch]
- Now that I’ve lost everything to you[/tab]
-[tab]            [ch]C[/ch]                     [ch]F[/ch]
-You say you wanna start something new[/tab]
-[tab]         [ch]Dm[/ch]                       [ch]E[/ch]
-And it’s breaking my heart you’re leaving[/tab]
-[tab]         [ch]Esus4[/ch] [ch]E[/ch]
-Baby I’m griev-ing[/tab]
-[tab][ch]Am[/ch]                [ch]D7[/ch]               [ch]G[/ch]
- But if you wanna leave, take good care[/tab]
-[tab]                [ch]C[/ch]                     [ch]F[/ch]
-Hope you have a lot of nice things to wear[/tab]
-[tab]           [ch]Dm[/ch]                      [ch]E7[/ch]       [ch]G[/ch]   (riff 1)
-But then a lot of nice things turn bad out there[/tab]
+
+[Am] Now that I’ve [D7]lost everything to [G]you
+You say you [C]wanna start something n[F]ew
+And it’s [Dm]breaking my heart you’re [E]leaving
+Baby I’m [Esus4]gri[E]ev-ing
+[Am] But if you wanna [D7]leave, take good [G]care
+Hope you have a [C]lot of nice things to w[F]ear
+But then a [Dm]lot of nice things turn [E7]bad out t[G]here
   
-[tab]Riff 1:
 e|---------------------------|
 B|-----0-0-0-0-0-0-0-0-0-0-0-|
 G|---0-0-0-0-0-0-0-0-0-0-0-0-|
@@ -31,10 +24,11 @@ A|---------------------------|
 E|---------------------------|[/tab]
 
 [Chorus]
-[tab][ch]C[/ch]    [ch]G[/ch]                 [ch]F[/ch]         (riff 2)
- Oh, baby, baby it’s a wild world[/tab]
+
+[C] Oh, b[G]aby, baby it’s a wi[F]ld world
 
 [tab]Riff 2:
+
 e|------------------|
 B|-1p0--------------|
 G|-----2p0----------|
@@ -43,9 +37,11 @@ A|---------------3--|
 E|-----------------3|[/tab]
 
 [tab][ch]G[/ch]                 [ch]F[/ch]               [ch]C[/ch]    (riff 3)
+
  It’s hard to get by, just upon a smile[/tab]
 
 [tab]Riff 3:
+
 e|---------------------|
 B|---------------------|
 G|---------------------|
@@ -54,12 +50,13 @@ A|-----0-3-3-3-0-------|
 E|--3-3-----------3----|[/tab]
 
 [tab][ch]C[/ch]    [ch]G[/ch]                 [ch]F[/ch]         (riff 2)
+
  Oh, baby, baby it’s a wild world[/tab]
-[tab][ch]G[/ch]              [ch]F[/ch]                 [ch]C[/ch]          [ch]Dm[/ch]    [ch]E[/ch]  (riff 4)
- I’ll always remember you like a child girl[/tab]
+[G] I’ll always rem[F]ember you like a ch[C]ild girl[Dm][E]
 
 [tab]Riff 4:
-  ([ch]Dm[/ch]        [ch]E[/ch])
+
+  ([Dm]        [E])
 e|-------1--------0--|
 B|-----3--------0----|
 G|---2--------1------|
@@ -68,61 +65,39 @@ A|-------------------|
 E|-------------------|[/tab]
 
 [Verse 2]
-[tab][ch]Am[/ch]                    [ch]D7[/ch]                        [ch]G[/ch]
- You know I’ve seen a lot of what the world can do[/tab]
-[tab]         [ch]C[/ch]                    [ch]F[/ch]
-And it’s breaking my heart in two[/tab]
-[tab]      [ch]Dm[/ch]                    [ch]E[/ch]
-But I never want to see you sad girl[/tab]
-[tab]           [ch]Esus4[/ch] [ch]E[/ch]
-Don’t be a bad   girl[/tab]
-[tab][ch]Am[/ch]                 [ch]D7[/ch]               [ch]G[/ch]
-But if you want to leave, take good care[/tab]
-[tab]                [ch]C[/ch]                       [ch]F[/ch]
-Hope you make a lot of nice friends out there[/tab]
-[tab]           [ch]Dm[/ch]                          [ch]E7[/ch]    [ch]G[/ch]   (riff 1)
-But just remember there’s a lot of bad and beware[/tab]
+
+[Am] You know I’ve seen a [D7]lot of what the world can [G]do
+And it’s [C]breaking my heart in t[F]wo
+But I [Dm]never want to see you [E]sad girl
+Don’t be a [Esus4]bad[E]   girl
+[Am]But if you want to [D7]leave, take good [G]care
+Hope you make a [C]lot of nice friends out t[F]here
+But just re[Dm]member there’s a lot of bad [E7]and be[G]ware
 
 [Chorus]
-[tab][ch]C[/ch]    [ch]G[/ch]                 [ch]F[/ch]         (riff 2)
- Oh, baby, baby it’s a wild world[/tab]
-[tab][ch]G[/ch]                 [ch]F[/ch]               [ch]C[/ch]    (riff 3)
- It’s hard to get by, just upon a smile[/tab]
-[tab][ch]C[/ch]    [ch]G[/ch]                 [ch]F[/ch]         (riff 2)
- Oh, baby, baby it’s a wild world[/tab]
-[tab][ch]G[/ch]              [ch]F[/ch]                 [ch]C[/ch]          [ch]Dm[/ch]    [ch]E[/ch]  (riff 4)
- I’ll always remember you like a child girl[/tab]
+
+[C] Oh, b[G]aby, baby it’s a wi[F]ld world
+[G] It’s hard to get b[F]y, just upon a sm[C]ile
+[C] Oh, b[G]aby, baby it’s a wi[F]ld world
+[G] I’ll always rem[F]ember you like a ch[C]ild girl[Dm][E]
 
 [Bridge]
-[tab]  [ch]Am[/ch]        [ch]D7[/ch]               [ch]G[/ch]                                 
-...la-la-la-la-la-la-la, la, la[/tab]
-[tab]         [ch]C[/ch]                        [ch]F[/ch]                                   
-La-la-la-la-la-la-la-la la la-la, la[/tab]
-[tab]         [ch]Dm[/ch]                       [ch]E[/ch]
-La-la-la-la-la-la-la-la la la-la, la[/tab]
-[tab][ch]Esus4[/ch]   [ch]E[/ch]       
-Baby, I love you[/tab]
-[tab][ch]Am[/ch]                 [ch]D7[/ch]               [ch]G[/ch]
-But if you want to leave, take good care[/tab]
-[tab]                [ch]C[/ch]                     [ch]F[/ch]
-Hope you make a lot of nice friends out there[/tab]
-[tab]           [ch]Dm[/ch]                          [ch]E7[/ch]       [ch]G[/ch]  (riff 1)
-But just remember there’s a lot of bad and beware[/tab]
+
+..[Am].la-la-la-[D7]la-la-la-la, la, [G]la
+La-la-la-[C]la-la-la-la-la la la-la, l[F]a
+La-la-la-[Dm]la-la-la-la-la la la-la, [E]la
+[Esus4]Baby,[E] I love you
+[Am]But if you want to [D7]leave, take good [G]care
+Hope you make a [C]lot of nice friends out[F] there
+But just re[Dm]member there’s a lot of bad [E7]and bewar[G]e
 
 [Chorus]
-[tab][ch]C[/ch]    [ch]G[/ch]                 [ch]F[/ch]         (riff 2)
- Oh, baby, baby it’s a wild world[/tab]
-[tab][ch]G[/ch]                 [ch]F[/ch]               [ch]C[/ch]    (riff 3)
- It’s hard to get by, just upon a smile[/tab]
-[tab][ch]C[/ch]    [ch]G[/ch]                 [ch]F[/ch]         (riff 2)
- Oh, baby, baby it’s a wild world[/tab]
-[tab][ch]G[/ch]              [ch]F[/ch]                 [ch]C[/ch]          [ch]Dm[/ch]    [ch]E[/ch]  (riff 4)
- I’ll always remember you like a child girl[/tab]
-[tab][ch]C[/ch]    [ch]G[/ch]                 [ch]F[/ch]         (riff 2)
- Oh, baby, baby it’s a wild world[/tab]
-[tab][ch]G[/ch]                 [ch]F[/ch]               [ch]C[/ch]    (riff 3)
- It’s hard to get by, just upon a smile[/tab]
-[tab][ch]C[/ch]    [ch]G[/ch]                 [ch]F[/ch]         (riff 2)
- Oh, baby, baby it’s a wild world[/tab]
-[tab][ch]G[/ch]              [ch]F[/ch]                 [ch]C[/ch]         
- I’ll always remember you like a child girl [/tab]
+
+[C] Oh, b[G]aby, baby it’s a wi[F]ld world
+[G] It’s hard to get b[F]y, just upon a sm[C]ile
+[C] Oh, b[G]aby, baby it’s a wi[F]ld world
+[G] I’ll always rem[F]ember you like a ch[C]ild girl[Dm][E]
+[C] Oh, b[G]aby, baby it’s a wi[F]ld world
+[G] It’s hard to get b[F]y, just upon a sm[C]ile
+[C] Oh, b[G]aby, baby it’s a wi[F]ld world
+[G] I’ll always rem[F]ember you like a ch[C]ild girl 

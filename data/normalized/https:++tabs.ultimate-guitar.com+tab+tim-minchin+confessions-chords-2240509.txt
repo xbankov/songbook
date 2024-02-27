@@ -1,124 +1,81 @@
-[Verse]
-[tab] [ch]F#7[/ch]             [ch]G[/ch]                       [ch]A[/ch]                  [ch]F#m7[/ch]
-I believe that women have the right to walk the streets at night[/tab]
-[tab] [ch]Bm7[/ch]               [ch]Em7[/ch]            [ch]D[/ch]
-without being afraid for their lives[/tab]
-[tab][ch]F#7[/ch]             [ch]G[/ch]                                    [ch]A[/ch]              [ch]F#m7[/ch]
-I believe that women have the right to choose what happens to her body[/tab]
-[tab]            [ch]Bm7[/ch]          [ch]Em7[/ch]                  [ch]D[/ch]
-Without suffering the judgement of the conservative right[/tab]
-[tab]   [ch]F#7[/ch]              [ch]G[/ch]                        [ch]A[/ch]
-And I believe that women have the right to wear the clothes they like[/tab]
-[tab]  [ch]F#7[/ch]                          [ch]Bm[/ch]
-Without being treated like dirt[/tab]
-[tab] [ch]Bm7[/ch]        [ch]G[/ch]                           [ch]A[/ch]
-And I think we men are pathetic how we seem to judge aesthetic[/tab]
-[tab]         [ch]F#m7[/ch]                  [ch]B7[/ch]
-As the measure of a woman's worth[/tab]
-
-[Bridge]
-[tab][ch]G[/ch]                         [ch]F#m[/ch] [ch]Bm[/ch]           [ch]Em[/ch]   [ch]A[/ch]           [ch]D[/ch]
-I'm ashamed on behalf of my sex for making women feel like objects[/tab]
-
-[Chorus]
-[tab]               [ch]A9[/ch]                        [ch]D[/ch]
-Fuck I love boobs though, I just really love them[/tab]
-[tab]               [ch]A9[/ch]                        [ch]D[/ch]    [ch]D7[/ch]
-Fuck I love boobs though, I just wanna rub them[/tab]
-[tab]              [ch]G[/ch]                         [ch]Edim7[/ch]
-They're just so jooby, they make me feel groovy[/tab]
-[tab]         [ch]D[/ch]                         [ch]B7[/ch]
-I would rather watch boobs than a movie[/tab]
-[tab]           [ch]Em7[/ch]     [ch]A7[/ch]                [ch]D[/ch]
-Be doop be doo, I just really like boobs[/tab]
-
+{title: Confessions}
 
 [Verse]
-[tab][ch]F#7[/ch]       [ch]G[/ch]                      [ch]A[/ch]           [ch]F#m7[/ch]
-I believe people are entitled to basic human rights[/tab]
-[tab][ch]Bm7[/ch]               [ch]Em7[/ch]            [ch]D[/ch]
-Whether they are rich or their poor[/tab]
-[tab][ch]F#7[/ch]         [ch]G[/ch]                           [ch]A[/ch]    [ch]F#m7[/ch]
-I believe a world where no children are starving[/tab]
-[tab][ch]Bm7[/ch]              [ch]Em7[/ch]      [ch]D[/ch]
-Is a world worth fighting for[/tab]
-[tab][ch]F#7[/ch]          [ch]G[/ch]                            [ch]A[/ch]
-And I try to remind myself, even when I'm struggling[/tab]
-[tab][ch]F#7[/ch]                    [ch]Bm[/ch]
-How incredibly lucky I am[/tab]
-[tab][ch]Bm7[/ch]                    [ch]G[/ch]                      [ch]A[/ch]
-And I don't think it's ok that the luxuries I crave[/tab]
-[tab][ch]F#m7[/ch]                                    [ch]B7[/ch]
-Should come at the expense of my fellow man[/tab]
+
+I[F#7] believe that w[G]omen have the right to wa[A]lk the streets at ni[F#m7]ght
+w[Bm7]ithout being afra[Em7]id for their l[D]ives
+[F#7]I believe that [G]women have the right to choose what ha[A]ppens to her bod[F#m7]y
+Without suff[Bm7]ering the ju[Em7]dgement of the conse[D]rvative right
+And[F#7] I believe that [G]women have the right to we[A]ar the clothes they like
+Wi[F#7]thout being treated like dir[Bm]t
+A[Bm7]nd I think[G] we men are pathetic how we s[A]eem to judge aesthetic
+As the me[F#m7]asure of a woman's w[B7]orth
 
 [Bridge]
-[tab][ch]G[/ch]                       [ch]F#m[/ch]    [ch]Bm[/ch]       [ch]Em[/ch]            [ch]A[/ch]               [ch]D[/ch]
-I'm sure I could give a little more to alleviate the suffering of the poor.[/tab]
+
+[G]I'm ashamed on behalf of my[F#m] se[Bm]x for making [Em]women[A] feel like ob[D]jects
 
 [Chorus]
-[tab]               [ch]A9[/ch]                        [ch]D[/ch]
-Fuck I love boobs though, I just really love them[/tab]
-[tab]               [ch]A9[/ch]                               [ch]D[/ch]    [ch]D7[/ch]
-I don't really mind if I am behind, below or above them[/tab]
-[tab]              [ch]G[/ch]                         [ch]Edim7[/ch]
-They're just so jubbly, they make me feel lovely[/tab]
-[tab]         [ch]D[/ch]                  [ch]B7[/ch]
-I'd rather own boobs than a pub[/tab]
-[tab]           [ch]Em7[/ch]               [ch]A7[/ch]                 [ch]D[/ch]
-Be doop be doop doop doo doo doo, I really love boobs.[/tab]
 
+Fuck I love boo[A9]bs though, I just really l[D]ove them
+Fuck I love boo[A9]bs though, I just wanna ru[D]b them[D7]
+They're just s[G]o jooby, they make me feel [Edim7]groovy
+I would r[D]ather watch boobs than a mo[B7]vie
+Be doop be [Em7]doo, I [A7]just really like b[D]oobs
 
 [Verse]
-[tab][ch]F#7[/ch]                [ch]G[/ch]                      [ch]A[/ch]      [ch]F#m7[/ch]
-I believe the that planet we live in is a living organism[/tab]
-[tab][ch]Bm7[/ch]         [ch]Em7[/ch]       [ch]D[/ch]
-And we must treat her carefully[/tab]
-[tab][ch]F#7[/ch]                  [ch]G[/ch]                        [ch]A[/ch]    [ch]F#m7[/ch]
-I don't think we can assume we can just go on consuming[/tab]
-[tab][ch]F#7[/ch]          [ch]B7[/ch]
-Her resources indefinitely.[/tab]
+
+[F#7]I believe[G] people are entitled to [A]basic human r[F#m7]ights
+[Bm7]Whether they are [Em7]rich or their [D]poor
+[F#7]I believe a[G] world where no children are [A]starvi[F#m7]ng
+[Bm7]Is a world worth[Em7] fightin[D]g for
+[F#7]And I try to[G] remind myself, even when I'm [A]struggling
+[F#7]How incredibly lucky I[Bm] am
+[Bm7]And I don't think it's[G] ok that the luxuries I [A]crave
+[F#m7]Should come at the expense of my fello[B7]w man
 
 [Bridge]
-[tab][ch]G[/ch]                        [ch]F#m[/ch]  [ch]Bm[/ch]             [ch]Em[/ch]         [ch]A[/ch]      [ch]D[/ch]
-The earth's not a bottomless pit, and we can all do our little bit.[/tab]
+
+[G]I'm sure I could give a l[F#m]ittle [Bm]more to a[Em]lleviate the s[A]uffering of the p[D]oor.
 
 [Chorus]
-[tab]               [ch]A9[/ch]                        [ch]D[/ch]
-Fuck I love boobs though, I just really care for 'em[/tab]
-[tab]               [ch]A9[/ch]                        [ch]D[/ch]    [ch]D7[/ch]
-They're equally fun when they're aged 21, or octogenarian[/tab]
-[tab]              [ch]G[/ch]                         [ch]Edim7[/ch]
-They're just so flappy, they make me feel happy[/tab]
-[tab]         [ch]D[/ch]                         [ch]B7[/ch]
-I'd rather eat boobs than a bap[/tab]
-[tab]           [ch]Em7[/ch]     [ch]A7[/ch]                [ch]D[/ch]
-Be doop be doo, I just really love boobs.[/tab]
+
+Fuck I love boo[A9]bs though, I just really l[D]ove them
+I don't really [A9]mind if I am behind, below or abo[D]ve the[D7]m
+They're just s[G]o jubbly, they make me feel[Edim7] lovely
+I'd rathe[D]r own boobs than a p[B7]ub
+Be doop be [Em7]doop doop doo doo[A7] doo, I really love[D] boobs.
+
+[Verse]
+
+[F#7]I believe the that[G] planet we live in is a [A]living o[F#m7]rganism
+[Bm7]And we must[Em7] treat he[D]r carefully
+[F#7]I don't think we can[G] assume we can just go on [A]consum[F#m7]ing
+[F#7]Her resource[B7]s indefinitely.
+
+[Bridge]
+
+[G]The earth's not a bottomle[F#m]ss p[Bm]it, and we can [Em]all do our [A]little b[D]it.
+
+[Chorus]
+
+Fuck I love boo[A9]bs though, I just really c[D]are for 'em
+They're equally[A9] fun when they're aged 21,[D] or oc[D7]togenarian
+They're just s[G]o flappy, they make me feel[Edim7] happy
+I'd rathe[D]r eat boobs than a bap[B7]
+Be doop be [Em7]doo, I [A7]just really love b[D]oobs.
  
-[tab]            [ch]G6[/ch]                         [ch]A[/ch]
-Evolutionary theory says bosoms are buttock-like protrusions[/tab]
-[tab]   [ch]F#m[/ch]                       [ch]B7[/ch]
-Designed to tempt men in situations when[/tab]
-[tab]       [ch]G[/ch]                          [ch]A[/ch]
-They can't get a glimpse of your bum[/tab]
-[tab]  [ch]F#7[/ch]                   [ch]Bm[/ch]                    [ch]A[/ch]
-I find such hypotheses dumb, it's like the one that says[/tab]
-[tab]  [ch]G[/ch]                     [ch]A[/ch]
-Lipstick is for making your lips look more[/tab]
-[tab]          [ch]D[/ch]         [ch]A[/ch]       [ch]Bm[/ch]   [ch]A[/ch]
-Like the lips of a happy vagina[/tab]
-[tab]            [ch]G[/ch]                 [ch]Edim7[/ch]                    [ch]A[/ch]
-Since they said that I can't look my great aunt in the eye[/tab]
-[tab][ch]F#7[/ch]                                [ch]Bm[/ch]   [ch]A[/ch]   [ch]G[/ch]
-Why'd they have to say that, oh why?[/tab]
-[tab]            [ch]G[/ch]                      [ch]A[/ch]
-From that first little suck of colostrum[/tab]
-[tab][ch]F#m7[/ch]                                      [ch]B[/ch]
-To the grope of the the nurse in the old people's hostel[/tab]
-[tab]        [ch]Em[/ch]     [ch]D[/ch]      [ch]G[/ch]    [ch]G#dim[/ch]   [ch]A[/ch]
-We're just fucking monkeys in    shoes[/tab]
-[tab]    [ch]D[/ch]     [ch]Bm[/ch]    [ch]G[/ch]
-And Iei[/tab]
-[tab]       [ch]A[/ch]           [ch]D[/ch]    [ch]Bm[/ch]
-Will always love boobs[/tab]
-[tab]        [ch]G[/ch]  [ch]A[/ch]            [ch]D[/ch]
-i Will always love boobs[/tab]
+Evolutionary[G6] theory says bosoms are but[A]tock-like protrusions
+Des[F#m]igned to tempt men in sit[B7]uations when
+They ca[G]n't get a glimpse of your bu[A]m
+I [F#7]find such hypotheses [Bm]dumb, it's like the on[A]e that says
+Li[G]pstick is for making yo[A]ur lips look more
+Like the l[D]ips of a ha[A]ppy vagin[Bm]a[A]
+Since they s[G]aid that I can't lo[Edim7]ok my great aunt in th[A]e eye
+[F#7]Why'd they have to say that, oh wh[Bm]y?[A][G]
+From that fi[G]rst little suck of colos[A]trum
+[F#m7]To the grope of the the nurse in the old[B] people's hostel
+We're ju[Em]st fuck[D]ing monk[G]eys in[G#dim]    s[A]hoes
+And [D]Iei[Bm][G]
+Will al[A]ways love boo[D]bs[Bm]
+i Will a[G]lway[A]s love boobs[D]

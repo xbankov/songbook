@@ -1,141 +1,100 @@
+{title: Accidentally in love}
+
 Tabbed by Morgan Ayres
+
 Accidentally in Love
 by Counting Crows
 
-
 [Intro]
-[ch]G[/ch]   [ch]C[/ch]   [ch]G[/ch]   [ch]D[/ch]
-[ch]G[/ch]   [ch]C[/ch]   [ch]Em[/ch]  [ch]A[/ch]   [ch]C[/ch]  (hold)
+
+[G]   [C]   [G]   [D]
+[G]   [C]   [Em]  [A]   [C]  (hold)
 
 [Verse 1]
-[tab][ch]G[/ch]                        [ch]C[/ch]
-  So she said what's the problem baby[/tab]
-[tab][ch]G[/ch]                             [ch]C[/ch]
-   What's the problem I don't know[/tab]
-[tab]                 [ch]Em[/ch]
-Well maybe I'm in love (love)[/tab]
-[tab]               [ch]A[/ch]
-Think about it everytime I think about it[/tab]
-[tab][ch]C[/ch]
-Can't stop thinking 'bout it[/tab]
+
+[G]  So she said what's the p[C]roblem baby
+[G]   What's the problem I don't k[C]now
+Well maybe I'm in[Em] love (love)
+Think about it [A]everytime I think about it
+[C]Can't stop thinking 'bout it
 
 [tab][ch]G[/ch]                         [ch]C[/ch]
+
   How much longer will it take to cure this?[/tab]
-[tab][ch]G[/ch]                          [ch]C[/ch]                       [ch]Em[/ch]
-  Just to cure it 'cause I can't ignore it if it's love (love)[/tab]
-[tab]               [ch]A[/ch]                             [ch]D[/ch]
-Makes me wanna turn around and face me but I don't know[/tab]
-[tab]              [ch]C[/ch]
-Nothing 'bout love            Ahhhh[/tab]
+[G]  Just to cure it 'cause I c[C]an't ignore it if it's lo[Em]ve (love)
+Makes me wanna [A]turn around and face me but I d[D]on't know
+Nothing 'bout [C]love            Ahhhh
 
 [Chorus]
-[tab][ch]G[/ch]       [ch]Am[/ch]
-Come on, come on[/tab]
-[tab][ch]C[/ch]             [ch]D[/ch]
-Turn a little faster[/tab]
-[tab][ch]G[/ch]        [ch]Am[/ch]
-Come on, come on[/tab]
-[tab]    [ch]C[/ch]                 [ch]D[/ch]
-The world will follow after[/tab]
-[tab][ch]G[/ch]        [ch]Am[/ch]
-Come on, come on[/tab]
-[tab][ch]C[/ch]                 [ch]D[/ch]     [ch]Em[/ch]  [ch]A[/ch]  [ch]C[/ch]
-'Cause everybody's after love[/tab]
+
+[G]Come on, [Am]come on
+[C]Turn a little f[D]aster
+[G]Come on, c[Am]ome on
+The [C]world will follow a[D]fter
+[G]Come on, c[Am]ome on
+[C]'Cause everybody's [D]after l[Em]ove[A][C]
 
 [Verse 2]
-[tab][ch]G[/ch]                 [ch]C[/ch]
-  So I said I'm a snowball running[/tab]
-[tab][ch]G[/ch]                        [ch]C[/ch]                            [ch]Em[/ch]
-  Running down into the spring that's coming all this love[/tab]
-[tab]              [ch]A[/ch]                      [ch]C[/ch]
-Melting under blue skies belting out sunlight[/tab]
-[tab]           [ch]G[/ch]
-shimmering love[/tab]
-[tab]          [ch]C[/ch]                  [ch]G[/ch]
-Well baby I surrender to the strawberry ice cream[/tab]
-[tab][ch]C[/ch]                         [ch]Em[/ch]
-never ever end of all this love[/tab]
-[tab]       [ch]A[/ch]
-Well I didn't mean to do it[/tab]
-[tab]           [ch]D[/ch]                [ch]C[/ch]
-But there's no escaping your love   ahhhhh[/tab]
+
+[G]  So I said I'm a s[C]nowball running
+[G]  Running down into the sp[C]ring that's coming all this lo[Em]ve
+Melting under [A]blue skies belting out s[C]unlight
+shimmering [G]love
+Well baby [C]I surrender to the s[G]trawberry ice cream
+[C]never ever end of all this [Em]love
+Well I [A]didn't mean to do it
+But there's[D] no escaping your [C]love   ahhhhh
 
 [Bridge]
-[tab][ch]Em[/ch]              [ch]C[/ch]
-  These line of lightning mean we're[/tab]
-[tab][ch]G[/ch]            [ch]Am[/ch]
-never alone, never alone[/tab]
+
+[Em]  These line of [C]lightning mean we're
+[G]never alone, n[Am]ever alone
 N.C.
 no no
 
 [Chorus]
-[tab][ch]G[/ch]        [ch]Am[/ch]
-Come on, come on[/tab]
-[tab][ch]C[/ch]             [ch]D[/ch]
-Move a little closer[/tab]
-[tab][ch]G[/ch]        [ch]Am[/ch]
-Come on, come on[/tab]
-[tab]    [ch]C[/ch]              [ch]D[/ch]
-I want to hear you whisper[/tab]
-[tab][ch]G[/ch]        [ch]Am[/ch]
-Come on, come on[/tab]
-[tab][ch]C[/ch]              [ch]D[/ch]      [ch]Em[/ch]  [ch]D[/ch]
-Settle down inside my love            Ahhhh[/tab]
+
+[G]Come on, c[Am]ome on
+[C]Move a little c[D]loser
+[G]Come on, c[Am]ome on
+I wa[C]nt to hear you w[D]hisper
+[G]Come on, c[Am]ome on
+[C]Settle down insi[D]de my lo[Em]ve  [D]          Ahhhh
 
 [tab][ch]G[/ch]        [ch]Am[/ch]
+
 Come on, come on[/tab]
-[tab][ch]C[/ch]             [ch]D[/ch]
-Jump a little higher[/tab]
-[tab][ch]G[/ch]        [ch]Am[/ch]
-Come on, come on[/tab]
-[tab]       [ch]C[/ch]             [ch]D[/ch]
-If you feel a little lighter[/tab]
-[tab][ch]G[/ch]        [ch]Am[/ch]
-Come on, come on[/tab]
-[tab]   [ch]C[/ch]                [ch]D[/ch]       [ch]Em[/ch]  [ch]A[/ch]   [ch]C[/ch]
-We were once upon a time in love[/tab]
+[C]Jump a little h[D]igher
+[G]Come on, c[Am]ome on
+If you [C]feel a little l[D]ighter
+[G]Come on, c[Am]ome on
+We [C]were once upon a t[D]ime in lo[Em]ve[A][C]
 
 [Bridge]
-[tab]N.C.                [ch]G[/ch]       [ch]C[/ch]
-We're accidentally in love[/tab]
-[tab]              [ch]Em[/ch]      [ch]D[/ch]
-Accidentally in love[/tab]
-[tab]              [ch]G[/ch]       [ch]C[/ch]
-Accidentally in love[/tab]
-[tab]              [ch]Em[/ch]      [ch]D[/ch]
-Accidentally in love[/tab]
-[tab]              [ch]G[/ch]       [ch]C[/ch]
-Accidentally in love[/tab]
-[tab]              [ch]Em[/ch]      [ch]D[/ch]
-Accidentally in love[/tab]
-[tab]              [ch]G[/ch]       [ch]C[/ch]
-Accidentally in love[/tab]
-[tab]              [ch]Em[/ch]      [ch]D[/ch]
-Accidentally in love[/tab]
+
+We're accidentally i[G]n love[C]
+Accidentally i[Em]n love[D]
+Accidentally i[G]n love[C]
+Accidentally i[Em]n love[D]
+Accidentally i[G]n love[C]
+Accidentally i[Em]n love[D]
+Accidentally i[G]n love[C]
+Accidentally i[Em]n love[D]
 
 [tab]             [ch]G[/ch]                     [ch]C[/ch]
+
 Accidentally, I'm in love, I'm in love[/tab]
-[tab]                     [ch]Em[/ch]
-I'm in love, I'm in love[/tab]
-[tab]                     [ch]D[/ch]
-I'm in love, I'm in love[/tab]
-[tab]             [ch]G[/ch]                     [ch]C[/ch]
-Accidentally, I'm in love, I'm in love[/tab]
-[tab]                     [ch]Em[/ch]
-I'm in love, I'm in love[/tab]
-[tab]                     [ch]D[/ch]
-I'm in love, I'm in love, accidentally[/tab]
+I'm in love, I'm in l[Em]ove
+I'm in love, I'm in l[D]ove
+Accidentally,[G] I'm in love, I'm in lo[C]ve
+I'm in love, I'm in l[Em]ove
+I'm in love, I'm in l[D]ove, accidentally
 
 [Chorus]
-[tab][ch]G[/ch]        [ch]Am[/ch]
-Come on, come on[/tab]
-[tab][ch]C[/ch]             [ch]D[/ch]
-Spin a little tighter[/tab]
-[tab][ch]G[/ch]        [ch]Am[/ch]
-Come on, come on[/tab]
-[tab]        [ch]C[/ch]                [ch]D[/ch]
-And the world's a little brighter[/tab]
-[tab][ch]G[/ch]        [ch]Am[/ch]
-Come on, come on[/tab]
-[tab]     [ch]C[/ch]              [ch]D[/ch]        [ch]Em[/ch]    [ch]D[/ch]             [ch]G[/ch]
-Just get yourself inside her love.....I'm in love[/tab]
+
+[G]Come on, c[Am]ome on
+[C]Spin a little t[D]ighter
+[G]Come on, c[Am]ome on
+And the [C]world's a little b[D]righter
+[G]Come on, c[Am]ome on
+Just [C]get yourself ins[D]ide her lo[Em]ve....[D].I'm in love[G]

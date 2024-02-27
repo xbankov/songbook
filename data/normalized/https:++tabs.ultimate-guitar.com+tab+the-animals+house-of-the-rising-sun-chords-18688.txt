@@ -1,89 +1,66 @@
+{title: House of the rising sun}
+
 In the Animals' recording the organ often plays 7th chords, 
+
 when the guitar does not.
 
-
 [Intro]
-| [ch]Am[/ch] | [ch]C[/ch] | [ch]D[/ch] | [ch]F[/ch] |
-| [ch]Am[/ch] | [ch]E[/ch] | [ch]Am[/ch] | [ch]E[/ch] |
 
+| [Am] | [C] | [D] | [F] |
+| [Am] | [E] | [Am] | [E] |
 
 [Verse 1] 
-[tab]      [ch]Am[/ch]   [ch]C[/ch]        [ch]D[/ch]           [ch]F[/ch]
-There is a house in New Orleans[/tab]
-[tab]     [ch]Am[/ch]        [ch]C[/ch]      [ch]E[/ch]     [ch]E[/ch]
-They call the "Rising Sun"[/tab]
-[tab]         [ch]Am[/ch]       [ch]C[/ch]       [ch]D[/ch]             [ch]F[/ch]
-And it's been the ruin of many a poor boy[/tab]
-[tab]    [ch]Am[/ch]     [ch]E[/ch]        | [ch]Am[/ch] | [ch]C[/ch] | [ch]D[/ch] | [ch]F[/ch] | [ch]Am[/ch] | [ch]E[/ch] | [ch]Am[/ch] | [ch]E[/ch] |
-And God, I know, I'm one               (organ plays E7)[/tab]
 
+There [Am]is a [C]house in N[D]ew Orleans[F]
+They [Am]call the "[C]Rising S[E]un"[E]
+And it's [Am]been the [C]ruin of m[D]any a poor boy[F]
+And [Am]God, I [E]know, I'm on[Am]e    [C]     [D]     [F] (org[Am]an pl[E]ays E[Am]7)[E]
 
 [Verse 2]
-[tab]   [ch]Am[/ch]     [ch]C[/ch]     [ch]D[/ch]        [ch]F[/ch]
-My mother was a tailor (organ: F7)[/tab]
-[tab]    [ch]Am[/ch]       [ch]C[/ch]        [ch]E[/ch]     [ch]E[/ch]
-She sewed my new blue jeans (organ: E7)[/tab]
-[tab]   [ch]Am[/ch]     [ch]C[/ch]     [ch]D[/ch]        [ch]F[/ch]
-My father was a gambling man[/tab]
-[tab][ch]Am[/ch]      [ch]E[/ch]    | [ch]Am[/ch] | [ch]C[/ch] | [ch]D[/ch] | [ch]F[/ch] | [ch]Am[/ch] | [ch]E[/ch] | [ch]Am[/ch] | [ch]E[/ch] |
-Down in New Orleans.            (organ plays E7)[/tab]
 
+My [Am]mother [C]was a t[D]ailor (org[F]an: F7)
+She [Am]sewed my [C]new blue j[E]eans (o[E]rgan: E7)
+My [Am]father [C]was a g[D]ambling ma[F]n
+[Am]Down in [E]New Orle[Am]ans. [C]     [D]     [F] (org[Am]an pl[E]ays E[Am]7)[E]
 
 [Verse 3]
-[tab]        [ch]Am[/ch]   [ch]C[/ch]       [ch]D[/ch]         [ch]F[/ch]
-Now the only thing a gambler needs (organ: F7)[/tab]
-[tab]     [ch]Am[/ch]       [ch]C[/ch]     [ch]E[/ch]     [ch]E[/ch]
-Is a suitcase and a trunk (organ: E7)[/tab]
-[tab]        [ch]Am[/ch]   [ch]C[/ch]      [ch]D[/ch]           [ch]F[/ch]
-And the only time, he's satisfied,[/tab]
-[tab]   [ch]Am[/ch]        [ch]E[/ch]    | [ch]Am[/ch] | [ch]C[/ch] | [ch]D[/ch] | [ch]F[/ch] | [ch]Am[/ch] | [ch]E[/ch] | [ch]Am[/ch] | [ch]E[/ch] |
-Is when he's on a drunk              (organ plays E7)[/tab]
 
+Now the [Am]only [C]thing a g[D]ambler need[F]s (organ: F7)
+Is a [Am]suitcase [C]and a t[E]runk (o[E]rgan: E7)
+And the [Am]only [C]time, he[D]'s satisfied,[F]
+Is [Am]when he's [E]on a dru[Am]nk   [C]     [D]     [F] (org[Am]an pl[E]ays E[Am]7)[E]
 
 [Organ Solo]
-| [ch]Am[/ch] | [ch]C[/ch] | [ch]D[/ch] | [ch]F[/ch] |
-| [ch]Am[/ch] | [ch]C[/ch] | [ch]E[/ch] | % |
-| [ch]Am[/ch] | [ch]C[/ch] | [ch]D[/ch] | [ch]F[/ch] |
-| [ch]Am[/ch] | [ch]E[/ch] |
-| [ch]Am[/ch] | [ch]C/E[/ch] | [ch]D[/ch] | [ch]F[/ch] |
-| [ch]Am[/ch] | [ch]E[/ch] | [ch]Am[/ch] | [ch]E[/ch] |
 
+| [Am] | [C] | [D] | [F] |
+| [Am] | [C] | [E] | % |
+| [Am] | [C] | [D] | [F] |
+| [Am] | [E] |
+| [Am] | [C/E] | [D] | [F] |
+| [Am] | [E] | [Am] | [E] |
 
 [Verse 4]
-[tab]    [ch]Am[/ch]     [ch]C[/ch]              [ch]D[/ch]       [ch]F[/ch]
-Oh, mother, tell your children (organ: F7)[/tab]
-[tab]       [ch]Am[/ch]      [ch]C[/ch]      [ch]E[/ch]     [ch]E[/ch]
-Not to do what I have done (organ: E7)[/tab]
-[tab][ch]Am[/ch]         [ch]C[/ch]        [ch]D[/ch]            [ch]F[/ch]
-Spend your lives in sin and misery[/tab]
-[tab]       [ch]Am[/ch]       [ch]E[/ch]     | [ch]Am[/ch] | [ch]C[/ch] | [ch]D[/ch] | [ch]F[/ch] | [ch]Am[/ch] | [ch]E[/ch] | [ch]Am[/ch] | [ch]E[/ch] |
-In the House of Rising Sun              (organ plays E7)[/tab]
 
+Oh, [Am]mother,[C] tell your child[D]ren (orga[F]n: F7)
+Not to [Am]do what [C]I have d[E]one (or[E]gan: E7)
+[Am]Spend your [C]lives in s[D]in and misery[F]
+In the [Am]House of [E]Rising Su[Am]n    [C]     [D]     [F](orga[Am]n pla[E]ys E7[Am])[E]
 
 [Verse 5]
-[tab]            [ch]Am[/ch]       [ch]C[/ch]      [ch]D[/ch]           [ch]F[/ch]
-Well, I got one foot on the platform (organ plays F7)[/tab]
-[tab]    [ch]Am[/ch]         [ch]C[/ch]        [ch]E[/ch]     [ch]E[/ch]
-The other foot on the train (organ: E7)[/tab]
-[tab]    [ch]Am[/ch]    [ch]C[/ch]       [ch]D[/ch]           [ch]F[/ch]
-I'm going back to New Orleans (organ: F7)[/tab]
-[tab]   [ch]Am[/ch]        [ch]E[/ch]       | [ch]Am[/ch] | [ch]C[/ch] | [ch]D[/ch] | [ch]F[/ch] | [ch]Am[/ch] | [ch]E[/ch] | [ch]Am[/ch] | [ch]E[/ch] |
-To wear that ball and chain             (organ plays E7#9)[/tab]
 
+Well, I got [Am]one foot [C]on the p[D]latform (orga[F]n plays F7)
+The [Am]other foot [C]on the tra[E]in (org[E]an: E7)
+I'm [Am]going [C]back to N[D]ew Orleans (o[F]rgan: F7)
+To [Am]wear that [E]ball and ch[Am]ain  [C]     [D]     [F] (org[Am]an pl[E]ays E[Am]7#9)[E]
 
 [Verse 6]
-[tab]            [ch]Am[/ch]   [ch]C[/ch]        [ch]D[/ch]           [ch]F[/ch]
-Well, there is a house in New Orleans (organ: F7)[/tab]
-[tab]     [ch]Am[/ch]        [ch]C[/ch]      [ch]E[/ch]     [ch]E[/ch]
-They call the "Rising Sun" (organ: E7)[/tab]
-[tab]         [ch]Am[/ch]       [ch]C[/ch]       [ch]D[/ch]           [ch]F[/ch]
-And it's been the ruin of many a poor boy[/tab]
-[tab]    [ch]Am[/ch]     [ch]E7[/ch]      | [ch]Am[/ch] | [ch]C[/ch] | [ch]D[/ch] | [ch]F7[/ch] | [ch]Am[/ch] | [ch]E7[/ch] |
-And God, I know, I'm one[/tab]
 
+Well, there [Am]is a [C]house in N[D]ew Orleans (o[F]rgan: F7)
+They [Am]call the "[C]Rising S[E]un" (or[E]gan: E7)
+And it's [Am]been the [C]ruin of m[D]any a poor bo[F]y
+And [Am]God, I [E7]know, I'm [Am]one[C][D][F7][Am][E7]
 
 [Coda]
-[tab]| [ch]Am[/ch] | [ch]Dm[/ch] | [ch]Am[/ch] | [ch]Dm[/ch] | [ch]Am[/ch] | [ch]Dm[/ch] |
-(a tempo)[/tab]
-[tab]| [ch]Am[/ch] | [ch]Dm[/ch] | [ch]Am[/ch] | [ch]Dm[/ch] | [ch]Am[/ch]
-   (ritardando)     (organ plays Am9; guitar equivalent: x-0-5-5-5-7)[/tab]
+
+(a[Am] temp[Dm]o)[Am][Dm][Am][Dm]
+  [Am] (rit[Dm]ardan[Am]do)  [Dm]   (o[Am]rgan plays Am9; guitar equivalent: x-0-5-5-5-7)

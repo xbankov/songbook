@@ -1,93 +1,57 @@
+{title: Pokemon theme}
+
 [Verse]
-[tab][ch]Am[/ch]             [ch]G[/ch]
-I wanna be the very best[/tab]
-[tab]     [ch]Am[/ch]         [ch]G[/ch]   
-Like no one ever was[/tab]
-[tab][ch]F[/ch]                [ch]C[/ch]
-To catch them is my real test[/tab]
-[tab]   [ch]C[/ch]          [ch]D[/ch]     [ch]E[/ch] 
-To train them is my cause[/tab]
-[tab][ch]Am[/ch]            [ch]G[/ch]
-I will travel across the land[/tab]
-[tab][ch]Am[/ch]                 [ch]G[/ch]
-Searching far and wide[/tab]
-[tab][ch]F[/ch]              [ch]C[/ch]
-Teach Pokèmon to understand[/tab]
-[tab]    [ch]C[/ch]     [ch]D[/ch]       [ch]E[/ch]
-The power that's inside[/tab]
+
+[Am]I wanna be the [G]very best
+Like [Am]no one ever[G] was
+[F]To catch them is m[C]y real test
+To [C]train them i[D]s my ca[E]use
+[Am]I will travel [G]across the land
+[Am]Searching far and w[G]ide
+[F]Teach Pokèmon to[C] understand
+The [C]power t[D]hat's ins[E]ide
 
 [Chorus]
-[tab]    [ch]F[/ch]
-Pokèmon! (Gotta catch em' all)[/tab]
-[tab]     [ch]C[/ch]
-It's you and me[/tab]
-[tab][ch]F[/ch]               [ch]G[/ch]
-I know it's my destiny[/tab]
-[tab]    [ch]Am[/ch]
-Pokèmon![/tab]
-[tab]            [ch]G[/ch]
-Ooh, you're my best friend[/tab]
-[tab]     [ch]C[/ch]        [ch]D[/ch]     [ch]E[/ch]
-In a world we must defend[/tab]
-[tab]    [ch]Am[/ch]
-Pokemon! (Gotta catch em' all)[/tab]
-[tab]    [ch]G[/ch]
-Our hearts so true[/tab]
-[tab]    [ch]Am[/ch]           [ch]G[/ch]
-Our courage will pull us through[/tab]
-[tab][ch]F[/ch]                [ch]C[/ch]
-You teach me and I'll teach you[/tab]
-[tab][ch]C[/ch] [ch]D[/ch]  [ch]E[/ch]
-Pokèmon[/tab]
-[tab]                [ch]F[/ch]
-Gotta catch 'em all![/tab]
-[tab]      [ch]G[/ch]          [ch]Am[/ch]
-Gotta catch 'em all![/tab]
+
+Pokè[F]mon! (Gotta catch em' all)
+It's [C]you and me
+[F]I know it's my de[G]stiny
+Pokè[Am]mon!
+Ooh, you're [G]my best friend
+In a [C]world we m[D]ust def[E]end
+Poke[Am]mon! (Gotta catch em' all)
+Our [G]hearts so true
+Our [Am]courage will [G]pull us through
+[F]You teach me and I[C]'ll teach you
+[C]Pok[D]èmon[E]
+Gotta catch 'em [F]all!
+Gotta [G]catch 'em al[Am]l!
 Yeah!
 
 [Verse]
-[tab][ch]Am[/ch]              [ch]G[/ch]
-Every challenge along the way[/tab]
-[tab]     [ch]Am[/ch]             [ch]G[/ch]     
-With courage I will face[/tab]
-[tab][ch]F[/ch]             [ch]C[/ch]
-I will battle every day[/tab]
-[tab]   [ch]C[/ch]        [ch]D[/ch]         [ch]E[/ch]
-To claim my rightful place[/tab]
-[tab][ch]Am[/ch]                [ch]G[/ch]
-Come with me, the time is right[/tab]
-[tab][ch]Am[/ch]                [ch]G[/ch]     
-There's no better team[/tab]
-[tab][ch]F[/ch]               [ch]C[/ch]
-Arm in arm we'll win the fight[/tab]
-[tab]     [ch]C[/ch]       [ch]D[/ch]        [ch]E[/ch]
-It's always been our dream[/tab]
+
+[Am]Every challenge [G]along the way
+With [Am]courage I will [G]face
+[F]I will battle e[C]very day
+To [C]claim my r[D]ightful pla[E]ce
+[Am]Come with me, the [G]time is right
+[Am]There's no better [G]team
+[F]Arm in arm we'll [C]win the fight
+It's [C]always be[D]en our dre[E]am
 
 [Chorus]
-[tab]    [ch]F[/ch]
-Pokèmon! (Gotta catch em' all)[/tab]
-[tab]     [ch]C[/ch]
-It's you and me[/tab]
-[tab][ch]F[/ch]               [ch]G[/ch]
-I know it's my destiny[/tab]
-[tab]    [ch]Am[/ch]
-Pokèmon![/tab]
-[tab]            [ch]G[/ch]
-Ooh, you're my best friend[/tab]
-[tab]   [ch]C[/ch]           [ch]D[/ch]    [ch]E[/ch]
-In a world we must defend[/tab]
-[tab]    [ch]Am[/ch]
-Pokemon! (Gotta catch em' all)[/tab]
-[tab]    [ch]G[/ch]
-Our hearts so true[/tab]
-[tab]    [ch]Am[/ch]           [ch]G[/ch]
-Our courage will pull us through[/tab]
-[tab][ch]F[/ch]                [ch]C[/ch]
-You teach me and I'll teach you[/tab]
-[tab][ch]C[/ch] [ch]D[/ch] [ch]E[/ch]
-Pokemon[/tab]
-[tab]                [ch]F[/ch]
-Gotta catch 'em all![/tab]
-[tab]      [ch]G[/ch]         [ch]Am[/ch]
-Gotta catch 'em all![/tab]
+
+Pokè[F]mon! (Gotta catch em' all)
+It's [C]you and me
+[F]I know it's my de[G]stiny
+Pokè[Am]mon!
+Ooh, you're [G]my best friend
+In [C]a world we mu[D]st def[E]end
+Poke[Am]mon! (Gotta catch em' all)
+Our [G]hearts so true
+Our [Am]courage will [G]pull us through
+[F]You teach me and I[C]'ll teach you
+[C]Pok[D]emo[E]n
+Gotta catch 'em [F]all!
+Gotta [G]catch 'em a[Am]ll!
 Pokèmon!

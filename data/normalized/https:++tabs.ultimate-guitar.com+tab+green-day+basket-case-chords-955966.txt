@@ -1,135 +1,110 @@
+{title: Basket case}
+
 If you just want to play this on an acoustic with open chords, here they are.
 
 Capo 1st fret, standard tuning
 
 D*    10 12 12 11 10 10
+
 A*    5  7  7  6  5  5
 Bm*   7  9  9  7  7  7
 
 Chords relative to capo
 
-
 [Verse 1]
 
 [tab][ch]D[/ch]               [ch]A[/ch]
+
 Do you have the time[/tab]
-[tab]   [ch]Bm[/ch]           [ch]F#m[/ch]
-To listen to me whine[/tab]
-[tab] [ch]G[/ch]                [ch]D[/ch]
-About nothing and everything[/tab]
-[tab]    [ch]A[/ch]
-All at once[/tab]
+To [Bm]listen to me [F#m]whine
+A[G]bout nothing and e[D]verything
+All [A]at once
 
 [tab][ch]D[/ch]           [ch]A[/ch]
-I am one of those[/tab]
-[tab]  [ch]Bm[/ch]         [ch]F#m[/ch]
-Melodramatic fools[/tab]
-[tab]   [ch]G[/ch]            [ch]D[/ch]
-Neurotic to the bone[/tab]
-[tab]               [ch]A[/ch]
-No doubt about it[/tab]
 
+I am one of those[/tab]
+Me[Bm]lodramatic [F#m]fools
+Neu[G]rotic to the b[D]one
+No doubt about [A]it
 
 [Chorus]
 
 [tab][ch]G[/ch]             [ch]A[/ch]             [ch]D[/ch]
-  Sometimes I give myself the creeps[/tab]
-[tab][ch]G[/ch]              [ch]A[/ch]                  [ch]D[/ch]
-  Sometimes my mind plays tricks on me[/tab]
-[tab]   [ch]G[/ch]                [ch]A[/ch]
-It all keeps adding up[/tab]
-[tab]  [ch]D[/ch]         [ch]C[/ch]        [ch]Bm[/ch]
-I think I'm cracking up[/tab]
-[tab]   [ch]G[/ch]          [ch]A[/ch]
-Am I just paranoid?[/tab]
-[tab]          ([ch]D[/ch]*)
-Am I just stoned?[/tab]
 
+  Sometimes I give myself the creeps[/tab]
+[G]  Sometimes my m[A]ind plays tricks on [D]me
+It [G]all keeps adding u[A]p
+I [D]think I'm c[C]racking up[Bm]
+Am [G]I just paran[A]oid?
+Am I just s[D]toned?
 
 [Riff]
 
 [ch]D[/ch]*  [ch]A[/ch]*  [ch]Bm[/ch]* [ch]A[/ch]*
-[ch]D[/ch]*  [ch]A[/ch]*  [ch]Bm[/ch]* [ch]A[/ch]*
 
+[D]*  [A]*  [Bm]* [A]*
 
 [Verse 2]
 
 [tab]  [ch]D[/ch]         [ch]A[/ch]
-I went to a shrink[/tab]
-[tab]   [ch]Bm[/ch]         [ch]F#m[/ch]
-To analyze my dreams[/tab]
-[tab]    [ch]G[/ch]                 [ch]D[/ch]
-She says it's lack of sex[/tab]
-[tab]                [ch]A[/ch]
-That's bringing me down[/tab]
-[tab]  [ch]D[/ch]         [ch]A[/ch]
-I went to a whore[/tab]
-[tab]   [ch]Bm[/ch]               [ch]F#m[/ch]
-He said my life's a bore[/tab]
-[tab]   [ch]G[/ch]               [ch]D[/ch]
-So quit my whining cause[/tab]
-[tab]              [ch]A[/ch]
-It's bringing her down[/tab]
 
+I went to a shrink[/tab]
+To [Bm]analyze my [F#m]dreams
+She [G]says it's lack of s[D]ex
+That's bringing [A]me down
+I [D]went to a w[A]hore
+He [Bm]said my life's a [F#m]bore
+So [G]quit my whining c[D]ause
+It's bringing [A]her down
 
 [Chorus]
 
 [tab][ch]G[/ch]             [ch]A[/ch]            [ch]D[/ch]
-  Sometimes I give myself the creeps[/tab]
-[tab][ch]G[/ch]              [ch]A[/ch]                  [ch]D[/ch]
-  Sometimes my mind plays tricks on me[/tab]
-[tab]   [ch]G[/ch]                [ch]A[/ch]
-It all keeps adding up[/tab]
-[tab]  [ch]D[/ch]         [ch]C[/ch]        [ch]Bm[/ch]
-I think I'm cracking up[/tab]
-[tab]   [ch]G[/ch]          [ch]A[/ch]
-Am I just paranoid?[/tab]
-[tab]              ([ch]D[/ch]*)
-Uh, yuh, yuh, ya[/tab]
 
+  Sometimes I give myself the creeps[/tab]
+[G]  Sometimes my m[A]ind plays tricks on [D]me
+It [G]all keeps adding u[A]p
+I [D]think I'm c[C]racking up[Bm]
+Am [G]I just paran[A]oid?
+Uh, yuh, yuh, y[D]a
 
 [Riff]
 
 [ch]D[/ch]*  [ch]A[/ch]*  [ch]Bm[/ch]* [ch]A[/ch]*
-[ch]D[/ch]*  [ch]A[/ch]*  [ch]Bm[/ch]* [ch]A[/ch]*
-[ch]D[/ch]*  [ch]A[/ch]*  [ch]Bm[/ch]* [ch]A[/ch]*
-[ch]D[/ch]*  [ch]A[/ch]*  [ch]Bm[/ch]* [ch]A[/ch]*
 
+[D]*  [A]*  [Bm]* [A]*
+[D]*  [A]*  [Bm]* [A]*
+[D]*  [A]*  [Bm]* [A]*
 
 [Bridge]
 
 [tab][ch]G[/ch]              [ch]A[/ch]
-Grasping to control[/tab]
-[tab]N.C.         [ch]D[/ch]
-So I better hold on[/tab]
 
+Grasping to control[/tab]
+So I better h[D]old on
 
 [Instrumental]
 
 [ch]D[/ch]  [ch]A[/ch]  [ch]Bm[/ch]  [ch]F#m[/ch]  [ch]G[/ch]  [ch]D[/ch]  [ch]A[/ch]
-[ch]D[/ch]  [ch]A[/ch]  [ch]Bm[/ch]  [ch]F#m[/ch]  [ch]G[/ch]  [ch]D[/ch]  [ch]A[/ch]
 
+[D]  [A]  [Bm]  [F#m]  [G]  [D]  [A]
 
 [Chorus]
 
 [tab][ch]G[/ch]             [ch]A[/ch]            [ch]D[/ch]
-  Sometimes I give myself the creeps[/tab]
-[tab][ch]G[/ch]              [ch]A[/ch]                  [ch]D[/ch]
-  Sometimes my mind plays tricks on me[/tab]
-[tab]   [ch]G[/ch]                [ch]A[/ch]
-It all keeps adding up[/tab]
-[tab]  [ch]D[/ch]         [ch]C[/ch]        [ch]Bm[/ch]
-I think I'm cracking up[/tab]
-[tab]   [ch]G[/ch]          [ch]A[/ch]
-Am I just paranoid?[/tab]
-[tab]          ([ch]D[/ch])
-Am I just stoned?[/tab]
 
+  Sometimes I give myself the creeps[/tab]
+[G]  Sometimes my m[A]ind plays tricks on [D]me
+It [G]all keeps adding u[A]p
+I [D]think I'm c[C]racking up[Bm]
+Am [G]I just paran[A]oid?
+Am I just s[D]toned?
 
 [Outro]
 
 [ch]D[/ch]   [ch]Bm[/ch]   [ch]G[/ch] [ch]D[/ch] [ch]A[/ch]
-[ch]D[/ch]   [ch]Bm[/ch]   [ch]G[/ch] [ch]D[/ch] [ch]A[/ch]
-[ch]D[/ch]   [ch]Bm[/ch]   [ch]G[/ch] [ch]D[/ch] [ch]A[/ch]
-[ch]D[/ch]   [ch]Bm[/ch]   [ch]G[/ch] [ch]D[/ch] [ch]A[/ch]
-[ch]G[/ch] [ch]D[/ch] [ch]A[/ch]
+
+[D]   [Bm]   [G] [D] [A]
+[D]   [Bm]   [G] [D] [A]
+[D]   [Bm]   [G] [D] [A]
+[G] [D] [A]

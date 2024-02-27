@@ -1,99 +1,74 @@
-Billy Boyd - The Last Goodbye - The Hobbit: The Battle of the Five Armies
-capo 5
+{title: The last goodbye}
 
+Billy Boyd - The Last Goodbye - The Hobbit: The Battle of the Five Armies
+
+capo 5
 
 [Verse 1]
 
 [tab][ch]G[/ch]
-        I saw the light fade from the sky[/tab]
-[tab]           [ch]G[/ch]
-On the wind I heard a sigh[/tab]
-[tab]           [ch]Em[/ch]           [ch]C[/ch]        [ch]Em[/ch]    [ch]C[/ch]
-As the snowflakes cover my fallen brothers[/tab]
-[tab]         [ch]G[/ch]      [ch]C[/ch]           [ch]G[/ch]
-I will say this last goodbye[/tab]
 
+        I saw the light fade from the sky[/tab]
+On the wind[G] I heard a sigh
+As the snow[Em]flakes cover [C]my fallen [Em]brothe[C]rs
+I will sa[G]y this l[C]ast goodbye[G]
 
 [Chorus]
 
 [tab][ch]Em[/ch]                      [ch]C[/ch]
-        Night is now falling[/tab]
-[tab][ch]G[/ch]                        [ch]D[/ch]
-        So ends this day[/tab]
-[tab][ch]Em[/ch]                      [ch]C[/ch]
-        The road is now calling[/tab]
-[tab][ch]G[/ch]                        [ch]D[/ch]
-        And I must away[/tab]
-[tab][ch]Em[/ch]                     [ch]C[/ch]
-Over hill and under tree[/tab]
-[tab]                     [ch]Am[/ch]              [ch]C[/ch]
-Through lands where never light has shone[/tab]
-[tab]                [ch]G[/ch]             [ch]C[/ch]             [ch]Dsus4[/ch]   [ch]D[/ch]
-By silver streams that run down to the sea[/tab]
 
+        Night is now falling[/tab]
+[G]        So ends this day[D]
+[Em]        The road is now [C]calling
+[G]        And I must away[D]
+[Em]Over hill and under tre[C]e
+Through lands where n[Am]ever light has s[C]hone
+By silver stream[G]s that run down[C] to the sea[Dsus4][D]
 
 [Verse 2]
 
 [tab][ch]Em[/ch]                     [ch]C[/ch]
+
 Under cloud, beneath the stars[/tab]
-[tab]            [ch]Am[/ch]                  [ch]C[/ch]
-Over snow one winter’s morn[/tab]
-[tab]              [ch]G[/ch]         [ch]C[/ch]             [ch]Dadd4[/ch]   [ch]D[/ch]
-I turn at last to paths that lead home[/tab]
-[tab][ch]Am[/ch]                            [ch]C[/ch]              [ch]Em[/ch]
-        And though where the road then takes me[/tab]
-[tab]             [ch]D[/ch]
-I cannot tell[/tab]
-[tab][ch]Am[/ch]                       [ch]C[/ch]
-     We came all this way[/tab]
-[tab]                   [ch]Em[/ch]                [ch]Dadd4[/ch]   [ch]D[/ch]
-But now comes the day to bid you farewell[/tab]
+Over snow on[Am]e winter’s morn[C]
+I turn at last[G] to paths t[C]hat lead home[Dadd4][D]
+[Am]        And though where the r[C]oad then takes m[Em]e
+I cannot tell[D]
+[Am]     We came all this way[C]
+But now comes the d[Em]ay to bid you fare[Dadd4]well[D]
 
 [tab]           [ch]G[/ch]       [ch]C[/ch]     [ch]G[/ch]
+
 Many places I have been[/tab]
-[tab]           [ch]G[/ch]       [ch]C[/ch]     [ch]G[/ch]
-Many sorrows I have seen[/tab]
-[tab]       [ch]Em[/ch]       [ch]C[/ch]          [ch]Em[/ch]       [ch]C[/ch]   
-But I don’t regret, nor will I forget[/tab]
-[tab]            [ch]G[/ch]      [ch]C[/ch]           [ch]G[/ch]
-All who took that road with me[/tab]
+Many sorrow[G]s I have [C]seen[G]
+But I d[Em]on’t regr[C]et, nor will[Em] I forget[C]
+All who took[G] that ro[C]ad with me[G]
  
 
 [Chorus]
 
 [tab][ch]Em[/ch]                      [ch]C[/ch]
-        Night is now falling[/tab]
-[tab][ch]G[/ch]                        [ch]D[/ch]
-        So ends this day[/tab]
-[tab][ch]Em[/ch]                      [ch]C[/ch]
-        The road is now calling[/tab]
-[tab][ch]G[/ch]                        [ch]D[/ch]
-        And I must away[/tab]
-[tab][ch]Em[/ch]                     [ch]C[/ch]
-Over hill and under tree[/tab]
-[tab]                    [ch]Am[/ch]                  [ch]C[/ch]
-Through lands where never light has shone[/tab]
-[tab]                [ch]G[/ch]             [ch]C[/ch]                   [ch]Dadd4[/ch]   [ch]D[/ch]
-By silver streams that run down to the sea[/tab]
 
+        Night is now falling[/tab]
+[G]        So ends this day[D]
+[Em]        The road is now [C]calling
+[G]        And I must away[D]
+[Em]Over hill and under tre[C]e
+Through lands where [Am]never light has shon[C]e
+By silver stream[G]s that run down[C] to the sea[Dadd4][D]
 
 [Verse 3]
 
 [tab]                [ch]Em[/ch]                [ch]C[/ch]
+
 To these memories I will hold[/tab]
-[tab]           [ch]Am[/ch]                  [ch]C[/ch]
-With your blessing I will go[/tab]
-[tab]           [ch]G[/ch]        [ch]C[/ch]              [ch]Dadd4[/ch]   [ch]D[/ch]
-To turn at last to paths that lead home[/tab]
-[tab][ch]Am[/ch]                    [ch]C[/ch]             [ch]Em[/ch]
-And though where the road then takes me[/tab]
-[tab]             [ch]D[/ch]
-I cannot tell[/tab]
-[tab][ch]Am[/ch]                       [ch]C[/ch]
-We came all this way[/tab]
-[tab]                   [ch]Em[/ch]                [ch]Dadd4[/ch]   [ch]D[/ch]
-But now comes the day to bid you farewell[/tab]
+With your b[Am]lessing I will go[C]
+To turn at [G]last to pa[C]ths that lead ho[Dadd4]me[D]
+[Am]And though where the r[C]oad then takes [Em]me
+I cannot tell[D]
+[Am]We came all this way[C]
+But now comes the d[Em]ay to bid you fare[Dadd4]well[D]
 
 [ch]C[/ch]  [ch]Em[/ch]  x3
-[tab]           [ch]C[/ch]                    [ch]G[/ch]
-I bid you all a very fond farewell[/tab]
+
+I bid you a[C]ll a very fond farewel[G]l

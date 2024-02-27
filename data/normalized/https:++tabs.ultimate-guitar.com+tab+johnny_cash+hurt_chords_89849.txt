@@ -1,66 +1,52 @@
+{title: }
+
 Note: to play the chorus correctly and simulate the piano playing, keep the G on the third fret of the
+
 high e string fretted with your pinky. This makes the chords G major, Am7, Fadd9, and C major.
 I also suggest playing a Hendrix Fadd9, so wrap your thumb and play 1st fret low E string.
 
 The strum pattern for Intro/Verse/Transition is picked for the downs and strummed for the ups.
+
 I suggest picking the A and D strings, and then up strum.
 
-
 [Intro]
-[ch]Am[/ch]    [ch]C[/ch]  [ch]D[/ch]  [ch]Am[/ch]    [ch]C[/ch]  [ch]D[/ch]
 
+[Am]    [C]  [D]  [Am]    [C]  [D]
 
 [Verse 1]
-[tab][ch]Am[/ch]   [ch]C[/ch]       [ch]D[/ch]     [ch]Am[/ch]       [ch]C[/ch]      [ch]D[/ch]       [ch]Am[/ch]
-   I hurt myself today   to see if I still feel[/tab]
-[tab]  [ch]C[/ch]    [ch]D[/ch]        [ch]Am[/ch]        [ch]C[/ch]      [ch]D[/ch]          [ch]Am[/ch]
-I focus on the pain   the only thing that's real[/tab]
-[tab]    [ch]C[/ch]      [ch]D[/ch]       [ch]Am[/ch]         [ch]C[/ch]      [ch]D[/ch]       [ch]Am[/ch]
-The needle tears a hole   the old familiar sting[/tab]
-[tab]       [ch]C[/ch]      [ch]D[/ch]      [ch]Am[/ch]           [ch]C[/ch]      [ch]D[/ch]      [ch]G[/ch]          
-Try to kill it all away   but I remember everything[/tab]
 
+[Am]   I [C]hurt myse[D]lf toda[Am]y   to se[C]e if I s[D]till feel[Am]
+I [C]focus [D]on the pai[Am]n   the on[C]ly thing[D] that's real[Am]
+The [C]needle t[D]ears a ho[Am]le   the ol[C]d famili[D]ar sting[Am]
+Try to [C]kill it [D]all away[Am]   but I reme[C]mber eve[D]rything[G]
 
 [Chorus 1]
-[tab][ch]Am[/ch]              [ch]F[/ch]     [ch]C[/ch]               [ch]G[/ch]
-What have I become?     My sweetest friend[/tab]
-[tab][ch]Am[/ch]          [ch]F[/ch]             [ch]C[/ch]        [ch]G[/ch]
-Everyone I know  goes away in the end[/tab]
-[tab]    [ch]Am[/ch]                 [ch]F[/ch]    [ch]G[/ch]               [ch]G[/ch]
-And you could have it all   My empire of dirt[/tab]
-[tab][ch]Am[/ch]              [ch]F[/ch]      [ch]G[/ch]                [ch]Am[/ch]
-I will let you down    I will make you hurt[/tab]
 
+[Am]What have I beco[F]me?    [C] My sweetest frie[G]nd
+[Am]Everyone I k[F]now  goes away [C]in the end[G]
+And [Am]you could have it a[F]ll   M[G]y empire of dirt[G]
+[Am]I will let you d[F]own    I[G] will make you hur[Am]t
 
 [Transition]
-([ch]Am[/ch])   [ch]C[/ch]  [ch]D[/ch]  [ch]Am[/ch]    [ch]C[/ch]  [ch]D[/ch]
 
+([Am])   [C]  [D]  [Am]    [C]  [D]
 
 [Verse 2]
-[tab][ch]Am[/ch]   [ch]C[/ch]         [ch]D[/ch]        [ch]Am[/ch]        [ch]C[/ch]      [ch]D[/ch]       [ch]Am[/ch]
-   I wear this crown of thorns   upon my liar's chair[/tab]
-[tab][ch]C[/ch]       [ch]D[/ch]        [ch]Am[/ch]       [ch]C[/ch]     [ch]D[/ch]    [ch]Am[/ch]
-Full of broken thoughts   I cannot repair[/tab]
-[tab]  [ch]C[/ch]          [ch]D[/ch]        [ch]Am[/ch]         [ch]C[/ch]       [ch]D[/ch]       [ch]Am[/ch]
-Beneath the stains of time   the feelings disappear[/tab]
-[tab][ch]C[/ch]         [ch]D[/ch]      [ch]Am[/ch]    [ch]C[/ch]     [ch]D[/ch]           [ch]G[/ch]
-You are someone else   I am still right here[/tab]
 
+[Am]   I [C]wear this c[D]rown of th[Am]orns   upo[C]n my lia[D]r's chair[Am]
+[C]Full of b[D]roken thou[Am]ghts   I [C]cannot [D]repair[Am]
+Be[C]neath the st[D]ains of ti[Am]me   the fe[C]elings di[D]sappear[Am]
+[C]You are som[D]eone els[Am]e   I [C]am stil[D]l right here[G]
 
 [Chorus 2]
-[tab][ch]Am[/ch]              [ch]F[/ch]     [ch]C[/ch]               [ch]G[/ch]
-What have I become?     My sweetest friend[/tab]
-[tab][ch]Am[/ch]          [ch]F[/ch]             [ch]C[/ch]        [ch]G[/ch]
-Everyone I know  goes away in the end[/tab]
-[tab]    [ch]Am[/ch]                 [ch]F[/ch]    [ch]G[/ch]            [ch]G[/ch]
-And you could have it all   My empire of dirt[/tab]
-[tab][ch]Am[/ch]              [ch]F[/ch]     [ch]G[/ch]               [ch]G[/ch]
-I will let you down   I will make you hurt[/tab]
 
+[Am]What have I beco[F]me?    [C] My sweetest frie[G]nd
+[Am]Everyone I k[F]now  goes away [C]in the end[G]
+And [Am]you could have it a[F]ll   M[G]y empire of di[G]rt
+[Am]I will let you d[F]own   I[G] will make you hu[G]rt
 
 [Outro]
-[tab]   [ch]Am[/ch]               [ch]F[/ch]     [ch]G[/ch]              [ch]G[/ch]
-If I could start again  a million miles away[/tab]
-[tab][ch]Am[/ch]              [ch]F[/ch]    [ch]G[/ch]
-I would keep myself  I would find a way[/tab]
+
+If [Am]I could start aga[F]in  a m[G]illion miles awa[G]y
+[Am]I would keep mys[F]elf  I[G] would find a way
                  (single strum)

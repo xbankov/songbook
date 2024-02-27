@@ -1,55 +1,55 @@
+{title: }
+
 G* - can play a single note fill, G F# E
+
 G** - shorten to G F# before the A chord
 
 [Intro]
-[ch]D[/ch] [ch]A[/ch] [ch]Bm[/ch] [ch]Em[/ch] [ch]A[/ch]    x2
+
+[D] [A] [Bm] [Em] [A]    x2
 
 [Verse 1]
-[tab][ch]D[/ch]     [ch]A[/ch]     [ch]Bm[/ch]       [ch]Em[/ch]       [ch]A[/ch]
-Minne mennä voin kun tiedä mä en[/tab]
-[tab]       [ch]D[/ch]      [ch]A[/ch]     [ch]Bm[/ch]         [ch]Em[/ch]    [ch]A[/ch]
-Mistä löytää oikean väärän tai rakkauden[/tab]
+
+[D]Minne m[A]ennä vo[Bm]in kun ti[Em]edä mä en[A]
+Mistä l[D]öytää oi[A]kean vä[Bm]ärän tai ra[Em]kkaude[A]n
 
 [Chorus]
-[tab]       [ch]Bm[/ch]           [ch]F#m[/ch]         [ch]G[/ch]       [ch]Em[/ch]                       [ch]A[/ch]
-Mullon kartta väärinpäin ja sen alla on jalat joihin luulin että luottaa mä voin[/tab]
-[tab]    [ch]Bm[/ch]            [ch]F#m[/ch]       [ch]G[/ch]          [ch]Em[/ch]                     [ch]A[/ch]
-Nyt menee mäntyjä päin eikä kerran tai kaksi vaan niin etten lasketuksi saa[/tab]
+
+Mullon [Bm]kartta väärin[F#m]päin ja sen[G] alla on [Em]jalat joihin luulin että [A]luottaa mä voin
+Nyt [Bm]menee mäntyjä [F#m]päin eikä[G] kerran tai [Em]kaksi vaan niin etten l[A]asketuksi saa
 
 [ch]Em[/ch]  [ch]A[/ch]
 
 [Verse 2]
-[tab]     [ch]D[/ch]        [ch]A[/ch]          [ch]Bm[/ch]         [ch]Em[/ch]        [ch]A[/ch]
-Kuka kirjaili kaiken tän niin etten kiinni mä saa[/tab]
-[tab][ch]D[/ch]       [ch]A[/ch]      [ch]Bm[/ch]         [ch]Em[/ch]      [ch]A[/ch]
-Uidakko mukana virran vai pois vaeltaa[/tab]
+
+Kuka [D]kirjaili k[A]aiken tän ni[Bm]in etten ki[Em]inni mä sa[A]a
+[D]Uidakko m[A]ukana vi[Bm]rran vai po[Em]is vaelt[A]aa
 
 [Chorus]
-[tab]       [ch]Bm[/ch]           [ch]F#m[/ch]         [ch]G[/ch]    [ch]Em[/ch]                       [ch]A[/ch]
-Mullon kartta väärinpäin ja sen alla jalat joihin luulin että luottaa mä voin[/tab]
-[tab]    [ch]Bm[/ch]            [ch]F#m[/ch]       [ch]G[/ch]          [ch]Em[/ch]                    [ch]A[/ch]
-Nyt menee mäntyjä päin eikä kerran tai kaksi vaan niin etten lasketuksi saa[/tab]
+
+Mullon [Bm]kartta väärin[F#m]päin ja sen[G] alla [Em]jalat joihin luulin että [A]luottaa mä voin
+Nyt [Bm]menee mäntyjä [F#m]päin eikä[G] kerran tai [Em]kaksi vaan niin etten [A]lasketuksi saa
 
 [Interlude]
-[ch]D[/ch] [ch]A[/ch] [ch]Bm[/ch] [ch]Em[/ch] [ch]A[/ch]    x2
+
+[D] [A] [Bm] [Em] [A]    x2
 
 [Verse 3]
-[tab][ch]D[/ch]     [ch]A[/ch]     [ch]Bm[/ch]       [ch]Em[/ch]       [ch]A[/ch]
-Minne mennä voin kun tiedä mä en[/tab]
-[tab]       [ch]D[/ch]      [ch]A[/ch]     [ch]Bm[/ch]          [ch]Em[/ch]    [ch]A[/ch]
-Mistä löytää oikean väärän tai rakkauden[/tab]
+
+[D]Minne m[A]ennä vo[Bm]in kun ti[Em]edä mä en[A]
+Mistä l[D]öytää oi[A]kean vä[Bm]ärän tai rak[Em]kauden[A]
 
 [Chorus]
-[tab]       [ch]Bm[/ch]           [ch]F#m[/ch]         [ch]G[/ch]       [ch]Em[/ch]                       [ch]A[/ch]
-Mullon kartta väärinpäin ja sen alla on jalat joihin luulin että luottaa mä voin[/tab]
-[tab]    [ch]Bm[/ch]            [ch]F#m[/ch]       [ch]G[/ch]          [ch]Em[/ch]                     [ch]A[/ch]
-Nyt menee mäntyjä päin eikä kerran tai kaksi vaan niin etten lasketuksi saa[/tab]
+
+Mullon [Bm]kartta väärin[F#m]päin ja sen[G] alla on [Em]jalat joihin luulin että [A]luottaa mä voin
+Nyt [Bm]menee mäntyjä [F#m]päin eikä[G] kerran tai [Em]kaksi vaan niin etten l[A]asketuksi saa
 
 [tab][ch]Bm[/ch]           [ch]F#m[/ch]         [ch]G[/ch]       [ch]Em[/ch]                       [ch]A[/ch]
+
 Kartta väärinpäin ja sen alla on jalat joihin luulin että luottaa mä voin[/tab]
-[tab]    [ch]Bm[/ch]            [ch]F#m[/ch]       [ch]G[/ch]          [ch]Em[/ch]                     [ch]A[/ch]
-Nyt menee mäntyjä päin eikä kerran tai kaksi vaan niin etten lasketuksi saa[/tab]
+Nyt [Bm]menee mäntyjä [F#m]päin eikä[G] kerran tai [Em]kaksi vaan niin etten l[A]asketuksi saa
 
 [Outro]
-[ch]Bm[/ch] [ch]F#m[/ch] [ch]Em[/ch] [ch]G[/ch]* x3
-[ch]Bm[/ch] [ch]F#m[/ch] [ch]Em[/ch] [ch]G[/ch]** [ch]A[/ch] [ch]D[/ch]
+
+[Bm] [F#m] [Em] [G]* x3
+[Bm] [F#m] [Em] [G]** [A] [D]

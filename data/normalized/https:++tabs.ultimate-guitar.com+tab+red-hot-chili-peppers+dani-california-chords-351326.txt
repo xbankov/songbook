@@ -1,120 +1,92 @@
+{title: Dani california}
+
 [Intro]
+
 (drums)
-| [ch]Am[/ch] [ch]G[/ch] | [ch]Dm[/ch] [ch]Am[/ch] | [ch]Am[/ch] [ch]G[/ch] | [ch]Dm[/ch] [ch]Am[/ch] |
+| [Am] [G] | [Dm] [Am] | [Am] [G] | [Dm] [Am] |
 
 [Verse 1]
-[tab][ch]Am[/ch]                   [ch]G[/ch]
- Getting born in the state of Mississippi,[/tab]
-[tab]    [ch]Dm[/ch]                         [ch]Am[/ch]
-Her Poppa was a copper and her Momma was a hippie[/tab]
-[tab][ch]Am[/ch]          [ch]G[/ch]
- In Alabama she would swing a hammer,[/tab]
-[tab][ch]Dm[/ch]                           [ch]Am[/ch]
-Price you gotta pay when you break the panorama[/tab]
-[tab][ch]Am[/ch]         [ch]G[/ch]                   [ch]Dm[/ch]       [ch]Am[/ch]
- She never knew that there was anything more than poor,[/tab]
-[tab][ch]Am[/ch]           [ch]G[/ch]               [ch]Dm[/ch]      [ch]Am[/ch]
- What in the world does your company take me for?[/tab]
+
+[Am] Getting born in the [G]state of Mississippi,
+Her [Dm]Poppa was a copper and her [Am]Momma was a hippie
+[Am] In Alabama [G]she would swing a hammer,
+[Dm]Price you gotta pay when you [Am]break the panorama
+[Am] She never [G]knew that there was a[Dm]nything m[Am]ore than poor,
+[Am] What in the [G]world does your c[Dm]ompany t[Am]ake me for?
 
 [Verse 2]
-[tab][ch]Am[/ch]             [ch]G[/ch]
-Black bandana, sweet Louisiana,[/tab]
-[tab][ch]Dm[/ch]                       [ch]Am[/ch]
-Robbin' on a bank in the state of Indiana,[/tab]
-[tab][ch]Am[/ch]               [ch]G[/ch]
- She's a runner, rebel and a stunner,[/tab]
-[tab][ch]Dm[/ch]                        [ch]Am[/ch]
-On her merry way sayin', "baby whatcha gonna"[/tab]
-[tab][ch]Am[/ch]                 [ch]G[/ch]           [ch]Dm[/ch]         [ch]Am[/ch]
-  Lookin' down the barrel of a hot metal .45,[/tab]
-[tab][ch]Am[/ch]             [ch]G[/ch]          [ch]Dm[/ch]
-  Just another way to survive[/tab]
+
+[Am]Black bandana, [G]sweet Louisiana,
+[Dm]Robbin' on a bank in the [Am]state of Indiana,
+[Am] She's a runner, [G]rebel and a stunner,
+[Dm]On her merry way sayin', "[Am]baby whatcha gonna"
+[Am]  Lookin' down the [G]barrel of a h[Dm]ot metal .4[Am]5,
+[Am]  Just another [G]way to survi[Dm]ve
 
 [Chorus]
-[tab]     [ch]F[/ch]       [ch]C[/ch]       [ch]Dm[/ch]
-California, Rest In Peace,[/tab]
-[tab] [ch]G[/ch]    [ch]F[/ch]       [ch]C[/ch]  [ch]Dm[/ch]
-Simultaneous release,[/tab]
-[tab]  [ch]G[/ch] [ch]F[/ch]       [ch]C[/ch]         [ch]Dm[/ch]
-California, show your teeth,[/tab]
-[tab]      [ch]G[/ch]  [ch]F[/ch]          [ch]C[/ch]          [ch]Dm[/ch]
-She's my priestess, I'm your priest, yeah, yeah[/tab]
+
+Calif[F]ornia, Re[C]st In Pea[Dm]ce,
+S[G]imulta[F]neous rel[C]ease[Dm],
+Ca[G]lif[F]ornia, sh[C]ow your tee[Dm]th,
+She's [G]my p[F]riestess, I'[C]m your pries[Dm]t, yeah, yeah
 
 [Instrumental]
-| [ch]Am[/ch] [ch]G[/ch] | [ch]Dm[/ch] [ch]Am[/ch] | [ch]Am[/ch] [ch]G[/ch] | [ch]Dm[/ch] [ch]Am[/ch] |
+
+| [Am] [G] | [Dm] [Am] | [Am] [G] | [Dm] [Am] |
 
 [Verse 3]
-[tab][ch]Am[/ch]              [ch]G[/ch]
- She's a lover, baby and a fighter,[/tab]
-[tab][ch]Dm[/ch]                             [ch]Am[/ch]
-Shoulda seen it coming when it got a little brighter,[/tab]
-[tab][ch]Am[/ch]                 [ch]G[/ch]
- With a name like "Dani California",[/tab]
-[tab][ch]Dm[/ch]                      [ch]Am[/ch]
-Day was gonna come when I was gonna mourn ya,[/tab]
-[tab][ch]Am[/ch]        [ch]G[/ch]               [ch]Dm[/ch]        [ch]Am[/ch]
- A little loaded, she was stealing another breath[/tab]
-[tab][ch]Am[/ch]         [ch]G[/ch]         [ch]Dm[/ch]
- I love my baby to death[/tab]
+
+[Am] She's a lover, [G]baby and a fighter,
+[Dm]Shoulda seen it coming when it [Am]got a little brighter,
+[Am] With a name like "[G]Dani California",
+[Dm]Day was gonna come when [Am]I was gonna mourn ya,
+[Am] A little [G]loaded, she was s[Dm]tealing an[Am]other breath
+[Am] I love my [G]baby to dea[Dm]th
 
 [Chorus]
-[tab]     [ch]F[/ch]       [ch]C[/ch]       [ch]Dm[/ch]
-California, Rest In Peace,[/tab]
-[tab] [ch]G[/ch]    [ch]F[/ch]       [ch]C[/ch] [ch]Dm[/ch]
-Simultaneous release,[/tab]
-[tab]  [ch]G[/ch] [ch]F[/ch]       [ch]C[/ch]         [ch]Dm[/ch]
-California, show your teeth,[/tab]
-[tab]      [ch]G[/ch]  [ch]F[/ch]          [ch]C[/ch]          [ch]Dm[/ch]
-She's my priestess, I'm your priest, yeah, yeah[/tab]
+
+Calif[F]ornia, Re[C]st In Pea[Dm]ce,
+S[G]imulta[F]neous rel[C]eas[Dm]e,
+Ca[G]lif[F]ornia, sh[C]ow your tee[Dm]th,
+She's [G]my p[F]riestess, I'[C]m your pries[Dm]t, yeah, yeah
 
 [Bridge]
-[tab][ch]Bm[/ch]            [ch]G[/ch]     [ch]D[/ch]           [ch]F#[/ch]
- Who knew the other side of you?[/tab]
-[tab][ch]Bm[/ch]             [ch]G[/ch]      [ch]D[/ch]             [ch]F#[/ch]
- Who knew what others died to prove?[/tab]
-[tab][ch]Bm[/ch]           [ch]G[/ch]       [ch]D[/ch]         [ch]F#[/ch]
- Too true to say goodbye to you[/tab]
-[tab][ch]Bm[/ch]
- Too true, too sad, sad, sad[/tab]
+
+[Bm] Who knew the [G]other s[D]ide of you?[F#]
+[Bm] Who knew what [G]others d[D]ied to prove?[F#]
+[Bm] Too true to [G]say goodb[D]ye to you[F#]
+[Bm] Too true, too sad, sad, sad
 
 [Verse 4]
-[tab][ch]Am[/ch]               [ch]G[/ch]
- Push the fader, gifted animator,[/tab]
-[tab][ch]Dm[/ch]                   [ch]Am[/ch]
-One for the now and eleven for the later,[/tab]
-[tab][ch]Am[/ch]             [ch]G[/ch]
- Never made it up to Minnesota,[/tab]
-[tab][ch]Dm[/ch]                     [ch]Am[/ch]
-North Dakota man was a gunnin' for the quota[/tab]
-[tab][ch]Am[/ch]           [ch]G[/ch]                [ch]Dm[/ch]         [ch]Am[/ch]
- Down in the Badlands she was saving the best for last,[/tab]
-[tab][ch]Am[/ch]       [ch]G[/ch]            | [ch]Dm[/ch]       | [ch]E7[/ch]
- It only hurts when I laugh;  gone too fast[/tab]
+
+[Am] Push the fader, [G]gifted animator,
+[Dm]One for the now and e[Am]leven for the later,
+[Am] Never made it [G]up to Minnesota,
+[Dm]North Dakota man was a [Am]gunnin' for the quota
+[Am] Down in the [G]Badlands she was s[Dm]aving the b[Am]est for last,
+[Am] It only [G]hurts when I lau[Dm]gh;  gone t[E7]oo fast
 
 [Chorus]
-[tab]     [ch]F[/ch]       [ch]C[/ch]       [ch]Dm[/ch]
-California, Rest In Peace,[/tab]
-[tab] [ch]G[/ch]    [ch]F[/ch]       [ch]C[/ch] [ch]Dm[/ch]
-Simultaneous release,[/tab]
-[tab]  [ch]G[/ch] [ch]F[/ch]       [ch]C[/ch]         [ch]Dm[/ch]
-California, show your teeth,[/tab]
-[tab]      [ch]G[/ch]  [ch]F[/ch]          [ch]C[/ch]        | [ch]Dm[/ch] |
-She's my priestess, I'm your priest, yeah, yeah[/tab]
+
+Calif[F]ornia, Re[C]st In Pea[Dm]ce,
+S[G]imulta[F]neous rel[C]eas[Dm]e,
+Ca[G]lif[F]ornia, sh[C]ow your tee[Dm]th,
+She's [G]my p[F]riestess, I'[C]m your pries[Dm]t, yeah, yeah
 
 [tab]    [ch]F[/ch]       [ch]C[/ch]       [ch]Dm[/ch]
+
 California, Rest In Peace,[/tab]
-[tab]  [ch]G[/ch]  [ch]F[/ch]   [ch]C[/ch]     [ch]Dm[/ch]
-Simultaneous release,[/tab]
-[tab]  [ch]G[/ch] [ch]F[/ch]       [ch]C[/ch]         [ch]Dm[/ch]
-California, show your teeth,[/tab]
-[tab]      [ch]G[/ch]  [ch]F[/ch]          [ch]C[/ch]        | [ch]Dm[/ch] |
-She's my priestess, I'm your priest, yeah, yeah[/tab]
+Si[G]mult[F]aneou[C]s relea[Dm]se,
+Ca[G]lif[F]ornia, sh[C]ow your tee[Dm]th,
+She's [G]my p[F]riestess, I'[C]m your pries[Dm]t, yeah, yeah
 
 [Outro Solo]
-| [ch]F[/ch] [ch]C[/ch] | [ch]Dm[/ch] [ch]G[/ch] | [ch]F[/ch] [ch]C[/ch] | [ch]Dm[/ch] [ch]G[/ch] |
-| [ch]F[/ch] [ch]C[/ch] | [ch]Dm[/ch] [ch]G[/ch] | [ch]F[/ch] [ch]C[/ch] | [ch]Dm[/ch] [ch]G[/ch] |
-| [ch]Dm[/ch]  |
+
+| [F] [C] | [Dm] [G] | [F] [C] | [Dm] [G] |
+| [F] [C] | [Dm] [G] | [F] [C] | [Dm] [G] |
+| [Dm]  |
 
 | [ch]F[/ch] [ch]C[/ch] | [ch]Dm[/ch] [ch]G[/ch] | [ch]F[/ch] [ch]C[/ch] | [ch]Dm[/ch] [ch]G[/ch] |
-| [ch]F[/ch] [ch]C[/ch] | [ch]Dm[/ch] [ch]G[/ch] |
-| [ch]F[/ch] [ch]C[/ch] | [ch]Dm[/ch]
+
+| [F] [C] | [Dm] [G] |
+| [F] [C] | [Dm]

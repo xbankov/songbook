@@ -1,164 +1,125 @@
+{title: White wine in the sun}
+
 Tim Minchin
+
 White wine at christmas
 (General improvement of tab)
 
 As played by Tim here:
+
 http://www.youtube.com/watch?v=fCNvZqpa-7Q
 
 Here's my stab at it:
+
 https://www.youtube.com/watch?v=V7LioI_ECYk
 
 new chords:
-[ch]Dm/C[/ch] x30231
-[ch]F/A[/ch]  x0321x
-[ch]Gm7[/ch]  3x333x
+
+[Dm/C] x30231
+[F/A]  x0321x
+[Gm7]  3x333x
 
 -Credit to 'matt likes axes' for the tab I started with and 'jolov1' for the 
+
 suggested mid-chorus 'A' chord 
 
 [Intro]
+
 F x4
 
 [Verse 1]
-[tab][ch]F[/ch]
-I really like Christmas[/tab]
-[tab]           [ch]Bb[/ch]                               [ch]F[/ch]
-It’s sentimental I know, but I just really like it[/tab]
-[tab][ch]F[/ch]
-I’m, I’m hardly religious[/tab]
-[tab]                   [ch]Bb[/ch]                                        [ch]F[/ch]       
-I’d rather break bread with Dawkins than Desmond Tutu to be honest[/tab]
-[tab]               [ch]C[/ch]                                  [ch]C7[/ch]
-And yes I have all of the usual objections to consumerism[/tab]
-[tab]                                       [ch]Bb[/ch]
-To the commercialisation of an ancient religion[/tab]
+
+[F]I really like Christmas
+It’s sentim[Bb]ental I know, but I just really l[F]ike it
+[F]I’m, I’m hardly religious
+I’d rather break br[Bb]ead with Dawkins than Desmond Tutu to be h[F]onest
+And yes I have [C]all of the usual objections to consu[C7]merism
+To the commercialisation of an ancient [Bb]religion
 
 To the western-isation of a dead Palestinian
-[tab]                                             [ch]F[/ch]
-Press-ganged into selling PlayStations and beer[/tab]
-[tab]                            [ch]C[/ch]
-But I still really like it.[/tab]
+
+Press-ganged into selling PlayStations and be[F]er
+But I still really like it.[C]
 
 [tab][ch]F[/ch]
+
 I’m looking forward to Christmas[/tab]
-[tab]               [ch]Bb[/ch]                      [ch]F[/ch]
-Though I’m not expecting a visit from Jesus[/tab]
-[tab]                   [ch]C[/ch]     
-I’ll be seeing my dad[/tab]
-[tab]     [ch]C7[/ch]                    [ch]A7[/ch]           [ch]Dm[/ch]
-My brother and sisters, my gran and my mum[/tab]
-[tab]           [ch]Dm/C[/ch]                        [ch]Bb[/ch]
-They’ll be drinking white wine in the sun[/tab]
-[tab]                   [ch]C[/ch]
-I’ll be seeing my dad[/tab]
-[tab]    [ch]C7[/ch]                     [ch]A7[/ch]          [ch]Dm[/ch]
-My brother and sisters, my gran and my mum[/tab]
-[tab]         [ch]Dm/C[/ch]                        [ch]Bb[/ch]
-They’ll be drinking white wine in the sun.[/tab]
+Though I’m not [Bb]expecting a visit from J[F]esus
+I’ll be seeing my d[C]ad
+My br[C7]other and sisters, my [A7]gran and my m[Dm]um
+They’ll be [Dm/C]drinking white wine in the[Bb] sun
+I’ll be seeing my d[C]ad
+My b[C7]rother and sisters, my [A7]gran and my [Dm]mum
+They’ll b[Dm/C]e drinking white wine in t[Bb]he sun.
 
 [Verse 2]
-[tab][ch]F[/ch]
-I don’t go in for ancient wisdom[/tab]
-[tab]           [ch]Bb[/ch]                                                          [ch]F[/ch]
-I don’t believe just ’cause ideas are tenacious it means that they’re worthy[/tab]
-[tab][ch]F[/ch]
-I get freaked out by churches[/tab]
-[tab]             [ch]Bb[/ch]                                                       [ch]F[/ch]
-Some of the hymns that they sing have nice chords but the lyrics are dodgy[/tab]
-[tab]               [ch]C[/ch]                                       
-And yes I have all of the usual objections [/tab]
-[tab]               [ch]C7[/ch]                                         [ch]Bb[/ch]
-To the mis-education of children who in tax-exempt institutions[/tab]
+
+[F]I don’t go in for ancient wisdom
+I don’t bel[Bb]ieve just ’cause ideas are tenacious it means that they’re w[F]orthy
+[F]I get freaked out by churches
+Some of the h[Bb]ymns that they sing have nice chords but the lyrics are d[F]odgy
+And yes I have [C]all of the usual objections 
+To the mis-educ[C7]ation of children who in tax-exempt institu[Bb]tions
 
 Are taught to externalise blame
 
 And to feel ashamed
-[tab]                                        [ch]F[/ch]
-And to judge things as plain right or wrong[/tab]
-[tab]                      [ch]C[/ch]
-But I quite like the songs.[/tab]
+
+And to judge things as plain right or wr[F]ong
+But I quite like the s[C]ongs.
 
 [tab][ch]F[/ch]
+
 I’m not expecting big presents[/tab]
-[tab]             [ch]Bb[/ch]                                                   [ch]F[/ch]
-The old combination of socks, jocks and chocolates is just fine by me.[/tab]
-[tab]                          [ch]C[/ch]
-‘Cause I’ll be seeing my dad[/tab]
-[tab]    [ch]C7[/ch]                     [ch]A7[/ch]          [ch]Dm[/ch]
-My brother and sisters, my gran and my mum[/tab]
-[tab]           [ch]Dm/C[/ch]                            [ch]Bb[/ch]
-They’ll be drinking white wine in the sun[/tab]
-[tab]                   [ch]C[/ch]
-I’ll be seeing my dad[/tab]
-[tab]   [ch]C7[/ch]                      [ch]A7[/ch]          [ch]Dm[/ch]
-My brother and sisters, my gran and my mum[/tab]
-[tab]           [ch]Dm/C[/ch]                           [ch]Bb[/ch]
-They’ll be drinking white wine in the sun.[/tab]
+The old combi[Bb]nation of socks, jocks and chocolates is just fine by[F] me.
+‘Cause I’ll be seeing my d[C]ad
+My b[C7]rother and sisters, my [A7]gran and my [Dm]mum
+They’ll be [Dm/C]drinking white wine in the sun[Bb]
+I’ll be seeing my d[C]ad
+My [C7]brother and sisters, my [A7]gran and my [Dm]mum
+They’ll be [Dm/C]drinking white wine in the su[Bb]n.
 
 [Chorus]
-[tab]    [ch]Bb[/ch]
-And you my baby girl[/tab]
-[tab]    [ch]F/A[/ch]
-My jetlagged infant daughter[/tab]
-[tab]           [ch]Gm7[/ch]
-You’ll be handed round the room[/tab]
-[tab]        [ch]C[/ch]         [ch]Csus4[/ch]   [ch]C[/ch]
-Like a puppy at a primary school[/tab]
-[tab]    [ch]Bb[/ch]
-And you won't understand[/tab]
-[tab]     [ch]F/A[/ch]            
-But you will learn some day[/tab]
-[tab]      [ch]Gm7[/ch]
-That wherever you are and whatever you face[/tab]
-[tab][ch]C[/ch]                           [ch]C7[/ch]              [ch]A7[/ch]           [ch]Dm[/ch]
-These are the people who’ll make you feel safe in this world[/tab]
-[tab][ch]Dm/C[/ch]                 [ch]Bb[/ch]
-  My sweet blue-eyed girl[/tab]
+
+And [Bb]you my baby girl
+My j[F/A]etlagged infant daughter
+You’ll be h[Gm7]anded round the room
+Like a p[C]uppy at a p[Csus4]rimar[C]y school
+And [Bb]you won't understand
+But y[F/A]ou will learn some day
+That w[Gm7]herever you are and whatever you face
+[C]These are the people who’ll m[C7]ake you feel saf[A7]e in this wor[Dm]ld
+[Dm/C]  My sweet blue-eye[Bb]d girl
 
 [Chorus]
-[tab]    [ch]Bb[/ch]
-And if my baby girl[/tab]
-[tab]            [ch]F/A[/ch]
-When you’re twenty-one or thirty-one[/tab]
-[tab]    [ch]Gm7[/ch]
-And Christmas comes around[/tab]
-[tab]         [ch]C[/ch]                          [ch]Csus4[/ch]      [ch]C[/ch]
-And you find yourself nine thousand miles from home[/tab]
-[tab][ch]Bb[/ch]     [ch]F/A[/ch]  [ch]Gm7[/ch]          [ch]C[/ch]   
-You’ll know what-ever---- comes[/tab]
-[tab]       [ch]C7[/ch]                    [ch]A7[/ch]           [ch]Dm[/ch]
-Your brothers and sisters, and me and your mum[/tab]
-[tab]        [ch]Dm/C[/ch]                       [ch]Bb[/ch]
-Will be waiting for you in the sun[/tab]
-[tab]                [ch]C[/ch]     [ch]Csus4[/ch]  [ch]C[/ch]
-whenever you come[/tab]
-[tab][ch]C7[/ch]                                                            
-Your brothers and sisters, your aunts and your uncles[/tab]
-[tab]       [ch]C7[/ch]                       [ch]A7[/ch]           [ch]Dm[/ch]
-Your grandparents, cousins, and me and your mum[/tab]
-[tab]         [ch]Dm/C[/ch]                     [ch]Bb[/ch]    
-We’ll be waiting for you in the sun[/tab]
-[tab][ch]F/A[/ch]                    [ch]Gm7[/ch]
-drinking white wine in the sun[/tab]
-[tab][ch]C[/ch]                  [ch]Bb[/ch]
-Darling, when xmas comes[/tab]
-[tab][ch]F/A[/ch]                             [ch]Gm7[/ch]
-We’ll be waiting for you in the sun[/tab]
-[tab][ch]F/A[/ch]                          [ch]Bb[/ch]   
-drinking white wine in the sun[/tab]
-[tab][ch]F/A[/ch]                    [ch]Gm7[/ch]
-waiting for you in the sun[/tab]
-[tab][ch]C[/ch]                    [ch]Bb[/ch]
-waiting for you [/tab]
+
+And [Bb]if my baby girl
+When you’re [F/A]twenty-one or thirty-one
+And [Gm7]Christmas comes around
+And you f[C]ind yourself nine thousand m[Csus4]iles fro[C]m home
+[Bb]You’ll [F/A]know[Gm7] what-ever--[C]-- comes
+Your br[C7]others and sisters, an[A7]d me and your[Dm] mum
+Will be [Dm/C]waiting for you in the su[Bb]n
+whenever you com[C]e[Csus4][C]
+[C7]Your brothers and sisters, your aunts and your uncles
+Your gr[C7]andparents, cousins, and [A7]me and your m[Dm]um
+We’ll be [Dm/C]waiting for you in the [Bb]sun
+[F/A]drinking white wine in[Gm7] the sun
+[C]Darling, when xmas c[Bb]omes
+[F/A]We’ll be waiting for you in the[Gm7] sun
+[F/A]drinking white wine in the s[Bb]un
+[F/A]waiting for you in the[Gm7] sun
+[C]waiting for you [Bb]
 
 [Interlude]
-[ch]F/A[/ch]
+
+[F/A]
 
 [tab][ch]Gm7[/ch]          ([ch]C7[/ch])
+
 Wa -------iting.[/tab]
 
 [Outro]
-[tab][ch]F[/ch]
-I  really like Christmas[/tab]
-[tab]           [ch]Bb[/ch]            [ch]F[/ch]
-It’s sentimental I know.[/tab]
+
+[F]I  really like Christmas
+It’s sentim[Bb]ental I know.[F]

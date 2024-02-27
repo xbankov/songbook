@@ -1,76 +1,49 @@
-[Intro]
-[tab][ch]Bb[/ch]            [ch]A7[/ch]               [ch]Dm[/ch]
-I've been having a little problem recently[/tab]
-[tab]     [ch]Gm/E[/ch]      [ch]A7[/ch]              [ch]Dm[/ch]
-Which is quite disturbing musicallically[/tab]
-[tab]  [ch]Gm[/ch]         [ch]A7[/ch]                [ch]Dm[/ch]
-Involving a semitonal discrepancy[/tab]
-[tab] [ch]Gm/E[/ch]                 [ch]A7[/ch]
-Vocally and instrumentally[/tab]
-[tab]       [ch]Bb[/ch]            [ch]A7[/ch]               [ch]Dm[/ch]
-You see musicians of different varieties[/tab]
-[tab]      [ch]Gm/E[/ch]        [ch]A7[/ch]             [ch]Dm[/ch]
-Prefer playing in particular keys[/tab]
-[tab]    [ch]Bb[/ch]               [ch]Gm[/ch]               [ch]Dm/A[/ch]
-And singers too treat preferentially[/tab]
-[tab]      [ch]Gm[/ch]                    [ch]A7b9[/ch]
-Those notes they tackle more proficiently[/tab]
+{title: F sharp}
 
+[Intro]
+
+[Bb]I've been havi[A7]ng a little probl[Dm]em recently
+Which[Gm/E] is quit[A7]e disturbing mus[Dm]icallically
+In[Gm]volving a s[A7]emitonal discrepan[Dm]cy
+V[Gm/E]ocally and instrume[A7]ntally
+You see[Bb] musicians of [A7]different varieti[Dm]es
+Prefer[Gm/E] playing i[A7]n particular ke[Dm]ys
+And [Bb]singers too treat[Gm] preferentially[Dm/A]
+Those [Gm]notes they tackle more[A7b9] proficiently
 
 [Verse 1]
-[tab]              [ch]Bb[/ch]           [ch]A7[/ch]        [ch]Dm[/ch]
-Now you don't have to be a member of MENSA[/tab]
-[tab]    [ch]Gm/E[/ch]                    [ch]A7[/ch]
-To understand the depth of my dilemma[/tab]
-[tab]       [ch]Bb[/ch]    [ch]Bb/G[/ch]  [ch]Dm/A[/ch]    [ch]Gm/E[/ch]   [ch]A7[/ch]        [ch]Dm[/ch]
-The two elements of me favour two different keys[/tab]
-[tab]       [ch]Gm/E[/ch]          [ch]A7[/ch]               [ch]Dm[/ch]
-Thus a rift betwixt my fingers and my tenor[/tab]
-[tab][ch]Bb[/ch]                               [ch]F[/ch]
-I like nothing more than playing instruments in F[/tab]
-[tab]    [ch]Gm/E[/ch]                   [ch]A7[/ch]
-It warms the very cockles of my heart[/tab]
-[tab]    [ch]Bb[/ch]                             [ch]F[/ch]
-The trouble is that F can leave me vocally bereft[/tab]
-[tab]               [ch]Gm/E[/ch]
-You see I like playing in F major[/tab]
-[tab][ch]A7[/ch]
-   But I like singing in F-[/tab]
 
+Now you don't [Bb]have to be a [A7]member of [Dm]MENSA
+To u[Gm/E]nderstand the depth of[A7] my dilemma
+The two[Bb] eleme[Bb/G]nts [Dm/A]of me [Gm/E]favou[A7]r two diff[Dm]erent keys
+Thus a [Gm/E]rift betwixt[A7] my fingers and m[Dm]y tenor
+[Bb]I like nothing more than playing [F]instruments in F
+It w[Gm/E]arms the very cockles[A7] of my heart
+The [Bb]trouble is that F can leave me [F]vocally bereft
+You see I like [Gm/E]playing in F major
+[A7]   But I like singing in F-
 
 [Chorus]
-[tab][ch]Dm[/ch]
-  Sharp[/tab]
-[tab][ch]Dm[/ch]
-F-Sharp[/tab]
-[tab][ch]Dm[/ch]
-F-Sharp[/tab]
 
+[Dm]  Sharp
+[Dm]F-Sharp
+[Dm]F-Sharp
 
 [Verse 2]
-[tab]    [ch]Bb[/ch]                        [ch]F[/ch]
-I refuse to be beholden to my hands[/tab]
-[tab]   [ch]Gm/E[/ch]                            [ch]A7[/ch]
-I don't see why my larynx should give in to their demands[/tab]
-[tab]     [ch]Bb[/ch]                             [ch]F[/ch]
-I'll not be forced to compromise my art[/tab]
-[tab]   [ch]Gm/E[/ch]                            [ch]A7[/ch]
-And so I'll just keep playing in F major and singing in F-[/tab]
 
+I re[Bb]fuse to be beholden to my [F]hands
+I d[Gm/E]on't see why my larynx should [A7]give in to their demands
+I'll [Bb]not be forced to compromise my [F]art
+And[Gm/E] so I'll just keep playing in [A7]F major and singing in F-
 
 [Chorus]
-[tab][ch]Dm[/ch]
-Sharp[/tab]
-[tab][ch]Dm[/ch]
-F-Sharp[/tab]
-[tab][ch]Dm[/ch]
-F-Sharp[/tab]
 
+[Dm]Sharp
+[Dm]F-Sharp
+[Dm]F-Sharp
 
 [Outro] 
-[tab]          [ch]Gm6[/ch] [ch]Gm[/ch] [ch]Gm6[/ch] [ch]Gm[/ch]
-I'll keep playing in F major[/tab]
-[tab][ch]C7sus4[/ch]
-    But I'll keep singing in F-[/tab]
-[tab][ch]F[/ch]
-Sharp[/tab]
+
+I'll keep [Gm6]pla[Gm]yin[Gm6]g i[Gm]n F major
+[C7sus4]    But I'll keep singing in F-
+[F]Sharp

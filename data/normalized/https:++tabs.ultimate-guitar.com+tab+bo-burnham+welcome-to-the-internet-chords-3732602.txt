@@ -1,201 +1,134 @@
-[Verse 1]
-[tab][ch]Dm[/ch]
-Welcome to the internet. Have a look around.[/tab]
-[tab][ch]Gm[/ch]
-Anything that brain of yours can think of can be found.[/tab]
-[tab]          [ch]F[/ch]
-We've got mountains of content. Some better, some worse.[/tab]
-[tab]   [ch]A7[/ch]
-If none of it's of interest to you, you'd be the first.[/tab]
+{title: Welcome to the internet}
 
+[Verse 1]
+
+[Dm]Welcome to the internet. Have a look around.
+[Gm]Anything that brain of yours can think of can be found.
+We've got [F]mountains of content. Some better, some worse.
+If [A7]none of it's of interest to you, you'd be the first.
 
 [Verse 2]
-[tab][ch]Dm[/ch]
-Welcome to the internet. Come and take a seat.[/tab]
-[tab]          [ch]Gm[/ch]
-Would you like to see the news or any famous women's feet.[/tab]
-[tab]        [ch]F[/ch]
-There's no need to panic. This isn't a test (huh huh).[/tab]
-[tab] [ch]A7[/ch]
-Just nod or shake your head and we'll do the rest.[/tab]
 
+[Dm]Welcome to the internet. Come and take a seat.
+Would you [Gm]like to see the news or any famous women's feet.
+There's [F]no need to panic. This isn't a test (huh huh).
+J[A7]ust nod or shake your head and we'll do the rest.
 
 [Verse 3]
-[tab][ch]Dm[/ch]
-Welcome to the internet. What would you prefer.[/tab]
-[tab]          [ch]Gm[/ch]
-Would you like to fight for civil rights or tweet a racial slur.[/tab]
-[tab]   [ch]F[/ch]
-Be happy. Be horny. Be bursting with rage.[/tab]
-[tab][ch]A7[/ch]
-We got a million different ways to engage[/tab]
 
+[Dm]Welcome to the internet. What would you prefer.
+Would you [Gm]like to fight for civil rights or tweet a racial slur.
+Be [F]happy. Be horny. Be bursting with rage.
+[A7]We got a million different ways to engage
 
 [Verse 4]
-[tab][ch]Dm[/ch]
-Welcome to the internet. Put your cares aside.[/tab]
-[tab]         [ch]Gm[/ch]
-Here's a tip for straining pasta. Here's a nine-year-old who died.[/tab]
-[tab]       [ch]F[/ch]
-We got movies, and doctors, and fantasy sports.[/tab]
-[tab]      [ch]A7[/ch]
-And a bunch of colored pencil drawings of all the characters of harry potter fucking[/tab]
-[tab][ch]Dm[/ch]
-eachother. [/tab]
 
+[Dm]Welcome to the internet. Put your cares aside.
+Here's a [Gm]tip for straining pasta. Here's a nine-year-old who died.
+We got [F]movies, and doctors, and fantasy sports.
+And a [A7]bunch of colored pencil drawings of all the characters of harry potter fucking
+[Dm]eachother. 
 
 [Verse 5]
-Welcome to the internet. Hold on to your socks.
-[tab]         [ch]Gm[/ch]
-'cause a random guy just kindly sent you photos of his cock.[/tab]
-[tab]         [ch]F[/ch]
-They are grainy and off-putting. He just sent you more.[/tab]
-[tab][ch]A7[/ch]
-Dont act surprised. You know you like it, you whore.[/tab]
 
+Welcome to the internet. Hold on to your socks.
+'cause a [Gm]random guy just kindly sent you photos of his cock.
+They are [F]grainy and off-putting. He just sent you more.
+[A7]Dont act surprised. You know you like it, you whore.
 
 [Verse 6]
-[tab][ch]Dm[/ch]
-See a man beheaded. Get offended, see a shrink.[/tab]
-[tab]        [ch]Gm[/ch]
-Show us pictures of your children. Tell us every thought you think.[/tab]
-[tab]        [ch]F[/ch]
-Start a rumor, buy a broom or send a death threat to a boomer.[/tab]
-[tab]   [ch]A7[/ch]
-Or DM a girl and groom her. Do a Zoom or find a tumor in your-[/tab]
 
+[Dm]See a man beheaded. Get offended, see a shrink.
+Show us [Gm]pictures of your children. Tell us every thought you think.
+Start a [F]rumor, buy a broom or send a death threat to a boomer.
+Or [A7]DM a girl and groom her. Do a Zoom or find a tumor in your-
 
 [Verse 7]
-[tab][ch]Dm[/ch]
-Here's a healthy breakfast option. You should kill your mom.[/tab]
-[tab]           [ch]Gm[/ch]
-Here's why women never fuck you. Here's how you can build a bomb.[/tab]
-[tab]      [ch]F[/ch]
-Which Power Ranger are you? Take this quirky quiz.[/tab]
-[tab] [ch]A7[/ch]                           [ch]A7[/ch]   [ch]Gm[/ch]   [ch]F[/ch]    [ch]E[/ch]     [ch]Dm[/ch]
-Obama sent the immigrants. To vac- cin- ate- your- kids.[/tab]
 
+[Dm]Here's a healthy breakfast option. You should kill your mom.
+Here's why [Gm]women never fuck you. Here's how you can build a bomb.
+Which [F]Power Ranger are you? Take this quirky quiz.
+O[A7]bama sent the immigrants. To [A7]vac- [Gm]cin- [F]ate- y[E]our- ki[Dm]ds.
 
 [Chorus]
-[tab]         [ch]Dm[/ch]
-Could I interest you in everything, all of the time?[/tab]
-[tab]  [ch]Gm[/ch]
-A little bit of everything. All of the time.[/tab]
-[tab][ch]F[/ch]
-Apathy's a tragedy and boredom is a crime.[/tab]
-[tab][ch]A7[/ch]*
-Anything and everything. All of the time.[/tab]
+
+Could I i[Dm]nterest you in everything, all of the time?
+A [Gm]little bit of everything. All of the time.
+[F]Apathy's a tragedy and boredom is a crime.
+[A7]Anything and everything. All of the time.
 
 [tab]         [ch]Dm[/ch]
-Could I interest you in everything, all of the time?[/tab]
-[tab]  [ch]Gm[/ch]
-A little bit of everything. All of the time.[/tab]
-[tab][ch]F[/ch]
-Apathy's a tragedy and boredom is a crime.[/tab]
-[tab][ch]A7[/ch]*
-Anything and everything. All of the time.[/tab]
 
+Could I interest you in everything, all of the time?[/tab]
+A [Gm]little bit of everything. All of the time.
+[F]Apathy's a tragedy and boredom is a crime.
+[A7]Anything and everything. All of the time.
 
 [Interlude]
-[ch]Dm[/ch] [ch]C[/ch] [ch]Bb[/ch] [ch]A7[/ch]
 
+[Dm] [C] [Bb] [A7]
 
 [Verse 8]
-[tab][ch]Dm[/ch]        [ch]C[/ch]                     [ch]Bb[/ch]     [ch]A7[/ch]
-You know, it wasn't always like this[/tab]
-[tab][ch]Dm[/ch]       [ch]C[/ch]
-Not very long ago[/tab]
-[tab][ch]Bb[/ch]               [ch]A7[/ch]
-Just before your time[/tab]
-[tab][ch]Dm[/ch]           [ch]C[/ch]
-Right before the towers fell[/tab]
-[tab][ch]Bb[/ch]           [ch]A7[/ch]
-Circa '99[/tab]
 
+[Dm]You know, [C]it wasn't always like t[Bb]his[A7]
+[Dm]Not very [C]long ago
+[Bb]Just before your [A7]time
+[Dm]Right before [C]the towers fell
+[Bb]Circa '99[A7]
 
 [Verse 9]
-[tab]         [ch]Gm[/ch]
-This was catalogues[/tab]
-[tab] [ch]Dm[/ch]
-Travel blogs[/tab]
-[tab][ch]A7[/ch]             [ch]Dm[/ch]
-A chat room or two[/tab]
-[tab]            [ch]Gm[/ch]        [ch]Dm[/ch]
-We set our sights and spent our nights[/tab]
-[tab][ch]A7[/ch]        [ch]C7[/ch]
-Waiting[/tab]
 
+This was [Gm]catalogues
+T[Dm]ravel blogs
+[A7]A chat room or [Dm]two
+We set our s[Gm]ights and [Dm]spent our nights
+[A7]Waiting[C7]
 
 [Bridge 1]
-[tab]    [ch]Fmaj7[/ch]
-For you[/tab]
-[tab][ch]Dm7[/ch]
-You[/tab]
-[tab]  [ch]Gm7[/ch]      [ch]C7[/ch]
-Insatiable you[/tab]
-[tab]      [ch]Fmaj7[/ch]            [ch]Dm7[/ch]
-Mommy let you use her iPad[/tab]
-[tab][ch]Gm7[/ch]             [ch]C7[/ch]
-You were barely two[/tab]
-[tab]       [ch]Dm[/ch]          [ch]Dmmaj7/C#[/ch]
-And it did all the things[/tab]
-[tab]   [ch]Dm7/C[/ch]          [ch]Bb[/ch]
-We designed it to do[/tab]
 
+For [Fmaj7]you
+[Dm7]You
+In[Gm7]satiable[C7] you
+Mommy [Fmaj7]let you use he[Dm7]r iPad
+[Gm7]You were barely[C7] two
+And it [Dm]did all the [Dmmaj7/C#]things
+We [Dm7/C]designed it [Bb]to do
 
 [Interlude]
-[tab]    [ch]Bb[/ch]
-Now look at you[/tab]
-[tab]    [ch]C[/ch]
-Oh, look at you[/tab]
-[tab][ch]D[/ch]
-You[/tab]
 
+Now [Bb]look at you
+Oh, [C]look at you
+[D]You
 
 [Bridge 2]
-[tab][ch]Gmaj7[/ch]       [ch]Em7[/ch]
-You[/tab]
-[tab]  [ch]Am7[/ch]         [ch]D7[/ch]
-Unstoppable, watchable[/tab]
-[tab]     [ch]Gmaj7[/ch]              [ch]Em7[/ch]
-Your time is now. Your inside's out.[/tab]
-[tab][ch]Am7[/ch]            [ch]D7[/ch]
-Honey, how you grew[/tab]
-[tab]       [ch]Em[/ch]         [ch]Emmaj7/D#[/ch]
-And if we stick together[/tab]
-[tab]    [ch]Em7/D[/ch]            [ch]A[/ch]
-Who knows what we'll do[/tab]
-[tab]       [ch]C[/ch]            [ch]D[/ch]
-It was always the plan[/tab]
-[tab]           [ch]B7[/ch]             [ch]C[/ch]
-To put the world in your hand[/tab]
 
+[Gmaj7]You[Em7]
+Un[Am7]stoppable, [D7]watchable
+Your [Gmaj7]time is now. You[Em7]r inside's out.
+[Am7]Honey, how you[D7] grew
+And if [Em]we stick to[Emmaj7/D#]gether
+Who [Em7/D]knows what we'[A]ll do
+It was [C]always the pla[D]n
+To put the [B7]world in your h[C]and
 
 [tab][ch]Em[/ch] [ch]Em/B[/ch] [ch]Em[/ch] [ch]Em/B[/ch] [ch]Em[/ch] [ch]Em/B[/ch] [ch]Em[/ch] [ch]Em/B[/ch]
+
 (laughing)[/tab]
 
-
 [Chorus]
-[tab]         [ch]Em[/ch]
-Could I interest you in everything, all of the time?[/tab]
-[tab]  [ch]Am[/ch]
-A bit of everything. All of the time.[/tab]
-[tab][ch]G[/ch]
-Apathy's a tragedy and boredom is a crime.[/tab]
-[tab][ch]B7[/ch]*
-Anything and everything. All of the time.[/tab]
+
+Could I i[Em]nterest you in everything, all of the time?
+A [Am]bit of everything. All of the time.
+[G]Apathy's a tragedy and boredom is a crime.
+[B7]Anything and everything. All of the time.
 
 [tab]         [ch]Em[/ch]
+
 Could I interest you in everything, all of the time?[/tab]
-[tab]  [ch]Am[/ch]
-A little bit of everything. All of the time.[/tab]
-[tab][ch]G[/ch]
-Apathy's a tragedy and boredom is a crime.[/tab]
-[tab][ch]B7[/ch]
-Anything and everything[/tab]
-[tab][ch]B7[/ch]
-And anything and everything[/tab]
-[tab][ch]B7[/ch]
-And anything and everything[/tab]
+A [Am]little bit of everything. All of the time.
+[G]Apathy's a tragedy and boredom is a crime.
+[B7]Anything and everything
+[B7]And anything and everything
+[B7]And anything and everything
     N.C
 And all of the time

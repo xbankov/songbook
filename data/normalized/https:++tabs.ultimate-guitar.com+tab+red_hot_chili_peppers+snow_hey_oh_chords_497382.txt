@@ -1,184 +1,142 @@
-Capo on 4th fret.
+{title: }
 
+Capo on 4th fret.
 
 [Intro]
 
 [ch]Em[/ch] - [ch]C[/ch] - [ch]G[/ch] - [ch]D[/ch]
-[ch]Em[/ch] - [ch]C[/ch] - [ch]G[/ch] - [ch]D[/ch]
-[ch]Em[/ch] - [ch]C[/ch] - [ch]G[/ch] - [ch]D[/ch]
-[ch]Em[/ch] - [ch]C[/ch] - [ch]G[/ch] - [ch]D[/ch]
 
+[Em] - [C] - [G] - [D]
+[Em] - [C] - [G] - [D]
+[Em] - [C] - [G] - [D]
 
 [Verse 1]
 
 [tab]    [ch]Em[/ch]                      [ch]C[/ch]
-    Come to decide that the things that I tried[/tab]
-[tab]         [ch]G[/ch]               [ch]D[/ch]
-    Were in my life just to get high on.[/tab]
-[tab][ch]Em[/ch]                    [ch]C[/ch]
-    When I sit alone, come, get a little known,[/tab]
-[tab]    [ch]G[/ch]                      [ch]D[/ch]
-    But I need more than myself this time.[/tab]
-[tab]    [ch]Em[/ch]                        [ch]C[/ch]
-    Step from the road to the sea to the sky,[/tab]
-[tab]          [ch]G[/ch]               [ch]D[/ch]
-    And I do believe that we rely on.[/tab]
-[tab][ch]Em[/ch]                   [ch]C[/ch]                         [ch]G[/ch]                [ch]D[/ch]
-    When I lay it on, come, get to play it on, all my life to sacrifice.[/tab]
 
+    Come to decide that the things that I tried[/tab]
+    Were [G]in my life just t[D]o get high on.
+[Em]    When I sit alone, [C]come, get a little known,
+    [G]But I need more than mys[D]elf this time.
+    [Em]Step from the road to the [C]sea to the sky,
+    And I [G]do believe that w[D]e rely on.
+[Em]    When I lay it on,[C] come, get to play it on, a[G]ll my life to sacr[D]ifice.
 
 [Chorus]
 
 [tab]    [ch]Em[/ch]   [ch]C[/ch]  -   [ch]G[/ch]        [ch]D[/ch]      [ch]Em[/ch]   [ch]C[/ch]  - [ch]G[/ch] - [ch]D[/ch]
-    Hey oh,       listen what I say, oh.[/tab]
-[tab]                [ch]Em[/ch]   [ch]C[/ch]   - [ch]G[/ch]              [ch]D[/ch]      [ch]Em[/ch]   [ch]C[/ch]   - [ch]G[/ch] - [ch]D[/ch]
-    I got your, hey oh,        now listen what I say, oh.[/tab]
 
+    Hey oh,       listen what I say, oh.[/tab]
+    I got your, [Em]hey o[C]h,     [G]   now listen wh[D]at I say[Em], oh.[C][G][D]
 
 [Verse 2]
 
 [tab]    [ch]Em[/ch]                      [ch]C[/ch]
-    When will I know that I really can’t go[/tab]
-[tab]           [ch]G[/ch]                    [ch]D[/ch]
-    To the well once more, time to decide on.[/tab]
-[tab][ch]Em[/ch]                        [ch]C[/ch]
-    When it’s killing me, when will really see,[/tab]
-[tab]    [ch]G[/ch]                  [ch]D[/ch]
-    All that I need to look inside?[/tab]
-[tab]    [ch]Em[/ch]                     [ch]C[/ch]
-    Come to believe that I better not leave,[/tab]
-[tab]      [ch]G[/ch]             [ch]D[/ch]
-    Before I get my chance to ride.[/tab]
-[tab][ch]Em[/ch]                        [ch]C[/ch]
-    When it’s killing me, what do I really need,[/tab]
-[tab]    [ch]G[/ch]                  [ch]D[/ch]
-    All that I need to look inside?[/tab]
 
+    When will I know that I really can’t go[/tab]
+    To the [G]well once more, time t[D]o decide on.
+[Em]    When it’s killing me, [C]when will really see,
+    [G]All that I need to l[D]ook inside?
+    [Em]Come to believe that I [C]better not leave,
+    Be[G]fore I get my c[D]hance to ride.
+[Em]    When it’s killing me, [C]what do I really need,
+    [G]All that I need to l[D]ook inside?
 
 [Chorus]
 
 [tab]    [ch]Em[/ch]   [ch]C[/ch]  - [ch]G[/ch]          [ch]D[/ch]      [ch]Em[/ch]   [ch]C[/ch]  - [ch]G[/ch] - [ch]D[/ch]
-    Hey oh,       listen what I say, oh.[/tab]
-[tab]                   [ch]Em[/ch]  [ch]C[/ch]   - [ch]G[/ch]             [ch]D[/ch]      [ch]Em[/ch]   [ch]C[/ch]   - [ch]G[/ch] - [ch]D[/ch]
-    Come back and, hey oh,         look at what I say, oh.[/tab]
 
+    Hey oh,       listen what I say, oh.[/tab]
+    Come back and, [Em]hey [C]oh,    [G]     look at wh[D]at I say[Em], oh.[C][G][D]
 
 [Bridge]
 
 [tab]    [ch]C[/ch]
+
 The more I see, the less I know,[/tab]
-[tab]                              [ch]Em[/ch]  [ch]C[/ch]
-The more I like to let it go, hey oh, oh oh oh.[/tab]
+The more I like to let it go, [Em]hey [C]oh, oh oh oh.
 
 [tab][ch]G[/ch]                           [ch]D[/ch]
-Deep beneath the cover of another perfect wonder,[/tab]
-[tab]           [ch]Am[/ch]
-Where it’s so white as snow.[/tab]
-[tab][ch]G[/ch]                      [ch]D[/ch]
-Privately divided by a world so undecided,[/tab]
-[tab]            [ch]Am[/ch]
-And there’s nowhere to go.[/tab]
-[tab][ch]G[/ch]                        [ch]D[/ch]
-In between the cover of another perfect wonder,[/tab]
-[tab]           [ch]Am[/ch]
-Where it’s so white as snow.[/tab]
-[tab][ch]G[/ch]                                      [ch]D[/ch]
-Running through the field where all my tracks will be concealed,[/tab]
-[tab]            [ch]Am[/ch]
-And there’s nowhere to go.[/tab]
 
+Deep beneath the cover of another perfect wonder,[/tab]
+Where it’s [Am]so white as snow.
+[G]Privately divided by a w[D]orld so undecided,
+And there’s [Am]nowhere to go.
+[G]In between the cover of an[D]other perfect wonder,
+Where it’s [Am]so white as snow.
+[G]Running through the field where all my t[D]racks will be concealed,
+And there’s [Am]nowhere to go.
 
 [Instrumental]
 
 [ch]Em[/ch] - [ch]C[/ch] - [ch]G[/ch] - [ch]D[/ch]
-[ch]Em[/ch] - [ch]C[/ch] - [ch]G[/ch] - [ch]D[/ch]
 
+[Em] - [C] - [G] - [D]
 
 [Verse 3]
 
 [tab]    [ch]Em[/ch]                  [ch]C[/ch]
-    When to descend to amend for a friend,[/tab]
-[tab]            [ch]G[/ch]                  [ch]D[/ch]
-    All the channels that have broken down.[/tab]
-[tab][ch]Em[/ch]                       [ch]C[/ch]
-    Now you bring it up, I’m gonna ring it up,[/tab]
-[tab]    [ch]G[/ch]                [ch]D[/ch]
-    Just to hear you sing it out.[/tab]
-[tab]    [ch]Em[/ch]                        [ch]C[/ch]
-    Step from the road to the sea to the sky,[/tab]
-[tab]          [ch]G[/ch]               [ch]D[/ch]
-    And I do believe what we rely on.[/tab]
-[tab][ch]Em[/ch]                    [ch]C[/ch]                        [ch]G[/ch]              [ch]D[/ch]
-    When I lay it on, come, get to play it on, all my life to sacrifice.[/tab]
 
+    When to descend to amend for a friend,[/tab]
+    All the [G]channels that have b[D]roken down.
+[Em]    Now you bring it up, [C]I’m gonna ring it up,
+    [G]Just to hear you s[D]ing it out.
+    [Em]Step from the road to the [C]sea to the sky,
+    And I [G]do believe what w[D]e rely on.
+[Em]    When I lay it on, [C]come, get to play it on, a[G]ll my life to sa[D]crifice.
 
 [Chorus]
 
 [tab]    [ch]Em[/ch]   [ch]C[/ch]  - [ch]G[/ch]          [ch]D[/ch]      [ch]Em[/ch]   [ch]C[/ch]  - [ch]G[/ch] - [ch]D[/ch]
-    Hey oh,       listen what I say, oh.[/tab]
-[tab]                [ch]Em[/ch]  [ch]C[/ch]   - [ch]G[/ch]           [ch]D[/ch]      [ch]Em[/ch]   [ch]C[/ch]   - [ch]G[/ch] - [ch]D[/ch]
-    I got your, hey oh,        listen what I say, oh.[/tab]
 
+    Hey oh,       listen what I say, oh.[/tab]
+    I got your, [Em]hey [C]oh,    [G]    listen wh[D]at I say[Em], oh.[C][G][D]
 
 [Bridge]
 
 [tab]    [ch]C[/ch]
+
 The more I see, the less I know,[/tab]
-[tab]                              [ch]Em[/ch]  [ch]C[/ch]
-The more I like to let it go, hey oh, oh oh oh.[/tab]
+The more I like to let it go, [Em]hey [C]oh, oh oh oh.
 
 [tab][ch]G[/ch]                          [ch]D[/ch]
-Deep beneath the cover of another perfect wonder,[/tab]
-[tab]           [ch]Am[/ch]
-Where it’s so white as snow.[/tab]
-[tab][ch]G[/ch]                      [ch]D[/ch]
-Privately divided by a world so undecided,[/tab]
-[tab]            [ch]Am[/ch]
-And there’s nowhere to go.[/tab]
-[tab][ch]G[/ch]                        [ch]D[/ch]
-In between the cover of another perfect wonder,[/tab]
-[tab]           [ch]Am[/ch]
-Where it’s so white as snow.[/tab]
-[tab][ch]G[/ch]                                      [ch]D[/ch]
-Running through the field where all my tracks will be concealed,[/tab]
-[tab]            [ch]Am[/ch]
-And there’s nowhere to go.[/tab]
 
+Deep beneath the cover of another perfect wonder,[/tab]
+Where it’s [Am]so white as snow.
+[G]Privately divided by a w[D]orld so undecided,
+And there’s [Am]nowhere to go.
+[G]In between the cover of an[D]other perfect wonder,
+Where it’s [Am]so white as snow.
+[G]Running through the field where all my t[D]racks will be concealed,
+And there’s [Am]nowhere to go.
 
 [Chorus]
 
 [tab]            [ch]G[/ch]        [ch]D[/ch]        [ch]Am[/ch]
+
     I said, hey, hey yeah, oh yeah, tell my love now![/tab]
-[tab]    [ch]G[/ch]        [ch]D[/ch]        [ch]Am[/ch]
-    Hey, hey yeah, oh yeah, tell my love now![/tab]
+    [G]Hey, hey y[D]eah, oh ye[Am]ah, tell my love now!
 
 [tab][ch]G[/ch]                          [ch]D[/ch]
-Deep beneath the cover of another perfect wonder,[/tab]
-[tab]           [ch]Am[/ch]
-Where it’s so white as snow.[/tab]
-[tab][ch]G[/ch]                      [ch]D[/ch]
-Privately divided by a world so undecided,[/tab]
-[tab]            [ch]Am[/ch]
-And there’s nowhere to go.[/tab]
-[tab][ch]G[/ch]                        [ch]D[/ch]
-In between the cover of another perfect wonder,[/tab]
-[tab]           [ch]Am[/ch]
-Where it’s so white as snow.[/tab]
-[tab][ch]G[/ch]                                      [ch]D[/ch]
-Running through the field where all my tracks will be concealed,[/tab]
-[tab]            [ch]Am[/ch]
-And there’s nowhere to go.[/tab]
 
+Deep beneath the cover of another perfect wonder,[/tab]
+Where it’s [Am]so white as snow.
+[G]Privately divided by a w[D]orld so undecided,
+And there’s [Am]nowhere to go.
+[G]In between the cover of an[D]other perfect wonder,
+Where it’s [Am]so white as snow.
+[G]Running through the field where all my t[D]racks will be concealed,
+And there’s [Am]nowhere to go.
 
 [Chorus]
 
 [tab]            [ch]G[/ch]        [ch]D[/ch]        [ch]Am[/ch]
-    I said, hey, hey yeah, oh yeah, tell my love now![/tab]
-[tab]    [ch]G[/ch]        [ch]D[/ch]        [ch]Am[/ch]
-    Hey, hey yeah, oh yeah, tell my love now![/tab]
 
+    I said, hey, hey yeah, oh yeah, tell my love now![/tab]
+    [G]Hey, hey y[D]eah, oh ye[Am]ah, tell my love now!
 
 [Outro]
 
 [ch]G[/ch] - [ch]D[/ch] - [ch]Am[/ch]
-[ch]G[/ch] - [ch]D[/ch] - [ch]Am[/ch]
+
+[G] - [D] - [Am]

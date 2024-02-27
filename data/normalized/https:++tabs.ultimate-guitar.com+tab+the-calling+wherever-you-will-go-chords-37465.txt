@@ -1,5 +1,8 @@
+{title: Wherever you will go}
+
 [tab][Intro]
-   [ch]C[/ch]                 [ch]G[/ch] (add11/B)       [ch]Am[/ch] (7)            [ch]F[/ch]
+
+   [C]                 [G] (add11/B)       [Am] (7)            [F]
 e|-----------------|-----------------|-----------------|-----------------|
 B|-----------1-----|-----------1-----|-----------1-----|-----1-----1---1-|
 G|-----0-------0---|-----0-------0---|-----0-------0---|-----------0---0-|
@@ -8,63 +11,46 @@ A|-3-----3---------|-2-----2---------|-0-----0---------|-----------------|
 E|-----------------|-----------------|-----------------|-1-------1---3---|[/tab]
 
 [Verse 1] (play intro)
-[tab][ch]C[/ch]          [ch]G[/ch]               [ch]Am[/ch]           [ch]F[/ch]                  [ch]C[/ch]
-  So lately, been wondering who will be there to take my place[/tab]
-[tab]             [ch]G[/ch]                [ch]Am[/ch]            [ch]F[/ch]                [ch]C[/ch]
-When I'm gone you'll need love to light the shadows on your face[/tab]
-[tab]       [ch]G[/ch]               [ch]Am[/ch]       [ch]F[/ch]            [ch]C[/ch]
-If a great wave shall fall and fall upon us all[/tab]
-[tab]         [ch]G[/ch]              [ch]Am[/ch]             [ch]F[/ch]
-Then between sand and stone could you make it on your own?[/tab]
+
+[C]  So lately,[G] been wondering w[Am]ho will be th[F]ere to take my place[C]
+When I'm gone[G] you'll need love [Am]to light the s[F]hadows on your fac[C]e
+If a gr[G]eat wave shall fa[Am]ll and fa[F]ll upon us all[C]
+Then betw[G]een sand and sto[Am]ne could you ma[F]ke it on your own?
 
 [Chorus] (play chords)
-[tab][ch]C[/ch]           [ch]G[/ch]            [ch]Am[/ch]            [ch]F[/ch]              [ch]C[/ch]
-  If I could then I would, I'll go wherever you will go[/tab]
-[tab]           [ch]G[/ch]           [ch]Am[/ch]            [ch]F[/ch]              [ch]C[/ch]
-Way up high or down low, I'll go wherever you will go[/tab]
+
+[C]  If I could [G]then I would, [Am]I'll go wherev[F]er you will go[C]
+Way up high[G] or down low,[Am] I'll go where[F]ver you will go[C]
 
 [Verse 2] (play intro until 3rd line)
-[tab]([ch]C[/ch])      [ch]G[/ch]             [ch]Am[/ch]        [ch]F[/ch]                 [ch]C[/ch]
-And maybe I'll find out a way to make it back someday[/tab]
-[tab]            [ch]G[/ch]             [ch]Am[/ch]           [ch]F[/ch]                [ch]C[/ch]
-To watch you, to guide you through the darkest of your days[/tab]
-[tab]       [ch]G[/ch]               [ch]Am[/ch]       [ch]F[/ch]            [ch]C[/ch]
-If a great wave shall fall and fall upon us all[/tab]
-[tab]             [ch]G[/ch]                    [ch]Am[/ch]                [ch]F[/ch]
-Well, then I hope there's someone out there who can bring me back to you[/tab]
+
+A[C]nd maybe [G]I'll find out a[Am] way to ma[F]ke it back someday[C]
+To watch you[G], to guide you [Am]through the d[F]arkest of your day[C]s
+If a gr[G]eat wave shall fa[Am]ll and fa[F]ll upon us all[C]
+Well, then I [G]hope there's someone o[Am]ut there who can b[F]ring me back to you
 
 [Chorus]
-[tab][ch]C[/ch]           [ch]G[/ch]            [ch]Am[/ch]            [ch]F[/ch]              [ch]C[/ch]
-  If I could then I would, I'll go wherever you will go[/tab]
-[tab]           [ch]G[/ch]           [ch]Am[/ch]            [ch]F[/ch]             [ch]Am[/ch]
-Way up high or down low, I'll go wherever you will go[/tab]
+
+[C]  If I could [G]then I would, [Am]I'll go wherev[F]er you will go[C]
+Way up high[G] or down low,[Am] I'll go where[F]ver you will go[Am]
 
 [Bridge]
-[tab]([ch]Am[/ch])   [ch]F[/ch]                 [ch]G[/ch]
-       Run away with my heart[/tab]
-[tab][ch]Em[/ch]                [ch]Am[/ch]
-Run away with my hope[/tab]
-[tab][ch]F[/ch]                 [ch]G[/ch]     [ch]Em[/ch]
-Run away with my love[/tab]
+
+ [Am]      [F]Run away with my he[G]art
+[Em]Run away with my h[Am]ope
+[F]Run away with my lo[G]ve[Em]
 
 [Verse 3] (play intro until second F)
-[tab][ch]C[/ch]           [ch]G[/ch]
-  I know now just quite how[/tab]
-[tab][ch]Am[/ch]             [ch]F[/ch]                   [ch]C[/ch]
-  My life and love might still go on[/tab]
-[tab]             [ch]G[/ch]
-In your heart, in your mind[/tab]
-[tab][ch]Am[/ch]                [ch]F[/ch]              [ch]C[/ch]
-  I'll stay with you for all of time[/tab]
+
+[C]  I know now [G]just quite how
+[Am]  My life and l[F]ove might still go on[C]
+In your heart[G], in your mind
+[Am]  I'll stay with y[F]ou for all of ti[C]me
 
 [Chorus]
-[tab]([ch]C[/ch])       [ch]G[/ch]            [ch]Am[/ch]            [ch]F[/ch]              [ch]C[/ch]
-If I could then I would, I'll go wherever you will go[/tab]
-[tab]           [ch]G[/ch]           [ch]Am[/ch]            [ch]F[/ch]              [ch]C[/ch]
-Way up high or down low, I'll go wherever you will go[/tab]
-[tab]           [ch]G[/ch]          [ch]Am[/ch]               [ch]F[/ch]              [ch]C[/ch]
-If I could turn back time, I'll go wherever you will go[/tab]
-[tab]           [ch]G[/ch]         [ch]Am[/ch]               [ch]F[/ch]              [ch]C[/ch]
-If I could make you mine, I'll go wherever you will goooooo[/tab]
-[tab][ch]G[/ch]     [ch]Am[/ch]             [ch]F[/ch]              [ch]C[/ch]     [ch]G[/ch]     [ch]Am[/ch]     [ch]F[/ch] [ch]Fmaj7[/ch] [ch]Fadd9[/ch]
-oooo     I'll go wherever you will gooooooooooo[/tab]
+
+I[C]f I could [G]then I would, [Am]I'll go wherev[F]er you will go[C]
+Way up high[G] or down low,[Am] I'll go where[F]ver you will go[C]
+If I could [G]turn back ti[Am]me, I'll go where[F]ver you will go[C]
+If I could [G]make you mi[Am]ne, I'll go where[F]ver you will goo[C]oooo
+[G]oooo   [Am]  I'll go where[F]ver you will goo[C]ooooooo[G]oo[Am][F][Fmaj7][Fadd9]

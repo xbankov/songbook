@@ -57,27 +57,27 @@ def normalize_ultimate_guitar(tab, title):
         lines = [l for l in section.split("\r\n") if len(l) != 0]
         if len(lines) == 0:
             continue
-        norm_tab.append(lines[0])
 
+        norm_tab.append(lines[0])
+        if len(lines) == 1:
+            continue
         norm_lines = []
         i = 1
         while i < len(lines):
             current_line = lines[i]
 
-            if current_line.startswith("[ch]"):
-                norm_chords = re.sub(r"\[ch]([^\]]*)\[/ch]", r"[\1]", current_line)
-                norm_lines.append(norm_chords)
-                i += 1
-
-            elif current_line.startswith("[tab]"):
+            if "[tab]" in current_line:
                 next_line = lines[i + 1]
                 current_line = current_line.replace("[tab]", "")
                 next_line = next_line.replace("[/tab]", "")
 
-                chords_positions = {
-                    match.start(): match.group(1)
-                    for match in re.finditer(r"\[ch]([^\]]*)\[/ch]", current_line)
-                }
+                chords_positions = {}
+                offset = 0
+                for match in re.finditer(r"\[ch]([^\]]*)\[/ch]", current_line):
+                    chord = match.group(1)
+                    pos = match.start() - offset
+                    offset += match.end() - match.start()
+                    chords_positions[pos] = chord
 
                 offset = 0
                 for pos in sorted(chords_positions.keys()):
@@ -88,6 +88,11 @@ def normalize_ultimate_guitar(tab, title):
                     offset += len(f"[{chord}]")
                 norm_lines.append(next_line)
                 i += 2
+
+            elif "[ch]" in current_line:
+                norm_chords = re.sub(r"\[ch]([^\]]*)\[/ch]", r"[\1]", current_line)
+                norm_lines.append(norm_chords)
+                i += 1
             else:
                 norm_lines.append(lines[i])
                 i += 1
@@ -121,7 +126,7 @@ def normalize_txt(raw_filename, norm_filename):
             traceback.print_exc()
             tab = ""
         title = get_ug_title(raw_filename)
-        # tab = normalize_ultimate_guitar(tab, title)
+        tab = normalize_ultimate_guitar(tab, title)
 
     elif "supermusic" in str(raw_filename):
         tab = ""
@@ -133,7 +138,7 @@ def normalize_txt(raw_filename, norm_filename):
 
 
 def normalize(csv_file_path):
-    data = pd.read_csv(csv_file_path)
+    data = pd.read_csv(csv_file_path, index_col=False)
 
     for _, row in tqdm(data.iterrows(), total=len(data)):
         raw_filename = get_raw_filename(row.uri)
@@ -144,7 +149,7 @@ def normalize(csv_file_path):
 
 
 def download(csv_file_path):
-    data = pd.read_csv(csv_file_path)
+    data = pd.read_csv(csv_file_path, index_col=False)
 
     for idx, row in tqdm(data.iterrows(), total=len(data)):
         raw_filename = get_raw_filename(row.uri)
@@ -175,8 +180,8 @@ def extract(music_folder, csv_path):
             for song in songs
             if any(website in song.uri for website in config.SUPPORTED)
         ]
-        df = pd.DataFrame(songs_dict_list)
-        df.to_csv(csv_path, index=False)
+        data = pd.DataFrame(songs_dict_list)
+        data.to_csv(csv_path, index=False)
 
 
 def extract_recursive(item):

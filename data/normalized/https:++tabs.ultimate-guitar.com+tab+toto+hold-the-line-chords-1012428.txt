@@ -1,6 +1,9 @@
+{title: Hold the line}
+
 As you hold F#m you can play, if you want, one of these riffs:
 
 [tab]Riff 1 :  e|---0-2-|         Riff 2 :  e|-------|
+
           B|-2-----|                   B|-------|
           G|-------|                   G|-------|
           D|-------|                   D|---2-4-|
@@ -10,80 +13,61 @@ As you hold F#m you can play, if you want, one of these riffs:
 [Intro]
 
 [ch]F#m[/ch]  [ch]C#m[/ch]  [ch]D[/ch]  [ch]E[/ch]  [ch]Esus4[/ch]  [ch]E[/ch]  x2
-[ch]E[/ch]  [ch]C#m[/ch]  [ch]Cm[/ch]  [ch]Bm[/ch]
 
+[E]  [C#m]  [Cm]  [Bm]
 
 [Verse]
 
 [tab][ch]Bm[/ch]              [ch]C#m[/ch]          [ch]F#m[/ch]               [ch]C#m[/ch] [ch]Cm[/ch] [ch]Bm[/ch]
-It's not in the way that you hold me  (riff 1)[/tab]
-[tab][ch]Bm[/ch]              [ch]C#m[/ch]             [ch]F#m[/ch]            [ch]C#m[/ch] [ch]Cm[/ch] [ch]Bm[/ch]
-It's not in the way you say you care  (riff 2)[/tab]
-[tab][ch]Bm[/ch]              [ch]C#m[/ch]             [ch]Dmaj7[/ch]       [ch]E[/ch]         [ch]C#m[/ch] [ch]Cm[/ch] [ch]Bm[/ch]
-It's not in the way you've been treating my friends[/tab]
-[tab][ch]Bm[/ch]              [ch]C#m[/ch]          [ch]Dmaj7[/ch]           [ch]E[/ch]        [ch]C#m[/ch] [ch]Cm[/ch] [ch]Bm[/ch]
-It's not in the way that you stayed till the end[/tab]
-[tab][ch]Bm[/ch]              [ch]C#m[/ch]                 [ch]D[/ch]                               [ch]E[/ch]
-It's not in the way you look or the things that you say that you'll do[/tab]
 
+It's not in the way that you hold me  (riff 1)[/tab]
+[Bm]It's not in the [C#m]way you say you[F#m] care  (riff 2[C#m])[Cm][Bm]
+[Bm]It's not in the [C#m]way you've been[Dmaj7] treating[E] my friends[C#m][Cm][Bm]
+[Bm]It's not in the [C#m]way that you[Dmaj7] stayed till [E]the end[C#m][Cm][Bm]
+[Bm]It's not in the [C#m]way you look or the[D] things that you say that you'll [E]do
 
 [Chorus]
 
 [tab]         [ch]F#m[/ch] [ch]C#m[/ch] [ch]D[/ch] [ch]E[/ch] [ch]Esus4[/ch] [ch]E[/ch]                       [ch]F#m[/ch] [ch]C#m[/ch] [ch]D[/ch] [ch]E[/ch] [ch]Esus4[/ch] [ch]E[/ch]
-Hold the line,        love isn't always on time, oh  oh  oh[/tab]
-[tab]         [ch]F#m[/ch] [ch]C#m[/ch] [ch]D[/ch] [ch]E[/ch] [ch]Esus4[/ch] [ch]E[/ch]                       [ch]F#m[/ch] [ch]C#m[/ch] [ch]D[/ch] [ch]E[/ch] [ch]Esus4[/ch] [ch]E[/ch]   [ch]E[/ch] [ch]C#m[/ch] [ch]Cm[/ch] [ch]Bm[/ch]
-Hold the line,        love isn't always on time, oh  oh  oh[/tab]
 
+Hold the line,        love isn't always on time, oh  oh  oh[/tab]
+Hold the [F#m]lin[C#m]e, [D]   [E]   [Esus4] lo[E]ve isn't always on time, [F#m]oh [C#m] oh[D]  o[E]h[Esus4][E][E][C#m][Cm][Bm]
 
 [Verse]
 
 [tab][ch]Bm[/ch]              [ch]C#m[/ch]            [ch]F#m[/ch]                  [ch]C#m[/ch]  [ch]Cm[/ch]  [ch]Bm[/ch]
-It's not in the words that you told me, girl (riff 1)[/tab]
-[tab][ch]Bm[/ch]              [ch]C#m[/ch]                [ch]F#m[/ch]              [ch]C#m[/ch] [ch]Cm[/ch]  [ch]Bm[/ch]
-It's not in the way you say you're mine (riff 2)[/tab]
-[tab][ch]Bm[/ch]              [ch]C#m[/ch]          [ch]Dmaj7[/ch]        [ch]E[/ch]         [ch]C#m[/ch] [ch]Cm[/ch]  [ch]Bm[/ch]
-It's not in the way that you came back to me[/tab]
-[tab][ch]Bm[/ch]              [ch]C#m[/ch]           [ch]Dmaj7[/ch]        [ch]E[/ch]        [ch]C#m[/ch] [ch]Cm[/ch]  [ch]Bm[/ch]
-It's not in the way that your love set me free[/tab]
-[tab][ch]Bm[/ch]              [ch]C#m[/ch]                 [ch]D[/ch]                               [ch]E[/ch]
-It's not in the way you look or the things that you say that you'll do[/tab]
 
+It's not in the words that you told me, girl (riff 1)[/tab]
+[Bm]It's not in the [C#m]way you say you're[F#m] mine (riff 2)[C#m][Cm][Bm]
+[Bm]It's not in the [C#m]way that you[Dmaj7] came back[E] to me[C#m][Cm][Bm]
+[Bm]It's not in the [C#m]way that your[Dmaj7] love set [E]me free[C#m][Cm][Bm]
+[Bm]It's not in the [C#m]way you look or the[D] things that you say that you'll [E]do
 
 [Chorus]
 
 [tab]         [ch]F#m[/ch] [ch]C#m[/ch] [ch]D[/ch] [ch]E[/ch] [ch]Esus4[/ch] [ch]E[/ch]                       [ch]F#m[/ch] [ch]C#m[/ch] [ch]D[/ch] [ch]E[/ch] [ch]Esus4[/ch] [ch]E[/ch]
-Hold the line,        love isn't always on time, oh  oh  oh[/tab]
-[tab]         [ch]F#m[/ch] [ch]C#m[/ch] [ch]D[/ch] [ch]E[/ch] [ch]Esus4[/ch] [ch]E[/ch]                       [ch]F#m[/ch] [ch]C#m[/ch] [ch]D[/ch] [ch]E[/ch] [ch]Esus4[/ch] [ch]E[/ch]   [ch]E[/ch] [ch]C#m[/ch] [ch]Cm[/ch] [ch]Bm[/ch]
-Hold the line,        love isn't always on time, oh  oh  oh[/tab]
 
+Hold the line,        love isn't always on time, oh  oh  oh[/tab]
+Hold the [F#m]lin[C#m]e, [D]   [E]   [Esus4] lo[E]ve isn't always on time, [F#m]oh [C#m] oh[D]  o[E]h[Esus4][E][E][C#m][Cm][Bm]
 
 [Verse]
 
 [tab][ch]Bm[/ch]              [ch]C#m[/ch]            [ch]F#m[/ch]                    [ch]C#m[/ch] [ch]Cm[/ch]  [ch]Bm[/ch]
-It's not in the words that you told me, girl (riff 1)[/tab]
-[tab][ch]Bm[/ch]              [ch]C#m[/ch]                [ch]F#m[/ch]                [ch]C#m[/ch] [ch]Cm[/ch]  [ch]Bm[/ch]
-It's not in the way you say you're mine, ooh (riff 2)[/tab]
-[tab][ch]Bm[/ch]              [ch]C#m[/ch]          [ch]Dmaj7[/ch]        [ch]E[/ch]           [ch]C#m[/ch] [ch]Cm[/ch]  [ch]Bm[/ch]
-It's not in the way that you came back to me[/tab]
-[tab][ch]Bm[/ch]              [ch]C#m[/ch]           [ch]Dmaj7[/ch]       [ch]E[/ch]           [ch]C#m[/ch] [ch]Cm[/ch]  [ch]Bm[/ch]
-It's not in the way that your love set me free[/tab]
-[tab][ch]Bm[/ch]              [ch]C#m[/ch]                 [ch]D[/ch]                               [ch]E[/ch]
-It's not in the way you look or the things that you say that you'll do[/tab]
 
+It's not in the words that you told me, girl (riff 1)[/tab]
+[Bm]It's not in the [C#m]way you say you're[F#m] mine, ooh (riff 2[C#m])[Cm][Bm]
+[Bm]It's not in the [C#m]way that you[Dmaj7] came back[E] to me[C#m][Cm][Bm]
+[Bm]It's not in the [C#m]way that your[Dmaj7] love set[E] me free[C#m][Cm][Bm]
+[Bm]It's not in the [C#m]way you look or the[D] things that you say that you'll [E]do
 
 [Chorus]
 
 [tab]         [ch]F#m[/ch] [ch]C#m[/ch] [ch]D[/ch] [ch]E[/ch] [ch]Esus4[/ch] [ch]E[/ch]                       [ch]F#m[/ch] [ch]C#m[/ch] [ch]D[/ch] [ch]E[/ch] [ch]Esus4[/ch] [ch]E[/ch]
+
 Hold the line,        love isn't always on time, oh  oh  oh[/tab]
-[tab]         [ch]F#m[/ch] [ch]C#m[/ch] [ch]D[/ch] [ch]E[/ch] [ch]Esus4[/ch] [ch]E[/ch]                       [ch]F#m[/ch] [ch]C#m[/ch] [ch]D[/ch] [ch]E[/ch] [ch]Esus4[/ch] [ch]E[/ch]
-Hold the line,        love isn't always on time, (Love isn't always on time)[/tab]
-[tab]         [ch]F#m[/ch] [ch]C#m[/ch] [ch]D[/ch] [ch]E[/ch] [ch]Esus4[/ch] [ch]E[/ch]                       [ch]F#m[/ch] [ch]C#m[/ch] [ch]D[/ch] [ch]E[/ch] [ch]Esus4[/ch] [ch]E[/ch]
-Hold the line,        love isn't always on time, (Love isn't always, love isn't always on time)[/tab]
-[tab]         [ch]F#m[/ch] [ch]C#m[/ch] [ch]D[/ch] [ch]E[/ch] [ch]Esus4[/ch] [ch]E[/ch]                       [ch]F#m[/ch] [ch]C#m[/ch] [ch]D[/ch] [ch]E[/ch] [ch]Esus4[/ch] [ch]E[/ch]
-Hold the line,        love isn't always on time,[/tab]
-[tab]                             [ch]F#m[/ch] [ch]C#m[/ch] [ch]D[/ch] [ch]E[/ch] [ch]Esus4[/ch] [ch]E[/ch]
-Love isn't always on time[/tab]
-[tab]                             [ch]F#m[/ch] [ch]C#m[/ch] [ch]D[/ch] [ch]E[/ch] [ch]Esus4[/ch] [ch]E[/ch]
-Love isn't always on time[/tab]
-[tab]                             [ch]F#m[/ch] [ch]C#m[/ch] [ch]D[/ch] [ch]E[/ch] [ch]Esus4[/ch] [ch]E[/ch]     [ch]E[/ch] [ch]C#m[/ch] [ch]Cm[/ch] [ch]Bm[/ch]
-Love isn't always on time, whoa oh oh oh[/tab]
+Hold the [F#m]lin[C#m]e, [D]   [E]   [Esus4] lo[E]ve isn't always on time, [F#m](Lo[C#m]ve [D]isn[E]'t [Esus4]alw[E]ays on time)
+Hold the [F#m]lin[C#m]e, [D]   [E]   [Esus4] lo[E]ve isn't always on time, [F#m](Lo[C#m]ve [D]isn[E]'t [Esus4]alw[E]ays, love isn't always on time)
+Hold the [F#m]lin[C#m]e, [D]   [E]   [Esus4] lo[E]ve isn't always on time,[F#m][C#m][D][E][Esus4][E]
+Love isn't always on time[F#m][C#m][D][E][Esus4][E]
+Love isn't always on time[F#m][C#m][D][E][Esus4][E]
+Love isn't always on time, wh[F#m]oa [C#m]oh [D]oh [E]oh[Esus4][E][E][C#m][Cm][Bm]

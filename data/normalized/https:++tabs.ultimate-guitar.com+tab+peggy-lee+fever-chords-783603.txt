@@ -1,86 +1,75 @@
+{title: Fever}
+
 “Fever” – Peggy Lee
+
 Chords by Joan’s Genius 2002
 
 - I've revised the chords for the last 3 verses, in response to the feedback re: the 2 key changes. 
-
 
 [Intro]
 
 [ch]Am[/ch] [ch]C[/ch] [ch]E[/ch] [ch]Am[/ch]
 
-
 [Verse 1]
 
 [tab][ch]Am[/ch]                    [ch]C[/ch]         [ch]Dm[/ch]                    [ch]Am[/ch]
+
 Never know how much I love you, never know how much I care[/tab]
-[tab][ch]Am[/ch]                      [ch]C[/ch]                 [ch]E[/ch]                       [ch]Am[/ch]
-When you put your arms around me, I get a fever that's so hard to bear[/tab]
-[tab]            [ch]Am[/ch]     [ch]C[/ch]                 [ch]Dm[/ch]                     [ch]Am[/ch]
-You give me fever, when you kiss me, fever when you hold me tight[/tab]
-[tab][ch]Am[/ch]     [ch]C[/ch]               [ch]E[/ch]                     [ch]Am[/ch]
-Fever! In the morning, fever all through the night[/tab]
+[Am]When you put your arms a[C]round me, I get a f[E]ever that's so hard to be[Am]ar
+You give me [Am]fever, [C]when you kiss me, f[Dm]ever when you hold me t[Am]ight
+[Am]Fever! [C]In the morning, f[E]ever all through the ni[Am]ght
 
 [Verse 2]
 
 [tab][ch]Am[/ch]         [ch]C[/ch]               [ch]Dm[/ch]                 [ch]Am[/ch]
-Sun lights up the daytime, moon lights up the night[/tab]
-[tab][ch]Am[/ch]                  [ch]C[/ch]                     [ch]E[/ch]                        [ch]Am[/ch] 
-I light up when you call my name, and you know I'm gonna treat you right[/tab]
-[tab]            [ch]Am[/ch]     [ch]C[/ch]                 [ch]Dm[/ch]                     [ch]Am[/ch]
-You give me fever, when you kiss me, fever when you hold me tight[/tab]
-[tab][ch]Am[/ch]     [ch]C[/ch]               [ch]E[/ch]                     [ch]Am[/ch]
-Fever! In the morning, fever all through the night[/tab]
 
+Sun lights up the daytime, moon lights up the night[/tab]
+[Am]I light up when you [C]call my name, and you k[E]now I'm gonna treat you ri[Am]ght
+You give me [Am]fever, [C]when you kiss me, f[Dm]ever when you hold me t[Am]ight
+[Am]Fever! [C]In the morning, f[E]ever all through the ni[Am]ght
 
 [Bridge]
 
 [tab][ch]Am[/ch]          [ch]C[/ch]              [ch]Dm[/ch]                [ch]Am[/ch]
+
 Everybody's got the fever, that is something you all know[/tab]
-[tab][ch]Am[/ch]          [ch]C[/ch]                 [ch]E[/ch]                   [ch]Am[/ch]
-Fever isn't such a new thing, fever started long ago[/tab]
+[Am]Fever isn't [C]such a new thing, f[E]ever started long ago[Am]
 
 [KEY CHANGE to Bbm = so the chords are now Bbm Db F]
 
 [Verse 3]
 
 [tab][ch]Bbm[/ch]         [ch]Db[/ch]      [ch]Ebm[/ch]                 [ch]Bbm[/ch]
+
 Romeo loved Juliet, Juliet she felt the same[/tab]
-[tab][ch]Bbm[/ch]                  [ch]Db[/ch]                    [ch]F[/ch]                      [ch]Bbm[/ch]
-When he put his arms around her, he said, "Julie, baby, you're my flame”[/tab]
-[tab]             [ch]Bbm[/ch]    [ch]Db[/ch]               [ch]Ebm[/ch]                    [ch]Bbm[/ch]
-"Thou giveth fever, when we kisseth, fever with thy flaming youth[/tab]
-[tab][ch]Bbm[/ch]     [ch]Db[/ch]         [ch]F[/ch]                    [ch]Bbm[/ch]
-“Fever! I'm afire, fever, yeah, I burn, forsooth.”            [/tab]
+[Bbm]When he put his arms[Db] around her, he said, [F]"Julie, baby, you're my [Bbm]flame”
+"Thou giveth [Bbm]fever,[Db] when we kisseth,[Ebm] fever with thy flamin[Bbm]g youth
+[Bbm]“Fever![Db] I'm afire,[F] fever, yeah, I burn, [Bbm]forsooth.”            
 
 [KEY CHANGE to Bm = so the chords are now Bm D F#]
 
 [Verse 4]
 
 [tab][ch]Bm[/ch]                [ch]D[/ch]          [ch]Em[/ch]             [ch]Bm[/ch]
+
 Captain Smith and Pocahontas had a very mad affair[/tab]
-[tab][ch]Bm[/ch]             [ch]D[/ch]                            [ch]F#[/ch]                    [ch]Bm[/ch]
-When her daddy tried to kill him, she said, “Daddy, oh, don't you dare!”[/tab]
-[tab]             [ch]Bm[/ch]    [ch]D[/ch]                [ch]Em[/ch]                     [ch]Bm[/ch]
-"He gives me fever with his kisses, fever when he holds me tight[/tab]
-[tab][ch]Bm[/ch]      [ch]D[/ch]                  [ch]F#[/ch]                         [ch]Bm[/ch]
-“Fever! I'm his missus, so Daddy, won't you treat him right?”[/tab]
+[Bm]When her daddy [D]tried to kill him, she said, “[F#]Daddy, oh, don't you d[Bm]are!”
+"He gives me [Bm]fever [D]with his kisses, f[Em]ever when he holds me t[Bm]ight
+[Bm]“Fever! [D]I'm his missus, so D[F#]addy, won't you treat him r[Bm]ight?”
 
 [Verse 5]
 
 [tab][ch]Bm[/ch]                  [ch]D[/ch]            [ch]Em[/ch]                           [ch]Bm[/ch]
+
 Now you've listened to my story, here's the point that I have made[/tab]
-[tab][ch]Bm[/ch]               [ch]D[/ch]                        [ch]F#[/ch]                 [ch]Bm[/ch]
-Chicks were born to give you fever, be it Fahrenheit or Centigrade[/tab]
-[tab]              [ch]Bm[/ch]     [ch]D[/ch]                   [ch]Em[/ch]                    [ch]Bm[/ch]
-They give you fever, when you kiss them, fever if you live and learn[/tab]
-[tab][ch]Bm[/ch]      [ch]D[/ch]                [ch]F#[/ch]                   [ch]Bm[/ch]
-Fever! 'till you sizzle, what a lovely way to burn[/tab]
+[Bm]Chicks were born [D]to give you fever, be it F[F#]ahrenheit or Centig[Bm]rade
+They give you [Bm]fever, [D]when you kiss them, f[Em]ever if you live and l[Bm]earn
+[Bm]Fever! '[D]till you sizzle, w[F#]hat a lovely way to b[Bm]urn
 
 [Outro]
 
 [tab][ch]F#[/ch]                   [ch]Bm[/ch]
+
 what a lovely way to burn [/tab]
-[tab][ch]F#[/ch]                   [ch]Bm[/ch]
-what a lovely way to burn [/tab]
-[tab][ch]F#[/ch]                   [ch]Bm[/ch]
-what a lovely way to burn [/tab]
+[F#]what a lovely way to [Bm]burn 
+[F#]what a lovely way to [Bm]burn 

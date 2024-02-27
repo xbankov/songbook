@@ -1,55 +1,44 @@
+{title: Look whos inside again}
+
 [Verse 1]
 
 [tab][ch]D[/ch]            [ch]Bm[/ch]        [ch]A[/ch]          [ch]G[/ch]
+
 Trying to be funny and stuck in a room[/tab]
-[tab][ch]D[/ch]           [ch]Bm[/ch]           [ch]A[/ch]    [ch]G[/ch]
-There isn't much more to say about it[/tab]
-[tab][ch]D[/ch]          [ch]Bm[/ch]        [ch]A[/ch]          [ch]G[/ch]
-Can one be funny when stuck in a room?[/tab]
-[tab][ch]D[/ch]     [ch]Bm[/ch]          [ch]A[/ch]             [ch]G[/ch]
-Being in, trying to get something out of it[/tab]
-[tab][ch]Bm[/ch]         [ch]F#[/ch]      [ch]G[/ch]
-Try making faces[/tab]
-[tab][ch]A[/ch]           [ch]Bm[/ch]
-Try telling jokes[/tab]
-[tab][ch]Bm[/ch]     [ch]F#[/ch]     [ch]G[/ch]
-Making little sounds[/tab]
+[D]There isn't m[Bm]uch more to s[A]ay abo[G]ut it
+[D]Can one be f[Bm]unny when [A]stuck in a r[G]oom?
+[D]Being i[Bm]n, trying to[A] get something [G]out of it
+[Bm]Try making [F#]faces[G]
+[A]Try telling j[Bm]okes
+[Bm]Making [F#]little [G]sounds
 
 [ch]A[/ch]
 
 [Verse 2]
 
 [tab][ch]D[/ch]         [ch]Bm[/ch]        [ch]A[/ch]            [ch]G[/ch]     [ch]D[/ch]  
+
 I was a kid who was stuck in his room[/tab]
-[tab]                [ch]Bm[/ch]       [ch]A[/ch]    [ch]G[/ch]
-There isn't much more to say about it[/tab]
-[tab][ch]D[/ch]             [ch]Bm[/ch]             [ch]A[/ch]             [ch]G[/ch]     [ch]D[/ch]  
-When you're a kid and you're stuck in your room[/tab]
-[tab]          [ch]Bm[/ch]      [ch]A[/ch]           [ch]G[/ch]
-You'll do any old shit to get out of it[/tab]
-[tab][ch]Bm[/ch]         [ch]F#[/ch]     [ch]G[/ch]
-Try making faces[/tab]
-[tab][ch]A[/ch]           [ch]Bm[/ch]
-Try telling jokes[/tab]
-[tab][ch]Bm[/ch]     [ch]F#[/ch]     [ch]G[/ch]
-Making little sounds[/tab]
+There isn't much[Bm] more to [A]say ab[G]out it
+[D]When you're a k[Bm]id and you're s[A]tuck in your ro[G]om[D]
+You'll do [Bm]any old [A]shit to get o[G]ut of it
+[Bm]Try making [F#]faces[G]
+[A]Try telling j[Bm]okes
+[Bm]Making [F#]little [G]sounds
 
 [ch]A[/ch]
 
 [Chorus]
 
 [tab][ch]D[/ch]
+
 Well, well[/tab]
-[tab][ch]Em[/ch]
-Look who's inside again[/tab]
-[tab][ch]A[/ch]                      [ch]D[/ch]           [ch]Bm[/ch]
-Went out to look for a reason to hide again[/tab]
+[Em]Look who's inside again
+[A]Went out to look for a r[D]eason to hide[Bm] again
 
 [tab][ch]D[/ch]
+
 Well, well[/tab]
-[tab][ch]Em[/ch]                  [ch]A[/ch]
-Buddy, you found it[/tab]
-[tab][ch]A[/ch]        [ch]Bm[/ch]            [ch]Bb+[/ch]
-Now come out with your hands up[/tab]
-[tab]      [ch]D/A[/ch]         [ch]Gm[/ch]
-We've got you surrounded[/tab]
+[Em]Buddy, you found it[A]
+[A]Now come o[Bm]ut with your h[Bb+]ands up
+We've [D/A]got you sur[Gm]rounded

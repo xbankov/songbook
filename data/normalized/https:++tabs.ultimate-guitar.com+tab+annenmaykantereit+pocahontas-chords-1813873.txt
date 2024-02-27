@@ -1,93 +1,63 @@
-AnnenMayKantereit
-Pocahontas 
+{title: Pocahontas}
 
+AnnenMayKantereit
+
+Pocahontas 
 
 [Intro]
 
 [ch]C[/ch]    [ch]Am[/ch]
 
-
 [Verse]
-[tab]       [ch]C[/ch]
-An der Haltestelle stehen[/tab]
-[tab]                                   [ch]Am[/ch]
-Und es tut weh, dich schon wieder so wiederzusehen[/tab]
-[tab]           [ch]C[/ch]                           [ch]Am[/ch]
-Und es tut weh, dass wir gleich wieder gehen[/tab]
-[tab]           [ch]C[/ch]         
-Und es tut weh, dass man sich nur sieht[/tab]
-[tab]                     [ch]Am[/ch]
-Weil bei mir so viel Zeug von dir rumliegt[/tab]
-[tab]                       [ch]C[/ch]            [ch]Am[/ch]
-das ich nicht mehr ertrage[/tab]
 
+An der [C]Haltestelle stehen
+Und es tut weh, dich schon wieder s[Am]o wiederzusehen
+Und es tut [C]weh, dass wir gleich wieder g[Am]ehen
+Und es tut [C]weh, dass man sich nur sieht
+Weil bei mir so viel [Am]Zeug von dir rumliegt
+das ich nicht mehr ertr[C]age[Am]
 
 [Bridge]
-[tab]    [ch]C[/ch]
-Ich halt dich nicht fest[/tab]
-[tab]    [ch]Am[/ch]
-Und lass dich nicht los[/tab]
-[tab]   [ch]C[/ch]
-Du gibst mir den Rest[/tab]
-[tab]    [ch]Am[/ch]
-Die Tasche ist groß[/tab]
 
+Ich [C]halt dich nicht fest
+Und [Am]lass dich nicht los
+Du [C]gibst mir den Rest
+Die [Am]Tasche ist groß
 
 [Chorus]
-[tab]           [ch]C[/ch]
-Es tut mir leid, Pocahontas[/tab]
-[tab]             [ch]Am[/ch]
-Ich hoffe, du weißt das[/tab]
-[tab]           [ch]C[/ch]
-Es tut mir leid, Pocahontas[/tab]
-[tab]             [ch]Am[/ch]
-Ich hoffe, du weißt das[/tab]
 
+Es tut mir [C]leid, Pocahontas
+Ich hoffe, du[Am] weißt das
+Es tut mir [C]leid, Pocahontas
+Ich hoffe, du[Am] weißt das
 
 [Instrumental]
-[ch]C[/ch]      [ch]Am[/ch]      [ch]C[/ch]     [ch]Am[/ch]
 
+[C]      [Am]      [C]     [Am]
 
 [Verse]
-[tab]                [ch]C[/ch]
-Und eigentlich sind wir viel zu lang zusammen[/tab]
-[tab]              [ch]Am[/ch]
-Um jetzt damit aufzuhören[/tab]
-[tab]           [ch]C[/ch]                                    [ch]Am[/ch]
-Aber das ist ’n verdammt beschissener Grund[/tab]
-[tab]        [ch]C[/ch]
-Und mir ist nicht egal, wie gut du mich kennst[/tab]
-[tab]                   [ch]Am[/ch]
-Und mir ist nicht egal, wie du mich nennst[/tab]
-[tab]            [ch]C[/ch]                                  [ch]Am[/ch]
-Und mir ist nicht egal, wo du gerade pennst[/tab]
 
+Und eigentlich s[C]ind wir viel zu lang zusammen
+Um jetzt damit[Am] aufzuhören
+Aber das is[C]t ’n verdammt beschissener Grund[Am]
+Und mir [C]ist nicht egal, wie gut du mich kennst
+Und mir ist nicht e[Am]gal, wie du mich nennst
+Und mir ist [C]nicht egal, wo du gerade pennst[Am]
 
 [Chorus]
-[tab]           [ch]C[/ch]
-Es tut mir leid, Pocahontas[/tab]
-[tab]             [ch]Am[/ch]
-Ich hoffe, du weißt das[/tab]
-[tab]           [ch]C[/ch]
-Es tut mir leid, Pocahontas[/tab]
-[tab]             [ch]Am[/ch]
-Ich hoffe, du weißt das [/tab]
-[tab]           [ch]C[/ch]
-Tut mir so leid, Pocahontas[/tab]
-[tab]    [ch]Am[/ch]
-Pocahontas [/tab]
-[tab]    [ch]C[/ch]
-Pocahontas [/tab]
-[tab]    [ch]Am[/ch]
-Pocahontas [/tab]
-[tab]       [ch]C[/ch]                    [ch]Am[/ch]
-Und es tut mir so leid[/tab]
 
+Es tut mir [C]leid, Pocahontas
+Ich hoffe, du[Am] weißt das
+Es tut mir [C]leid, Pocahontas
+Ich hoffe, du[Am] weißt das 
+Tut mir so [C]leid, Pocahontas
+Poca[Am]hontas 
+Poca[C]hontas 
+Poca[Am]hontas 
+Und es [C]tut mir so leid[Am]
 
 [Bridge]
-[tab]    [ch]C[/ch]
-Ich halt dich nicht fest[/tab]
-[tab]    [ch]Am[/ch]
-Und lass dich nicht los[/tab]
-[tab]    [ch]C[/ch]
-Ich halt dich nicht fest[/tab]
+
+Ich [C]halt dich nicht fest
+Und [Am]lass dich nicht los
+Ich [C]halt dich nicht fest

@@ -1,103 +1,70 @@
+{title: Starlight}
+
 [Intro]
-[ch]B[/ch] (on Bass)
-[ch]B[/ch] [ch]C#m[/ch] [ch]G#m[/ch] [ch]E[/ch] 
-[ch]B[/ch] [ch]C#m[/ch] [ch]G#m[/ch] [ch]E[/ch] 
 
+[B] (on Bass)
+[B] [C#m] [G#m] [E] 
+[B] [C#m] [G#m] [E] 
 
 [Verse]
-[tab][ch]B[/ch]
-Far Away[/tab]
-[tab][ch]C#m[/ch]                    [ch]G#m[/ch]
-This ship is taking me far away[/tab]
-[tab][ch]E[/ch]
-Far away from the[/tab]
-[tab][ch]B[/ch]
-Memories[/tab]
-[tab][ch]C#m[/ch]                   [ch]G#m[/ch]               [ch]E[/ch]
-Of all the people who care if I live or die[/tab]
-[tab][ch]B[/ch]
-Starlight[/tab]
-[tab][ch]C#m[/ch]                   [ch]G#m[/ch]
-I will be chasing the starlight[/tab]
-[tab][ch]E[/ch]
-Until the end of my[/tab]
-[tab][ch]B[/ch]
-life[/tab]
-[tab][ch]C#m[/ch]                  [ch]G#m[/ch]          [ch]E[/ch]
-I don't know if it's worth it any more[/tab]
 
+[B]Far Away
+[C#m]This ship is taking me[G#m] far away
+[E]Far away from the
+[B]Memories
+[C#m]Of all the people who[G#m] care if I live o[E]r die
+[B]Starlight
+[C#m]I will be chasing the[G#m] starlight
+[E]Until the end of my
+[B]life
+[C#m]I don't know if it's[G#m] worth it an[E]y more
 
 [Pre-Chorus]
-[tab][ch]B[/ch]    [ch]C#m[/ch]    [ch]G#m[/ch]     [ch]E[/ch]
-Hold you in my arms, I just wanted to[/tab]
-[tab][ch]B[/ch]    [ch]C#m[/ch]    [ch]G#m[/ch]     [ch]E[/ch]
-Hold you in my arms[/tab]
 
+[B]Hold y[C#m]ou in [G#m]my arms[E], I just wanted to
+[B]Hold y[C#m]ou in [G#m]my arms[E]
 
 [Verse]
-[tab][ch]B[/ch]
-My life[/tab]
-[tab][ch]C#m[/ch]           [ch]G#m[/ch]
-You electrify my life[/tab]
-[tab][ch]E[/ch]                    [ch]B[/ch]
-Let's conspire to ig-nite[/tab]
-[tab][ch]C#m[/ch]                      [ch]G#m[/ch]            [ch]E[/ch]
-All the souls that would die just to be alive[/tab]
+
+[B]My life
+[C#m]You electrify[G#m] my life
+[E]Let's conspire to ig-n[B]ite
+[C#m]All the souls that would[G#m] die just to b[E]e alive
 
 [Chorus]
-[tab][ch]C#m[/ch]  [ch]F#[/ch]            [ch]D#[/ch]        [ch]G#m[/ch]
-I'll never let you go if you promise not to[/tab]
-[tab][ch]A[/ch]    [ch]E[/ch]           [ch]A[/ch]    [ch]D#[/ch]
-Fade away, never fade away[/tab]
-[tab][ch]G#m[/ch] [ch]D#[/ch]              [ch]E[/ch]     [ch]B[/ch]
-Our hopes and expecta----tions[/tab]
-[tab][ch]G#m[/ch]   [ch]D#[/ch]             [ch]E[/ch]     [ch]B[/ch]
-Black holes and revela----tions[/tab]
-[tab][ch]G#m[/ch] [ch]D#[/ch]              [ch]E[/ch]     [ch]B[/ch]
-Our hopes and expecta----tions[/tab]
-[tab][ch]G#m[/ch]   [ch]D#[/ch]             [ch]E[/ch]     [ch]F#7[/ch]
-Black holes and revela----tions[/tab]
+
+[C#m]I'll[F#] never let you[D#] go if you[G#m] promise not to
+[A]Fade a[E]way, never fa[A]de awa[D#]y
+[G#m]Our[D#] hopes and expec[E]ta----t[B]ions
+[G#m]Black[D#] holes and reve[E]la----t[B]ions
+[G#m]Our[D#] hopes and expec[E]ta----t[B]ions
+[G#m]Black[D#] holes and reve[E]la----t[F#7]ions
 
 [ch]B[/ch] (on Bass)
 
-
 [Pre-Chorus]
-[tab][ch]B[/ch]    [ch]C#m[/ch]    [ch]G#m[/ch]     [ch]E[/ch]
-Hold you in my arms, I just wanted to[/tab]
-[tab][ch]B[/ch]    [ch]C#m[/ch]    [ch]G#m[/ch]     [ch]E[/ch]
-Hold you in my arms[/tab]
 
+[B]Hold y[C#m]ou in [G#m]my arms[E], I just wanted to
+[B]Hold y[C#m]ou in [G#m]my arms[E]
 
 [Verse]
-[tab][ch]B[/ch]
-Far Away[/tab]
-[tab][ch]C#m[/ch]                    [ch]G#m[/ch]
-This ship is taking me far away[/tab]
-[tab][ch]E[/ch]
-Far away from the[/tab]
-[tab][ch]B[/ch]
-Memories[/tab]
-[tab][ch]C#m[/ch]                   [ch]G#m[/ch]               [ch]E[/ch]
-Of all the people who care if I live or die[/tab]
 
+[B]Far Away
+[C#m]This ship is taking me[G#m] far away
+[E]Far away from the
+[B]Memories
+[C#m]Of all the people who[G#m] care if I live o[E]r die
 
 [Chorus]
-[tab][ch]C#m[/ch]  [ch]F#[/ch]            [ch]D#[/ch]        [ch]G#m[/ch]
-I'll never let you go if you promise not to[/tab]
-[tab][ch]A[/ch]    [ch]E[/ch]           [ch]A[/ch]    [ch]D#[/ch]
-Fade away, never fade away[/tab]
-[tab][ch]G#m[/ch] [ch]D#[/ch]              [ch]E[/ch]     [ch]B[/ch]
-Our hopes and expecta----tions[/tab]
-[tab][ch]G#m[/ch]   [ch]D#[/ch]             [ch]E[/ch]     [ch]B[/ch]
-Black holes and revela----tions (yeah)[/tab]
-[tab][ch]G#m[/ch] [ch]D#[/ch]              [ch]E[/ch]     [ch]B[/ch]
-Our hopes and expecta----tions[/tab]
-[tab][ch]G#m[/ch]   [ch]D#[/ch]              [ch]E[/ch]     [ch]F#7[/ch]
-Black holes and revela----tions[/tab]
 
+[C#m]I'll[F#] never let you[D#] go if you[G#m] promise not to
+[A]Fade a[E]way, never fa[A]de awa[D#]y
+[G#m]Our[D#] hopes and expec[E]ta----t[B]ions
+[G#m]Black[D#] holes and reve[E]la----t[B]ions (yeah)
+[G#m]Our[D#] hopes and expec[E]ta----t[B]ions
+[G#m]Black[D#] holes and revel[E]a----ti[F#7]ons
 
 [Outro]
-[tab][ch]B[/ch]    [ch]C#m[/ch]    [ch]G#m[/ch]     [ch]E[/ch]
-Hold you in my arms, I just wanted to[/tab]
-[tab][ch]B[/ch]    [ch]C#m[/ch]    [ch]G#m[/ch]     [ch]E[/ch]                 N.C
-Hold you in my arms, I just wanted to hooold[/tab]
+
+[B]Hold y[C#m]ou in [G#m]my arms[E], I just wanted to
+[B]Hold y[C#m]ou in [G#m]my arms[E], I just wanted to hooold

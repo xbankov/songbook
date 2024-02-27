@@ -1,70 +1,60 @@
+{title: }
+
 [ch]D[/ch] [ch]A[/ch] [ch]E[/ch] [ch]Bm[/ch] [ch]D[/ch] [ch]A[/ch] [ch]E[/ch] [ch]Bm[/ch] [ch]D[/ch] [ch]A[/ch] [ch]Bm[/ch]
 
 [tab][ch]F#m[/ch]               [ch]C#m[/ch]
+
  Vezmu tě má milá  rovnou k nám[/tab]
-[tab][ch]F#m[/ch]                 [ch]C#m[/ch]
- Kolem louky, lesy,  hejna vran[/tab]
-[tab][ch]F#m[/ch]         [ch]E[/ch]             [ch]B7[/ch]
- Všude samá  kráva, samej  vůl[/tab]
+[F#m] Kolem louky, lesy,[C#m]  hejna vran
+[F#m] Všude samá[E]  kráva, samej [B7] vůl
 
 [tab][ch]F#m[/ch]            [ch]C#m[/ch]
+
 Máme kino máme hospodu[/tab]
-[tab][ch]F#m[/ch]               [ch]C#m[/ch]
-V obci všeobecnou pohodu[/tab]
-[tab][ch]F#m[/ch]         [ch]E[/ch]             [ch]B7[/ch]
-Máme hujer, žito, chléb i sůl[/tab]
+[F#m]V obci všeobecnou[C#m] pohodu
+[F#m]Máme hujer,[E] žito, chléb i [B7]sůl
 
 [tab][ch]D[/ch]                     [ch]A[/ch]                   [ch]E[/ch]            [ch]Bm[/ch]
+
  Když se u nás chlapi  poperou, tak jenom  nožem anebo  sekerou.[/tab]
-[tab]           [ch]D[/ch]            [ch]A[/ch]             [ch]Bm[/ch]
-V zimě tam  dlouhý noci  jsou a tuhej  mráz (a tam já to mám rád).[/tab]
-[tab][ch]D[/ch]                    [ch]A[/ch]                   [ch]E[/ch]             [ch]Bm[/ch]
- Jak jsou naše cesty  zavátý, tak vezmem  vidle a nebo  lopaty,[/tab]
-[tab]          [ch]D[/ch]                 [ch]A[/ch]              [ch]Bm[/ch]
-když něco  nejde, co na tom  sejde my máme  čas.[/tab]
+V zimě tam [D] dlouhý noci  [A]jsou a tuhej  m[Bm]ráz (a tam já to mám rád).
+[D] Jak jsou naše cesty  [A]zavátý, tak vezmem  v[E]idle a nebo  lo[Bm]paty,
+když něco [D] nejde, co na tom  [A]sejde my máme  č[Bm]as.
 
 [tab][ch]F#m[/ch]                  [ch]C#m[/ch]
+
 Chlapi někdy trochu prudký jsou[/tab]
-[tab][ch]F#m[/ch]              [ch]C#m[/ch]
-Holky s motykama tancujou[/tab]
-[tab][ch]F#m[/ch]           [ch]E[/ch]         [ch]B7[/ch]
-S ranní rosou táhnou do polí[/tab]
+[F#m]Holky s motykama[C#m] tancujou
+[F#m]S ranní rosou[E] táhnou do [B7]polí
 
 [tab][ch]F#m[/ch]                 [ch]C#m[/ch]
+
 Nikdo se tam  nikam nežene[/tab]
-[tab][ch]F#m[/ch]             [ch]C#m[/ch]
-Máme traktory a ne že ne[/tab]
-[tab][ch]F#m[/ch]         [ch]E[/ch]         [ch]B7[/ch]
-Až to spatříš, ledy povolí[/tab]
+[F#m]Máme traktory a[C#m] ne že ne
+[F#m]Až to spatř[E]íš, ledy po[B7]volí
 
 [tab][ch]D[/ch]                     [ch]A[/ch]                   [ch]E[/ch]            [ch]Bm[/ch]
+
  Když se u nás chlapi  poperou, tak jenom  nožem anebo  sekerou.[/tab]
-[tab]           [ch]D[/ch]            [ch]A[/ch]             [ch]Bm[/ch]
-V zimě tam  dlouhý noci  jsou a tuhej  mráz (a tam já to mám rád).[/tab]
-[tab][ch]D[/ch]                    [ch]A[/ch]                   [ch]E[/ch]             [ch]Bm[/ch]
- Jak jsou naše cesty  zavátý, tak vezmem  vidle a nebo  lopaty,[/tab]
-[tab]          [ch]D[/ch]                 [ch]A[/ch]              [ch]Bm[/ch]
-když něco  nejde, co na tom  sejde my máme  čas.[/tab]
+V zimě tam [D] dlouhý noci  [A]jsou a tuhej  m[Bm]ráz (a tam já to mám rád).
+[D] Jak jsou naše cesty  [A]zavátý, tak vezmem  v[E]idle a nebo  lo[Bm]paty,
+když něco [D] nejde, co na tom  [A]sejde my máme  č[Bm]as.
 
 [tab][ch]F#m[/ch]             [ch]C#m[/ch]
+
 Hoří les a hoří rodnej dům[/tab]
-[tab][ch]F#m[/ch]              [ch]C#m[/ch]
-Hoří velkostatek sousedům[/tab]
-[tab][ch]F#m[/ch]         [ch]E[/ch]          [ch]B7[/ch]
-To je smůla, drahá podívej[/tab]
+[F#m]Hoří velkostatek[C#m] sousedům
+[F#m]To je smůla[E], drahá podí[B7]vej
 
 [tab][ch]F#m[/ch]              [ch]C#m[/ch]
+
 Hasiči to stejně přejedou[/tab]
-[tab][ch]F#m[/ch]                 [ch]C#m[/ch]
-Hlavně si moc dobře nevedou[/tab]
-[tab][ch]F#m[/ch]           [ch]E[/ch]        [ch]B7[/ch]
-Schovej sirky, ať je neviděj[/tab]
+[F#m]Hlavně si moc dobře[C#m] nevedou
+[F#m]Schovej sirky[E], ať je ne[B7]viděj
 
 [tab][ch]D[/ch]                     [ch]A[/ch]                   [ch]E[/ch]            [ch]Bm[/ch]
+
  Když se u nás chlapi  poperou, tak jenom  nožem anebo  sekerou.[/tab]
-[tab]           [ch]D[/ch]            [ch]A[/ch]             [ch]Bm[/ch]
-V zimě tam  dlouhý noci  jsou a tuhej  mráz (a tam já to mám rád).[/tab]
-[tab][ch]D[/ch]                    [ch]A[/ch]                   [ch]E[/ch]             [ch]Bm[/ch]
- Jak jsou naše cesty  zavátý, tak vezmem  vidle a nebo  lopaty,[/tab]
-[tab]          [ch]D[/ch]                 [ch]A[/ch]              [ch]Bm[/ch]
-když něco  nejde, co na tom  sejde my máme  čas.[/tab]
+V zimě tam [D] dlouhý noci  [A]jsou a tuhej  m[Bm]ráz (a tam já to mám rád).
+[D] Jak jsou naše cesty  [A]zavátý, tak vezmem  v[E]idle a nebo  lo[Bm]paty,
+když něco [D] nejde, co na tom  [A]sejde my máme  č[Bm]as.

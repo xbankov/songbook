@@ -1,84 +1,60 @@
+{title: }
+
 [Verse 1]
-[tab][ch]Am[/ch]                 [ch]Em[/ch]                  [ch]Am[/ch]     [ch]Em[/ch] 
-  Šel včera městem muž a šel po hlavní třídě[/tab]
-[tab][ch]Am[/ch]                 [ch]Em[/ch]                 [ch]Am[/ch]     [ch]Em[/ch] 
-  Šel včera městem muž a já ho z okna viděl[/tab]
-[tab][ch]C[/ch]                  [ch]G[/ch]                   [ch]Am[/ch] 
-  Na flétnu chorál hrál, znělo to jako zvon[/tab]
-[tab]                      [ch]Em[/ch]                     [ch]F[/ch]
-  a byl v tom všechen žal, ten krásný dlouhý tón[/tab]
-[tab]                  [ch]F#dim[/ch]              [ch]E7[/ch]        [ch]Am[/ch] 
-  a já jsem náhle věděl ano - to je on, to je on[/tab]
+
+[Am]  Šel včera městem [Em]muž a šel po hlavní [Am]třídě[Em]
+[Am]  Šel včera městem [Em]muž a já ho z okna [Am]viděl[Em]
+[C]  Na flétnu chorál h[G]rál, znělo to jako zv[Am]on
+  a byl v tom všechen [Em]žal, ten krásný dlouhý [F]tón
+  a já jsem náhle [F#dim]věděl ano - to j[E7]e on, to j[Am]e on
 
 [Verse 2]
-[tab][ch]Am[/ch]               [ch]Em[/ch]                  [ch]Am[/ch]     [ch]Em[/ch] 
-  Vyběh jsem do ulic jen v noční košili[/tab]
-[tab][ch]Am[/ch]                  [ch]Em[/ch]                [ch]Am[/ch]     [ch]Em[/ch] 
-  v odpadcích z popelnic krysy se honily[/tab]
-[tab][ch]C[/ch]                  [ch]G[/ch]                [ch]Am[/ch] 
-  a v teplých postelích lásky i nelásky[/tab]
-[tab]              [ch]Em[/ch]             [ch]F[/ch]
-  tiše se vrtěly rodinné obrázky[/tab]
-[tab]                 [ch]F#dim[/ch]           [ch]E7[/ch]      [ch]Am[/ch] 
-  a já chtěl odpověď na svoje otázky, otázky[/tab]
+
+[Am]  Vyběh jsem do u[Em]lic jen v noční koši[Am]li[Em]
+[Am]  v odpadcích z pope[Em]lnic krysy se honi[Am]ly[Em]
+[C]  a v teplých postel[G]ích lásky i nelásk[Am]y
+  tiše se vrtě[Em]ly rodinné obrá[F]zky
+  a já chtěl odpo[F#dim]věď na svoje [E7]otázky, [Am]otázky
 
 [Chorus 1]
-[tab]  [ch]Am[/ch]   [ch]Em[/ch]   [ch]C[/ch]  [ch]G[/ch]  [ch]Am[/ch]   [ch]F[/ch]  [ch]F#dim[/ch]  [ch]E7[/ch] 
-  Na, na, na...[/tab]
-  [ch]Am[/ch]   [ch]Em[/ch]   [ch]C[/ch]  [ch]G[/ch]  [ch]Am[/ch]   [ch]F[/ch]  [ch]F#dim[/ch]  [ch]E7[/ch] 
+
+  [Am]Na, n[Em]a, na[C]...[G][Am][F][F#dim][E7]
+  [Am]   [Em]   [C]  [G]  [Am]   [F]  [F#dim]  [E7] 
 
 [Verse 3]
-[tab][ch]Am[/ch]                 [ch]Em[/ch]                [ch]Am[/ch]     [ch]Em[/ch] 
-  Dohnal jsem toho muže a chytl za kabát[/tab]
-[tab][ch]Am[/ch]                 [ch]Em[/ch]                    [ch]Am[/ch]     [ch]Em[/ch] 
-  měl kabát z hadí kůže šel z něho divný chlad[/tab]
-[tab][ch]C[/ch]            [ch]G[/ch]              [ch]Am[/ch] 
-  a on se otočil a oči plné vran[/tab]
-[tab]             [ch]Em[/ch]              [ch]F[/ch]
-  a jizvy u očí celý byl pobodán[/tab]
-[tab]                  [ch]F#dim[/ch]             [ch]E7[/ch]        [ch]Am[/ch] 
-  a já jsem náhle věděl kdo je onen pán, onen pán[/tab]
+
+[Am]  Dohnal jsem toho [Em]muže a chytl za ka[Am]bát[Em]
+[Am]  měl kabát z hadí [Em]kůže šel z něho divný [Am]chlad[Em]
+[C]  a on se otoč[G]il a oči plné vr[Am]an
+  a jizvy u o[Em]čí celý byl pobo[F]dán
+  a já jsem náhle [F#dim]věděl kdo je on[E7]en pán, on[Am]en pán
 
 [Verse 4]
-[tab][ch]Am[/ch]                 [ch]Em[/ch]                         [ch]Am[/ch]     [ch]Em[/ch] 
-  Celý se strachem chvěl když jsem tak k němu došel[/tab]
-[tab][ch]Am[/ch]                  [ch]Em[/ch]               [ch]Am[/ch]     [ch]Em[/ch] 
-  a v ústech flétnu měl od Hieronyma Bosche[/tab]
-[tab][ch]C[/ch]                  [ch]G[/ch]                 [ch]Am[/ch] 
-  stál měsíc nad domy jak čírka ve vodě[/tab]
-[tab]                [ch]Em[/ch]                    [ch]F[/ch]
-  jak moje svědomí když zvrací v záchodě[/tab]
-[tab]                  [ch]F#dim[/ch]              [ch]E7[/ch]                [ch]Am[/ch] 
-  a já jsem náhle věděl ano - to je Darmoděj, můj Darmoděj [/tab]
+
+[Am]  Celý se strachem [Em]chvěl když jsem tak k němu [Am]došel[Em]
+[Am]  a v ústech flétnu [Em]měl od Hieronyma [Am]Bosche[Em]
+[C]  stál měsíc nad dom[G]y jak čírka ve vodě[Am]
+  jak moje svědo[Em]mí když zvrací v zácho[F]dě
+  a já jsem náhle [F#dim]věděl ano - to j[E7]e Darmoděj, můj Da[Am]rmoděj 
 
 [Chorus 2]
-[tab]  [ch]Am[/ch]       [ch]Em[/ch]      [ch]C[/ch]       [ch]G[/ch]
-  Můj Darmoděj vagabund osudů a lásek[/tab]
-[tab]  [ch]Am[/ch]         [ch]F[/ch]        [ch]F#dim[/ch]        [ch]E7[/ch] 
-  jenž prochází všemi sny ale dnům vyhýbá se[/tab]
-[tab]  [ch]Am[/ch]       [ch]Em[/ch]         [ch]C[/ch]         [ch]G[/ch]
-  můj Darmoděj krásné zlo jed má pod jazykem[/tab]
-[tab]  [ch]Am[/ch]        [ch]F[/ch]       [ch]F#dim[/ch]      [ch]E7[/ch] 
-  když prodává po domech jehly se slovníkem[/tab]
+
+  [Am]Můj Darmo[Em]děj vaga[C]bund osud[G]ů a lásek
+  [Am]jenž prochá[F]zí všemi s[F#dim]ny ale dnů[E7]m vyhýbá se
+  [Am]můj Darmo[Em]děj krásné [C]zlo jed má [G]pod jazykem
+  [Am]když prodá[F]vá po dom[F#dim]ech jehl[E7]y se slovníkem
 
 [Verse 5]
-[tab][ch]Am[/ch]                 [ch]Em[/ch]               [ch]Am[/ch]     [ch]Em[/ch] 
-  Šel včera městem muž podomní obchodník[/tab]
-[tab][ch]Am[/ch]              [ch]Em[/ch]                   [ch]Am[/ch]     [ch]Em[/ch] 
-  šel ale nejde už krev skápla na chodník[/tab]
-[tab][ch]C[/ch]                [ch]G[/ch]                 [ch]Am[/ch] 
-  já jeho flétnu vzal a zněla jako zvon[/tab]
-[tab]                      [ch]Em[/ch]                    [ch]F[/ch]
-  a byl v tom všechen žal ten krásný dlouhý tón[/tab]
-[tab]                  [ch]F#dim[/ch]               [ch]E7[/ch]         
-  a já jsem náhle věděl ano - já jsem on, já jsem[/tab]
+
+[Am]  Šel včera městem [Em]muž podomní obcho[Am]dník[Em]
+[Am]  šel ale nejde [Em]už krev skápla na cho[Am]dník[Em]
+[C]  já jeho flétnu v[G]zal a zněla jako zv[Am]on
+  a byl v tom všechen [Em]žal ten krásný dlouhý [F]tón
+  a já jsem náhle [F#dim]věděl ano - já js[E7]em on, já jsem
 
 [Chorus 3]
-[tab]  [ch]Am[/ch]       [ch]Em[/ch]      [ch]C[/ch]       [ch]G[/ch]
-  Váš Darmoděj vagabund osudů a lásek[/tab]
-[tab]  [ch]Am[/ch]         [ch]F[/ch]        [ch]F#dim[/ch]        [ch]E7[/ch] 
-  jenž prochází všemi sny ale dnům vyhýbá se[/tab]
-[tab]  [ch]Am[/ch]       [ch]Em[/ch]         [ch]C[/ch]          [ch]G[/ch]
-  váš Darmoděj krásné zlo jed mám pod jazykem[/tab]
-[tab]  [ch]Am[/ch]        [ch]F[/ch]        [ch]F#dim[/ch]      [ch]E7[/ch] 
-  když prodávám po domech jehly se slovníkem[/tab]
+
+  [Am]Váš Darmo[Em]děj vaga[C]bund osud[G]ů a lásek
+  [Am]jenž prochá[F]zí všemi s[F#dim]ny ale dnů[E7]m vyhýbá se
+  [Am]váš Darmo[Em]děj krásné [C]zlo jed mám [G]pod jazykem
+  [Am]když prodá[F]vám po dom[F#dim]ech jehl[E7]y se slovníkem

@@ -1,48 +1,43 @@
+{title: Stand by me}
+
 Ben E. King
+
 Stand By Me
 BPM : 120
 Capo : II
 
 [Verse 1]
-[tab]               [ch]G[/ch]               [ch]G[/ch]              [ch]Em[/ch]                         [ch]Em[/ch]
-When the night      has come                       and the land is da-   rk[/tab]
-[tab]               [ch]C[/ch]               [ch]D[/ch]              [ch]G[/ch]               [ch]G[/ch]
-And the mo-    on is the on-   ly light we'll see[/tab]
-[tab]               [ch]G[/ch]               [ch]G[/ch]              [ch]Em[/ch]              [ch]Em[/ch]
-No, I wo -     n't be af-      raid, no, I    won't be af-    raid[/tab]
-[tab]               [ch]C[/ch]               [ch]D[/ch]              [ch]G[/ch]               [ch]G[/ch]
-Just as        long as you st- and, stand by  me.          So darlin', darlin'[/tab]
+
+When the night [G]     has come    [G]                [Em]   and the land is da-   rk[Em]
+And the mo-    [C]on is the on-   l[D]y light we'll se[G]e[G]
+No, I wo -     [G]n't be af-      r[G]aid, no, I    wo[Em]n't be af-    ra[Em]id
+Just as        [C]long as you st- a[D]nd, stand by  me[G].          So dar[G]lin', darlin'
 
 [Chorus 1]
-[tab][ch]G[/ch]             [ch]G[/ch]             [ch]Em[/ch]         [ch]Em[/ch]
-stand by me,       oh now   stand by   me,[/tab]
-[tab][ch]C[/ch]             [ch]D[/ch]             [ch]G[/ch]          [ch]G[/ch]
-stand by me,     stand by        me.[/tab]
+
+[G]stand by me,   [G]    oh now   st[Em]and by   me[Em],
+[C]stand by me,   [D]  stand by     [G]   me.[G]
 
 [Verse 2]
-[tab]               [ch]G[/ch]               [ch]G[/ch]              [ch]Em[/ch]                    [ch]Em[/ch]
-If the sky     that we look up-on                 should tumble and fall[/tab]
-[tab]               [ch]C[/ch]               [ch]D[/ch]              [ch]G[/ch]            [ch]G[/ch]
-And the mount- ain      should crumble to the sea[/tab]
-[tab]               [ch]G[/ch]               [ch]G[/ch]              [ch]Em[/ch]           [ch]Em[/ch]
-I won't cry,       I won't cry,    no, I      won't shed a tear[/tab]
-[tab]               [ch]C[/ch]               [ch]D[/ch]              [ch]G[/ch]        [ch]G[/ch]
-Just as long      as you stand,    stand by   me.  And darling, darling[/tab]
+
+If the sky     [G]that we look up-o[G]n               [Em]  should tumble and fa[Em]ll
+And the mount- [C]ain      should c[D]rumble to the se[G]a[G]
+I won't cry,   [G]    I won't cry, [G]   no, I      wo[Em]n't shed a te[Em]ar
+Just as long   [C]   as you stand, [D]   stand by   me[G].  And dar[G]ling, darling
 
 [Chorus 2]
-[tab][ch]G[/ch]             [ch]G[/ch]             [ch]Em[/ch]         [ch]Em[/ch]
-stand by me,       oh now   stand by   me,[/tab]
-[tab][ch]C[/ch]             [ch]D[/ch]             [ch]G[/ch]          [ch]G[/ch]
-stand by me,     stand by        me.[/tab]
+
+[G]stand by me,   [G]    oh now   st[Em]and by   me[Em],
+[C]stand by me,   [D]  stand by     [G]   me.[G]
 
 [Solo]
-[ch]G[/ch]        [ch]G[/ch]       [ch]Em[/ch]      [ch]Em[/ch]
-[ch]C[/ch]        [ch]D[/ch]       [ch]G[/ch]       [ch]G[/ch]
-[ch]G[/ch]        [ch]G[/ch]       [ch]Em[/ch]      [ch]Em[/ch]
-[ch]C[/ch]        [ch]D[/ch]       [ch]G[/ch]       [ch]G[/ch]
+
+[G]        [G]       [Em]      [Em]
+[C]        [D]       [G]       [G]
+[G]        [G]       [Em]      [Em]
+[C]        [D]       [G]       [G]
 
 [Chorus 3]
-[tab][ch]G[/ch]             [ch]G[/ch]             [ch]Em[/ch]          [ch]Em[/ch]
-Stand by me,       oh now   stand by    me,[/tab]
-[tab][ch]C[/ch]             [ch]D[/ch]             [ch]G[/ch]           [ch]G[/ch]
-stand by me,     stand by        me.[/tab]
+
+[G]Stand by me,   [G]    oh now   st[Em]and by    me[Em],
+[C]stand by me,   [D]  stand by     [G]   me.[G]
