@@ -1,33 +1,14 @@
 {title: Unintended}
 
-Muse - Unintended
 
-Taken from the album "Showbiz"
-Transcribed by the Purple Beast (iam@theendoftheearth.co.uk)
 
-[Chords used]
 
-E:     022100
-B7:    x21202
-Am:    x02210
-D:     xx0232
-G:     320033
-C:     x32010
-Em/G:  3x200x
-B7/F#: (2)21202
-(Bass plays F#, you could play that bass note or just a regular B7)
 
-Am/G:    3x2210
 
-Am/F#:   2x2210
-Asus2/F: 1x2200
-Esus4:   022200
 
-[Intro]
-
+{start_of_verse}
 [E](Arpeg[B7]gio pluck around the chords)
-
-[Verse 1] (Arpeggio picking)
+{end_of_verse}
 
 [E]You could be my u[Am]nintended
 [D]Choice to live my l[G]ife extended
@@ -36,40 +17,36 @@ Esus4:   022200
 [D]To my deepest i[G]nquisitions
 [C]You could be the o[B7]ne I'll always l[E]ove
 
-[Chorus]
-
+{start_of_chorus}
 [E]I'll be there, as s[Am]oon as I can
 [D]But I'm busy, m[G]ending broken
 [C]Pieces of, the l[B7]ife I had befo[E]re
+{end_of_chorus}
 
-[Verse 2]
-
+{start_of_verse}
 [E]First, there was the o[Am]ne who challenged
 [D]All my dreams and a[G]ll my balance
 [C]She could never b[B7]e as good as yo[E]u
 [E]You could be my u[Am]nintended
 [D]Choice to live my l[G]ife extended
 [C]You should be the o[B7]ne I'll always lo[E]ve
-
-[Link]
+{end_of_verse}
 
 [Em/G]  [B7/F#]
 
-[Chorus]
-
+{start_of_chorus}
 [E]I'll be there, as s[Am]oon as I can
 [D]But I'm busy, m[G]ending all the
 [C]Pieces of, the l[B7]ife I had befo[E]re
+{end_of_chorus}
 
-[tab][ch]E[/ch]                 [ch]Am[/ch]
-
-I'll be there, as soon as I can[/tab]
+[E]I'll be there, as s[Am]oon as I can
 [D]But I'm busy, m[G]ending broken
 [C]Pieces of, the l[B7]ife I had befo[E]re
 
-Before you
 
-[Outro]
 
+{start_of_verse}
 [Am]  [Am/G]  [Am/F#]  [Asus2/F]
 [Esus4]     [E]
+{end_of_verse}

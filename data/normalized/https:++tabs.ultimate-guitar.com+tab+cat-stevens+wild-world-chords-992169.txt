@@ -1,13 +1,12 @@
 {title: Wild world}
 
-[Intro]
-
+{start_of_verse}
 [Am] La-la-la-[D7]la-la-la-la-la, la, [G]la
  La-la-la-[C]la-la-la-la-la, la, l[F]a
  La-la-la-[Dm]la-la-la-la-la, la, [E]la-la, l[Esus4]a[E]
+{end_of_verse}
 
-[Verse 1]
-
+{start_of_verse}
 [Am] Now that I’ve [D7]lost everything to [G]you
 You say you [C]wanna start something n[F]ew
 And it’s [Dm]breaking my heart you’re [E]leaving
@@ -15,57 +14,25 @@ Baby I’m [Esus4]gri[E]ev-ing
 [Am] But if you wanna [D7]leave, take good [G]care
 Hope you have a [C]lot of nice things to w[F]ear
 But then a [Dm]lot of nice things turn [E7]bad out t[G]here
-  
 e|---------------------------|
-B|-----0-0-0-0-0-0-0-0-0-0-0-|
-G|---0-0-0-0-0-0-0-0-0-0-0-0-|
-D|-0-3---3---2---2---0---0---|
-A|---------------------------|
-E|---------------------------|[/tab]
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [C] Oh, b[G]aby, baby it’s a wi[F]ld world
-
-[tab]Riff 2:
+{end_of_chorus}
 
 e|------------------|
-B|-1p0--------------|
-G|-----2p0----------|
-D|---------3p2p0----|
-A|---------------3--|
-E|-----------------3|[/tab]
 
-[tab][ch]G[/ch]                 [ch]F[/ch]               [ch]C[/ch]    (riff 3)
-
- It’s hard to get by, just upon a smile[/tab]
-
-[tab]Riff 3:
+[G] It’s hard to get b[F]y, just upon a sm[C]ile
 
 e|---------------------|
-B|---------------------|
-G|---------------------|
-D|---------------------|
-A|-----0-3-3-3-0-------|
-E|--3-3-----------3----|[/tab]
 
-[tab][ch]C[/ch]    [ch]G[/ch]                 [ch]F[/ch]         (riff 2)
-
- Oh, baby, baby it’s a wild world[/tab]
+[C] Oh, b[G]aby, baby it’s a wi[F]ld world
 [G] I’ll always rem[F]ember you like a ch[C]ild girl[Dm][E]
 
-[tab]Riff 4:
+  ([ch]Dm[/ch]        [ch]E[/ch])
 
-  ([Dm]        [E])
-e|-------1--------0--|
-B|-----3--------0----|
-G|---2--------1------|
-D|-0--------2--------|
-A|-------------------|
-E|-------------------|[/tab]
-
-[Verse 2]
-
+{start_of_verse}
 [Am] You know I’ve seen a [D7]lot of what the world can [G]do
 And it’s [C]breaking my heart in t[F]wo
 But I [Dm]never want to see you [E]sad girl
@@ -73,15 +40,14 @@ Don’t be a [Esus4]bad[E]   girl
 [Am]But if you want to [D7]leave, take good [G]care
 Hope you make a [C]lot of nice friends out t[F]here
 But just re[Dm]member there’s a lot of bad [E7]and be[G]ware
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [C] Oh, b[G]aby, baby it’s a wi[F]ld world
 [G] It’s hard to get b[F]y, just upon a sm[C]ile
 [C] Oh, b[G]aby, baby it’s a wi[F]ld world
 [G] I’ll always rem[F]ember you like a ch[C]ild girl[Dm][E]
-
-[Bridge]
+{end_of_chorus}
 
 ..[Am].la-la-la-[D7]la-la-la-la, la, [G]la
 La-la-la-[C]la-la-la-la-la la la-la, l[F]a
@@ -91,8 +57,7 @@ La-la-la-[Dm]la-la-la-la-la la la-la, [E]la
 Hope you make a [C]lot of nice friends out[F] there
 But just re[Dm]member there’s a lot of bad [E7]and bewar[G]e
 
-[Chorus]
-
+{start_of_chorus}
 [C] Oh, b[G]aby, baby it’s a wi[F]ld world
 [G] It’s hard to get b[F]y, just upon a sm[C]ile
 [C] Oh, b[G]aby, baby it’s a wi[F]ld world
@@ -101,3 +66,4 @@ But just re[Dm]member there’s a lot of bad [E7]and bewar[G]e
 [G] It’s hard to get b[F]y, just upon a sm[C]ile
 [C] Oh, b[G]aby, baby it’s a wi[F]ld world
 [G] I’ll always rem[F]ember you like a ch[C]ild girl 
+{end_of_chorus}

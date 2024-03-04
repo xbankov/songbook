@@ -1,43 +1,33 @@
 {title: Stand by me}
 
-Ben E. King
+{capo: : II}
 
-Stand By Me
-BPM : 120
-Capo : II
 
-[Verse 1]
 
+{start_of_verse}
 When the night [G]     has come    [G]                [Em]   and the land is da-   rk[Em]
 And the mo-    [C]on is the on-   l[D]y light we'll se[G]e[G]
 No, I wo -     [G]n't be af-      r[G]aid, no, I    wo[Em]n't be af-    ra[Em]id
 Just as        [C]long as you st- a[D]nd, stand by  me[G].          So dar[G]lin', darlin'
-
-[Chorus 1]
+{end_of_verse}
 
 [G]stand by me,   [G]    oh now   st[Em]and by   me[Em],
 [C]stand by me,   [D]  stand by     [G]   me.[G]
 
-[Verse 2]
-
+{start_of_verse}
 If the sky     [G]that we look up-o[G]n               [Em]  should tumble and fa[Em]ll
 And the mount- [C]ain      should c[D]rumble to the se[G]a[G]
 I won't cry,   [G]    I won't cry, [G]   no, I      wo[Em]n't shed a te[Em]ar
 Just as long   [C]   as you stand, [D]   stand by   me[G].  And dar[G]ling, darling
-
-[Chorus 2]
+{end_of_verse}
 
 [G]stand by me,   [G]    oh now   st[Em]and by   me[Em],
 [C]stand by me,   [D]  stand by     [G]   me.[G]
 
-[Solo]
-
 [G]        [G]       [Em]      [Em]
 [C]        [D]       [G]       [G]
 [G]        [G]       [Em]      [Em]
 [C]        [D]       [G]       [G]
-
-[Chorus 3]
 
 [G]Stand by me,   [G]    oh now   st[Em]and by    me[Em],
 [C]stand by me,   [D]  stand by     [G]   me.[G]

@@ -1,50 +1,25 @@
 {title: Shape of you}
 
-[tab][First layer]
+e|-----------------------------------------------------------------------------|
 
 e|-----------------------------------------------------------------------------|
-B|-----------------------------------------------------------------------------|
-G|-----------------------------------------------------------------------------|
-D|-----------------------------------------------------------------------------|
-A|---------2--2--2-------------------0--0--0-----------------------------------|
-E|-----------------0--0--0--3--3--3--------------------------------------------|[/tab]
-
-[tab][Second]
-
-e|-----------------------------------------------------------------------------|
-B|-----------3-------3--------3-----2------------------------------------------|
-G|---------4----4--4-----4--4-----4----4--2------------------------------------|
-D|-----------------------------------------------------------------------------|
-A|-----------------------------------------------------------------------------|
-E|-----------------------------------------------------------------------------|[/tab]
-
-[tab][Third] Guitare percussive
 
 e|---------t-x-x---t-x-x---t-x-x---t-x-x---------------------------------------|
-B|---------t-x-x---t-x-x---t-x-x---t-x-x---------------------------------------|
-G|---------t-x-x---t-x-x---t-x-x---t-x-x---------------------------------------|
-D|---------t-x-x---t-x-x---t-x-x---t-x-x---------------------------------------|
-A|---------t-x-x---t-x-x---t-x-x---t-x-x---------------------------------------|
-E|---------t-x-x---t-x-x---t-x-x---t-x-x---------------------------------------|[/tab]
 
-*************************************
 
-| t  Slap on the bridge of the guitar
 
-| x  Dead note
 
-*************************************
 
-Use barre chords for G and A as well
 
-[Verse 1]
 
+
+
+{start_of_verse}
 [Bm]The club isn't the best p[Em]lace to find a lover so the b[G]ar is where I g[A]o
 [Bm]Me and my friends at the [Em]table doing shots, drinking f[G]ast and then we talk slo[A]w
 Come [Bm]over and start up a convers[Em]ation with just me and t[G]rust me I'll give it a cha[A]nce now
 Take my [Bm]hand, stop! Put Van the [Em]man on the jukebox and t[G]hen we start to da[A]nce and now I'm singing like
-
-[Pre-Chorus]
+{end_of_verse}
 
 [Bm]Girl, you know I [Em]want your love
 [G]Your love was handmade fo[A]r somebody like me[Bm]
@@ -55,8 +30,7 @@ Come on now, [Em]follow my lead
 Come on now, [Em]follow my lead
 Co[G]me—come on now, follow my lead
 
-[Chorus]
-
+{start_of_chorus}
 [Bm]  I'm in [Em]love with the shape of [G]you
   We push and p[A]ull like a magnet d[Bm]o
   Although my [Em]heart is falling [G]too
@@ -70,9 +44,9 @@ Co[G]me—come on now, follow my lead
 [Bm](Oh[Em] I)[G]      I'm in l[A]ove with your body
 [Bm]  Every day discover[Em]ing something brand n[G]ew
   I'm in l[A]ove with the shape of you
+{end_of_chorus}
 
-[Verse 2]
-
+{start_of_verse}
 [Bm]One week in we let the[Em] story begin
 We're going [G]out on our first d[A]ate
 But you and [Bm]me are thrifty so go[Em] all you can eat
@@ -81,8 +55,7 @@ We talk for [Bm]hours and hours about the [Em]sweet and the sour
 And how your [G]family is doin' ok[A]ay
 And leave and [Bm]get in a taxi, we [Em]kiss in the backseat
 Tell the d[G]river make the radio pl[A]ay, and I'm singing like
-
-[Pre-Chorus]
+{end_of_verse}
 
 [Bm]Girl, you know I [Em]want your love
 [G]Your love was handmade fo[A]r somebody like me[Bm]
@@ -93,8 +66,7 @@ Come on now, [Em]follow my lead
 Come on now, [Em]follow my lead
 Co[G]me—come on now, follow my lead
 
-[Chorus]
-
+{start_of_chorus}
 [Bm]  I'm in [Em]love with the shape of [G]you
   We push and p[A]ull like a magnet d[Bm]o
   Although my h[Em]eart is falling [G]too
@@ -108,24 +80,14 @@ Co[G]me—come on now, follow my lead
 [Bm](Oh[Em] I)[G]      I'm in l[A]ove with your body
 [Bm]  Every day discover[Em]ing something brand n[G]ew
   I'm in l[A]ove with the shape of you
+{end_of_chorus}
 
-[Bridge]
-
-N.C.
-  Come on, be my baby, come on
-N.C.
-  Come on, be my baby, come on
-N.C.
-  Come on, be my baby, come on
-N.C.
-  Come on, be my baby, come on
 [Bm]  Come on, be my [Em]baby, come on
 [G]  Come on, be my b[A]aby, come on
 [Bm]  Come on, be my [Em]baby, come on
 [G]  Come on, be my b[A]aby, come on
 
-[Chorus]
-
+{start_of_chorus}
 [Bm]  I'm in [Em]love with the shape of [G]you
   We push and p[A]ull like a magnet d[Bm]o
   Although my [Em]heart is falling [G]too
@@ -142,3 +104,4 @@ N.C.
 [G]  Come on, be my b[A]aby, come on
 [Bm]  Every day discover[Em]ing something brand n[G]ew
   I'm in [A]love with the shape of you
+{end_of_chorus}

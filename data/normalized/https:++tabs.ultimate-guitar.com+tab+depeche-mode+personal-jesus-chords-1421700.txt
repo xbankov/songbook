@@ -1,89 +1,60 @@
 {title: Personal jesus}
 
-Reach out and touch faith
 
-[Intro]
 
-[tab]e|---------------------|---------------------|
+{start_of_verse}
+{end_of_verse}
 
 B|---------------------|---------------------|
-G|---------------------|---------------------|
-D|-----------4---------|-----------4---------| x4
-A|---------------------|---------------------|
-E|-2----5--2------5--2-|(2)-2-5--2------5--2-|     (2)  = hold note over bar line
-        \ 3 /     \ 3 /  \ 3 /\ 3 /     \ 3 /     \ 3 / = triplet/swing timing[/tab]
 
-[Verse 1]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]F#m[/ch]
-
-Your own personal Jesus[/tab]
-
-Someone to hear your prayers
+[F#m]Your own personal Jesus
 
 Someone who car[Bm]es[A][E]
 [F#m]Your own personal Jesus
 
-Someone to hear your prayers
-
 Someone who's th[Bm]ere[A][E][F#m]
 
-[Verse 2]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]F#m[/ch]
-
-Feeling unknown[/tab]
-
-And you're all alone
+[F#m]Feeling unknown
 
 [A]Flesh and bone
 By the [E]telephone
 [Bm]Lift up the receiver
 I'll [C#]make you a bel[D]iever[F#m]
 
-[tab][ch]F#m[/ch]
-
-Take second best[/tab]
-
-Put me to the test
+[F#m]Take second best
 
 [A]Things on your chest
 You ne[E]ed to confess
 [Bm]I will deliver
 You kn[C#]ow I'm a for[D]giver[F#m]
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]G#[/ch]  [ch]G[/ch]                           [ch]F#m[/ch]
+[G#]   R[G]each out and touch faith[F#m]
 
-   Reach out and touch faith[/tab]
+[G#]   R[G]each out and touch faith[F#m]
 
-[tab][ch]G#[/ch]  [ch]G[/ch]                           [ch]F#m[/ch]
+{start_of_verse}
+{end_of_verse}
 
-   Reach out and touch faith[/tab]
-
-[Verse 3]
-
-[tab][ch]F#m[/ch]
-
-Your own personal Jesus[/tab]
-
-Someone to hear your prayers
+[F#m]Your own personal Jesus
 
 Someone who car[Bm]es[A][E]
 [F#m]Your own personal Jesus
 
-Someone to hear your prayers
-
 Someone who's th[Bm]ere [A][G#][D][F#m]
 
-[Verse 4]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]F#m[/ch]
-
-Feeling unknown[/tab]
-
-And you're all alone
+[F#m]Feeling unknown
 
 [A]Flesh and bone
 By the [E]telephone
@@ -92,16 +63,14 @@ I'll [C#]make you a bel[D]iever[F#m]
 [Bm]I will deliver
 You k[C#]now I'm a forg[D]iver[F#m]
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]G#[/ch]  [ch]G[/ch]
-
-   Reach out and touch faith[/tab]
+[G#]   R[G]each out and touch faith
 [F#m]Your own personal Jes[Bm]us[A]
  [G#]  [G]                           [F#m]
 
-[Outro]
+{start_of_verse}
+{end_of_verse}
 
-[tab] [ch]G#[/ch]  [ch]G[/ch]                           [ch]F#m[/ch]
-
-           Reach out and touch faith  x5[/tab]
+ [G#]    [G]      Reach out and touch fai[F#m]th  x5

@@ -1,61 +1,59 @@
 {title: Feeling good}
 
-Feeling Good - Muse
 
-Posted by AidanHarkin
 
-[Verse 1]
-
+{start_of_verse}
 [Bm]Birds flying [A]high, yo[G]u know how I fe[F#]el
 [Bm]Sun in the sk[A]y, you k[G]now how I feel[F#]
 [Bm]Reeds driftin[A]' on by[G], you know how I[F#] feel
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 It's a [Bm]new dawn
 It's a [A]new day
 It's a [G]new life
 For [F#]me
 And I'm feeling go[Bm]od[A][G][F#][F#][A][F#][A][Bm]
+{end_of_chorus}
 
-[Verse 2]
-
+{start_of_verse}
 [Bm]Fish in the s[A]ea, you [G]know how I feel[F#]
 [Bm]River running[A] free, y[G]ou know how I f[F#]eel
 [Bm]Blossom in th[A]e tree, [G]you know how I [F#]feel
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 It's a [Bm]new dawn
 It's a [A]new day
 It's a [G]new life
 For m[F#]e
 And I'm feeling go[Bm]od[A][G][F#][F#][A][F#][A][Bm]
+{end_of_chorus}
 
-[Verse 3]
-
+{start_of_verse}
 [Bm]Dragonfly out[A] in the[G] sun, you know w[F#]hat I mean
 [Bm]Butterflies a[A]ll havi[G]n' fun, you know[F#] what I mean
 [Bm]Sleep in peac[A]e when [G]the day is done[F#], that's what I mean
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 And th[Bm]is old world
 Is a ne[A]w world
 And a b[G]old world
 For m[F#]e
 And I'm feeling go[Bm]od[A][G][F#][F#][A][F#][A][Bm]
+{end_of_chorus}
 
-[Verse 4]
-
+{start_of_verse}
 [Bm]Stars when you s[A]hine, yo[G]u know how I fe[F#]el
 [Bm]Scent of a p[A]ine, y[G]ou know how I fe[F#]el
 [Bm]Freedom is [A]mine, and y[G]ou know how I fe[F#]el
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 It's a [Bm]new dawn
 It's a [A]new day
 It's a [G]new life
 For [F#]me
 And I'm feeling goo[Bm]d[A][G][F#][F#][A][F#][A][Bm]
+{end_of_chorus}

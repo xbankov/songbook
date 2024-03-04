@@ -1,32 +1,15 @@
 {title: Carry on wayward son}
 
-CARRY ON WAYWARD SON by KANSAS
 
-Lyrics, Chords, and that awesome riff!
 
-[Intro]
+{start_of_verse}
+{end_of_verse}
 
-N.C.
-Carry on my wayward son
-N.C.
-There'll be peace when you are done
-N.C.
-Lay your weary head to rest
-N.C.
-Don't you cry no more
 
-[Riff]
-
-[tab]e|--------------|--------------|--------------|--------------|
 
 B|--------------|--------------|--------------|--------------|
-G|--------------|--------------|--4--7--4-----|--------------|
-D|-----------5--|-----------7--|----------7-5-|--7-----7-----| x2
-A|--7--5--7-----|--7--5--7-----|--------------|----5-----4---|
-E|--------------|--------------|--------------|--------------|[/tab]
 
-[Verse 1]
-
+{start_of_verse}
 [Em]Once I [D]rose above the n[C]oise and co[D]nfusion
 [Em]Just to [D]get a glimpse b[C]eyond this il[D]lusion
 [Am]I was [G]soaring ever h[F]igher[F][G]
@@ -35,27 +18,19 @@ E|--------------|--------------|--------------|--------------|[/tab]
 [Em]Though my [D]mind could think I s[C]till was a ma[D]d man
 [Am]I hear the [G]voices when I'm d[F]reaming[F][G]
 [Am]I can [G]hear them s[D]ay
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [Em]Carry [G]on my w[D]ayward so[C]n
 [Em]There'll be [G]peace when y[D]ou are done
 [Em]Lay your [G]weary h[D]ead to re[C]st
-N.C.
-Don't you cry no more
+{end_of_chorus}
 
-[Riff]
 
-[tab]e|--------------|--------------|--------------|--------------|
 
 B|--------------|--------------|--------------|--------------|
-G|--------------|--------------|--4--7--4-----|--------------|
-D|-----------5--|-----------7--|----------7-5-|--7-----7-----| x2
-A|--7--5--7-----|--7--5--7-----|--------------|----5-----4---|
-E|--------------|--------------|--------------|--------------|[/tab]
 
-[Verse 2]
-
+{start_of_verse}
 [Em]Masque[D]rading as a m[C]an with a re[D]ason
 [Em]My cha[D]rade is the e[C]vent of the se[D]ason
 [Am]And if I [G]claim to be a w[F]ise man[F][G]
@@ -64,28 +39,19 @@ E|--------------|--------------|--------------|--------------|[/tab]
 [Em]Tossed a[D]bout, I'm like a s[C]hip on the oc[D]ean
 [Am]I set a [G]course for winds of f[F]ortune[F][G]
 [Am]But I [G]hear the voices s[D]ay
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [Em]Carry [G]on my w[D]ayward so[C]n
 [Em]There'll be [G]peace when y[D]ou are done
 [Em]Lay your [G]weary h[D]ead to re[C]st
-N.C.
-Don't you cry no more
+{end_of_chorus}
 
-(Instrumental)
 
-[Riff]
 
-[tab]e|--------------|--------------|--------------|--------------|
+
 
 B|--------------|--------------|--------------|--------------|
-G|--------------|--------------|--4--7--4-----|--------------|
-D|-----------5--|-----------7--|----------7-5-|--7-----7-----| x2
-A|--7--5--7-----|--7--5--7-----|--------------|----5-----4---|
-E|--------------|--------------|--------------|--------------|[/tab]
-
-[Bridge]
 
 [Em]   Carry on
 You will [D]always r[C]emember
@@ -94,13 +60,12 @@ Nothing [D]equals the s[C]plendor
 [Am]Now your [G]life's no longer e[F]mpty
 [Am]Surely [G]Heaven waits for y[D]ou
 
-[Chorus]
-
+{start_of_chorus}
 [Em]Carry [G]on my w[D]ayward so[C]n
 [Em]There'll be [G]peace when y[D]ou are done
 [Em]Lay your [G]weary h[D]ead to re[C]st
 Don't you cry {vocal echo: Don't you cry} no [Bm7]more
+{end_of_chorus}
 
-[Submitted by JP Leong at hleong@worldnet.att.net]
 
-Note: This is based on Carry on Wayward Son, music done in a possibly different key.
+

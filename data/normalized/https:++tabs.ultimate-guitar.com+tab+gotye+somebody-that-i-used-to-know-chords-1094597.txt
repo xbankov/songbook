@@ -1,55 +1,39 @@
 {title: Somebody that i used to know}
 
-[Intro]
+{start_of_verse}
+{end_of_verse}
 
-[ch]Am[/ch]  [ch]G[/ch]  [ch]Am[/ch]  [ch]G[/ch]  x5
+[Am]  [G]  [Am]  [G]  x5
 
-[Verse 1]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]Am[/ch]        [ch]G[/ch]               [ch]Am[/ch]      [ch]G[/ch]        [ch]Am[/ch]   [ch]G[/ch]  [ch]Am[/ch]  [ch]G[/ch]
-
-  Now and then I think of when we were together[/tab]
+[Am]  Now and [G]then I think of w[Am]hen we w[G]ere togeth[Am]er[G][Am][G]
 [Am]  Like when you [G]said you felt so h[Am]appy y[G]ou could di[Am]e[G][Am][G]
 [Am]  Told my[G]self that you were r[Am]ight for m[G]e
 [Am]  But felt so [G]lonely in your c[Am]ompany[G]
 [Am]  But that was [G]love and it's an a[Am]che I s[G]till remembe[Am]r[G][Am][G]
 
-[Instrumental]
 
-[tab]   [ch]Am[/ch]      [ch]G[/ch]         [ch]Am[/ch]      [ch]G[/ch]         [ch]Am[/ch]      [ch]G[/ch]         [ch]Am[/ch]      [ch]G[/ch]
 
-e|-----------------|-----------------|-----------------|-----------------|
-B|-5---------------|---------8-----5-|-----------------|-----------------|
-G|-----------------|-----------------|-7---------------|---------4-------|
-D|-----------------|-----------------|-------7---------|---------------7-|
-A|-----------------|-----------------|-----------------|-----------------|
-E|-----------------|-----------------|-----------------|-----------------|[/tab]
+e|-[Am]--------[G]--------|--[Am]--------[G]-------|---[Am]--------[G]------|----[Am]--------[G]-----|
 
-[tab]   [ch]Am[/ch]      [ch]G[/ch]         [ch]Am[/ch]      [ch]G[/ch]         [ch]Am[/ch]      [ch]G[/ch]         [ch]Am[/ch]      [ch]G[/ch]
+e|-[Am]--------[G]--------|--[Am]--------[G]-------|---[Am]--------[G]------|----[Am]--------[G]-----|
 
-e|-----------------|-----------------|-----------------|-----------------|
-B|-5---------------|---------8-----5-|-----------------|-----------------|
-G|-----------------|-----------------|-7---------------|-----------------|
-D|-----------------|-----------------|-------7-----7---|-----------------|
-A|-----------------|-----------------|-----------------|-----------------|
-E|-----------------|-----------------|-----------------|-----------------|[/tab]
+{start_of_verse}
+{end_of_verse}
 
-[Verse 2]
-
-[tab][ch]Am[/ch]            [ch]G[/ch]           [ch]Am[/ch]      [ch]G[/ch]        [ch]Am[/ch]    [ch]G[/ch]  [ch]Am[/ch]  [ch]G[/ch]
-
-You can get addicted to a certain kind of sadness[/tab]
+[Am]You can get ad[G]dicted to a c[Am]ertain k[G]ind of sad[Am]ness[G][Am][G]
 [Am]  Like resig[G]nation to the e[Am]nd
 [G]Always the e[Am]nd[G][Am][G]
 [Am]  So when we [G]found that we could n[Am]ot make s[G]ense
 [Am]  Well you [G]said that we would s[Am]till be f[G]riends
 [Am]  But I'll ad[G]mit that I was g[Am]lad that i[G]t was ove[Am]r[G][Am][G]
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]Am[/ch]        [ch]G[/ch]              [ch]F[/ch]      [ch]G[/ch]
-
-  But you didn't have to cut me off[/tab]
+[Am]  But you [G]didn't have to c[F]ut me of[G]f
 [Am]  Make out [G]like it never h[F]appened
 And that [G]we were noth[Am]ing
 And [G]I don't even n[F]eed your lo[G]ve
@@ -61,37 +45,31 @@ And then [G]change your numb[Am]er
 I [G]guess that I don't n[F]eed that th[G]ough
 [Am]Now you're just some[G]body that I u[F]sed to kn[G]ow
 
-[ch]Am[/ch]  [ch]G[/ch]  [ch]F[/ch]  [ch]G[/ch]
+[Am]  [G]  [F]  [G]
 
-[tab][ch]Am[/ch]                  [ch]G[/ch]           [ch]F[/ch]       [ch]G[/ch]
+[Am]Now you're just some[G]body that I u[F]sed to kn[G]ow
 
-Now you're just somebody that I used to know[/tab]
+[Am]  [G]  [F]  [G]
 
-[ch]Am[/ch]  [ch]G[/ch]  [ch]F[/ch]  [ch]G[/ch]
+[Am]Now you're just some[G]body that I u[F]sed to kn[G]ow
 
-[tab][ch]Am[/ch]                  [ch]G[/ch]           [ch]F[/ch]       [ch]G[/ch]
 
-Now you're just somebody that I used to know[/tab]
 
-[Interlude]
+[Am]  [G]  [Am]  [G]  x4
 
-[ch]Am[/ch]  [ch]G[/ch]  [ch]Am[/ch]  [ch]G[/ch]  x4
-
-[Verse 3]
-
- 
+{start_of_verse}
 [Am]  Now and [G]then I think of a[Am]ll the times you s[G]crewed me ove[Am]r[G][Am][G]
 [Am]  But had me be[G]lieving it was a[F]lways something th[G]at I'd don[Am]e[G][Am][G]
 [G]  And I don't wanna live that way
 [G]  Reading into every word you say
 [G]  You said that you could let it go
 And I [G]wouldn't catch you hung up on somebody that you used to know...
+{end_of_verse}
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]Am[/ch]        [ch]G[/ch]              [ch]F[/ch]      [ch]G[/ch]
-
-  But you didn't have to cut me off[/tab]
+[Am]  But you [G]didn't have to c[F]ut me of[G]f
 [Am]  Make out [G]like it never h[F]appened
 And that [G]we were not[Am]hing
 And [G]I don't even n[F]eed your lo[G]ve
@@ -103,18 +81,15 @@ And then [G]change your numb[Am]er
 I [G]guess that I don't n[F]eed that th[G]ough
 [Am]Now you're just some[G]body that I u[F]sed to kn[G]ow
 
-[Outro]
+{start_of_verse}
+{end_of_verse}
 
-[tab]      [ch]Am[/ch]  [ch]G[/ch]   [ch]F[/ch]       [ch]G[/ch]
-
-Somebody   (I used to know)[/tab]
+Somebo[Am]dy  [G] (I u[F]sed to kn[G]ow)
 Somebo[Am]dy (Now you're just some[G]body that I u[F]sed to kn[G]ow)
 Somebo[Am]dy  [G] (I u[F]sed to kn[G]ow)
 Somebod[Am]y (Now you're just some[G]body that I u[F]sed to kn[G]ow)
 
-[tab][ch]Am[/ch]  [ch]G[/ch]    [ch]F[/ch]       [ch]G[/ch]
-
-       I used to know[/tab]
+[Am]    [G]   I u[F]sed to kn[G]ow
 [Am]    [G]   That I u[F]sed to kn[G]ow
 [Am]    [G]   I u[F]sed to kn[G]ow
 Somebo[Am]dy..[G].[F][G]

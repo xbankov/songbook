@@ -1,4 +1,5 @@
-{title: }
+{title: Mikymauz}
+{artist: Jaromír Nohavica}
 
 {start_of_verse}
 [Am]Ráno mě probouzí [G]tma sahám si na zápěst[F]í,

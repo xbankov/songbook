@@ -1,90 +1,83 @@
 {title: Welcome to the internet}
 
-[Verse 1]
-
+{start_of_verse}
 [Dm]Welcome to the internet. Have a look around.
 [Gm]Anything that brain of yours can think of can be found.
 We've got [F]mountains of content. Some better, some worse.
 If [A7]none of it's of interest to you, you'd be the first.
+{end_of_verse}
 
-[Verse 2]
-
+{start_of_verse}
 [Dm]Welcome to the internet. Come and take a seat.
 Would you [Gm]like to see the news or any famous women's feet.
 There's [F]no need to panic. This isn't a test (huh huh).
 J[A7]ust nod or shake your head and we'll do the rest.
+{end_of_verse}
 
-[Verse 3]
-
+{start_of_verse}
 [Dm]Welcome to the internet. What would you prefer.
 Would you [Gm]like to fight for civil rights or tweet a racial slur.
 Be [F]happy. Be horny. Be bursting with rage.
 [A7]We got a million different ways to engage
+{end_of_verse}
 
-[Verse 4]
-
+{start_of_verse}
 [Dm]Welcome to the internet. Put your cares aside.
 Here's a [Gm]tip for straining pasta. Here's a nine-year-old who died.
 We got [F]movies, and doctors, and fantasy sports.
 And a [A7]bunch of colored pencil drawings of all the characters of harry potter fucking
 [Dm]eachother. 
+{end_of_verse}
 
-[Verse 5]
-
-Welcome to the internet. Hold on to your socks.
+{start_of_verse}
 'cause a [Gm]random guy just kindly sent you photos of his cock.
 They are [F]grainy and off-putting. He just sent you more.
 [A7]Dont act surprised. You know you like it, you whore.
+{end_of_verse}
 
-[Verse 6]
-
+{start_of_verse}
 [Dm]See a man beheaded. Get offended, see a shrink.
 Show us [Gm]pictures of your children. Tell us every thought you think.
 Start a [F]rumor, buy a broom or send a death threat to a boomer.
 Or [A7]DM a girl and groom her. Do a Zoom or find a tumor in your-
+{end_of_verse}
 
-[Verse 7]
-
+{start_of_verse}
 [Dm]Here's a healthy breakfast option. You should kill your mom.
 Here's why [Gm]women never fuck you. Here's how you can build a bomb.
 Which [F]Power Ranger are you? Take this quirky quiz.
 O[A7]bama sent the immigrants. To [A7]vac- [Gm]cin- [F]ate- y[E]our- ki[Dm]ds.
+{end_of_verse}
 
-[Chorus]
+{start_of_chorus}
+Could I i[Dm]nterest you in everything, all of the time?
+A [Gm]little bit of everything. All of the time.
+[F]Apathy's a tragedy and boredom is a crime.
+[A7]Anything and everything. All of the time.
+{end_of_chorus}
 
 Could I i[Dm]nterest you in everything, all of the time?
 A [Gm]little bit of everything. All of the time.
 [F]Apathy's a tragedy and boredom is a crime.
 [A7]Anything and everything. All of the time.
 
-[tab]         [ch]Dm[/ch]
-
-Could I interest you in everything, all of the time?[/tab]
-A [Gm]little bit of everything. All of the time.
-[F]Apathy's a tragedy and boredom is a crime.
-[A7]Anything and everything. All of the time.
-
-[Interlude]
-
 [Dm] [C] [Bb] [A7]
 
-[Verse 8]
-
+{start_of_verse}
 [Dm]You know, [C]it wasn't always like t[Bb]his[A7]
 [Dm]Not very [C]long ago
 [Bb]Just before your [A7]time
 [Dm]Right before [C]the towers fell
 [Bb]Circa '99[A7]
+{end_of_verse}
 
-[Verse 9]
-
+{start_of_verse}
 This was [Gm]catalogues
 T[Dm]ravel blogs
 [A7]A chat room or [Dm]two
 We set our s[Gm]ights and [Dm]spent our nights
 [A7]Waiting[C7]
-
-[Bridge 1]
+{end_of_verse}
 
 For [Fmaj7]you
 [Dm7]You
@@ -94,13 +87,9 @@ Mommy [Fmaj7]let you use he[Dm7]r iPad
 And it [Dm]did all the [Dmmaj7/C#]things
 We [Dm7/C]designed it [Bb]to do
 
-[Interlude]
-
 Now [Bb]look at you
 Oh, [C]look at you
 [D]You
-
-[Bridge 2]
 
 [Gmaj7]You[Em7]
 Un[Am7]stoppable, [D7]watchable
@@ -111,24 +100,18 @@ Who [Em7/D]knows what we'[A]ll do
 It was [C]always the pla[D]n
 To put the [B7]world in your h[C]and
 
-[tab][ch]Em[/ch] [ch]Em/B[/ch] [ch]Em[/ch] [ch]Em/B[/ch] [ch]Em[/ch] [ch]Em/B[/ch] [ch]Em[/ch] [ch]Em/B[/ch]
+[Em](la[Em/B]ugh[Em]ing[Em/B])[Em][Em/B][Em][Em/B]
 
-(laughing)[/tab]
-
-[Chorus]
-
+{start_of_chorus}
 Could I i[Em]nterest you in everything, all of the time?
 A [Am]bit of everything. All of the time.
 [G]Apathy's a tragedy and boredom is a crime.
 [B7]Anything and everything. All of the time.
+{end_of_chorus}
 
-[tab]         [ch]Em[/ch]
-
-Could I interest you in everything, all of the time?[/tab]
+Could I i[Em]nterest you in everything, all of the time?
 A [Am]little bit of everything. All of the time.
 [G]Apathy's a tragedy and boredom is a crime.
 [B7]Anything and everything
 [B7]And anything and everything
 [B7]And anything and everything
-    N.C
-And all of the time

@@ -1,40 +1,31 @@
 {title: Boombox}
 
-Song: Boombox
+{capo: 1}
 
-Artist: The Lonely Island ft. Julian Casablancas
-Album: Incredibad
 
-Capo 1
 
-Intro: [ch]Em[/ch] [ch]G[/ch] [ch]Am[/ch] [ch]B5[/ch] [ch]D[/ch]
 
-[tab] [ch]Em[/ch]                         [ch]G[/ch]
 
-Imagine in your mind a posh country club[/tab]
+Intro: [Em] [G] [Am] [B5] [D]
+
+I[Em]magine in your mind a posh [G]country club
 The [Am]stuffy old money where the [B5]poor get [D]snubbed
 T[Em]he spread is bland sauer[G]kraut and boiled goose
 There's [Am]no way these people will [B5]ever cut [D]loose
 But then I [Em]walk in the room, hold my [G]boombox high
 And [Am]what happened next, will [B5]blow your [D]mind
 
-Chorus:
-
 [Em]Everything got outta con[Am]trol
 The [D]music was so entr[G]ancing[D/F#]
 [Em]Everyone got out on the [Am]floor
 It was a [D]bunch of old white people d[G]ancing[D/F#]
 
-[tab]    [ch]Em[/ch]               [ch]G[/ch]
-
-The Big Apple, where people never dance[/tab]
+The [Em]Big Apple, where [G]people never dance
 [Am]Spirits go down while [B5]profits ex[D]pand
 The [Em]cops or the dealers, who's [G]got the juice
 The [Am]street vendors peddling their [B5]boiled [D]goose
 So [Em]many types of people will [G]never get along
 Till I [Am]bust out my boombox and [B5]play this [D]song
-
-Chorus:
 
 [Em]The music washed away all the [Am]hate
 And so[D]ciety started ad[G]vancing[D/F#]
@@ -45,16 +36,12 @@ It was a [D]rainbow coalition of d[G]ancing[D/F#]
 [Em]Whoah [Am]oh
 I saw a [D]Spanish guy doing the B[G]artman[D/F#]
 
-[tab][ch]Em[/ch]                  [ch]G[/ch]
-
-Transport now to an old folks home[/tab]
+[Em]Transport now to an [G]old folks home
 Where the [Am]elderly are tossed on their [B5]brittle [D]bones
 The [Em]orderlies are stealing, there's [G]no excuse
 [Am]Everyday for lunch they eat [B5]boiled [D]goose
 So I [Em]grabbed my boombox and hit the [G]turbo base
 And [Am]what happened next was a [B5]total dis[D]grace
-
-Chorus:
 
 [Em]Everybody started having [Am]sex
 The [D]music was way too p[G]owerful[D/F#]
@@ -65,6 +52,5 @@ You gotta [D]know your limits with a b[G]oombox[D/F#]
 [Em]This was a cautionary [A]tale
 A [D]boombox is not a t[G]oy[D/F#]
 
-[ch]Em[/ch] [ch]G[/ch] [ch]Am[/ch] [ch]B5[/ch] [ch]D[/ch]
-
+[Em] [G] [Am] [B5] [D]
 [Em]

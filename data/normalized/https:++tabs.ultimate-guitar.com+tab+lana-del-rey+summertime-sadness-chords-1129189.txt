@@ -1,130 +1,110 @@
 {title: Summertime sadness}
 
-[Intro]
-
-[ch]F[/ch] [ch]Am[/ch] [ch]G[/ch] [ch]Dm[/ch]
+{start_of_verse}
+{end_of_verse}
 
 [F] [Am] [G] [Dm]
+[F] [Am] [G] [Dm]
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]F[/ch]                        [ch]Am[/ch]
-
-Kiss me hard before you go[/tab]
+[F]Kiss me hard before you go[Am]
 [G]Summertime sadnes[Dm]s
 [F]I just wanted you to kn[Am]ow
 That [G]baby you're the be[Dm]st
 
-[Verse 1]
+{start_of_verse}
+{end_of_verse}
 
-[tab]         [ch]F[/ch]               [ch]Am[/ch]
-
-I got my red dress on tonight[/tab]
+I got my [F]red dress on toni[Am]ght
 Dancing in the [G]dark in the pale moonli[Dm]ght
 Done my hair up [F]real big beauty queen sty[Am]le
 High heels o[G]ff, I'm feeling ali[Dm]ve
 
-[Pre-Chorus]
 
-[tab][ch]F[/ch]             [ch]Am[/ch]
 
-Oh, my God, I feel it in the air[/tab]
+[F]Oh, my God, I f[Am]eel it in the air
 Telephone [G]wires above are s[Dm]izzlin' like a snare
 Honey [F]I'm on fire, I f[Am]eel it everywhere
 Nothing [G]scares me anymo[Dm]re
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]F[/ch]                        [ch]Am[/ch]
-
-Kiss me hard before you go[/tab]
+[F]Kiss me hard before you go[Am]
 [G]Summertime sadnes[Dm]s
 [F]I just wanted you to kn[Am]ow
 That [G]baby you're the be[Dm]st
 
-[Breakdown]
 
-[tab][ch]F[/ch]                        [ch]Am[/ch]
 
-  I got that summertime, summertime sadness[/tab]
+[F]  I got that summertime, s[Am]ummertime sadness
 [G]  S-s-summertime, s[Dm]ummertime sadness
 [F]  Got that summertime, s[Am]ummertime sadness
 [G]Oh, oh oh oh oh o[Dm]h
 
-[Verse 2]
+{start_of_verse}
+{end_of_verse}
 
-[tab]            [ch]F[/ch]           [ch]Am[/ch]
-
-I'm feelin' electric tonight[/tab]
+I'm feelin' [F]electric toni[Am]ght
 Cruising down the [G]coast goin' 'bout 99[Dm]
 Got my bad [F]baby by my heavenly si[Am]de
 I know if I g[G]o, I'll die happy toni[Dm]ght
 
-[Pre-Chorus]
 
-[tab][ch]F[/ch]             [ch]Am[/ch]
 
-Oh, my God, I feel it in the air[/tab]
+[F]Oh, my God, I f[Am]eel it in the air
 Telephone [G]wires above are s[Dm]izzlin' like a snare
 Honey [F]I'm on fire, I f[Am]eel it everywhere
 Nothing [G]scares me anymo[Dm]re
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]F[/ch]                        [ch]Am[/ch]
-
-Kiss me hard before you go[/tab]
+[F]Kiss me hard before you go[Am]
 [G]Summertime sadnes[Dm]s
 [F]I just wanted you to kn[Am]ow
 That [G]baby you're the be[Dm]st
 
-[Breakdown]
 
-[tab][ch]F[/ch]                        [ch]Am[/ch]
 
-  I got that summertime, summertime sadness[/tab]
+[F]  I got that summertime, s[Am]ummertime sadness
 [G]  S-s-summertime, s[Dm]ummertime sadness
 [F]  Got that summertime, s[Am]ummertime sadness
 [G]Oh, oh oh oh oh o[Dm]h
 
-[Bridge]
 
-[tab][ch]Em[/ch]                        [ch]Am[/ch]
 
-  Think I'll miss you forever[/tab]
+[Em]  Think I'll miss you fore[Am]ver
 Like the [F]stars miss the sun in the m[Dm]ornin' skies
 [Em]   Later's better than ne[Am]ver
 Even [Gsus4]if you're gone I'm gonna dri-i-i-i-ive, dri-i-i-ive
 
-[Breakdown]
 
-[tab][ch]F[/ch]                        [ch]Am[/ch]
 
-  I got that summertime, summertime sadness[/tab]
+[F]  I got that summertime, s[Am]ummertime sadness
 [G]  S-s-summertime, s[Dm]ummertime sadness
 [F]  Got that summertime, s[Am]ummertime sadness
 [G]Oh, oh oh oh oh o[Dm]h
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]F[/ch]                        [ch]Am[/ch]
-
-Kiss me hard before you go[/tab]
+[F]Kiss me hard before you go[Am]
 [G]Summertime sadnes[Dm]s
 [F]I just wanted you to kn[Am]ow
 That [G]baby you're the be[Dm]st
 
-[Breakdown]
 
-[tab][ch]F[/ch]                        [ch]Am[/ch]
 
-  I got that summertime, summertime sadness[/tab]
+[F]  I got that summertime, s[Am]ummertime sadness
 [G]  S-s-summertime, s[Dm]ummertime sadness
 [F]  Got that summertime, s[Am]ummertime sadness
 [G]Oh, oh oh oh oh o[Dm]h
 
-[Outro]
+{start_of_verse}
+{end_of_verse}
 
-[ch]Em[/ch] [ch]Am[/ch] [ch]F[/ch] [ch]Dm[/ch]
-
+[Em] [Am] [F] [Dm]
 [Em] [Am] [Gsus4]

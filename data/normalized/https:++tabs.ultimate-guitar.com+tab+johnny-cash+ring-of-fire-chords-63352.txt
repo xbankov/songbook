@@ -1,73 +1,61 @@
 {title: Ring of fire}
 
-[Intro]
-
+{start_of_verse}
 [G]    [C] [G]      [G]    [D] [G]
+{end_of_verse}
 
-[Verse]
-
+{start_of_verse}
 [G]Love Is A B[C]urning Th[G]ing[C][G]
 And It Makes A [D]Fiery R[G]ing[D][G]
 Bound By [C]Wild D[G]esire[C][G]
 I Fell Into A [D]Ring Of F[G]ire
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [D]I Fell Into A B[C]urning Ring Of Fi[G]re
 I Went [D]Down, Down, Down
 And The [C]Flames Went H[G]igher
-
-And It Burns, Burns, Burns
+{end_of_chorus}
 
 The [D]Ring Of F[G]ire
 The [D]Ring Of F[G]ire
-
-[Interlude]
 
 [G]    [C] [G]    [G]    [D] [G]
 [G]    [C] [G]    [G]    [D] [G]
 
-[Chorus]
-
+{start_of_chorus}
 [D]I Fell Into A B[C]urning Ring Of Fi[G]re
 I Went [D]Down, Down, Down
 And The [C]Flames Went H[G]igher
-
-And It Burns, Burns, Burns
+{end_of_chorus}
 
 The [D]Ring Of F[G]ire
 The [D]Ring Of F[G]ire
 
-[Verse]
-
+{start_of_verse}
 The Taste Of [C]Love Is S[G]weet[C][G]
 When Hearts Like [D]Ours M[G]eet[D][G]
 I Fell For You [C]Like A C[G]hild[C][G]
 Ohh, But The [D]Fire Went W[G]ild
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [D]I Fell Into A B[C]urning Ring Of Fi[G]re
 I Went [D]Down, Down, Down
 And The [C]Flames Went H[G]igher
-
-And It Burns, Burns, Burns
+{end_of_chorus}
 
 The [D]Ring Of F[G]ire
 The [D]Ring Of F[G]ire
 
-[Chorus]
-
+{start_of_chorus}
 [D]I Fell Into A B[C]urning Ring Of Fi[G]re
 I Went [D]Down, Down, Down
 And The [C]Flames Went H[G]igher
-
-And It Burns, Burns, Burns
+{end_of_chorus}
 
 The [D]Ring Of F[G]ire
 The [D]Ring Of F[G]ire
-
-And It Burns, Burns, Burns
 
 The [D]Ring Of F[G]ire
 The [D]Ring Of F[G]ire (repeat until fade)

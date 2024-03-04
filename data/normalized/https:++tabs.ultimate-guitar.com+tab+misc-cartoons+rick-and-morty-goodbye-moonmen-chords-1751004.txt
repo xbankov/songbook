@@ -1,48 +1,41 @@
 {title: Rick and morty goodbye moonmen}
 
-Capo on Fret 1
+{capo: on Fret 1}
 
-[Verse]
 
-[tab][ch]Am[/ch]                [ch]C[/ch]            [ch]Em[/ch]   
 
-The worlds can be one together cosmos without hatred[/tab]
+{start_of_verse}
+{end_of_verse}
+
+[Am]The worlds can be [C]one together c[Em]osmos without hatred
 [Am]Stars like [C]diamonds in your e[Em]yes
 [Am]The ground can be [C]Space Space space s[Em]pace space space
 with [Am]feet marching [C]towards a peaceful s[E7]ky
 [Am]All the moonmen w[C]ant things their wa[G]y
 But we [Am]make sure they [C]see the s[F]un
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab]     [ch]C[/ch]            [ch]E7[/ch]
-
-good byyyyyyeeeeee moon men[/tab]
+good [C]byyyyyyeeeeee [E7]moon men
 I say good byy[F]yeeeeee mo[Fm]on men
 good [C]byyyyyyeeeeee m[E7]oon men
 you say good [F]byyyeeeeee [Fm]moon men
 
-[Verse]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]Am[/ch]             [ch]C[/ch]      [ch]Em[/ch]  
-
-Cosmos without hatred diamond stars of cosmic light[/tab]
+[Am]Cosmos without [C]hatred d[Em]iamond stars of cosmic light
 [Am]Quasars [C]shine through endless n[Em]ight
 And every[Am]thing is [C]one in the b[G]eauty 
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab]                   [ch]C[/ch]                     [ch]E7[/ch]
-
-And now we say Goodbyyyyyyyyyyyyyyyyeeeee mooonmen[/tab]
+And now we say Good[C]byyyyyyyyyyyyyyyyeeeee [E7]mooonmen
 you say good [F]byyyeeeeee [Fm]moon men
 
-[tab]     [ch]C[/ch]          [ch]E7[/ch]
+good [C]byyyyyyeeeee[E7]e moon men
 
-good byyyyyyeeeeee moon men[/tab]
+you say good [F]byyyeeeeee [Fm]moon meeeee ee en  [C][C]
 
-[tab]             [ch]F[/ch]         [ch]Fm[/ch]                  [ch]C[/ch] (finish on [ch]C[/ch])
-
-you say good byyyeeeeee moon meeeee ee en  [/tab]
-
-All Credit goes to /u/deo7 on reddit (http://bit.ly/1HjLBnA)

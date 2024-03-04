@@ -1,22 +1,16 @@
 {title: }
 
-Die Ärzte - Schrei nach Liebe
 
-[Intro]
 
-[tab]E|-------------|-------------------|---------------------|-----------------|
+{start_of_verse}
+{end_of_verse}
 
 B|-------------|-------------------|---------------------|-----------------|
-G|------9-10-9-|-------------------|-----------9-10---12-|-10---9----------|
-D|12-12--------|--10---12---12--10-|---12-12-------------|----------10-----|
-A|-------------|-------------------|---------------------|-----------------|
-E|-------------|-------------------|---------------------|-----------------|[/tab]
 
-[Verse 1]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]Dm[/ch]
-
-Du bist wirklich saudumm[/tab]
+[Dm]Du bist wirklich saudumm
 [Bb]Darum geh[C]t’s dir gut
 [Dm]Hass ist deine Attitüde
 [Bb]Ständig ko[C]cht dein Blut
@@ -25,21 +19,19 @@ Du bist wirklich saudumm[/tab]
 [Dm]Höchstwahrscheinlich nicht einmal
 [Bb]Was Attitü[C]de heißt
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]Bb[/ch]      [ch]C[/ch]                [ch]Dm[/ch]                       [ch]C[/ch]
-
-Deine Gewalt ist nur ein stummer Schrei nach Liebe[/tab]
+[Bb]Deine Ge[C]walt ist nur ein s[Dm]tummer Schrei nach Liebe[C]
 [Bb]Deine Springer[C]stiefel sehnen si[G]ch nach Zärtlichkeit[A]
 [Bb]Du hast n[C]ie gelernt dich z[Dm]u artikulieren[C]
 [Bb]Und deine Eltern hatten [A]niemals für dich Zeit
 Oh oh oh  oh Arschl[Bb]och
 
-[Verse 2]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]Dm[/ch]
-
-Warum hast du Angst vorm Streicheln[/tab]
+[Dm]Warum hast du Angst vorm Streicheln
 [Bb]Was soll al[C]l der Terz
 [Dm]Unterm Lorbeerkranz mit Eicheln
 [Bb]Weiß ich, [C]schlägt ein Herz
@@ -48,28 +40,26 @@ Warum hast du Angst vorm Streicheln[/tab]
 [Dm]Zwischen Störkraft und den Onkelz
 [Bb]Steht ne Kuschel[C]rock LP
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]Bb[/ch]      [ch]C[/ch]                [ch]Dm[/ch]                       [ch]C[/ch]
-
-Deine Gewalt ist nur ein stummer Schrei nach Liebe[/tab]
+[Bb]Deine Ge[C]walt ist nur ein s[Dm]tummer Schrei nach Liebe[C]
 [Bb]Deine Springer[C]stiefel sehnen si[G]ch nach Zärtlichkeit[A]
 [Bb]Du hast n[C]ie gelernt dich z[Dm]u artikulieren[C]
 [Bb]Und deine Eltern hatten [A]niemals für dich Zeit
 Oh oh oh  oh Arschl[Bb]och
 
-[Verse 3]
-
+{start_of_verse}
 [Bb]Weil du Prob[C]leme hast die k[Dm]einen interessieren[C]
 [Bb]Weil du Angst vorm [C]Schmusen hast, bi[G]st du ein Fasch[A]ist
 [Bb]Du musst deinen Se[C]lbsthass nicht auf and[Dm]ere projizieren[C]
 [Bb]Damit keiner merkt was für ein l[A]ieber Kerl du bist
+{end_of_verse}
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]Bb[/ch]      [ch]C[/ch]                [ch]Dm[/ch]                       [ch]C[/ch]
-
-Deine Gewalt ist nur ein stummer Schrei nach Liebe[/tab]
+[Bb]Deine Ge[C]walt ist nur ein s[Dm]tummer Schrei nach Liebe[C]
 [Bb]Deine Springer[C]stiefel sehnen si[G]ch nach Zärtlichkeit[A]
 [Bb]Du hast n[C]ie gelernt dich a[Dm]rtizukulieren[C]
 [Bb]Und deine Freundin die hat ni[A]emals für dich Zeit

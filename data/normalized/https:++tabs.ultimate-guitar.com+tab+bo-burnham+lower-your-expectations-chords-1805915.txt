@@ -1,25 +1,20 @@
 {title: Lower your expectations}
 
-[Verse]
-
+{start_of_verse}
 [E]You want a guy that's sweet
 A guy that's to[C#m]ugh
 [C#m]A feminist who likes to pay for [A]stuff
-
-The kinda guy that gets along with your friends
+{end_of_verse}
 
 Without be[B]ing attracted to any of them
 [E]A good boy, a bad boy, a good bad [C#m]boy
-                          
-A half good half bad half boy
 [A]Loves your brother sensitive but not weak and
 [B]Is a great lover calls your mother on the weekend
 [E]Then you might thin[A]k that this guy onl[B]y exists i[C#m]n your[A] mind
 Well guess w[E]hat
 [B]You're right
 
-[Chorus]
-
+{start_of_chorus}
 [E]If you want love[C#m][A]
 [B]Lower your expectation[E]s a few[C#m]
 Cause Prince C[A]harming would never se[B]ttle for you
@@ -27,32 +22,25 @@ If y[E]ou want l[C#m]ove[A]
 [B]Just pick a guy and l[E]ove him
 [C#m]And if he's got a thing for[A] feet
 Say fuck it, [B]sweep me off them
+{end_of_chorus}
 
-[Verse]
-
+{start_of_verse}
 [E]You want a girl that's nice
 A girl that's [C#m]not
 [C#m]Obsessed with her looks but is insanely[A] hot
-
-The kinda girl that you can show to your folks
+{end_of_verse}
 
 Loves the m[B]ovies that you like and always laughs at your jokes
 [E]A real girl, a hot girl, a really hot g[C#m]irl
 
-A brand new really hot real doll
-
 [A]Wants to impress you doesn't care if you notice
 And o[B]nly ever uses you to tickle her throat with
 
-[tab][ch]E[/ch]              [ch]A[/ch]                   [ch]E[/ch]     [ch]B[/ch]              [ch]C#m[/ch]   [ch]A[/ch]
-
-Then you might think that this girl only exists in your mind[/tab]
+[E]Then you might t[A]hink that this girl o[E]nly exi[B]sts in your mind[C#m][A]
 [E]She's real
 But last [B]week
-She died
 
-[Chorus]
-
+{start_of_chorus}
 [E]If you want love[C#m][A]
 [B]Lower your expectations a lot[E][C#m]
 You might think your [A]dick is a gift I pr[B]omise it's not
@@ -60,10 +48,9 @@ You might think your [A]dick is a gift I pr[B]omise it's not
 [B]Just pick a girl and lov[E]e her
 Then whip out your [C#m]dick and let the
 [A]Girl you love d[B]ecline the offer
+{end_of_chorus}
 
-[tab][ch]A[/ch]              [ch]E[/ch]                         [ch]B[/ch]
-
-I don't want a neat freak I don't want a slob[/tab]
+[A]I don't want a n[E]eat freak I don't want a sl[B]ob
 [B]Or  somebody with bedhead and a dead-end jo[A]b
 Cause I won't set[E]tle for less[B]
 [B]Than perfect
@@ -72,13 +59,9 @@ Cause I won't set[E]tle for less[B]
 [A]But d[E]eep down we kn[B]ow
 We don't [C#m]deserve it
 
-[Mute]
 
-But
 
-[tab]    [ch]E[/ch]  [ch]C#m[/ch]      [ch]A[/ch]
-
-We all deserve love[/tab]
+We a[E]ll d[C#m]eserve l[A]ove
 [B]Even on the days when w[E]e aren't our bes[C#m]t
 Cause we all suc[A]k
 But love can make us suck les[B]s

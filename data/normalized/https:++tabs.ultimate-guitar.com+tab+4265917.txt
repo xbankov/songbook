@@ -1,55 +1,49 @@
 {title: }
 
-G* - can play a single note fill, G F# E
 
-G** - shorten to G F# before the A chord
 
-[Intro]
-
+{start_of_verse}
 [D] [A] [Bm] [Em] [A]    x2
+{end_of_verse}
 
-[Verse 1]
-
+{start_of_verse}
 [D]Minne m[A]ennä vo[Bm]in kun ti[Em]edä mä en[A]
 Mistä l[D]öytää oi[A]kean vä[Bm]ärän tai ra[Em]kkaude[A]n
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 Mullon [Bm]kartta väärin[F#m]päin ja sen[G] alla on [Em]jalat joihin luulin että [A]luottaa mä voin
 Nyt [Bm]menee mäntyjä [F#m]päin eikä[G] kerran tai [Em]kaksi vaan niin etten l[A]asketuksi saa
+{end_of_chorus}
 
-[ch]Em[/ch]  [ch]A[/ch]
+[Em]  [A]
 
-[Verse 2]
-
+{start_of_verse}
 Kuka [D]kirjaili k[A]aiken tän ni[Bm]in etten ki[Em]inni mä sa[A]a
 [D]Uidakko m[A]ukana vi[Bm]rran vai po[Em]is vaelt[A]aa
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 Mullon [Bm]kartta väärin[F#m]päin ja sen[G] alla [Em]jalat joihin luulin että [A]luottaa mä voin
 Nyt [Bm]menee mäntyjä [F#m]päin eikä[G] kerran tai [Em]kaksi vaan niin etten [A]lasketuksi saa
-
-[Interlude]
+{end_of_chorus}
 
 [D] [A] [Bm] [Em] [A]    x2
 
-[Verse 3]
-
+{start_of_verse}
 [D]Minne m[A]ennä vo[Bm]in kun ti[Em]edä mä en[A]
 Mistä l[D]öytää oi[A]kean vä[Bm]ärän tai rak[Em]kauden[A]
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 Mullon [Bm]kartta väärin[F#m]päin ja sen[G] alla on [Em]jalat joihin luulin että [A]luottaa mä voin
 Nyt [Bm]menee mäntyjä [F#m]päin eikä[G] kerran tai [Em]kaksi vaan niin etten l[A]asketuksi saa
+{end_of_chorus}
 
-[tab][ch]Bm[/ch]           [ch]F#m[/ch]         [ch]G[/ch]       [ch]Em[/ch]                       [ch]A[/ch]
-
-Kartta väärinpäin ja sen alla on jalat joihin luulin että luottaa mä voin[/tab]
+[Bm]Kartta väärin[F#m]päin ja sen[G] alla on [Em]jalat joihin luulin että [A]luottaa mä voin
 Nyt [Bm]menee mäntyjä [F#m]päin eikä[G] kerran tai [Em]kaksi vaan niin etten l[A]asketuksi saa
 
-[Outro]
-
+{start_of_verse}
 [Bm] [F#m] [Em] [G]* x3
 [Bm] [F#m] [Em] [G]** [A] [D]
+{end_of_verse}

@@ -1,9 +1,10 @@
 {title: Demons}
 
-Capo 3rd fret
+{capo: 3rd fret}
 
-[Verse 1]
 
+
+{start_of_verse}
 When the da[C]ys are cold
 And the car[G]ds all fold
 And the sai[Am]nts we see
@@ -12,9 +13,9 @@ When your d[C]reams all fail
 And the one[G]s we hail
 Are the wor[Am]st of all
 And the bl[F]ood's run stale
+{end_of_verse}
 
-[Pre-chorus 1]
-
+{start_of_verse}
 [C]  I wanna hide the t[G]ruth
 I wanna shelter [Am]you
 But with the beast [F]inside
@@ -24,8 +25,7 @@ We still are made of [Am]greed
 This is my kingdom [F]come
 This is my kingdom [C]come
 
-[Chorus]
-
+{start_of_chorus}
 [C]  When you feel my h[G]eat
 Look into my [Am]eyes
 It's where my demons [F]hide
@@ -34,9 +34,9 @@ Don't get too [G]close
 It's dark in[Am]side
 It's where my demons [F]hide
 It's where my demons [C]hide
+{end_of_chorus}
 
-[Verse 2]
-
+{start_of_verse}
 When the cu[C]rtain's call
 Is the last[G] of all
 When the li[Am]ghts fade out
@@ -45,9 +45,9 @@ So they du[C]g your grave
 And the mas[G]querade
 Will come c[Am]alling out
 At the mes[F]s you made
+{end_of_verse}
 
-[Pre-chorus 2]
-
+{start_of_verse}
 [C]  Don't wanna let you d[G]own
 But I am hell [Am]bound
 Though this is all for [F]you
@@ -57,8 +57,7 @@ We still are made of [Am]greed
 This is my kingdom [F]come
 This is my kingdom [C]come
 
-[Chorus]
-
+{start_of_chorus}
 [C]  When you feel my h[G]eat
 Look into my [Am]eyes
 It's where my demons [F]hide
@@ -67,21 +66,18 @@ Don't get too [G]close
 It's dark in[Am]side
 It's where my demons [F]hide
 It's where my demons [C]hide
+{end_of_chorus}
 
-[Bridge]
-
+{start_of_chorus}
 [C]  They say it's what you m[G]ake
 I say it's up to [Am]fate
 It's woven in my [F]soul
 I need to let you [C]go
 Your eyes, they shine so [G]bright
 I wanna save that [Am]light
-                     N.C.
-I can't escape this now
 Unless you show me [C]how
 
-[Chorus]
-
+{start_of_chorus}
 [C]  When you feel my h[G]eat
 Look into my [Am]eyes
 It's where my demons [F]hide
@@ -90,3 +86,4 @@ Don't get too [G]close
 It's dark in[Am]side
 It's where my demons [F]hide
 It's where my demons [C]hide
+{end_of_chorus}

@@ -1,62 +1,54 @@
 {title: }
 
-[Intro]
+{start_of_verse}
+{end_of_verse}
 
-[ch]Am[/ch]    [ch]F/C[/ch]    [ch]C[/ch]    [ch]G[/ch]    [ch]C[/ch]
+[Am]    [F/C]    [C]    [G]    [C]
 
-[Verse]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]C[/ch]
-
-Someone told me long ago[/tab]
+[C]Someone told me long ago
 [C]There's a calm before the storm, I kn[G]ow
 It's been coming fo[C]r some time
 
-[tab][ch]C[/ch]
-
-When it's over, so they say[/tab]
+[C]When it's over, so they say
 [C]It'll rain a sunny day, I kn[G]ow
 Shining down like w[C]ater
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]F[/ch]         [ch]G[/ch]
-
-I wanna know[/tab]
+[F]I wanna kno[G]w
 Have you [C]ever s[C/B]een the [Am]rain[Am/G]
 [F]I wanna kno[G]w
 Have you [C]ever s[C/B]een the [Am]rain[Am/G]
 [F]Coming dow[G]n on a sunny day[C]
 
-[Verse]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]C[/ch]
-
-Yesterday and days before[/tab]
+[C]Yesterday and days before
 [C]Sun is cold and rain is hard, I kn[G]ow
 Been that way for al[C]l my time
 
-[tab][ch]C[/ch]
-
-'Til forever on it goes[/tab]
+[C]'Til forever on it goes
 [C]Through the circle fast and slow, I kn[G]ow
 It can't stop, I wo[C]nder
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]F[/ch]         [ch]G[/ch]
-
-I wanna know[/tab]
+[F]I wanna kno[G]w
 Have you [C]ever s[C/B]een the [Am]rain[Am/G]
 [F]I wanna kno[G]w
 Have you [C]ever s[C/B]een the [Am]rain[Am/G]
 [F]Coming dow[G]n on a sunny day[C]
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]F[/ch]         [ch]G[/ch]
-
-I wanna know[/tab]
+[F]I wanna kno[G]w
 Have you [C]ever s[C/B]een the [Am]rain[Am/G]
 [F]I wanna kno[G]w
 Have you [C]ever s[C/B]een the [Am]rain[Am/G]

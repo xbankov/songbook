@@ -7,3 +7,5 @@ python-chordpro
 requests
 bs4
 lxml
+pdfkit
+jinja2

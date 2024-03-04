@@ -1,0 +1,13 @@
+.chord {
+  color: blue;
+}
+
+.chorus {
+  font-weight: bold;
+  color: green;
+}
+
+.verse-number {
+  font-weight: bold;
+  color: red;
+}

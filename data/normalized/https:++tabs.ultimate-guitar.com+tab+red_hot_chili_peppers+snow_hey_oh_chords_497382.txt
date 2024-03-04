@@ -1,20 +1,21 @@
 {title: }
 
-Capo on 4th fret.
+{capo: on 4th fret.}
 
-[Intro]
 
-[ch]Em[/ch] - [ch]C[/ch] - [ch]G[/ch] - [ch]D[/ch]
+
+{start_of_verse}
+{end_of_verse}
 
 [Em] - [C] - [G] - [D]
 [Em] - [C] - [G] - [D]
 [Em] - [C] - [G] - [D]
+[Em] - [C] - [G] - [D]
 
-[Verse 1]
+{start_of_verse}
+{end_of_verse}
 
-[tab]    [ch]Em[/ch]                      [ch]C[/ch]
-
-    Come to decide that the things that I tried[/tab]
+    [Em]Come to decide that the [C]things that I tried
     Were [G]in my life just t[D]o get high on.
 [Em]    When I sit alone, [C]come, get a little known,
     [G]But I need more than mys[D]elf this time.
@@ -22,18 +23,16 @@ Capo on 4th fret.
     And I [G]do believe that w[D]e rely on.
 [Em]    When I lay it on,[C] come, get to play it on, a[G]ll my life to sacr[D]ifice.
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab]    [ch]Em[/ch]   [ch]C[/ch]  -   [ch]G[/ch]        [ch]D[/ch]      [ch]Em[/ch]   [ch]C[/ch]  - [ch]G[/ch] - [ch]D[/ch]
-
-    Hey oh,       listen what I say, oh.[/tab]
+    [Em]Hey o[C]h,      [G] listen wh[D]at I say[Em], oh.[C][G][D]
     I got your, [Em]hey o[C]h,     [G]   now listen wh[D]at I say[Em], oh.[C][G][D]
 
-[Verse 2]
+{start_of_verse}
+{end_of_verse}
 
-[tab]    [ch]Em[/ch]                      [ch]C[/ch]
-
-    When will I know that I really can’t go[/tab]
+    [Em]When will I know that I [C]really can’t go
     To the [G]well once more, time t[D]o decide on.
 [Em]    When it’s killing me, [C]when will really see,
     [G]All that I need to l[D]ook inside?
@@ -42,23 +41,18 @@ Capo on 4th fret.
 [Em]    When it’s killing me, [C]what do I really need,
     [G]All that I need to l[D]ook inside?
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab]    [ch]Em[/ch]   [ch]C[/ch]  - [ch]G[/ch]          [ch]D[/ch]      [ch]Em[/ch]   [ch]C[/ch]  - [ch]G[/ch] - [ch]D[/ch]
-
-    Hey oh,       listen what I say, oh.[/tab]
+    [Em]Hey o[C]h,    [G]   listen wh[D]at I say[Em], oh.[C][G][D]
     Come back and, [Em]hey [C]oh,    [G]     look at wh[D]at I say[Em], oh.[C][G][D]
 
-[Bridge]
 
-[tab]    [ch]C[/ch]
 
-The more I see, the less I know,[/tab]
+The [C]more I see, the less I know,
 The more I like to let it go, [Em]hey [C]oh, oh oh oh.
 
-[tab][ch]G[/ch]                           [ch]D[/ch]
-
-Deep beneath the cover of another perfect wonder,[/tab]
+[G]Deep beneath the cover of ano[D]ther perfect wonder,
 Where it’s [Am]so white as snow.
 [G]Privately divided by a w[D]orld so undecided,
 And there’s [Am]nowhere to go.
@@ -67,17 +61,15 @@ Where it’s [Am]so white as snow.
 [G]Running through the field where all my t[D]racks will be concealed,
 And there’s [Am]nowhere to go.
 
-[Instrumental]
 
-[ch]Em[/ch] - [ch]C[/ch] - [ch]G[/ch] - [ch]D[/ch]
 
 [Em] - [C] - [G] - [D]
+[Em] - [C] - [G] - [D]
 
-[Verse 3]
+{start_of_verse}
+{end_of_verse}
 
-[tab]    [ch]Em[/ch]                  [ch]C[/ch]
-
-    When to descend to amend for a friend,[/tab]
+    [Em]When to descend to a[C]mend for a friend,
     All the [G]channels that have b[D]roken down.
 [Em]    Now you bring it up, [C]I’m gonna ring it up,
     [G]Just to hear you s[D]ing it out.
@@ -85,23 +77,18 @@ And there’s [Am]nowhere to go.
     And I [G]do believe what w[D]e rely on.
 [Em]    When I lay it on, [C]come, get to play it on, a[G]ll my life to sa[D]crifice.
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab]    [ch]Em[/ch]   [ch]C[/ch]  - [ch]G[/ch]          [ch]D[/ch]      [ch]Em[/ch]   [ch]C[/ch]  - [ch]G[/ch] - [ch]D[/ch]
-
-    Hey oh,       listen what I say, oh.[/tab]
+    [Em]Hey o[C]h,    [G]   listen wh[D]at I say[Em], oh.[C][G][D]
     I got your, [Em]hey [C]oh,    [G]    listen wh[D]at I say[Em], oh.[C][G][D]
 
-[Bridge]
 
-[tab]    [ch]C[/ch]
 
-The more I see, the less I know,[/tab]
+The [C]more I see, the less I know,
 The more I like to let it go, [Em]hey [C]oh, oh oh oh.
 
-[tab][ch]G[/ch]                          [ch]D[/ch]
-
-Deep beneath the cover of another perfect wonder,[/tab]
+[G]Deep beneath the cover of an[D]other perfect wonder,
 Where it’s [Am]so white as snow.
 [G]Privately divided by a w[D]orld so undecided,
 And there’s [Am]nowhere to go.
@@ -110,16 +97,13 @@ Where it’s [Am]so white as snow.
 [G]Running through the field where all my t[D]racks will be concealed,
 And there’s [Am]nowhere to go.
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab]            [ch]G[/ch]        [ch]D[/ch]        [ch]Am[/ch]
-
-    I said, hey, hey yeah, oh yeah, tell my love now![/tab]
+    I said, [G]hey, hey y[D]eah, oh ye[Am]ah, tell my love now!
     [G]Hey, hey y[D]eah, oh ye[Am]ah, tell my love now!
 
-[tab][ch]G[/ch]                          [ch]D[/ch]
-
-Deep beneath the cover of another perfect wonder,[/tab]
+[G]Deep beneath the cover of an[D]other perfect wonder,
 Where it’s [Am]so white as snow.
 [G]Privately divided by a w[D]orld so undecided,
 And there’s [Am]nowhere to go.
@@ -128,15 +112,14 @@ Where it’s [Am]so white as snow.
 [G]Running through the field where all my t[D]racks will be concealed,
 And there’s [Am]nowhere to go.
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab]            [ch]G[/ch]        [ch]D[/ch]        [ch]Am[/ch]
-
-    I said, hey, hey yeah, oh yeah, tell my love now![/tab]
+    I said, [G]hey, hey y[D]eah, oh ye[Am]ah, tell my love now!
     [G]Hey, hey y[D]eah, oh ye[Am]ah, tell my love now!
 
-[Outro]
+{start_of_verse}
+{end_of_verse}
 
-[ch]G[/ch] - [ch]D[/ch] - [ch]Am[/ch]
-
+[G] - [D] - [Am]
 [G] - [D] - [Am]

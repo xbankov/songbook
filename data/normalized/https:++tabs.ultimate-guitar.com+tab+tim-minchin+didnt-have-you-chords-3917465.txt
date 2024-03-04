@@ -1,64 +1,56 @@
 {title: Didnt have you}
 
-[Intro]
-
+{start_of_verse}
 [Cm]Yeah, y[Fm]eah...
 [Dm]If I didn't [G7]have you
+{end_of_verse}
 
-[ch]Cm[/ch] [ch]Fm[/ch] [ch]Dm[/ch] [ch]G7[/ch]
+[Cm] [Fm] [Dm] [G7]
 
-[Verse 1]
-
+{start_of_verse}
 If I di[Cm]dn't have you to h[Fm]old me ti[Dm7]ght
        [G7]
 If I di[Cm]dn't have you to l[Fm]ie with at n[Dm7]ight
        [G7]
 If I di[Cm]dn't have you to share m[Fm]y sighs
 And to k[Dm]iss me and dry my te[G]ars when I cry
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 Well [Ab]I
 Really think that I w[Bb]ould
+{end_of_chorus}
 
-Have somebody else
 
-[ch]Cm[/ch] [ch]Fm[/ch] [ch]Dm[/ch] [ch]G7[/ch]
 
-[tab]      [ch]Cm[/ch]
+[Cm] [Fm] [Dm] [G7]
 
-If I didn't have you[/tab]
+If I d[Cm]idn't have you
 [Fm]Someone else would [G]do[G7]
 
-[Verse 2]
-
+{start_of_verse}
 [Cm]Your love is o[Fm]ne in a mill[G]ion
+{end_of_verse}
 
-[tab]              [ch]Cm[/ch]            [ch]Fm[/ch]
-
-You couldn't buy it at any price[/tab]
+You couldn't b[Cm]uy it at any p[Fm]rice
  [Dm]         [G7]
 But of the n[Cm]ine-point-nine-nine-nine-hundred-tho[Fm]usand other possible loves
 S[Dm]tatistically, some of them would be e[G7]qually nice
 Or m[Ab]aybe not as nice but, say, sm[Bb]arter than you
 Or du[Ab]mber but better at sport or... fu[Bb]cking... tracing?
 
-[Chorus]
-
+{start_of_chorus}
 I'm just sa[Ab]ying
-
-I really think that I would
+{end_of_chorus}
 
 [Bb]Probably
 
-Have somebody else
 
-[ch]Cm[/ch] [ch]Fm[/ch] [ch]Dm[/ch] [ch]G7[/ch]
 
+[Cm] [Fm] [Dm] [G7]
 If I di[Cm]dn't have you som[Fm]eone else would [G]do[G7]
 
-[Verse 3]
-
+{start_of_verse}
 [Cm]If I were a rich man[Fm]
 Fiddle diddle diddle di[Dm]ddle diddle diddle diddle d[G7]ee
 I g[Cm]uess I would be with a su[Fm]rgeon or a model
@@ -67,8 +59,7 @@ Or a n[Cm]ymphomaniacal exhibit[Fm]ionist heiress
 [Dm]To a large chain of ho[G7]tels
 [Cm]If I were a rich man, m[Fm]aybe I would fiddle
 F[Dm]iddle diddle diddle with the r[G7]ich man gi[Cm]rls
-
-[Bridge 1]
+{end_of_verse}
 
 [Cm]I'm not saying that I'd not l[Fm]ove you
 If [Dm]I was wealthy or hand[G7]some
@@ -77,23 +68,17 @@ And if I [Dm]had a different rod, I would conc[G7]eivably land some
 [Cm]Even though I am fiscally consistently pit[Fm]iable
 And considerably less 'Brad Pitt' than 'Brad pit[G]iful'
 
-Am I really so poor and ugly that you think
-
 Only you could possibly l[Ab]ove me?
 
-[Chorus]
-
-And I Really think that I would
+{start_of_chorus}
+{end_of_chorus}
 
 [Bb]Probably
 
-Have somebody else
 
-[ch]Cm[/ch] [ch]Fm[/ch] [ch]Dm[/ch] [ch]G7[/ch]
 
+[Cm] [Fm] [Dm] [G7]
 If I d[Cm]idn't have you som[Fm]eone else would [Dm]do[G7]
-
-[Bridge 2]
 
 Look, I'm [Cm]not undervaluing what we've g[Fm]ot when I say
 That, given the r[Dm]ole chaos ine[G7]vitably plays
@@ -108,26 +93,19 @@ Love is nothing to do with destined perf[G]ection
 The conne[G7]ction is strengthened
 The affection simply grows over t[Ab]ime
 
-[tab]        [ch]Ab[/ch]
-
-Like a flower[/tab]
+Like a f[Ab]lower
 Or a mus[Bb]hroom
-
-Or a guinea pig
 
 Or a v[Ab]ine
 
-Or a sponge
 
-Or bigotry
 
 [Bb]...or a banana
 And l[Ab]ove is made more powerful
 By the ongoing [Bb]drama of shared experience
 And the sy[Ab]nergy of a kind of symbiotic em[Bb]pathy, or something
 
-[Verse 4]
-
+{start_of_verse}
 So I t[Cm]rust it would go without s[Fm]aying
 That I would f[Dm]eel really very s[G7]ad
 If tom[Cm]orrow you were to fall off some[Fm]thing high
@@ -136,18 +114,15 @@ But I'm just sa[Ab]ying
 I don't think you're spec[Bb]ial
 I mean, I think you're spe[Ab]cial
 But, you fall within a bell c[Bb]urve
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 I mean, I'm just sa[Ab]ying I
-
-Really think that I would
+{end_of_chorus}
 
 [Bb]Probably
 
-Have somebody else
 
-[Bridge 3]
 
 [Cm]I think you are u[Fm]nique and b[G]eautiful
 You make me h[Cm]appy just by b[Fm]eing ar[G]ound
@@ -157,15 +132,12 @@ Opt[Dm]ions were relatively th[G7]in on the ground
 You're lo[Ab]vely but there must be girls as lo[Bb]vely as you
 Or ma[Ab]ybe more open to span[Bb]king, or table ten[Ab]nis...
 
-[Chorus]
-
-I really think that I would
+{start_of_chorus}
+{end_of_chorus}
 
 [Bb]Probably
 
-Have somebody else
 
-[Bridge 4]
 
 [Cm]I mean I reckon it's pretty l[Fm]ikely that if for exa[G]mple
 My first girlfr[G7]iend, Jackie, hadn't dumped me
@@ -188,23 +160,20 @@ And b[G7]rews her own beer
 And rea[Cm]lly likes making home mo[Fm]vies
 And suf[Dm]fers neck down alo[G7]pecia
 
-[Outro]
-
+{start_of_verse}
 But with a[Ab]ll my heart and all my mind
 I k[Bb]now one thing is true
 I have j[Ab]ust one life and just one love
 And my l[Bb]ove, that love is you
 And if it w[Fm]asn't for y[Gm]ou
 Darling, y[Ab]ou
-
-I really think that I would
+{end_of_verse}
 
 [Bb]Possibly
 
-Have somebody else
 
-[ch]Cm[/ch] [ch]Fm[/ch] [ch]Dm[/ch] [ch]G7[/ch]
 
+[Cm] [Fm] [Dm] [G7]
 If I di[Cm]dn't have you, d[Fm]o do do do
 Someone e[Dm]lse would surely [G7]do
 Ba doo ba [Cm]do ba ba d[G7]oo oh y[Cm]eah

@@ -1,41 +1,37 @@
 {title: Somebody to love}
 
-[Intro]
-
-Can
+{start_of_verse}
+{end_of_verse}
 
 [G]Any[D/F#] ......[Em] bo..[C].dy
 [D7]Find me
 [C]Somebody [G/D]to.[D].. lo[G]ve
 
-[Instrumental]
 
-[ch]G[/ch] [ch]D/F#[/ch]     [ch]Em[/ch]   [ch]C[/ch]
 
-[Verse 1]
+[G] [D/F#]     [Em]   [C]
 
-[tab]         [ch]G[/ch]         [ch]D/F#[/ch]      [ch]Em[/ch]
+{start_of_verse}
+{end_of_verse}
 
-Oh, each morning I get up, I die a little[/tab]
+Oh, each [G]morning I g[D/F#]et up, I[Em] die a little
 Can [G]barely sta[A7]nd on my fe[D]et
 (Take a l[G]ook at yourself) Take a l[D/F#]ook in the [Em]mirror and cry
 [A7]Lord what you're doing to [D]me
 I have to s[G]pend all my y[A7]ears in beli[D]eving you
 But I just can't [A7]get no rel[D]ief, L[C]ord
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]G[/ch]
-
-Somebody (somebody) ooh somebody (somebody)[/tab]
+[G]Somebody (somebody) ooh somebody (somebody)
 Can [G]anyb[D/F#]ody [Em]find[C] me[D7]
 somebody to l[G]ove?[D/F#][Em][C][D]
 
-[Verse 2]
+{start_of_verse}
+{end_of_verse}
 
-[tab]       [ch]G[/ch]                          [ch]D/F#[/ch]       [ch]Em[/ch]
-
-I work hard (he works hard) every day of my life[/tab]
+I work [G]hard (he works hard) every d[D/F#]ay of my [Em]life
 I w[G]ork till I a[A7]che my b[D]ones
 At the e[G]nd (at[D/F#] the end of the day)
 [Em] I take home my [A7]hard earned pay all on my o[D]wn
@@ -43,128 +39,69 @@ I get [G]down (down) on my k[A7]nees (knees)
 And I s[D]tart to pray (praise the Lord)
 Till the tears run [A7]down from my [D]eyes[C]
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab]      [ch]G[/ch]
-
-Lord somebody (somebody) ooh somebody (please)[/tab]
+Lord s[G]omebody (somebody) ooh somebody (please)
 Can [G]anyb[D/F#]ody [Em]find[C] me[D7]
 somebody to l[G]ove?[G7]
 
-[Bridge]
 
-[tab] [ch]C[/ch]
 
-(He works hard)[/tab]
-everyday
+([C]He works hard)
 I [C7]try and I try and I try
 But [F]everybody wants to put me down
 They say [Fm]I'm going crazy
 [A7]They say I got a lot of water in my brain
-Got no common sense
 I got nobody left to bel[D]ieve
-Yeah - yeah yeah yeah ...
-
-[Solo]
 
 (Solo chords:  [G] [D/F#] [Em] [G] [A7] [D] [G] [D/F#] [Em] [A7] [D] [G] [A7] [D] [A7] [D] [C])
 
-[tab]e|---------------------------------------------------------11----------|
-
 B|-11b-----r------11b--------11p9--------------9----11b--------11br-p9-|
-G|--------------------------------10-------8---------------------------|
-D|---------------------------------------------------------------------|
-A|---------------------------------------------------------------------|
-E|---------------------------------------------------------------------|[/tab]
-
-[tab]e|-------------------------8-------8-----------------------------------|
 
 B|-11-------------9---11b-----11b-----11b--11b----11br-p9------11br-p9-|
-G|-----8---8/(10)-----------------------------------------10-----------|
-D|---------------------------------------------------------------------|
-A|---------------------------------------------------------------------|
-E|---------------------------------------------------------------------|[/tab]
 
-[tab]e|---------------------------------------------------------------------|
-
-B|-11-----11b-----------------------16b-----16---14---13-14--br--13-15-|[/tab]
+B|-11-----11b-----------------------16b-----16---14---13-14--br--13-15-|
 [G]D|---------------------------------------------------------------------|
-A|---------------------------------------------------------------------|
-E|---------------------------------------------------------------------|[/tab]
-
-[tab]e|------------------15--16--18----0------------------------------------|
 
 B|-16--br--15-16-18------------------------------------------11-10-9-8-|
-G|---------------------------------------8--10-10br-p8--10p8-----------|
-D|------------------------------------8--------------------------------|
-A|---------------------------------------------------------------------|
-E|---------------------------------------------------------------------|[/tab]
-
-[tab]e|---------------------------------------------------|------|
 
 B|---------------------------------------------------|------|
-G|-10br--8---------8---8---10------10p9p8------------|------|
-D|---------10------------------10----------6--8--6h8-|-6----|
-A|---------------------------------------------------|------|
-E|---------------------------------------------------|------|[/tab]
 
-[Chorus]
-
-Oh, Lord
+{start_of_chorus}
+{end_of_chorus}
 
 [G]Somebody (somebody), Somebody (somebody)
 Can [G]anyb[D/F#]ody [Em]find[C] me[D7]
 somebody to l[G]ove?
 (Any[D/F#]body[Em] fin[C]d me[D] someone to love)
 
-[Verse 3]
+{start_of_verse}
+{end_of_verse}
 
-[tab]        [ch]G[/ch]   [ch]D/F#[/ch]      [ch]Em[/ch]
-
-Got no feel, I got no rhythm[/tab]
+Got no f[G]eel, [D/F#]I got no[Em] rhythm
 I j[G]ust keep los[A7]ing my be[D]at (you just keep losing and losing)
 I'm [G]ok, I'm a[D/F#]lright (he's alright)
 [Em]Ain't [A7]gonna face no de[D]feat
 I just [G]gotta get o[A7]ut of this pr[D]ison cell
 Someday I'm [A7]gonna be f[D]ree L[C]ord!
 
-[Outro]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]G[/ch]
-
-Find me somebody to love, find me somebody to love[/tab]
-Find me somebody to love, find me somebody to love
-Find me somebody to love, find me somebody to love
-Find me somebody to love, find me somebody to love, love, love, love
 [G]Find me somebody to love, find me somebody to love
-Somebody, somebody, somebody, somebody,
-somebody find me, somebody find me
+[G]Find me somebody to love, find me somebody to love
 
-Somebody to love
 
-[tab]    [ch]G[/ch]  [ch]D/F#[/ch]  [ch]Em[/ch]  [ch]C[/ch]  [ch]D7[/ch]
 
-Can anybody find me[/tab]
-
-somebody to ...
+Can [G]anyb[D/F#]ody [Em]find[C] me[D7]
 
 ... l[G]ove ...
 
-[tab][ch]D/F#[/ch]    [ch]Em[/ch]        [ch]C[/ch] [ch]D[/ch] [ch]G[/ch]
-
-Find me somebody to  love  [/tab]
+[D/F#]Find m[Em]e somebody[C] to[D]  l[G]ove  
 [D/F#]Find me ...
 
-*************************
 
-| h   Hammer-on
 
-| p   Pull-off
-| /   Slide up
-| b   Bend
-| r   Release
-| br  Bend &amp; release
-| X   Dead note
-| (n) Ghost note
 
-*************************
+

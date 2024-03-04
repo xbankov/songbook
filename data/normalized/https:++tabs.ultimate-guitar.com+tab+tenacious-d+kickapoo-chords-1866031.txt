@@ -1,113 +1,94 @@
 {title: Kickapoo}
 
-[Intro]
+{start_of_verse}
+{end_of_verse}
 
-[ch]Dm[/ch] [ch]Am[/ch] [ch]F[/ch] [ch]C[/ch] [ch]G[/ch]
+[Dm] [Am] [F] [C] [G]
 
-[Verse 1]
+{start_of_verse}
+{end_of_verse}
 
-[tab]   [ch]Dm[/ch]
-
-A long ass fuckin' time ago, In a town called Kickapoo,[/tab]
+A l[Dm]ong ass fuckin' time ago, In a town called Kickapoo,
 There l[Am]ived a humble family, Religious through and through.
 But y[F]ay there was a black sheep, And he kn[C]ew just what to do.[G]
 
-[tab]     [ch]Dm[/ch]
-
-His name was young J.B., and he refused to step in-line.[/tab]
+His n[Dm]ame was young J.B., and he refused to step in-line.
 A [Am]vision he did see-th, Fucking rocking all the time.
 He wr[F]ote a tasty jam, And all the pla[C]nets did alig[G]n.
- 
 
-[Verse 2]
+{start_of_verse}
+{end_of_verse}
 
-[tab]         [ch]A[/ch]                                 [ch]C[/ch]
-
-Oh the dragon's balls were blazin', As I stepped into his cave.[/tab]
+Oh the dr[A]agon's balls were blazin', As I ste[C]pped into his cave.
 Then I sl[G]iced his fuckin' cockles, With a l[Bb]ong and shiny blade!
 Twas [A]I who fucked the dragon, Fuckali[C]zing fuckaloo!      
 And [G]if you try to fuck with me, Then [Bb]I shall fuck you t[A]oo!
-    
 G[C]otta get it o[G]n in the party zone![A][Asus4][A][Asus4][A]
 [C]I gots to shoot a lo[G]ad in the party zone![A][Asus4][A][Asus4][A]
 G[C]otta lick a toa[G]d in a party zone![A][Asus4][A][Asus4][A]
 G[C]otta suck a cho[G]de in the party zone![A][Asus4][A][Asus4][A]
 
-[Instrumental]
 
-[ch]G5[/ch]  [ch]Bb5[/ch] [ch]F5[/ch]  [ch]G#5[/ch]
 
-[Verse 3]
+[G5]  [Bb5] [F5]  [G#5]
 
-[tab]       [ch]G5[/ch]                            [ch]Bb5[/ch] 
+{start_of_verse}
+{end_of_verse}
 
-You've disobeyed my orders son, Why were you ever born?[/tab]
+You've [G5]disobeyed my orders son, Why w[Bb5]ere you ever born?
 Your b[F5]rother's ten times better than you, J[G#5]esus loves him more.
 This [G5]music that you play for us Comes [Bb5]from the depths of hell.
 R[F5]ock and roll's the devil's work, He w[G#5]ants you to rebel.
 You'll [G5]become a mindless puppet; Beelze[Bb5]bub will pull the strings!
 Your [F5]heart will lose direction, And ch[G#5]aos it will br[G5]ing.
 
-[tab][ch]Bb[/ch]                     [ch]F[/ch]                               [ch]G5[/ch] [ch]C5[/ch] [ch]G5[/ch] [ch]C5[/ch] [ch]G5[/ch]
-
-You'd better shut your mouth, You better watch your tone![/tab]
+[Bb]You'd better shut your [F]mouth, You better watch your tone[G5]![C5][G5][C5][G5]
 You're g[Bb]rounded for a w[F]eek with no telephon[G5]e![C5][G5][C5][G5]
 D[Bb]on't let me hear you cr[F]y, Don't let me hear you moa[G5]n![C5][G5][C5][G5]
 Y[Bb]ou gotta praise The L[F]ord when you're in my home[G5]![C5][G5][C5][G5]
 
-[Verse 4]
+{start_of_verse}
+{end_of_verse}
 
-[tab] [ch]G[/ch]                         [ch]Bb[/ch]
-
-Dio can you hear me? I am lost and so alone...[/tab]
+D[G]io can you hear me? I am lo[Bb]st and so alone...
 I'm [F]askin' for your guidance, Won't you co[G#]me down from your throne?    
 I ne[G]ed a tight compadre Who will te[Bb]ach me how to rock.    
 My F[F]ather thinks you're evil, But man, h[G#]e can suck a cock.   
 R[G]ock is not the devil's work, It's ma[Bb]gical and rad.  
 I'll n[F]ever rock as long as I am Stu[G#]ck here with my Da[G]d...
 
-[Instrumental]
 
-[ch]G5[/ch] [ch]Bb5[/ch]  [ch]F5[/ch] [ch]G#5[/ch] 
 
-  
+[G5] [Bb5]  [F5] [G#5] 
 
-[Verse 5]
 
-[tab]  [ch]C5[/ch]                                    [ch]C5[/ch]
 
-I hear you brave young Jables, You are hungry for the rock.[/tab]
+I [C5]hear you brave young Jables, You are h[C5]ungry for the rock.
 But to [C5]learn the ancient method, Sacred d[Bb5]oors you must unlock.  
 Es[C5]cape your father's clutches, On this [C5]oppressive neighborhood.                 
 On a j[C5]ourney you must go, To find the [Bb5]land of Hollywood[C5]!    
 
-[tab]        [ch]C5[/ch]                             [ch]F5[/ch]              [ch]G#5[/ch]
-
-In The City of Fallen Angels, Where the ocean meets the sand,   [/tab]
+In The C[C5]ity of Fallen Angels, Where the[F5] ocean meets the[G#5] sand,   
 You will f[C5]orm a strong alliance, And the w[F5]orld's most awesome [G#5]band!    
 To f[C5]ind your fame and fortune, Through the [F5]valley you must [G#5]walk.   
 You will f[C5]ace your inner demons. Now [F5]go my [G#5]son and [G5]rock!
 
-[Instrumental]
 
-[ch]G5[/ch] ....  [ch]D#5[/ch] [ch]D#5[/ch] [ch]D5[/ch]    x3    [ch]C5[/ch] [ch]D5[/ch] [ch]D#5[/ch] [ch]F5[/ch]
 
 [G5] ....  [D#5] [D#5] [D5]    x3    [C5] [D5] [D#5] [F5]
+[G5] ....  [D#5] [D#5] [D5]    x3    [C5] [D5] [D#5] [F5]
 
-[Verse 6]
+{start_of_verse}
+{end_of_verse}
 
-[tab]      [ch]G5[/ch]
-
-So he bailed from fuckin' Kickapoo With hunger in his heart.[/tab]
+So he [G5]bailed from fuckin' Kickapoo With hunger in his heart.
 And he [D5]journeyed far and wide To find the secrets of his art
 But [Bb5]in the end he knew That he would [C5]find his counterpart.
-            
 
-[Outro]
+{start_of_verse}
+{end_of_verse}
 
-[tab]                   [ch]G5[/ch] ....  [ch]D#5[/ch] [ch]D#5[/ch] [ch]D5[/ch]    x3 
-
-                   Roooooooooooooooooooooock        [/tab]
+                   [G5]Roooooooo[D#5]ooo[D#5]ooo[D5]oooooooock        
 [C5]ro--[D5]-o--[D#5]-o--[F5]-o----[G5]-ock[D#5][D#5][D5]
 [C5]ro--[D5]-o--[D#5]-o--[F5]-i----[G5]-iyaya ya[D#5]yay[D#5] ya[D5]yaya  
 [C5]Rock[D5][D#5][F5][G5][D#5][D#5][D5]

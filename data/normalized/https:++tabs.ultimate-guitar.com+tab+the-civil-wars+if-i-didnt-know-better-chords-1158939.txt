@@ -1,65 +1,46 @@
 {title: If i didnt know better}
 
-[Intro]
+{start_of_verse}
+{end_of_verse}
 
-[tab]   [ch]Am[/ch]
+e|-[Am]-------------------|
 
-e|--------------------|
-B|--------------------|
-G|--------------------|
-D|--------------------| x2
-A|--------------------|
-E|----------0--0-3--3-|[/tab]
+{start_of_verse}
+{end_of_verse}
 
-[Verse 1]
-
-[tab] [ch]Am[/ch]
-
-If I didn't know better I'd hang my hat right there[/tab]
+I[Am]f I didn't know better I'd hang my hat right there
 I[E]f I didn't know better I'd f[Am]ollow you up the stairs
 [Am]Stop saying those sweet things you know I like to hear
 Th[E]e horns are blowing louder and t[Am]hey're destroying me
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]Dm[/ch]        [ch]Am[/ch]
-
-Why do I keep drinking[/tab]
+[Dm]Why do I k[Am]eep drinking
 [Dm]Wasting my time[Am] on you
 If [Dm]I didn't k[E]now better
 But damnit, I[Am] do
 
-[Verse 2]
+{start_of_verse}
+{end_of_verse}
 
-[tab]          [ch]Am[/ch]
-
-There's a hole in what you're saying, I can plainly see[/tab]
+There's a [Am]hole in what you're saying, I can plainly see
 You [E]have a lover that's waiting but b[Am]aby you're right here with me
 Ooh, you [Am]might as well be the devil, keeping me out past three
 Well, you're [E]the one with that apple, so b[Am]aby you can't blame me
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab]    [ch]Dm[/ch]        [ch]Am[/ch]
-
-Oh, why don't you keep drinking[/tab]
+Oh, [Dm]why don't [Am]you keep drinking
 [Dm]Get me one night [Am]with you
 If [Dm]I didn't k[E]now better
 But damnit, I[Am] do
 
-(do intro bit one more time here)
 
-[tab]   [ch]Am[/ch]
 
-e|--------------------|
-B|--------------------|
-G|--------------------|
-D|--------------------|
-A|--------------------|
-E|----------0--0-3--3-|[/tab]
+e|-[Am]-------------------|
 
-[tab][ch]Am[/ch]
-
-   Oh, you know that I do[/tab]
+[Am]   Oh, you know that I do
 Oh baby, you're right h[Am]ere with me
 Oh baby, you know that I [Am]do

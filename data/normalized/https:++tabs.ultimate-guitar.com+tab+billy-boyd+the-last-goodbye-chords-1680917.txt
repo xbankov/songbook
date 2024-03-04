@@ -1,23 +1,21 @@
 {title: The last goodbye}
 
-Billy Boyd - The Last Goodbye - The Hobbit: The Battle of the Five Armies
+{capo: 5}
 
-capo 5
 
-[Verse 1]
 
-[tab][ch]G[/ch]
+{start_of_verse}
+{end_of_verse}
 
-        I saw the light fade from the sky[/tab]
+[G]        I saw the light fade from the sky
 On the wind[G] I heard a sigh
 As the snow[Em]flakes cover [C]my fallen [Em]brothe[C]rs
 I will sa[G]y this l[C]ast goodbye[G]
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]Em[/ch]                      [ch]C[/ch]
-
-        Night is now falling[/tab]
+[Em]        Night is now fal[C]ling
 [G]        So ends this day[D]
 [Em]        The road is now [C]calling
 [G]        And I must away[D]
@@ -25,11 +23,10 @@ I will sa[G]y this l[C]ast goodbye[G]
 Through lands where n[Am]ever light has s[C]hone
 By silver stream[G]s that run down[C] to the sea[Dsus4][D]
 
-[Verse 2]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]Em[/ch]                     [ch]C[/ch]
-
-Under cloud, beneath the stars[/tab]
+[Em]Under cloud, beneath th[C]e stars
 Over snow on[Am]e winter’s morn[C]
 I turn at last[G] to paths t[C]hat lead home[Dadd4][D]
 [Am]        And though where the r[C]oad then takes m[Em]e
@@ -37,19 +34,15 @@ I cannot tell[D]
 [Am]     We came all this way[C]
 But now comes the d[Em]ay to bid you fare[Dadd4]well[D]
 
-[tab]           [ch]G[/ch]       [ch]C[/ch]     [ch]G[/ch]
-
-Many places I have been[/tab]
+Many places[G] I have b[C]een[G]
 Many sorrow[G]s I have [C]seen[G]
 But I d[Em]on’t regr[C]et, nor will[Em] I forget[C]
 All who took[G] that ro[C]ad with me[G]
- 
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]Em[/ch]                      [ch]C[/ch]
-
-        Night is now falling[/tab]
+[Em]        Night is now fal[C]ling
 [G]        So ends this day[D]
 [Em]        The road is now [C]calling
 [G]        And I must away[D]
@@ -57,11 +50,10 @@ All who took[G] that ro[C]ad with me[G]
 Through lands where [Am]never light has shon[C]e
 By silver stream[G]s that run down[C] to the sea[Dadd4][D]
 
-[Verse 3]
+{start_of_verse}
+{end_of_verse}
 
-[tab]                [ch]Em[/ch]                [ch]C[/ch]
-
-To these memories I will hold[/tab]
+To these memorie[Em]s I will hold[C]
 With your b[Am]lessing I will go[C]
 To turn at [G]last to pa[C]ths that lead ho[Dadd4]me[D]
 [Am]And though where the r[C]oad then takes [Em]me
@@ -69,6 +61,5 @@ I cannot tell[D]
 [Am]We came all this way[C]
 But now comes the d[Em]ay to bid you fare[Dadd4]well[D]
 
-[ch]C[/ch]  [ch]Em[/ch]  x3
-
+[C]  [Em]  x3
 I bid you a[C]ll a very fond farewel[G]l

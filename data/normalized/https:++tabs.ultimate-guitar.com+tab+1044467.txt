@@ -1,42 +1,40 @@
 {title: }
 
-Don't Fear The Reaper chords
+{capo: V}
 
-Blue Oyster Cult 1976 (Agents of Fortune)**
 
-[Intro]
 
-[ch]Am[/ch] [ch]G[/ch] [ch]F[/ch] [ch]G[/ch]  2x
+{start_of_verse}
+{end_of_verse}
 
-[Verse]
+[Am] [G] [F] [G]  2x
 
-[tab][ch]Am[/ch] [ch]G[/ch]    [ch]F[/ch]     [ch]G[/ch]    [ch]Am[/ch]   [ch]G[/ch] [ch]F[/ch] [ch]G[/ch]
+{start_of_verse}
+{end_of_verse}
 
-All our times have come[/tab]
+{start_of_verse}
+[Am]All[G] our t[F]imes ha[G]ve com[Am]e[G][F][G]
 [Am]Her[G]e but n[F]ow th[G]ey're gon[Am]e[G][F][G]
 [F]Seasons don't f[G]ear the re[Am]aper
 Nor do the [F]wind, the s[E7]un or the r[Am]ain..we can b[G]e like th[Am]ey are
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]G[/ch]       [ch]Am[/ch]           [ch]G[/ch]        [ch]Am[/ch] *
-
-Come on baby...don't fear the reaper[/tab]
+[G]Come on b[Am]aby...don't f[G]ear the re[Am]aper
 Baby [G]take my h[Am]and...don't f[G]ear the re[Am]aper
 We'll be [G]able to f[Am]ly...don't f[G]ear the re[Am]aper
 Baby [G]I'm your m[Am]an...
 
-[tab][ch]Am[/ch] [ch]G[/ch] [ch]F[/ch]  [ch]G[/ch]  [ch]Am[/ch] 
+[Am]La [G]  l[F]a la[G] la [Am] 2x
 
-La   la la la  2x[/tab]
+[Am] [G] [F] [G]  2x
 
-[ch]Am[/ch] [ch]G[/ch] [ch]F[/ch] [ch]G[/ch]  2x
+{start_of_verse}
+{end_of_verse}
 
-[Verse]
-
-[tab][ch]Am[/ch] [ch]G[/ch] [ch]F[/ch]    [ch]G[/ch]  [ch]Am[/ch]   [ch]G[/ch] [ch]F[/ch] [ch]G[/ch]
-
-Valentine is done[/tab]
+{start_of_verse}
+[Am]Val[G]ent[F]ine is[G] don[Am]e[G][F][G]
 [Am]Her[G]e but n[F]ow th[G]ey're gon[Am]e[G][F][G]
 [F]Romeo[G] and Ju[Am]liet
 Are to[F]gether in e[E7]ternit[Am]y...Rome[G]o and Ju[Am]liet
@@ -44,28 +42,25 @@ Are to[F]gether in e[E7]ternit[Am]y...Rome[G]o and Ju[Am]liet
 40,000 [E7]men and women [Am]everyday...Rede[G]fine h[Am]appiness
 Another 40,[E7]000 coming [Am]everyday...We can [G]be like t[Am]hey are
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]G[/ch]       [ch]Am[/ch]           [ch]G[/ch]        [ch]Am[/ch] 
-
-Come on baby...don't fear the reaper[/tab]
+[G]Come on b[Am]aby...don't f[G]ear the re[Am]aper
 Baby [G]take my h[Am]and...don't f[G]ear the re[Am]aper
 We'll be [G]able to f[Am]ly...don't f[G]ear the re[Am]aper
 Baby [G]I'm your m[Am]an...
 
-[tab][ch]Am[/ch] [ch]G[/ch] [ch]F[/ch]  [ch]G[/ch]  [ch]Am[/ch] 
+[Am]La [G]  l[F]a la[G] la [Am] 2x
 
-La   la la la  2x[/tab]
+{start_of_chorus}
 
-[Break]
+[Am] [G] [F] [G]  2x
 
-[ch]Am[/ch] [ch]G[/ch] [ch]F[/ch] [ch]G[/ch]  2x
+{start_of_verse}
+{end_of_verse}
 
-[Verse]
-
-[tab][ch]Am[/ch] [ch]G[/ch]    [ch]F[/ch]   [ch]G[/ch]  [ch]Am[/ch]   [ch]G[/ch] [ch]F[/ch] [ch]G[/ch]
-
-Love of two is one[/tab]
+{start_of_verse}
+[Am]Lov[G]e of t[F]wo is[G] one[Am][G][F][G]
 [Am]Her[G]e but n[F]ow th[G]ey're gon[Am]e[G][F][G]
 [F]Came the last n[G]ight of sa[Am]dness
 And it was [F]clear she c[G]ouldn't go on[Am]
@@ -73,26 +68,25 @@ Then the [F]door was open and the w[G]ind appe[Am]ared
 The [F]candles b[G]lew then di[Am]sappeared
 The [F]curtains f[G]lew then he[Am] appeared...saying do[G]n't be afra[Am]id
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]G[/ch]       [ch]Am[/ch]             [ch]G[/ch]      [ch]Am[/ch]
-
-Come on baby...and she had no fear[/tab]
+{start_of_chorus}
+[G]Come on b[Am]aby...and she h[G]ad no fe[Am]ar
 And she [G]ran to h[Am]im...then they s[G]tarted to fl[Am]y
 They looked [G]backward and s[Am]aid goodby...she had b[G]ecome like th[Am]ey are
 She had [G]taken his h[Am]and...she had b[G]ecome like th[Am]ey are
 [G]Come on b[Am]aby...don't f[G]ear the re[Am]aper . . .
 
-* It has been suggested that F is a better fit then Am
 
-** Alternate
 
-Capo V
 
-[ch]Am[/ch] = [ch]Em[/ch]
 
+
+
+{start_of_chorus}
+[Am] = [Em]
 [G]  = [D]
 [F]  = [C]
 [E7] = [B7]
 
-Set8

@@ -1,68 +1,65 @@
 {title: Hey jude}
 
-Hey Jude chords
+{capo: III}
 
-The Beatles 1968 
 
-Capo III
 
-[Verse]
 
-[tab]    [ch]D[/ch]                   [ch]A[/ch]           [ch]A7[/ch]  [ch]Asus4[/ch]    [ch]A[/ch]       [ch]D[/ch]
 
-Hey Jude, don’t make it bad, take a sad song and make it better[/tab]
+{start_of_verse}
+{end_of_verse}
+
+{start_of_verse}
+Hey [D]Jude, don’t make it b[A]ad, take a sa[A7]d so[Asus4]ng and[A] make it [D]better
 Re[G]member to let her into your h[D]eart, then you can st[A]art to mak[A7]e it bet[D]ter
 
-[tab]    [ch]D[/ch]               [ch]A[/ch]               [ch]A7[/ch]   [ch]Asus4[/ch] [ch]A[/ch]       [ch]D[/ch]
-
-Hey Jude, don’t be afraid, you were made to go out and get her [/tab]
+{start_of_verse}
+Hey [D]Jude, don’t be af[A]raid, you were ma[A7]de to[Asus4] go[A] out and [D]get her 
 The [G]minute you let her under your s[D]kin, then you begi[A]n to mak[A7]e it bet[D]ter
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]D7[/ch]                         [ch]G[/ch]         [ch]Bm[/ch]      [ch]Em[/ch]           [ch]G[/ch]         [ch]A7[/ch]              [ch]D[/ch]
-
-  And anytime you feel the pain, hey Jude, refrain, don’t carry the world upon your shoulders[/tab]
+{start_of_chorus}
+[D7]  And anytime you feel the [G]pain, hey J[Bm]ude, ref[Em]rain, don’t c[G]arry the wo[A7]rld upon your sh[D]oulders
 [D7]  For well you know that it's a [G]fool who p[Bm]lays it c[Em]ool by m[G]aking his wo[A7]rld a little co[D]lder
 
-[Interlude]
+{start_of_chorus}
 
-[tab][ch]D[/ch]        [ch]D7[/ch]    [ch]A7[/ch]
+{start_of_chorus}
+[D]Da da da d[D7]a da d[A7]a da da
 
-Da da da da da da da da[/tab]
+{start_of_verse}
+{end_of_verse}
 
-[Verse]
-
-[tab]    [ch]D[/ch]                  [ch]A[/ch]              [ch]A7[/ch]    [ch]Asus4[/ch]    [ch]A[/ch]      [ch]D[/ch]
-
-Hey Jude, don’t let me down, you have found her, now go and get her[/tab]
+{start_of_verse}
+Hey [D]Jude, don’t let me d[A]own, you have fo[A7]und he[Asus4]r, now[A] go and [D]get her
 Re[G]member to let her into your h[D]eart, then you can st[A]art to mak[A7]e it bet[D]ter
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]D7[/ch]                         [ch]G[/ch]       [ch]Bm[/ch]      [ch]Em[/ch]          [ch]G[/ch]           [ch]A7[/ch]            [ch]D[/ch]
-
-  So let it out and let it in, hey Jude, begin, you're waiting for someone to perform with[/tab]
+{start_of_chorus}
+[D7]  So let it out and let it [G]in, hey J[Bm]ude, beg[Em]in, you're w[G]aiting for so[A7]meone to perfo[D]rm with
 [D7]  And don’t you know that it's just [G]you, hey J[Bm]ude, you'll d[Em]o, the m[G]ovement you ne[A7]ed is on your sh[D]oulders
 
-[Interlude]
+{start_of_chorus}
 
-[tab][ch]D[/ch]        [ch]D7[/ch]    [ch]A7[/ch]
+{start_of_chorus}
+[D]Da da da d[D7]a da d[A7]a da da
 
-Da da da da da da da da[/tab]
+{start_of_verse}
+{end_of_verse}
 
-[Verse]
-
-[tab]    [ch]D[/ch]                   [ch]A[/ch]           [ch]A7[/ch]  [ch]Asus4[/ch]    [ch]A[/ch]       [ch]D[/ch]
-
-Hey Jude, don’t make it bad, take a sad song and make it better[/tab]
+{start_of_verse}
+Hey [D]Jude, don’t make it b[A]ad, take a sa[A7]d so[Asus4]ng and[A] make it [D]better
 Re[G]member to let her under your s[D]kin, then you begi[A]n to mak[A7]e it bet[D]ter
 
-[Outro]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]D[/ch]        [ch]C[/ch]           [ch]G[/ch]                [ch]D[/ch]
-
-Na na na na na na na na na na na, hey Jude[/tab]
+{start_of_verse}
+[D]Na na na n[C]a na na na na[G] na na na, hey Jud[D]e
 [D]Na na na n[C]a na na na na[G] na na na, hey Jud[D]e
 [D]Na na na n[C]a na na na na[G] na na na, hey Jud[D]e
 [D]Na na na n[C]a na na na na[G] na na na, hey Jud[D]e
@@ -73,12 +70,12 @@ Na na na na na na na na na na na, hey Jude[/tab]
 [D]Na na na n[C]a na na na na[G] na na na, hey Jud[D]e
 [D]Na na na n[C]a na na na na[G] na na na, hey Jud[D]e . . . . . 
 
- Alternates:
 
-Capo V
 
-[ch]D[/ch]     = [ch]C[/ch]
 
+
+{start_of_verse}
+[D]     = [C]
 [A]     = [G]
 [A7]    = [G7]
 [D7]    = [C7]
@@ -87,10 +84,10 @@ Capo V
 [Em]    = [Dm]
 [C]     = [Bb] 
 
-open
 
-[ch]D[/ch]     = [ch]F[/ch]
 
+{start_of_verse}
+[D]     = [F]
 [A]     = [C]
 [A7]    = [C7]
 [D7]    = [F7]
@@ -99,4 +96,3 @@ open
 [Em]    = [Gm]
 [C]     = [Eb]
 
-Set8

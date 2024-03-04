@@ -1,13 +1,12 @@
 {title: White womans instagram}
 
-[Intro]
-
+{start_of_verse}
 [F]   [C]  
 [Gm]  [Dm] [C]
 [F]
+{end_of_verse}
 
-[Verse 1]
-
+{start_of_verse}
 [F]   An open window
 [C]   A novel
 [Gm]   A couple holding ha[Bb]nds
@@ -18,9 +17,9 @@
 A golden ret[Dm]riever in a flower crown
 [Bb]  Is this h[C]eaven?[F]
 [Dm]  Or [C]is it just a
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [F]White woman
 [Gm]  A white woman's Instagram
 [Am]White woman
@@ -29,9 +28,9 @@ A golden ret[Dm]riever in a flower crown
 [Gm]  A white woman's Instagram
 [Am]  White woman
 [Bb]  A white woman's Instagram
+{end_of_chorus}
 
-[Verse 2]
-
+{start_of_verse}
 [F]  Latte foam art
 [C]  Tiny pumpkins
 [Gm]  Fuzzy, comfy [Bb]socks
@@ -42,9 +41,9 @@ A golden ret[Dm]riever in a flower crown
 Incorrectly attri[Dm]buted to Martin Luther [Bb]King
 Is this [C]heaven?[F]
 [Dm]  Or am I lo[C]oking at a
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [F]White woman
 [Gm]  A white woman's Instagram
 [Am]White woman
@@ -53,8 +52,7 @@ Is this [C]heaven?[F]
 [Gm]  A white woman's Instagram
 [Am]  White woman
 [Bb]  A white [C]woman's Instagram
-
-[Bridge]
+{end_of_chorus}
 
 Her favorite [Dm]photo of her m[Bb]om
 The caption s[C]ays:
@@ -64,16 +62,13 @@ Momma, I [Bb]miss you
 I miss sitting with you in the front yar[C]d
 Still figuring o[Dm]ut how to keep living with[Bb]out you
 
-It's got a little better but it's still hard
-
 [C]  Momma, I got a j[Dm]ob I love and my own apar[Bb]tment
 Momma, I got a boyfriend and I'm crazy ab[C]out him
 Your little girl [Dm]didn't do too ba[Bb]d
 
-Momma, I love you. Give a hug and kiss to dad"
 
-[Verse 3]
 
+{start_of_verse}
 [F]   A goat-cheese salad (Goat cheese salad)
 [C]   A backlit hammock (Backlit hammock)
 [Gm]   A simple glass of w[Dm]ine[C]
@@ -84,9 +79,9 @@ Incr[F]edibly derivative political street art
 And a ring on her fi[Dm]nger from the person she [Bb]loves
 Is this h[C]eaven?[F]
 [Dm]  Or [C]is it just a
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [F]White woman
 [Gm]  A white woman's Instagram
 [Am]White woman
@@ -95,3 +90,4 @@ Is this h[C]eaven?[F]
 [Gm]  A white woman's Instagram
 [Am]  White woman
 [Bb]  A white [C]woman's Instagram
+{end_of_chorus}

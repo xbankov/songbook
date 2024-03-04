@@ -1,97 +1,74 @@
 {title: Long train runnin}
 
-[Verse]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]Gm7[/ch]
+[Gm7]Down around the corner, half a mile from here
 
-Down around the corner, half a mile from here[/tab]
-See them long trains run, and you watch them disappear
+{start_of_chorus}
+{end_of_chorus}
 
-[Chorus]
-
-[tab]        [ch]Cm7[/ch]                     [ch]Gm7[/ch]
-
-Without love, where would you be now[/tab]
+Without [Cm7]love, where would you b[Gm7]e now
 Without [Eb]lo-[Dsus4]-o-[D]---[Gm7]o-ove
 
-[Verse]
+{start_of_verse}
+{end_of_verse}
 
-[tab]    [ch]Gm7[/ch]
+You [Gm7]know I saw miss Lucy down along the tracks
 
-You know I saw miss Lucy down along the tracks[/tab]
-She lost her home and her family and she won't be coming back
+{start_of_chorus}
+{end_of_chorus}
 
-[Chorus]
-
-[tab]        [ch]Cm7[/ch]
-
-Without love, where would you be ri[/tab]
+Without [Cm7]love, where would you be ri
 ght [Gm7]now
 
-[tab]        [ch]Eb[/ch] [ch]Dsus4[/ch] [ch]D[/ch] [ch]Gm7[/ch]
+Without [Eb]lo-[Dsus4]-o-[D]---[Gm7]o-ove
 
-Without lo--o----o-ove[/tab]
-         
+{start_of_verse}
+{end_of_verse}
 
-[Verse]
-
-[tab]         [ch]Gm7[/ch]
-
-Well the Illinois Central[/tab]
+Well the [Gm7]Illinois Central
 And the [Gm7]Southern Central Freight
 Got to [Gm7]keep on pushin' mama
 You [Gm7]know they're running late
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab]        [ch]Cm7[/ch]
+Without [Cm7]love, where would you be now
 
-Without love, where would you be now[/tab]
+Without [Eb]lo-[Dsus4]-o-[D]---[Gm7]o-ove
 
-[tab]        [ch]Eb[/ch] [ch]Dsus4[/ch] [ch]D[/ch] [ch]Gm7[/ch]
-
-Without lo--o----o-ove[/tab]
-
-[ch]Gm7[/ch]    [ch]Cm7[/ch] [ch]Gm7[/ch]
-
+[Gm7]    [Cm7] [Gm7]
 [Eb] [Dsus4] [D] [Gm7]
 
-[Verse]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]Gm7[/ch]
-
-Well the Illinois Central[/tab]
+[Gm7]Well the Illinois Central
 And the [Gm7]Southern Central Freight
 Got to [Gm7]keep on pushin' mama
 You [Gm7]know they're running late
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab]        [ch]Cm7[/ch]
+Without [Cm7]love, where would you be now
 
-Without love, where would you be now[/tab]
+Without [Eb]lo-[Dsus4]-o-[D]---[Gm7]o-ove
 
-[tab]        [ch]Eb[/ch] [ch]Dsus4[/ch] [ch]D[/ch] [ch]Gm7[/ch]
+{start_of_verse}
+{end_of_verse}
 
-Without lo--o----o-ove[/tab]
-
-[Verse]
-
-[tab]         [ch]Gm7[/ch]                    
-
-Well the pistons keep on turning[/tab]
+Well the [Gm7]pistons keep on turning
 [F]And the w[Gm7]heels go round and round[F]
 The [Gm7]steel rails are cold and hard
 [F]For the m[Gm7]iles that they go down
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]Cm7[/ch]
-
-Without love, where would you be right now[/tab]
+[Cm7]Without love, where would you be right now
 Without [Eb]lo-[Dsus4]o---[D]---ove
 
-[tab][ch]Cm7[/ch]
-
-ooh[/tab]
-Where would you be now
+[Cm7]ooh

@@ -1,54 +1,51 @@
 {title: Basket case}
 
-If you just want to play this on an acoustic with open chords, here they are.
+{capo: 1st fret, standard tuning}
 
-Capo 1st fret, standard tuning
 
-D*    10 12 12 11 10 10
 
-A*    5  7  7  6  5  5
-Bm*   7  9  9  7  7  7
 
-Chords relative to capo
 
-[Verse 1]
 
-[tab][ch]D[/ch]               [ch]A[/ch]
 
-Do you have the time[/tab]
+
+
+{start_of_verse}
+{end_of_verse}
+
+{start_of_verse}
+[D]Do you have the t[A]ime
 To [Bm]listen to me [F#m]whine
 A[G]bout nothing and e[D]verything
 All [A]at once
 
-[tab][ch]D[/ch]           [ch]A[/ch]
-
-I am one of those[/tab]
+{start_of_verse}
+[D]I am one of t[A]hose
 Me[Bm]lodramatic [F#m]fools
 Neu[G]rotic to the b[D]one
 No doubt about [A]it
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]G[/ch]             [ch]A[/ch]             [ch]D[/ch]
-
-  Sometimes I give myself the creeps[/tab]
+{start_of_chorus}
+[G]  Sometimes I g[A]ive myself the [D]creeps
 [G]  Sometimes my m[A]ind plays tricks on [D]me
 It [G]all keeps adding u[A]p
 I [D]think I'm c[C]racking up[Bm]
 Am [G]I just paran[A]oid?
 Am I just s[D]toned?
 
-[Riff]
-
-[ch]D[/ch]*  [ch]A[/ch]*  [ch]Bm[/ch]* [ch]A[/ch]*
+{start_of_chorus}
 
 [D]*  [A]*  [Bm]* [A]*
+[D]*  [A]*  [Bm]* [A]*
 
-[Verse 2]
+{start_of_verse}
+{end_of_verse}
 
-[tab]  [ch]D[/ch]         [ch]A[/ch]
-
-I went to a shrink[/tab]
+{start_of_verse}
+I [D]went to a s[A]hrink
 To [Bm]analyze my [F#m]dreams
 She [G]says it's lack of s[D]ex
 That's bringing [A]me down
@@ -57,53 +54,52 @@ He [Bm]said my life's a [F#m]bore
 So [G]quit my whining c[D]ause
 It's bringing [A]her down
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]G[/ch]             [ch]A[/ch]            [ch]D[/ch]
-
-  Sometimes I give myself the creeps[/tab]
+{start_of_chorus}
+[G]  Sometimes I g[A]ive myself the[D] creeps
 [G]  Sometimes my m[A]ind plays tricks on [D]me
 It [G]all keeps adding u[A]p
 I [D]think I'm c[C]racking up[Bm]
 Am [G]I just paran[A]oid?
 Uh, yuh, yuh, y[D]a
 
-[Riff]
-
-[ch]D[/ch]*  [ch]A[/ch]*  [ch]Bm[/ch]* [ch]A[/ch]*
+{start_of_chorus}
 
 [D]*  [A]*  [Bm]* [A]*
 [D]*  [A]*  [Bm]* [A]*
 [D]*  [A]*  [Bm]* [A]*
+[D]*  [A]*  [Bm]* [A]*
 
-[Bridge]
+{start_of_chorus}
 
-[tab][ch]G[/ch]              [ch]A[/ch]
-
-Grasping to control[/tab]
+{start_of_chorus}
+[G]Grasping to cont[A]rol
 So I better h[D]old on
 
-[Instrumental]
+{start_of_chorus}
 
-[ch]D[/ch]  [ch]A[/ch]  [ch]Bm[/ch]  [ch]F#m[/ch]  [ch]G[/ch]  [ch]D[/ch]  [ch]A[/ch]
-
+{start_of_chorus}
+[D]  [A]  [Bm]  [F#m]  [G]  [D]  [A]
 [D]  [A]  [Bm]  [F#m]  [G]  [D]  [A]
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]G[/ch]             [ch]A[/ch]            [ch]D[/ch]
-
-  Sometimes I give myself the creeps[/tab]
+{start_of_chorus}
+[G]  Sometimes I g[A]ive myself the[D] creeps
 [G]  Sometimes my m[A]ind plays tricks on [D]me
 It [G]all keeps adding u[A]p
 I [D]think I'm c[C]racking up[Bm]
 Am [G]I just paran[A]oid?
 Am I just s[D]toned?
 
-[Outro]
+{start_of_verse}
+{end_of_verse}
 
-[ch]D[/ch]   [ch]Bm[/ch]   [ch]G[/ch] [ch]D[/ch] [ch]A[/ch]
-
+{start_of_verse}
+[D]   [Bm]   [G] [D] [A]
 [D]   [Bm]   [G] [D] [A]
 [D]   [Bm]   [G] [D] [A]
 [D]   [Bm]   [G] [D] [A]

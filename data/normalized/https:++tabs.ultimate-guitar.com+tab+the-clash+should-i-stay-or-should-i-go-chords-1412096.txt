@@ -1,130 +1,76 @@
 {title: Should i stay or should i go}
 
-Song: Should I stay or should I go
 
-Artist: The Clash
-Composers: Mick Jones and Joe Strummer 
-Album: Combat rock
 
-Tabbed by DJ  15th Aug 2013
 
-Copy and paste this link to hear the track:
 
-https://www.youtube.com/watch?v=BN1WwnEDWAM
 
-[tab][Intro Riff - First 4 bars]    X = Mute strings
 
-     [D]      [G]           [D]
-e |--2-2-2--3-3-3-3--|--2------X-X-X---|
-B |--3-3-3--3-3-3-3--|--3------X-X-X---|
-G |--2-2-2--0-0-0-0--|--2------X-X-X---|
-D |--0-0-0--0-0-0-0--|--0--------------|
-A |---------2-2-2-2--|-----------------|
-E |---------3-3-3-3--|-----------------|[/tab]
+     [ch]D[/ch]      [ch]G[/ch]           [ch]D[/ch]
 
-[tab]                              h = Hammer-on note
+     [ch]D[/ch]      [ch]G[/ch]           [ch]D[/ch]
 
-     [D]      [G]           [D]
-e |--2-2-2--3-3-3-3--|--2--------5-h8--|
-B |--3-3-3--3-3-3-3--|--3--------------|
-G |--2-2-2--0-0-0-0--|--2--------------|
-D |--0-0-0--0-0-0-0--|--0--------------|
-A |---------2-2-2-2--|-----------------|
-E |---------3-3-3-3--|-----------------|[/tab]
-
-[ch]D[/ch]  = xx0232
-
+[D]  = xx0232
 [G]  = 320033 or 355433
 [F]  = 133211
 [A]  = x02220
 [A7]N.C.= No chords
 
-^ = Emphasise the beat
 
-If using distortion you could use power chords instead:
 
 [D5] = x577xx   [F5] = 133xxx
 [G5] = 355xxx   [A5] = 577xxx
 
-Please take a second to scroll down to the bottom of
 
-the page and select a star rating for my tab,thanks
-=====================================================
 
-[Intro]
-
+{start_of_verse}
 ||: /__[D]/  /__/  /_[G]_/  /__/ | / [D] /  /  / :|| [x4]
-       ^  ^ ^   ^ ^   ^ ^    ^
+{end_of_verse}
 
-[Verse 1]
-
+{start_of_verse}
 Darling, you've got to let me know,[D][G][D]
 Should I stay or should I go,[D][G][D]
 If you say that you are mine,[G][F][G]
 I'll be here 'til the end of time,[D][G][D]
 So you've got to let me know--------[A]--[A7]
 ...Should I stay or should I go?[D][G][D]
+{end_of_verse}
 
-[Verse 2]
-
+{start_of_verse}
 It's always tease, tease, tease,[D][G][D]
 You're happy when I'm on my knees,[D][G][D]
 One day it's fine, and next it's black,[G][F][G]
 So if you want me off your back,[D][G][D]
 Well, come on, and let me know-----[A]--[A7]
 ...Should I stay or should I go?[D][G][D]
+{end_of_verse}
 
-[Verse 3]
-
+{start_of_verse}
 Should I stay, or should I [D]go now?[G][D]
 [D]Should I stay, or should I g[D]o now?[G][D]
 [D]If I go there will be t[G]rouble,[F][G]
 [G]And, if I stay, it will be d[D]ouble,[G][D]
 [D]So, come on, and let me k[A]now------...[A7]
-
-[Interlude]
+{end_of_verse}
 
 | /__[D]/  /__/  /__[G]/  /__/ | / [D] /  /  / |
-     ^  ^ ^   ^ ^   ^ ^    ^
 
-[Verse 4]
-
-N.C.
-This indecision's buggin' me,
+{start_of_verse}
 [D]   (Inde - c[G]isión me mo - le[D]sta)
-N.C.
-If you don't want me, set me free!
 [D]   (Si no me q[G]uieres, líbra - me[D]!)
-N.C.
-Exactly whom I'm supposed to be?
 ([G]Digame  [F] ...quein te[G]ngo ser!)
-N.C.
-Don't you know which clothes even fit me?
 (¿[D]No sabes que r[G]opas me que - da[D]?)
-N.C.
-Come on, and let me know...
 [A]    (Me tienes que de - c[A7]ir...)
-N.C.
-Should I cool it, or should I blow?
 [D]   (¿Me debo i[G]r o quedar - me[D]?)
-
-[Break]                          SPLIT!
+{end_of_verse}
 
 | /__/[D]  /__/  /[G]__/  /__/ | / [D] /  /  / |
-     ^  ^ ^   ^ ^   ^ ^    ^
 | /__[D]/  /__/  /[G]__/  /__/ | / [D] /  /  / |
-     ^  ^ ^   ^ ^   ^ ^    ^
 (¿Y[G]o me en - f[F]rio o lo so[G]plo?)
 
-[tab]     [ch]D[/ch]        [ch]G[/ch]            [ch]D[/ch]  N.C.
-
-| /__/  /__/  /__/  /__/ | /  /  /  / |[/tab]
-     ^  ^ ^   ^ ^   ^ ^    ^
-| /__[A]/  /__/  /__/  /__/ | /[A7]  /  /  / |
-     ^  ^ ^   ^ ^   ^ ^    ^
 | /__[D]/  /__/  /[G]__/  /__/ | / [D] /  /  / |
-     ^  ^ ^   ^ ^   ^ ^    ^
-[Verse 5]
+| /__[A]/  /__/  /__/  /__/ | /[A7]  /  /  / |
+| /__[D]/  /__/  /[G]__/  /__/ | / [D] /  /  / |
 Should I stay, or should I [D]go now?
 (¿[D]Yo me en - f[G]rio o lo so[D]plo?)
 [D]Should I stay, or should I go now?
@@ -138,8 +84,7 @@ Should I stay, or should I [D]go now?
 [A]   Should I cool i[A7]t, or should I b[D]low?
 (¿[D]Yo me en - f[G]rio o lo so[D]plo?)
 
-[Verse 6]
-
+{start_of_verse}
 [D]   Should I stay, or should I go now?
 [D]   (¿Yo me en - f[G]rio o lo so[D]plo?)
 [D]   If I go there will be t[G]rouble,
@@ -149,4 +94,4 @@ Should I stay, or should I [D]go now?
 [D]   So you gotta let me k[A]now...
 ([A]Me tienes que de - c[A7]ir...)
 [D]Should I s[G]tay, or should I go[D]?
-^      ^  ^    ^  ^      ^ ^
+{end_of_verse}

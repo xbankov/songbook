@@ -1,43 +1,31 @@
 {title: Whats up}
 
-"What's Up" by 4 Non Blondes
+{capo: II}
 
-Capo II
 
-[Intro]
 
-[ch]G[/ch]  [ch]Am[/ch]  [ch]C[/ch]  [ch]G[/ch] ,
 
-Tab is not relative to the capo.
+
+{start_of_verse}
+{end_of_verse}
+
+[G]  [Am]  [C]  [G] ,
 
       .  .[G][Am]
 B|------------|-------------------------|---------------------------|
-G|-/9-9--9--9-|-------------------------|------------2----------2---|
-D|------------|-7-----------------7-7-\-|-4-----2h4-----4--2--4---4-|
-A|------------|-------------------------|---------------------------|
-E|------------|-------------------------|---------------------------|[/tab]
-
-[tab]   C                           G                         (over verse)
 
 e|---------------------------|--------------------------|-------------
-B|------------------------5b-|--------------------------|-------------
-G|-2------------------7---5b-|--------------------------|-------------
-D|------------------7---7----|-7------------------------|-7-----------
-A|---------------------------|------------------7--5-7--|-------------
-E|---------------------------|--------------------------|-------------[/tab]
 
-/ = slide up, \ = slide down, . = staccato, h = hammer on, b = bend (slight)
 
-[Verse 1]
 
+{start_of_verse}
 [G]  Twenty-five years and my life is still
 [Am]Trying to get up that great big hill
 Of [C]hope for a destin[G]ation
 I [G]realized quickly when I knew I should
 That the [Am]world was made up of this brotherhood
 Of [C]man, for whatever that m[G]eans
-
-[Pre-Chorus]
+{end_of_verse}
 
 And so I [G]cry sometimes when I'm lying in bed
 Just to [Am]get it all out, what's in my head
@@ -46,27 +34,23 @@ And so I [G]wake in the morning and I step outside
 and I [Am]take a deep breath and I get real high and
 I [C]scream from the top of my lungs "What's going o[G]n?"
 
-[Chorus]
-
+{start_of_chorus}
 And I said "[G]Heyeyeyeyey H[Am]eyeyey"
 I said "[C]Hey, what's going o[G]n?"
 And I said "[G]Heyeyeyeyey H[Am]eyeyey"
 I said "[C]Hey, what's going o[G]n?"
-
-[Interlude]
+{end_of_chorus}
 
 [G] Ooh, Oo[Am]h Oo[C]h[G]
 [G] Ooh, Oo[Am]h Oo[C]h[G]
 
-[Verse 2]
-
+{start_of_verse}
 And I [G]try, oh my God, do I t[Am]ry
 I try all the [C]time, in this instit[G]ution
 And I [G]pray, oh my God, do I p[Am]ray
 I pray every single [C]day
 For a revo[G]lution
-
-[Pre-Chorus]
+{end_of_verse}
 
 And so I [G]cry sometimes when I'm lying in bed
 Just to [Am]get it all out, what's in my head
@@ -75,26 +59,22 @@ And so I [G]wake in the morning and I step outside
 and I [Am]take a deep breath and I get real high and
 I [C]scream from the top of my lungs "What's going o[G]n?"
 
-[Chorus]
-
+{start_of_chorus}
 And I said "[G]Heyeyeyeyey H[Am]eyeyey"
 I said "[C]Hey, what's going o[G]n?"
 And I said "[G]Heyeyeyeyey H[Am]eyeyey"
 I said "[C]Hey, what's going o[G]n?"
+{end_of_chorus}
 
-[tab]            [ch]G[/ch]           [ch]Am[/ch]
-
-And I said "Heyeyeyeyey Heyeyey"[/tab]
+And I said "[G]Heyeyeyeyey H[Am]eyeyey"
 I said "[C]Hey, what's going o[G]n?"
 And I said "[G]Heyeyeyeyey H[Am]eyeYEYEYE"
 I said "[C]Hey, what's going o[G]n?"
 
-[Interlude]
-
 [G] Ooh, Oo[Am]h Oo[C]h[G]
 
-[Outro]
-
+{start_of_verse}
 [G]  Twenty-five years and my life is still
 [Am]Trying to get up that great big hill of [C]hope
 For a destin[G]ation
+{end_of_verse}

@@ -1,113 +1,71 @@
 {title: }
 
-Here's a good song thats fun to play. Standard tuning. 
 
-PLEASE READ: For the beginning of the third verse, you can either play the second part of the 
 
-instrumental OR the chords provided. 
-If you choose to play the chords, finish the 
-instrumental and then start the third verse. Enjoy!
 
-[Intro]
 
-[tab]                        [ch]F[/ch]            [ch]Dm[/ch]                      [ch]Am[/ch]
+{start_of_verse}
+{end_of_verse}
 
-e|------0---------------1--1--1--1----1--|-----0------------0--0--0--0--0--|
-B|--3--------3----------1--1--1--1----3--|--3------3--------1--1--1--1--1--|
-G|----------------2-----2--2--2--2----2--|-------------2----2--2--2--2--2--| X2
-D|----------------------3--3--3--3----0--|------------------2--2--2--2--2--|
-A|----------------------0--0--0--0----0--|------------------0--0--0--0--0--|
-E|----------------------0--0--0--0----0--|------------------0--0--0--0--0--|     [/tab]
+e|------0---------------[F]1--1--1--1----[Dm]1--|-----0------------0-[Am]-0--0--0--0--|
 
-[Verse 1]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]G[/ch]   [ch]Am[/ch]            [ch]Em[/ch]                                 [ch]Am[/ch]
-
- Oh, life is bigger.  It's bigger than you and you are not me.  The lengths [/tab]
+[G] Oh, [Am]life is bigger[Em].  It's bigger than you and you are[Am] not me.  The lengths 
 that I will [Em]go to, the distance in your e[Am]yes. [Em] Oh no, I've said too m[Dm]uch.  I set 
 it [G]up.  That's me in the co[Am]rner.  That's me in the sp[Em]otlight.  Losing my reli[Am]gion.
 Trying to k[Em]eep up with you and I d[Am]on't know if I can do it. [Em] Oh no, I've said too
 m[Dm]uch.  I haven't said eno[G]ugh.
 
-[Chorus]
-
+{start_of_chorus}
 I thought that I heard you la[F]ughing.  I thought that I hea[G]rd you sin[Am]g.  I thin[F]k I thought
 I [Dm7]saw [G]you t[Am]ry.
+{end_of_chorus}
 
-[Verse 2]
+{start_of_verse}
+{end_of_verse}
 
-[tab] [ch]G[/ch]       [ch]Am[/ch]                      [ch]Em[/ch]                       [ch]Am[/ch]                   [ch]Em[/ch]
-
-    Every whisper of every waking hour, I'm choosing my confessions.  Trying to keep an eye[/tab]
+ [G]   Every [Am]whisper of every waking [Em]hour, I'm choosing my con[Am]fessions.  Trying to [Em]keep an eye
 on you like a h[Am]urt, lost and blinded fool.  Oh.[Em]  Oh no, I've said too m[Dm]uch.  I set it [G]up.  
 Consider t[Am]his, consider this the h[Em]int of the century.  Consider t[Am]his, the slip, that br[Em]ought
 me to my knees failed.  W[Am]hat if all these fantasies come,[Em] flailing around?  And now, I've 
 s[Dm]aid, too m[G]uch.
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab]                             [ch]F[/ch]                           [ch]G[/ch]        [ch]Am[/ch]        [ch]F[/ch]               
-
-I thought that I heard you laughing.  I thought that I heard you sing.  I think I thought[/tab]
+I thought that I heard you la[F]ughing.  I thought that I hea[G]rd you sin[Am]g.  I thin[F]k I thought
 I [Dm7]saw [G]you t[Am]ry.
 
-[Instrumental]
 
-[tab]    [ch]G[/ch]
 
-e|--3------------------5-----3-------------------|   
-B|--0--------3---5------------------5----3-------|
-G|--0-----5--------------------------------------|
-D|--0--------------------------------------------|
-A|--2--------------------------------------------|
-E|--3--------------------------------------------|[/tab]
-
-[tab]e|--12--12--12---10--10--10--10--10------------------------------------------|
+e|--[G]3------------------5-----3-------------------|   
 
 B|---------------------------------------13--13--13---10--10--10--10--10-----|
-G|---------------------------------------------------------------------------|
-D|---------------------------------------------------------------------------| X4
-A|---------------------------------------------------------------------------|
-E|---------------------------------------------------------------------------|[/tab]
 
-[Verse 3]
+{start_of_verse}
+{end_of_verse}
 
-[tab]     [ch]C[/ch]               [ch]Dm[/ch]       [ch]C[/ch]             [ch]Dm[/ch]   
-
-But that was just a dream.  That was just a dream.[/tab]
+But t[C]hat was just a dr[Dm]eam.  Tha[C]t was just a dr[Dm]eam.
 That's me in the co[Am]rner.  That's me in the s[Em]potlight.  Losing my re[Am]ligion.  Trying to
 k[Em]eep up with you and I d[Am]on't know if I can do it.[Em]  Oh no, I've said too m[Dm]uch.  I haven't 
 said en[G]ough.
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab]                             [ch]F[/ch]                           [ch]G[/ch]        [ch]Am[/ch]        [ch]F[/ch]               
-
-I thought that I heard you laughing.  I thought that I heard you sing.  I think I thought[/tab]
+I thought that I heard you la[F]ughing.  I thought that I hea[G]rd you sin[Am]g.  I thin[F]k I thought
 I [Dm7]saw [G]you t[Am]ry.
 
-[Verse 4]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]Am[/ch]       [ch]F[/ch]              [ch]Dm7/G[/ch]    [ch]Am[/ch]                      [ch]F[/ch]               [ch]Dm7/G[/ch]         [ch]Am[/ch]
-
-    But that was just a dream.  Try.  Cry.  Why?  Try.  That was just a dream, just a dream,[/tab]
+[Am]    But t[F]hat was just a d[Dm7/G]ream. [Am] Try.  Cry.  Why?  Try. [F] That was just a [Dm7/G]dream, just[Am] a dream,
 just a dr[G]eam, dream.
 
-[Ending]
 
-[tab]e|--12-12-12-12--12-12-12-12--|
 
 B|----------------------------|
-G|----------------------------|
-D|----------------------------|  X4
-A|----------------------------|
-E|----------------------------|[/tab]
-
-[tab]Slower
 
 e|----12--10-------------10----------------------------------|
-B|-------------13---10-------13---10---13----10--------------|
-G|-----------------------------------------------------------|
-D|-----------------------------------------------------------|
-A|-----------------------------------------------------------|
-E|-----------------------------------------------------------|[/tab]

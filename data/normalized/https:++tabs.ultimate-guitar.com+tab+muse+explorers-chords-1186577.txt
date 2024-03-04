@@ -1,111 +1,86 @@
 {title: Explorers}
 
-[Intro]
-
+{start_of_verse}
 [C] [Cdim7] [Ddim7]
+{end_of_verse}
 
-[Verse 1]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]C[/ch]               [ch]C7[/ch]               [ch]F[/ch]
-
-Once I hoped to seek the new and unknown.[/tab]
+[C]Once I hoped to s[C7]eek the new and u[F]nknown.
 This [Fm]planet's over[C]run.
 There's [D/F#]nothing left fo[Fm]r you or fo[C]r me.
 [F7]Don't give [Fm7]in.
 [F]We c[G]an wa[C]lk
 
-[tab][ch]C[/ch]
-
-Through the fields.[/tab]
+[C]Through the fields.
 And [C7]feeling nature's [F]glow.
 But [Fm]all the land is [C]owned.
 There's [D/F#]none left fo[Fm]r you or fo[C]r me.
 [F7]Who will [Fm7]win? cause[F] I [G]conc[C]ede.
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]C[/ch]       [ch]Am[/ch]      [ch]Em[/ch]                [ch]F[/ch]
-
-Free me free me free me from this world.[/tab]
+[C]Free me f[Am]ree me f[Em]ree me from this w[F]orld.
 I don't be[Dm]long here it [G]was a mistake imp[E7/G#]risoning m[Am]y soul.
 Can you [F/A]free me[G/B] free me from thi[C]s world?
 
-["Interlude"]
-
 [C] [Cdim7] [Ddim7]
 
-[Verse 2]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]C[/ch]
-
-A world lush in bloom.[/tab]
+[C]A world lush in bloom.
 With [C7]rivers running [F]wild.
 They'll [Fm/Ab]be re-rout[C]ed South.
 [D/F#]With none left fo[Fm/Ab]r you or[C] for me.
 [F7]Don't give [Fm7]in and[F] hear [G]the.
 
-[tab][ch]C[/ch]                [ch]C7[/ch]                  [ch]F[/ch]
-
-Engines roar and save our crops from drought.[/tab]
+[C]Engines roar and s[C7]ave our crops from d[F]rought.
 But [Fm/Ab]when the black gold's [C]in doubt.
 There's [D/F#]none left fo[Fm/Ab]r you or[C] for me.
 [F7]Fuse hel[Fm7]ium-3.
 [F]Our l[G]ast ho[C]pe.
 
-[tab][ch]C[/ch]               [ch]Am[/ch]      [ch]Em[/ch]                [ch]F[/ch]
-
-And free me and free me free me from this world.[/tab]
+[C]And free me and f[Am]ree me f[Em]ree me from this w[F]orld.
 We don't be[Dm]long here.
 It [G]was a mistake imp[E7/G#]risoning ou[Am]r souls.
 Can you [F/A]free me and[G/B] free me from thi[Am]s world?
 
-[Instrumental]
 
-[ch]Dm[/ch] [ch]G[/ch] [ch]C[/ch] [ch]F[/ch] [ch]A[/ch] [ch]Dm[/ch] [ch]Bb[/ch] [ch]C[/ch] [ch]A[/ch]
 
-[Chorus]
+[Dm] [G] [C] [F] [A] [Dm] [Bb] [C] [A]
 
-[tab][ch]D[/ch]
+{start_of_chorus}
+{end_of_chorus}
 
-Free me[/tab]
+[D]Free me
 [Bm]I'll free you
 [F#m]Free us from this[G] world.
 We don't be[Em]long here.
 It [A]was a mistake imp[F#7/A#]risoning o[Bm]ur souls.
 Can you [G]free me and f[A]ree me from this wo[D]rld?
 
-[Backing Vocals chorus)
 
-[tab][ch]D[/ch]
 
-(Free me)[/tab]
+[D](Free me)
 
-[tab][ch]Bm[/ch]
+[Bm](Free me) 
 
-(Free me) [/tab]
+[F#m](Free me from this[G] world) 
 
-[tab][ch]F#m[/ch]                [ch]G[/ch]
+{start_of_chorus}
+{end_of_chorus}
 
-(Free me from this world) [/tab]
-
-[Chorus]
-
-[tab][ch]Em[/ch]                       [ch]A[/ch]        
-
-Running around in        circles feeling[/tab]
-(I don't belong here, it was a mistake im-)
+[Em]Running around in        [A]circles feeling
 [F#7/A#]Caged by endl[Bm]ess rules
-(-prisoning  our  souls)
 Can you [G/B]free me,[A/C#] free me from th[D]is world?
 
-[Outro] 
 
-[ch]D[/ch] [ch]D7[/ch] [ch]G[/ch] [ch]Gm[/ch] [ch]D[/ch] [ch]E/G#[/ch] 
 
-[tab][ch]Em[/ch] [ch]D[/ch] [ch]E7[/ch] [ch]Em7[/ch] 
+[D] [D7] [G] [Gm] [D] [E/G#] 
 
-        Go to [/tab]
+[Em]   [D]   [E7]  G[Em7]o to 
 
-[tab][ch]D[/ch]
-
-Sleep[/tab]
+[D]Sleep

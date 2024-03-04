@@ -1,122 +1,95 @@
 {title: Scar tissue}
 
-[tab][Intro]
+   [ch]F[/ch]                          [ch]C[/ch]      [ch]Dm[/ch]                  [ch]C[/ch]
 
-   [F]                          [C]      [Dm]                  [C]
-e|-------------------------------|----------------------------|
-B|-------10----10---10----10--5--|-5/6---6----6---6----6\5----|
-G|-------------------------------|----------------------------|
-D|-------------------------------|----------------------------|
-A|-8---------8----8----8------3--|-3/5------5---5---5------3--|
-E|-------------------------------|----------------------------|[/tab]
+e|-[F]---------------------------[Fsus2]----[C]|--[Dm]-------------------------|
 
-[tab]   [ch]F[/ch]                         [ch]Fsus2[/ch]  [ch]C[/ch] [ch]Dm[/ch]
-
-e|--------------------------------|---------------------------|
-B|-------10----10---10---10---8---|-5/6------------8p6-8p6----|
-G|--------------------------------|---------------------------|
-D|--------------------------------|---------------------------|
-A|-8---------8----8----8----8-----|-3/5-----------------------|
-E|--------------------------------|---------------------------|[/tab]
-
-[Verse 1]
-
+{start_of_verse}
 [F] Scar tissue that I wish you saw
 [Dm] Sarcastic mister know it all
 [F] Close your eyes and I’ll kiss you ’cause
  With[Dm] the birds I’ll share
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [F] With the birds I’ll share
  This[Dm] lonely view
 [F] With the birds I’ll share
  This[Dm] lonely view
+{end_of_chorus}
 
-[Verse 2]
-
+{start_of_verse}
 [F] Push me up against the wall
 [Dm] Young Kentucky girl in a push-up bra
 [F] Fallin’ all over myself
  To[Dm] lick your heart and taste your health ’cause
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [F] With the birds I’ll share
  This[Dm] lonely view
 [F] With the birds I’ll share
  This[Dm] lonely view
 [F] With the birds I'll share
  This[Dm] lonely view
-
-[Instrumental]
+{end_of_chorus}
 
 | [Dm] | % | [C] | [Dm] |
 
-[Verse 3]
-
+{start_of_verse}
 [F] Blood loss in a bathroom stall
 [Dm] Southern girl with a scarlet drawl
 [F] Wave goodbye to ma and pa ’cause
  With[Dm] the birds I’ll share
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [F] With the birds I’ll share
  This[Dm] lonely view
 [F] With the birds I’ll share
  This[Dm] lonely view
+{end_of_chorus}
 
-[Verse 4]
-
+{start_of_verse}
 [F] Soft spoken with a broken jaw
 [Dm] Step outside but not to brawl
 [F] Autumn’s sweet we call it fall
  I’ll[Dm] make it to the moon if I have to crawl and
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [F] With the birds I’ll share
  This[Dm] lonely view
 [F] With the birds I’ll share
  This[Dm] lonely view
 [F] With the birds I'll share
  This[Dm] lonely view
-
-[Instrumental]
+{end_of_chorus}
 
 | [Dm] | % | [C] | [Dm] |
 | [Dm] | % | [C] | [Dm] |
 
-[Verse 5]
-
+{start_of_verse}
 [F] Scar tissue that I wish you saw
 [Dm] Sarcastic mister know it all
  Close your[F] eyes and I’ll kiss you ’cause
  With[Dm] the birds I’ll share
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [F] With the birds I’ll share
  This[Dm] lonely view
 [F] With the birds I’ll share
  This[Dm] lonely view
 [F] With the birds I'll share
  This[Dm] lonely view
-
-[Instrumental]
+{end_of_chorus}
 
 | [Dm] | % | [C] | [Dm] | x4
 
-[Coda]
-
 | [Dm] |
 
-***********************************
 
-| /   Slide up
 
-| \   Slide down
-| p   Pull-off
 
-***********************************
+

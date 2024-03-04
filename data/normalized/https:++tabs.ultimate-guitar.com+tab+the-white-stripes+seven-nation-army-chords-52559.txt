@@ -1,67 +1,27 @@
 {title: Seven nation army}
 
-[Verse Riff]
-
-[tab]G|----------------------------------------------------------------------|
+{start_of_verse}
+{end_of_verse}
 
 D|------5-----------------5-----------------5-----------------5---------| (x10)
-A|-7--7---7-5-3-2--/-7--7---7-5-3-2--/-7--7---7-5-3-2--/-7--7---7-5-3-2-|
-E|-0-----------------0-----------------0-----------------0--------------|[/tab]
 
-[Pre/Post-Chorus Riff]
 
-[tab]e|------------------0-0-0-0-0-0-0-0-|
 
 B|------------------2-2-2-2-2-2-2-2-|
-G|-4-4-4-4-4-4-4-4--2-2-2-2-2-2-2-2-|
-D|-5-5-5-5-5-5-5-5--2-2-2-2-2-2-2-2-|
-A|-5-5-5-5-5-5-5-5--0-0-0-0-0-0-0-0-|
-E|-3-3-3-3-3-3-3-3------------------|[/tab]
-
-[tab](Bass)
 
 G|----------------------------------|
-D|----------------------------------|
-A|------------------0-0-0-0-0-0-0-0-|
-E|-3-3-3-3-3-3-3-3------------------|[/tab]
 
-[Chorus Riff]
 
-(Gtr w/Distortion + 3 string slide)
-
-[tab]e|-0----------------------|
 
 B|-8--8/-12-\-8-\7-\5--\4-|
-G|-9--9/-12-\-9-\7-\5--\4-|
-D|-9--9/-12-\-9-\7-\5--\4-|
-A|-7--7/-10-\-7-\5-\3--\2-|
-E|-0----------------------|[/tab]
-
-[tab](Bass)
 
 G|----------------|
-D|------5---------|
-A|-7--7---7-5-3-2-|
-E|-0--------------|[/tab]
-
-[tab](Gtr)
 
 e|-0----------------------------|
-B|-8--8/-12-\-8-\7-\5-/7-\-5-\4-|
-G|-9--9/-12-\-9-\7-\5-/7-\-5-\4-|
-D|-9--9/-12-\-9-\7-\5-/7-\-5-\4-|
-A|-7--7/-10-\-7-\5-\3-/5-\-3-\2-|
-E|-0----------------------------|[/tab]
-
-[tab](Bass)
 
 G|--------------------|
-D|------5-------------|
-A|-7--7---7-5-3-5-3-2-|
-E|-0------------------|[/tab]
 
-[Verse 1]
-
+{start_of_verse}
 I'm gonna [Em]fight 'em off[G][C][B]
 A seven nation [Em]army couldn't [G]hold me b[C]ack[B]
 They're gonna [Em]rip it off[G][C][B]
@@ -71,18 +31,14 @@ Because I [B]can't forg[Em]et[G][C][B]
 [Em]Back and forth [G]through my m[C]ind
 Behind a [B]cigar[Em]ette[G][C][B]
 And a [G]message coming from my e[A]yes says leave it alone
-
-[Instrumental Chorus]
+{end_of_verse}
 
 [Em] [G] [C] [B] x4
 [G]   [A]
 
-[Interlude]
-
 [Em] [G] [C] [B] x4
 
-[Verse 2]
-
+{start_of_verse}
 Don't wanna [Em]hear about it[G][C][B]
 Every single on[Em]e's got a stor[G]y to tell[C][B]
 Everyone k[Em]nows about it[G][C][B]
@@ -92,18 +48,14 @@ I'm gonna serve[Em] it to you[G][C][B]
 And that a[Em]in't what you [G]want[C] to [B]hear
 But that's what[Em] I'll do[G][C][B]
 And a [G]feeling coming from my b[A]ones says find a home
-
-[Solo]
+{end_of_verse}
 
 [Em] [G] [C] [B] x8
 [G]   [A]
 
-[Interlude]
-
 [Em] [G] [C] [B] x4
 
-[Verse 3]
-
+{start_of_verse}
 I'm goin' to [Em]Wichita[G][C][B]
 Far from this o[Em]pera, forever [G]more[C][B]
 I'm gonna [Em]work the straw[G][C][B]
@@ -113,16 +65,12 @@ Right before th[Em]e Lord[G][C][B]
 All the [Em]words are gonna [G]bleed from me[C]
 And I will [B]think no mo[Em]re[G][C][B]
 And the [G]stains coming from my b[A]lood tell me go back home
-
-[Instrumental Chorus]
+{end_of_verse}
 
 [Em] [G] [C] [B] x4
 [Em]
 
-**************************
 
-| /  slide up
 
-| \  slide down
 
-**************************
+

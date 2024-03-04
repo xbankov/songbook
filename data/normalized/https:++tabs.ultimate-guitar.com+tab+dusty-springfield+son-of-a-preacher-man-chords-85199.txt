@@ -1,99 +1,62 @@
 {title: Son of a preacher man}
 
-Son Of A Preacher Man - Dusty Springfield
 
-[tab][Intro]
 
-        [E]
-e|----|---0-12*----------|-----0------------|     * = 12th fret harmonic
-B|-11s|12----------------|10s9----------(11)|     s = Legato slide
-G|----|------------------|------------------|
-D|-11s|12----------------|10s9----------(11)|  x2
-A|----|------------------|------------------|
-E|----|------------------|------------------|[/tab]
+        [ch]E[/ch]
 
-[Verse 1]
-
+{start_of_verse}
 [E]Billy Ray was a preacher's son
 And when his [A]daddy would visit he'd c[E]ome along
 [E]When they'd gather 'round and started talking
 [B7]That's when Billy would take me walking
 Then he'd look into my eyes
-Lord knows to my surprise[/tab]
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 The [E]only one who could ever reach me
 [A]  Was the son of a pre[E]acher man
 The [E]only boy who could ever teach me
 [A]  Was the son of a pre[E]acher man
 Yes he was, he w[B]as,  m[A]mm, yes he was
+{end_of_chorus}
 
-[tab][Instrumental]
+   [ch]E[/ch]
 
-   [E]
-e|-------------------12*|------------------0-|
-B|-------------11s12----|-------------10s9---|
-G|----------------------|--------------------|
-D|-------------11s12----|-------------10s9---|
-A|----------------------|--------------------|
-E|----------------------|--------------------|[/tab]
-
-[Verse 2]
-
+{start_of_verse}
 [E]Being good isn't always easy
 [A]No matter how h[E]ard I'd try
 [E]When he started sweet-talkin' to me
 [B7]He'd come and tell me everything is all right
-He'd kiss and tell me everything is all right
-Can I get away again tonight
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 The [E]only one who could ever reach me
 [A]  Was the son of a pre[E]acher man
 The [E]only boy who could ever teach me
 [A]  Was the son of a pre[E]acher man
 Yes he was, he w[B]as,  m[A]mm, yes he was
-
-[Bridge]
+{end_of_chorus}
 
 (Yes, he w[D]as)
 
-How well I remember
-
 [A]  The look was in his eyes
-Stealin' kisses from me on the sly
 [B7]   Takin' time to make time
-Tellin' me that he's all mine
 [E7]   Learnin' from each other's knowin'
-Lookin' to see how much we've grown
 
-[Chorus]
-
+{start_of_chorus}
 And the [A]only one who could ever reach me
 [D]  Was the son of a pre[A]acher man
 The [A]only boy who could ever teach me
 [D]  Was the son of a pre[A]acher man
 Yes he was, he w[E]as, o[D7]oh yes he was
-
-[Coda]
+{end_of_chorus}
 
 (The o[A]nly one who could ever reach me
              [D]    Was the son of a pre[A]acher man)
-He was the sweet-talking son of a preacher man)
 
-(The only boy who could ever teach me
 
-        Was the son of a preacher man)
-A kiss-stealin' son of a preacher man 
 
-(The only one who could ever move me
 
-Was the son of a preacher man)
 
-(The only one who could ever groove me
 
-Was the son of a preacher man)
 
--- another ace 60's tab from Andrew Rogers

@@ -1,60 +1,42 @@
 {title: }
 
-[ch]D[/ch] [ch]A[/ch] [ch]E[/ch] [ch]Bm[/ch] [ch]D[/ch] [ch]A[/ch] [ch]E[/ch] [ch]Bm[/ch] [ch]D[/ch] [ch]A[/ch] [ch]Bm[/ch]
+[D] [A] [E] [Bm] [D] [A] [E] [Bm] [D] [A] [Bm]
 
-[tab][ch]F#m[/ch]               [ch]C#m[/ch]
-
- Vezmu tě má milá  rovnou k nám[/tab]
+[F#m] Vezmu tě má milá[C#m]  rovnou k nám
 [F#m] Kolem louky, lesy,[C#m]  hejna vran
 [F#m] Všude samá[E]  kráva, samej [B7] vůl
 
-[tab][ch]F#m[/ch]            [ch]C#m[/ch]
-
-Máme kino máme hospodu[/tab]
+[F#m]Máme kino máme[C#m] hospodu
 [F#m]V obci všeobecnou[C#m] pohodu
 [F#m]Máme hujer,[E] žito, chléb i [B7]sůl
 
-[tab][ch]D[/ch]                     [ch]A[/ch]                   [ch]E[/ch]            [ch]Bm[/ch]
-
- Když se u nás chlapi  poperou, tak jenom  nožem anebo  sekerou.[/tab]
+[D] Když se u nás chlapi  [A]poperou, tak jenom  n[E]ožem anebo  se[Bm]kerou.
 V zimě tam [D] dlouhý noci  [A]jsou a tuhej  m[Bm]ráz (a tam já to mám rád).
 [D] Jak jsou naše cesty  [A]zavátý, tak vezmem  v[E]idle a nebo  lo[Bm]paty,
 když něco [D] nejde, co na tom  [A]sejde my máme  č[Bm]as.
 
-[tab][ch]F#m[/ch]                  [ch]C#m[/ch]
-
-Chlapi někdy trochu prudký jsou[/tab]
+[F#m]Chlapi někdy trochu [C#m]prudký jsou
 [F#m]Holky s motykama[C#m] tancujou
 [F#m]S ranní rosou[E] táhnou do [B7]polí
 
-[tab][ch]F#m[/ch]                 [ch]C#m[/ch]
-
-Nikdo se tam  nikam nežene[/tab]
+[F#m]Nikdo se tam  nikam[C#m] nežene
 [F#m]Máme traktory a[C#m] ne že ne
 [F#m]Až to spatř[E]íš, ledy po[B7]volí
 
-[tab][ch]D[/ch]                     [ch]A[/ch]                   [ch]E[/ch]            [ch]Bm[/ch]
-
- Když se u nás chlapi  poperou, tak jenom  nožem anebo  sekerou.[/tab]
+[D] Když se u nás chlapi  [A]poperou, tak jenom  n[E]ožem anebo  se[Bm]kerou.
 V zimě tam [D] dlouhý noci  [A]jsou a tuhej  m[Bm]ráz (a tam já to mám rád).
 [D] Jak jsou naše cesty  [A]zavátý, tak vezmem  v[E]idle a nebo  lo[Bm]paty,
 když něco [D] nejde, co na tom  [A]sejde my máme  č[Bm]as.
 
-[tab][ch]F#m[/ch]             [ch]C#m[/ch]
-
-Hoří les a hoří rodnej dům[/tab]
+[F#m]Hoří les a hoří[C#m] rodnej dům
 [F#m]Hoří velkostatek[C#m] sousedům
 [F#m]To je smůla[E], drahá podí[B7]vej
 
-[tab][ch]F#m[/ch]              [ch]C#m[/ch]
-
-Hasiči to stejně přejedou[/tab]
+[F#m]Hasiči to stejně[C#m] přejedou
 [F#m]Hlavně si moc dobře[C#m] nevedou
 [F#m]Schovej sirky[E], ať je ne[B7]viděj
 
-[tab][ch]D[/ch]                     [ch]A[/ch]                   [ch]E[/ch]            [ch]Bm[/ch]
-
- Když se u nás chlapi  poperou, tak jenom  nožem anebo  sekerou.[/tab]
+[D] Když se u nás chlapi  [A]poperou, tak jenom  n[E]ožem anebo  se[Bm]kerou.
 V zimě tam [D] dlouhý noci  [A]jsou a tuhej  m[Bm]ráz (a tam já to mám rád).
 [D] Jak jsou naše cesty  [A]zavátý, tak vezmem  v[E]idle a nebo  lo[Bm]paty,
 když něco [D] nejde, co na tom  [A]sejde my máme  č[Bm]as.

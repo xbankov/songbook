@@ -43,29 +43,110 @@ def get_norm_filename(uri):
     return config.NORMALIZED_DIR / f"{uri.replace('/', '+')}.txt"
 
 
+
+def download(csv_file_path):
+    data = pd.read_csv(csv_file_path, index_col=False)
+
+    for idx, row in tqdm(data.iterrows(), total=len(data)):
+        raw_filename = get_raw_filename(row.uri)
+        if raw_filename.exists() and not config.FORCE["DOWNLOAD"]:
+            data.at[idx, "status"] = "Downloaded"
+            continue
+        try:
+            download_url(row.uri, raw_filename)
+            data.to_csv(csv_file_path, index=False)
+            sleep(config.SLEEP)
+            data.at[idx, "status"] = "Downloaded"
+        except Exception as e:
+            print(e)
+    data.to_csv(csv_file_path, index=False)
+
+
+def extract(music_folder, csv_path):
+    if not csv_path.exists() or config.FORCE["PARSE"]:
+        songs = extract_recursive(music_folder)
+        songs_dict_list = [
+            {"title": song.title, "uri": song.uri, "status": "Not Downloaded"}
+            for song in songs
+            if any(website in song.uri for website in config.SUPPORTED)
+        ]
+        data = pd.DataFrame(songs_dict_list)
+        data.to_csv(csv_path, index=False)
+
+
+def extract_recursive(item):
+    if item["type"] == "text/x-moz-place-separator":
+        return []
+
+    elif item["type"] == "text/x-moz-place":
+        entry = SongEntry(item["title"], item["uri"])
+        return [entry]
+
+    elif item["type"] == "text/x-moz-place-container":
+        return [uri for child in item["children"] for uri in extract_recursive(child)]
+
+
+def normalize(csv_file_path):
+    data = pd.read_csv(csv_file_path, index_col=False)
+
+    for _, row in tqdm(data.iterrows(), total=len(data)):
+        raw_filename = get_raw_filename(row.uri)
+        norm_filename = get_norm_filename(row.uri)
+        if norm_filename.exists() and not config.FORCE["NORMALIZE"]:
+            continue
+        normalize_txt(raw_filename, norm_filename)
+
+
 def normalize_ultimate_guitar(tab, title):
     norm_tab = []
     norm_tab.append(f"{{title: {title}}}")
-
-    capo_match = re.search(r"Capo: (\d+)", tab)
-    capo = int(capo_match.group(1)) if capo_match else None
-    if capo:
-        norm_tab.append(f"{{capo: {capo}}}")
+    capo_match = re.search(r"[cC]apo:? (.+)", tab)
+    if capo_match:
+        norm_tab.append(f"{{capo: {capo_match.group(1)}}}")
 
     sections = tab.split("\r\n\r\n")
     for section in sections:
+        norm_lines = []
         lines = [l for l in section.split("\r\n") if len(l) != 0]
         if len(lines) == 0:
             continue
 
-        norm_tab.append(lines[0])
-        if len(lines) == 1:
-            continue
-        norm_lines = []
-        i = 1
+        i = 0
+        start_tag = ""
+        end_tag = ""
         while i < len(lines):
             current_line = lines[i]
 
+            if i == 0 and current_line.startswith("[") and current_line.endswith("]"):
+                section_title = current_line[1:-1]
+                if section_title.lower() == "intro":
+                    # TODO - specify value and process it in html rendering
+                    start_tag = "{start_of_verse}"
+                    end_tag = "{end_of_verse}"
+
+                elif "verse" in section_title.lower():
+                    start_tag = "{start_of_verse}"
+                    end_tag = "{end_of_verse}"
+
+                elif "chorus" in section_title.lower():
+                    start_tag = "{start_of_chorus}"
+                    end_tag = "{end_of_chorus}"
+
+                elif section_title.lower() == "bridge":
+                    start_tag = "{start_of_bridge}"
+                    end_tag = "{end_of_bridge}"
+
+                elif section_title.lower() == "outro":
+                    # TODO - specify value and process it in html rendering
+                    start_tag = "{start_of_verse}"
+                    end_tag = "{end_of_verse}"
+
+                else:
+                    print(f"Unknown starting tag: {current_line}. Skipping ...")
+
+                if start_tag:
+                    norm_lines.append(start_tag)
+                    
             if "[tab]" in current_line:
                 next_line = lines[i + 1]
                 current_line = current_line.replace("[tab]", "")
@@ -94,9 +175,12 @@ def normalize_ultimate_guitar(tab, title):
                 norm_lines.append(norm_chords)
                 i += 1
             else:
-                norm_lines.append(lines[i])
                 i += 1
+                # Skip
+                # norm_lines.append(lines[i])
 
+        if end_tag:
+            norm_lines.append(end_tag)
         norm_tab.append("\n".join(norm_lines))
 
     return "\n\n".join(norm_tab)
@@ -135,62 +219,3 @@ def normalize_txt(raw_filename, norm_filename):
         tab = ""
 
     save_text(tab, norm_filename)
-
-
-def normalize(csv_file_path):
-    data = pd.read_csv(csv_file_path, index_col=False)
-
-    for _, row in tqdm(data.iterrows(), total=len(data)):
-        raw_filename = get_raw_filename(row.uri)
-        norm_filename = get_norm_filename(row.uri)
-        if norm_filename.exists() and not config.FORCE["NORMALIZE"]:
-            continue
-        normalize_txt(raw_filename, norm_filename)
-
-
-def download(csv_file_path):
-    data = pd.read_csv(csv_file_path, index_col=False)
-
-    for idx, row in tqdm(data.iterrows(), total=len(data)):
-        raw_filename = get_raw_filename(row.uri)
-        if raw_filename.exists() and not config.FORCE["DOWNLOAD"]:
-            data.at[idx, "status"] = "Downloaded"
-            continue
-        try:
-            download_url(row.uri, raw_filename)
-            data.to_csv(csv_file_path, index=False)
-            sleep(config.SLEEP)
-            data.at[idx, "status"] = "Downloaded"
-        except Exception as e:
-            print(e)
-    data.to_csv(csv_file_path, index=False)
-
-
-class SongEntry:
-    def __init__(self, title, uri):
-        self.title = title
-        self.uri = uri
-
-
-def extract(music_folder, csv_path):
-    if not csv_path.exists() or config.FORCE["PARSE"]:
-        songs = extract_recursive(music_folder)
-        songs_dict_list = [
-            {"title": song.title, "uri": song.uri, "status": "Not Downloaded"}
-            for song in songs
-            if any(website in song.uri for website in config.SUPPORTED)
-        ]
-        data = pd.DataFrame(songs_dict_list)
-        data.to_csv(csv_path, index=False)
-
-
-def extract_recursive(item):
-    if item["type"] == "text/x-moz-place-separator":
-        return []
-
-    elif item["type"] == "text/x-moz-place":
-        entry = SongEntry(item["title"], item["uri"])
-        return [entry]
-
-    elif item["type"] == "text/x-moz-place-container":
-        return [uri for child in item["children"] for uri in extract_recursive(child)]

@@ -1,119 +1,76 @@
 {title: Uprising}
 
-Artist: The Muse
 
-Song: Uprising
-Album: The Resistance
 
-[Intro]
+{start_of_verse}
+{end_of_verse}
 
-| [ch]D5[/ch]  | [ch]D5[/ch]  | [ch]D5[/ch]  | [ch]D5[/ch]  |
+| [D5]  | [D5]  | [D5]  | [D5]  |
 
-[tab]  [ch]Dm[/ch]                                [ch]Gm[/ch]                [ch]F[/ch]
+e|[Dm]17--------------|13--------------|[Gm]-----------------|[F]----------------|
 
-e|17--------------|13--------------|-----------------|----------------|
-B|----------------|----------------|-------------13--|----------------|
-G|----------------|--------14------|15-------------15|14--------------|
-D|----------------|----------------|-----------------|----------------|
-A|----------------|----------------|-----------------|----------------|
-E|----------------|----------------|-----------------|----------------|[/tab]
+e|[A]17--------------|----------------|1[Gm]8-----------2018|1[F]7--------[A/C#]------|
 
-[tab]  [ch]A[/ch]                                 [ch]Gm[/ch]                [ch]F[/ch]       [ch]A/C#[/ch]
+e|[Dm]17--13----------|----13--17------|[Gm]18-----------1715|[F]17-------[Ab5]-------|
 
-e|17--------------|----------------|18-----------2018|17--------------|
-B|--------17------|----------------|-----------------|----------------|
-G|----------------|18--------------|-----------------|----------------|
-D|----------------|--------19------|-----------------|----------------|
-A|----------------|----------------|-----------------|----------------|
-E|----------------|----------------|-----------------|----------------|[/tab]
+e|[A]17--12----------|----12--17------|1[Gm]5-----------1312|1[F]3--------[A/C#]---------|
 
-[tab]  [ch]Dm[/ch]                                [ch]Gm[/ch]                [ch]F[/ch]       [ch]Ab5[/ch]
+| [D5]  | [D5]  | [D5]  | [D5]  |
 
-e|17--13----------|----13--17------|18-----------1715|17--------------|
-B|--------15------|15----------15--|-----------------|----------------|
-G|------------14--|----------------|-----------------|----------------|
-D|----------------|----------------|-----------------|----------------|
-A|----------------|----------------|-----------------|----------------|
-E|----------------|----------------|-----------------|----------------|[/tab]
+{start_of_verse}
+{end_of_verse}
 
-[tab]  [ch]A[/ch]                                 [ch]Gm[/ch]                [ch]F[/ch]       [ch]A/C#[/ch]
-
-e|17--12----------|----12--17------|15-----------1312|13-----------------|
-B|--------14------|14--------------|-----------------|------------15--15-|
-G|------------14--|------------14--|-----------------|------------17b-17b|\
-D|----------------|----------------|-----------------|-------------------|
-A|----------------|----------------|-----------------|-------------------|
-E|----------------|----------------|-----------------|-------------------|[/tab]
-
-| [ch]D5[/ch]  | [ch]D5[/ch]  | [ch]D5[/ch]  | [ch]D5[/ch]  |
-
-[Verse 1]
-
-[tab] [ch]Dm[/ch]
-
- The paranoia is in bloom, the PR[/tab]
+ [Dm]The paranoia is in bloom, the PR
 [Gm] The transmissions [F]will resume
  They'll try to[A]  push drugs
 
- Keep us all dumbed down and hope that
-
 [Gm] We will never see the [F]truth around, so come on[Dm]
 
-[tab][ch]Dm[/ch]
-
- Another promise, another scene, another[/tab]
+[Dm] Another promise, another scene, another
 [Gm] A package not to keep us [F]trapped in greed
 [A] With all the green belts wrapped around our minds
  And endless[Gm] red tape to keep the [F]truth confined, so come on[Dm]
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]Dm[/ch]            [ch]Gm[/ch]    [ch]F[/ch]
-
-They will not force us[/tab]
+[Dm]They will not [Gm]force [F]us
 [A]They will stop deg[Gm]rading u[F]s
 [Dm]They will not con[Gm]trol [F]us
 [A]We will be vic[Gm]torio[F]us, so come on[Dm]
 
-[Verse 2]
+{start_of_verse}
+{end_of_verse}
 
-[tab] [ch]Dm[/ch]
-
- Interchanging mind control[/tab]
+ [Dm]Interchanging mind control
  Come let the[Gm] revolution [F]take it's toll if you could
 [A] Flick the switch and open your third eye, you'd see that
 [Gm] We should never be a[F]fraid to die, so come on[Dm]
 
-[tab][ch]Dm[/ch]
-
- Rise up and take the power back, it's time that[/tab]
+[Dm] Rise up and take the power back, it's time that
 [Gm] The fat cats had a [F]heart attack, you know that
 [A] Their time is coming to an end
  We have to[Gm] unify and watch our [F]flag ascend, so come on[Dm]
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]Dm[/ch]            [ch]Gm[/ch]    [ch]F[/ch]
-
-They will not force us[/tab]
+[Dm]They will not [Gm]force [F]us
 [A]They will stop deg[Gm]rading u[F]s
 [Dm]They will not con[Gm]trol [F]us
 [A]We will be vic[Gm]torio[F]us, so come on[Dm]
 
-[Solo] (x3)
 
-[tab][ch]Dm[/ch]
 
- Hey! Hey![/tab]
+[Dm] Hey! Hey!
 [Gm] Hey![F] Hey!
 
-[ch]A[/ch]   [ch]Gm[/ch] [ch]F[/ch]
+[A]   [Gm] [F]
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]Dm[/ch]            [ch]Gm[/ch]    [ch]F[/ch]
-
-They will not force us[/tab]
+[Dm]They will not [Gm]force [F]us
 [A]They will stop deg[Gm]rading u[F]s
 [Dm]They will not con[Gm]trol [F]us
 [A]We will be vic[Gm]torio[F]us, so come on[Dm]

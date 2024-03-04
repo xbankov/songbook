@@ -1,10 +1,9 @@
 {title: }
 
-[Verse 1]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]Am[/ch]           [ch]C[/ch]
-
-Vieš, čo som zač[/tab]
+[Am]Vieš, čo som [C]zač
 Aký mám [G]rozum a aký p[F]lat
 Len, [Am]prosím, žiadny [C]plač
 Raz možno [G]pôjdem na H[F]rad
@@ -13,11 +12,10 @@ Keď si [G]sama a máš s[F]trach
 Rád [Am]prídem so [C]snom
 A zakri[G]čím ti vo dver[D7]ách
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab]       [ch]Am[/ch]          [ch]C[/ch]
-
-Tak tu som, tak tu som[/tab]
+Tak tu [Am]som, tak tu [C]som
 S [G]oholeným kaktus[F]om
 Tak tu [Am]som, hej, tak tu [C]som
 [G]Zahrniem ťa l[F]uxusom
@@ -27,18 +25,15 @@ Tak tu [Am]som, hej, tak tu [C]som
 Pripra[G]vený byť tvojí[D7]m
 Bonu[Am]som
 
-[Bridge]
 
-[tab][ch]Am[/ch]  [ch]C[/ch]   [ch]G[/ch]  [ch]F[/ch]
 
-Óo, Óo, Óooóo[/tab]
+[Am]Óo, [C]Óo, Ó[G]ooóo[F]
 [Am]Óo, [C]Óo, Ó[G]ooóo[F]
 
-[Verse 2]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]Am[/ch]              [ch]C[/ch]
-
-Vieš, vieš, kto som[/tab]
+[Am]Vieš, vieš, kto [C]som
 Neza[G]korenený s[F]trom
 [Am]Biely Indi[C]án
 Čo v [G]tebe má svoj s[F]tan
@@ -47,11 +42,10 @@ Ako ťa [G]zohriať a č[F]ím
 Od[Am]búram v tebe [C]stres
 Keď vo dver[G]ách ti zakrič[D7]ím..
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab]       [ch]Am[/ch]          [ch]C[/ch]
-
-Tak tu som, tak tu som[/tab]
+Tak tu [Am]som, tak tu [C]som
 S [G]oholeným kaktus[F]om
 Tak tu [Am]som, hej, tak tu [C]som
 [G]Zahrniem ťa l[F]uxusom
@@ -61,18 +55,15 @@ Tak tu [Am]som, hej, tak tu [C]som
 Pripra[G]vený byť tvojí[D7]m
 Rébu[Am]som
 
-[Bridge]
 
-[tab][ch]Am[/ch]  [ch]C[/ch]   [ch]G[/ch]  [ch]F[/ch]
 
-Óo, Óo, Óooóo[/tab]
+[Am]Óo, [C]Óo, Ó[G]ooóo[F]
 [Am]Óo, [C]Óo, Ó[G]ooóo[F]
 
-[Verse 3]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]Am[/ch]           [ch]C[/ch]
-
-Vieš, kadiaľ ísť[/tab]
+[Am]Vieš, kadiaľ [C]ísť
 Ako [G]otočiť ten l[F]ist
 V tej [Am]našej knihe [C]kníh
 Je veľa [G]stránok p[F]osledných
@@ -81,11 +72,10 @@ Samú [G]ťa nič nebav[F]í
 Zrazu [Am]celkom oži[C]ješ
 Keď vo dve[G]rách sa objav[D7]ím
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab]       [ch]Am[/ch]          [ch]C[/ch]
-
-Tak tu som, tak tu som[/tab]
+Tak tu [Am]som, tak tu [C]som
 S [G]oholeným kaktus[F]om
 Tak tu [Am]som, hej, tak tu [C]som
 [G]Zahrniem ťa l[F]uxusom
@@ -94,11 +84,9 @@ Tak tu [Am]som, tak tu [C]som
 Tak tu [Am]som, hej, tak tu [C]som
 Pripra[G]vený byť tvojí[D7]m...
 
-[Ending]
 
-[tab][ch]Am[/ch]  [ch]C[/ch]   [ch]G[/ch]  [ch]F[/ch]
 
-Óo, Óo, Óooóo[/tab]
+[Am]Óo, [C]Óo, Ó[G]ooóo[F]
 [Am]Óo, [C]Óo, Ó[G]ooóo[F]
 [Am]Óo, [C]Óo, Ó[G]ooóo[F]
 [Am]Óo, [C]Óo, Ó[G]ooóo[F]

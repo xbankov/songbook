@@ -1,75 +1,68 @@
 {title: Thought contagion}
 
-Thought Contagion - Muse (2018)
 
-[Intro]
 
+{start_of_verse}
 [Am] [F] [C] [E]
 [Am] [F] [C] [E]
+{end_of_verse}
 
-[Verse 1]
-
+{start_of_verse}
 [Am]Strung out f[F]alling from the big time
 [C]Welcome to the in[E]finite black skies
 [Am]Brain cleansed f[F]ractured identity
 [C]Fragments and sc[E]attered debris
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [Am]Oh oh oh o[F]h oh oh
 [C]Thought cont[E]agion
 [Am]Oh oh oh o[F]h oh oh
 [C]Thought cont[E]agion
+{end_of_chorus}
 
-[Verse 2]
-
+{start_of_verse}
 [Am]Fall down[F] learn when to count it out
 [C]Prop me up before [E]I black out
 [Am]Withdraw befo[F]re you're out of time
 [C]A clean slate and bu[E]ried war crimes
-
-[Pre-chorus]
+{end_of_verse}
 
 [F]You've been b[Dm]itten b[Am]y a t[C]rue believer
 [F]You've been b[Dm]itten b[Am]y someones who's [C]hungrier than you
 [F]You've been b[Dm]itten b[Am]y a t[C]rue believer
 [F]You've been b[Dm]itten b[E]y someone's false beliefs
 
-[Chorus]
-
+{start_of_chorus}
 [Am]Oh oh oh o[F]h oh oh
 [C]Thought cont[E]agion
 [Am]Oh oh oh o[F]h oh oh
 [C]Thought cont[E]agion
+{end_of_chorus}
 
-[Verse 3]
-
+{start_of_verse}
 [Am]They'll never d[F]o what you want them to
 [C]Give it up and wa[E]tch it break through
 [Am]It's too late f[F]or a revolution
 [C]Brace for the f[E]inal solution
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [Am]Oh oh oh o[F]h oh oh
 [C]Thought cont[E]agion
 [Am]Oh oh oh o[F]h oh oh
 [C]Thought cont[E]agion
-
-[Pre-chorus]
+{end_of_chorus}
 
 [F]You've b[Dm]een bitten b[Am]y a t[C]rue believer
 [F]You've b[Dm]een bitten b[Am]y someones who's [C]hungrier than you
 [F]You've been b[Dm]itten b[Am]y a t[C]rue believer
 [F]You've been b[Dm]itten b[E]y someone's false beliefs
 
-[Guitar Solo]
-
 [Am] [F] [C] [E]
 [Am] [F] [C] [E]
 
-[Chorus]
-
+{start_of_chorus}
 [Am]Oh oh oh o[F]h oh oh
 [C]Thought cont[E]agion
 [Am]Oh oh oh o[F]h oh oh
@@ -78,5 +71,6 @@ Thought Contagion - Muse (2018)
 [C]Welcome to the in[E]finite black skies
 [Am]It's too late f[F]or a revolution
 [C]Brace for the f[E]inal solution
+{end_of_chorus}
 
-[ch]Am[/ch]
+[Am]

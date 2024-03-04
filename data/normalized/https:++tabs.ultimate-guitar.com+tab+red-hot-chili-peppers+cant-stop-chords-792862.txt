@@ -1,7 +1,6 @@
 {title: Cant stop}
 
-[Verse 1]
-
+{start_of_verse}
 [Em]Can't stop, addicted to the shindig 
 [D]Chop top, he says I'm gonna win big 
 [Bm]Choose not a life of imitation 
@@ -18,9 +17,9 @@
 [D]Complete the motion if you stumble 
 [Bm]Go ask the dust for any answers 
 [C]Come back strong with 50 belly dancers 
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 The w[G]orld I love
 The t[D]ears I've dropped
 To [Bm]be part of
@@ -31,9 +30,9 @@ The tr[D]ains I hop
 To [Bm]be part of
 The w[C]ave can't stop
 C[G]ome and tell me whe[D]n it's time[Bm] to[C]
+{end_of_chorus}
 
-[Verse 2]
-
+{start_of_verse}
 [Em]Sweetheart is bleeding in the snowcone 
 [D]So smart, she's leading me to ozone 
 [Bm]Music, the great communicator 
@@ -50,9 +49,9 @@ C[G]ome and tell me whe[D]n it's time[Bm] to[C]
 [D]Mop tops are happy when they feed you 
 [Bm]Jay butterfly is in the treetop 
 [C]Birds that blow the meaning into bebop
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 The w[G]orld I love
 The t[D]ears I've dropped
 To [Bm]be part of
@@ -63,16 +62,14 @@ The tr[D]ains I hop
 To [Bm]be part of
 The w[C]ave can't stop
 C[G]ome and tell me whe[D]n it's time[Bm] to[C]
-
-[Interlude]
+{end_of_chorus}
 
 [Em]Wait a minute, I'm p[D]assing out, win or lo[Bm]se, just like yo[C]u 
 [Em]Far more shockin' than an[D]ything I ever kn[Bm]ew, how 'bout y[C]ou 
 [Em]Ten more reasons w[D]hy I need somebody n[Bm]ew, just like y[C]ou 
 [Em]Far more shockin' than an[D]ything I ever kn[Bm]ew, right on cu[C]e 
 
-[Verse 3]
-
+{start_of_verse}
 [Em]Can't stop, addicted to the shindig 
 [D]Chop top, he says I'm gonna win big 
 [Bm]Choose not a life of imitation 
@@ -93,7 +90,4 @@ D[D]on't die, you know the truth as some do
 [D]This life is more than ordinary 
 [Bm]Can I get two, maybe even three of these?
 [C]Comin' from space to teach you of the Pleiades 
-N.C.
-Can't stop the spirits when they need you 
-N.C.
-This life is more than just a read-thru
+{end_of_verse}

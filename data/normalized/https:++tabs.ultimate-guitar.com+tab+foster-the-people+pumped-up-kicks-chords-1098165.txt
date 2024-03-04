@@ -1,30 +1,16 @@
 {title: Pumped up kicks}
 
------------------------------------------------------------------------------
+{capo: 7}
 
-                    Pumped Up Kicks - Foster The People
------------------------------------------------------------------------------
-Tabbed by: J-Dawg
-Email: Unstoppabull1@live.com
 
-Link to the acoustic version - https://www.youtube.com/watch?v=YAZwmT4sjy0
 
-Tuning: standard
 
-Capo 7
 
-[tab]-Verse-
 
-      [Em]          [G]         [D]         [A]
-e|----0-0-0-------3-3-333---2-2-202---0-0-000---------|
-B|----0-0-0-------3-3-333---3-3-333---2-2-222---------|
-G|----0-0-0-------0-0-000---2-2-222---2-2-222---------|
-D|----2-2-2-------0-0-000---0-0-000---2-2-222---------|
-A|----2-2-2-------2-2-222-------------0-0-000---------|
-E|----0-0-0---2---3-3-333-----------------------------|[/tab]
 
-[Verse]
+      [ch]Em[/ch]          [ch]G[/ch]         [ch]D[/ch]         [ch]A[/ch]
 
+{start_of_verse}
 [Em]Robert's got a quick hand[G]
 He'll [D]look around the room
 He won't [A]tell you his plan
@@ -36,16 +22,16 @@ In his [D]dad's closet
 with a [A]box of fun things
 And [Em]I don't even know wha[G]t
 But he's [D]coming for you, yeah, he's c[A]oming for you
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [Em]All the other kids with the [G]pumped up kicks
 You'd better [D]run, better run, ou[A]trun my gun
 [Em]All the other kids with the [G]pumped up kicks
 You'd better [D]run, better run, fa[A]ster than my bullet
+{end_of_chorus}
 
-[Verse]
-
+{start_of_verse}
 [Em]Daddy works a long day[G]
 He be [D]coming home late, yeah, he's c[A]oming home late
 And he's [Em]bringing me a surprise[G]
@@ -55,17 +41,16 @@ Yeah, the [D]slight of my hand is now a q[A]uick pull trigger
 I [Em]reason with my cigarette[G]
 And say your [D]hair's on fire
 You must have [A]lost your wits, yeah
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [Em]All the other kids with the [G]pumped up kicks
 You'd better [D]run, better run, o[A]utrun my gun
 [Em]All the other kids with the [G]pumped up kicks
 You'd better [D]run, better run, f[A]aster than my bullet
+{end_of_chorus}
 
-[tab][ch]Em[/ch]                          [ch]G[/ch]
-
-All the other kids with the pumped up kicks[/tab]
+[Em]All the other kids with the [G]pumped up kicks
 You'd better [D]run, better run, o[A]utrun my gun
 [Em]All the other kids with the [G]pumped up kicks
 You'd better [D]run, better run, f[A]aster than my bullet

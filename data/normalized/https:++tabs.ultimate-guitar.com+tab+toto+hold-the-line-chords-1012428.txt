@@ -1,70 +1,64 @@
 {title: Hold the line}
 
-As you hold F#m you can play, if you want, one of these riffs:
 
-[tab]Riff 1 :  e|---0-2-|         Riff 2 :  e|-------|
 
           B|-2-----|                   B|-------|
-          G|-------|                   G|-------|
-          D|-------|                   D|---2-4-|
-          A|-------|                   A|-4-----|
-          E|-------|                   E|-------|[/tab]
 
-[Intro]
+{start_of_verse}
+{end_of_verse}
 
-[ch]F#m[/ch]  [ch]C#m[/ch]  [ch]D[/ch]  [ch]E[/ch]  [ch]Esus4[/ch]  [ch]E[/ch]  x2
-
+[F#m]  [C#m]  [D]  [E]  [Esus4]  [E]  x2
 [E]  [C#m]  [Cm]  [Bm]
 
-[Verse]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]Bm[/ch]              [ch]C#m[/ch]          [ch]F#m[/ch]               [ch]C#m[/ch] [ch]Cm[/ch] [ch]Bm[/ch]
-
-It's not in the way that you hold me  (riff 1)[/tab]
+{start_of_verse}
+[Bm]It's not in the [C#m]way that you[F#m] hold me  (riff 1[C#m])[Cm][Bm]
 [Bm]It's not in the [C#m]way you say you[F#m] care  (riff 2[C#m])[Cm][Bm]
 [Bm]It's not in the [C#m]way you've been[Dmaj7] treating[E] my friends[C#m][Cm][Bm]
 [Bm]It's not in the [C#m]way that you[Dmaj7] stayed till [E]the end[C#m][Cm][Bm]
 [Bm]It's not in the [C#m]way you look or the[D] things that you say that you'll [E]do
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab]         [ch]F#m[/ch] [ch]C#m[/ch] [ch]D[/ch] [ch]E[/ch] [ch]Esus4[/ch] [ch]E[/ch]                       [ch]F#m[/ch] [ch]C#m[/ch] [ch]D[/ch] [ch]E[/ch] [ch]Esus4[/ch] [ch]E[/ch]
-
-Hold the line,        love isn't always on time, oh  oh  oh[/tab]
+{start_of_chorus}
+Hold the [F#m]lin[C#m]e, [D]   [E]   [Esus4] lo[E]ve isn't always on time, [F#m]oh [C#m] oh[D]  o[E]h[Esus4][E]
 Hold the [F#m]lin[C#m]e, [D]   [E]   [Esus4] lo[E]ve isn't always on time, [F#m]oh [C#m] oh[D]  o[E]h[Esus4][E][E][C#m][Cm][Bm]
 
-[Verse]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]Bm[/ch]              [ch]C#m[/ch]            [ch]F#m[/ch]                  [ch]C#m[/ch]  [ch]Cm[/ch]  [ch]Bm[/ch]
-
-It's not in the words that you told me, girl (riff 1)[/tab]
+{start_of_verse}
+[Bm]It's not in the [C#m]words that you[F#m] told me, girl (riff[C#m] 1)[Cm][Bm]
 [Bm]It's not in the [C#m]way you say you're[F#m] mine (riff 2)[C#m][Cm][Bm]
 [Bm]It's not in the [C#m]way that you[Dmaj7] came back[E] to me[C#m][Cm][Bm]
 [Bm]It's not in the [C#m]way that your[Dmaj7] love set [E]me free[C#m][Cm][Bm]
 [Bm]It's not in the [C#m]way you look or the[D] things that you say that you'll [E]do
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab]         [ch]F#m[/ch] [ch]C#m[/ch] [ch]D[/ch] [ch]E[/ch] [ch]Esus4[/ch] [ch]E[/ch]                       [ch]F#m[/ch] [ch]C#m[/ch] [ch]D[/ch] [ch]E[/ch] [ch]Esus4[/ch] [ch]E[/ch]
-
-Hold the line,        love isn't always on time, oh  oh  oh[/tab]
+{start_of_chorus}
+Hold the [F#m]lin[C#m]e, [D]   [E]   [Esus4] lo[E]ve isn't always on time, [F#m]oh [C#m] oh[D]  o[E]h[Esus4][E]
 Hold the [F#m]lin[C#m]e, [D]   [E]   [Esus4] lo[E]ve isn't always on time, [F#m]oh [C#m] oh[D]  o[E]h[Esus4][E][E][C#m][Cm][Bm]
 
-[Verse]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]Bm[/ch]              [ch]C#m[/ch]            [ch]F#m[/ch]                    [ch]C#m[/ch] [ch]Cm[/ch]  [ch]Bm[/ch]
-
-It's not in the words that you told me, girl (riff 1)[/tab]
+{start_of_verse}
+[Bm]It's not in the [C#m]words that you[F#m] told me, girl (riff 1[C#m])[Cm][Bm]
 [Bm]It's not in the [C#m]way you say you're[F#m] mine, ooh (riff 2[C#m])[Cm][Bm]
 [Bm]It's not in the [C#m]way that you[Dmaj7] came back[E] to me[C#m][Cm][Bm]
 [Bm]It's not in the [C#m]way that your[Dmaj7] love set[E] me free[C#m][Cm][Bm]
 [Bm]It's not in the [C#m]way you look or the[D] things that you say that you'll [E]do
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab]         [ch]F#m[/ch] [ch]C#m[/ch] [ch]D[/ch] [ch]E[/ch] [ch]Esus4[/ch] [ch]E[/ch]                       [ch]F#m[/ch] [ch]C#m[/ch] [ch]D[/ch] [ch]E[/ch] [ch]Esus4[/ch] [ch]E[/ch]
-
-Hold the line,        love isn't always on time, oh  oh  oh[/tab]
+{start_of_chorus}
+Hold the [F#m]lin[C#m]e, [D]   [E]   [Esus4] lo[E]ve isn't always on time, [F#m]oh [C#m] oh[D]  o[E]h[Esus4][E]
 Hold the [F#m]lin[C#m]e, [D]   [E]   [Esus4] lo[E]ve isn't always on time, [F#m](Lo[C#m]ve [D]isn[E]'t [Esus4]alw[E]ays on time)
 Hold the [F#m]lin[C#m]e, [D]   [E]   [Esus4] lo[E]ve isn't always on time, [F#m](Lo[C#m]ve [D]isn[E]'t [Esus4]alw[E]ays, love isn't always on time)
 Hold the [F#m]lin[C#m]e, [D]   [E]   [Esus4] lo[E]ve isn't always on time,[F#m][C#m][D][E][Esus4][E]

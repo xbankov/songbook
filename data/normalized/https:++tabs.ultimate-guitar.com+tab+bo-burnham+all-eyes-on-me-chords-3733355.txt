@@ -1,13 +1,10 @@
 {title: All eyes on me}
 
-Hey Bo lovers! "INSIDE" is a masterpiece and I'm just a hack butttttt,
 
-I wanted to play along, so I've done my best with my first tab :)
 
-The whole song just builds on these four Chords: G D Em C
 
-[Intro]
 
+{start_of_verse}
 [C]*crowd applause*
 [G]    Thank you very much. [D]Thank you! [Em]   [C]  You guys have been incredible. Thank you.
 [G]    [D]    [Em]    [C]  I couldn't have done it without you guys.
@@ -17,8 +14,7 @@ I [G]couldn't, really, [D]I...   This last year [Em]has been...[C]   you know th
 [G]  You know I [D]hate to ask because [Em]ahhh you have given me[C] so much,
 [G]  but...  [D]   [Em]      I need you to do one [C]more thing for me.
 [G]   [D]   Can you do that?[Em]
-
-[Chorus A]
+{end_of_verse}
 
 [C]Get your fucking hands up
 [G]Get on out of your [D]seats
@@ -27,23 +23,19 @@ All eyes on me, all [Em]eyes on me
 [G]Get on out of your [D]seats
 All eyes on me, all [Em]eyes on me
 
-[Verse 1]
-
+{start_of_verse}
 [C]    Are you feeling nervous?[G]
 Are you having fun?[D]
 It's almost over[Em], it's just begun[C]
 Don't overthink this[G], look in my eye
 [D]Don't be scared, don't be shy
 [Em]Come on in, the water's fine[C]
-
-[Pre-Chorus]
+{end_of_verse}
 
 We're going to [G]go where everybody [D]knows
 Everybody [Em]knows, everybody o[C]h
 We're going to [G]go where everybody [D]knows
 Everybody [Em]knows...
-
-[Chorus A]
 
 [C]Get your fucking hands up
 [G]Get on out of your [D]seat
@@ -52,15 +44,11 @@ All eyes on me, all e[Em]yes on me, hey yo,
 [G]Get on out of your [D]seat
 All eyes on me, all e[Em]yes on me
 
-[Chorus B]
-
 [C]Heads down, p[G]ray for me
 [D]Heads down now[Em], pray for me
 [C]Get your fucking hands up
 [G]Get on out of your [D]seat
 All eyes on me, all [Em]eyes on me[C]
-
-[Bridge 1]
 
 [G]     You wanna hear a funny story?  [D]      [Em]    So[C], uh, five years ago,
 I [G]quit performi[D]ng live [Em]comedy[C], because I was beginning to have uh,
@@ -73,17 +61,16 @@ trying[G] to improve myself mentally. [D]  And you know what?   [Em]   I did! [C
 [G]   and I need to.[D]..    [Em]     re-enter[C].
 [G]   And then,[D] the funniest thing[Em] happened[C]
 
-[Verse 1]
-
+{start_of_verse}
 [C]    Are you feeling nervous?[G]
 Are you having fun?[D]
 It's almost over[Em], it's just begu[C]n
 Don't overthink this[G], look in my eye
 [D]Don't be scared, don't be shy
 [Em]Come on in, the water's fine
+{end_of_verse}
 
-[Verse 2]
-
+{start_of_verse}
 [C]You say the ocean's r[G]ising
 Like I give a [D]shit
 You say the whole world's [Em]ending
@@ -91,16 +78,13 @@ Honey, it already [C]did
 You're not gonna [G]slow it
 Heaven knows you [D]tried
 [Em]Got it? Good, now get ins[C]ide
-
-[Pre-Chorus]
+{end_of_verse}
 
 We're going to [G]go where everybody [D]knows
 Everybody [Em]knows, everybody o[C]h
 We're going to [G]go where everybody [D]knows
 Everybody [Em]knows...
 
-[Final Chorus]
-
 [C]Get your fucking hands up
 [G]Get on out of your [D]seat
 All eyes on me, all [Em]eyes on me
@@ -108,29 +92,21 @@ All eyes on me, all [Em]eyes on me
 [G]Get on out of your [D]seat
 All eyes on me, all [Em]eyes on me
 
-[tab][ch]C[/ch]           [ch]G[/ch]
-
-Heads down, pray for me[/tab]
+[C]Heads down, p[G]ray for me
 [D]Heads down now,[Em] pray for me
 I said [C]get your fucking hands up
 [G]    Get up!        [D]Get up!
 I'm talking to you, [Em]get the fuck up!
 
-[tab][ch]C[/ch]
-
-Get your fucking hands up[/tab]
+[C]Get your fucking hands up
 [G]Get on out of your [D]seat
 All eyes on me, all [Em]eyes on me
 Hey, fuckin', [C]get your fucking hands up
 [G]Get on out of your [D]seat
 All eyes on me, all [Em]eyes on me
 
-[tab]         [ch]C[/ch]           [ch]G[/ch]
-
-Come on, heads down, pray for me[/tab]
+Come on, [C]heads down, p[G]ray for me
 [D]Heads down now, [Em]pray for me
 I said [C]get your fucking hands up[G]
-
-Get on- *laughs*
 
 [D]All eyes on me, all [Em]eyes on me

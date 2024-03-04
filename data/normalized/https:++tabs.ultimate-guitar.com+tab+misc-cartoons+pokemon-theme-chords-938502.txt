@@ -1,7 +1,6 @@
 {title: Pokemon theme}
 
-[Verse]
-
+{start_of_verse}
 [Am]I wanna be the [G]very best
 Like [Am]no one ever[G] was
 [F]To catch them is m[C]y real test
@@ -10,9 +9,9 @@ To [C]train them i[D]s my ca[E]use
 [Am]Searching far and w[G]ide
 [F]Teach Pokèmon to[C] understand
 The [C]power t[D]hat's ins[E]ide
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 Pokè[F]mon! (Gotta catch em' all)
 It's [C]you and me
 [F]I know it's my de[G]stiny
@@ -26,10 +25,9 @@ Our [Am]courage will [G]pull us through
 [C]Pok[D]èmon[E]
 Gotta catch 'em [F]all!
 Gotta [G]catch 'em al[Am]l!
-Yeah!
+{end_of_chorus}
 
-[Verse]
-
+{start_of_verse}
 [Am]Every challenge [G]along the way
 With [Am]courage I will [G]face
 [F]I will battle e[C]very day
@@ -38,9 +36,9 @@ To [C]claim my r[D]ightful pla[E]ce
 [Am]There's no better [G]team
 [F]Arm in arm we'll [C]win the fight
 It's [C]always be[D]en our dre[E]am
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 Pokè[F]mon! (Gotta catch em' all)
 It's [C]you and me
 [F]I know it's my de[G]stiny
@@ -54,4 +52,4 @@ Our [Am]courage will [G]pull us through
 [C]Pok[D]emo[E]n
 Gotta catch 'em [F]all!
 Gotta [G]catch 'em a[Am]ll!
-Pokèmon!
+{end_of_chorus}

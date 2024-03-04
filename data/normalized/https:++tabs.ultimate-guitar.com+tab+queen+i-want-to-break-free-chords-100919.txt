@@ -1,35 +1,27 @@
 {title: I want to break free}
 
-[Intro 1] (fade in)
-
 | [C#m]     | [F#4] [F#]  |
 | [A]   [B]   | [C#m]   [B] |
 | [A]   [B]   | [C#m]   [B] |
 | [A]   [B]   | [E]       | [E]       |
 
-[Intro 2]
-
 | [E]   | [E]   | [A]   | [A]   |
 | [E]E   | E[E] N.C.[B][A]
 
-[Verse 1]
-
+{start_of_verse}
 I want to break [E]free
-I want to break free
-I want to break free from your lies
 You're so self satisfied, I don't [A]need you
 I've got to break [E]free
 God [B]knows, G[A]od knows I want to break [E]free
+{end_of_verse}
 
-[Verse 2]
-
+{start_of_verse}
 I've fallen in [E]love
 I've fallen in [E]love for the first time
 This time I know it's for [A]real 
 I've fallen in l[E]ove, yeah
 God [B]knows, G[A]od knows I've fallen in lo[E]ve[A][E][A][E]
-
-[Bridge]
+{end_of_verse}
 
 It's [B]strange but it's t[A]rue
 [B] I can't get over the way you l[A]ove me like you do
@@ -39,37 +31,30 @@ When I [F#sus4]walk out t[F#]hat door
 [A] Oh, how I w[B]ant to be fr[C#m]ee[B]
 O[A]h, how I w[B]ant to break [E]free
 
-[Solo]
-
 | [E]   | [E]   | [E]   | [E]   |
 | [A]   | [A]   | [E]   | [E]   |
 | [B]   | [A]   | [E]   | [E] N.C.|
-
-[Interlude]
 
 | [E]   | [E]   | [E]   | [E]   |
 | [A]   | [A]   | [E]   | [E]   |
 | [B]   | [A]   | [E]   | [E]   |
 | [B]   | [A]   | [E]   | [E] N.C.
 
-[Verse 3]
-
+{start_of_verse}
 But life still goes [E]on
 I can't get used to [E]living without, living without
 Living without you by my s[A]ide
 I don't want to live a[E]lone, hey
 God [B]knows  [A] got to make it on my o[E]wn
+{end_of_verse}
 
-[Outro]
-
+{start_of_verse}
 So baby, can't you [B]see
 [A]  I've got to break[E] free
 I've got to break [E]free
 I want to br[E]eak free, yeah
 [E]
+{end_of_verse}
 
-[tab][ch]E[/ch]
+[E]I want, I want, I want, I want to break free...
 
-I want, I want, I want, I want to break free...[/tab]
-
-(fade out)

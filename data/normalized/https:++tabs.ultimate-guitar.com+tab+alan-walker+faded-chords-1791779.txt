@@ -1,11 +1,10 @@
 {title: Faded}
 
-[Intro]
-
+{start_of_verse}
 [Am] [F] [C] [G]
+{end_of_verse}
 
-[Verse 1]
-
+{start_of_verse}
 [Am]You were the shadow to my [F]light
 Did you feel us[C]
 Another [G]star
@@ -13,8 +12,7 @@ You fade away[Am]
 Afraid our aim is out of sig[F]ht
 Wanna see us[C]
 Al[G]ight
-
-[Pre-chorus]
+{end_of_verse}
 
 Where are you [Am]now[F]
 Where are you [C]now[G]
@@ -23,8 +21,7 @@ Was it all in my [F]fantasy
 Where are you [C]now
 Were you only i[G]maginary
 
-[Chorus]
-
+{start_of_chorus}
 Where are you [Am]now
 Atl[F]antis
 Under the [C]sea
@@ -37,9 +34,9 @@ I'm faded[C]
 So lo[G]st, I'm faded[Am][F]
 I'm faded[C]
  So lo[G]st, I'm faded
+{end_of_chorus}
 
-[Verse 2]
-
+{start_of_verse}
 [Am]These shallow waters, never [F]met
 What I needed[C]
 I'm letting g[G]o
@@ -47,21 +44,17 @@ A deeper dive[Am]
 Eternal silence of the [F]sea
 I'm breathing[C]
 Al[G]ive
-
-[Pre-chorus]
+{end_of_verse}
 
 Where are you [Am]now[F]
 Where are you [C]now[G]
 Under the [Am]bright
 
-But faded lights
-
 You set my [F]heart on fire
 Where are you n[C]ow
 Where are you [G]now
 
-[Chorus]
-
+{start_of_chorus}
 Where are you[Am] now
 Atl[F]antis
 Under the [C]sea
@@ -74,7 +67,8 @@ I'm faded[C]
 So lo[G]st, I'm faded[Am][F]
 I'm faded[C]
  So lo[G]st, I'm fa[Am]ded
+{end_of_chorus}
 
-[Outro]
-
+{start_of_verse}
 [Am] [F] [C] [G]
+{end_of_verse}

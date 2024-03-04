@@ -1,20 +1,14 @@
 {title: Sad}
 
-[Intro]
-
-It's about all the sad stuff I see in the world
-I see a lot of sad stuff and it's called sad
+{start_of_verse}
 [C]      [F]     [C/G]     [Em]
+{end_of_verse}
 
-[tab]        [ch]C[/ch]        [ch]F[/ch]           [ch]C/G[/ch]          [ch]Em[/ch]
-
-Get on my, level Maddison. Just picture a depressed onion cutting itself.[/tab]
+Get on m[C]y, level M[F]addison. Just[C/G] picture a d[Em]epressed onion cutting itself.
 [C]      [F]     [C/G]          [Em]
 [C]      [F]     [C/G]     [Em]
 
-[tab]        [ch]C[/ch]                  [ch]F[/ch]
-
-I met a homeless man named Rich[/tab]
+I met a [C]homeless man named R[F]ich
 [C]Isn't that t[G]errible?
 I saw a f[C]lyer for a lost d[F]og
 And the [Am]dog didn't have any le[Em]gs
@@ -22,23 +16,18 @@ I saw a d[C]iabetic ki[F]d tric[Am]k-or-tr[G]eating
 I sa[C]w a giraffe who [F]had a short neck
 [Am]That was sad,[G] or a deer
 
-[tab][ch]E[/ch]        [ch]F[/ch]           [ch]C[/ch]        [ch]G[/ch]
-
-I saw an old man get hit by a train[/tab]
+[E]I saw an o[F]ld man get hi[C]t by a tra[G]in
 He didn't [E]see it in the pouring ra[F]in                                          
 He didn't h[C]ear me shout, "Look out for the tr[G]ain!"[E]
 
-Because I didn't say anything.
 
-[ch]C[/ch]     [ch]F[/ch]    [ch]C/G[/ch]    [ch]Em[/ch]
 
+[C]     [F]    [C/G]    [Em]
 [C]I just [F]thought to[C/G] myself, "O[Em]oh, this is gonna be sad."
 [C]       [F]    An[C/G]d it w[Em]as.
 [C]      I[F]'m a g[C/G]enius.[Em]
 
-[tab]        [ch]C[/ch]                       [ch]F[/ch]
-
-I saw a man with only one eye[/tab]
+I saw a [C]man with only one eye[F]
 [C]In a 3D m[G]ovie
 I saw a [C]little boy drop his ice cre[F]am cone
 [Am]Directly on his mother's corp[Em]se
@@ -46,30 +35,23 @@ I saw a [C]kitten stuck in a tr[F]ee
 Then the [Am]kitten jumped off and he [G]hung himself
 I saw a bo[C]y who had red [F]hair.[Am][G]
 
-[tab][ch]E[/ch]           [ch]F[/ch]                 [ch]C[/ch]            [ch]G[/ch]
-
-I went to a store looking for something to buy[/tab]
+[E]I went to a s[F]tore looking for so[C]mething to buy[G]
 But they only sold pa[E]intings of the same sad gu[F]y
 No, [C]wait--this store sells m[G]irrors! 
 See what I [E]did there?
 Let's rock! No.[C][Em][F][Fm]
 
-[Bridge]
 
-[ch]C[/ch]   [ch]Em[/ch]   [ch]F[/ch]   [ch]Fm[/ch]
 
 [C]   [Em]   [F]   [Fm]
+[C]   [Em]   [F]   [Fm]
 
-[Spoken]
-
-   
 [C]The worl[Em]d's so[F] sad, Ma[Fm]ddison. 
 [C]Pain, wa[Em]r, geno[F]cide, rac[Fm]ism, sexism. 
 [C]But I've g[Em]otta remem[F]ber there's[Fm] good things about it too. 
 [C]Like the f[Em]act that [F]none of tha[Fm]t's happening to me! Score! 
 [C]Still, tho[Em]ugh, it'[F]s hard not[Fm] to be sad about it. 
 [C]How do[Em] y'al[F]l do [Fm]it? 
-I've been telling you guys terribly sad things this whole song; you 
 [C]haven'[Em]t been [F]sad at all[Fm]. 
 [C]You've be[Em]en happy--no,[F] you've been la[Fm]ughing.
 [C]That's it, l[Em]aughter, it[F]'s the key to e[Fm]verything. 
@@ -81,9 +63,7 @@ I've been telling you guys terribly sad things this whole song; you
 [C]it's being a hero! T[Em]he world isn't sad. The worl[F]d's funny! 
 I'm [G]a sociopath!  
 
-[tab]         [ch]C[/ch]                 [ch]F[/ch]
-
-I saw an old man slip and fall[/tab]
+I saw an [C]old man slip and fa[F]ll
 [Am]Hey, what a fucking [G]idiot
 I saw a [C]woman at her daughter's f[F]uneral
 [Am]Ha ha ha. [G]Classic comedy.

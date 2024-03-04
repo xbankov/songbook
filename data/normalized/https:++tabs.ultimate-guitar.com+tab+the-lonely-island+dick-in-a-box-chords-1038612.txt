@@ -1,96 +1,62 @@
 {title: Dick in a box}
 
-Artist: The Lonely Island
 
-Song: Dick In A Box
-
-[Chords are]
 
 [Dm7] (000211) , [E7] (020100) and [Am] (002210)
 
-Hey girl
 
-I got somethin' real important to give you
-So just sit down and listen
 
-[tab][ch]Dm7[/ch]                        [ch]E7[/ch]             [ch]Am[/ch]
-
-Girl you know we've been together such a long long time[/tab]
-(Such a long time)
+[Dm7]Girl you know we've been t[E7]ogether such a [Am]long long time
 [Dm7]    And now I'm[E7] ready   to[Am] lay it on the line
 [Dm7]Wow, you know it's[E7] Christmas and my[Am] heart is open wide
-(Open wide)
 [Dm7]Gonna give you[E7] something so you know what's[Am] on my mind
-(What's on my mind)
 
-[tab][ch]Dm7[/ch]            [ch]E7[/ch]
-
-   A gift real special,[/tab]
+[Dm7]   A gift real[E7] special,
 So [Am]take off the top
 take a look in[Dm7]side
 [E7]   It's my dick in a [Am]box
-   (It's in a box)
 
-[tab][ch]Dm7[/ch]                 [ch]E7[/ch]
-
-Not gonna get you a diamond ring[/tab]
+[Dm7]Not gonna get you a[E7] diamond ring
 [Am]That sort of gift don't mean anything
 [Dm7]Not gonna get you a[E7] fancy car
 [Am]Girl, ya gotta know you're my shinin' star
 
-[tab][ch]Dm7[/ch]                 [ch]E7[/ch]
-
-Not gonna get you a house in the hills[/tab]
+[Dm7]Not gonna get you a[E7] house in the hills
 A [Am]girl like you needs somethin' real
 [Dm7]Wanna get you somethin'[E7] from the heart
 [Am]Somethin' special girl
 
-                     Dm7 (let ring)
-
-   It's my dick in a box
 [E7]   My dick in a [Am]box babe
    It's my dick in a [Dm7]box
 [E7]   Ooh, my dick in a [Am]box girl
 
-[tab]        [ch]Dm7[/ch]            [ch]E7[/ch]
-
-See I'm wise enough to know[/tab]
+See I'm [Dm7]wise enough to[E7] know
 When a gift needs [Am]givin', and I got just the one
 [Dm7]Somethin' to[E7] show ya that you are[Am] second to none
 
-[tab]           [ch]Dm7[/ch]                   [ch]E7[/ch]
-
-To all the fellas out there with ladies to impress[/tab]
+To all the [Dm7]fellas out there with[E7] ladies to impress
 It's [Am]easy to do just follow these steps:
-    
 [Dm7]1, cut [E7]a hole in a box
 [Am]2, put your junk in that box
 [Dm7]3, make her[E7] open the box
 [Am]And that's the way you do it
 
-N.C.
-
-It's my dick in a box
 My dick in a [Am]box babe
 It's my dick in a [Dm7]box
 Oo[E7]h, my dick in a [Am]box girl
 
-[tab][ch]Dm7[/ch]        [ch]E7[/ch]
-
-Christmas, dick in a box[/tab]
+[Dm7]Christmas,[E7] dick in a box
 [Am]Hanukkah, dick in a box
 [Dm7]Kwanzaa, a[E7] dick in a box
 [Am]Every single holiday a dick in a box
 
-[tab][ch]Dm7[/ch]                            [ch]E7[/ch]
-
-Over at your parents' house, a dick in a box[/tab]
+[Dm7]Over at your parents' house, a[E7] dick in a box
 [Am]Mid-day at the grocery store, a dick in a box
 [Dm7]Backstage at the C[E7]MA's, a dick in a[Am] box, yeah yeah yeah
 
-[Outro]
-
+{start_of_verse}
 [Dm7]    [E7] My dick in a box
 [Am]     My dick in a box
 [Dm7]    [E7] My dick in a box
 [Am]
+{end_of_verse}

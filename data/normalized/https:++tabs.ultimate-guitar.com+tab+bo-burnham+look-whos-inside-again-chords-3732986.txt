@@ -1,10 +1,9 @@
 {title: Look whos inside again}
 
-[Verse 1]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]D[/ch]            [ch]Bm[/ch]        [ch]A[/ch]          [ch]G[/ch]
-
-Trying to be funny and stuck in a room[/tab]
+[D]Trying to be f[Bm]unny and s[A]tuck in a ro[G]om
 [D]There isn't m[Bm]uch more to s[A]ay abo[G]ut it
 [D]Can one be f[Bm]unny when [A]stuck in a r[G]oom?
 [D]Being i[Bm]n, trying to[A] get something [G]out of it
@@ -12,13 +11,12 @@ Trying to be funny and stuck in a room[/tab]
 [A]Try telling j[Bm]okes
 [Bm]Making [F#]little [G]sounds
 
-[ch]A[/ch]
+[A]
 
-[Verse 2]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]D[/ch]         [ch]Bm[/ch]        [ch]A[/ch]            [ch]G[/ch]     [ch]D[/ch]  
-
-I was a kid who was stuck in his room[/tab]
+[D]I was a kid[Bm] who was s[A]tuck in his ro[G]om[D]
 There isn't much[Bm] more to [A]say ab[G]out it
 [D]When you're a k[Bm]id and you're s[A]tuck in your ro[G]om[D]
 You'll do [Bm]any old [A]shit to get o[G]ut of it
@@ -26,19 +24,16 @@ You'll do [Bm]any old [A]shit to get o[G]ut of it
 [A]Try telling j[Bm]okes
 [Bm]Making [F#]little [G]sounds
 
-[ch]A[/ch]
+[A]
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]D[/ch]
-
-Well, well[/tab]
+[D]Well, well
 [Em]Look who's inside again
 [A]Went out to look for a r[D]eason to hide[Bm] again
 
-[tab][ch]D[/ch]
-
-Well, well[/tab]
+[D]Well, well
 [Em]Buddy, you found it[A]
 [A]Now come o[Bm]ut with your h[Bb+]ands up
 We've [D/A]got you sur[Gm]rounded

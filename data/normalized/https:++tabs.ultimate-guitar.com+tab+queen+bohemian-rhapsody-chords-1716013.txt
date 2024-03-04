@@ -1,25 +1,15 @@
 {title: Bohemian rhapsody}
 
-Artist: Queen
+{capo: 3}
 
-Song: Bohemian Rhapsody
-Album: A Night At The Opera (1975)
-Provided By Ben Brown
-Capo 3
 
-This is meant to be a simpler way to play a highly complex song.  Not all the chords may sound 100%
 
-true to the record, but that was not my goal in this tab.  Some of the chords may look more difficult 
-at first for beginners, but most of them are actually a lot easier to play than they look.  Authors, please 
-refrain from complexifying any part of the song if you can help it.  I'm 100% open to changes but want to 
-keep this simple.  There are far more accurate tabs if that is something you're looking for.  Thank you,
-and I hope you enjoy!
 
-[Intro]
 
-[tab][ch]Em7[/ch]
+{start_of_verse}
+{end_of_verse}
 
-Is this the real life[/tab]
+[Em7]Is this the real life
 [A7]Is this just fantasy
 [D7]Caught in a [Am7]lan[D7]dslide
 No e[G]scape from reality
@@ -31,11 +21,10 @@ Because I'm [G#]easy [G]come, e[F#]asy g[G]o,
 [C]Any way the w[G/B]ind blows, [Bbdim7]doesn't rea[D7/A]lly matter to me,
 To [G]me
 
-[Verse]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]G[/ch]          [ch]Em[/ch]
-
-Mama, just killed a man,[/tab]
+[G]Mama, just k[Em]illed a man,
 Put a [Am]gun against his head,
 Pulled my [Am]trigger, now he's d[D]ead,
 [G]Mama, life had j[Em]ust begun,
@@ -45,13 +34,12 @@ Didn't [Dm]mean to make you cry
 If [G]I'm not back again this time tomo[C]rrow
 Carry [G]on, carry o[Am]n, as if n[Fm]othing really matt[C]ers
 
-[ch]G[/ch]
+[G]
 
-[Verse]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]G[/ch]            [ch]Em[/ch]
-
-Too late, my time has come,[/tab]
+[G]Too late, my t[Em]ime has come,
 Sends [Am]shivers down my spine
 Body's [Am]aching all the ti[D]me,
 [G]Goodbye everybody - I've g[Em]ot to go
@@ -60,29 +48,18 @@ Gotta [Am]leave you all be[Am/G#]hind a[Am/G]nd [Am/F#]face  [Am/F] th[Am/E]e tr
 [Dm]I don't want to die,
 I [G]sometimes wish I'd never been born at al[C]l
 
-[Solo]
 
-| [ch]C[/ch] [ch]G[/ch] | [ch]Am[/ch]  | [ch]Dm[/ch]  | [ch]G[/ch]   |
 
+| [C] [G] | [Am]  | [Dm]  | [G]   |
 | [C] [G] | [Am]  | [Dm]  | [Bb]  [Bb] [A] [G#] [G] | [F#]   |
 
-[Interlude 1]
 
-[tab][ch]B[/ch] [ch]F#[/ch]    [ch]F[/ch]      [ch]F#[/ch]    [ch]B[/ch]    [ch]F#[/ch]   [ch]F[/ch]
 
-I see a little silhouetto of a man,[/tab]
+[B]I s[F#]ee a l[F]ittle si[F#]lhouet[B]to of [F#]a man[F],
 [F#]Scara[B]mouche, s[F#]caram[B]ouche, wi[F#]ll you do[F] the Fan[F#]dan[B]go[F#]
 [A#]Thunderbolt and [F]lightning, v[A]ery very fr[C#]ightening me[F#]
-N.C.
-Galileo, Galileo
-N.C.
-Galileo, Galileo
-N.C.
-Galileo, Figaro - Magnifico
 
-[tab][ch]G#[/ch]  [ch]G[/ch]      [ch]F#[/ch]   [ch]G[/ch]    [ch]G#[/ch] [ch]G[/ch]    [ch]F#[/ch]    [ch]G[/ch]
-
-I'm just a poor boy, no-body loves me.[/tab]
+[G#]I'm [G]just a p[F#]oor b[G]oy, no[G#]-bo[G]dy lov[F#]es me.[G]
 [F]He's j[C]ust a po[Cdim]or [C]boy f[F]rom a po[C]or fam[Cdim]i-l[C]y.
 [F]Spare him his l[C/E]ife from this [D]monstrosit[G]y.[F][C/E][D#dim][Dm7]
 [G#]Easy [G]come, e[F#]asy g[G]o, wi[G#]ll you le[G]t me go?[F#]  Bis[G]mill[C]ah![G]
@@ -92,47 +69,38 @@ I'm just a poor boy, no-body loves me.[/tab]
 [G#m]No,[F#] no,[B] no, [A#]no, [D#]no, [G]no, n[C]o.  Oh, mama mia, mama mia
 Mama [C]mia, let me g[G]o.  Beel[C]zebub[F] has a devi[B]l put aside [Em]for me,[G]
 
-[Riff]
 
-| [ch]C[/ch]   | [ch]C[/ch]   | [ch]C[/ch]   | [ch]D[/ch]   |
 
-[Interlude 2]
+| [C]   | [C]   | [C]   | [D]   |
 
-[tab][ch]G[/ch]                                   [ch]C[/ch]          [ch]G[/ch]   [ch]Bb[/ch]
 
-  So you think you can stone me and spit in my eye[/tab]
+
+[G]  So you think you can stone me and s[C]pit in my ey[G]e[Bb]
 [G]  So you think you can love me and l[C]eave me to di[F]e
 [Dm]Oh, [G]baby - [Dm]can't do this to me, b[G]aby
 [Dm]Just gotta get [G]out - j[Dm]ust gotta get r[G]ight outta he[C]re
 
-[Riff/Instrumental]
 
-|([ch]C[/ch])  | [ch]C[/ch]   | [ch]C[/ch]   | [ch]D[/ch]   | N.C.|
 
+|([C])  | [C]   | [C]   | [D]   | N.C.|
 | [Ab]  | [F]   | [G]   | [G]   | [G]   |
 | [C]  [G]  | [Am]  [E] [Am] | [E] [Am] [G] [C] | [B]  [Em] | [F]  [C]  |
 
-[Outro]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]Am[/ch]                [ch]Em[/ch]
-
-Nothing really matters,[/tab]
+[Am]Nothing really mat[Em]ters,
 [Am]Anyone can [Em]see,
 [Am]Nothing really mat[Fm]ters, [F/G]nothing really matters to[C] me,
 
-[Instrumental]
 
-|([ch]C[/ch]) [ch]F/C[/ch] | [ch]C[/ch]  [ch]Cdim[/ch] |
 
+|([C]) [F/C] | [C]  [Cdim] |
 | [G/B]  [Gm/Bb] | [A]    [Bbdim] | [A] [A7] [D]    |
 
-[Coda]
 
-[tab][ch]G[/ch]   [ch]D/F#[/ch]    [ch]Ddim/F[/ch] [ch]Em7[/ch]    [ch]D[/ch]
 
-Any way the wind   blows ...[/tab]
+[G]Any w[D/F#]ay the[Ddim/F] wi[Em7]nd   b[D]lows ...
 
-[tab]G       x-x-5-4-3-x
-
-D/F#    x-x-4-2-3-x[/tab]
+D/F#    x-x-4-2-3-x
 Em7     x-x-2-0-3-x

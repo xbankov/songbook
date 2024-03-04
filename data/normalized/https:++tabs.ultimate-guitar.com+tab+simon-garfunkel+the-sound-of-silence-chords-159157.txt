@@ -1,7 +1,6 @@
 {title: The sound of silence}
 
-[Verse 1]
-
+{start_of_verse}
 [Am]   Hello darkness, my old [G]friend,
 I've come to talk with you [Am]again,
 Because a vision soft[F]ly creepi[C]ng,
@@ -9,9 +8,9 @@ Left its seeds while I [F]was sleep[C]ing,
 And the [F]vision that was planted in my b[C]rain
 Still remain[C/B]s[Am]
 [C]Within the so[G]und of sil[Am]ence.
+{end_of_verse}
 
-[Verse 2]
-
+{start_of_verse}
 In restless dreams I walked a[G]lone
 Narrow streets of cobble[Am]stone,
 'neath the halo of [F]a street l[C]amp,
@@ -19,9 +18,9 @@ I turned my collar to the [F]cold and d[C]amp
 When my [F]eyes were stabbed by the flash of a neon l[C]ight
 That split the night[C/B][Am]
 A[C]nd touched the s[G]ound of si[Am]lence.
+{end_of_verse}
 
-[Verse 3]
-
+{start_of_verse}
 And in the naked light I [G]saw
 Ten thousand people, maybe [Am]more.
 People talking with[F]out speak[C]ing,
@@ -29,9 +28,9 @@ People hearing with[F]out listen[C]ing,
 People writing [F]songs that voices never s[C]hare
 And no one dar[C/B]e[Am]
 [C]Disturb the s[G]ound of si[Am]lence.
+{end_of_verse}
 
-[Verse 4]
-
+{start_of_verse}
 Fools said I, you do not [G]know
 Silence like a cancer [Am]grows.
 Hear my words that I [F]might teach y[C]ou,
@@ -39,9 +38,9 @@ Take my arms that I [F]might reach y[C]ou.
 But my [F]words like silent raindrops f[C]ell,[C/B][Am]
 And[C] echoed
 In the [G]wells of s[Am]ilence
+{end_of_verse}
 
-[Verse 5]
-
+{start_of_verse}
 And the people bowed and [G]prayed
 To the neon God they [Am]made.
 And the sign flashed out [F]its warn[C]ing,
@@ -50,3 +49,4 @@ And the sign said, the [F]words of the prophets
 Are written on the subway w[C]alls
 And tenement [C]halls.[C/B][Am]
 And whisp[C]er'd in the s[G]ounds of si[Am]lence.
+{end_of_verse}

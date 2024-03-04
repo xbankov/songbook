@@ -1,122 +1,95 @@
 {title: }
 
-RUN TO THE SUN by HEĽENINE OČI
+{capo: needed}
 
-https://www.youtube.com/watch?v=D_JvJjETOx8
-No capo needed
 
-[Intro]
 
+{start_of_verse}
 [Dm] [F] [C] [Dm]
+{end_of_verse}
 
-[Verse 1]
-
+{start_of_verse}
 All my [Dm]life I’m on the run
 On the [F]run to the sun
 To burn [C]away my twisted s[Dm]oul
+{end_of_verse}
 
-[tab]         [ch]Dm[/ch]
-
-With the wings that He gave you[/tab]
+With the [Dm]wings that He gave you
 We could [F]fly above the skies
 I’m no [C]more afraid to d[Dm]ie
 
-[Pre-chorus]
-
 [Dm]Tell me everything you wanna [F]do
 I’m with [C]you, only with y[Dm]ou
 The [Dm]world is fine when somebody [F]loves you
 That’s what [C]I do, only with y[Dm]ou
 
-[Chorus]
-
+{start_of_chorus}
 I just wanna [G]seize the r[Am]ising s[Dm]un
 I don’t wanna [G]spend all my l[Am]ife on the r[Dm]un
 I wanna see your [G]shine from c[Am]rack of d[Dm]awn
 All the way from [G]dawn, dawn t[Am]o dusk d[Dm]awn
+{end_of_chorus}
 
-[Verse 2]
-
+{start_of_verse}
 Looking [Dm]back on a lonely life
 Soon to be [F]left alone behind
 I finally [C]found my harmon[Dm]y
+{end_of_verse}
 
-[tab]              [ch]Dm[/ch]
-
-Take all your books and dreams to me[/tab]
+Take all your [Dm]books and dreams to me
 I love your [F]sins and melodies
 We’ll start to [C]grow our family t[Dm]ree
-
-[Pre-chorus]
 
 [Dm]Tell me everything you wanna [F]do
 I’m with [C]you, only with y[Dm]ou
 The [Dm]world is fine when somebody [F]loves you
 That’s what [C]I do, only with y[Dm]ou
 
-[Chorus]
-
+{start_of_chorus}
 I just wanna [G]seize the r[Am]ising s[Dm]un
 I don’t wanna [G]spend all my l[Am]ife on the r[Dm]un
 I wanna see your [G]shine from c[Am]rack of d[Dm]awn
 All the way from [G]dawn, dawn t[Am]o dusk d[Dm]awn
-
-[Instrumental]
+{end_of_chorus}
 
 [Dm] [F] [C] [Dm]
-
-[Bridge]
 
 We quietly [Dm]face the days before
 It’s up to [F]us to scream no more
 Let’s [C]compose our symphon[Dm]y
 
-[tab]          [ch]Dm[/ch]
-
-Let those old dreams go, I said[/tab]
+Let those [Dm]old dreams go, I said
 Rebuild my [F]life with me instead
 I [C]fill the lines only with y[Dm]ou
-
-[Pre-chorus]
 
 [Dm]Tell me everything you wanna [F]do
 I’m with [C]you, only with y[Dm]ou
 The [Dm]world is fine when somebody [F]loves you
 That’s what [C]I do, only with y[Dm]ou
 
-[Chorus]
-
+{start_of_chorus}
 I just wanna [G]seize the r[Am]ising s[Dm]un
 I don’t wanna [G]spend all my l[Am]ife on the r[Dm]un
 I wanna see your [G]shine from c[Am]rack of d[Dm]awn
 I don’t wanna [G]spend all my l[Am]ife on the r[Dm]un
-
-[Final part]
+{end_of_chorus}
 
 [Dm]Run to the sun
 Baby, [F]run to the sun
 Baby, [C]run with me to the s[Dm]un
 
-[tab][ch]Dm[/ch]
-
-Run to the sun[/tab]
+[Dm]Run to the sun
 Baby, [F]run to the sun
 Baby, [C]run with me to the s[Dm]un
 
-[tab][ch]Dm[/ch]
-
-Run to the sun[/tab]
+[Dm]Run to the sun
 Baby, [F]run to the sun
 Baby, [C]run with me to the s[Dm]un
 
-[tab][ch]Dm[/ch]
-
-Run to the sun[/tab]
+[Dm]Run to the sun
 Baby, [F]run to the sun
 Baby, [C]run with me to the s[G]un
 
-[tab]       [ch]G[/ch]
-
-To the sun[/tab]
+To the [G]sun
 To the [G]sun
 My [C]only o[Dm]ne

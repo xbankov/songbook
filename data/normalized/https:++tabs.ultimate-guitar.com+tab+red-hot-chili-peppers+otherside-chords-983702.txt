@@ -1,29 +1,26 @@
 {title: Otherside}
 
-Strumming pattern: D DU UDU
 
-* = play the strumming pattern x2 on this chord
 
-[Intro]
-
+{start_of_verse}
 [Am]   [F]   [C]   [G]
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [Am] How long, how [F]long will I s[C]lide?
 [G]Separate my si[Am]iii-i[F]iide
 I [C]don't, d[G]on't believe it's ba[Am]aa-aa[F]ad
 [C]Slittin' my throat it's a[G]ll I ever
+{end_of_chorus}
 
-[Verse 1]
-
+{start_of_verse}
 [Am]   I heard your voice through a [Em]photograph
 [Am]   I thought it up and brought [Em]up the past
 [Am]   Once you know you can [Em]never go back
 I've got to [G]take it on the o[A]therside
+{end_of_verse}
 
-[Verse 2]
-
+{start_of_verse}
 [Am]  Centuries are what it [Em]meant to me
 [Am]  A cemetery where I [Em]marry the sea
 [Am]  Stranger things never [Em]change my mind
@@ -31,23 +28,23 @@ I've got to [G]take it on the o[A]therside
 [G]Take it on the o[A]therside
 [G]Take it on
 [A]Take it on
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [Am] How long, how [F]long will I s[C]lide?
 [G]Separate my si[Am]iii-i[F]iide
 I [C]don't, d[G]on't believe it's ba[Am]aa-aa[F]ad
 [C]Slittin' my throat it's a[G]ll I ever
+{end_of_chorus}
 
-[Verse 3]
-
+{start_of_verse}
 [Am]  Pour my life into a [Em]paper cup
 [Am]  The ashtray's full and I'm [Em]spillin' my guts
 [Am]  She wants to know am I [Em]still a slut
 I've got to [G]take it on the o[A]therside
+{end_of_verse}
 
-[Verse 4]
-
+{start_of_verse}
 [Am]  Scarlet starlet and she's [Em]in my bed
 [Am]  A candidate for a [Em]soul mate bled
 [Am]  Push the trigger and [Em]pull the thread
@@ -55,38 +52,31 @@ I've got to [G]take it on the o[A]therside
 [G]Take it on the o[A]therside
 [G]Take it on
 [A]Take it on
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [Am] How long, how [F]long will I s[C]lide?
 [G]Separate my si[Am]iii-i[F]iide
 I [C]don't, d[G]on't believe it's ba[Am]aa-aa[F]ad
 [C]Slittin' my throat it's a[G]ll I ever
-
-[Instrumental]
+{end_of_chorus}
 
 [Em]* - [C]*
 [Em]* - [C]*
-
-[Bridge]
 
 [Em]  Turn me on take me for a hard ride
 [C]  Burn me out leave me on the otherside
 [Em]  I yell and tell it that it's not my friend
 [C]  I tear it down I tear it down, and then it's born again
 
-[Guitar Solo]
-
 [Am]   [F]   [C]   [G]
 
-[Chorus]
-
+{start_of_chorus}
 [Am]  How long, how [F]long will I s[C]lide?
 [G]Separate my s[Am]iiii-i[F]iide
 I [C]don't, d[G]on't believe it's ba[Am]aa-aa[F]ad
 [C]Slittin' my throat it's a[G]ll I ever
+{end_of_chorus}
 
-[tab][ch]Am[/ch]   [ch]F[/ch]       [ch]C[/ch]      [ch]G[/ch]                  [ch]Am[/ch]    [ch]F[/ch]
-
-Haaa-aaad, I don't, don't believe it's saaa-aaad[/tab]
+[Am]Haaa-[F]aaad, I d[C]on't, do[G]n't believe it's saa[Am]a-aaad[F]
 [C]Slitting my throat, it's a[G]ll I ever[Am]

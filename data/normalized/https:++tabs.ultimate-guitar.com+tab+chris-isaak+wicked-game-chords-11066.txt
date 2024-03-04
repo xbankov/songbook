@@ -1,49 +1,45 @@
 {title: Wicked game}
 
-[Intro]
-
+{start_of_verse}
 [Bm]  [A]  [E]    x4
+{end_of_verse}
 
-[Verse 1]
-
+{start_of_verse}
 [Bm]The world was on fire and [A]no one could save me but y[E]ou.
 It's [Bm]strange what desire will [A]make foolish people do[E].
 [Bm]I never dreamed that I'[A]d meet somebody like yo[E]u.
 [Bm]I never dreamed that I'[A]d lose somebody like yo[E]u.
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 No, [Bm]I d[A]on't want to fall in lo[E]ve. (This world is only gonna break your heart)
 No, [Bm]I d[A]on't want to fall in lo[E]ve. (This world is only gonna break your heart)
 With y[Bm]ou.[A][E]
 With y[Bm]ou. [A]    [E] (This world is only gonna break your heart)
+{end_of_chorus}
 
-[Verse 2]
-
+{start_of_verse}
 [Bm]What a wicked g[A]ame you play, [E]to make me feel this way.
 [Bm]What a wicked th[A]ing to do, [E]to let me dream of you.
 [Bm]What a wicked th[A]ing to say, [E]you never felt this way.
 [Bm]What a wicked th[A]ing to do, [E]to make me dream of you. 
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 And, [Bm]I d[A]on't want to fall in lo[E]ve. (This world is only gonna break your heart)
 No, [Bm]I d[A]on't want to fall in lo[E]ve. (This world is only gonna break your heart)
 With y[Bm]ou.
-
-[Instrumental]
+{end_of_chorus}
 
 ([Bm]) [A]  [E]
  [Bm]  [A]  [E]    x3
 
-[Verse 3]
-
+{start_of_verse}
 [Bm]The world was on fire and n[A]o one could save me but y[E]ou.
 It's [Bm]strange what desire will [A]make foolish people do[E].
 [Bm]I never dreamed that I'[A]d love somebody like yo[E]u.
 [Bm]I never dreamed that I'[A]d lose somebody like yo[E]u, no.
-
-[Chorus/Outro]
+{end_of_verse}
 
 No, [Bm]I d[A]on't want to fall in lo[E]ve. (This world is only gonna break your heart)
 No, [Bm]I d[A]on't want to fall in lo[E]ve. (This world is only gonna break your heart)

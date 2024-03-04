@@ -1,13 +1,12 @@
 {title: Starlight}
 
-[Intro]
-
+{start_of_verse}
 [B] (on Bass)
 [B] [C#m] [G#m] [E] 
 [B] [C#m] [G#m] [E] 
+{end_of_verse}
 
-[Verse]
-
+{start_of_verse}
 [B]Far Away
 [C#m]This ship is taking me[G#m] far away
 [E]Far away from the
@@ -18,53 +17,50 @@
 [E]Until the end of my
 [B]life
 [C#m]I don't know if it's[G#m] worth it an[E]y more
-
-[Pre-Chorus]
+{end_of_verse}
 
 [B]Hold y[C#m]ou in [G#m]my arms[E], I just wanted to
 [B]Hold y[C#m]ou in [G#m]my arms[E]
 
-[Verse]
-
+{start_of_verse}
 [B]My life
 [C#m]You electrify[G#m] my life
 [E]Let's conspire to ig-n[B]ite
 [C#m]All the souls that would[G#m] die just to b[E]e alive
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [C#m]I'll[F#] never let you[D#] go if you[G#m] promise not to
 [A]Fade a[E]way, never fa[A]de awa[D#]y
 [G#m]Our[D#] hopes and expec[E]ta----t[B]ions
 [G#m]Black[D#] holes and reve[E]la----t[B]ions
 [G#m]Our[D#] hopes and expec[E]ta----t[B]ions
 [G#m]Black[D#] holes and reve[E]la----t[F#7]ions
+{end_of_chorus}
 
-[ch]B[/ch] (on Bass)
-
-[Pre-Chorus]
+[B] (on Bass)
 
 [B]Hold y[C#m]ou in [G#m]my arms[E], I just wanted to
 [B]Hold y[C#m]ou in [G#m]my arms[E]
 
-[Verse]
-
+{start_of_verse}
 [B]Far Away
 [C#m]This ship is taking me[G#m] far away
 [E]Far away from the
 [B]Memories
 [C#m]Of all the people who[G#m] care if I live o[E]r die
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [C#m]I'll[F#] never let you[D#] go if you[G#m] promise not to
 [A]Fade a[E]way, never fa[A]de awa[D#]y
 [G#m]Our[D#] hopes and expec[E]ta----t[B]ions
 [G#m]Black[D#] holes and reve[E]la----t[B]ions (yeah)
 [G#m]Our[D#] hopes and expec[E]ta----t[B]ions
 [G#m]Black[D#] holes and revel[E]a----ti[F#7]ons
+{end_of_chorus}
 
-[Outro]
-
+{start_of_verse}
 [B]Hold y[C#m]ou in [G#m]my arms[E], I just wanted to
 [B]Hold y[C#m]ou in [G#m]my arms[E], I just wanted to hooold
+{end_of_verse}

@@ -1,65 +1,62 @@
 {title: Cant help falling in love}
 
-Can’t Help Falling In Love With You chords  ***
+{capo: II **}
 
-Elvis Presley 1961 (Blue Hawaii)**
 
-Capo II **
 
-[Intro]
 
-[ch]C[/ch] [ch]G[/ch] [ch]Am[/ch] [ch]F[/ch] [ch]C[/ch] [ch]G[/ch] [ch]C[/ch]
 
- 
-[Verse 1]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]C[/ch]    [ch]Em[/ch]  [ch]Am[/ch]        [ch]F[/ch]     [ch]C[/ch]    [ch]G[/ch]
+{start_of_verse}
+[C] [G] [Am] [F] [C] [G] [C]
 
-Wise men say, only fools rush in[/tab]
+{start_of_verse}
+[C]Wise m[Em]en s[Am]ay, only f[F]ools ru[C]sh in[G]
 But [F]I c[G]an't he[Am]lp fa[F]lling in lov[C]e with[G] you[C]
 
-[tab][ch]C[/ch]     [ch]Em[/ch] [ch]Am[/ch]             [ch]F[/ch]  [ch]C[/ch] [ch]G[/ch]
-
-Shall I  stay, would it be a sin?[/tab]
+{start_of_verse}
+[C]Shall I[Em]  s[Am]tay, would it b[F]e a [C]sin[G]?
 If [F]I c[G]an't he[Am]lp fa[F]lling in lov[C]e with[G] you[C]
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]Em[/ch]           [ch]B7[/ch]    [ch]Em[/ch]            [ch]B7[/ch]
-
-Like a river flows surely to the sea[/tab]
+{start_of_chorus}
+[Em]Like a river [B7]flows [Em]surely to the [B7]sea
 [Em]Darling so it [B7]goes
 [Em]Some things  [A7]are  meant to [Dm]be[G]
 
-[Verse 2]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]C[/ch]    [ch]Em[/ch] [ch]Am[/ch]            [ch]F[/ch]     [ch]C[/ch]    [ch]G[/ch]
-
-Take my hand, take my whole life too[/tab]
+{start_of_verse}
+[C]Take m[Em]y h[Am]and, take my w[F]hole li[C]fe too[G]
 For [F]I c[G]an't he[Am]lp fa[F]lling in lov[C]e with[G] you[C]
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]Em[/ch]           [ch]B7[/ch]    [ch]Em[/ch]            [ch]B7[/ch]
-
-Like a river flows surely to the sea[/tab]
+{start_of_chorus}
+[Em]Like a river [B7]flows [Em]surely to the [B7]sea
 [Em]Darling so it [B7]goes
 [Em]Some things  [A7]are  meant to [Dm]be[G]
 
-[Verse 3]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]C[/ch]    [ch]Em[/ch] [ch]Am[/ch]            [ch]F[/ch]     [ch]C[/ch]    [ch]G[/ch]
-
-Take my hand, take my whole life too[/tab]
+{start_of_verse}
+[C]Take m[Em]y h[Am]and, take my w[F]hole li[C]fe too[G]
 For [F]I c[G]an't he[Am]lp fa[F]lling in lov[C]e with[G] you[C][C]
 For [F]I c[G]an't he[Am]lp fa[F]lling in lov[C]e with[G] you[C]
 
-** Alternate:
 
-Open
 
-[ch]C[/ch]  = [ch]D[/ch]
 
+
+{start_of_verse}
+[C]  = [D]
 [Em] = [F#m]
 [Am] = [Bm]
 [F]  = [G]
@@ -68,13 +65,9 @@ Open
 [A7] = [B7]
 [Dm] = [Em]
 
-* It has been suggested that Dm or Dm7 might be a good substitute for F
 
-*** This version:
 
-https://www.bing.com/videos/search?q=elvis+presley+can%27t+help+
-falling+in+love+video&view=detail&mid=FF8D76A80995B12A652AFF8D76A80995B12A652A&FORM=VIRE
 
-Set8
 
-**** strumming pattern by: (NSpen1) http://profile.ultimate-guitar.com/NSpen1/
+
+

@@ -1,53 +1,50 @@
 {title: Hit the road jack}
 
-Written by Percy Mayfield (1960), recorded by Ray Charles and Margie Hendrix in 1961.
 
-Tuning half step down, barre chords, tempo 173 bpm
 
-[Intro]
-
+{start_of_verse}
 [Am]   [G]     [F]    [E7]
 [Am]   [G]     [F]    [E7]
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 Hit the [Am]road [G]Jack and [F]don't you come ba[E7]ck no[Am] more, no[G] more, no [F]more, no m[E7]ore.
 Hit the [Am]road [G]Jack and [F]don't you come ba[E7]ck no mo[Am]re. [G](Wh[F]at [E7]you say?)
 Hit the [Am]road [G]Jack and [F]don't you come ba[E7]ck no[Am] more, no[G] more, no [F]more, no m[E7]ore.
 Hit the [Am]road [G]Jack and [F]don't you come ba[E7]ck no mo[Am]re.[G][F][E7]
+{end_of_chorus}
 
-[Verse]
-
+{start_of_verse}
 Oh [Am]woman, oh [G]woman, don't t[F]reat me so me[E7]an,
 You're the [Am]meanest old [G]woman that I've e[F]ver se[E7]en.
 I [Am]guess if [G]you say s[F]o[E7]
 I'll [Am]have to pack my [G]things and g[F]o. (That's ri[E7]ght)
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 Hit the [Am]road [G]Jack and [F]don't you come ba[E7]ck no[Am] more, no[G] more, no [F]more, no m[E7]ore.
 Hit the [Am]road [G]Jack and [F]don't you come ba[E7]ck no mo[Am]re. [G](Wh[F]at [E7]you say?)
 Hit the [Am]road [G]Jack and [F]don't you come ba[E7]ck no[Am] more, no[G] more, no [F]more, no m[E7]ore.
 Hit the [Am]road [G]Jack and [F]don't you come ba[E7]ck no mo[Am]re.[G][F][E7]
+{end_of_chorus}
 
-[Verse]
-
+{start_of_verse}
 Now b[Am]aby, listen ba[G]by, don't-a tr[F]eat me this-a wa[E7]y
 For I'[Am]ll be [G]back on my fee[F]t some day.[E7]      
 (Don't[Am] care if you [G]do 'cause it's u[F]nderstoo[E7]d
 you ain't [Am]got no mon[G]ey you jus[F]t ain't no goo[E7]d.)
 Well, I g[Am]uess if y[G]ou say s[F]o[E7]
 I'd h[Am]ave to pack my [G]things and g[F]o. (That's ri[E7]ght)
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 Hit the [Am]road [G]Jack and [F]don't you come ba[E7]ck no[Am] more, no[G] more, no [F]more, no m[E7]ore.
 Hit the [Am]road [G]Jack and [F]don't you come ba[E7]ck no mo[Am]re. [G](Wh[F]at [E7]you say?)
 Hit the [Am]road [G]Jack and [F]don't you come ba[E7]ck no[Am] more, no[G] more, no [F]more, no m[E7]ore.
 Hit the [Am]road [G]Jack and [F]don't you come ba[E7]ck no mo[Am]re.   [G](Well !)
+{end_of_chorus}
 
-[Outro]
-
+{start_of_verse}
                                D[F]on't you c[E7]ome back no more.
 [Am](aah! what you[G] say)            Do[F]n't you co[E7]me back no more.
 [Am](I didn't unde[G]rstand you)      Do[F]n't you co[E7]me back no more.
@@ -55,3 +52,4 @@ Hit the [Am]road [G]Jack and [F]don't you come ba[E7]ck no mo[Am]re.   [G](Well 
 [Am](Oh, now baby,[G] please)         Do[F]n't you co[E7]me back no more.
 [Am](What you tryi[G]n' to do to me?) Do[F]n't you co[E7]me back no more.
 [Am](Oh, don't tre[G]at me like that) Do[F]n't you co[E7]me back no more.
+{end_of_verse}

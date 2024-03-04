@@ -5,10 +5,17 @@
     "version": "0.2.0",
     "configurations": [
         {
-            "name": "Scrape",
+            "name": "bookmarks2chordpro",
             "type": "debugpy",
             "request": "launch",
-            "program": "${workspaceFolder}/src/scrape.py",
+            "program": "${workspaceFolder}/src/bookmarks2chordpro.py",
+            "console": "integratedTerminal"
+        },
+        {
+            "name": "Build Songbook",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/src/build_songbook.py",
             "console": "integratedTerminal"
         }
     ]

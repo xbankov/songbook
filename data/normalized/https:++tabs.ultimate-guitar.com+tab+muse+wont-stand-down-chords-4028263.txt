@@ -1,20 +1,20 @@
 {title: Wont stand down}
 
-Muse - Won't Stand Down
 
-Tabbed by: http://www.andreasvockrodt.de
 
-Chord names for standard tuning
 
-[Intro]
 
-[ch]Bm[/ch]
 
-[Verse]
 
-[tab][ch]Bm[/ch]
+{start_of_verse}
+{end_of_verse}
 
-I never believed that I would concede and let someone trample on me[/tab]
+[Bm]
+
+{start_of_verse}
+{end_of_verse}
+
+[Bm]I never believed that I would concede and let someone trample on me
 [G/B]You strung me along, I thought I was strong, but you were just gaslighting me
 [Em/B]I’ve opened my eyes, & counted the lies, & now it is clearer to me
 [Bm]You are just a user, and an abuser, living vicariously
@@ -23,26 +23,24 @@ I never believed that I would concede and let someone trample on me[/tab]
 [Em/B]I’ve opened my eyes, and counted the lies,  now it is clearer to me
 [Bm]You are just a user, and an abuser, and I refuse to take it
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab][ch]G[/ch]
-
-Won’t stand down[/tab]
+[G]Won’t stand down
 I’m [E/G#]growing stronger
 [A]Won’t stand down
 I’m [F#/A#]owned no longer
 [Bm]Won’t stand down
 You’ve [G]used me for too l[D]ong, now di[F#7/C#]e alone
 
-[Interlude]
 
-[ch]Bm[/ch]
 
-[Verse 2]
+[Bm]
 
-[tab][ch]Bm[/ch]
+{start_of_verse}
+{end_of_verse}
 
-Now I’m coming back, a counterattack, I’m playing you at your own game[/tab]
+[Bm]Now I’m coming back, a counterattack, I’m playing you at your own game
 [G/B]I’m cutting you out, a shadow of doubt Is gonna hang over your name
 [Em/B]I’ve opened my eyes, I see your disguise I will never see you the same
 [Bm]I know how to win, before you begin I’ll shoot you before you take aim
@@ -51,29 +49,24 @@ Now I’m coming back, a counterattack, I’m playing you at your own game[/tab]
 [Em/B]I’ve opened my eyes, I see your disguise I will never see you the same
 [Bm]I know how to win, before you begin I’ll shoot you before you take aim
 
-[Chorus 2]
 
-[tab][ch]G[/ch]
 
-Won’t stand down[/tab]
+[G]Won’t stand down
 I’m [E/G#]growing stronger
 [A]Won’t stand down
 I’m [F#/A#]owned no longer
 [Bm]Won’t stand down
 You’ve [G]used me for too l[D]ong, now di[F#7/C#]e alone
 
-[Interlude]
 
-[ch]Bm[/ch]
 
+[Bm]
 [Bm] [D] [Bm] [D]
 [Bm]
 
-[Chorus 3]
 
-[tab][ch]G[/ch]
 
-Won’t stand down[/tab]
+[G]Won’t stand down
 I’m [E/G#]growing stronger
 [A]Won’t stand down
 I’m [F#/A#]owned no longer

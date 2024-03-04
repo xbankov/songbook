@@ -1,7 +1,6 @@
 {title: Enormous penis}
 
-[Verse]
-
+{start_of_verse}
 Whenever li[E]fe gets you do[G#]wn
 Keeps you wea[A]ring a fr[Am]own
 And the gr[B]avy tra[A#]in has le[A]ft you be[G#]hind[E]
@@ -14,9 +13,9 @@ Come [E]on and take a walk in my sh[E7]oes
 Never w[F#]orry 'bout a thing
 G[F#]ot t[G#]he wo[A]rld on a string
 Cause I've g[B]ot the cure for all of my blues (all of his blues)
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 I take a look at [E]my enormous [G#]peni[C#]s
 And my tro[A]ubles start a-mel[B]tin' away[E] (ba-[E]doom [D#]bop)[E]
 I take a look at [E]my enormous [G#]peni[C#]s
@@ -26,19 +25,19 @@ When I gl[Am]ance in my pants
 And a-fe[E]elin's like a sun shiny da[D#]aaaa[C#]y
 I take a look at [A]my enormous [B] Pee[E]--e--[D#]e--[D]nis[C#]
 And a-ever[A]ything is go[B]in' my way[E] (ba-[E]doom [D#]bop)[E]
+{end_of_chorus}
 
-[Repeat chorus chords]
 
-*Whistle Solo*
 
-Zubudo zus zus zuboo-davey ba jud zud zuboo-day
 
-Vabyado vuz vuz ba shoo-ba-do wah
 
-Zubudo zub zub shaloo dub dub pe-e-enis
 
-[Chorus]
 
+
+
+
+
+{start_of_chorus}
 I take a look at [E]my enormous [G#]peni[C#]s
 And my tro[A]ubles start a-mel[B]tin' away[E][E][D#][E]
 I take a look at [E]my enormous [G#]peni[C#]s
@@ -52,3 +51,4 @@ Ev'ry[A]thing is goi[B]n' my way [E](my meat is murd[C#]er)
 Ev'ry[A]thing is goi[B]n' my way [E](size doesn't ma[C#]tter)
 Ev'r[A]ything is go[B]in' my waa[E]aaaaa[E]aay[D#][E]
 [E9]Yummmmm
+{end_of_chorus}

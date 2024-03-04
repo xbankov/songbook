@@ -1,74 +1,59 @@
 {title: The zephyr song}
 
-[Intro]
-
-[tab]e|--------3------------1------------------------------|
+{start_of_verse}
+{end_of_verse}
 
 B|-----1------------0---------------0------------1----|
-G|--2------------0---------------0------------2-------|
-D|----------------------------2------------3----------|
-A|----------------------------------------------------|
-E|----------------------------------------------------|  x2[/tab]
 
-[Verse]
-
+{start_of_verse}
 [Am]Can I get your hand to write on. [G]Just a piece of leg to bite on
 [Em]What a night to fly my kite on. [F]Do you want to flash your light on
 [Am]Take a look it’s on display … [G]for you. C[Em]omin’ down, no not toda[F]y
+{end_of_verse}
 
-[tab][ch]Am[/ch]                                [ch]G[/ch]
-
-Did you meet your fortune teller. Get it off with no propeller[/tab]
+[Am]Did you meet your fortune teller. [G]Get it off with no propeller
 [Em]Do it up, it’s on with Stella. [F]What a way to finally smell her
 [Am]Pick it up, but not to strong …[G] for you. [Em]Take a piece and pass it on[F]
 
-[Chorus]
-
+{start_of_chorus}
 [D]Fly away on my Zephyr. I[G] feel it mo[A]re than ever
 [D]And in this perfect weather. W[G]e’ll find a pl[A]ace together
-
-(strum once)
+{end_of_chorus}
 
 [Am]Fly [G]on … m[Em]y wi[F]nd
 
-[Verse]
-
+{start_of_verse}
 [Am]Rebel and a liberator. [G]Find a way to be a skater
 [Em]Rev it up to levitate her. [F]Super friendly aviator
 [Am]Take a look it’s on display … [G]for you. C[Em]omin’ down, no not tod[F]ay
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [D]Fly away on my Zephyr. I[G] feel it mo[A]re than ever
 [D]And in this perfect weather. W[G]e’ll find a pl[A]ace together
 [D]In the water where I center my emotion. A[G]ll the world can pa[A]ss me by
 [D]Fly away on my Zephyr. W[G]e’ll find a pl[A]ace together
-
-[Solo]
+{end_of_chorus}
 
 [Am]   [G]   [Em]   [F]   x2
-
-[Interlude]
 
 [Am]Whoa, whoa, whoa, whoa, whoa, wh[G]oa – do you
 [Em]Yeah, yeah, yeah, yeah, yeah, ye[F]ah
 [Am]Whoa, whoa, whoa, whoa, whoa, wh[G]oa – want to
 [Em]Yeah, yeah, yeah, yeah, yeah, ye[F]ah
 
-[Chorus]
-
+{start_of_chorus}
 [D]Fly away on my Zephyr. I[G] feel it mo[A]re than ever
 [D]And in this perfect weather. W[G]e’ll find a pl[A]ace together
 [D]In the water where I center my emotion. A[G]ll the world can pa[A]ss me by
 [D]Fly away on my Zephyr. W[G]e’re gonna liv[A]e forever
+{end_of_chorus}
 
-[ch]D[/ch]       [ch]G[/ch]    [ch]A[/ch]
-
-[tab][ch]D[/ch]       [ch]G[/ch]    [ch]A[/ch]
-
-                Forever[/tab]
 [D]       [G]    [A]
 
-[ch]D[/ch]       [ch]G[/ch]    [ch]A[/ch]
+[D]         [G]      [A] Forever
+[D]       [G]    [A]
 
-[ch]D[/ch]
+[D]       [G]    [A]
+
+[D]

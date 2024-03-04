@@ -1,51 +1,39 @@
 {title: Zombie}
 
-[Intro] 
-
 [Em] [C] [G] [D/F#]  x4
 
-[Verse 1]
-
+{start_of_verse}
 [Em]Another h[C]ead hangs lowly, c[G]hild is slowly tak[D/F#]en
 [Em]And the violence [C]caused such silence, w[G]ho are we mistake[D/F#]n 
 But you [Em]see it's not me, it's not [C]my family
 In your [G]head, in your head, they are figh[D/F#]ting 
 With their [Em]tanks and their bombs and their [C]bombs and their guns 
 in your h[G]ead, in your head, they are cry[D/F#]ing
-
-[Chorus 1]
+{end_of_verse}
 
 In your [Em]head, in your [C]head, zombie, [G]zombie, zombie [D/F#]
 What's in your [Em]head, in your [C]head, zombie, [G]zombie, zombie [D/F#]
 
-[Instrumental]
-
 [Em] [C] [G] [D/F#] x2
 
-[Verse 2]
-
+{start_of_verse}
 [Em]Another mo[C]ther's breaking hear[G]t is taking over[D/F#]
 [Em]When the violence [C]causes silence, w[G]e must be mist[D/F#]aken
 It's the [Em]same old theme since [C]1916
 In your [G]head, in your head, they're still fi[D/F#]ghting
 With their [Em]tanks and their bombs and their [C]bombs and their guns
 In your [G]head, in your head, they're dy[D/F#]ing
-
-[Chorus 2]
+{end_of_verse}
 
 In your [Em]head, in your [C]head, zombie, [G]zombie, zombie [D/F#]
 What's in your [Em]head, in your [C]head, zombie, [G]zombie, zombie [D/F#]
 
-[Instrumental]
-
 [Em] [C] [G] [D/F#] x2
 [Em] [C] [Em] [C] x2
 
-[Solo]
-
 [Em] [C] [G] [D/F#] x3
 
-[Outro]
-
+{start_of_verse}
 [Em] [C] [Em] [C]
 [Em] [C] [Em]
+{end_of_verse}

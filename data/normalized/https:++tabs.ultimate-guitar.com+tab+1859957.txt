@@ -1,58 +1,52 @@
 {title: }
 
-[Verse 1]
-
+{start_of_verse}
 [Am]  Šel včera městem [Em]muž a šel po hlavní [Am]třídě[Em]
 [Am]  Šel včera městem [Em]muž a já ho z okna [Am]viděl[Em]
 [C]  Na flétnu chorál h[G]rál, znělo to jako zv[Am]on
   a byl v tom všechen [Em]žal, ten krásný dlouhý [F]tón
   a já jsem náhle [F#dim]věděl ano - to j[E7]e on, to j[Am]e on
+{end_of_verse}
 
-[Verse 2]
-
+{start_of_verse}
 [Am]  Vyběh jsem do u[Em]lic jen v noční koši[Am]li[Em]
 [Am]  v odpadcích z pope[Em]lnic krysy se honi[Am]ly[Em]
 [C]  a v teplých postel[G]ích lásky i nelásk[Am]y
   tiše se vrtě[Em]ly rodinné obrá[F]zky
   a já chtěl odpo[F#dim]věď na svoje [E7]otázky, [Am]otázky
-
-[Chorus 1]
+{end_of_verse}
 
   [Am]Na, n[Em]a, na[C]...[G][Am][F][F#dim][E7]
   [Am]   [Em]   [C]  [G]  [Am]   [F]  [F#dim]  [E7] 
 
-[Verse 3]
-
+{start_of_verse}
 [Am]  Dohnal jsem toho [Em]muže a chytl za ka[Am]bát[Em]
 [Am]  měl kabát z hadí [Em]kůže šel z něho divný [Am]chlad[Em]
 [C]  a on se otoč[G]il a oči plné vr[Am]an
   a jizvy u o[Em]čí celý byl pobo[F]dán
   a já jsem náhle [F#dim]věděl kdo je on[E7]en pán, on[Am]en pán
+{end_of_verse}
 
-[Verse 4]
-
+{start_of_verse}
 [Am]  Celý se strachem [Em]chvěl když jsem tak k němu [Am]došel[Em]
 [Am]  a v ústech flétnu [Em]měl od Hieronyma [Am]Bosche[Em]
 [C]  stál měsíc nad dom[G]y jak čírka ve vodě[Am]
   jak moje svědo[Em]mí když zvrací v zácho[F]dě
   a já jsem náhle [F#dim]věděl ano - to j[E7]e Darmoděj, můj Da[Am]rmoděj 
-
-[Chorus 2]
+{end_of_verse}
 
   [Am]Můj Darmo[Em]děj vaga[C]bund osud[G]ů a lásek
   [Am]jenž prochá[F]zí všemi s[F#dim]ny ale dnů[E7]m vyhýbá se
   [Am]můj Darmo[Em]děj krásné [C]zlo jed má [G]pod jazykem
   [Am]když prodá[F]vá po dom[F#dim]ech jehl[E7]y se slovníkem
 
-[Verse 5]
-
+{start_of_verse}
 [Am]  Šel včera městem [Em]muž podomní obcho[Am]dník[Em]
 [Am]  šel ale nejde [Em]už krev skápla na cho[Am]dník[Em]
 [C]  já jeho flétnu v[G]zal a zněla jako zv[Am]on
   a byl v tom všechen [Em]žal ten krásný dlouhý [F]tón
   a já jsem náhle [F#dim]věděl ano - já js[E7]em on, já jsem
-
-[Chorus 3]
+{end_of_verse}
 
   [Am]Váš Darmo[Em]děj vaga[C]bund osud[G]ů a lásek
   [Am]jenž prochá[F]zí všemi s[F#dim]ny ale dnů[E7]m vyhýbá se

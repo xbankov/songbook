@@ -1,126 +1,104 @@
 {title: Walk on the wild side}
 
-Please Note: Players may use the F6 chord as marked below, or, alternatively, may wish to use a
 
-Bbmaj7/F which is a similar chord with a slightly differently voicing. The voicing for this chord is 
-provided below:
 
-[ch]Bbmaj7/F[/ch] - 113231 
+[Bbmaj7/F] - 113231 
 
-[Intro]
+{start_of_verse}
+{end_of_verse}
 
-(Acoustic and Electric Bass Parts Arranged for Guitar)
 
-[tab]   [ch]C[/ch]           [ch]Bbmaj7/F[/ch]              [ch]C[/ch]
 
-e|-----------------------------------------|
-B|-----------------------------------------|
-G|-----------------------------------------|
-D|-----------------------------------------| x4
-A|-7------------7/12----------------15\----|
-E|-8------------8/13-----------------------|[/tab]
+e|-[C]-------------[Bbmaj7/F]----------------[C]-----------|
 
-[Verse 1]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]C[/ch]                        [ch]F6[/ch]
-
-Holly came from Miami, FLA[/tab]
+[C]Holly came from Miami, FLA[F6]
 [C]Hitchhiked her way across the USA[F6]
 [C]Plucked her eyebrows o[Dm]n the way
 [F]Shaved her legs and then h[Dm]e was a she
 
-She says
 
-[Chorus]
 
-[tab][ch]C[/ch]                             [ch]F6[/ch]
+{start_of_chorus}
+{end_of_chorus}
 
-Hey babe, take a walk on the wild side[/tab]
+[C]Hey babe, take a walk on the wi[F6]ld side
 [C]Said hey honey, take a walk on the wi[F6]ld side
 
-[Verse 2]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]C[/ch]                        [ch]F6[/ch]
-
-Candy came from out on the island[/tab]
+[C]Candy came from out on the[F6] island
 [C]In the backroom she was everybody[F6]'s darling
 [C]But she never lost her[Dm] head
 [F]Even when she was giving h[Dm]ead
 
-She says
 
-[Chorus]
 
-[tab][ch]C[/ch]                             [ch]F6[/ch]
+{start_of_chorus}
+{end_of_chorus}
 
-Hey babe, take a walk on the wild side[/tab]
+[C]Hey babe, take a walk on the wi[F6]ld side
 [C]Said hey honey, take a walk on the wi[F6]ld side
-
-And the colored girls go
 
 [C]Do do-do   do-do do-do-do-do   D[F6]o do-do   do-do do-do-do-do
 
-Dooo...
 
-[Verse 3]
 
-[tab][ch]C[/ch]                        [ch]F6[/ch]
+{start_of_verse}
+{end_of_verse}
 
-Little Joe never once gave it away[/tab]
+[C]Little Joe never once gave[F6] it away
 [C]Everybody had to pay and pay[F6]
 [C]A hustle here and a hu[Dm]stle there
 [F]New York City is the place[Dm] where
 
-They say
 
-[Chorus]
 
-[tab][ch]C[/ch]                             [ch]F6[/ch]
+{start_of_chorus}
+{end_of_chorus}
 
-Hey babe, take a walk on the wild side[/tab]
+[C]Hey babe, take a walk on the wi[F6]ld side
 [C]Said hey honey, take a walk on the wi[F6]ld side
 
-[Verse 4]
-
- 
+{start_of_verse}
 [C]Sugar Plum Fairy came and hit the st[F6]reets
 [C]Looking for soul food and a place to [F6]eat
 [C]Went to the Apol[Dm]lo, yo[F]u should have seen him go[Dm], go go
+{end_of_verse}
 
-They said
 
-[Chorus]
 
-[tab][ch]C[/ch]                             [ch]F6[/ch]
+{start_of_chorus}
+{end_of_chorus}
 
-Hey Sugar, take a walk on the wild side[/tab]
+[C]Hey Sugar, take a walk on the w[F6]ild side
 [C]Said hey honey, take a walk on the wi[F6]ld side
 All right... h[C]uh
 
-[Verse 5]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]C[/ch]                        [ch]F6[/ch]
-
-Jackie is just speeding away[/tab]
+[C]Jackie is just speeding aw[F6]ay
 [C]Thought she was James Dean for a [F6]day
 [C]Then I guess she had t[Dm]o crash
 [F]Valium would have helped t[Dm]hat fast
 
-She said
 
-[Chorus]
 
-[tab][ch]C[/ch]                             [ch]F6[/ch]
+{start_of_chorus}
+{end_of_chorus}
 
-Hey babe, take a walk on the wild side[/tab]
+[C]Hey babe, take a walk on the wi[F6]ld side
 [C]Said hey honey, take a walk on the wi[F6]ld side
-
-And the colored girls go
 
 [C]Do do-do   do-do do-do-do-do   D[F6]o do-do   do-do do-do-do-do
 
-Dooo...
 
-[Outro]
 
-[ch]C[/ch]   [ch]F6[/ch]
+{start_of_verse}
+{end_of_verse}
+
+[C]   [F6]

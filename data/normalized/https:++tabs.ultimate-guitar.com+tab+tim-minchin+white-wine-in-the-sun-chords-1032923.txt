@@ -1,49 +1,33 @@
 {title: White wine in the sun}
 
-Tim Minchin
 
-White wine at christmas
-(General improvement of tab)
 
-As played by Tim here:
 
-http://www.youtube.com/watch?v=fCNvZqpa-7Q
 
-Here's my stab at it:
 
-https://www.youtube.com/watch?v=V7LioI_ECYk
-
-new chords:
 
 [Dm/C] x30231
 [F/A]  x0321x
 [Gm7]  3x333x
 
--Credit to 'matt likes axes' for the tab I started with and 'jolov1' for the 
 
-suggested mid-chorus 'A' chord 
 
-[Intro]
+{start_of_verse}
+{end_of_verse}
 
-F x4
-
-[Verse 1]
-
+{start_of_verse}
 [F]I really like Christmas
 It’s sentim[Bb]ental I know, but I just really l[F]ike it
 [F]I’m, I’m hardly religious
 I’d rather break br[Bb]ead with Dawkins than Desmond Tutu to be h[F]onest
 And yes I have [C]all of the usual objections to consu[C7]merism
 To the commercialisation of an ancient [Bb]religion
-
-To the western-isation of a dead Palestinian
+{end_of_verse}
 
 Press-ganged into selling PlayStations and be[F]er
 But I still really like it.[C]
 
-[tab][ch]F[/ch]
-
-I’m looking forward to Christmas[/tab]
+[F]I’m looking forward to Christmas
 Though I’m not [Bb]expecting a visit from J[F]esus
 I’ll be seeing my d[C]ad
 My br[C7]other and sisters, my [A7]gran and my m[Dm]um
@@ -52,25 +36,21 @@ I’ll be seeing my d[C]ad
 My b[C7]rother and sisters, my [A7]gran and my [Dm]mum
 They’ll b[Dm/C]e drinking white wine in t[Bb]he sun.
 
-[Verse 2]
-
+{start_of_verse}
 [F]I don’t go in for ancient wisdom
 I don’t bel[Bb]ieve just ’cause ideas are tenacious it means that they’re w[F]orthy
 [F]I get freaked out by churches
 Some of the h[Bb]ymns that they sing have nice chords but the lyrics are d[F]odgy
 And yes I have [C]all of the usual objections 
 To the mis-educ[C7]ation of children who in tax-exempt institu[Bb]tions
+{end_of_verse}
 
-Are taught to externalise blame
 
-And to feel ashamed
 
 And to judge things as plain right or wr[F]ong
 But I quite like the s[C]ongs.
 
-[tab][ch]F[/ch]
-
-I’m not expecting big presents[/tab]
+[F]I’m not expecting big presents
 The old combi[Bb]nation of socks, jocks and chocolates is just fine by[F] me.
 ‘Cause I’ll be seeing my d[C]ad
 My b[C7]rother and sisters, my [A7]gran and my [Dm]mum
@@ -79,8 +59,7 @@ I’ll be seeing my d[C]ad
 My [C7]brother and sisters, my [A7]gran and my [Dm]mum
 They’ll be [Dm/C]drinking white wine in the su[Bb]n.
 
-[Chorus]
-
+{start_of_chorus}
 And [Bb]you my baby girl
 My j[F/A]etlagged infant daughter
 You’ll be h[Gm7]anded round the room
@@ -90,9 +69,9 @@ But y[F/A]ou will learn some day
 That w[Gm7]herever you are and whatever you face
 [C]These are the people who’ll m[C7]ake you feel saf[A7]e in this wor[Dm]ld
 [Dm/C]  My sweet blue-eye[Bb]d girl
+{end_of_chorus}
 
-[Chorus]
-
+{start_of_chorus}
 And [Bb]if my baby girl
 When you’re [F/A]twenty-one or thirty-one
 And [Gm7]Christmas comes around
@@ -110,16 +89,13 @@ We’ll be [Dm/C]waiting for you in the [Bb]sun
 [F/A]drinking white wine in the s[Bb]un
 [F/A]waiting for you in the[Gm7] sun
 [C]waiting for you [Bb]
-
-[Interlude]
+{end_of_chorus}
 
 [F/A]
 
-[tab][ch]Gm7[/ch]          ([ch]C7[/ch])
+[Gm7]Wa -------iti[C7]ng.
 
-Wa -------iting.[/tab]
-
-[Outro]
-
+{start_of_verse}
 [F]I  really like Christmas
 It’s sentim[Bb]ental I know.[F]
+{end_of_verse}

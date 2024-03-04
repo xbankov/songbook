@@ -1,12 +1,11 @@
 {title: Mad world}
 
-[Intro]
-
+{start_of_verse}
 [Em]   [A]
 [Em]   [A]
+{end_of_verse}
 
-[Verse 1]
-
+{start_of_verse}
 [Em]   All around me are fa[G]miliar faces
 [D]Worn out places, w[A]orn out faces
 [Em]   Bright and early for their [G]daily races
@@ -15,18 +14,18 @@
 [D]No expression, n[A]o expression
 [Em]   Hide my head, I want to [G]drown my sorrow
 [D]No tomorrow, n[A]o tomorrow
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [Em]   And I find it kinda [A]funny, I find it kinda s[Em]ad
 The dreams in which I'm [A]dying are the best I've ever h[Em]ad
 I find it hard to [A]tell you, I find it hard to t[Em]ake
 When people run in [A]circles, it's a very, very
 [Em]   Mad w[A]orld
 [Em]   Mad w[A]orld
+{end_of_chorus}
 
-[Verse 2]
-
+{start_of_verse}
 [Em]   Children waiting for the [G]day they feel good
 [D]Happy birthday, h[A]appy birthday
 [Em]   And I feel the way that [G]every child should
@@ -35,9 +34,9 @@ When people run in [A]circles, it's a very, very
 [D]No one knew me, n[A]o one knew me
 [Em]   Hello, teacher, tell me [G]what's my lesson
 [D]Look right through me, l[A]ook right through me
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [Em]   And I find it kinda [A]funny, I find it kinda s[Em]ad
 The dreams in which I'm [A]dying are the best I've ever h[Em]ad
 I find it hard to [A]tell you, I find it hard to t[Em]ake
@@ -46,3 +45,4 @@ When people run in [A]circles, it's a very, very
 [Em]   Mad w[A]orld
 [Em]   Enlarging you[A]r world
 [Em]   Mad w[A]orld
+{end_of_chorus}

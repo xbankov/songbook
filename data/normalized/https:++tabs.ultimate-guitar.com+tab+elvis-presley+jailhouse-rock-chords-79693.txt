@@ -1,101 +1,89 @@
 {title: Jailhouse rock}
 
-Tune guitar down one semitone for best effect
 
-[Intro]
 
+{start_of_verse}
 [D#]  [E]   [D#]  [E]
+{end_of_verse}
 
-[Verse]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]D#[/ch]  [ch]E[/ch]                                        
-
-The warden threw a party in the county jail[/tab]
+[D#]The [E]warden threw a party in the county jail
 [D#]    [E]Prison band was there and they began to wail
 [D#]    [E]Band was jumpin' and the joint began to swing
 [D#]    [E]Should've heard those knocked out jailbirds sing
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab]      [ch]A7[/ch]
-
-Let's rock![/tab]
+Let's [A7]rock!
 Everybody let's [E]rock!
 Every[B7]body in the whole cell [A7]block
 Was a-[E]dancin' to the J[A7]ailhouse R[E]ock!
 
-[Verse]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]D#[/ch]  [ch]E[/ch]                                        
-
-    Spider Murphy played the tenor saxophone[/tab]
+[D#]    [E]Spider Murphy played the tenor saxophone
 [D#]    [E]Little Joe was blowin' on the slide trombone
 [D#]    [E]The drummer boy for Illinois went crash, boom, bang!
 [D#]    [E]The whole rhythm section was the purple gang
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab]      [ch]A7[/ch]
-
-Let's rock![/tab]
+Let's [A7]rock!
 Everybody let's [E]rock!
 Every[B7]body in the whole cell [A7]block
 Was a-[E]dancin' to the J[A7]ailhouse R[E]ock!
 
-[Verse]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]D#[/ch]  [ch]E[/ch]                                       
-
-    Number forty seven said to number three:[/tab]
+[D#]    [E]Number forty seven said to number three:
 [D#]    [E]"You're the cutest jailbird I ever did see.
 [D#]  I [E]sure would be delighted with your company
 [D#]    [E]Come on and do the Jailhouse Rock with me."
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab]      [ch]A7[/ch]
-
-Let's rock![/tab]
+Let's [A7]rock!
 Everybody let's [E]rock!
 Every[B7]body in the whole cell [A7]block
 Was a-[E]dancin' to the J[A7]ailhouse R[E]ock! Rock Rock
 
-[Instrumental]
-
 [A7]   [A7]   [E]   [E]   [B7]   [A7]   [E]   [E]
 
-[Verse]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]D#[/ch]  [ch]E[/ch]                                        
-
-    The sad sack was a-sittin' on a block of stone[/tab]
+[D#]    [E]The sad sack was a-sittin' on a block of stone
 [D#]    [E]Way over in the corner weeping all alone
 [D#]    [E]The warden said: "Hey, buddy, don't you be no square.
 [D#]    [E]If you can't find a partner use a wooden chair!"
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab]      [ch]A7[/ch]
-
-Let's rock![/tab]
+Let's [A7]rock!
 Everybody let's [E]rock!
 Every[B7]body in the whole cell [A7]block
 Was a-[E]dancin' to the J[A7]ailhouse R[E]ock!
 
-[Verse]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]D#[/ch]  [ch]E[/ch]                                       
-
-    Shifty Henry said to Bugs: "For Heaven's sakes,[/tab]
+[D#]    [E]Shifty Henry said to Bugs: "For Heaven's sakes,
 [D#]    [E]No one's lookin'; now's our chance to make a break
 [D#]    [E]Bugsy turned to Shifty and he said "Nix, nix;
 [D#]    [E]I wanna stick around a while and get my kicks."
 
-[Chorus]
+{start_of_chorus}
+{end_of_chorus}
 
-[tab]      [ch]A7[/ch]
-
-Let's rock![/tab]
+Let's [A7]rock!
 Everybody let's [E]rock!
 Every[B7]body in the whole cell [A7]block
 Was a-[E]dancin' to the J[A7]ailhouse R[E]ock!

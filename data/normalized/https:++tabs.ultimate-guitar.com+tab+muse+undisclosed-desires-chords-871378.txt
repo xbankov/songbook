@@ -1,46 +1,33 @@
 {title: Undisclosed desires}
 
-Artist: Muse
+{capo: 3}
 
-Song: Undisclosed Desires
-Album: The Resistance
 
-Capo 3
 
-[tab][Intro]
 
-    [Am7]                            [Em]
-e|------------------------------------------------------------------|
-B|----------1--------------1---0-----------0---------------0--------|
-G|------0------0-------0---------------0-------0-------0-------0----|
-D|----2---2--2---2---2---2---2---2---2---2---2---2-------2---2---2--| x2
-A|--0--------------0---------------------------------2--------------|
-E|---------------------------------0---------------0----------------|[/tab]
 
-[Verse]
+    [ch]Am7[/ch]                            [ch]Em[/ch]
 
+{start_of_verse}
 [C] I know you've suffered
  But I [Em]don't want you to hide
 [C] It's cold and loveless
  I won't [Em]let you be denied
+{end_of_verse}
 
-[tab] [ch]C[/ch]
-
- Soothing[/tab]
+ [C]Soothing
  I'll [Em]make you feel pure
  And [C]trust me
  [Em]You can be sure
 
-[Chorus]
-
+{start_of_chorus}
 [Am] I want to [C]reconcile the v[Em]iolence in your h[G]eart
 [Am] I want to [C]recognize your b[Em]eauty's not just a m[G]ask
 [Am] I want to [C]exorcise the d[Em]emons from your p[G]ast
 [Am] I want to [C]satisfy the u[Em]ndisclosed des[G]ires in your he[C]art
+{end_of_chorus}
 
-[Verse]
-
- You trick your lovers
+{start_of_verse}
  That you're [Em]wicked and divine
 [C] You may be a sinner
  But your [Em]innocence is mine
@@ -48,28 +35,29 @@ E|---------------------------------0---------------0----------------|[/tab]
  [Em]Show me how it's done
  [C]Tease me
  [Em]You are the one
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [Am] I want to [C]reconcile the v[Em]iolence in your h[G]eart
 [Am] I want to [C]recognize your b[Em]eauty's not just a m[G]ask
 [Am] I want to [C]exorcise the d[Em]emons from your p[G]ast
 [Am] I want to [C]satisfy the u[Em]ndisclosed des[G]ires in your he[C]art
+{end_of_chorus}
 
-[ch]Am[/ch] [ch]Em[/ch] x2
+[Am] [Em] x2
 
-[Verse]
-
+{start_of_verse}
  [C]Please me
  [Em]Show me how it's done
  [C]Trust me
  [Em]You are the one
+{end_of_verse}
 
-[Chorus]
-
+{start_of_chorus}
 [Am] I want to [C]reconcile the v[Em]iolence in your h[G]eart
 [Am] I want to [C]recognize your b[Em]eauty's not just a m[G]ask
 [Am] I want to [C]exorcise the d[Em]emons from your p[G]ast
 [Am] I want to [C]satisfy the u[Em]ndisclosed des[G]ires in your he[C]art
+{end_of_chorus}
 
-[ch]C[/ch] [ch]Em[/ch] x2
+[C] [Em] x2

@@ -1,50 +1,36 @@
 {title: Hera koka hasz lsd}
 
-[Verse 1]
-
+{start_of_verse}
 [D]Jimmy bardzo nieśmiałym ch[G]łopaczkiem był
 [A]który grzecznie do [D]szkoły iść chciał
 [D]Diler sprzedał za rogiem mu[G] działki trzy
 [A]jedną gratis uczc[D]iwie mu dał
-
-[Chorus 1]
+{end_of_verse}
 
 [D]Hera ,koka,hasz, LS[G]D
 [A]ta zabawa po noca[D]ch się śni
 [D]LSD, hera, kok[G]a i hasz
 [A]podziel się z koleg[D]ami czym masz
 
-[Verse 2]
-
+{start_of_verse}
 [D]W szkole mądry dyrektor w[G]padł w słuszny gniew..   
 [A]Czemu chcesz samolubnie s[D]am ćpać?!   
 [D]Cały towar niesprawiedliwośc[G]i wbrew,   
 [A]wszystkim uczniom po równo m[D]asz dać!   
-
-[Chorus 2]
+{end_of_verse}
 
 [D]Hera ,koka,hasz, LS[G]D
 [A]ta zabawa po noca[D]ch się śni
 [D]LSD, hera, kok[G]a i hasz
 [A]podziel się z koleg[D]ami czym masz
 
-[Verse 3]
-
+{start_of_verse}
 [D]To wspaniały był i oryginalny g[G]est
 [A]odpór złu szkoła powin[D]na dać   
 [D]Jimmy wraz z kolegami już[G] w raaaaaju!   
-JEEEEEST !!!
+{end_of_verse}
 
-[Break]
 
-N.C.
-Wszyscy święci... zaczęli z nim ćpaaaaać
-N.C.
-Hera, koka, Hera, koka,
-N.C.
-Hera, koka, hasz
-
-[Chorus 3]
 
 [D]Hera ,koka,hasz, LS[G]D
 [A]ta zabawa po noca[D]ch się śni
@@ -55,7 +41,7 @@ Hera, koka, hasz
 [D]LSD, hera, kok[G]a i hasz
 [A]podziel się z koleg[D]ami czym masz+
 
-[Outro]
-
+{start_of_verse}
 [D]Też bym chciał zł[G]oty strzał!   
 [A]Ałł[D]  
+{end_of_verse}

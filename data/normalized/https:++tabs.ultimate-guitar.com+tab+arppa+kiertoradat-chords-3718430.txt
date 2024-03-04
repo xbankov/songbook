@@ -1,94 +1,73 @@
 {title: Kiertoradat}
 
-[Intro]
-
+{start_of_verse}
 [Ebm]
 [Db]
 [Ebm]  [Gbm] [Fm] [Ebm]   [Fm]
 [Db]
+{end_of_verse}
 
-[Verse 1]
-
+{start_of_verse}
 [Ebm]  Tuijotan vierestä, sä pakkaat tavaroita
 [Db]  Ja niiden mukana täältä haihtuu tunnelma
 [Ebm]  Tuntuu hullulta, se tosiasia
 [Db]  Et tää on meidän viimenen ilta sä lähdet huomenna
+{end_of_verse}
 
-[ch]Ebm[/ch]
-
+[Ebm]
 [Db]
 
-[tab][ch]Ebm[/ch]
-
-  Käytiin huipulla, ja sen yläkerrassa[/tab]
+[Ebm]  Käytiin huipulla, ja sen yläkerrassa
 [Db]  Tähtien takana Kruunuvuorenrannassa
 
-[tab][ch]Ebm[/ch]
-
-  Jos nyt vain saataisiin tää hetki kahdestaan[/tab]
+[Ebm]  Jos nyt vain saataisiin tää hetki kahdestaan
 [Db]  Ilman että ikävä hakkaa vieressä rumpuja
 
-[Chorus]
-
+{start_of_chorus}
 [Ebm] Mitä siihen vaaditaan jos täällä haluaa ajan pysäyttää
 [Gb]  [Db]
+{end_of_chorus}
 
-[tab][ch]Ebm[/ch]
-
-  Riittääkö pyyntö vaan vai pitääkö jättää kiertoradat[/tab]
+[Ebm]  Riittääkö pyyntö vaan vai pitääkö jättää kiertoradat
 [Gb]taa, koko[Db]naan[Bbm]
 
-[Break]
-
 [Ebm]
 [Db]
 [Ebm]
 [Db]
 
-[Verse 2]
-
+{start_of_verse}
 [Ebm]  Näin hiljaista oli viimeks talvella
 [Db]  '08. En tiennyt sun olemassa olevan
 [Ebm]  Mut jostain ilmaannuit kuin aivan tyhjästä
 [Db]  Purjelaivalla, mua ympäröivän savun keskeltä
+{end_of_verse}
 
-[ch]Ebm[/ch]
-
+[Ebm]
 [Db]
 
-[tab][ch]Ebm[/ch]
-
-  Jos nyt vain saataisiin tää hetki kahdestaan[/tab]
+[Ebm]  Jos nyt vain saataisiin tää hetki kahdestaan
 [Db]  Ilman että ikävä hakkaa vieressä rumpuja
 
-[Chorus]
-
+{start_of_chorus}
 [Ebm] Mitä siihen vaaditaan jos täällä haluaa ajan pysäyttä[Gb]ä[Db]
 [Gb]  R[Ebm]iittääkö pyyntö vaan vai pitääkö jättää kiertoradat
 [Gb]taa, koko[Db]naan[Bbm]
+{end_of_chorus}
 
-[tab][ch]Ebm[/ch]
-
- Mitä siihen vaaditaan[/tab]
+[Ebm] Mitä siihen vaaditaan
 Jos täällä haluaa ajan pysäyt[Gb]tää[Bbm]
 
-[tab][ch]Ebm[/ch]
-
-  Riittääkö pyyntö vaan[/tab]
+[Ebm]  Riittääkö pyyntö vaan
 Vai pitääkö jättää kiertoradat [Gb]taa[Bbm]
 
-[tab][ch]Ebm[/ch]
-
-  Mitä siihen vaaditaan[/tab]
+[Ebm]  Mitä siihen vaaditaan
 Jos täällä haluaa ajan pysäyt[Gb]tää[Bbm]
 
-[tab][ch]Ebm[/ch]
-
- Riittääkö pyyntö vaan[/tab]
+[Ebm] Riittääkö pyyntö vaan
 Vai pitääkö jättää kiertoradat [Gb]taa[Bbm]
 
-[Outro]
-
+{start_of_verse}
 [Ebm]
 [Gb]  [Bbm]
 [Ebm]
@@ -97,3 +76,4 @@ Vai pitääkö jättää kiertoradat [Gb]taa[Bbm]
 [Gbm]  [Ebm]
 [Ebm]
 [Ebm] [Abm]  [Ebm]
+{end_of_verse}

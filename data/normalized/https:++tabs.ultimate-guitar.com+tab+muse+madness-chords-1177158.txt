@@ -1,70 +1,61 @@
 {title: Madness}
 
-Capo on 1
+{capo: on 1}
 
-[Intro]
 
-[tab][ch]A[/ch]
 
-MA MA MA MA MA MA.. [/tab]
+{start_of_verse}
+{end_of_verse}
 
-[Verse]
+[A]MA MA MA MA MA MA.. 
 
-[tab][ch]A[/ch]
+{start_of_verse}
+{end_of_verse}
 
-I, I can't get these memories out of my mind [/tab]
+[A]I, I can't get these memories out of my mind 
 And some kind of [D]madness has started to e[A]volve 
 [A]I, I tried so hard to let you go 
 But some kind of [D]madness is swallowing me w[A]hole, yeah 
 
-[Refrain]
 
-[tab][ch]F#m[/ch]    [ch]E[/ch]       [ch]D[/ch]
 
-I have finally seen the light [/tab]
+[F#m]I have[E] finally [D]seen the light 
 [F#m]And I have[E] finally [D]realised what you m[A]ean 
 
-[Verse]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]A[/ch]
-
-And now I need to know is this real love [/tab]
+[A]And now I need to know is this real love 
 Or is it just [D]madness keeping us a[A]float? 
 [A]And when I look back at all the crazy fights we've had 
 It's like some kind of [D]madness was taking c[A]ontrol, yeah 
 
-[Refrain]
 
-[tab][ch]F#m[/ch]            [ch]E[/ch]       [ch]D[/ch]
 
-And now I have finally seen the light  [/tab]
+[F#m]And now I have[E] finally [D]seen the light  
 [F#m]And I have[E] finally [D]realised what you nee[A]d 
 
-[Solo]
 
-[ch]A[/ch] [ch]D[/ch] [ch]A[/ch] 
 
-[Verse]
+[A] [D] [A] 
 
-[tab][ch]F#m[/ch]            [ch]E[/ch]       [ch]D[/ch]
+{start_of_verse}
+{end_of_verse}
 
-And now I have finally seen the end [/tab]
+[F#m]And now I have[E] finally [D]seen the end 
 [F#m]And I'm not[E] expecting [D]you to care, no 
 [F#m]And I have[E] finally [D]seen the light 
 [F#m]And I have[E] finally [D]realised 
 I need to [F#m]love [E][D]
 I need to [F#m]love [E][D]
 
-[Outro]
+{start_of_verse}
+{end_of_verse}
 
-[tab][ch]F#m[/ch]                   [ch]E[/ch]
-
-Come to me, just in a dream [/tab]
+[F#m]Come to me, just in a[E] dream 
 Come on and [D]rescue me 
 Yes I [F#m]know I can be[E] wrong 
 Maybe I'm too [D]headstrong 
-
-Our love is... 
 
 [A]MA-MA-MA-MA-MA 
 [A]MADNESS
