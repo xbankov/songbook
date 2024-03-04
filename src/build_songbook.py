@@ -10,7 +10,7 @@ def main():
     print("#####################################################")
     print("######### CONVERT CHORDPRO TO HTML ##################")
     print("#####################################################")
-    chordpro2html(config.NORMALIZED_DIR, config.HTML_DIR)
+    chordpro2html(config.MANUAL_NORMALIZED_DIR, config.HTML_DIR)
 
     print("#####################################################")
     print("######### CONVERT HTML TO PDF #######################")
@@ -31,11 +31,18 @@ def chordpro2html(norm_dir, html_dir):
         env = Environment(loader=FileSystemLoader("."))
         song_template = env.get_template(config.TEMPLATE_HTML)
 
-        title = re.search(r"\{title: (.+)\}", norm_text).group(1)
-        norm_text = re.sub(r"\{title: (.+?)\}", "", norm_text)
+        title=None
+        title_match = re.search(r"\{title: (.+)\}", norm_text)
+        if title_match:
+            title = title_match.group(1)
+            norm_text = re.sub(r"\{title: (.+?)\}", "", norm_text)
 
-        capo = re.search(r"\{capo: (.+)\}", norm_text).group(1)
-        norm_text = re.sub(r"\{capo: (.+?)\}", "", norm_text)
+        capo_match = re.search(r"\{capo: (.+)\}", norm_text)
+        capo = None
+        if capo_match:
+            capo = capo_match.group(1)
+            norm_text = re.sub(r"\{capo: (.+?)\}", "", norm_text)
+            
 
         song_lines = [d.strip() for d in norm_text.split("\n") if len(d) != 0]
         song_rendered = song_template.render(title=title, capo=capo, content=song_lines)
@@ -44,18 +51,15 @@ def chordpro2html(norm_dir, html_dir):
 
 
 def html2pdf(html_dir, pdf_dir):
-
-    html_file_path = "output.html"
-    pdf_file_path = "output.pdf"
     config = pdfkit.configuration(wkhtmltopdf="/usr/bin/wkhtmltopdf")
     options = {"--enable-local-file-access": ""}
-
     css = "src/static/styles.css"
+    for html_file_path in html_dir.iterdir():
+        pdf_file_path =  pdf_dir / f"{html_file_path.stem}.pdf"
+        pdfkit.from_file(
+            str(html_file_path), str(pdf_file_path), css=css, configuration=config, options=options
+        )
 
-    pdfkit.from_file(
-        html_file_path, pdf_file_path, css=css, configuration=config, options=options
-    )
-    print(f"PDF generated successfully at {pdf_file_path}")
 
 
 def pdfs2book(pdf_dir):

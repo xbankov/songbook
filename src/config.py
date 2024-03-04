@@ -5,6 +5,7 @@ FIREFOX_BOOKMARKS_FILE_PATH = DATA_DIR / "src/bookmarks-2024-02-18.json"
 CSV_FILE_PATH = DATA_DIR / "src/bookmarks-2024-02-18.csv"
 RAW_DIR = DATA_DIR / "raw"
 NORMALIZED_DIR = DATA_DIR / "normalized"
+MANUAL_NORMALIZED_DIR = DATA_DIR / "after_manual_correction"
 HTML_DIR = DATA_DIR / "html"
 PDF_DIR = DATA_DIR / "pdf"
 
