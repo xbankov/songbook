@@ -9,26 +9,8 @@ import config as config
 from helpers import chordpro2html
 
 
-@dataclass
-class SongEntry:
-    title: str
-    artist: str
-    path: str
-
-
-def get_song_entry(path):
-    with open(path, "r", encoding="utf-8") as f:
-        content = f.read()
-
-    soup = BeautifulSoup(content, "html.parser")
-    title, artist = soup.find("h1", {"id": "title"}).get_text(strip=True).split("-")
-    title = title.strip()
-    artist = artist.strip()
-    return SongEntry(title=title, artist=artist, path=path)
-
-
 def main():
-
+    
     print("#####################################################")
     print("######### CONVERT CHORDPRO TO HTML ##################")
     print("#####################################################")
@@ -37,6 +19,7 @@ def main():
     print("#####################################################")
     print("######### CONVERT HTML TO PDF #######################")
     print("#####################################################")
+
     songs = [
         get_song_entry(str(Path(*e.parts[len(config.ROOT_DIR.parts) :])))
         for e in config.HTML_DIR.iterdir()
