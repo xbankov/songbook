@@ -20,12 +20,13 @@ def init_dirs():
     PDF_DIR.mkdir(exist_ok=True, parents=True)
 
 
-FINAL_OUTPUT_PATH = DATA_DIR / "songbook.pdf"
-
+FINAL_OUTPUT_PDF = DATA_DIR / "songbook.pdf"
+FINAL_OUTPUT_HTML = DATA_DIR / "songbook.html"
 
 TEMPLATE_BOOK = "src/static/book_template.html"
 TEMPLATE_SONG = "src/static/song_template.html"
 TEMPLATE_STYLE = "src/static/styles.css"
+WKHTMLTOPDF_XSL = ROOT_DIR / "src/static/style_sheets.xsl"
 
 FORCE = {
     "PARSE": False,

@@ -1,8 +1,10 @@
 import re
+
 import pdfkit
+from jinja2 import Environment, FileSystemLoader
+
 import config as config
 from helpers import load_text
-from jinja2 import Environment, FileSystemLoader
 
 
 def main():
