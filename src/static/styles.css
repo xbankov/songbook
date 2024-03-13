@@ -11,3 +11,12 @@
   font-weight: bold;
   color: red;
 }
+
+@page {
+  size: A4;
+  margin: 1cm;
+}
+
+.song {
+  page-break-after: always; /* Add page break after each song */
+}
