@@ -1,0 +1,39 @@
+<!-- songbook.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Songbook</title>
+    <link href="styles.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="songbook">
+        {% include "song_template.html" with {
+            "title": "Song 1",
+            "capo": "2",
+            "content": [
+                "{start_of_verse}",
+                "Verse content goes here.",
+                "{end_of_verse}",
+                "{start_of_chorus}",
+                "Chorus content goes here.",
+                "{end_of_chorus}"
+            ]
+        } %}
+        
+        {% include "song_template.html" with {
+            "title": "Song 2",
+            "capo": "3",
+            "content": [
+                "{start_of_verse}",
+                "Verse content goes here.",
+                "{end_of_verse}",
+                "{start_of_chorus}",
+                "Chorus content goes here.",
+                "{end_of_chorus}"
+            ]
+        } %}
+    </div>
+  </body>
+</html>

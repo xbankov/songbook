@@ -9,6 +9,20 @@ MANUAL_NORMALIZED_DIR = DATA_DIR / "after_manual_correction"
 HTML_DIR = DATA_DIR / "html"
 PDF_DIR = DATA_DIR / "pdf"
 
+
+def init_dirs():
+    DATA_DIR.mkdir(exist_ok=True, parents=True)
+    RAW_DIR.mkdir(exist_ok=True, parents=True)
+    NORMALIZED_DIR.mkdir(exist_ok=True, parents=True)
+    MANUAL_NORMALIZED_DIR.mkdir(exist_ok=True, parents=True)
+    HTML_DIR.mkdir(exist_ok=True, parents=True)
+    PDF_DIR.mkdir(exist_ok=True, parents=True)
+
+
+init_dirs()
+
+BOOK_FILE_PATH = DATA_DIR / "songbook.pdf"
+
 TEMPLATE_HTML = "src/static/template.html"
 TEMPLATE_CSS = "src/static/styles.css"
 
