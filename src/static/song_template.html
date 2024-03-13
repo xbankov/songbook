@@ -9,8 +9,8 @@
   <body>
     <div class="song">
       <div id="meta">
-        <h1>{{ title }}</h1>
-        <p>Capo: {{ capo }}</p>
+        <h1 id="title">{{ artist }} - {{ title }}</h1>
+        <p id="capo">Capo: {{ capo }}</p>
       </div>
 
       <div id="content">
@@ -19,13 +19,13 @@
         line.startswith('{') %} {% set directive = line[1:-1] %} {% if directive
         == 'start_of_chorus' %} {% set in_chorus = true %}
         <div class="chorus">
-          <h2>Chorus</h2>
+          <p>Chorus</p>
           {% elif directive == 'end_of_chorus' %} {% set in_chorus = false %}
         </div>
         {% elif directive == 'start_of_verse' %} {% set in_verse = true %} {%
         set verse_count.value = verse_count.value + 1 %}
         <div class="verse">
-          <h2>Verse {{ verse_count.value }}</h2>
+          <p>Verse {{ verse_count.value }}</p>
           {% elif directive == 'end_of_verse' %} {% set in_chorus = false %}
         </div>
         {% endif %} {% else %}

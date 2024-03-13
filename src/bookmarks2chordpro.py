@@ -6,6 +6,7 @@ from helpers import download, extract, normalize
 
 
 def main():
+    config.init_dirs()
     print("#####################################################")
     print("## DOWNLOAD & CONVERT BOOKMARKS TO CHORDPRO FORMAT ##")
     print("#####################################################")
