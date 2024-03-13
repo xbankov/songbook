@@ -1,42 +1,39 @@
-<!-- book_template.html -->
+<!-- songbook.html -->
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Songbook</title>
-    <link href="styles.css" rel="stylesheet" />
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        var tocPlaceholder = document.getElementById("tableOfContents");
-        var songs = document.querySelectorAll(".song h1"); // Assuming each song has an h1 element as its title
-
-        // Create the table of contents
-        var tocHtml = "<h2>Table of Contents</h2><ul>";
-        songs.forEach(function (song, index) {
-          tocHtml +=
-            '<li><a href="#song' +
-            (index + 1) +
-            '">' +
-            song.textContent +
-            "</a></li>";
-        });
-        tocHtml += "</ul>";
-
-        // Replace the placeholder with the generated TOC
-        tocPlaceholder.innerHTML = tocHtml;
-      });
-    </script>
+    <link href="styles.css" rel="stylesheet">
   </head>
-
   <body>
-    <div id="tableOfContents">
-      <!-- This is a placeholder for the table of contents -->
-    </div>
     <div class="songbook">
-      {% for song_file in songs %}
-      <div class="song">{% include song_file %}</div>
-      {% endfor %}
+        {% include "song_template.html" with {
+            "title": "Song 1",
+            "capo": "2",
+            "content": [
+                "{start_of_verse}",
+                "Verse content goes here.",
+                "{end_of_verse}",
+                "{start_of_chorus}",
+                "Chorus content goes here.",
+                "{end_of_chorus}"
+            ]
+        } %}
+        
+        {% include "song_template.html" with {
+            "title": "Song 2",
+            "capo": "3",
+            "content": [
+                "{start_of_verse}",
+                "Verse content goes here.",
+                "{end_of_verse}",
+                "{start_of_chorus}",
+                "Chorus content goes here.",
+                "{end_of_chorus}"
+            ]
+        } %}
     </div>
   </body>
 </html>

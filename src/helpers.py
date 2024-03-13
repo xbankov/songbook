@@ -1,6 +1,5 @@
 import json
 import re
-from sqlite3 import NotSupportedError
 from time import sleep
 from dataclasses import dataclass
 import traceback
@@ -14,7 +13,7 @@ import pdfkit
 
 
 @dataclass
-class BookmarkEntry:
+class SongEntry:
     title: str
     uri: str
 
@@ -39,37 +38,11 @@ def load_text(filename):
 
 
 def get_raw_filename(uri):
-    filename = uri.replace("https://", "").replace("/", "&")
-    return config.RAW_DIR / f"{filename}.html"
+    return config.RAW_DIR / f"{uri.replace('/', '+')}.html"
 
 
 def get_norm_filename(uri):
-    filename = uri.replace("https://", "").replace("/", "&")
-    return config.NORMALIZED_DIR / f"{filename}.txt"
-
-
-def extract(music_folder, csv_path):
-    if not csv_path.exists() or config.FORCE["PARSE"]:
-        songs = extract_recursive(music_folder)
-        songs_dict_list = [
-            {"title": song.title, "uri": song.uri, "status": "Not Downloaded"}
-            for song in songs
-            if any(website in song.uri for website in config.SUPPORTED)
-        ]
-        data = pd.DataFrame(songs_dict_list)
-        data.to_csv(csv_path, index=False)
-
-
-def extract_recursive(item):
-    if item["type"] == "text/x-moz-place-separator":
-        return []
-
-    elif item["type"] == "text/x-moz-place":
-        entry = BookmarkEntry(item["title"], item["uri"])
-        return [entry]
-
-    elif item["type"] == "text/x-moz-place-container":
-        return [uri for child in item["children"] for uri in extract_recursive(child)]
+    return config.NORMALIZED_DIR / f"{uri.replace('/', '+')}.txt"
 
 
 def download(csv_file_path):
@@ -90,6 +63,30 @@ def download(csv_file_path):
     data.to_csv(csv_file_path, index=False)
 
 
+def extract(music_folder, csv_path):
+    if not csv_path.exists() or config.FORCE["PARSE"]:
+        songs = extract_recursive(music_folder)
+        songs_dict_list = [
+            {"title": song.title, "uri": song.uri, "status": "Not Downloaded"}
+            for song in songs
+            if any(website in song.uri for website in config.SUPPORTED)
+        ]
+        data = pd.DataFrame(songs_dict_list)
+        data.to_csv(csv_path, index=False)
+
+
+def extract_recursive(item):
+    if item["type"] == "text/x-moz-place-separator":
+        return []
+
+    elif item["type"] == "text/x-moz-place":
+        entry = SongEntry(item["title"], item["uri"])
+        return [entry]
+
+    elif item["type"] == "text/x-moz-place-container":
+        return [uri for child in item["children"] for uri in extract_recursive(child)]
+
+
 def normalize(csv_file_path):
     data = pd.read_csv(csv_file_path, index_col=False)
 
@@ -101,10 +98,9 @@ def normalize(csv_file_path):
         normalize_txt(raw_filename, norm_filename)
 
 
-def normalize_ultimate_guitar(tab, title, artist):
+def normalize_ultimate_guitar(tab, title):
     norm_tab = []
     norm_tab.append(f"{{title: {title}}}")
-    norm_tab.append(f"{{artist: {artist}}}")
     capo_match = re.search(r"[cC]apo:? (.+)", tab)
     if capo_match:
         norm_tab.append(f"{{capo: {capo_match.group(1)}}}")
@@ -124,8 +120,9 @@ def normalize_ultimate_guitar(tab, title, artist):
 
             if i == 0 and current_line.startswith("[") and current_line.endswith("]"):
                 section_title = current_line[1:-1]
-                if "intro" in section_title.lower():
-                    start_tag = "{start_of_verse: Intro}"
+                if section_title.lower() == "intro":
+                    # TODO - specify value and process it in html rendering
+                    start_tag = "{start_of_verse}"
                     end_tag = "{end_of_verse}"
 
                 elif "verse" in section_title.lower():
@@ -136,13 +133,13 @@ def normalize_ultimate_guitar(tab, title, artist):
                     start_tag = "{start_of_chorus}"
                     end_tag = "{end_of_chorus}"
 
-                elif "bridge" in section_title.lower():
+                elif section_title.lower() == "bridge":
                     start_tag = "{start_of_bridge}"
                     end_tag = "{end_of_bridge}"
 
-                elif "outro" in section_title.lower():
+                elif section_title.lower() == "outro":
                     # TODO - specify value and process it in html rendering
-                    start_tag = "{start_of_verse: Outro}"
+                    start_tag = "{start_of_verse}"
                     end_tag = "{end_of_verse}"
 
                 else:
@@ -206,22 +203,15 @@ def normalize_txt(raw_filename, norm_filename):
         data = json.loads(json_string)
         try:
             tab = data["store"]["page"]["data"]["tab_view"]["wiki_tab"]["content"]
-            title = data["store"]["page"]["data"]["tab_view"]["versions"][0][
-                "song_name"
-            ]
-            artist = data["store"]["page"]["data"]["tab_view"]["versions"][0][
-                "artist_name"
-            ]
-        except (KeyError, IndexError) as e:
+        except KeyError as e:
             print(e)
             print(
                 f"Not recognized tabs for file: {str(raw_filename).replace('+', '/')}"
             )
             traceback.print_exc()
             tab = ""
-            title = ""
-            artist = ""
-        tab = normalize_ultimate_guitar(tab, title, artist)
+        title = get_ug_title(raw_filename)
+        tab = normalize_ultimate_guitar(tab, title)
 
     elif "supermusic" in str(raw_filename):
         tab = ""
@@ -237,45 +227,29 @@ def chordpro2html(norm_dir, html_dir):
         norm_text = load_text(norm_file_path)
         html_file_path = html_dir / f"{norm_file_path.stem}.html"
 
-        env = Environment(loader=FileSystemLoader(str(config.ROOT_DIR)))
-        song_template = env.get_template(str(config.TEMPLATE_SONG))
+        env = Environment(loader=FileSystemLoader("."))
+        song_template = env.get_template(config.TEMPLATE_HTML)
 
         title = None
         title_match = re.search(r"\{title: (.+)\}", norm_text)
         if title_match:
             title = title_match.group(1)
-            norm_text = re.sub(r"\{title: (.+?)\}", "", norm_text).strip()
-        else:
-            raise NotSupportedError(
-                f"ChordPro without title not supported: {norm_text}"
-            )
-
-        artist = None
-        artist_match = re.search(r"\{artist: (.+)\}", norm_text)
-        if artist_match:
-            artist = artist_match.group(1)
-            norm_text = re.sub(r"\{artist: (.+?)\}", "", norm_text).strip()
-        else:
-            raise NotSupportedError(
-                f"ChordPro without artist not supported: {norm_text}"
-            )
+            norm_text = re.sub(r"\{title: (.+?)\}", "", norm_text)
 
         capo_match = re.search(r"\{capo: (.+)\}", norm_text)
         capo = None
         if capo_match:
             capo = capo_match.group(1)
-            norm_text = re.sub(r"\{capo: (.+?)\}", "", norm_text).strip()
+            norm_text = re.sub(r"\{capo: (.+?)\}", "", norm_text)
 
         song_lines = [d.strip() for d in norm_text.split("\n") if len(d) != 0]
-        song_rendered = song_template.render(
-            title=title, artist=artist, capo=capo, content=song_lines
-        )
+        song_rendered = song_template.render(title=title, capo=capo, content=song_lines)
         with open(html_file_path, "w") as output_file:
             output_file.write(song_rendered)
 
 
 def html2pdf(html_dir, pdf_dir):
-    configuration = pdfkit.configuration(wkhtmltopdf=config.WKHTMLTOPDF)
+    config = pdfkit.configuration(wkhtmltopdf="/usr/bin/wkhtmltopdf")
     options = {"--enable-local-file-access": ""}
     css = "src/static/styles.css"
     for html_file_path in html_dir.iterdir():
@@ -284,6 +258,6 @@ def html2pdf(html_dir, pdf_dir):
             str(html_file_path),
             str(pdf_file_path),
             css=css,
-            configuration=configuration,
+            configuration=config,
             options=options,
         )
