@@ -1,6 +1,5 @@
 import json
 
-
 import config as config
 from helpers import download, extract, normalize
 

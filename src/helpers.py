@@ -1,15 +1,19 @@
 import json
 import re
-from time import sleep
-from dataclasses import dataclass
+
 import traceback
+from dataclasses import dataclass
+from sqlite3 import NotSupportedError
+from time import sleep
+
+import pandas as pd
+import pdfkit
+import requests
 from bs4 import BeautifulSoup
 from jinja2 import Environment, FileSystemLoader
-import pandas as pd
-import requests
-import config
 from tqdm import tqdm
-import pdfkit
+
+import config
 
 
 @dataclass
@@ -227,9 +231,6 @@ def chordpro2html(norm_dir, html_dir):
         norm_text = load_text(norm_file_path)
         html_file_path = html_dir / f"{norm_file_path.stem}.html"
 
-        env = Environment(loader=FileSystemLoader("."))
-        song_template = env.get_template(config.TEMPLATE_HTML)
-
         title = None
         title_match = re.search(r"\{title: (.+)\}", norm_text)
         if title_match:
@@ -243,7 +244,15 @@ def chordpro2html(norm_dir, html_dir):
             norm_text = re.sub(r"\{capo: (.+?)\}", "", norm_text)
 
         song_lines = [d.strip() for d in norm_text.split("\n") if len(d) != 0]
-        song_rendered = song_template.render(title=title, capo=capo, content=song_lines)
+
+
+        env = Environment(loader=FileSystemLoader(str(config.ROOT_DIR)))
+        song_template = env.get_template(str(config.TEMPLATE_SONG))
+        song_rendered = song_template.render(
+            title=title, artist=artist, capo=capo, content=song_lines
+        )
+
+       
         with open(html_file_path, "w") as output_file:
             output_file.write(song_rendered)
 
