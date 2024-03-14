@@ -5,6 +5,7 @@ from time import sleep
 from dataclasses import dataclass
 from sqlite3 import NotSupportedError
 from time import sleep
+import traceback
 
 import pandas as pd
 import pdfkit

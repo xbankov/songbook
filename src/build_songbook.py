@@ -25,7 +25,7 @@ def get_song_entry(path):
 
 
 def main():
-
+    config.init_dirs()
     print("#####################################################")
     print("######### CONVERT CHORDPRO TO HTML ##################")
     print("#####################################################")
