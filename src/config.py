@@ -19,7 +19,7 @@ def init_dirs():
     MANUAL_NORMALIZED_DIR.mkdir(exist_ok=True, parents=True)
     HTML_DIR.mkdir(exist_ok=True, parents=True)
     PDF_DIR.mkdir(exist_ok=True, parents=True)
-    FINAL_OUTPUT_DIRECTORY.mkdir(exists_ok=True, parents=True)
+    FINAL_OUTPUT_DIRECTORY.mkdir(exist_ok=True, parents=True)
 
 
 TEMPLATE_BOOK = "src/static/book_template.html"
