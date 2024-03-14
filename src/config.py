@@ -9,6 +9,7 @@ NORMALIZED_DIR = DATA_DIR / "normalized"
 MANUAL_NORMALIZED_DIR = DATA_DIR / "after_manual_correction"
 HTML_DIR = DATA_DIR / "html"
 PDF_DIR = DATA_DIR / "pdf"
+FINAL_OUTPUT_DIRECTORY = DATA_DIR / "output"
 
 
 def init_dirs():
@@ -18,9 +19,7 @@ def init_dirs():
     MANUAL_NORMALIZED_DIR.mkdir(exist_ok=True, parents=True)
     HTML_DIR.mkdir(exist_ok=True, parents=True)
     PDF_DIR.mkdir(exist_ok=True, parents=True)
-
-
-FINAL_OUTPUT_DIRECTORY = DATA_DIR / "output"
+    FINAL_OUTPUT_DIRECTORY.mkdir(exists_ok=True, parents=True)
 
 
 TEMPLATE_BOOK = "src/static/book_template.html"
