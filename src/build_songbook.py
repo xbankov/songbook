@@ -3,6 +3,8 @@ from pathlib import Path
 from bs4 import BeautifulSoup
 from jinja2 import Environment, FileSystemLoader
 import config as config
+import pdfkit
+import shutil
 from helpers import chordpro2html
 
 
@@ -36,7 +38,7 @@ def main():
     print("#####################################################")
 
     songs = [
-        get_song_entry(str(Path(*e.parts[len(config.ROOT_DIR.parts) :])))
+        get_song_entry(e)
         for e in config.HTML_DIR.iterdir()
     ]
 
@@ -46,21 +48,22 @@ def main():
     def sorting_key(song):
         return (song.artist, song.title)
 
-    sorted_paths = [song.path for song in sorted(songs, key=sorting_key)]
+    sorted_paths = [str(Path(*song.path.parts[len(config.ROOT_DIR.parts):])) for song in sorted(songs, key=sorting_key)]
     book_content = book_template.render(songs=sorted_paths)
 
-    with open("songbook.html", "w", encoding="utf-8") as f:
+    html_file_path = config.FINAL_OUTPUT_DIRECTORY / "songbook.html"
+    pdf_file_path = config.FINAL_OUTPUT_DIRECTORY / "songbook.pdf"
+
+    with open(html_file_path, "w", encoding="utf-8") as f:
         f.write(book_content)
 
-    import pdfkit
+    shutil.copyfile(config.TEMPLATE_STYLE, config.FINAL_OUTPUT_DIRECTORY / config.TEMPLATE_STYLE.name)
 
-    configuration = pdfkit.configuration(wkhtmltopdf="/usr/bin/wkhtmltopdf")
+    configuration = pdfkit.configuration(wkhtmltopdf=config.WKHTMLTOPDF)
     options = {
         "--enable-local-file-access": "",
     }
 
-    html_file_path = "songbook.html"
-    pdf_file_path = "songbook.pdf"
     pdfkit.from_file(
         str(html_file_path),
         str(pdf_file_path),

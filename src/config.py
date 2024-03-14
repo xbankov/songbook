@@ -20,12 +20,12 @@ def init_dirs():
     PDF_DIR.mkdir(exist_ok=True, parents=True)
 
 
-FINAL_OUTPUT_PATH = DATA_DIR / "songbook.pdf"
+FINAL_OUTPUT_DIRECTORY = DATA_DIR / "output"
 
 
 TEMPLATE_BOOK = "src/static/book_template.html"
 TEMPLATE_SONG = "src/static/song_template.html"
-TEMPLATE_STYLE = "src/static/styles.css"
+TEMPLATE_STYLE = ROOT_DIR / "src/static/styles.css"
 
 FORCE = {
     "PARSE": False,
@@ -34,4 +34,4 @@ FORCE = {
 }
 SLEEP = 2
 SUPPORTED = ["supermusic", "ultimate-guitar"]
-WKHTMLTOPDF = "/usr/bin/wkhtmltopdf"
+WKHTMLTOPDF = "/usr/local/bin/wkhtmltopdf"
