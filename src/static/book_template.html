@@ -35,7 +35,7 @@
     </div>
     <div class="songbook">
       {% for song_file in songs %}
-      <div class="song">{% include song_file %}</div>
+      <div class="song" id="song{{ loop.index }}">{% include song_file %}</div>
       {% endfor %}
     </div>
   </body>
