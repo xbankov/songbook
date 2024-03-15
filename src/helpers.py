@@ -106,9 +106,7 @@ def normalize(csv_file_path):
 
 
 def normalize_ultimate_guitar(tab, title, artist):
-    norm_tab = []
-    norm_tab.append(f"{{title: {title}}}")
-    norm_tab.append(f"{{artist: {artist}}}")
+    norm_tab = [f"{{title: {title}}}", f"{{artist: {artist}}}"]
     capo_match = re.search(r"[cC]apo:? (.+)", tab)
     if capo_match:
         norm_tab.append(f"{{capo: {capo_match.group(1)}}}")
@@ -202,38 +200,40 @@ def get_ug_title(raw_filename):
 
 
 def normalize_txt(raw_filename, norm_filename):
-    html = load_text(raw_filename)
-    if "ultimate-guitar" in str(raw_filename):
-        soup = BeautifulSoup(html, "lxml")
-        div = soup.find("div", {"class": "js-store"})
-        json_string = div["data-content"]
-        data = json.loads(json_string)
-        try:
-            tab = data["store"]["page"]["data"]["tab_view"]["wiki_tab"]["content"]
-            title = data["store"]["page"]["data"]["tab_view"]["versions"][0][
-                "song_name"
-            ]
-            artist = data["store"]["page"]["data"]["tab_view"]["versions"][0][
-                "artist_name"
-            ]
-        except (KeyError, IndexError) as e:
-            print(e)
-            print(
-                f"Not recognized tabs for file: {str(raw_filename).replace('+', '/')}"
-            )
-            traceback.print_exc()
+    try:
+        html = load_text(raw_filename)
+        if "ultimate-guitar" in str(raw_filename):
+            tab = process_ultimate_guitar(html)
+        elif "supermusic" in str(raw_filename):
             tab = ""
-            title = ""
-            artist = ""
-        tab = normalize_ultimate_guitar(tab, title, artist)
-
-    elif "supermusic" in str(raw_filename):
+        else:
+            print(f"Not recognized format: {raw_filename}")
+            tab = ""
+    except(KeyError, IndexError) as e:
+        print(e)
+        print(
+            f"Not recognized tabs for file: {str(raw_filename).replace('+', '/')}"
+        )
+        traceback.print_exc()
         tab = ""
-    else:
-        print(f"Not recognized format: {raw_filename}")
-        tab = ""
-
+        title = ""
+        artist = ""
     save_text(tab, norm_filename)
+
+
+def process_ultimate_guitar(html):
+    soup = BeautifulSoup(html, "lxml")
+    div = soup.find("div", {"class": "js-store"})
+    json_string = div["data-content"]
+    data = json.loads(json_string)
+    tab = data["store"]["page"]["data"]["tab_view"]["wiki_tab"]["content"]
+    title = data["store"]["page"]["data"]["tab_view"]["versions"][0][
+        "song_name"
+    ]
+    artist = data["store"]["page"]["data"]["tab_view"]["versions"][0][
+        "artist_name"
+    ]
+    return normalize_ultimate_guitar(tab, title, artist)
 
 
 def chordpro2html(norm_dir, html_dir):

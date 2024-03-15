@@ -46,7 +46,7 @@ def main():
     book_template = env.get_template(config.TEMPLATE_BOOK)
 
     def sorting_key(song):
-        return (song.artist, song.title)
+        return song.artist, song.title
 
     sorted_paths = [str(Path(*song.path.parts[len(config.ROOT_DIR.parts):])) for song in sorted(songs, key=sorting_key)]
     book_content = book_template.render(songs=sorted_paths)
