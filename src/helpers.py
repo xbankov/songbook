@@ -106,7 +106,10 @@ def normalize(csv_file_path):
 
 
 def normalize_ultimate_guitar(tab, title, artist):
-    norm_tab = [f"{{title: {title}}}", f"{{artist: {artist}}}"]
+    norm_tab = [
+        f"{{title: {title}}}",
+        f"{{artist: {artist}}}"
+    ]
     capo_match = re.search(r"[cC]apo:? (.+)", tab)
     if capo_match:
         norm_tab.append(f"{{capo: {capo_match.group(1)}}}")
@@ -125,24 +128,24 @@ def normalize_ultimate_guitar(tab, title, artist):
             current_line = lines[i]
 
             if i == 0 and current_line.startswith("[") and current_line.endswith("]"):
-                section_title = current_line[1:-1]
-                if "intro" in section_title.lower():
+                section_title = current_line[1:-1].lower()
+                if "intro" in section_title:
                     start_tag = "{start_of_verse: Intro}"
                     end_tag = "{end_of_verse}"
 
-                elif "verse" in section_title.lower():
+                elif "verse" in section_title:
                     start_tag = "{start_of_verse}"
                     end_tag = "{end_of_verse}"
 
-                elif "chorus" in section_title.lower():
+                elif "chorus" in section_title:
                     start_tag = "{start_of_chorus}"
                     end_tag = "{end_of_chorus}"
 
-                elif "bridge" in section_title.lower():
+                elif "bridge" in section_title:
                     start_tag = "{start_of_bridge}"
                     end_tag = "{end_of_bridge}"
 
-                elif "outro" in section_title.lower():
+                elif "outro" in section_title:
                     # TODO - specify value and process it in html rendering
                     start_tag = "{start_of_verse: Outro}"
                     end_tag = "{end_of_verse}"
