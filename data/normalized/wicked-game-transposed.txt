@@ -1,0 +1,54 @@
+{title: Wicked Game}
+
+{artist: Chris Isaak}
+
+{start_of_verse: Intro}
+[G#m]  [F#]  [C#]    x4
+{end_of_verse}
+
+{start_of_verse}
+[G#m]The world was on fire and [F#]no one could save me but y[C#]ou.
+It's [G#m]strange what desire will [F#]make foolish people do[C#].
+[G#m]I never dreamed that I'[F#]d meet somebody like yo[C#]u.
+[G#m]I never dreamed that I'[F#]d lose somebody like yo[C#]u.
+{end_of_verse}
+
+{start_of_chorus}
+No, [G#m]I d[F#]on't want to fall in lo[C#]ve. (This world is only gonna break your heart)
+No, [G#m]I d[F#]on't want to fall in lo[C#]ve. (This world is only gonna break your heart)
+With y[G#m]ou.[F#][C#]
+With y[G#m]ou. [F#]    [C#] (This world is only gonna break your heart)
+{end_of_chorus}
+
+{start_of_verse}
+[G#m]What a wicked g[F#]ame you play, [C#]to make me feel this way.
+[G#m]What a wicked th[F#]ing to do, [C#]to let me dream of you.
+[G#m]What a wicked th[F#]ing to say, [C#]you never felt this way.
+[G#m]What a wicked th[F#]ing to do, [C#]to make me dream of you. 
+{end_of_verse}
+
+{start_of_chorus}
+And, [G#m]I d[F#]on't want to fall in lo[C#]ve. (This world is only gonna break your heart)
+No, [G#m]I d[F#]on't want to fall in lo[C#]ve. (This world is only gonna break your heart)
+With y[G#m]ou.
+{end_of_chorus}
+
+([G#m]) [F#]  [C#]
+ [G#m]  [F#]  [C#]    x3
+
+{start_of_verse}
+[G#m]The world was on fire and n[F#]o one could save me but y[C#]ou.
+It's [G#m]strange what desire will [F#]make foolish people do[C#].
+[G#m]I never dreamed that I'[F#]d love somebody like yo[C#]u.
+[G#m]I never dreamed that I'[F#]d lose somebody like yo[C#]u, no.
+{end_of_verse}
+
+{start_of_chorus}
+No, [G#m]I d[F#]on't want to fall in lo[C#]ve. (This world is only gonna break your heart)
+No, [G#m]I d[F#]on't want to fall in lo[C#]ve. (This world is only gonna break your heart)
+With y[G#m]ou. [F#]    [C#] (This world is only gonna break your heart)
+With y[G#m]ou. [F#]    [C#] (This world is only gonna break your heart)
+No, [G#m]IIII[F#]IIII[C#]I... (This world is only gonna break your heart)
+[G#m]    [F#]    [C#] (This world is only gonna break your heart)
+[G#m]   Nobod[F#]y loves no on[C#]e.
+{end_of_chorus}
