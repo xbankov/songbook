@@ -1,3 +1,4 @@
+from __future__ import annotations
 from src.helpers import get_tag_items, is_tag
 from src.model.composition import Chord
 
@@ -28,6 +29,14 @@ class Line:
             if sub_splits[1]:
                 parts.append(sub_splits[1])
 
+        return Line(parts)
+
+    def transpose(self, interval):
+        parts = [
+            part.transpose(interval) if isinstance(part, Chord) else part
+            for part
+            in self.parts
+        ]
         return Line(parts)
 
 
@@ -75,6 +84,10 @@ class Section:
                 parsed_lines.append(Line.parse(line))
 
         return Section(parsed_lines, label, title)
+
+    def transpose(self, interval):
+        lines = [line.transpose(interval) for line in self.lines]
+        return Section(lines, self.label, self.title)
 
 
 class Song:
@@ -141,3 +154,8 @@ class Song:
             parsed_sections.append(Section.parse("\n".join(section_lines)))
 
         return Song(parsed_sections, title, artist, capo)
+
+    def transpose(self, interval):
+        sections = [section.transpose(interval) for section in self.sections]
+        return Song(sections, self.title, self.artist, self.capo)
+
