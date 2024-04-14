@@ -9,3 +9,5 @@ bs4
 lxml
 pdfkit
 jinja2
+fastapi
+uvicorn

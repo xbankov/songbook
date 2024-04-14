@@ -1,0 +1,15 @@
+{
+  "extends": "@vue/tsconfig/tsconfig.json",
+  "compilerOptions": {
+    "moduleResolution": "node", // Module resolution strategy
+    "sourceMap": true, // Generate source maps for better debugging
+    "baseUrl": ".", // Base directory to resolve non-relative module names
+    "paths": {
+      "@/*": ["src/*"] // Path aliases for imports (optional)
+    },
+    "types": ["node", "webpack-env"]
+    // TypeScript types to include
+  },
+  "include": ["src/**/*.ts", "src/**/*.tsx", "src/**/*.vue", "src/routes/router.js", "src/routes/routes.js"], // Include TypeScript and Vue files
+  "exclude": ["node_modules"] // Exclude node_modules directory
+}
