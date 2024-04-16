@@ -1,7 +1,11 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.staticfiles import StaticFiles
 
-app = FastAPI()
+app = FastAPI(
+    title="Songbook API",
+    summary="Retrieve chords for the song from the database or try to download.",
+)
 
 app.add_middleware(
     CORSMiddleware,
@@ -20,3 +24,6 @@ async def greet():
 @app.get("/")
 def read_root():
     return {"Hello": "World"}
+
+# Mount the static files directory
+app.mount("/data", StaticFiles(directory="/data"))

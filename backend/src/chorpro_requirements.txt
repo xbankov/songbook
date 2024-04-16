@@ -1,0 +1,13 @@
+pillow
+pyaml
+pandas
+tqdm
+appdirs
+python-chordpro
+requests
+bs4
+lxml
+pdfkit
+jinja2
+fastapi
+uvicorn
