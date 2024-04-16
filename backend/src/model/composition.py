@@ -2,17 +2,24 @@ from enum import Enum
 
 tones = {
     "C": 0,
-    "C#": 1, "Db": 1,
+    "C#": 1,
+    "Db": 1,
     "D": 2,
-    "D#": 3, "Eb": 3,
+    "D#": 3,
+    "Eb": 3,
     "E": 4,
     "F": 5,
-    "F#": 6, "Gb": 6,
+    "F#": 6,
+    "Gb": 6,
     "G": 7,
-    "G#": 8, "Ab": 8,
+    "G#": 8,
+    "Ab": 8,
     "A": 9,
-    "A#": 10, "Bb": 10, "Hb": 10,
-    "B": 11, "H": 11,
+    "A#": 10,
+    "Bb": 10,
+    "Hb": 10,
+    "B": 11,
+    "H": 11,
 }
 
 chromatic_scale = "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"
@@ -26,8 +33,12 @@ class ChordScheme(Enum):
 
 
 chord_scheme = {
-    "": ChordScheme.major, "maj": ChordScheme.major, "major": ChordScheme.major,
-    "m": ChordScheme.minor, "min": ChordScheme.minor, "minor": ChordScheme.minor,
+    "": ChordScheme.major,
+    "maj": ChordScheme.major,
+    "major": ChordScheme.major,
+    "m": ChordScheme.minor,
+    "min": ChordScheme.minor,
+    "minor": ChordScheme.minor,
 }
 
 chord_scheme_name = {
@@ -59,7 +70,7 @@ class Interval(int):
         interval = self
         label = ""
         if interval < 0:
-            interval = - interval
+            interval = -interval
             label = "-"
         if interval < len(intervals):
             label += intervals[interval]
@@ -92,3 +103,10 @@ class Chord:
 
     def __str__(self):
         return f"{self.root}{self.scheme_name}"
+
+    def to_json(self):
+        return {
+            "root": str(self.root),
+            "scheme": self.scheme,
+            "scheme_name": self.scheme_name,
+        }

@@ -1,6 +1,6 @@
 from __future__ import annotations
-from src.helpers import get_tag_items, is_tag
-from src.model.composition import Chord
+from helpers import get_tag_items, is_tag
+from model.composition import Chord
 
 
 class Line:
@@ -9,9 +9,7 @@ class Line:
 
     def __str__(self):
         string_parts = [
-            f"[{part}]" if isinstance(part, Chord) else str(part)
-            for part
-            in self.parts
+            f"[{part}]" if isinstance(part, Chord) else str(part) for part in self.parts
         ]
         return "".join(string_parts)
 
@@ -34,10 +32,17 @@ class Line:
     def transpose(self, interval):
         parts = [
             part.transpose(interval) if isinstance(part, Chord) else part
-            for part
-            in self.parts
+            for part in self.parts
         ]
         return Line(parts)
+
+    def to_json(self):
+        return {
+            "parts": [
+                part.to_json() if isinstance(part, Chord) else str(part)
+                for part in self.parts
+            ]
+        }
 
 
 class Section:
@@ -78,7 +83,11 @@ class Section:
                     label = tag[9:]
                     if content is not None:
                         title = content
-                elif label is not None and i == len(text_lines) - 1 and line == f"{{end_of_{label}}}":
+                elif (
+                    label is not None
+                    and i == len(text_lines) - 1
+                    and line == f"{{end_of_{label}}}"
+                ):
                     pass
             elif line:
                 parsed_lines.append(Line.parse(line))
@@ -89,9 +98,18 @@ class Section:
         lines = [line.transpose(interval) for line in self.lines]
         return Section(lines, self.label, self.title)
 
+    def to_json(self):
+        return {
+            "lines": [line.to_json() for line in self.lines],
+            "label": self.label,
+            "title": self.title,
+        }
+
 
 class Song:
-    def __init__(self, sections: list[Section], title: str, artist: str, capo: str = None):
+    def __init__(
+        self, sections: list[Section], title: str, artist: str, capo: str = None
+    ):
         # TODO VB capo should be int
         self.sections = sections
         self.title = title
@@ -99,10 +117,7 @@ class Song:
         self.capo = capo
 
     def __str__(self):
-        string_sections = [
-            f"{{title: {self.title}}}",
-            f"{{artist: {self.artist}}}"
-        ]
+        string_sections = [f"{{title: {self.title}}}", f"{{artist: {self.artist}}}"]
 
         if self.capo is not None:
             string_sections.append(f"{{capo: {self.capo}}}")
@@ -126,12 +141,12 @@ class Song:
             if is_tag(line):
                 tag, content = get_tag_items(line)
                 current_section_end = i
-                next_section_start = i+1
+                next_section_start = i + 1
 
                 if tag.startswith("start_of_"):
                     next_section_start = i
                 elif tag.startswith("end_of_"):
-                    current_section_end = i+1
+                    current_section_end = i + 1
                 elif tag == "title":
                     title = content
                 elif tag == "artist":
@@ -140,14 +155,16 @@ class Song:
                     capo = content
 
                 if current_section_end > current_section_start:
-                    section_lines = text_lines[current_section_start: current_section_end]
+                    section_lines = text_lines[
+                        current_section_start:current_section_end
+                    ]
                     parsed_sections.append(Section.parse("\n".join(section_lines)))
                 current_section_start = next_section_start
             elif not line:
                 if i > current_section_start:
-                    section_lines = text_lines[current_section_start: i]
+                    section_lines = text_lines[current_section_start:i]
                     parsed_sections.append(Section.parse("\n".join(section_lines)))
-                current_section_start = i+1
+                current_section_start = i + 1
 
         if len(text_lines) > current_section_start:
             section_lines = text_lines[current_section_start:]
@@ -159,3 +176,10 @@ class Song:
         sections = [section.transpose(interval) for section in self.sections]
         return Song(sections, self.title, self.artist, self.capo)
 
+    def to_json(self):
+        return {
+            "sections": [section.to_json() for section in self.sections],
+            "title": self.title,
+            "artist": self.artist,
+            "capo": self.capo,
+        }
