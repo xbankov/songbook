@@ -1,0 +1,75 @@
+{title: Faded}
+{artist: Alan Walker}
+
+{start_of_verse}
+[Am] [F] [C] [G]
+{end_of_verse}
+
+{start_of_verse}
+[Am]You were the shadow to my [F]light
+Did you feel us[C]
+Another [G]star
+You fade away[Am]
+Afraid our aim is out of sig[F]ht
+Wanna see us[C]
+Al[G]ight
+{end_of_verse}
+
+Where are you [Am]now[F]
+Where are you [C]now[G]
+Where are you [Am]now
+Was it all in my [F]fantasy
+Where are you [C]now
+Were you only i[G]maginary
+
+{start_of_chorus}
+Where are you [Am]now
+Atl[F]antis
+Under the [C]sea
+Under the [G]sea
+Where are you [Am]now
+Another [F]dream
+The mo[C]nsters running wild inside of me[G]
+I'm faded[Am][F]
+I'm faded[C]
+So lo[G]st, I'm faded[Am][F]
+I'm faded[C]
+ So lo[G]st, I'm faded
+{end_of_chorus}
+
+{start_of_verse}
+[Am]These shallow waters, never [F]met
+What I needed[C]
+I'm letting g[G]o
+A deeper dive[Am]
+Eternal silence of the [F]sea
+I'm breathing[C]
+Al[G]ive
+{end_of_verse}
+
+Where are you [Am]now[F]
+Where are you [C]now[G]
+Under the [Am]bright
+
+You set my [F]heart on fire
+Where are you n[C]ow
+Where are you [G]now
+
+{start_of_chorus}
+Where are you[Am] now
+Atl[F]antis
+Under the [C]sea
+Under the [G/H]sea
+Where are you n[Am]ow
+Another [F]dream
+The [C]monsters running wild inside of m[G]e
+I'm faded[Am][F]
+I'm faded[C]
+So lo[G]st, I'm faded[Am][F]
+I'm faded[C]
+ So lo[G]st, I'm fa[Am]ded
+{end_of_chorus}
+
+{start_of_verse}
+[Am] [F] [C] [G]
+{end_of_verse}

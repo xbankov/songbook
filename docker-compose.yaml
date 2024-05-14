@@ -13,5 +13,5 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./data/after_manual_correction:/data
+      - /app/data:/app/data
 

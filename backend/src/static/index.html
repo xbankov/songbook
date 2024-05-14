@@ -9,14 +9,14 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
     />
-    <link rel="stylesheet" href="styles.css" />
   </head>
 
   <body>
     <div class="container">
       <nav class="panel">
-        <p class="panel-heading">Repositories</p>
-        <div class="panel-block">
+        <p class="panel-heading">Songs</p>
+        <a class="panel-block" href="/songbook">Songbook</a>
+        <div class="panel-block"> 
           <p class="control has-icons-left">
             <input class="input" type="text" placeholder="Search" />
             <span class="icon is-left">
@@ -26,7 +26,7 @@
         </div>
 
         {% for song in songs %}
-        <a class="panel-block is-active" href="/api/parse/{{ song }}"
+        <a class="panel-block is-active" href="/song/{{ song }}"
           >{{ song }}</a
         >
         {% endfor %}

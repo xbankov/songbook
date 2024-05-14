@@ -8,25 +8,39 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
     />
-    <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
     <div class="container">
-        <h1 class="title">{{ song.title }}</h1>
-        <h2 class="subtitle">{{ song.artist }}</h2>
-        {% if song.capo %}
+      <h1 class="title">{{ song.title }}</h1>
+      <h2 class="subtitle">{{ song.artist }}</h2>
+      {% if song.capo %}
         <p>Capo: {{ song.capo }}</p>
-        {% endif %}
-        {% for section in song.sections %}
-        <div class="section">
-            {% if section.label %}
-            <h3>{{ section.label }}: {{ section.title }}</h3>
+      {% endif %}
+      
+      {% for section in song.sections %}
+        <div class="block">
+          {% if section.label %} 
+            {% if section.title%}
+              <h3>{{ section.title }}</h3>
+            {% else %}
+              <h3>{{ section.label.capitalize() }}</h3>
             {% endif %}
-            {% for line in section.lines %}
-            <p>{{ line }}</p>
+          {% endif %} 
+
+        {% for line in section.lines %}
+          <p>
+            {% for part in line.parts %}
+              {% if 'Chord' in part.__class__.__name__ %}  
+                <span class="chord">[{{ part }}]</span>
+              {% else %}
+                {{ part }}
+              {% endif %}
             {% endfor %}
-        </div>
+          </p>
         {% endfor %}
+
+      </div>
+      {% endfor %}
     </div>
-</body>
+  </body>
 </html>
