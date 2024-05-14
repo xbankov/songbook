@@ -8,7 +8,6 @@ from time import sleep
 import traceback
 
 import pandas as pd
-import pdfkit
 import requests
 from bs4 import BeautifulSoup
 from jinja2 import Environment, FileSystemLoader
@@ -106,10 +105,7 @@ def normalize(csv_file_path):
 
 
 def normalize_ultimate_guitar(tab, title, artist):
-    norm_tab = [
-        f"{{title: {title}}}",
-        f"{{artist: {artist}}}"
-    ]
+    norm_tab = [f"{{title: {title}}}", f"{{artist: {artist}}}"]
     capo_match = re.search(r"[cC]apo:? (.+)", tab)
     if capo_match:
         norm_tab.append(f"{{capo: {capo_match.group(1)}}}")
@@ -212,11 +208,9 @@ def normalize_txt(raw_filename, norm_filename):
         else:
             print(f"Not recognized format: {raw_filename}")
             tab = ""
-    except(KeyError, IndexError) as e:
+    except (KeyError, IndexError) as e:
         print(e)
-        print(
-            f"Not recognized tabs for file: {str(raw_filename).replace('+', '/')}"
-        )
+        print(f"Not recognized tabs for file: {str(raw_filename).replace('+', '/')}")
         traceback.print_exc()
         tab = ""
         title = ""
@@ -230,12 +224,8 @@ def process_ultimate_guitar(html):
     json_string = div["data-content"]
     data = json.loads(json_string)
     tab = data["store"]["page"]["data"]["tab_view"]["wiki_tab"]["content"]
-    title = data["store"]["page"]["data"]["tab_view"]["versions"][0][
-        "song_name"
-    ]
-    artist = data["store"]["page"]["data"]["tab_view"]["versions"][0][
-        "artist_name"
-    ]
+    title = data["store"]["page"]["data"]["tab_view"]["versions"][0]["song_name"]
+    artist = data["store"]["page"]["data"]["tab_view"]["versions"][0]["artist_name"]
     return normalize_ultimate_guitar(tab, title, artist)
 
 
@@ -279,21 +269,6 @@ def chordpro2html(norm_dir, html_dir):
         )
         with open(html_file_path, "w") as output_file:
             output_file.write(song_rendered)
-
-
-def html2pdf(html_dir, pdf_dir):
-    configuration = pdfkit.configuration(wkhtmltopdf=config.WKHTMLTOPDF)
-    options = {"--enable-local-file-access": ""}
-    css = "src/static/styles.css"
-    for html_file_path in html_dir.iterdir():
-        pdf_file_path = pdf_dir / f"{html_file_path.stem}.pdf"
-        pdfkit.from_file(
-            str(html_file_path),
-            str(pdf_file_path),
-            css=css,
-            configuration=configuration,
-            options=options,
-        )
 
 
 def is_tag(text: str):
