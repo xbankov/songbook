@@ -18,13 +18,10 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-path = Path(__file__).parent.parent.parent / "app/data/" 
+path = Path(__file__).parent.parent.parent / "app/data/"
 app.mount("/app/data", StaticFiles(directory=str(path)))
 app.mount("/static", StaticFiles(directory="static"))
 templates = Jinja2Templates(directory="static")
-
-
-
 
 
 @app.get("/")
@@ -34,6 +31,7 @@ async def read_root(request: Request):
         "index.html", {"request": request, "songs": songs}
     )
 
+
 @app.get("/song/{filename}")
 async def parse(request: Request, filename):
     with open(path / filename, "r", encoding="utf-8") as f:
@@ -42,10 +40,14 @@ async def parse(request: Request, filename):
 
     return templates.TemplateResponse("song.html", {"request": request, "song": song})
 
-@app.get("/songbook")
-async def parse(request: Request, filename):
-    with open(path / filename, "r", encoding="utf-8") as f:
-        content = f.read()
-    song = Song.parse(content)
 
-    return templates.TemplateResponse("song.html", {"request": request, "song": song})
+@app.get("/songbook")
+async def parse(request: Request):
+    songs = []
+    for file in path.iterdir():
+        with open(path / file.name, "r", encoding="utf-8") as f:
+            content = f.read()
+        song = Song.parse(content)
+        songs.append(song)
+
+    return templates.TemplateResponse("book.html", {"request": request, "songs": songs})
