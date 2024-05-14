@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FastAPI Guitar Chords Web App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+        <h1 class="title">{{ song.title }}</h1>
+        <h2 class="subtitle">{{ song.artist }}</h2>
+        {% if song.capo %}
+        <p>Capo: {{ song.capo }}</p>
+        {% endif %}
+        {% for section in song.sections %}
+        <div class="section">
+            {% if section.label %}
+            <h3>{{ section.label }}: {{ section.title }}</h3>
+            {% endif %}
+            {% for line in section.lines %}
+            <p>{{ line }}</p>
+            {% endfor %}
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>
