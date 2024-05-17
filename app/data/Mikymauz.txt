@@ -1,0 +1,95 @@
+{title: Mikymauz}
+{artist: Jaromír Nohavica}
+
+{start_of_verse}
+[Am]Ráno mě probouzí [G]tma sahám si na zápěst[F]í,
+zda mi to [E]ještě tluče z[Dm]da-li mám j[E]eště štěstí,
+[Am]nebo je po mně a [G]já mám voskované bot[F]y,
+ráno co [E]ráno stejné p[Dm]robuzení d[E]o nicoty.[Am]
+{end_of_verse}
+
+{start_of_verse}
+[Am]Není co, není [G]jak, není proč, není k[F]am,
+není s kým, [E]není o čem, k[Dm]aždý je v s[E]obě sám.
+[Am]Vyzáblý Don Qui[G]jote sedlá svou Rosinant[F]u
+a Bůh je [E]slepý řidič s[Dm]edící u[E] volantu.[Am]
+{end_of_verse}
+
+{start_of_chorus}
+[E]Zapínám t[F]elefon - zá[Dm]znamník ci[E]zích citů,
+špatné zprávy [F]chodí jako p[Dm]olicie z[E]a úsvitu,
+[Dm]jsem napůl bdělý a [G7]napůl ještě v noční pauze,
+[C]měl bych se smát ale m[E]ám úsměv Mikymauze,
+[Am]rána bych[Am/G] zruši[F]l.[E][Am]
+{end_of_chorus}
+
+{start_of_verse}
+[Am]Dobrý muž v rádi[G]u pouští Čikoreu[F],
+opravdu [E]veselo je a[Dm]si jako v m[E]auzoleu,
+[Am]ve frontě na mumii [G]mám kruhy pod očim[F]a,
+růžový [E]rozbřesk f[Dm]akt už mě n[E]edojímá.[Am]
+{end_of_verse}
+
+{start_of_verse}
+[Am]Povídáš něco o [G]tom co bychom dělat měl[F]i,
+pomalu [E]vychládají n[Dm]aše důlky n[E]a posteli,
+[Am]všechno se halí v še[G]ru, čí to bylo vin[F]ou,
+že dřevo[E]rubec máchl m[Dm]ezi nás š[E]iročinou.[Am]
+{end_of_verse}
+
+{start_of_chorus}
+[E]Postele r[F]ozdělené na[Dm] dva suveré[E]nní státy,
+ozdoby [F]na tapetách j[Dm]sou jak pohran[E]iční dráty,
+[Dm]ve spánku nepřijde to [G7]spánek je sladká mdloba,
+[C]že byla ve mně láska j[E]e jenom pustá zloba,
+[Am]dráty byc[Am/G]h zruš[F]il.[E][Am]
+{end_of_chorus}
+
+{start_of_verse}
+[Am]Prokletá hodina, ta [G]minuta, ta krátká chvíl[F]e,
+kdy věci [E]nejsou černé, a[Dm]le nejsou a[E]ni bílé,
+[Am]kdy není tma, ale [G]ještě ani vidno nen[F]í,
+bdění je [E]bolest b[Dm]ez slastného u[E]mrtvení.[Am]
+{end_of_verse}
+
+{start_of_verse}
+[Am]Zběsile mi to te[G]pe a tupě píchá v třís[F]le,
+usnout a [E]nevzbudit se, n[Dm]emuset n[E]a nic myslet,
+[Am]opřený o kolena [G]poslouchám tvoje slz[F]y,
+na život [E]už je pozdě a[Dm] na smrt j[E]eště brzy[Am].
+{end_of_verse}
+
+{start_of_chorus}
+[E]Co bylo k[F]dysi včera, je[Dm], jako ne[E]bylo by,
+káva je [F]vypita a n[Dm]ení žádná d[E]o zásoby,
+[Dm]věci, co nechceš, ať se [G7]stanou, ty se stejně stanou
+[C]a chleba s máslem padá n[E]a zem vždycky blbou stranou,
+[Am]máslo byc[Am/G]h zruš[F]il.[E][Am]
+{end_of_chorus}
+
+{start_of_verse}
+[Am]Povídáš o nadě[G]ji a slova se ti plet[F]ou,
+jak špio[E]nážní družic[Dm]e letící n[E]ad planetou,
+[Am]svlíknout se z pyžama,[G] to by šlo ještě lehc[F]e,
+dvacet let [E]mluvil jsem a t[Dm]eď už se mi m[E]luvit nechce.[Am]
+{end_of_verse}
+
+{start_of_verse}
+[Am]Z plakátu na zácho[G]dě prasátko vypasen[F]é,
+kyne mi [E]zatímco se k[Dm]olem voda d[E]olů žene,
+[Am]všechno je vyřčeno a [G]odnášeno do septik[F]u,
+jenom mně [E]tady zbývá p[Dm]rodýchat pár o[E]kamžiků.[Am]
+{end_of_verse}
+
+{start_of_chorus}
+[E]Sahám si n[F]a zápěstí a[Dm] venku už[E] je zítra,
+hodiny [F]odbíjejí s[Dm]ignály Dob[E]rého jitra,
+[Dm]jsem napůl bdělý a [G7]napůl ještě v noční pauze,
+[C]měl bych se smát ale m[E]ám úsměv Mikymauze,
+[Am]lásku byc[Am/G]h zruš[F]il.[E][Am]
+{end_of_chorus}
+
+{start_of_verse}
+[Am]Ráno mě probouzí [G]tma sahám si na zápěst[F]í,
+zda mi to [E]ještě tluče j[Dm]estli mám j[E]eště štěstí. x3
+{end_of_verse}

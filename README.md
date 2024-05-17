@@ -1,20 +1,86 @@
-# Spevn-k
+# Songbook
 
-# Requirements:
+## Overview
 
-`sudo apt-get update`
-`sudo apt-get install wkhtmltopdf`
+This project is **Work In Progress!**
 
-`sudo apt-get install xfonts-75dpi`
-`wget https://github.com/wkhtmltopdf/packaging/releases/download/0.12.6.1-2/wkhtmltox_0.12.6.1-2.jammy_amd64.deb`
-`sudo dpkg -i wkhtmltox_0.12.6.1-2.jammy_amd64.deb`
-`sudo apt --fix-broken install`
-`rm wkhtmltox_0.12.6.1-2.jammy_amd64.deb`
+The Songbook app is a simple app to host your own songbook database. Ideally It can be used to download chords you want from
+websites like ultimateguitar or supermusic.cz, enable you to correct them, and then enable you to creat printable songbook in a browser.
 
-`conda create -n spevnik python=3.11`
-`pip install -r requirements.txt`
+## Features
 
-## Acknowledgments
+- ~~Create new songs with title, artist, lyrics, and chords~~
+- ~~Edit existing songs to make changes or corrections.~~
+- ~~Delete songs you no longer need.~~
+- ~~View and search through your entire song library.~~
+- ~~Share your songs with friends or bandmates.~~
+
+## Installation
+
+To get started with the Songbook app, make sure you have Docker and Docker Compose installed on your system.
+
+### Docker Installation
+
+Follow the instructions on the official Docker website to install Docker for your operating system:
+[Install Docker](https://docs.docker.com/get-docker/)
+
+### Docker Compose Installation
+
+Docker Compose usually comes bundled with Docker Desktop on Windows and macOS. If you're using Linux or need to install Docker Compose separately, follow the instructions here:
+[Install Docker Compose](https://docs.docker.com/compose/install/)
+
+## Building and Running the App
+
+Once you have Docker and Docker Compose installed, building and running the Songbook app is straightforward.
+
+### Build
+
+To build the Docker images for the Songbook app, navigate to the project directory in your terminal and run the following command:
+
+```bash
+docker compose build
+```
+
+This command will download the necessary dependencies and build the Docker images for the app.
+
+### Run
+
+After the build process is complete, you can start the Songbook app by running the following command:
+
+```bash
+docker compose up
+```
+
+### Accessing the App
+
+Once the app is up and running, you can access it by opening your web browser and navigating to the following URL:
+
+```bash
+http://localhost:8080
+```
+
+### Backend data
+
+Backend is running on following URL:
+
+```bash
+http://localhost:8000
+```
+
+You can access API documentation:
+
+```bash
+http://localhost:8000/docs
+```
+
+StaticFiles:
+
+```bash
+http://localhost:8000/data
+```
+
+
+### Acknowledgments
 
 https://github.com/ptsefton/chordprobook
 https://www.chordpro.org/chordpro/support/

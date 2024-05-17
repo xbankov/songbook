@@ -1,0 +1,36 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>FastAPI Guitar Chords Web App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css"
+    />
+  </head>
+
+  <body>
+    <div class="container">
+      <nav class="panel">
+        <p class="panel-heading">Songs</p>
+        <a class="panel-block" href="/songbook">Songbook</a>
+        <div class="panel-block"> 
+          <p class="control has-icons-left">
+            <input class="input" type="text" placeholder="Search" />
+            <span class="icon is-left">
+              <i class="fas fa-search" aria-hidden="true"></i>
+            </span>
+          </p>
+        </div>
+
+        {% for song in songs %}
+        <a class="panel-block is-active" href="/song/{{ song }}"
+          >{{ song }}</a
+        >
+        {% endfor %}
+      </nav>
+    </div>
+  </body>
+</html>
