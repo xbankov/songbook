@@ -10,22 +10,8 @@
       "request": "launch",
       "cwd": "${workspaceFolder}/backend/src",
       "module": "uvicorn",
-      "args": ["main:app", "--reload"],
+      "args": ["main:app", "--reload", "--port", "8001"],
       "jinja": true
     },
-    {
-      "name": "bookmarks2chordpro",
-      "type": "debugpy",
-      "request": "launch",
-      "program": "${workspaceFolder}/src/bookmarks2chordpro.py",
-      "console": "integratedTerminal"
-    },
-    {
-      "name": "Build Songbook",
-      "type": "debugpy",
-      "request": "launch",
-      "program": "${workspaceFolder}/src/build_songbook.py",
-      "console": "integratedTerminal"
-    }
   ]
 }

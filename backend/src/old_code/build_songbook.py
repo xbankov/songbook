@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from pathlib import Path
 from bs4 import BeautifulSoup
 from jinja2 import Environment, FileSystemLoader
-import config as config
+import backend.src.old_code.config as config
 import pdfkit
 import shutil
 from helpers import chordpro2html

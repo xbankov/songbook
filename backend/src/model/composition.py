@@ -1,4 +1,5 @@
 from enum import Enum
+from typing import Dict
 
 tones = {
     "C": 0,
@@ -110,3 +111,10 @@ class Chord:
             "scheme": self.scheme,
             "scheme_name": self.scheme_name,
         }
+
+    @staticmethod
+    def from_json(json_dict: Dict):
+        root = json_dict["root"]
+        scheme = json_dict["scheme"]
+        scheme_name = json_dict["scheme_name"]
+        return Chord(root=root, scheme=scheme, scheme_name=scheme_name)

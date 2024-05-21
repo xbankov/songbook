@@ -1,6 +1,6 @@
 import json
 
-import config as config
+import backend.src.old_code.config as config
 from helpers import download, extract, normalize
 
 

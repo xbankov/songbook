@@ -6,4 +6,20 @@ services:
       - "8000:8000"
     volumes:
       - ./app/data:/app/data
+    depends_on:
+      - mongodb
 
+  mongodb:
+    image: mongo:latest # Use the latest official MongoDB image
+    ports:
+      - "27017:27017" # Map container port 27017 to host port 27017
+    environment:
+      MONGO_INITDB_DATABASE: songbook  # Set database name
+      MONGO_INITDB_COLLECTION: songs  # Set collection name
+      # MONGO_INITDB_ROOT_USERNAME: root  # Optional username for MongoDB
+      # MONGO_INITDB_ROOT_PASSWORD: example  # Optional password for MongoDB
+    volumes:
+      - mongodb-data:/app/db # Persist MongoDB data volume
+
+volumes:
+  mongodb-data: {}

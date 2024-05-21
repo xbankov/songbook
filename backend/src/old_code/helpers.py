@@ -13,7 +13,7 @@ from bs4 import BeautifulSoup
 from jinja2 import Environment, FileSystemLoader
 from tqdm import tqdm
 
-import config
+import backend.src.old_code.config as config
 
 
 @dataclass

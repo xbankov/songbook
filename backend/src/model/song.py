@@ -1,5 +1,5 @@
-from __future__ import annotations
-from helpers import get_tag_items, is_tag
+from typing import Dict
+from model.utils import get_tag_items, is_tag
 from model.composition import Chord
 
 
@@ -14,7 +14,7 @@ class Line:
         return "".join(string_parts)
 
     @staticmethod
-    def parse(text: str):
+    def from_chordpro(text: str):
         splits = text.split("[")
         parts = []
         first_split = splits.pop(0)
@@ -44,6 +44,14 @@ class Line:
             ]
         }
 
+    @staticmethod
+    def from_json(json_dict: Dict):
+        parsed_parts = [
+            Chord.from_json(part) if isinstance(part, dict) else part
+            for part in json_dict["parts"]
+        ]
+        return Line(parsed_parts)
+
 
 class Section:
     def __init__(self, lines: list[Line], label: str = None, title: str = None):
@@ -69,7 +77,7 @@ class Section:
         return "\n".join(string_lines)
 
     @staticmethod
-    def parse(text: str):
+    def from_chordpro(text: str):
         text_lines = text.split("\n")
         label = None
         title = None
@@ -90,7 +98,7 @@ class Section:
                 ):
                     pass
             elif line:
-                parsed_lines.append(Line.parse(line))
+                parsed_lines.append(Line.from_chordpro(line))
 
         return Section(parsed_lines, label, title)
 
@@ -105,16 +113,29 @@ class Section:
             "title": self.title,
         }
 
+    @staticmethod
+    def from_json(json_dict: Dict):
+        parsed_lines = [Line.from_json(line) for line in json_dict["lines"]]
+        label = json_dict["label"]
+        title = json_dict["title"]
+        return Section(parsed_lines, label, title)
+
 
 class Song:
     def __init__(
-        self, sections: list[Section], title: str, artist: str, capo: str = None
+        self,
+        sections: list[Section],
+        title: str,
+        artist: str,
+        capo: str = None,
+        object_id: str = None,
     ):
         # TODO VB capo should be int
         self.sections = sections
         self.title = title
         self.artist = artist
         self.capo = capo
+        self.object_id = object_id
 
     def __str__(self):
         string_sections = [f"{{title: {self.title}}}", f"{{artist: {self.artist}}}"]
@@ -128,7 +149,7 @@ class Song:
         return "\n\n".join(string_sections)
 
     @staticmethod
-    def parse(text: str):
+    def from_chordpro(text: str):
         title = None
         artist = None
         capo = None
@@ -158,17 +179,21 @@ class Song:
                     section_lines = text_lines[
                         current_section_start:current_section_end
                     ]
-                    parsed_sections.append(Section.parse("\n".join(section_lines)))
+                    parsed_sections.append(
+                        Section.from_chordpro("\n".join(section_lines))
+                    )
                 current_section_start = next_section_start
             elif not line:
                 if i > current_section_start:
                     section_lines = text_lines[current_section_start:i]
-                    parsed_sections.append(Section.parse("\n".join(section_lines)))
+                    parsed_sections.append(
+                        Section.from_chordpro("\n".join(section_lines))
+                    )
                 current_section_start = i + 1
 
         if len(text_lines) > current_section_start:
             section_lines = text_lines[current_section_start:]
-            parsed_sections.append(Section.parse("\n".join(section_lines)))
+            parsed_sections.append(Section.from_chordpro("\n".join(section_lines)))
 
         return Song(parsed_sections, title, artist, capo)
 
@@ -182,4 +207,17 @@ class Song:
             "title": self.title,
             "artist": self.artist,
             "capo": self.capo,
+            "object_id": self.object_id,
         }
+
+    @staticmethod
+    def from_json(json_dict: Dict):
+        parsed_sections = [
+            Section.from_json(section) for section in json_dict["sections"]
+        ]
+        title = json_dict["title"]
+        artist = json_dict["artist"]
+        capo = json_dict["capo"]
+        object_id = json_dict["_id"]
+
+        return Song(parsed_sections, title, artist, capo, object_id)
