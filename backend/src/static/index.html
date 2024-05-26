@@ -1,42 +1,44 @@
 {% extends "navbar.html" %}
 
 {% block content %}
-<section class="section">
-    <div class="columns has-background-grey">
-        <div class="column is-offset-2">
-            <h1 class="title has-text-dark">Guitar chords</h1>
-
-            <table class="table is-striped is-narrow">
+<div class="columns m-0">
+    <div class="column p-0 is-one-third">
+        <div class="box">
+            <h1 class="title has-text-warning"> Difficulty </h1>
+            Absolute Beginner
+            Beginner
+            Intermediate
+            Advanced
+        </div>
+    </div>
+    <div class="column p-0 is-two-thirds">
+        <div class="box">
+            <h1 class="title has-text-warning">Guitar chords</h1>
+            <table class="table">
                 <thead>
                     <tr>
                         <th>Artist</th>
                         <th>Title</th>
-                        <th>Review</th>
-                        <th>Hits</th>
-                        <th>Type</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for song in songs %}
                     <tr>
                         <td>
-                            <a href="/artist/{{ song.artist_id|string }}" class="has-text-dark">
+                            <a href="/artist/{{ song.artist_id|string }}" class="has-text-light">
                                 {{ song.artist }}
                             </a>
                         </td>
                         <td>
-                            <a href="/song/{{ song.object_id|string }}" class="has-text-dark">
+                            <a href="/song/{{ song.object_id|string }}" class="has-text-light">
                                 {{ song.title }}
                             </a>
                         </td>
-                        <td>{{ song.review_score }}</td>
-                        <td>{{ song.hits }}</td>
-                        <td class="has-text-dark">{{ song.type }}</td>
                     </tr>
                     {% endfor %}
                 </tbody>
             </table>
         </div>
     </div>
-</section>
+</div>
 {% endblock %}

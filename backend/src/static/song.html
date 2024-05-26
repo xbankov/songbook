@@ -17,7 +17,7 @@
     <h3>{{ section.label.capitalize() }}</h3>
     {% endif %}
     {% endif %}
-
+    Original
     {% for line in section.lines %}
     <p>
       {% for part in line.parts %}
@@ -30,7 +30,33 @@
     </p>
     {% endfor %}
 
+    {% for line in section.lines %}
+    <div class="line">
+      <div class="chords">
+        {% for part in line.parts %}
+        {% if 'Chord' in part.__class__.__name__ %}
+        <span class="chord">{{ part }}</span>
+        {% else %}
+        {% for _ in range(part|length + 1)%}&nbsp;&nbsp;{% endfor %}
+        {% endif %}
+        {% endfor %}
+      </div>
+      <div class="lyrics">
+        {% for part in line.parts %}
+        {% if 'Chord' not in part.__class__.__name__ %}
+        {{ part }}
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
   </div>
   {% endfor %}
+</div>
+<div class="chords">
+  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="chord">C</span> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <span class="chord">G</span> 
+</div>
+<div>
+  123456[C]789123456[G]
 </div>
 {% endblock content %}

@@ -1,33 +1,39 @@
-{% include "base.html" %}
+{% extends "base.html" %}
 
-<nav class="navbar has-background-dark has-navbar-shadow-with-gradient" role="navigation" aria-label="main navigation">
+{% block navbar %}
+<nav class="navbar has-background-dark" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
             <span aria-hidden="true"></span>
         </a>
-        <a class="navbar-item underline-on-hover hover-scale" href="/">
-            <img src="static/guitar-playing.png" alt="Guitar Playing Logo" class="navbar-icon">
+        <a class="navbar-item hover-scale" href="/">
+            <img src="/static/guitar-playing.png" alt="Guitar Playing Logo" class="navbar-icon">
         </a>
     </div>
 
     <div class="navbar-menu">
         <div class="navbar-start">
-            <a class="navbar-item underline-on-hover hover-scale is-uppercase is-size-5 has-text-grey-lighter" href="/">
+            <a class="navbar-item hover-scale is-uppercase is-size-5 has-text-grey-lighter" href="/">
                 Home
             </a>
 
-            <a class="navbar-item underline-on-hover hover-scale is-uppercase is-size-5 has-text-grey-lighter"
+            <a class="navbar-item hover-scale is-uppercase is-size-5 has-text-grey-lighter"
                 href="/songbook">
                 Songbook
+            </a>
+
+            <a class="navbar-item hover-scale is-uppercase is-size-5 has-text-grey-lighter"
+                href="/insert/">
+                Add song chords
             </a>
         </div>
 
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <a class="button is-primary">
+                    <a class="button is-warning">
                         <strong>Sign up</strong>
                     </a>
                     <a class="button is-light">
@@ -38,6 +44,7 @@
         </div>
     </div>
 </nav>
+{% endblock %}
 <script>
     document.addEventListener('DOMContentLoaded', function () {
 
@@ -55,4 +62,3 @@
         });
     });
 </script>
-{% block content %} {% endblock %}
