@@ -14,23 +14,29 @@
     <div class="column p-0 is-two-thirds">
         <div class="box">
             <h1 class="title has-text-warning">Guitar chords</h1>
-            <table class="table">
+            <table class="table is-fullwidth">
                 <thead>
                     <tr>
-                        <th>Artist</th>
-                        <th>Title</th>
+                        <th
+                            class="px-3 has-background-grey-darker is-size-7 has-text-grey-light is-uppercase is-one-quarter">
+                            Artist</th>
+                        <th
+                            class="px-3 has-background-grey-darker is-size-7 has-text-grey-light is-uppercase is-three-quarters">
+                            Song</th>
                     </tr>
                 </thead>
                 <tbody>
                     {% for song in songs %}
                     <tr>
                         <td>
-                            <a href="/artist/{{ song.artist_id|string }}" class="has-text-light">
+                            <a href="/artist/{{ song.artist_id|string }}"
+                                class="has-text-white-hover has-text-grey-lighter">
                                 {{ song.artist }}
                             </a>
                         </td>
                         <td>
-                            <a href="/song/{{ song.object_id|string }}" class="has-text-light">
+                            <a href="/song/{{ song.object_id|string }}"
+                                class="has-text-white-hover has-text-warning is-underlined">
                                 {{ song.title }}
                             </a>
                         </td>
@@ -41,4 +47,5 @@
         </div>
     </div>
 </div>
+
 {% endblock %}

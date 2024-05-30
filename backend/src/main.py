@@ -7,8 +7,12 @@ from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from motor.motor_asyncio import AsyncIOMotorClient
+import logging
 
+import pymongo
 from model.song import Song
+
+logger = logging.getLogger(__file__)
 
 MONGO_URL = os.getenv("MONGO_URL", "mongodb://localhost:27017")
 MONGO_DB = os.getenv("MONGO_DB", "songbook")
@@ -22,6 +26,23 @@ client = None
 async def lifespan(app: FastAPI):
     global client
     client = AsyncIOMotorClient(MONGO_URL)
+    index_model = [
+        ("title", 1),  # Ascending order for 'title'
+        ("artist", 1)  # Ascending order for 'artist'
+    ]
+    db = client.get_database(MONGO_DB)
+    collection = db.get_collection(MONGO_SONGS_COLLECTION)
+    try:
+        
+        existing_indexes = await collection.index_information()
+        if any(existing_index["key"] == index_model for existing_index in existing_indexes.values()):
+            logger.info("Unique index already exists.")
+        else:
+            # Create the index if it doesn't exist
+            await collection.create_index(index_model, unique=True, background=True)
+            logger.info("Unique index created successfully.")
+    except Exception as e:
+        logger.error(f"Error creating unique index: {e}")
     yield
     client.close()
 
@@ -59,14 +80,18 @@ async def index(request: Request):
 
 
 @app.get(f"/insert")
-async def test_insert():
+async def test_insert(request: Request):
     with open(path / "Faded.txt", "r", encoding="utf-8") as f:
         content = f.read()
     song = Song.from_chordpro(content)
     db = client.get_database(MONGO_DB)
     collection = db.get_collection(MONGO_SONGS_COLLECTION)
-    result = await collection.insert_one(song.to_json())
-    print(f"Song with ID: {result.inserted_id} inserted successfully.")
+    try:
+        result = await collection.insert_one(song.to_json())
+    except pymongo.errors.DuplicateKeyError:
+        logger.error(f"Song: {song} is already present in unique index (artist, title) and cannot be inserted again")
+        return templates.TemplateResponse("error.html", {"request": request})
+    logger.info(f"Song with ID: {result.inserted_id} inserted successfully.")
     return Response(status_code=status.HTTP_302_FOUND, headers={"Location": "/"})
 
 
@@ -77,12 +102,12 @@ async def get_song(request: Request, object_id):
     document = await collection.find_one({"_id": ObjectId(object_id)})
     if document:
         song = Song.from_json(document)
-        print(f"Found document: \n{song}")
+        logger.info(f"Found document: \n{song}")
         return templates.TemplateResponse(
             "song.html", {"request": request, "song": song}
         )
     else:
-        print(f"No documents found with object_id '{object_id}'.")
+        logger.error(f"No documents found with object_id '{object_id}'.")
         return templates.TemplateResponse("error.html", {"request": request})
 
 

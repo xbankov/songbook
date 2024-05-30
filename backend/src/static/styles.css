@@ -6,14 +6,18 @@ html {
   margin-right: 10%;
 }
 
-.box, .button {
+.box,
+.button {
   box-shadow: none;
 }
 body {
   height: 100%vh;
 }
-.box, .button, .input, .navbar {
-  border-radius: 0; 
+.box,
+.button,
+.input,
+.navbar {
+  /* border-radius: 0; */
   margin: 2px;
 }
 nav.navbar {
@@ -23,43 +27,6 @@ nav.navbar {
 .navbar-item {
   margin: 0.5rem;
 }
-.has-navbar-shadow-with-gradient::before {
-  content: "";
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 100%;
-  height: 6px; /* Adjust the height of the shadow as needed */
-  background: linear-gradient(
-    to bottom,
-    rgb(54, 54, 54),
-    rgba(38, 39, 38, 0.2)
-  );
-  pointer-events: none; /* Make sure the shadow doesn't interfere with content */
-  z-index: 1; /* Adjust the z-index as needed */
-}
-
-.underline-on-hover {
-  position: relative;
-  text-decoration: none;
-}
-
-.underline-on-hover::after {
-  content: "";
-  background-color: orange;
-  position: absolute;
-  left: 50%; /* Start from the middle */
-  bottom: 15%;
-  width: 0; /* Initial state: no width */
-  height: 2px; /* Adjust the height to control the thickness of the underscore */
-  transform: translateX(-50%);
-  transform-origin: bottom left;
-  transition: width 0.3s ease; /* Adjust the transition duration as needed */
-}
-
-.underline-on-hover:hover::after {
-  width: 80%;
-}
 
 .hover-scale {
   transition: transform 0.3s ease; /* Add a smooth transition effect */
@@ -68,23 +35,7 @@ nav.navbar {
 .hover-scale:hover {
   transform: scale(1.15); /* Adjust the scale factor as needed */
 }
-
-/* Media query for mobile devices */
-@media (max-width: 767px) {
-  .underline-on-hover::after {
-    content: "";
-    background-color: orange;
-    position: absolute;
-    left: 50%; /* Start from the middle */
-    bottom: 10%;
-    width: 0;
-    height: 2px;
-    transform: translateX(-50%);
-    transform-origin: bottom left;
-    transition: width 0.3s ease;
-  }
-
-  .underline-on-hover:hover::after {
-    width: 95%; /* Set to 95% width on mobile devices */
-  }
+.has-text-white-hover:hover {
+  color:whitesmoke!important;
+  text-decoration: none!important;
 }
