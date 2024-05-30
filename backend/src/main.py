@@ -23,34 +23,37 @@ client = None
 
 
 @asynccontextmanager
-async def lifespan(app: FastAPI):
+async def lifespan(app: FastAPI):  # Don't remove app argument. Neccessary!
     global client
     client = AsyncIOMotorClient(MONGO_URL)
     index_model = [
         ("title", 1),  # Ascending order for 'title'
-        ("artist", 1)  # Ascending order for 'artist'
+        ("artist", 1),  # Ascending order for 'artist'
     ]
     db = client.get_database(MONGO_DB)
     collection = db.get_collection(MONGO_SONGS_COLLECTION)
     try:
-        
+
         existing_indexes = await collection.index_information()
-        if any(existing_index["key"] == index_model for existing_index in existing_indexes.values()):
-            logger.info("Unique index already exists.")
+        if any(
+            existing_index["key"] == index_model
+            for existing_index in existing_indexes.values()
+        ):
+            logger.info("Unique index (artist,title) already exists.")
         else:
-            # Create the index if it doesn't exist
             await collection.create_index(index_model, unique=True, background=True)
-            logger.info("Unique index created successfully.")
+            logger.info("Unique index (artist,title) created successfully.")
     except Exception as e:
-        logger.error(f"Error creating unique index: {e}")
+        logger.error(f"Error creating unique index (artist,title): {e}")
     yield
     client.close()
 
 
 app = FastAPI(
     title="Songbook API",
-    summary="Explore internet and create your personal guitar chords songbook to print",
+    summary="Search, add, edit and create your personal guitar chords songbook.",
     lifespan=lifespan,
+    static_url_path="/static",
 )
 
 app.add_middleware(
@@ -74,8 +77,9 @@ async def index(request: Request):
     collection = db.get_collection(MONGO_SONGS_COLLECTION)
     documents = await collection.find().to_list(100)
     songs = [Song.from_json(document) for document in documents]
+
     return templates.TemplateResponse(
-        "index.html", {"request": request, "songs": songs}
+        name="index.html", request=request, context={"songs": songs}
     )
 
 
@@ -86,11 +90,25 @@ async def test_insert(request: Request):
     song = Song.from_chordpro(content)
     db = client.get_database(MONGO_DB)
     collection = db.get_collection(MONGO_SONGS_COLLECTION)
+    song_json = song.to_json()
+    title = song_json["title"]
+    artist = song_json["title"]
+    song_index = f"{artist} - {title}"
+
     try:
-        result = await collection.insert_one(song.to_json())
+        result = await collection.insert_one(song_json)
+        logger.info(
+            f"Song [{song_index}] with ID: {result.inserted_id} inserted successfully."
+        )
     except pymongo.errors.DuplicateKeyError:
-        logger.error(f"Song: {song} is already present in unique index (artist, title) and cannot be inserted again")
-        return templates.TemplateResponse("error.html", {"request": request})
+        error_message = f"Song [{song_index}] already exists and cannot inserted again."
+        logger.error(error_message)
+        return templates.TemplateResponse(
+            name="error.html",
+            request=request,
+            context={"error_message": error_message},
+        )
+
     logger.info(f"Song with ID: {result.inserted_id} inserted successfully.")
     return Response(status_code=status.HTTP_302_FOUND, headers={"Location": "/"})
 
@@ -104,11 +122,16 @@ async def get_song(request: Request, object_id):
         song = Song.from_json(document)
         logger.info(f"Found document: \n{song}")
         return templates.TemplateResponse(
-            "song.html", {"request": request, "song": song}
+            name="song.html",
+            request=request,
+            context={"song": song},
         )
     else:
-        logger.error(f"No documents found with object_id '{object_id}'.")
-        return templates.TemplateResponse("error.html", {"request": request})
+        error_message = f"No documents found with object_id '{object_id}'."
+        logger.error(error_message)
+        return templates.TemplateResponse(
+            name="error.html", request=request, context={"error_message": error_message}
+        )
 
 
 @app.get("/songbook")
@@ -118,3 +141,24 @@ async def get_songbook(request: Request):
     documents = await collection.find().to_list(100)
     songs = [Song.from_json(document) for document in documents]
     return templates.TemplateResponse("book.html", {"request": request, "songs": songs})
+
+
+@app.get("/artist/{artist_name}")
+async def get_songs_by_artist(request: Request, artist_name: str):
+    db = client.get_database(MONGO_DB)
+    collection = db.get_collection(MONGO_SONGS_COLLECTION)
+
+    documents = await collection.find({"artist": artist_name}).to_list(100)
+
+    if documents:
+        songs = [Song.from_json(document) for document in documents]
+        logger.info(f"Found {len(songs)} songs by artist: {artist_name}")
+        return templates.TemplateResponse(
+            "artist.html", {"request": request, "songs": songs, "artist": artist_name}
+        )
+    else:
+        logger.info(f"No songs found for artist: {artist_name}")
+        error_message = f"No songs found for artist '{artist_name}'."
+        return templates.TemplateResponse(
+            "error.html", {"request": request, "error_message": error_message}
+        )

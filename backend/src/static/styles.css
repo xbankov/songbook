@@ -17,7 +17,7 @@ body {
 .button,
 .input,
 .navbar {
-  /* border-radius: 0; */
+  border-radius: 0;
   margin: 2px;
 }
 nav.navbar {
@@ -39,3 +39,4 @@ nav.navbar {
   color:whitesmoke!important;
   text-decoration: none!important;
 }
+

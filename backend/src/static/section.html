@@ -1,0 +1,23 @@
+<div class="block">
+    {% if section.label %}
+      {% if section.title %}
+        <h3>{{ section.title }}</h3>
+      {% else %}
+        <h3>{{ section.label.capitalize() }}</h3>
+      {% endif %}
+    {% endif %}
+  
+    {% for line in section.lines %}
+    <p>
+      {% for part in line.parts %}
+        {% if 'Chord' in part.__class__.__name__ %}
+          <span class="chord">[{{ part }}]</span>
+        {% else %}
+          {{ part }}
+        {% endif %}
+      {% endfor %}
+    </p>
+    {% endfor %}
+  
+    </div>
+  

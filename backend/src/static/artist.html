@@ -13,13 +13,10 @@
     </div>
     <div class="column p-0 is-two-thirds">
         <div class="box">
-            <h1 class="title has-text-warning">Guitar chords</h1>
+            <h1 class="title has-text-weight-medium">Songs by <span class="has-text-warning has-text-weight-bold">{{ artist }}</span></h1>
             <table class="table is-fullwidth">
                 <thead>
                     <tr>
-                        <th
-                            class="px-3 has-background-grey-darker is-size-7 has-text-grey-light is-uppercase is-one-quarter">
-                            Artist</th>
                         <th
                             class="px-3 has-background-grey-darker is-size-7 has-text-grey-light is-uppercase is-three-quarters">
                             Song</th>
@@ -28,12 +25,6 @@
                 <tbody>
                     {% for song in songs %}
                     <tr>
-                        <td>
-                            <a href="/artist/{{ song.artist|string }}"
-                                class="has-text-white-hover has-text-grey-lighter">
-                                {{ song.artist }}
-                            </a>
-                        </td>
                         <td>
                             <a href="/song/{{ song.object_id|string }}"
                                 class="has-text-white-hover has-text-warning is-underlined">
