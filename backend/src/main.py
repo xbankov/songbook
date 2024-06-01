@@ -1,6 +1,7 @@
 from contextlib import asynccontextmanager
 import os
 from pathlib import Path
+import traceback
 from bson import ObjectId
 from fastapi import FastAPI, Request, Response, status
 from fastapi.middleware.cors import CORSMiddleware
@@ -33,7 +34,6 @@ async def lifespan(app: FastAPI):  # Don't remove app argument. Neccessary!
     db = client.get_database(MONGO_DB)
     collection = db.get_collection(MONGO_SONGS_COLLECTION)
     try:
-
         existing_indexes = await collection.index_information()
         if any(
             existing_index["key"] == index_model
@@ -44,9 +44,23 @@ async def lifespan(app: FastAPI):  # Don't remove app argument. Neccessary!
             await collection.create_index(index_model, unique=True, background=True)
             logger.info("Unique index (artist,title) created successfully.")
     except Exception as e:
-        logger.error(f"Error creating unique index (artist,title): {e}")
+        error(f"Error creating unique index (artist,title)", e)
+
     yield
     client.close()
+
+
+def error(message: str, exception: Exception = None, request=None):
+    logger.error(f"{message}")
+    if exception:
+        logger.error(f"Exception: {e}")
+        logger.error(
+            f"Traceback: {traceback.format_exc()}",
+        )
+    if request:
+        return templates.TemplateResponse(
+            name="error.html", request=request, context={"error_message": message}
+        )
 
 
 app = FastAPI(
@@ -83,6 +97,17 @@ async def index(request: Request):
     )
 
 
+@app.get("/songbook/")
+async def get_songbook(request: Request):
+    db = client.get_database(MONGO_DB)
+    collection = db.get_collection(MONGO_SONGS_COLLECTION)
+    documents = await collection.find().to_list(100)
+    songs = [Song.from_json(document) for document in documents]
+    return templates.TemplateResponse(
+        "songbook.html", {"request": request, "songs": songs}
+    )
+
+
 @app.get(f"/insert")
 async def test_insert(request: Request):
     with open(path / "Faded.txt", "r", encoding="utf-8") as f:
@@ -90,7 +115,7 @@ async def test_insert(request: Request):
     song = Song.from_chordpro(content)
     db = client.get_database(MONGO_DB)
     collection = db.get_collection(MONGO_SONGS_COLLECTION)
-    song_json = song.to_json()
+    song_json = song.json()
     title = song_json["title"]
     artist = song_json["title"]
     song_index = f"{artist} - {title}"
@@ -100,14 +125,9 @@ async def test_insert(request: Request):
         logger.info(
             f"Song [{song_index}] with ID: {result.inserted_id} inserted successfully."
         )
-    except pymongo.errors.DuplicateKeyError:
+    except pymongo.errors.DuplicateKeyError as e:
         error_message = f"Song [{song_index}] already exists and cannot inserted again."
-        logger.error(error_message)
-        return templates.TemplateResponse(
-            name="error.html",
-            request=request,
-            context={"error_message": error_message},
-        )
+        return error(error_message, e, request=request)
 
     logger.info(f"Song with ID: {result.inserted_id} inserted successfully.")
     return Response(status_code=status.HTTP_302_FOUND, headers={"Location": "/"})
@@ -128,19 +148,7 @@ async def get_song(request: Request, object_id):
         )
     else:
         error_message = f"No documents found with object_id '{object_id}'."
-        logger.error(error_message)
-        return templates.TemplateResponse(
-            name="error.html", request=request, context={"error_message": error_message}
-        )
-
-
-@app.get("/songbook")
-async def get_songbook(request: Request):
-    db = client.get_database(MONGO_DB)
-    collection = db.get_collection(MONGO_SONGS_COLLECTION)
-    documents = await collection.find().to_list(100)
-    songs = [Song.from_json(document) for document in documents]
-    return templates.TemplateResponse("book.html", {"request": request, "songs": songs})
+        return error(error_message, request=request)
 
 
 @app.get("/artist/{artist_name}")
@@ -157,8 +165,70 @@ async def get_songs_by_artist(request: Request, artist_name: str):
             "artist.html", {"request": request, "songs": songs, "artist": artist_name}
         )
     else:
-        logger.info(f"No songs found for artist: {artist_name}")
         error_message = f"No songs found for artist '{artist_name}'."
+        return error(error_message, request=request)
+
+
+@app.get("/edit/{object_id}")
+async def edit_song(request: Request, object_id: str):
+    db = client.get_database(MONGO_DB)
+    collection = db.get_collection(MONGO_SONGS_COLLECTION)
+    document = await collection.find_one({"_id": ObjectId(object_id)})
+    if document:
+        song = Song.from_json(document)
         return templates.TemplateResponse(
-            "error.html", {"request": request, "error_message": error_message}
+            name="edit_song.html",
+            request=request,
+            context={"song": song},
         )
+    else:
+        error_message = f"No documents found with object_id '{object_id}'."
+        return error(error_message, request=request)
+
+
+@app.post("/update/{object_id}")
+async def update_song(request: Request, object_id: str):
+    form_data = await request.form()
+
+    try:
+        chordpro_string = form_data["chordpro"]
+        cleaned_chordpro_string = chordpro_string.replace("\r", "")
+        song = Song.from_chordpro(cleaned_chordpro_string)
+        song.object_id = object_id
+    except Exception as e:
+        error_message = f"Failed to parse song. Conform to Chordpro standards"
+        return error(error_message, e, request=request)
+
+    db = client.get_database(MONGO_DB)
+    collection = db.get_collection(MONGO_SONGS_COLLECTION)
+
+    result = await collection.update_one(
+        {"_id": ObjectId(object_id)}, {"$set": song.json()}
+    )
+    
+    if result.modified_count == 1:
+        logger.info(f"Song with ID: {object_id} updated successfully.")
+        return Response(
+            status_code=status.HTTP_302_FOUND,
+            headers={"Location": f"/song/{object_id}"},
+        )
+    else:
+        error_message = f"Failed to update song: {song.json_meta()}."
+        return error(error_message, request=request)
+
+
+@app.post("/delete/{object_id}")
+async def delete_song(request: Request, object_id: str):
+    db = client.get_database(MONGO_DB)
+    collection = db.get_collection(MONGO_SONGS_COLLECTION)
+    result = await collection.delete_one({"_id": ObjectId(object_id)})
+
+    if result.deleted_count == 1:
+        logger.info(f"Song with ID: {object_id} deleted successfully.")
+        return Response(
+            status_code=status.HTTP_302_FOUND,
+            headers={"Location": "/"},
+        )
+    else:
+        error_message = f"Failed to delete song with ID: {object_id}."
+        return error(error_message, request=request)

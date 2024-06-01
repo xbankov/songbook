@@ -105,7 +105,7 @@ class Chord:
     def __str__(self):
         return f"{self.root}{self.scheme_name}"
 
-    def to_json(self):
+    def json(self):
         return {
             "root": str(self.root),
             "scheme": self.scheme,

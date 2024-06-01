@@ -1,6 +1,15 @@
 @media print {
+    .columns {
+        column-count: 1; /* Display columns in a single flow for printing */
+        break-inside: avoid;
+    }
+
+    /* Hide elements not needed in print */
+    .navbar, .ads {
+        display: none;
+    }
     .container {
         height: 1123px; /* A4 page height, adjust as needed */
         overflow: hidden; /* Hide overflow to force page breaks */
-    }
+    }    
 }

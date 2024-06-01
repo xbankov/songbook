@@ -1,0 +1,15 @@
+{% extends "navbar.html" %}
+
+{% block content %}
+<div class="songbook">
+  {% for song in songs %}
+  {% set show_navbar = False %} {# Set show_navbar to False #}
+  <div class="song">
+    {% include "song.html" with context %}
+  </div>
+
+  {% endfor %}
+</div>
+{% endblock %}
+
+</html>

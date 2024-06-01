@@ -36,10 +36,10 @@ class Line:
         ]
         return Line(parts)
 
-    def to_json(self):
+    def json(self):
         return {
             "parts": [
-                part.to_json() if isinstance(part, Chord) else str(part)
+                part.json() if isinstance(part, Chord) else str(part)
                 for part in self.parts
             ]
         }
@@ -106,9 +106,9 @@ class Section:
         lines = [line.transpose(interval) for line in self.lines]
         return Section(lines, self.label, self.title)
 
-    def to_json(self):
+    def json(self):
         return {
-            "lines": [line.to_json() for line in self.lines],
+            "lines": [line.json() for line in self.lines],
             "label": self.label,
             "title": self.title,
         }
@@ -201,9 +201,17 @@ class Song:
         sections = [section.transpose(interval) for section in self.sections]
         return Song(sections, self.title, self.artist, self.capo)
 
-    def to_json(self):
+    def json(self):
         return {
-            "sections": [section.to_json() for section in self.sections],
+            "sections": [section.json() for section in self.sections],
+            "title": self.title,
+            "artist": self.artist,
+            "capo": self.capo,
+            "object_id": self.object_id,
+        }
+
+    def json_meta(self):
+        return {
             "title": self.title,
             "artist": self.artist,
             "capo": self.capo,

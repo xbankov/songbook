@@ -1,7 +1,21 @@
+:root {
+  --bulma-primary: hsl(42, 100%, 53%);
+  --bulma-primary-h: 42;
+  --bulma-primary-s: 100%;
+  --bulma-primary-l: 53%;
+  --bulma-primary-invert-l: 0%;
+
+  --bulma-danger: hsl(5, 53%, 51%);
+  --bulma-danger-h: 5;
+  --bulma-danger-s: 53%;
+  --bulma-danger-l: 51%;
+  --bulma-danger-invert-l: 0%;
+}
+
 html {
-  font-family: Arial, sans-serif;
-  min-height: 100%;
-  height: 100%vh;
+  font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+  height: 100vh;
   margin-left: 10%;
   margin-right: 10%;
 }
@@ -36,7 +50,6 @@ nav.navbar {
   transform: scale(1.15); /* Adjust the scale factor as needed */
 }
 .has-text-white-hover:hover {
-  color:whitesmoke!important;
-  text-decoration: none!important;
+  color: whitesmoke !important;
+  text-decoration: none !important;
 }
-

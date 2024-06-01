@@ -1,7 +1,9 @@
 {% extends "base.html" %}
 
 {% block navbar %}
-<nav class="navbar has-background-dark" role="navigation" aria-label="main navigation">
+
+{% if show_navbar|default(True) %}
+<nav class="navbar has-background-black-ter" role="navigation" aria-label="main navigation">
     <div class="navbar-brand">
         <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
             <span aria-hidden="true"></span>
@@ -19,13 +21,11 @@
                 Home
             </a>
 
-            <a class="navbar-item hover-scale is-uppercase is-size-5 has-text-grey-lighter"
-                href="/songbook">
+            <a class="navbar-item hover-scale is-uppercase is-size-5 has-text-grey-lighter" href="/songbook">
                 Songbook
             </a>
 
-            <a class="navbar-item hover-scale is-uppercase is-size-5 has-text-grey-lighter"
-                href="/insert/">
+            <a class="navbar-item hover-scale is-uppercase is-size-5 has-text-grey-lighter" href="/insert/">
                 Add song chords
             </a>
         </div>
@@ -33,7 +33,10 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    <a class="button is-warning" disabled>
+                    {% if song and song.object_id %}
+                    <a class="navbar-item" href="/edit/{{ song.object_id }}">Edit Song</a>
+                    {% endif %}
+                    <a class="button is-primary" disabled>
                         <strong>Sign up</strong>
                     </a>
                     <a class="button is-light" disabled>
@@ -44,7 +47,6 @@
         </div>
     </div>
 </nav>
-{% endblock %}
 <script>
     document.addEventListener('DOMContentLoaded', function () {
 
@@ -62,3 +64,5 @@
         });
     });
 </script>
+{% endif %}
+{% endblock %}
