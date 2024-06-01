@@ -2,18 +2,7 @@
 
 ## Overview
 
-This project is **Work In Progress!**
-
-The Songbook app is a simple app to host your own songbook database. Ideally It can be used to download chords you want from
-websites like ultimateguitar or supermusic.cz, enable you to correct them, and then enable you to creat printable songbook in a browser.
-
-## Features
-
-- ~~Create new songs with title, artist, lyrics, and chords~~
-- ~~Edit existing songs to make changes or corrections.~~
-- ~~Delete songs you no longer need.~~
-- ~~View and search through your entire song library.~~
-- ~~Share your songs with friends or bandmates.~~
+The Songbook app is a simple app to host your own songbook database. It can be used to add your own chords in a chorpro format, edit them and print them in a single songbook.
 
 ## Installation
 
@@ -73,14 +62,6 @@ You can access API documentation:
 http://localhost:8000/docs
 ```
 
-StaticFiles:
-
-```bash
-http://localhost:8000/data
-```
-
-
 ### Acknowledgments
 
-https://github.com/ptsefton/chordprobook
 https://www.chordpro.org/chordpro/support/
