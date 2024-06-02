@@ -30,6 +30,7 @@ body {
 .box,
 .button,
 .input,
+.select,
 .navbar {
   border-radius: 0;
   margin: 2px;

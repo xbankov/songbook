@@ -1,6 +1,17 @@
-def is_tag(text: str):
+def is_tag(text: str) -> bool:
     stripped = text.strip()
     return "\n" not in stripped and stripped.startswith("{") and stripped.endswith("}")
+
+
+def is_ug_tag(text: str) -> bool:
+    stripped = text.strip()
+    return (
+        "\n" not in stripped
+        and stripped.startswith("[")
+        and stripped.endswith("]")
+        and "[tab]" not in stripped
+        and "[ch]" not in stripped
+    )
 
 
 def get_tag_items(tag):

@@ -10,12 +10,15 @@
       <p>Capo: {{ song.capo }}</p>
       {% endif %}
     </div>
-    <div class="column is-half">
-    </div>
   </div>
 
   <div class="columns is-multiline">
-    {% for col_sections in [song.sections[:song.sections|length // 2], song.sections[song.sections|length // 2:]] %}
+    {% set section_length = song.sections|length %}
+    {% set mid_point = (section_length + 1) // 2 %}  
+    {% for col_sections in [
+        song.sections[:mid_point],  
+        song.sections[mid_point:]
+    ] %}
     <div class="column is-half">
       {% for section in col_sections %}
       {% include "section.html" %}

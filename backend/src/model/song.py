@@ -1,5 +1,9 @@
+import json
+import re
 from typing import Dict
-from model.utils import get_tag_items, is_tag
+
+from bs4 import BeautifulSoup
+from model.utils import get_tag_items, is_tag, is_ug_tag
 from model.composition import Chord
 
 
@@ -77,6 +81,49 @@ class Section:
         return "\n".join(string_lines)
 
     @staticmethod
+    def from_ug_html(text: str):
+        text_lines = text.split("\n")
+        parsed_lines = []
+        skip_line = False
+        for i, line in enumerate(text_lines):
+
+            if skip_line:
+                continue
+
+            elif is_ug_tag(line):
+                title = line.strip().strip("[]")
+                label = title.lower().split(" ")[0]
+                if label not in ["chorus", "verse", "bridge"]:
+                    label = "verse"
+
+            elif line:
+                next_line = text_lines[i + 1]
+                if line.startswith("[ch]") and line.endswith("[/ch]"):
+                    chords_line = re.sub(r"\[ch]([^\]]*)\[/ch]", r"[\1]", line)
+                    parsed_lines.append(Line.from_chordpro(chords_line))
+                elif line.startswith("[tab]") and next_line.endswith("[/tab]"):
+                    chords_line = text_lines[i].replace("[tab]", "")
+                    lyrics_line = text_lines[i + 1].replace("[/tab]", "")
+
+                    chords_line = re.sub(r"\[ch]([^\]]*)\[/ch]", r"\1", chords_line)
+                    chords_position = [
+                        i
+                        for i, char in enumerate(chords_line)
+                        if char.isalnum()
+                        and (i == 0 or not chords_line[i - 1].isalnum())
+                    ]
+                    chords_labels = chords_line.split()
+
+                    offset = 0
+                    merged = lyrics_line
+                    for pos, chord in zip(chords_position, chords_labels):
+                        chord = f"[{chord}]"
+                        merged = merged[: pos + offset] + chord + merged[pos + offset :]
+                        offset += len(chord)
+                    parsed_lines.append(Line.from_chordpro(merged))
+        return Section(parsed_lines, label, title)
+
+    @staticmethod
     def from_chordpro(text: str):
         text_lines = text.split("\n")
         label = None
@@ -149,16 +196,63 @@ class Song:
         return "\n\n".join(string_sections)
 
     @staticmethod
+    def from_ug_html(html: str):
+        soup = BeautifulSoup(html, "lxml")
+        json_string = soup.find("div", {"class": "js-store"})["data-content"]
+        data = json.loads(json_string)
+        tab_view = data["store"]["page"]["data"]["tab_view"]
+        capo = None
+        title = tab_view["versions"][0]["song_name"]
+        artist = tab_view["versions"][0]["artist_name"]
+        text = tab_view["wiki_tab"]["content"]
+        text = text.replace("\r", "")
+        text_lines = text.split("\n")
+        parsed_sections = []
+
+        current_section_start = 0
+        first_section = True
+        for i, line in enumerate(text_lines):
+            if is_ug_tag(line):
+                if first_section:  # First section
+                    first_section = False
+                    continue
+
+                elif i == len(text_lines) - 1:  # Last section
+                    current_section_end = i
+                    section_lines = text_lines[
+                        current_section_start:current_section_end
+                    ]
+                    parsed_sections.append(
+                        Section.from_ug_html("\n".join(section_lines))
+                    )
+
+                else:  # Start of the section any other section
+                    current_section_end = i
+                    section_lines = text_lines[
+                        current_section_start:current_section_end
+                    ]
+                    parsed_sections.append(
+                        Section.from_ug_html("\n".join(section_lines))
+                    )
+
+                    # Update section start to the end of the current
+                    current_section_start = i
+
+        return Song(parsed_sections, title, artist, capo)
+
+    @staticmethod
     def from_chordpro(text: str):
         title = None
         artist = None
         capo = None
 
+        text = text.replace("\r", "")
         text_lines = text.split("\n")
         parsed_sections = []
         current_section_start = 0
 
         for i, line in enumerate(text_lines):
+            line = line.strip()
             if is_tag(line):
                 tag, content = get_tag_items(line)
                 current_section_end = i

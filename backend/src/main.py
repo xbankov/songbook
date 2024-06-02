@@ -13,6 +13,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 from motor.motor_asyncio import AsyncIOMotorClient
 
+from utils import download
 from model.song import Song
 
 logger = logging.getLogger(__file__)
@@ -125,11 +126,25 @@ async def insert_song(request: Request, db=Depends(get_db)):
 @app.post(f"/insert")
 async def insert_song(request: Request, db=Depends(get_db)):
     form_data = await request.form()
-    song = Song.from_chordpro(form_data["chordpro"])
+    input_method = form_data["input-method"]
+
+    if input_method == "text-field":
+        song = Song.from_chordpro(form_data["chordpro"])
+    elif input_method == "url-field":
+        url = form_data["url-field"]
+        song = download(url)
+        if not song:
+            return error(
+                f"Song couldn't be extracted from url {url}.",
+                request=request,
+            )
+    else:
+        return error(f"Input method {input_method} not yet supported", request=request)
+
     collection = db.get_collection(MONGO_SONGS_COLLECTION)
     song_json = song.json()
     title = song_json["title"]
-    artist = song_json["title"]
+    artist = song_json["artist"]
     song_index = f"{artist} - {title}"
 
     try:
@@ -182,9 +197,7 @@ async def edit_song(request: Request, object_id: str, db=Depends(get_db)):
 async def update_song(request: Request, object_id: str, db=Depends(get_db)):
     form_data = await request.form()
     try:
-        chordpro_string = form_data["chordpro"]
-        cleaned_chordpro_string = chordpro_string.replace("\r", "")
-        song = Song.from_chordpro(cleaned_chordpro_string)
+        song = Song.from_chordpro(form_data["chordpro"])
         song.object_id = object_id
     except Exception as e:
         error_message = f"Failed to parse song. Conform to Chordpro standards"

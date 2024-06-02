@@ -5,12 +5,24 @@
     <h1 class="title has-text-primary">Add song</h1>
     <form id="edit-form" action="/insert/" method="post">
         <div class="field">
+            <label class="label has-text-grey" for="input-method">Select Input Method</label>
+            <div class="control">
+                <div class="select">
+                    <select id="input-method" name="input-method">
+                        <option value="text-field">Text Field</option>
+                        <option value="url-field">Url</option>
+                    </select>
+                </div>
+            </div>
+        </div>
+
+        <div id="text-input-field" class="field">
             <label class="label has-text-grey" for="chordpro"><a class="has-text-white-hover has-text-grey"
                     href="https://www.chordpro.org/">ChordPro format</a></label>
             <div class="control">
                 <textarea class="textarea is-radiusless" id="chordpro" name="chordpro">
-{title: Faded}
-{artist: Alan Walker}
+{title: Example}
+{artist: Miki}
                     
 {start_of_verse}
 [Am] [F] [C] [G]
@@ -26,12 +38,14 @@ Wanna see us[C]
 Al[G]ight
 {end_of_verse}
 
+{start_of_verse: Pre-chorus}
 Where are you [Am]now[F]
 Where are you [C]now[G]
 Where are you [Am]now
 Was it all in my [F]fantasy
 Where are you [C]now
 Were you only i[G]maginary
+{end_of_verse}
 
 {start_of_chorus}
 Where are you [Am]now
@@ -58,13 +72,14 @@ I'm breathing[C]
 Al[G]ive
 {end_of_verse}
 
+{start_of_verse}
 Where are you [Am]now[F]
 Where are you [C]now[G]
 Under the [Am]bright
-
 You set my [F]heart on fire
 Where are you n[C]ow
 Where are you [G]now
+{end_of_verse}
 
 {start_of_chorus}
 Where are you[Am] now
@@ -87,6 +102,13 @@ So lo[G]st, I'm fa[Am]ded
                 </textarea>
             </div>
         </div>
+        <div id="url-input-field" class="field" style="display: none;">
+            <!-- Placeholder for the second input method -->
+            <label class="label has-text-grey" for="url-field">Enter URL for chords</label>
+            <div class="control">
+                <input id="url-field" name="url-field" class="input" type="text" placeholder="Url">
+            </div>
+        </div>
         <div class="field is-grouped">
             <div class="control">
                 <button class="button is-primary" type="submit">Save</button>
@@ -105,6 +127,9 @@ So lo[G]st, I'm fa[Am]ded
         const textarea = document.getElementById('chordpro');
         const form = document.getElementById('edit-form');
         const initialText = textarea.value;
+        const inputMethod = document.getElementById('input-method');
+        const textInputField = document.getElementById('text-input-field');
+        const urlInputField = document.getElementById('url-input-field');
 
         if (textarea) {
             textarea.style.height = 'auto';
@@ -117,9 +142,18 @@ So lo[G]st, I'm fa[Am]ded
         }
 
         form.addEventListener('submit', (event) => {
-            if (textarea.value === initialText) {
+            if (inputMethod.value == "text-field" & textarea.value === initialText) {
                 event.preventDefault();
                 alert('No changes detected in the text field.');
+            }
+        });
+        inputMethod.addEventListener('change', () => {
+            if (inputMethod.value === 'text-field') {
+                textInputField.style.display = 'block';
+                urlInputField.style.display = 'none';
+            } else if (inputMethod.value === 'url-field') {
+                textInputField.style.display = 'none';
+                urlInputField.style.display = 'block';
             }
         });
     });
