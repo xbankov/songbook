@@ -24,15 +24,14 @@ def download(url):
         )
 
 
-def download_ultimate_guitar(url) -> Song:
+def download_ultimate_guitar(url) -> Song | None:
     try:
         html = download_url(url)
+        return Song.from_ug_html(html)
     except requests.RequestException as e:
         logger.error(f"Requested URL {url} cannot be retrieved: {e}")
         logger.error(traceback.format_exc())
-        return False
-
-    return Song.from_ug_html(html)
+        return None
 
 
 # Use exported firefox bookmarks!

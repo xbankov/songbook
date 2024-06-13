@@ -14,9 +14,9 @@
 
   <div class="columns is-multiline">
     {% set section_length = song.sections|length %}
-    {% set mid_point = (section_length + 1) // 2 %}  
+    {% set mid_point = (section_length + 1) // 2 %}
     {% for col_sections in [
-        song.sections[:mid_point],  
+        song.sections[:mid_point],
         song.sections[mid_point:]
     ] %}
     <div class="column is-half">

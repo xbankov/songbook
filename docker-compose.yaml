@@ -16,6 +16,6 @@ services:
       MONGO_INITDB_COLLECTION: songs  # Set collection name
     volumes:
       - mongodb-data:/app/db # Persist MongoDB data volume
-    
+
 volumes:
   mongodb-data: {}

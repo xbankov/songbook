@@ -1,6 +1,6 @@
 import json
 import re
-from typing import Dict
+from typing import Dict, Optional
 
 from bs4 import BeautifulSoup
 from model.composition import Chord
@@ -58,7 +58,12 @@ class Line:
 
 
 class Section:
-    def __init__(self, lines: list[Line], label: str = None, title: str = None):
+    def __init__(
+        self,
+        lines: list[Line],
+        label: Optional[str] = None,
+        title: Optional[str] = None,
+    ):
         self.lines = lines
         self.label = label
         self.title = title
@@ -125,8 +130,8 @@ class Section:
     @staticmethod
     def from_chordpro(text: str):
         text_lines = text.split("\n")
-        label = None
-        title = None
+        label: Optional[str] = None
+        title: Optional[str] = None
         parsed_lines = []
 
         for i, line in enumerate(text_lines):
@@ -173,8 +178,8 @@ class Song:
         sections: list[Section],
         title: str,
         artist: str,
-        capo: str = None,
-        object_id: str = None,
+        capo: int,
+        object_id: Optional[str] = None,
     ):
         # TODO VB capo should be int
         self.sections = sections
@@ -186,7 +191,7 @@ class Song:
     def __str__(self):
         string_sections = [f"{{title: {self.title}}}", f"{{artist: {self.artist}}}"]
 
-        if self.capo is not None:
+        if self.capo != 0:
             string_sections.append(f"{{capo: {self.capo}}}")
 
         for section in self.sections:
@@ -200,16 +205,19 @@ class Song:
         json_string = soup.find("div", {"class": "js-store"})["data-content"]
         data = json.loads(json_string)
         tab_view = data["store"]["page"]["data"]["tab_view"]
-        capo = None
         title = tab_view["versions"][0]["song_name"]
         artist = tab_view["versions"][0]["artist_name"]
         text = tab_view["wiki_tab"]["content"]
+
+        # TODO Retrieve CAPO
+        capo = 0
+
         text = text.replace("\r", "")
         text_lines = text.split("\n")
         parsed_sections = []
-
         current_section_start = 0
         first_section = True
+
         for i, line in enumerate(text_lines):
             if is_ug_tag(line):
                 if first_section:  # First section
@@ -241,15 +249,13 @@ class Song:
 
     @staticmethod
     def from_chordpro(text: str):
-        title = None
-        artist = None
-        capo = None
-
+        title = "Unknown"
+        artist = "Unknown"
+        capo = 0
         text = text.replace("\r", "")
         text_lines = text.split("\n")
         parsed_sections = []
         current_section_start = 0
-
         for i, line in enumerate(text_lines):
             line = line.strip()
             if is_tag(line):
@@ -266,7 +272,7 @@ class Song:
                 elif tag == "artist":
                     artist = content
                 elif tag == "capo":
-                    capo = content
+                    capo = int(content)
 
                 if current_section_end > current_section_start:
                     section_lines = text_lines[

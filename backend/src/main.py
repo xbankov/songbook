@@ -2,6 +2,7 @@ import logging
 import os
 import traceback
 from contextlib import asynccontextmanager
+from typing import Optional
 
 import pymongo
 from bson import ObjectId
@@ -64,7 +65,7 @@ async def lifespan(app: FastAPI):  # Don't remove app argument. Neccessary!
     client.close()
 
 
-def error(message: str, exception: Exception = None, request=None):
+def error(message: str, exception: Optional[Exception] = None, request=None):
     logger.error(f"{message}")
     if exception:
         logger.error(f"Exception: {exception}")
