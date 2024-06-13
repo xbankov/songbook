@@ -2,40 +2,53 @@ import logging
 import os
 import traceback
 from contextlib import asynccontextmanager
-from pathlib import Path
 
 import pymongo
 from bson import ObjectId
-from fastapi import Depends, FastAPI, Form, Request, Response, requests, status
+from fastapi import Depends, FastAPI, Request, Response, status
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
-from motor.motor_asyncio import AsyncIOMotorClient
-
-from utils import download
 from model.song import Song
+from motor.motor_asyncio import AsyncIOMotorClient
+from utils import download
 
 logger = logging.getLogger(__file__)
 
-MONGO_URL = os.getenv("MONGO_URL", "mongodb://localhost:27017")
-MONGO_DB = os.getenv("MONGO_DB", "songbook")
-MONGO_SONGS_COLLECTION = os.getenv("MONGO_SONGS_COLLECTION", "songs")
-MONGO_USERS_COLLECTION = os.getenv("MONGO_SONGS_COLLECTION", "users")
+
+MONGO_HOST = os.getenv("MONGODB_HOST", "mongodb")
+MONGO_PORT = os.getenv("MONGODB_PORT", 27017)
+MONGO_DB = os.getenv("MONGODB_DATABASE", "songbook")
+MONGO_SONGS_COLLECTION = os.getenv("MONGODB_SONGS_COLLECTION", "songs")
+MONGO_USERS_COLLECTION = os.getenv("MONGODB_USERS_COLLECTION", "users")
+MONGO_SONGBOOKS_COLLECTION = os.getenv("MONGODB_SONGBOOKS_COLLECTION", "songbooks")
+
+MONGO_URL = f"mongodb://{MONGO_HOST}:{MONGO_PORT}/{MONGO_DB}"
+print(MONGO_URL)
 
 client = None
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):  # Don't remove app argument. Neccessary!
+
     global client
-    client = AsyncIOMotorClient(MONGO_URL)
+    client = AsyncIOMotorClient(MONGO_URL, serverSelectionTimeoutMS=2000)
+    try:
+        info = await client.server_info()
+        logger.info("Connected to MongoDB successfully.")
+        logger.debug(info)
+    except Exception as e:
+        logger.error(f"Couldn't connect to the MongoDB{MONGO_URL} due to {e}")
+        exit(1)
+
+    db = client.get_database(MONGO_DB)
+    collection = db.get_collection(MONGO_SONGS_COLLECTION)
     index_model = [
         ("title", 1),  # Ascending order for 'title'
         ("artist", 1),  # Ascending order for 'artist'
     ]
-    db = client.get_database(MONGO_DB)
-    collection = db.get_collection(MONGO_SONGS_COLLECTION)
+
     try:
         existing_indexes = await collection.index_information()
         if any(
@@ -47,8 +60,7 @@ async def lifespan(app: FastAPI):  # Don't remove app argument. Neccessary!
             await collection.create_index(index_model, unique=True, background=True)
             logger.info("Unique index (artist,title) created successfully.")
     except Exception as e:
-        error(f"Error creating unique index (artist,title)", e)
-
+        error("Error creating unique index (artist,title)", e)
     yield
     client.close()
 
@@ -62,7 +74,9 @@ def error(message: str, exception: Exception = None, request=None):
         )
     if request:
         return templates.TemplateResponse(
-            name="error.html", request=request, context={"error_message": message}
+            name="error.html",
+            request=request,
+            context={"error_message": message},
         )
 
 
@@ -81,8 +95,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-path = Path(__file__).parent.parent.parent / "app/data/"
-app.mount("/app/data", StaticFiles(directory=str(path)))
+# path = Path(__file__).parent.parent.parent / "app/data/"
+# app.mount("/app/data", StaticFiles(directory=str(path)))
 
 app.mount("/static", StaticFiles(directory="static"))
 templates = Jinja2Templates(directory="static")
@@ -97,6 +111,7 @@ async def get_db():
 async def index(request: Request, db=Depends(get_db)):
     collection = db.get_collection(MONGO_SONGS_COLLECTION)
 
+    # Introduce pagination + search + Alphabet filter
     documents = await collection.find().to_list(100)
     songs = [Song.from_json(document) for document in documents]
 
@@ -115,15 +130,15 @@ async def get_songbook(request: Request, db=Depends(get_db)):
     )
 
 
-@app.get(f"/add_song")
-async def insert_song(request: Request, db=Depends(get_db)):
+@app.get("/add_song")
+async def add_song(request: Request, db=Depends(get_db)):
     return templates.TemplateResponse(
         name="add_song.html",
         request=request,
     )
 
 
-@app.post(f"/insert")
+@app.post("/insert")
 async def insert_song(request: Request, db=Depends(get_db)):
     form_data = await request.form()
     input_method = form_data["input-method"]
@@ -200,7 +215,7 @@ async def update_song(request: Request, object_id: str, db=Depends(get_db)):
         song = Song.from_chordpro(form_data["chordpro"])
         song.object_id = object_id
     except Exception as e:
-        error_message = f"Failed to parse song. Conform to Chordpro standards"
+        error_message = f"Failed to parse song {form_data['chordpro']}. Conform to Chordpro standards"
         return error(error_message, e, request=request)
 
     collection = db.get_collection(MONGO_SONGS_COLLECTION)

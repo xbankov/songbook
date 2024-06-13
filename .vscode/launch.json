@@ -11,7 +11,10 @@
       "cwd": "${workspaceFolder}/backend/src",
       "module": "uvicorn",
       "args": ["main:app", "--reload", "--port", "8001"],
-      "jinja": true
-    },
+      "jinja": true,
+      "env": {
+        "MONGODB_HOST": "localhost",
+      },
+    }
   ]
 }

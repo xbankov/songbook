@@ -1,9 +1,7 @@
-import json
 import logging
 import traceback
-from bs4 import BeautifulSoup
-import requests
 
+import requests
 from model.song import Song
 
 logger = logging.getLogger(__name__)
@@ -35,6 +33,7 @@ def download_ultimate_guitar(url) -> Song:
         return False
 
     return Song.from_ug_html(html)
+
 
 # Use exported firefox bookmarks!
 # def parse_firefox_bookmars():
