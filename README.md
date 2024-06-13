@@ -2,7 +2,7 @@
 
 ## Overview
 
-The Songbook app is a simple app to host your own songbook database. It can be used to add your own chords in a chorpro format, edit them and print them in a single songbook.
+The Songbook app is a simple app to host your own songbook database. It can be used to add your own chords in a chorpro format, edit them and print them in a songbook.
 
 ## Installation
 
@@ -15,7 +15,7 @@ Follow the instructions on the official Docker website to install Docker for you
 
 ### Docker Compose Installation
 
-Docker Compose usually comes bundled with Docker Desktop on Windows and macOS. If you're using Linux or need to install Docker Compose separately, follow the instructions here:
+Docker Compose usually comes bundled with Docker installation. If you need to install Docker Compose separately, follow the instructions here:
 [Install Docker Compose](https://docs.docker.com/compose/install/)
 
 ## Building and Running the App
@@ -48,20 +48,41 @@ Once the app is up and running, you can access it by opening your web browser an
 http://localhost:8080
 ```
 
-### Backend data
-
-Backend is running on following URL:
-
-```bash
-http://localhost:8000
-```
-
 You can access API documentation:
 
 ```bash
 http://localhost:8000/docs
 ```
 
+## Dev Mode
+
+To access devmode (changes immediatelly applied), it is recommended to run `docker compose up` to spin up `mongodb` and run *dev* version of backend using this .vscode configurations:
+
+```yaml
+"cwd": "${workspaceFolder}/backend/src",
+"module": "uvicorn",
+"args": ["main:app", "--reload", "--port", "8001"],
+"jinja": true,
+"env": {
+    "MONGODB_HOST": "localhost",
+},
+```
+
+Which could roughly translate to run this in terminal inside `/songbook/backend/src`:
+
+```bash
+env MONGODB_HOST=localhost python3 -m uvicorn main:app --reload --port 8001
+```
+
+### Standards
+
+Install pre-commit hook
+
+```bash
+pip install pre-commit
+pre-commit install
+```
+
 ### Acknowledgments
 
-https://www.chordpro.org/chordpro/support/
+<https://www.chordpro.org/chordpro/support/>

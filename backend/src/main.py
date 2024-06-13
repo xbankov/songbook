@@ -31,7 +31,6 @@ client = None
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):  # Don't remove app argument. Neccessary!
-
     global client
     client = AsyncIOMotorClient(MONGO_URL, serverSelectionTimeoutMS=2000)
     try:

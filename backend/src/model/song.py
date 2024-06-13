@@ -86,7 +86,6 @@ class Section:
         parsed_lines = []
         skip_line = False
         for i, line in enumerate(text_lines):
-
             if skip_line:
                 continue
 
