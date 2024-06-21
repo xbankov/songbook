@@ -68,16 +68,16 @@
                             </a>
                         </td>
                         <td>
-                            <a href="/song/{{ song.object_id|string }}"
-                                class="has-text-white-hover has-text-primary is-underlined">
+                            <a href="/songs/{{ song.id|string }}"
+                                class="has-text-white-hovesong has-text-primary is-underlined">
                                 {{ song.title }}
                             </a>
                         </td>
                         <td>
-                            <a href="/edit/{{ song.object_id|string }}" class="button is-small">Modify</a>
+                            <a href="/songs/edit/{{ song.id|string }}" class="button is-small">Modify</a>
                         </td>
                         <td>
-                            <form method="post" action="/delete/{{ song.object_id|string }}"
+                            <form method="post" action="/songs/delete/{{ song.id|string }}"
                                 onsubmit="return confirm('Are you sure you want to delete this song?');">
                                 <button type="submit" class="button is-small is-danger">Delete</button>
                             </form>

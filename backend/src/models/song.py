@@ -1,15 +1,18 @@
 import json
 import re
-from typing import Dict, Optional
+from typing import Annotated
 
 from bs4 import BeautifulSoup
 from models.composition import Chord
 from models.utils import get_tag_items, is_tag, is_ug_tag
+from pydantic import BaseModel, BeforeValidator, Field
 
 
-class Line:
+class Line(BaseModel):
+    parts: list[str | Chord]
+
     def __init__(self, parts):
-        self.parts = parts
+        super().__init__(parts=parts)
 
     def __str__(self):
         string_parts = [
@@ -40,33 +43,35 @@ class Line:
         ]
         return Line(parts)
 
-    def json(self):
-        return {
-            "parts": [
-                part.json() if isinstance(part, Chord) else str(part)
-                for part in self.parts
-            ]
-        }
+    # def json(self):
+    #     return {
+    #         "parts": [
+    #             part.json() if isinstance(part, Chord) else str(part)
+    #             for part in self.parts
+    #         ]
+    #     }
 
-    @staticmethod
-    def from_json(json_dict: Dict):
-        parsed_parts = [
-            Chord.from_json(part) if isinstance(part, dict) else part
-            for part in json_dict["parts"]
-        ]
-        return Line(parsed_parts)
+    # @staticmethod
+    # def from_json(json_dict: Dict):
+    #     parsed_parts = [
+    #         Chord.from_json(part) if isinstance(part, dict) else part
+    #         for part in json_dict["parts"]
+    #     ]
+    #     return Line(parsed_parts)
 
 
-class Section:
+class Section(BaseModel):
+    lines: list[Line]
+    label: str | None
+    title: str | None
+
     def __init__(
         self,
         lines: list[Line],
-        label: Optional[str] = None,
-        title: Optional[str] = None,
+        label: str | None = None,
+        title: str | None = None,
     ):
-        self.lines = lines
-        self.label = label
-        self.title = title
+        super().__init__(lines=lines, label=label, title=title)
 
     def __str__(self):
         string_lines = []
@@ -130,8 +135,8 @@ class Section:
     @staticmethod
     def from_chordpro(text: str):
         text_lines = text.split("\n")
-        label: Optional[str] = None
-        title: Optional[str] = None
+        label: str | None = None
+        title: str | None = None
         parsed_lines = []
 
         for i, line in enumerate(text_lines):
@@ -157,36 +162,48 @@ class Section:
         lines = [line.transpose(interval) for line in self.lines]
         return Section(lines, self.label, self.title)
 
-    def json(self):
-        return {
-            "lines": [line.json() for line in self.lines],
-            "label": self.label,
-            "title": self.title,
-        }
+    # def json(self):
+    #     return {
+    #         "lines": [line.json() for line in self.lines],
+    #         "label": self.label,
+    #         "title": self.title,
+    #     }
 
-    @staticmethod
-    def from_json(json_dict: Dict):
-        parsed_lines = [Line.from_json(line) for line in json_dict["lines"]]
-        label = json_dict["label"]
-        title = json_dict["title"]
-        return Section(parsed_lines, label, title)
+    # @staticmethod
+    # def from_json(json_dict: Dict):
+    #     parsed_lines = [Line.from_json(line) for line in json_dict["lines"]]
+    #     label = json_dict["label"]
+    #     title = json_dict["title"]
+    #     return Section(parsed_lines, label, title)
 
 
-class Song:
+PyObjectId = Annotated[str, BeforeValidator(str)]
+
+
+class Song(BaseModel):
+    id: PyObjectId = Field(alias="_id", default=None)
+    sections: list[Section]
+    title: str
+    artist: str
+    capo: int | None
+
+    class Config:
+        # Pydantic should use the alias when populating the model from a dictionary
+        # (which allows you to pass in a dictionary with an _id key rather than an id key)
+        populate_by_name = True
+        # arbitrary_types_allowed = True
+
     def __init__(
         self,
         sections: list[Section],
         title: str,
         artist: str,
         capo: int,
-        object_id: Optional[str] = None,
+        _id: str | None = None,
     ):
-        # TODO VB capo should be int
-        self.sections = sections
-        self.title = title
-        self.artist = artist
-        self.capo = capo
-        self.object_id = object_id
+        super().__init__(
+            sections=sections, title=title, artist=artist, capo=capo, _id=_id
+        )
 
     def __str__(self):
         string_sections = [f"{{title: {self.title}}}", f"{{artist: {self.artist}}}"]
@@ -245,7 +262,7 @@ class Song:
                     # Update section start to the end of the current
                     current_section_start = i
 
-        return Song(parsed_sections, title, artist, capo)
+        return Song(parsed_sections, title, artist, capo, _id=None)
 
     @staticmethod
     def from_chordpro(text: str):
@@ -294,37 +311,12 @@ class Song:
             section_lines = text_lines[current_section_start:]
             parsed_sections.append(Section.from_chordpro("\n".join(section_lines)))
 
-        return Song(parsed_sections, title, artist, capo)
+        return Song(parsed_sections, title, artist, capo, _id=None)
 
     def transpose(self, interval):
         sections = [section.transpose(interval) for section in self.sections]
         return Song(sections, self.title, self.artist, self.capo)
 
-    def json(self):
-        return {
-            "sections": [section.json() for section in self.sections],
-            "title": self.title,
-            "artist": self.artist,
-            "capo": self.capo,
-            "object_id": self.object_id,
-        }
 
-    def json_meta(self):
-        return {
-            "title": self.title,
-            "artist": self.artist,
-            "capo": self.capo,
-            "object_id": self.object_id,
-        }
-
-    @staticmethod
-    def from_json(json_dict: Dict):
-        parsed_sections = [
-            Section.from_json(section) for section in json_dict["sections"]
-        ]
-        title = json_dict["title"]
-        artist = json_dict["artist"]
-        capo = json_dict["capo"]
-        object_id = json_dict["_id"]
-
-        return Song(parsed_sections, title, artist, capo, object_id)
+class SongCollection(BaseModel):
+    songs: list[Song]

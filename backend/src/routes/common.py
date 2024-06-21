@@ -1,14 +1,12 @@
-from fastapi import Depends, logger
-from fastapi.templating import Jinja2Templates
+import traceback
 
-from backend.src.dependencies import get_templates
+from utils import get_logger
+
+logger = get_logger(__file__)
 
 
-def error(
-    message: str,
-    exception: Exception | None = None,
-    request=None,
-    templates: Jinja2Templates = Depends(get_templates),
+def show_error(
+    message: str, exception: Exception | None = None, request=None, templates=None
 ):
     logger.error(f"{message}")
     if exception:

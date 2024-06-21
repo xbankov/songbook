@@ -25,7 +25,7 @@
                 Songbook
             </a>
 
-            <a class="navbar-item hover-scale is-uppercase is-size-5 has-text-grey-lighter" href="/add_song/">
+            <a class="navbar-item hover-scale is-uppercase is-size-5 has-text-grey-lighter" href="/songs/add/">
                 Add song chords
             </a>
         </div>
@@ -33,8 +33,8 @@
         <div class="navbar-end">
             <div class="navbar-item">
                 <div class="buttons">
-                    {% if song and song.object_id %}
-                    <a class="navbar-item" href="/edit/{{ song.object_id }}">Edit Song</a>
+                    {% if song and song.id %}
+                    <a class="navbar-item" href="/songs/edit/{{ song.id }}">Edit Song</a>
                     {% endif %}
                     <a class="button is-primary" disabled>
                         <strong>Sign up</strong>

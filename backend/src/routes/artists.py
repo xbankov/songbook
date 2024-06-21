@@ -4,6 +4,8 @@ from fastapi.templating import Jinja2Templates
 from models.song import Song
 from utils import get_logger
 
+from .common import show_error
+
 router = APIRouter()
 
 logger = get_logger(__file__)
@@ -28,4 +30,4 @@ async def get_artist(
         )
     else:
         error_message = f"No songs found for artist '{artist_name}'."
-        return error(error_message, request=request)
+        return show_error(error_message, request=request)

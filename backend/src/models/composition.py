@@ -1,5 +1,6 @@
 from enum import Enum
-from typing import Dict
+
+from pydantic import BaseModel, constr
 
 tones = {
     "C": 0,
@@ -28,47 +29,30 @@ chromatic_scale = "C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B
 intervals = "P1", "m2", "M2", "m3", "M3", "P4", "TT", "P5", "m6", "M6", "m7", "M7", "P8"
 
 
-class ChordScheme(Enum):
-    major = 0, 4, 7
-    minor = 0, 3, 7
+class ChordQuality(str, Enum):
+    MAJOR = ""
+    MINOR = "m"
 
 
-chord_scheme = {
-    "": ChordScheme.major,
-    "maj": ChordScheme.major,
-    "major": ChordScheme.major,
-    "m": ChordScheme.minor,
-    "min": ChordScheme.minor,
-    "minor": ChordScheme.minor,
-}
-
-chord_scheme_name = {
-    ChordScheme.major: "",
-    ChordScheme.minor: "m",
-}
-
-
-class Tone(int):
-    def __new__(cls, value):
-        return int.__new__(cls, value % 12)
+class Tone(BaseModel):
+    value: int
 
     @staticmethod
-    def parse(label):
-        return Tone(tones[label])
+    def parse(label: str) -> "Tone":
+        return Tone(value=tones[label])
 
-    def __str__(self):
-        return chromatic_scale[self]
+    def __str__(self) -> str:
+        return chromatic_scale[self.value]
 
-    def transpose(self, interval):
-        return Tone(self + interval)
+    def transpose(self, interval: int) -> "Tone":
+        return Tone(value=(self.value + interval) % 12)
 
 
-class Interval(int):
-    def __new__(cls, value):
-        return int.__new__(cls, value)
+class Interval(BaseModel):
+    value: int
 
-    def __str__(self):
-        interval = self
+    def __str__(self) -> str:
+        interval = self.value
         label = ""
         if interval < 0:
             interval = -interval
@@ -80,41 +64,27 @@ class Interval(int):
         return label
 
 
-class Chord:
-    def __init__(self, root, scheme, scheme_name):
-        self.root = root
-        self.scheme = scheme
-        self.scheme_name = scheme_name
+class Chord(BaseModel):
+    root: Tone
+    quality: ChordQuality
+    bass: Tone | None
 
-    def transpose(self, interval):
-        return Chord(self.root.transpose(interval), self.scheme, self.scheme_name)
-
-    @staticmethod
-    def parse(label):
+    # TODO Add dim
+    # TODO Add bass G/H
+    @classmethod
+    def parse(cls, label: str) -> "Chord":
         split = 1
         if len(label) > 1 and label[1] in ("#", "b"):
             split = 2
+
         root = Tone.parse(label[0:split])
-        scheme = None
-        scheme_name = label[split:]
-        if scheme_name in chord_scheme:
-            scheme = chord_scheme[scheme_name].value
-            scheme_name = chord_scheme_name[chord_scheme[scheme_name]]
-        return Chord(root, scheme, scheme_name)
+        quality_str = label[split:].lower()
+        if quality_str in ("m", "min", "minor"):
+            quality = ChordQuality.MINOR
+        else:
+            quality = ChordQuality.MAJOR
 
-    def __str__(self):
-        return f"{self.root}{self.scheme_name}"
+        return Chord(root=root, quality=quality, bass=None)
 
-    def json(self):
-        return {
-            "root": str(self.root),
-            "scheme": self.scheme,
-            "scheme_name": self.scheme_name,
-        }
-
-    @staticmethod
-    def from_json(json_dict: Dict):
-        root = json_dict["root"]
-        scheme = json_dict["scheme"]
-        scheme_name = json_dict["scheme_name"]
-        return Chord(root=root, scheme=scheme, scheme_name=scheme_name)
+    def __str__(self) -> str:
+        return f"{self.root}{self.quality.value}"

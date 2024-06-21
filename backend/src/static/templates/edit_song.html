@@ -4,7 +4,7 @@
 <div class="container py-4">
     <h1 class="title has-text-primary">{{ song.title }}</h1>
     <h2 class="subtitle">{{ song.artist }}</h2>
-    <form id="edit-form" action="/update/{{ song.object_id }}" method="post">
+    <form id="edit-form" action="/songs/update/{{ song.id }}" method="post">
         <div class="field">
             <label class="label has-text-grey" for="chordpro"><a class="has-text-white-hover has-text-grey"
                     href="https://www.chordpro.org/">ChordPro format</a></label>
@@ -22,7 +22,7 @@
             </div>
         </div>
     </form>
-    <form id="delete-form" action="/delete/{{ song.object_id }}" method="post" style="display:none;">
+    <form id="delete-form" action="/delete/{{ song.id }}" method="delete" style="display:none;">
     </form>
 </div>
 <script>
