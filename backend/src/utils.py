@@ -2,7 +2,7 @@ import logging
 import traceback
 
 import requests
-from model.song import Song
+from models.song import Song
 
 logger = logging.getLogger(__name__)
 
@@ -54,3 +54,13 @@ def download_ultimate_guitar(url) -> Song | None:
 
 #     elif item["type"] == "text/x-moz-place-container":
 #         return [uri for child in item["children"] for uri in extract_recursive(child)]
+
+
+def get_logger(file):
+
+    logging.basicConfig(
+        level=logging.INFO,  # Set the log level to INFO
+        format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",  # Set the log format
+        handlers=[logging.StreamHandler()],  # Add a handler that outputs to stdout
+    )
+    return logging.getLogger(file)

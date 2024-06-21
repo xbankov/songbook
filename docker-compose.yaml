@@ -4,18 +4,19 @@ services:
       context: ./backend
     ports:
       - "8000:8000"
+    environment:
+      MONGODB_URI: "mongodb://mongodb:27017/songbook"
     depends_on:
       - mongodb
 
   mongodb:
-    image: mongo:latest # Use the latest official MongoDB image
+    image: mongo:latest
     ports:
-      - "27017:27017" # Map container port 27017 to host port 27017
+      - "27017:27017"
     environment:
-      MONGO_INITDB_DATABASE: songbook  # Set database name
-      MONGO_INITDB_COLLECTION: songs  # Set collection name
+      MONGO_INITDB_DATABASE: songbook
     volumes:
-      - mongodb-data:/app/db # Persist MongoDB data volume
+      - mongodb-data:/app/db
 
 volumes:
   mongodb-data: {}

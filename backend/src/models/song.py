@@ -3,8 +3,8 @@ import re
 from typing import Dict, Optional
 
 from bs4 import BeautifulSoup
-from model.composition import Chord
-from model.utils import get_tag_items, is_tag, is_ug_tag
+from models.composition import Chord
+from models.utils import get_tag_items, is_tag, is_ug_tag
 
 
 class Line:
