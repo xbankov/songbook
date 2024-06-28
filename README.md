@@ -54,6 +54,22 @@ You can access API documentation:
 http://localhost:8000/docs
 ```
 
+## Cloud Deployment
+
+Using MongoDB Atlas (database) and Google Cloud Run (backend)
+
+Create an account and database and copy `database uri`.
+<https://www.mongodb.com/products/platform/atlas-database>
+
+Set `MONGODB_URI="<your-database-uri"` before running the application with local backend or put as environmental variable in cloud settings.
+
+Follow this guide to build and deploy backend as docker container to google cloud.
+**Hint:** setup maximum instances to 2-3 to save yourself money against DDoS attacks, infinite loop code or sudden spike of interests in your platform.
+
+<https://github.com/sekR4/FastAPI-on-Google-Cloud-Run>
+
+Optional: Use domain name for the app.
+
 ## Dev Mode
 
 To access devmode (changes immediatelly applied), it is recommended to run `docker compose up` to spin up `mongodb` and run *dev* version of backend using this .vscode configurations:
