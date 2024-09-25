@@ -2,3 +2,6 @@ pytest
 pytest-asyncio
 pytest-cov
 httpx
+black
+isort
+ruff
