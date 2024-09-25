@@ -56,6 +56,7 @@ jobs:
           flags: unittests
 
   build_and_push:
+    name: Docker Build and Push
     needs: [black-sort-pytest, codacy-analysis-cli]
     runs-on: ubuntu-latest
     steps:
@@ -90,6 +91,7 @@ jobs:
       #     docker push ${{ secrets.DOCKER_USERNAME }}/songbook:latest
 
   test:
+    name: Docker Test
     needs: build_and_push
     runs-on: ubuntu-latest
     services:
