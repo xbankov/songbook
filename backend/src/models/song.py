@@ -5,7 +5,7 @@ from typing import Annotated
 from bs4 import BeautifulSoup
 from models.composition import Chord
 from models.utils import get_tag_items, is_tag, is_ug_tag
-from pydantic import BaseModel, BeforeValidator, Field
+from pydantic import BaseModel, BeforeValidator, ConfigDict, Field
 
 
 class Line(BaseModel):
@@ -157,11 +157,9 @@ class Song(BaseModel):
     artist: str
     capo: int | None
 
-    class Config:
-        # Pydantic should use the alias when populating the model from a dictionary
-        # (which allows you to pass in a dictionary with an _id key rather than an id key)
-        populate_by_name = True
-        # arbitrary_types_allowed = True
+    # Pydantic should use the alias when populating the model from a dictionary
+    # (which allows you to pass in a dictionary with an _id key rather than an id key)
+    model_config = ConfigDict(populate_by_name=True)
 
     def __init__(
         self,
