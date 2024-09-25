@@ -46,7 +46,7 @@ jobs:
     services:
       docker:
         image: docker:latest
-        options: --privileged # Required for running Docker in Docker
+        options: --privileged
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
@@ -58,7 +58,21 @@ jobs:
 
       - name: Run Docker Compose tests
         run: |
-          docker-compose -f docker-compose.yaml up --build --abort-on-container-exit
+          docker-compose -f docker-compose.yaml up --build -d --abort-on-container-exit
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
+
+      - name: Wait for FastAPI service to be ready
+        run: |
+          until curl -s http://localhost:8000/docs; do
+            echo "Waiting for FastAPI service..."
+            sleep 5
+          done
+      - name: Run tests
+        run: |
+          pytest tests/ --disable-warnings
+
+      - name: Stop Docker Compose services
+        run: |
+          docker-compose -f docker-compose.yaml down
