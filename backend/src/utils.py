@@ -8,7 +8,9 @@ logger = logging.getLogger(__name__)
 
 
 def download_url(url):
-    with requests.get(url, ) as response:
+    with requests.get(
+        url,
+    ) as response:
         response.raise_for_status()
         return response.text
 
@@ -35,7 +37,6 @@ def download_ultimate_guitar(url) -> Song | None:
 
 
 def get_logger(file):
-
     logging.basicConfig(
         level=logging.INFO,  # Set the log level to INFO
         format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",  # Set the log format
