@@ -4,7 +4,7 @@ on:
     branches: ["main"]
   pull_request:
     branches: ["main"]
-  workflow_dispatch: # Add this line to allow manual trigger
+  workflow_dispatch:
 
 jobs:
   build_and_push:
@@ -58,7 +58,7 @@ jobs:
 
       - name: Run Docker Compose tests
         run: |
-          docker-compose -f docker-compose.test.yml up --build --abort-on-container-exit
+          docker-compose -f docker-compose.yaml up --build --abort-on-container-exit
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}
