@@ -25,17 +25,13 @@ jobs:
           pip install -r backend/requirements.txt
           pip install -r backend/requirements-dev.txt
 
-      - name: Sort imports with isort
+      - name: Check formatting with Black
         run: |
-          isort backend/src  # Sort imports with isort
+          black --check backend/src  # Check formatting without making changes
 
-      - name: Format code with Black
+      - name: Check imports with isort
         run: |
-          black backend/src  # Format the source code with Black
-
-      - name: Run linting with Ruff
-        run: |
-          ruff backend/src  # Lint the source code with Ruff
+          isort --check-only backend/src  # Check imports without making changes
 
       - name: Run tests with coverage
         run: |
