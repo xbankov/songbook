@@ -18,6 +18,9 @@ jobs:
       - name: Run Codacy Analysis CLI
         uses: codacy/codacy-analysis-cli-action@master
 
+      - name: Codacy Coverage Reporter
+        uses: codacy/codacy-coverage-reporter-action@v1.3.0
+
   black-sort-pytest:
     name: Formatting, Sorting && Testing
     runs-on: ubuntu-latest
