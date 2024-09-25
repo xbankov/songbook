@@ -1,3 +1,7 @@
+![system](https://github.com/github/docs/actions/workflows/main.yml/badge.svg)
+[![codecov](https://codecov.io/github/xbankov/songbook/graph/badge.svg?token=j2WY740c87)](https://codecov.io/github/xbankov/songbook)
+[![Codacy Badge](https://app.codacy.com/project/badge/Grade/50033becb22e4ad3b819448f2a567712)](https://app.codacy.com/gh/xbankov/songbook/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
+
 # Songbook
 
 ## Overview
