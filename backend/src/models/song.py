@@ -43,22 +43,6 @@ class Line(BaseModel):
         ]
         return Line(parts)
 
-    # def json(self):
-    #     return {
-    #         "parts": [
-    #             part.json() if isinstance(part, Chord) else str(part)
-    #             for part in self.parts
-    #         ]
-    #     }
-
-    # @staticmethod
-    # def from_json(json_dict: Dict):
-    #     parsed_parts = [
-    #         Chord.from_json(part) if isinstance(part, dict) else part
-    #         for part in json_dict["parts"]
-    #     ]
-    #     return Line(parsed_parts)
-
 
 class Section(BaseModel):
     lines: list[Line]
@@ -161,20 +145,6 @@ class Section(BaseModel):
     def transpose(self, interval):
         lines = [line.transpose(interval) for line in self.lines]
         return Section(lines, self.label, self.title)
-
-    # def json(self):
-    #     return {
-    #         "lines": [line.json() for line in self.lines],
-    #         "label": self.label,
-    #         "title": self.title,
-    #     }
-
-    # @staticmethod
-    # def from_json(json_dict: Dict):
-    #     parsed_lines = [Line.from_json(line) for line in json_dict["lines"]]
-    #     label = json_dict["label"]
-    #     title = json_dict["title"]
-    #     return Section(parsed_lines, label, title)
 
 
 PyObjectId = Annotated[str, BeforeValidator(str)]

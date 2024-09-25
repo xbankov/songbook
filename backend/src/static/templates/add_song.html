@@ -10,7 +10,9 @@
                 <div class="select">
                     <select id="input-method" name="input-method">
                         <option value="text-field">Text Field</option>
-                        <option value="url-field">Url</option>
+                        <option value="url-field">Single URL</option>
+                        <option value="file-field">Import File</option>
+                        <option value="folder-field">Import Folder</option>
                     </select>
                 </div>
             </div>
@@ -27,78 +29,6 @@
 {start_of_verse}
 [Am] [F] [C] [G]
 {end_of_verse}
-
-{start_of_verse}
-[Am]You were the shadow to my [F]light
-Did you feel us[C]
-Another [G]star
-You fade away[Am]
-Afraid our aim is out of sig[F]ht
-Wanna see us[C]
-Al[G]ight
-{end_of_verse}
-
-{start_of_verse: Pre-chorus}
-Where are you [Am]now[F]
-Where are you [C]now[G]
-Where are you [Am]now
-Was it all in my [F]fantasy
-Where are you [C]now
-Were you only i[G]maginary
-{end_of_verse}
-
-{start_of_chorus}
-Where are you [Am]now
-Atl[F]antis
-Under the [C]sea
-Under the [G]sea
-Where are you [Am]now
-Another [F]dream
-The mo[C]nsters running wild inside of me[G]
-I'm faded[Am][F]
-I'm faded[C]
-So lo[G]st, I'm faded[Am][F]
-I'm faded[C]
-So lo[G]st, I'm faded
-{end_of_chorus}
-
-{start_of_verse}
-[Am]These shallow waters, never [F]met
-What I needed[C]
-I'm letting g[G]o
-A deeper dive[Am]
-Eternal silence of the [F]sea
-I'm breathing[C]
-Al[G]ive
-{end_of_verse}
-
-{start_of_verse}
-Where are you [Am]now[F]
-Where are you [C]now[G]
-Under the [Am]bright
-You set my [F]heart on fire
-Where are you n[C]ow
-Where are you [G]now
-{end_of_verse}
-
-{start_of_chorus}
-Where are you[Am] now
-Atl[F]antis
-Under the [C]sea
-Under the [G]sea
-Where are you n[Am]ow
-Another [F]dream
-The [C]monsters running wild inside of m[G]e
-I'm faded[Am][F]
-I'm faded[C]
-So lo[G]st, I'm faded[Am][F]
-I'm faded[C]
-So lo[G]st, I'm fa[Am]ded
-{end_of_chorus}
-
-{start_of_verse}
-[Am] [F] [C] [G]
-{end_of_verse}
                 </textarea>
             </div>
         </div>
@@ -107,6 +37,20 @@ So lo[G]st, I'm fa[Am]ded
             <label class="label has-text-grey" for="url-field">Enter URL for chords</label>
             <div class="control">
                 <input id="url-field" name="url-field" class="input" type="text" placeholder="Url">
+            </div>
+        </div>
+        <div id="file-input-field" class="field" style="display: none;">
+            <label class="label has-text-grey" for="file-field">Upload file with URLs</label>
+            <h5 class="has-text-grey">Newline delimited urls for supported websites (Ultimate-guitar)</h5>
+            <div class="control">
+                <input id="file-field" name="file-field" class="input" type="file" accept=".txt">
+            </div>
+        </div>
+        <div id="folder-input-field" class="field" style="display: none;">
+            <label class="label has-text-grey" for="folder-field">Upload folder</label>
+            <h5 class="has-text-grey">Folder with chordpro files with .txt suffix</h5>
+            <div class="control">
+                <input id="folder-field" name="folder-field" class="input" type="file" webkitdirectory directory>
             </div>
         </div>
         <div class="field is-grouped">
@@ -128,8 +72,11 @@ So lo[G]st, I'm fa[Am]ded
         const form = document.getElementById('edit-form');
         const initialText = textarea.value;
         const inputMethod = document.getElementById('input-method');
+
         const textInputField = document.getElementById('text-input-field');
         const urlInputField = document.getElementById('url-input-field');
+        const fileInputField = document.getElementById('file-input-field');
+        const folderInputField = document.getElementById('folder-input-field');
 
         if (textarea) {
             textarea.style.height = 'auto';
@@ -140,20 +87,20 @@ So lo[G]st, I'm fa[Am]ded
                 textarea.style.height = textarea.scrollHeight + 'px';
             });
         }
-
-        form.addEventListener('submit', (event) => {
-            if (inputMethod.value == "text-field" & textarea.value === initialText) {
-                event.preventDefault();
-                alert('No changes detected in the text field.');
-            }
-        });
         inputMethod.addEventListener('change', () => {
+            textInputField.style.display = 'none';
+            urlInputField.style.display = 'none';
+            fileInputField.style.display = 'none';
+            folderInputField.style.display = 'none';
+
             if (inputMethod.value === 'text-field') {
                 textInputField.style.display = 'block';
-                urlInputField.style.display = 'none';
             } else if (inputMethod.value === 'url-field') {
-                textInputField.style.display = 'none';
                 urlInputField.style.display = 'block';
+            } else if (inputMethod.value === 'file-field') {
+                fileInputField.style.display = 'block';
+            } else if (inputMethod.value === 'folder-field') {
+                folderInputField.style.display = 'block';
             }
         });
     });

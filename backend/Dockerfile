@@ -1,6 +1,5 @@
 # Use the official Python image as the base image
-FROM python:3.11.5
-
+FROM python:3.10
 # Copy the requirements file into the container
 COPY requirements.txt .
 

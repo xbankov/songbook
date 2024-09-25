@@ -49,6 +49,12 @@ async def create_song(
                 request=request,
                 templates=templates,
             )
+    elif input_method == "file-field":
+        pass
+
+    elif input_method == "import-field":
+        pass
+
     else:
         return show_error(
             f"Input method {input_method} not yet supported",
