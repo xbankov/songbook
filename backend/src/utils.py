@@ -8,7 +8,7 @@ logger = logging.getLogger(__name__)
 
 
 def download_url(url):
-    with requests.get(url) as response:
+    with requests.get(url, ) as response:
         response.raise_for_status()
         return response.text
 
@@ -32,28 +32,6 @@ def download_ultimate_guitar(url) -> Song | None:
         logger.error(f"Requested URL {url} cannot be retrieved: {e}")
         logger.error(traceback.format_exc())
         return None
-
-
-# Use exported firefox bookmarks!
-# def parse_firefox_bookmars():
-#     with open("FIREFOX_BOOKMARKS_FILE_PATH", "r") as fp:
-#         bookmarks = json.load(fp)
-#         toolbar = bookmarks["children"][1]
-#         music = [
-#             folder for folder in toolbar["children"] if folder["title"] == "Music"
-#         ][0]
-
-
-# def extract_recursive(item):
-#     if item["type"] == "text/x-moz-place-separator":
-#         return []
-
-#     elif item["type"] == "text/x-moz-place":
-#         entry = BookmarkEntry(item["title"], item["uri"])
-#         return [entry]
-
-#     elif item["type"] == "text/x-moz-place-container":
-#         return [uri for child in item["children"] for uri in extract_recursive(child)]
 
 
 def get_logger(file):
