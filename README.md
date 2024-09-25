@@ -1,5 +1,7 @@
 # Songbook
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/6895e55a443d47b9b64d758fe30f5b78)](https://app.codacy.com/gh/xbankov/songbook?utm_source=github.com&utm_medium=referral&utm_content=xbankov/songbook&utm_campaign=Badge_Grade)
+
 ## Overview
 
 The Songbook app is a simple app to host your own songbook database. It can be used to add your own chords in a chorpro format, edit them and print them in a songbook.
