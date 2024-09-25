@@ -58,7 +58,7 @@ jobs:
 
       - name: Run Docker Compose tests
         run: |
-          docker-compose -f docker-compose.yaml up --build -d --abort-on-container-exit
+          docker-compose -f docker-compose.yaml up --build --detach
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKER_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKER_PASSWORD }}

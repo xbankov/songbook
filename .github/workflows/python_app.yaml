@@ -18,7 +18,8 @@ jobs:
       - name: Run Codacy Analysis CLI
         uses: codacy/codacy-analysis-cli-action@master
 
-  test:
+  black-sort-pytest:
+    name: Formatting, Sorting && Testing
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
@@ -35,13 +36,13 @@ jobs:
           pip install -r backend/requirements.txt
           pip install -r backend/requirements-dev.txt
 
-      - name: Check formatting with Black
-        run: |
-          black --check backend/src  # Check formatting without making changes
-
       - name: Check imports with isort
         run: |
           isort --check-only backend/src  # Check imports without making changes
+
+      - name: Check formatting with Black
+        run: |
+          black --check backend/src  # Check formatting without making changes
 
       - name: Run tests with coverage
         run: |
