@@ -1,6 +1,4 @@
 pytest
-httpx
 pytest-asyncio
 pytest-cov
-fastapi
 httpx
