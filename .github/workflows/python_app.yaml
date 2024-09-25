@@ -57,7 +57,6 @@ jobs:
 
   build_and_push:
     name: Docker Build and Push
-    needs: black-sort-pytest
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
