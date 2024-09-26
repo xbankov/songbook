@@ -45,14 +45,6 @@ jobs:
           files: ./coverage.xml
           flags: unittests
 
-  codacy-analysis-cli:
-    name: Codacy Analysis CLI
-    needs: black-sort-pytest
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
       - name: Run Codacy Analysis CLI
         uses: codacy/codacy-analysis-cli-action@master
 
