@@ -8,19 +8,6 @@ on:
   workflow_dispatch: # Add this line to allow manual trigger
 
 jobs:
-  codacy-analysis-cli:
-    name: Codacy Analysis CLI
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Run Codacy Analysis CLI
-        uses: codacy/codacy-analysis-cli-action@master
-
-      - name: Codacy Coverage Reporter
-        uses: codacy/codacy-coverage-reporter-action@v1.3.0
-
   black-sort-pytest:
     name: Formatting, Sorting && Testing
     runs-on: ubuntu-latest
@@ -58,9 +45,28 @@ jobs:
           files: ./coverage.xml
           flags: unittests
 
+  codacy-analysis-cli:
+    name: Codacy Analysis CLI
+    needs: black-sort-pytest
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+      - name: Debug Codacy Project Token
+        run: echo "CODACY_PROJECT_TOKEN is set"
+        if: ${{ secrets.CODACY_PROJECT_TOKEN }}
+
+      - name: Run Codacy Analysis CLI
+        uses: codacy/codacy-analysis-cli-action@master
+
+      - name: Run codacy-coverage-reporter
+        uses: codacy/codacy-coverage-reporter-action@v1.3.0
+        with:
+          project-token: ${{ secrets.CODACY_PROJECT_TOKEN }}
+          coverage-reports: ./coverage.xml
+
   build_and_push:
     name: Docker Build and Push
-    needs: black-sort-pytest
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
