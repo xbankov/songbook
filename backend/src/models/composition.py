@@ -41,8 +41,11 @@ class ChordQuality(str, Enum):
     minadd4 = "minadd4"
     add6 = "add6"
     minadd6 = "minadd6"
+    dom7adds5 = "dom7adds5"
     maj9 = "maj9"
     dom9 = "dom9"
+    dom9sus4 = "dom9sus4"
+    dom11 = "dom11"
 
 
 chord_quality_scheme: dict[ChordQuality, tuple] = {
@@ -63,8 +66,11 @@ chord_quality_scheme: dict[ChordQuality, tuple] = {
     ChordQuality.minadd4: (0, 3, 5, 7),
     ChordQuality.add6: (0, 4, 7, 9),
     ChordQuality.minadd6: (0, 3, 7, 9),
+    ChordQuality.dom7adds5: (0, 4, 7, 8, 10),
     ChordQuality.maj9: (0, 2, 4, 7, 11),
     ChordQuality.dom9: (0, 2, 4, 7, 10),
+    ChordQuality.dom9sus4: (0, 2, 5, 7, 10),
+    ChordQuality.dom11: (0, 2, 4, 5, 7, 10),
 }
 
 # The parse/display names. The first name in each list represents the canonical form we display
@@ -86,8 +92,11 @@ chord_quality_names: dict[ChordQuality, list[str]] = {
     ChordQuality.minadd4: ["minAdd4", "mAdd4"],
     ChordQuality.add6: ["add6"],
     ChordQuality.minadd6: ["minAdd6", "mAdd6"],
+    ChordQuality.dom7adds5: ["7add#5", "dom7add#5", "7/5+"],
     ChordQuality.maj9: ["Maj9"],
-    ChordQuality.dom9: ["dom9"],
+    ChordQuality.dom9: ["9", "dom9"],
+    ChordQuality.dom9sus4: ["9sus4", "dom9sus4"],
+    ChordQuality.dom11: ["11", "dom11"],
 }
 
 chord_quality_canonical_name: dict[ChordQuality, str] = {
@@ -141,7 +150,7 @@ class Chord(BaseModel):
     def parse(cls, label: str) -> "Chord":
         bass = None
         dash_splits = label.rsplit("/", 1)
-        if len(dash_splits) > 1:
+        if len(dash_splits) > 1 and dash_splits[1] in tones:
             label = dash_splits[0]
             bass = Tone.parse(dash_splits[1])
         split = 1
