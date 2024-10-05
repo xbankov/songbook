@@ -30,7 +30,8 @@ intervals = "P1", "m2", "M2", "m3", "M3", "P4", "TT", "P5", "m6", "M6", "m7", "M
 
 
 class ChordQuality(str, Enum):
-    """ Unique identifier for each chord type. """
+    """Unique identifier for each chord type."""
+
     major = "major"
     minor = "minor"
     dom7 = "dom7"
@@ -107,13 +108,14 @@ chord_quality_names: dict[ChordQuality, list[str]] = {
 }
 
 chord_quality_canonical_name: dict[ChordQuality, str] = {
-    quality: chord_names[0]
-    for quality, chord_names in chord_quality_names.items()}
+    quality: chord_names[0] for quality, chord_names in chord_quality_names.items()
+}
 
 chord_name_quality: dict[str, ChordQuality] = {
     chord_name.lower(): quality
     for quality, chord_names in chord_quality_names.items()
-    for chord_name in chord_names}
+    for chord_name in chord_names
+}
 
 
 class Tone(BaseModel):
@@ -173,7 +175,8 @@ class Chord(BaseModel):
         return Chord(
             root=self.root.transpose(interval),
             quality=self.quality,
-            bass=self.bass.transpose(interval) if self.bass is not None else None)
+            bass=self.bass.transpose(interval) if self.bass is not None else None,
+        )
 
     def __str__(self) -> str:
         quality = chord_quality_canonical_name.get(self.quality, self.quality)
