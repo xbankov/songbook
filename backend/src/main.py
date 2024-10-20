@@ -3,7 +3,7 @@ from posixpath import realpath
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
-from routes import artists, index, songs
+from routes import artists, songs
 
 app = FastAPI(
     title="Songbook API",
@@ -23,6 +23,5 @@ app.mount(
     StaticFiles(directory=realpath(f"{realpath(__file__)}/../static")),
     name="static",
 )
-app.include_router(index.router)
 app.include_router(songs.router)
 app.include_router(artists.router)
