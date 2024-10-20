@@ -158,10 +158,10 @@ class Chord(BaseModel):
     @classmethod
     def parse(cls, label: str) -> "Chord":
         bass = None
-        dash_splits = label.rsplit("/", 1)
-        if len(dash_splits) > 1 and dash_splits[1] in tones:
-            label = dash_splits[0]
-            bass = Tone.parse(dash_splits[1])
+        slash_splits = label.rsplit("/", 1)
+        if len(slash_splits) > 1 and slash_splits[1] in tones:
+            label = slash_splits[0]
+            bass = Tone.parse(slash_splits[1])
         split = 1
         if len(label) > 1 and label[1] in ("#", "b"):
             split = 2
