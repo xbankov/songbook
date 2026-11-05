@@ -1,17 +1,16 @@
 import uuid
 
-from fastapi import APIRouter, Depends, HTTPException, Query
-from fastapi.responses import Response
-from sqlalchemy import select
-from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy.orm import selectinload
-
 from app.database import get_db
 from app.models.settings import Settings
 from app.models.song import Song
 from app.models.songbook import Songbook, SongbookEntry
 from app.services.music_theory import SongModel as ST
 from app.services.pdf import generate_song_pdf, generate_songbook_pdf
+from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi.responses import Response
+from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.orm import selectinload
 
 router = APIRouter(prefix="/api/export", tags=["export"])
 
@@ -64,7 +63,12 @@ async def export_songbook_pdf(
     for entry in sorted(songbook.entries, key=lambda e: e.sort_order):
         song_model = ST.from_chordpro(entry.song.body)
         songs.append(song_model)
-    pdf = generate_songbook_pdf(songs, settings=settings, title=songbook.name, description=songbook.description or "")
+    pdf = generate_songbook_pdf(
+        songs,
+        settings=settings,
+        title=songbook.name,
+        description=songbook.description or "",
+    )
     return Response(
         content=pdf.getvalue(),
         media_type="application/pdf",

@@ -1,10 +1,5 @@
 import uuid
 
-from fastapi import APIRouter, Depends, HTTPException, Query, status
-from sqlalchemy import select
-from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy.orm import selectinload
-
 from app.database import get_db
 from app.models.song import Song
 from app.models.songbook import Songbook, SongbookEntry
@@ -15,6 +10,10 @@ from app.schemas.songbook import (
     SongbookEntryUpdate,
     SongbookOut,
 )
+from fastapi import APIRouter, Depends, HTTPException, Query, status
+from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.orm import selectinload
 
 router = APIRouter(prefix="/api/songbooks", tags=["songbooks"])
 
@@ -53,7 +52,9 @@ async def get_songbook(songbook_id: uuid.UUID, db: AsyncSession = Depends(get_db
     )
     songbook = result.scalar_one_or_none()
     if not songbook:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Songbook not found")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Songbook not found"
+        )
     return songbook
 
 
@@ -64,7 +65,9 @@ async def update_songbook(
     result = await db.execute(select(Songbook).where(Songbook.id == songbook_id))
     songbook = result.scalar_one_or_none()
     if not songbook:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Songbook not found")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Songbook not found"
+        )
     songbook.name = body.name
     songbook.description = body.description
     await db.flush()
@@ -77,26 +80,38 @@ async def delete_songbook(songbook_id: uuid.UUID, db: AsyncSession = Depends(get
     result = await db.execute(select(Songbook).where(Songbook.id == songbook_id))
     songbook = result.scalar_one_or_none()
     if not songbook:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Songbook not found")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Songbook not found"
+        )
     await db.delete(songbook)
     await db.flush()
 
 
-@router.post("/{songbook_id}/songs", response_model=SongbookEntryOut, status_code=status.HTTP_201_CREATED)
+@router.post(
+    "/{songbook_id}/songs",
+    response_model=SongbookEntryOut,
+    status_code=status.HTTP_201_CREATED,
+)
 async def add_song_to_songbook(
     songbook_id: uuid.UUID,
     song_id: uuid.UUID,
     sort_order: int | None = Query(None),
     db: AsyncSession = Depends(get_db),
 ):
-    songbook_result = await db.execute(select(Songbook).where(Songbook.id == songbook_id))
+    songbook_result = await db.execute(
+        select(Songbook).where(Songbook.id == songbook_id)
+    )
     songbook = songbook_result.scalar_one_or_none()
     if not songbook:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Songbook not found")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Songbook not found"
+        )
     song_result = await db.execute(select(Song).where(Song.id == song_id))
     song = song_result.scalar_one_or_none()
     if not song:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Song not found")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Song not found"
+        )
     if sort_order is None:
         result = await db.execute(
             select(SongbookEntry)
@@ -106,23 +121,31 @@ async def add_song_to_songbook(
         )
         last_entry = result.scalar_one_or_none()
         sort_order = (last_entry.sort_order + 1) if last_entry else 0
-    entry = SongbookEntry(songbook_id=songbook_id, song_id=song_id, sort_order=sort_order)
+    entry = SongbookEntry(
+        songbook_id=songbook_id, song_id=song_id, sort_order=sort_order
+    )
     db.add(entry)
     await db.flush()
     await db.refresh(entry)
     return entry
 
 
-@router.delete("/{songbook_id}/songs/{entry_id}", status_code=status.HTTP_204_NO_CONTENT)
+@router.delete(
+    "/{songbook_id}/songs/{entry_id}", status_code=status.HTTP_204_NO_CONTENT
+)
 async def remove_song_from_songbook(
     songbook_id: uuid.UUID, entry_id: uuid.UUID, db: AsyncSession = Depends(get_db)
 ):
     result = await db.execute(
-        select(SongbookEntry).where(SongbookEntry.id == entry_id, SongbookEntry.songbook_id == songbook_id)
+        select(SongbookEntry).where(
+            SongbookEntry.id == entry_id, SongbookEntry.songbook_id == songbook_id
+        )
     )
     entry = result.scalar_one_or_none()
     if not entry:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Entry not found")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Entry not found"
+        )
     await db.delete(entry)
     await db.flush()
 
@@ -135,11 +158,15 @@ async def update_songbook_entry(
     db: AsyncSession = Depends(get_db),
 ):
     result = await db.execute(
-        select(SongbookEntry).where(SongbookEntry.id == entry_id, SongbookEntry.songbook_id == songbook_id)
+        select(SongbookEntry).where(
+            SongbookEntry.id == entry_id, SongbookEntry.songbook_id == songbook_id
+        )
     )
     entry = result.scalar_one_or_none()
     if not entry:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Entry not found")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Entry not found"
+        )
     for field, value in body.model_dump(exclude_none=True).items():
         setattr(entry, field, value)
     await db.flush()

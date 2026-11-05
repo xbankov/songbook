@@ -1,7 +1,9 @@
 import requests
 
 
-def test_index():
-    response = requests.get("http://localhost:8000/")
+def test_health():
+    response = requests.get("http://localhost:8000/api/health")
     assert response.status_code == 200
-    assert response.json() == {"message": "Welcome to FastAPI"}
+    body = response.json()
+    assert body["status"] == "ok"
+    assert body["version"] == "2.0.0"

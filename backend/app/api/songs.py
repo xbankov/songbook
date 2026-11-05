@@ -1,28 +1,22 @@
 import os
 import uuid
 
-from fastapi import APIRouter, Depends, HTTPException, Query, UploadFile, File, status
-from fastapi.responses import Response, PlainTextResponse, FileResponse
-from sqlalchemy import select, func
-from sqlalchemy.ext.asyncio import AsyncSession
-
 from app.database import get_db
 from app.models.song import Song, SongVersion
 from app.models.tag import Tag, song_tags
-from app.schemas.song import (
-    SongCreate,
-    SongOut,
-    SongUpdate,
-    SongVersionOut,
-)
-from app.services.scraper import import_from_url
+from app.schemas.song import SongCreate, SongOut, SongUpdate, SongVersionOut
 from app.services.converters import (
-    chordpro_to_text,
     chordpro_to_abc,
     chordpro_to_ly,
+    chordpro_to_text,
     export_songs_as_chordpro,
     parse_bulk_chordpro,
 )
+from app.services.scraper import import_from_url
+from fastapi import APIRouter, Depends, File, HTTPException, Query, UploadFile, status
+from fastapi.responses import FileResponse, PlainTextResponse, Response
+from sqlalchemy import func, select
+from sqlalchemy.ext.asyncio import AsyncSession
 
 router = APIRouter(prefix="/api/songs", tags=["songs"])
 
@@ -90,7 +84,10 @@ async def create_song(body: SongCreate, db: AsyncSession = Depends(get_db)):
 async def import_song(url: str, db: AsyncSession = Depends(get_db)):
     song_model = import_from_url(url)
     if song_model is None:
-        raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST, detail="Failed to import song from URL")
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="Failed to import song from URL",
+        )
     body = str(song_model)
     song = Song(
         title=song_model.title,
@@ -124,16 +121,22 @@ async def get_song(song_id: uuid.UUID, db: AsyncSession = Depends(get_db)):
     result = await db.execute(select(Song).where(Song.id == song_id))
     song = result.scalar_one_or_none()
     if not song:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Song not found")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Song not found"
+        )
     return song
 
 
 @router.put("/{song_id}", response_model=SongOut)
-async def update_song(song_id: uuid.UUID, body: SongUpdate, db: AsyncSession = Depends(get_db)):
+async def update_song(
+    song_id: uuid.UUID, body: SongUpdate, db: AsyncSession = Depends(get_db)
+):
     result = await db.execute(select(Song).where(Song.id == song_id))
     song = result.scalar_one_or_none()
     if not song:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Song not found")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Song not found"
+        )
 
     for field, value in body.model_dump(exclude_none=True, by_alias=True).items():
         setattr(song, field, value)
@@ -160,7 +163,9 @@ async def delete_song(song_id: uuid.UUID, db: AsyncSession = Depends(get_db)):
     result = await db.execute(select(Song).where(Song.id == song_id))
     song = result.scalar_one_or_none()
     if not song:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Song not found")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Song not found"
+        )
     await db.delete(song)
     await db.flush()
 
@@ -176,7 +181,9 @@ async def list_versions(song_id: uuid.UUID, db: AsyncSession = Depends(get_db)):
 
 
 @router.get("/{song_id}/versions/{version_number}", response_model=SongVersionOut)
-async def get_version(song_id: uuid.UUID, version_number: int, db: AsyncSession = Depends(get_db)):
+async def get_version(
+    song_id: uuid.UUID, version_number: int, db: AsyncSession = Depends(get_db)
+):
     result = await db.execute(
         select(SongVersion).where(
             SongVersion.song_id == song_id, SongVersion.version == version_number
@@ -184,7 +191,9 @@ async def get_version(song_id: uuid.UUID, version_number: int, db: AsyncSession 
     )
     version = result.scalar_one_or_none()
     if not version:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Version not found")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Version not found"
+        )
     return version
 
 
@@ -193,8 +202,12 @@ async def analyze_song(song_id: uuid.UUID, db: AsyncSession = Depends(get_db)):
     result = await db.execute(select(Song).where(Song.id == song_id))
     song = result.scalar_one_or_none()
     if not song:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Song not found")
-    from app.services.music_theory import SongModel as ST, detect_key
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Song not found"
+        )
+    from app.services.music_theory import SongModel as ST
+    from app.services.music_theory import detect_key
+
     model = ST.from_chordpro(song.body)
     k = detect_key(model)
     return {"suggested_key": k[0] if k else None, "confidence": k[1] if k else None}
@@ -209,7 +222,9 @@ async def upload_audio(
     result = await db.execute(select(Song).where(Song.id == song_id))
     song = result.scalar_one_or_none()
     if not song:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Song not found")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Song not found"
+        )
     os.makedirs(settings.upload_dir, exist_ok=True)
     ext = os.path.splitext(file.filename or "audio.mp3")[1] or ".mp3"
     filename = f"{song_id}{ext}"
@@ -230,7 +245,9 @@ async def get_audio(song_id: uuid.UUID, db: AsyncSession = Depends(get_db)):
     result = await db.execute(select(Song).where(Song.id == song_id))
     song = result.scalar_one_or_none()
     if not song:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Song not found")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Song not found"
+        )
     meta = song.metadata_ or {}
     audio_file = meta.get("audio_file")
     if not audio_file:
@@ -246,7 +263,9 @@ async def delete_audio(song_id: uuid.UUID, db: AsyncSession = Depends(get_db)):
     result = await db.execute(select(Song).where(Song.id == song_id))
     song = result.scalar_one_or_none()
     if not song:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Song not found")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Song not found"
+        )
     meta = dict(song.metadata_) if song.metadata_ else {}
     audio_file = meta.pop("audio_file", None)
     song.metadata_ = meta
@@ -266,6 +285,7 @@ async def bulk_export(
     result = await db.execute(select(Song).order_by(Song.artist, Song.title))
     songs = result.scalars().all()
     from app.services.music_theory import SongModel as ST
+
     models = [ST.from_chordpro(s.body) for s in songs]
 
     if format == "text":
@@ -288,7 +308,9 @@ async def bulk_export(
     )
 
 
-@router.post("/import/bulk", response_model=list[SongOut], status_code=status.HTTP_201_CREATED)
+@router.post(
+    "/import/bulk", response_model=list[SongOut], status_code=status.HTTP_201_CREATED
+)
 async def bulk_import(
     body: str,
     db: AsyncSession = Depends(get_db),
@@ -330,8 +352,11 @@ async def export_song_format(
     result = await db.execute(select(Song).where(Song.id == song_id))
     song = result.scalar_one_or_none()
     if not song:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Song not found")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Song not found"
+        )
     from app.services.music_theory import SongModel as ST
+
     model = ST.from_chordpro(song.body)
 
     if format == "text":
@@ -345,7 +370,9 @@ async def export_song_format(
 
     return PlainTextResponse(
         content=content,
-        headers={"Content-Disposition": f"attachment; filename=\"{song.title}.{format}\""},
+        headers={
+            "Content-Disposition": f'attachment; filename="{song.title}.{format}"'
+        },
     )
 
 
@@ -358,8 +385,11 @@ async def transpose_song(
     result = await db.execute(select(Song).where(Song.id == song_id))
     song = result.scalar_one_or_none()
     if not song:
-        raise HTTPException(status_code=status.HTTP_404_NOT_FOUND, detail="Song not found")
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Song not found"
+        )
     from app.services.music_theory import SongModel as ST
+
     model = ST.from_chordpro(song.body)
     transposed = model.transpose(interval)
     song.body = str(transposed)

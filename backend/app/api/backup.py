@@ -3,10 +3,9 @@ import os
 import subprocess
 from datetime import datetime, timezone
 
+from app.config import settings
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import Response
-
-from app.config import settings
 
 logger = logging.getLogger(__name__)
 
@@ -32,9 +31,15 @@ async def create_backup():
         )
         if result.returncode != 0:
             logger.error(f"pg_dump failed: {result.stderr}")
-            raise HTTPException(status_code=500, detail=f"Backup failed: {result.stderr}")
+            raise HTTPException(
+                status_code=500, detail=f"Backup failed: {result.stderr}"
+            )
         logger.info(f"Backup created: {filepath}")
-        return {"filename": filename, "size": os.path.getsize(filepath), "created_at": timestamp}
+        return {
+            "filename": filename,
+            "size": os.path.getsize(filepath),
+            "created_at": timestamp,
+        }
     except FileNotFoundError:
         raise HTTPException(status_code=500, detail="pg_dump not found on server")
     except subprocess.TimeoutExpired:
@@ -48,11 +53,15 @@ async def list_backups():
     for f in sorted(os.listdir(settings.backup_dir), reverse=True):
         if f.endswith(".sql"):
             path = os.path.join(settings.backup_dir, f)
-            backups.append({
-                "filename": f,
-                "size": os.path.getsize(path),
-                "created_at": datetime.fromtimestamp(os.path.getmtime(path), tz=timezone.utc).isoformat(),
-            })
+            backups.append(
+                {
+                    "filename": f,
+                    "size": os.path.getsize(path),
+                    "created_at": datetime.fromtimestamp(
+                        os.path.getmtime(path), tz=timezone.utc
+                    ).isoformat(),
+                }
+            )
     return backups
 
 
@@ -85,7 +94,9 @@ async def restore_backup(filename: str):
         )
         if result.returncode != 0:
             logger.error(f"Restore failed: {result.stderr}")
-            raise HTTPException(status_code=500, detail=f"Restore failed: {result.stderr}")
+            raise HTTPException(
+                status_code=500, detail=f"Restore failed: {result.stderr}"
+            )
         return {"status": "ok", "message": f"Restored from {filename}"}
     except FileNotFoundError:
         raise HTTPException(status_code=500, detail="psql not found on server")

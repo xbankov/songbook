@@ -1,10 +1,9 @@
 import io
 from pathlib import Path
 
-from jinja2 import Environment, FileSystemLoader
-
 from app.models.settings import Settings
 from app.services.music_theory import SongModel
+from jinja2 import Environment, FileSystemLoader
 
 TEMPLATE_DIR = Path(__file__).parent.parent / "templates"
 
@@ -95,7 +94,11 @@ def _render_song_fpdf(pdf, song: SongModel, settings: Settings):
     pdf.ln(4)
     pdf.set_text_color(0, 0, 0)
 
-    font_name = settings.font if settings.font in ("DejaVuMono", "DejaVuSans", "DejaVu") else "DejaVuMono"
+    font_name = (
+        settings.font
+        if settings.font in ("DejaVuMono", "DejaVuSans", "DejaVu")
+        else "DejaVuMono"
+    )
     display_mode = settings.display_mode
     font_size = settings.font_size
 
@@ -144,29 +147,62 @@ def _render_song_fpdf(pdf, song: SongModel, settings: Settings):
 def generate_song_pdf(song: SongModel, settings: Settings) -> io.BytesIO:
     try:
         from weasyprint import HTML
+
         if settings.transpose:
             song = song.transpose(settings.transpose)
         env = Environment(loader=FileSystemLoader(str(TEMPLATE_DIR)))
         template = env.get_template("song_pdf.html")
         data = _build_song_data(song)
         html = template.render(
-            title=data["title"], artist=data["artist"], meta=data["meta"],
-            sections=data["sections"], double_column=settings.double_column,
-            font=settings.font, font_size=settings.font_size,
+            title=data["title"],
+            artist=data["artist"],
+            meta=data["meta"],
+            sections=data["sections"],
+            double_column=settings.double_column,
+            font=settings.font,
+            font_size=settings.font_size,
             display_mode=settings.display_mode,
         )
         pdf_bytes = HTML(string=html).write_pdf()
         return io.BytesIO(pdf_bytes)
     except ImportError:
         from fpdf import FPDF
+
         pdf = FPDF(orientation="P", unit="mm", format="A4")
         pdf.set_auto_page_break(auto=True, margin=20)
-        pdf.add_font("DejaVu", "", "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", uni=True)
-        pdf.add_font("DejaVu", "B", "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", uni=True)
-        pdf.add_font("DejaVuMono", "", "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf", uni=True)
-        pdf.add_font("DejaVuMono", "B", "/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf", uni=True)
-        pdf.add_font("DejaVuSans", "", "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", uni=True)
-        pdf.add_font("DejaVuSans", "B", "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", uni=True)
+        pdf.add_font(
+            "DejaVu", "", "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", uni=True
+        )
+        pdf.add_font(
+            "DejaVu",
+            "B",
+            "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+            uni=True,
+        )
+        pdf.add_font(
+            "DejaVuMono",
+            "",
+            "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf",
+            uni=True,
+        )
+        pdf.add_font(
+            "DejaVuMono",
+            "B",
+            "/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf",
+            uni=True,
+        )
+        pdf.add_font(
+            "DejaVuSans",
+            "",
+            "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+            uni=True,
+        )
+        pdf.add_font(
+            "DejaVuSans",
+            "B",
+            "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+            uni=True,
+        )
         pdf.alias_nb_pages()
         pdf.add_page()
         _render_song_fpdf(pdf, song, settings)
@@ -181,29 +217,61 @@ def generate_songbook_pdf(
 ) -> io.BytesIO:
     try:
         from weasyprint import HTML
+
         if settings.transpose:
             songs = [s.transpose(settings.transpose) for s in songs]
         env = Environment(loader=FileSystemLoader(str(TEMPLATE_DIR)))
         template = env.get_template("songbook_pdf.html")
         songs_data = [_build_song_data(s) for s in songs]
         html = template.render(
-            songbook_title=title, songbook_description=description,
-            songs=songs_data, double_column=settings.double_column,
-            font=settings.font, font_size=settings.font_size,
+            songbook_title=title,
+            songbook_description=description,
+            songs=songs_data,
+            double_column=settings.double_column,
+            font=settings.font,
+            font_size=settings.font_size,
             display_mode=settings.display_mode,
         )
         pdf_bytes = HTML(string=html).write_pdf()
         return io.BytesIO(pdf_bytes)
     except ImportError:
         from fpdf import FPDF
+
         pdf = FPDF(orientation="P", unit="mm", format="A4")
         pdf.set_auto_page_break(auto=True, margin=20)
-        pdf.add_font("DejaVu", "", "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", uni=True)
-        pdf.add_font("DejaVu", "B", "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", uni=True)
-        pdf.add_font("DejaVuMono", "", "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf", uni=True)
-        pdf.add_font("DejaVuMono", "B", "/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf", uni=True)
-        pdf.add_font("DejaVuSans", "", "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", uni=True)
-        pdf.add_font("DejaVuSans", "B", "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf", uni=True)
+        pdf.add_font(
+            "DejaVu", "", "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", uni=True
+        )
+        pdf.add_font(
+            "DejaVu",
+            "B",
+            "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+            uni=True,
+        )
+        pdf.add_font(
+            "DejaVuMono",
+            "",
+            "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf",
+            uni=True,
+        )
+        pdf.add_font(
+            "DejaVuMono",
+            "B",
+            "/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf",
+            uni=True,
+        )
+        pdf.add_font(
+            "DejaVuSans",
+            "",
+            "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
+            uni=True,
+        )
+        pdf.add_font(
+            "DejaVuSans",
+            "B",
+            "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+            uni=True,
+        )
         pdf.alias_nb_pages()
         pdf.add_page()
         pdf.set_font("DejaVu", "B", 24)

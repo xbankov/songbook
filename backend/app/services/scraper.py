@@ -2,9 +2,8 @@ import logging
 import re
 
 import requests
-from bs4 import BeautifulSoup
-
 from app.services.music_theory import SongModel, parse_ultimate_guitar_html
+from bs4 import BeautifulSoup
 
 logger = logging.getLogger(__name__)
 

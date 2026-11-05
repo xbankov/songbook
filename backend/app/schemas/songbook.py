@@ -1,9 +1,8 @@
 from datetime import datetime
 from uuid import UUID
 
-from pydantic import BaseModel
-
 from app.schemas.song import SongOut
+from pydantic import BaseModel
 
 
 class SongbookCreate(BaseModel):
