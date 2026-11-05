@@ -163,3 +163,8 @@ cython_debug/
 .vscode/*
 
 data/*
+
+# Node
+node_modules/
+dist-ssr/
+*.local

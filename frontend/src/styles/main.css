@@ -1,0 +1,80 @@
+:root {
+  --bg: #0f0f1a;
+  --surface: #1a1a2e;
+  --border: #2a2a4a;
+  --text: #e0e0e0;
+  --text-muted: #888;
+  --accent: #e8b832;
+  --hover: rgba(232, 184, 50, 0.1);
+  --danger: #e74c3c;
+}
+
+[data-theme="light"] {
+  --bg: #f5f5f5;
+  --surface: #ffffff;
+  --border: #d0d0d0;
+  --text: #1a1a1a;
+  --text-muted: #666;
+  --accent: #c8960a;
+  --hover: rgba(200, 150, 10, 0.08);
+  --danger: #c0392b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+a {
+  color: var(--accent);
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+input, textarea, select {
+  font-family: inherit;
+}
+
+/* Print styles */
+@media print {
+  .navbar {
+    display: none !important;
+  }
+  .main-content {
+    max-width: none !important;
+    padding: 0 !important;
+  }
+  .detail-actions,
+  .edit-form,
+  .transpose-control {
+    display: none !important;
+  }
+  .song-display {
+    font-size: 9pt;
+  }
+  .song-title {
+    font-size: 14pt !important;
+  }
+  .song-artist {
+    font-size: 11pt !important;
+  }
+  .section-label {
+    font-size: 10pt !important;
+  }
+  .song-line {
+    font-size: 9pt !important;
+  }
+  @page {
+    margin: 1.5cm 1.8cm;
+  }
+}

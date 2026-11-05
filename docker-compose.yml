@@ -1,0 +1,106 @@
+x-app-defaults: &app-defaults
+  restart: unless-stopped
+  networks:
+    - songbook-net
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    <<: *app-defaults
+    env_file: .env
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-songbook}
+      POSTGRES_USER: ${POSTGRES_USER:-songbook}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-changeme}
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-songbook}"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  redis:
+    image: redis:7-alpine
+    <<: *app-defaults
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    <<: *app-defaults
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-songbook}:${POSTGRES_PASSWORD:-changeme}@postgres:5432/${POSTGRES_DB:-songbook}
+      DATABASE_URL_SYNC: postgresql://${POSTGRES_USER:-songbook}:${POSTGRES_PASSWORD:-changeme}@postgres:5432/${POSTGRES_DB:-songbook}
+      REDIS_URL: redis://redis:6379/0
+      SECRET_KEY: ${SECRET_KEY:-changeme-secret-key}
+      CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:8081,http://localhost:5173}
+      AUTH_USERNAME: ${AUTH_USERNAME:-admin}
+      AUTH_PASSWORD: ${AUTH_PASSWORD:-admin}
+      BACKUP_DIR: /backups
+      UPLOAD_DIR: /uploads
+    volumes:
+      - backup-data:/backups
+      - upload-data:/uploads
+      - /tmp/bluegrass-songbook:/tmp/bluegrass-songbook:ro
+      - /home/ubuntu/data/songbook/chordonomicon:/data/chordonomicon:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    ports:
+      - "8000:8000"
+
+  celery_worker:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    <<: *app-defaults
+    command: celery -A app.celery_app worker --loglevel=info --beat
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+asyncpg://${POSTGRES_USER:-songbook}:${POSTGRES_PASSWORD:-changeme}@postgres:5432/${POSTGRES_DB:-songbook}
+      DATABASE_URL_SYNC: postgresql://${POSTGRES_USER:-songbook}:${POSTGRES_PASSWORD:-changeme}@postgres:5432/${POSTGRES_DB:-songbook}
+      REDIS_URL: redis://redis:6379/0
+      SECRET_KEY: ${SECRET_KEY:-changeme-secret-key}
+      AUTH_USERNAME: ${AUTH_USERNAME:-admin}
+      AUTH_PASSWORD: ${AUTH_PASSWORD:-admin}
+      BACKUP_DIR: /backups
+      UPLOAD_DIR: /uploads
+    volumes:
+      - backup-data:/backups
+      - upload-data:/uploads
+      - /tmp/bluegrass-songbook:/tmp/bluegrass-songbook:ro
+      - /tmp/chordonomicon:/tmp/chordonomicon:ro
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    <<: *app-defaults
+    environment:
+      VITE_API_URL: ${VITE_API_URL:-http://localhost:8000}
+    ports:
+      - "8081:80"
+    depends_on:
+      - backend
+
+volumes:
+  pg-data:
+  backup-data:
+  upload-data:
+
+networks:
+  songbook-net:

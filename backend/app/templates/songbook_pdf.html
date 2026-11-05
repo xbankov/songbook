@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  @page { size: A4; margin: 15mm 20mm; }
+  body {
+    font-family: {{ font }}, 'DejaVu Sans Mono', monospace;
+    font-size: {{ font_size }}pt;
+    line-height: 1.5;
+    color: #222;
+  }
+  .songbook-cover {
+    text-align: center;
+    page-break-after: always;
+    padding-top: 40%;
+  }
+  .songbook-cover h1 { font-size: 24pt; font-family: 'DejaVu Sans', sans-serif; }
+  .songbook-cover p { font-size: 12pt; color: #555; }
+  .song-title {
+    font-size: 14pt;
+    font-weight: bold;
+    font-family: 'DejaVu Sans', sans-serif;
+    margin: 0 0 2pt 0;
+  }
+  .song-artist {
+    font-size: 11pt;
+    color: #555;
+    font-family: 'DejaVu Sans', sans-serif;
+    margin: 0 0 4pt 0;
+  }
+  .song-meta {
+    font-size: 8pt;
+    color: #888;
+    margin-bottom: 8pt;
+  }
+  .section-label {
+    font-weight: bold;
+    font-size: 10pt;
+    color: #8B4513;
+    margin: 6pt 0 2pt 0;
+    font-family: 'DejaVu Sans', sans-serif;
+  }
+  .line-above { margin-bottom: 1pt; }
+  .chord-row { white-space: pre; font-weight: bold; color: #2c5282; min-height: 1.2em; }
+  .lyric-row { white-space: pre; }
+  .line-inline { white-space: pre-wrap; }
+  .chord-inline { font-weight: bold; color: #2c5282; }
+  {% if double_column %}
+  .song-body { column-count: 2; column-gap: 4em; }
+  {% endif %}
+  .page-break { page-break-before: always; }
+  .song-entry { page-break-before: always; }
+</style>
+</head>
+<body>
+  <div class="songbook-cover">
+    <h1>{{ songbook_title }}</h1>
+    {% if songbook_description %}
+    <p>{{ songbook_description }}</p>
+    {% endif %}
+  </div>
+  {% for song in songs %}
+  <div class="song-entry">
+    <h1 class="song-title">{{ song.title }}</h1>
+    <h2 class="song-artist">{{ song.artist }}</h2>
+    {% if song.meta %}
+    <div class="song-meta">{{ song.meta }}</div>
+    {% endif %}
+    <div class="song-body">
+    {% for section in song.sections %}
+      {% if section.label %}
+      <div class="section-label">{{ section.title or section.label[0]|upper + section.label[1:] }}</div>
+      {% endif %}
+      {% for line in section.lines %}
+        {% if display_mode == 'above' %}
+        <div class="line-above">
+          <div class="chord-row">{{ line.chord_line }} </div>
+          <div class="lyric-row">{{ line.text }}</div>
+        </div>
+        {% else %}
+        <div class="line-inline">{{ line.inline }}</div>
+        {% endif %}
+      {% endfor %}
+    {% endfor %}
+    </div>
+  </div>
+  {% endfor %}
+</body>
+</html>
