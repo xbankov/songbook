@@ -3,9 +3,8 @@ import os
 import subprocess
 from datetime import datetime, timezone
 
-from celery import Celery
-
 from app.config import settings
+from celery import Celery
 
 logger = logging.getLogger(__name__)
 
@@ -40,7 +39,9 @@ def daily_backup():
         url = settings.database_url_sync
         result = subprocess.run(
             ["pg_dump", url, "--clean", "--if-exists", "-f", filepath],
-            capture_output=True, text=True, timeout=120,
+            capture_output=True,
+            text=True,
+            timeout=120,
         )
         if result.returncode != 0:
             logger.error(f"Auto backup failed: {result.stderr}")

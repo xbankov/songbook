@@ -1,6 +1,6 @@
 import re
 
-from app.services.music_theory import SongModel, Line, Section, Chord
+from app.services.music_theory import Chord, Line, Section, SongModel
 
 
 def chordpro_to_text(song: SongModel) -> str:
@@ -26,7 +26,9 @@ def chordpro_to_text(song: SongModel) -> str:
                 chord_line = ""
                 for i, ch in enumerate(" ".join(text_parts)):
                     if i in chord_line_chars:
-                        chord_line += chord_line_chars[i].ljust(len(ch) if ch != " " else 1)
+                        chord_line += chord_line_chars[i].ljust(
+                            len(ch) if ch != " " else 1
+                        )
                     else:
                         chord_line += " "
                 lines.append(chord_line.rstrip())
@@ -61,8 +63,8 @@ def chordpro_to_ly(song: SongModel) -> str:
     ly_lines = [
         '\\version "2.24.0"',
         "\\header {",
-        f"  title = \"{song.title}\"",
-        f"  composer = \"{song.artist}\"",
+        f'  title = "{song.title}"',
+        f'  composer = "{song.artist}"',
         "}",
         "",
         "\\score {",

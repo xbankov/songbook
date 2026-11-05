@@ -1,8 +1,7 @@
 from datetime import datetime, timedelta, timezone
 
-from jose import JWTError, jwt
-
 from app.config import settings
+from jose import JWTError, jwt
 
 
 def verify_credentials(username: str, password: str) -> bool:
@@ -10,7 +9,9 @@ def verify_credentials(username: str, password: str) -> bool:
 
 
 def create_access_token() -> str:
-    expire = datetime.now(timezone.utc) + timedelta(minutes=settings.access_token_expire_minutes)
+    expire = datetime.now(timezone.utc) + timedelta(
+        minutes=settings.access_token_expire_minutes
+    )
     return jwt.encode(
         {"role": "admin", "exp": expire, "type": "access"},
         settings.secret_key,

@@ -35,8 +35,14 @@ def lookup_recording(song_title: str, artist_name: str) -> dict | None:
                 "mbid": rec.get("id"),
                 "title": rec.get("title"),
                 "length": rec.get("length"),
-                "artist": rec.get("artist-credit", [{}])[0].get("name") if rec.get("artist-credit") else None,
+                "artist": (
+                    rec.get("artist-credit", [{}])[0].get("name")
+                    if rec.get("artist-credit")
+                    else None
+                ),
             }
     except Exception as e:
-        logger.warning(f"MusicBrainz lookup failed for '{song_title}' by '{artist_name}': {e}")
+        logger.warning(
+            f"MusicBrainz lookup failed for '{song_title}' by '{artist_name}': {e}"
+        )
     return None

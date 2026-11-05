@@ -1,10 +1,9 @@
-from fastapi import APIRouter, Depends
-from sqlalchemy import select
-from sqlalchemy.ext.asyncio import AsyncSession
-
 from app.database import get_db
 from app.models.settings import Settings
 from app.schemas.settings import SettingsOut, SettingsUpdate
+from fastapi import APIRouter, Depends
+from sqlalchemy import select
+from sqlalchemy.ext.asyncio import AsyncSession
 
 router = APIRouter(prefix="/api/settings", tags=["settings"])
 

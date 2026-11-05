@@ -1,6 +1,12 @@
 import pytest
 from app.services.music_theory import (
-    Chord, ChordQuality, Line, Section, SongModel, Tone, chord_quality_names,
+    Chord,
+    ChordQuality,
+    Line,
+    Section,
+    SongModel,
+    Tone,
+    chord_quality_names,
     parse_ultimate_guitar_html,
 )
 

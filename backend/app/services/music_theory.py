@@ -3,35 +3,78 @@ from enum import Enum
 from pydantic import BaseModel
 
 tones: dict[str, int] = {
-    "C": 0, "C#": 1, "Db": 1, "D": 2, "D#": 3, "Eb": 3,
-    "E": 4, "F": 5, "F#": 6, "Gb": 6, "G": 7, "G#": 8,
-    "Ab": 8, "A": 9, "A#": 10, "Bb": 10, "Hb": 10, "B": 11, "H": 11,
+    "C": 0,
+    "C#": 1,
+    "Db": 1,
+    "D": 2,
+    "D#": 3,
+    "Eb": 3,
+    "E": 4,
+    "F": 5,
+    "F#": 6,
+    "Gb": 6,
+    "G": 7,
+    "G#": 8,
+    "Ab": 8,
+    "A": 9,
+    "A#": 10,
+    "Bb": 10,
+    "Hb": 10,
+    "B": 11,
+    "H": 11,
 }
 
 chromatic_scale = ("C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B")
 
 
 class ChordQuality(str, Enum):
-    major = "major"; minor = "minor"; dom7 = "dom7"; maj7 = "maj7"
-    min7 = "min7"; minmaj7 = "minmaj7"; dim = "dim"; aug = "aug"
-    dim7 = "dim7"; min7b5 = "min7b5"; sus2 = "sus2"; sus4 = "sus4"
-    power = "power"; add4 = "add4"; minadd4 = "minadd4"
-    add6 = "add6"; minadd6 = "minadd6"; dom7adds5 = "dom7adds5"
-    maj9 = "maj9"; dom9 = "dom9"; dom9sus4 = "dom9sus4"; dom11 = "dom11"
+    major = "major"
+    minor = "minor"
+    dom7 = "dom7"
+    maj7 = "maj7"
+    min7 = "min7"
+    minmaj7 = "minmaj7"
+    dim = "dim"
+    aug = "aug"
+    dim7 = "dim7"
+    min7b5 = "min7b5"
+    sus2 = "sus2"
+    sus4 = "sus4"
+    power = "power"
+    add4 = "add4"
+    minadd4 = "minadd4"
+    add6 = "add6"
+    minadd6 = "minadd6"
+    dom7adds5 = "dom7adds5"
+    maj9 = "maj9"
+    dom9 = "dom9"
+    dom9sus4 = "dom9sus4"
+    dom11 = "dom11"
 
 
 chord_quality_scheme: dict[ChordQuality, tuple] = {
-    ChordQuality.major: (0, 4, 7), ChordQuality.minor: (0, 3, 7),
-    ChordQuality.dom7: (0, 4, 7, 10), ChordQuality.maj7: (0, 4, 7, 11),
-    ChordQuality.min7: (0, 3, 7, 10), ChordQuality.minmaj7: (0, 3, 7, 11),
-    ChordQuality.dim: (0, 3, 6), ChordQuality.aug: (0, 4, 8),
-    ChordQuality.dim7: (0, 3, 6, 9), ChordQuality.min7b5: (0, 3, 6, 10),
-    ChordQuality.sus2: (0, 2, 7), ChordQuality.sus4: (0, 5, 7),
-    ChordQuality.power: (0, 7), ChordQuality.add4: (0, 4, 5, 7),
-    ChordQuality.minadd4: (0, 3, 5, 7), ChordQuality.add6: (0, 4, 7, 9),
-    ChordQuality.minadd6: (0, 3, 7, 9), ChordQuality.dom7adds5: (0, 4, 7, 8, 10),
-    ChordQuality.maj9: (0, 2, 4, 7, 11), ChordQuality.dom9: (0, 2, 4, 7, 10),
-    ChordQuality.dom9sus4: (0, 2, 5, 7, 10), ChordQuality.dom11: (0, 2, 4, 5, 7, 10),
+    ChordQuality.major: (0, 4, 7),
+    ChordQuality.minor: (0, 3, 7),
+    ChordQuality.dom7: (0, 4, 7, 10),
+    ChordQuality.maj7: (0, 4, 7, 11),
+    ChordQuality.min7: (0, 3, 7, 10),
+    ChordQuality.minmaj7: (0, 3, 7, 11),
+    ChordQuality.dim: (0, 3, 6),
+    ChordQuality.aug: (0, 4, 8),
+    ChordQuality.dim7: (0, 3, 6, 9),
+    ChordQuality.min7b5: (0, 3, 6, 10),
+    ChordQuality.sus2: (0, 2, 7),
+    ChordQuality.sus4: (0, 5, 7),
+    ChordQuality.power: (0, 7),
+    ChordQuality.add4: (0, 4, 5, 7),
+    ChordQuality.minadd4: (0, 3, 5, 7),
+    ChordQuality.add6: (0, 4, 7, 9),
+    ChordQuality.minadd6: (0, 3, 7, 9),
+    ChordQuality.dom7adds5: (0, 4, 7, 8, 10),
+    ChordQuality.maj9: (0, 2, 4, 7, 11),
+    ChordQuality.dom9: (0, 2, 4, 7, 10),
+    ChordQuality.dom9sus4: (0, 2, 5, 7, 10),
+    ChordQuality.dom11: (0, 2, 4, 5, 7, 10),
 }
 
 chord_quality_names: dict[ChordQuality, list[str]] = {
@@ -45,12 +88,16 @@ chord_quality_names: dict[ChordQuality, list[str]] = {
     ChordQuality.aug: ["aug", "augmented"],
     ChordQuality.dim7: ["dim7", "diminished7"],
     ChordQuality.min7b5: ["min7b5", "min7flat5", "half-diminished"],
-    ChordQuality.sus2: ["sus2"], ChordQuality.sus4: ["sus4"],
+    ChordQuality.sus2: ["sus2"],
+    ChordQuality.sus4: ["sus4"],
     ChordQuality.power: ["5"],
-    ChordQuality.add4: ["add4"], ChordQuality.minadd4: ["minAdd4", "mAdd4"],
-    ChordQuality.add6: ["add6"], ChordQuality.minadd6: ["minAdd6", "mAdd6"],
+    ChordQuality.add4: ["add4"],
+    ChordQuality.minadd4: ["minAdd4", "mAdd4"],
+    ChordQuality.add6: ["add6"],
+    ChordQuality.minadd6: ["minAdd6", "mAdd6"],
     ChordQuality.dom7adds5: ["7add#5", "dom7add#5", "7/5+"],
-    ChordQuality.maj9: ["Maj9"], ChordQuality.dom9: ["9", "dom9"],
+    ChordQuality.maj9: ["Maj9"],
+    ChordQuality.dom9: ["9", "dom9"],
     ChordQuality.dom9sus4: ["9sus4", "dom9sus4"],
     ChordQuality.dom11: ["11", "dom11"],
 }
@@ -118,8 +165,7 @@ class Line(BaseModel):
 
     def __str__(self) -> str:
         string_parts = [
-            f"[{part}]" if isinstance(part, Chord) else str(part)
-            for part in self.parts
+            f"[{part}]" if isinstance(part, Chord) else str(part) for part in self.parts
         ]
         return "".join(string_parts)
 
@@ -322,6 +368,7 @@ def detect_key(song: SongModel) -> tuple[str, float] | None:
 
 def parse_ultimate_guitar_html(html: str) -> SongModel | None:
     import json
+
     from bs4 import BeautifulSoup
 
     soup = BeautifulSoup(html, "lxml")
@@ -339,7 +386,12 @@ def parse_ultimate_guitar_html(html: str) -> SongModel | None:
     current_block = []
     for line in text_lines:
         stripped = line.strip()
-        if stripped.startswith("[") and stripped.endswith("]") and "[ch]" not in stripped and "[tab]" not in stripped:
+        if (
+            stripped.startswith("[")
+            and stripped.endswith("]")
+            and "[ch]" not in stripped
+            and "[tab]" not in stripped
+        ):
             if current_block:
                 block_text = "\n".join(current_block)
                 chunk = _parse_ug_block(block_text)
@@ -358,6 +410,7 @@ def parse_ultimate_guitar_html(html: str) -> SongModel | None:
 
 def _parse_ug_block(text: str) -> Section | None:
     import re
+
     lines = text.split("\n")
     parsed_lines = []
     for i, line in enumerate(lines):
@@ -365,11 +418,11 @@ def _parse_ug_block(text: str) -> Section | None:
         if not stripped:
             continue
         clean = stripped.replace("[tab]", "").replace("[/tab]", "")
-        chord_match = re.findall(r'\[ch\](.*?)\[\/ch\]', clean)
+        chord_match = re.findall(r"\[ch\](.*?)\[\/ch\]", clean)
         if chord_match:
             chord_line = re.sub(r"\[ch]([^\]]*)\[/ch]", r"[\1]", clean)
             parsed_lines.append(Line.from_chordpro(chord_line))
-        elif re.match(r'^[A-Za-z0-9]', clean) or clean.startswith("|"):
+        elif re.match(r"^[A-Za-z0-9]", clean) or clean.startswith("|"):
             parsed_lines.append(Line.from_chordpro(clean))
     if not parsed_lines:
         return None

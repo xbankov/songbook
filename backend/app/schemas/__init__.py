@@ -4,8 +4,15 @@ from app.schemas.song import SongCreate, SongOut, SongUpdate, SongVersionOut
 from app.schemas.songbook import SongbookCreate, SongbookEntryOut, SongbookOut
 
 __all__ = [
-    "LoginRequest", "Token",
-    "SettingsOut", "SettingsUpdate",
-    "SongCreate", "SongOut", "SongUpdate", "SongVersionOut",
-    "SongbookCreate", "SongbookEntryOut", "SongbookOut",
+    "LoginRequest",
+    "Token",
+    "SettingsOut",
+    "SettingsUpdate",
+    "SongCreate",
+    "SongOut",
+    "SongUpdate",
+    "SongVersionOut",
+    "SongbookCreate",
+    "SongbookEntryOut",
+    "SongbookOut",
 ]

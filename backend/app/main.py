@@ -1,11 +1,12 @@
 from contextlib import asynccontextmanager
 
-from fastapi import FastAPI
-from fastapi.middleware.cors import CORSMiddleware
-
-from app.api import artists, auth, backup, export, search_import, settings as settings_router, songbooks, songs
+from app.api import artists, auth, backup, export, search_import
+from app.api import settings as settings_router
+from app.api import songbooks, songs
 from app.config import settings
 from app.database import init_db
+from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 
 @asynccontextmanager

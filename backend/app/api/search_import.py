@@ -2,10 +2,9 @@ import logging
 import re
 
 import requests
+from app.services.music_theory import SongModel, parse_ultimate_guitar_html
 from bs4 import BeautifulSoup
 from fastapi import APIRouter, HTTPException, Query
-
-from app.services.music_theory import SongModel, parse_ultimate_guitar_html
 
 logger = logging.getLogger(__name__)
 
@@ -30,19 +29,24 @@ def search_ultimate_guitar(query: str) -> list[dict]:
         store = soup.find("div", {"class": "js-store"})
         if store:
             import json
+
             data = json.loads(store["data-content"])
-            tabs = data.get("store", {}).get("page", {}).get("data", {}).get("results", [])
+            tabs = (
+                data.get("store", {}).get("page", {}).get("data", {}).get("results", [])
+            )
             for tab in tabs[:10]:
                 tab_url = tab.get("tab_url", "")
-                results.append({
-                    "title": tab.get("song_name", "Unknown"),
-                    "artist": tab.get("artist_name", "Unknown"),
-                    "url": tab_url,
-                    "source": "ultimate-guitar",
-                    "type": tab.get("type", ""),
-                    "rating": tab.get("rating", 0),
-                    "votes": tab.get("votes", 0),
-                })
+                results.append(
+                    {
+                        "title": tab.get("song_name", "Unknown"),
+                        "artist": tab.get("artist_name", "Unknown"),
+                        "url": tab_url,
+                        "source": "ultimate-guitar",
+                        "type": tab.get("type", ""),
+                        "rating": tab.get("rating", 0),
+                        "votes": tab.get("votes", 0),
+                    }
+                )
     except Exception as e:
         logger.error(f"Ultimate Guitar search failed: {e}")
     return results

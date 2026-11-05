@@ -1,10 +1,9 @@
-from fastapi import APIRouter, Depends, Query
-from sqlalchemy import select, func
-from sqlalchemy.ext.asyncio import AsyncSession
-
 from app.database import get_db
 from app.models.song import Song
 from app.schemas.song import SongOut
+from fastapi import APIRouter, Depends, Query
+from sqlalchemy import func, select
+from sqlalchemy.ext.asyncio import AsyncSession
 
 router = APIRouter(prefix="/api/artists", tags=["artists"])
 
@@ -18,7 +17,9 @@ async def list_artists(
     query = select(Song.artist, func.count(Song.id).label("song_count"))
     if search:
         query = query.where(Song.artist.ilike(f"%{search}%"))
-    query = query.group_by(Song.artist).order_by(func.count(Song.id).desc()).limit(limit)
+    query = (
+        query.group_by(Song.artist).order_by(func.count(Song.id).desc()).limit(limit)
+    )
     result = await db.execute(query)
     return [{"artist": row[0], "song_count": row[1]} for row in result.all()]
 
