@@ -103,6 +103,32 @@ pip install pre-commit
 pre-commit install
 ```
 
+## AI maintainer
+
+An AI maintainer bot (`xbankov-ai-maintainer[bot]`) helps with issues in this
+repository. It only works on issues a maintainer allows, and it **never merges**:
+a human always reviews and merges.
+
+### Labels
+
+| Label | Set by | Meaning |
+| --- | --- | --- |
+| `ai:allowed` | Maintainer | The bot may work on this issue. Ignored if someone else adds it. Remove it to stop the work. |
+| `ai:queued` | Bot | Allowed, waiting its turn. The bot works on one issue at a time. |
+| `ai:running` | Bot | The AI is investigating or writing the code. |
+| `ai:waiting-for-input` | Bot | The AI waits for a maintainer in its OpenCode session. |
+| `ai:waiting-for-review` | Bot | A pull request is ready for a maintainer to review. |
+
+The other `ai:` labels only show the status. Changing them by hand has no effect.
+
+### How it works
+
+1. A maintainer adds `ai:allowed` to an issue.
+2. The bot starts a private AI session for the issue and links it in a comment.
+3. The maintainer discusses the plan with the AI there and approves it.
+4. The bot posts the approved plan on the issue, then opens a pull request and waits for CI.
+5. A maintainer reviews and merges the pull request.
+
 ### Acknowledgments
 
 <https://www.chordpro.org/chordpro/support/>
