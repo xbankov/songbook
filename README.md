@@ -113,27 +113,20 @@ a human always reviews and merges.
 
 | Label | Set by | Meaning |
 | --- | --- | --- |
-| `ai-allowed` | Maintainer | The bot may work on this issue. Ignored if someone else adds it. Remove it to stop the work. |
+| `ai:allowed` | Maintainer | The bot may work on this issue. Ignored if someone else adds it. Remove it to stop the work. |
 | `ai:queued` | Bot | Allowed, waiting its turn. The bot works on one issue at a time. |
-| `ai:running` | Bot | The bot is analysing the issue or writing the code. |
-| `ai:waiting-for-review` | Bot | A maintainer needs to act: approve a proposal or review a pull request. |
+| `ai:running` | Bot | The AI is investigating or writing the code. |
+| `ai:waiting-for-input` | Bot | The AI waits for a maintainer in its OpenCode session. |
+| `ai:waiting-for-review` | Bot | A pull request is ready for a maintainer to review. |
 
-The `ai:` labels only show the status. Changing them by hand has no effect.
-
-### Commands
-
-Maintainers write these as the first line of an issue comment:
-
-- `/ai approve` — implement the current proposal.
-- `/ai reject` — do not implement it.
-- `/ai revise <what to change>` — get a new proposal with your guidance.
+The other `ai:` labels only show the status. Changing them by hand has no effect.
 
 ### How it works
 
-1. A maintainer adds `ai-allowed` to an issue.
-2. The bot posts a proposal as a comment.
-3. A maintainer replies `/ai approve`, `/ai reject` or `/ai revise …`.
-4. After approval, the bot opens a pull request and waits for CI.
+1. A maintainer adds `ai:allowed` to an issue.
+2. The bot starts a private AI session for the issue and links it in a comment.
+3. The maintainer discusses the plan with the AI there and approves it.
+4. The bot posts the approved plan on the issue, then opens a pull request and waits for CI.
 5. A maintainer reviews and merges the pull request.
 
 ### Acknowledgments
