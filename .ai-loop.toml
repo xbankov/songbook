@@ -1,0 +1,23 @@
+# ai-loop configuration for songbook.
+# Read by the daemon from a clone of this repository, so changes to this file
+# are reviewed in the same pull requests as the code they affect.
+
+default_branch = "main"
+
+# Validation runs in a container, so the host needs no Python 3.10 environment.
+sandbox_image = "python:3.12-slim"
+validate = [
+  "pip install -q -r backend/requirements.txt -r backend/requirements-dev.txt",
+  "isort --check-only backend/src",
+  "black --check backend/src",
+  "pytest -q backend/src",
+]
+
+allow = ["backend/**", "frontend/**", "tests/**", "README.md", "docs/**"]
+deny = [".github/**", ".env*", "docker-compose.yaml", "frontend/node_modules/**"]
+
+[proposals]
+per_week = 4
+max_open = 8
+themes = ["usability", "test coverage", "performance", "UI polish"]
+mix = { large = 1, medium = 1, small = 1, cosmetic = 1 }
