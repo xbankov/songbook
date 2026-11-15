@@ -54,6 +54,11 @@ def test_health_and_login_stay_public(client: TestClient):
     assert response.status_code == 401
 
 
+def test_api_docs_stay_public(client: TestClient):
+    assert client.get("/api/openapi.json").status_code == 200
+    assert client.get("/api/docs").status_code == 200
+
+
 def test_require_auth_accepts_a_valid_token():
     credentials = HTTPAuthorizationCredentials(
         scheme="Bearer", credentials=create_access_token()
