@@ -31,6 +31,7 @@ export const version = {
   capo: 0,
   key: null,
   body: '{title: Old Title}\n{artist: Old Artist}\n{start_of_verse}\n[G]Old line\n{end_of_verse}',
+  author: 'Test User',
   created_at: '2025-12-01T00:00:00Z',
 }
 
@@ -95,6 +96,41 @@ export async function mockApi(
     }
     if (url.pathname === `/api/songs/${song.id}/versions`) {
       return route.fulfill({ json: [version] })
+    }
+    if (
+      url.pathname === `/api/songs/${song.id}/versions/1` &&
+      route.request().method() === 'GET'
+    ) {
+      return route.fulfill({ json: version })
+    }
+    if (
+      url.pathname === `/api/songs/${song.id}/versions/1/favorite` &&
+      route.request().method() === 'POST'
+    ) {
+      return route.fulfill({
+        json: { ...song, metadata: { favorite_versions: [1] } },
+      })
+    }
+    if (
+      url.pathname === `/api/songs/${song.id}/versions/1/favorite` &&
+      route.request().method() === 'DELETE'
+    ) {
+      return route.fulfill({
+        json: { ...song, metadata: { favorite_versions: [] } },
+      })
+    }
+    if (
+      url.pathname === `/api/songs/${song.id}/versions/1/fork` &&
+      route.request().method() === 'POST'
+    ) {
+      return route.fulfill({
+        json: {
+          ...song,
+          id: '44444444-4444-4444-4444-444444444444',
+          title: 'Old Title (fork)',
+          metadata: { forked_from: song.id, forked_version: 1 },
+        },
+      })
     }
     if (
       url.pathname === `/api/songs/${song.id}/versions/1/restore` &&

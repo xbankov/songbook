@@ -1,6 +1,7 @@
 import uuid
 from datetime import datetime, timezone
 
+from app.config import settings
 from app.database import Base
 from app.models.tag import song_tags
 from sqlalchemy import (
@@ -81,3 +82,8 @@ class SongVersion(Base):
     __table_args__ = (UniqueConstraint("song_id", "version", name="uq_song_version"),)
 
     song = relationship("Song", back_populates="versions", lazy="selectin")
+
+    @property
+    def author(self) -> str:
+        # Single-user: every version belongs to the configured user.
+        return settings.auth_username

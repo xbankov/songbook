@@ -276,6 +276,110 @@ async def restore_version(
     return song
 
 
+@router.post("/{song_id}/versions/{version_number}/favorite", response_model=SongOut)
+async def favorite_version(
+    song_id: uuid.UUID, version_number: int, db: AsyncSession = Depends(get_db)
+):
+    result = await db.execute(select(Song).where(Song.id == song_id).with_for_update())
+    song = result.scalar_one_or_none()
+    if not song:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Song not found"
+        )
+    result = await db.execute(
+        select(SongVersion).where(
+            SongVersion.song_id == song_id, SongVersion.version == version_number
+        )
+    )
+    if not result.scalar_one_or_none():
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Version not found"
+        )
+    meta = dict(song.metadata_ or {})
+    favorites = set(meta.get("favorite_versions", []))
+    favorites.add(version_number)
+    meta["favorite_versions"] = sorted(favorites)
+    song.metadata_ = meta
+    await db.flush()
+    await db.refresh(song)
+    return song
+
+
+@router.delete("/{song_id}/versions/{version_number}/favorite", response_model=SongOut)
+async def unfavorite_version(
+    song_id: uuid.UUID, version_number: int, db: AsyncSession = Depends(get_db)
+):
+    result = await db.execute(select(Song).where(Song.id == song_id).with_for_update())
+    song = result.scalar_one_or_none()
+    if not song:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Song not found"
+        )
+    meta = dict(song.metadata_ or {})
+    favorites = set(meta.get("favorite_versions", []))
+    favorites.discard(version_number)
+    meta["favorite_versions"] = sorted(favorites)
+    song.metadata_ = meta
+    await db.flush()
+    await db.refresh(song)
+    return song
+
+
+@router.post(
+    "/{song_id}/versions/{version_number}/fork",
+    response_model=SongOut,
+    status_code=status.HTTP_201_CREATED,
+)
+async def fork_version(
+    song_id: uuid.UUID, version_number: int, db: AsyncSession = Depends(get_db)
+):
+    result = await db.execute(select(Song).where(Song.id == song_id))
+    song = result.scalar_one_or_none()
+    if not song:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Song not found"
+        )
+    result = await db.execute(
+        select(SongVersion).where(
+            SongVersion.song_id == song_id, SongVersion.version == version_number
+        )
+    )
+    version = result.scalar_one_or_none()
+    if not version:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Version not found"
+        )
+
+    forked = Song(
+        title=f"{version.title} (fork)",
+        artist=version.artist,
+        capo=version.capo,
+        key=version.key,
+        body=version.body,
+        metadata_={
+            "forked_from": str(song.id),
+            "forked_version": version_number,
+        },
+        version=1,
+    )
+    db.add(forked)
+    await db.flush()
+    db.add(
+        SongVersion(
+            song_id=forked.id,
+            version=1,
+            title=forked.title,
+            artist=forked.artist,
+            capo=forked.capo,
+            key=forked.key,
+            body=forked.body,
+        )
+    )
+    await db.flush()
+    await db.refresh(forked)
+    return forked
+
+
 @router.get("/{song_id}/analyze")
 async def analyze_song(song_id: uuid.UUID, db: AsyncSession = Depends(get_db)):
     result = await db.execute(select(Song).where(Song.id == song_id))

@@ -92,6 +92,7 @@ export interface SongVersion {
   capo: number
   key: string | null
   body: string
+  author: string
   created_at: string
 }
 
@@ -99,8 +100,24 @@ export function listVersions(id: string): Promise<SongVersion[]> {
   return apiGet(`/api/songs/${id}/versions`)
 }
 
+export function getVersion(id: string, version: number): Promise<SongVersion> {
+  return apiGet(`/api/songs/${id}/versions/${version}`)
+}
+
 export function restoreVersion(id: string, version: number): Promise<SongResponse> {
   return apiPost(`/api/songs/${id}/versions/${version}/restore`)
+}
+
+export function favoriteVersion(id: string, version: number): Promise<SongResponse> {
+  return apiPost(`/api/songs/${id}/versions/${version}/favorite`)
+}
+
+export function unfavoriteVersion(id: string, version: number): Promise<SongResponse> {
+  return apiDelete(`/api/songs/${id}/versions/${version}/favorite`)
+}
+
+export function forkVersion(id: string, version: number): Promise<SongResponse> {
+  return apiPost(`/api/songs/${id}/versions/${version}/fork`)
 }
 
 export function analyzeSong(id: string): Promise<SongAnalysis> {

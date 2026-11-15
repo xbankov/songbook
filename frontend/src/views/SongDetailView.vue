@@ -6,7 +6,15 @@ import { useSettingsStore } from '../stores/settings'
 import SongDisplay from '../components/SongDisplay.vue'
 import ChordDiagram from '../components/ChordDiagram.vue'
 import AppNotice from '../components/AppNotice.vue'
-import { analyzeSong, listVersions, restoreVersion, type SongVersion } from '../api/songs'
+import {
+  analyzeSong,
+  favoriteVersion,
+  forkVersion,
+  listVersions,
+  restoreVersion,
+  unfavoriteVersion,
+  type SongVersion,
+} from '../api/songs'
 import { apiDelete, apiUpload, openFile } from '../api/client'
 
 const route = useRoute()
@@ -26,6 +34,7 @@ const showHistory = ref(false)
 const loadingVersions = ref(false)
 const restoringVersion = ref<number | null>(null)
 const historyError = ref('')
+const historyNotice = ref('')
 let mediaRecorder: MediaRecorder | null = null
 let audioChunks: Blob[] = []
 
@@ -89,6 +98,52 @@ async function toggleHistory() {
   }
 }
 
+function favoriteVersions(): number[] {
+  const value = store.current?.metadata?.favorite_versions
+  return Array.isArray(value)
+    ? value.filter((item): item is number => typeof item === 'number')
+    : []
+}
+
+function isFavorite(version: number): boolean {
+  return favoriteVersions().includes(version)
+}
+
+async function toggleFavorite(version: SongVersion) {
+  historyError.value = ''
+  historyNotice.value = ''
+  try {
+    const song = isFavorite(version.version)
+      ? await unfavoriteVersion(route.params.id as string, version.version)
+      : await favoriteVersion(route.params.id as string, version.version)
+    store.current = song
+  } catch (e: unknown) {
+    historyError.value = e instanceof Error ? e.message : 'Could not update favourite'
+  }
+}
+
+async function copyVersionLink(version: SongVersion) {
+  const url = `${window.location.origin}/songs/${route.params.id}/print?version=${version.version}`
+  try {
+    await navigator.clipboard.writeText(url)
+    historyError.value = ''
+    historyNotice.value = `Link to v${version.version} copied`
+  } catch {
+    historyError.value = 'Could not copy the link'
+  }
+}
+
+async function fork(version: SongVersion) {
+  if (!confirm(`Fork version ${version.version} into a new song?`)) return
+  historyError.value = ''
+  historyNotice.value = ''
+  try {
+    const song = await forkVersion(route.params.id as string, version.version)
+    router.push(`/songs/${song.id}?created=1`)
+  } catch (e: unknown) {
+    historyError.value = e instanceof Error ? e.message : 'Fork failed'
+  }
+}
 async function restore(version: SongVersion) {
   if (!confirm(`Restore version ${version.version}? This creates a new version.`)) return
   const songId = route.params.id as string
@@ -207,6 +262,7 @@ const chords = computed(() => {
       </div>
 
       <AppNotice v-if="historyError" type="error" :message="historyError" />
+      <AppNotice v-if="historyNotice" type="success" :message="historyNotice" />
 
       <div v-if="showHistory" class="history-panel">
         <h2>Version history</h2>
@@ -215,15 +271,27 @@ const chords = computed(() => {
           <div v-for="v in versions" :key="v.id" class="history-row">
             <div class="history-info">
               <strong>v{{ v.version }}</strong>
+              <span>by {{ v.author }}</span>
               <span>{{ new Date(v.created_at).toLocaleString() }}</span>
             </div>
-            <button
-              class="btn-secondary"
-              :disabled="restoringVersion !== null"
-              @click="restore(v)"
-            >
-              {{ restoringVersion === v.version ? 'Restoring...' : 'Restore' }}
-            </button>
+            <div class="history-actions">
+              <button
+                class="btn-secondary"
+                :title="isFavorite(v.version) ? 'Remove favourite' : 'Favourite'"
+                @click="toggleFavorite(v)"
+              >
+                {{ isFavorite(v.version) ? '★' : '☆' }}
+              </button>
+              <button class="btn-secondary" @click="copyVersionLink(v)">Link</button>
+              <button class="btn-secondary" @click="fork(v)">Fork</button>
+              <button
+                class="btn-secondary"
+                :disabled="restoringVersion !== null"
+                @click="restore(v)"
+              >
+                {{ restoringVersion === v.version ? 'Restoring...' : 'Restore' }}
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -313,6 +381,11 @@ const chords = computed(() => {
 .history-info span {
   color: var(--text-muted);
   font-size: 0.8rem;
+}
+.history-actions {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
 }
 .btn-secondary {
   padding: 0.4rem 0.8rem;

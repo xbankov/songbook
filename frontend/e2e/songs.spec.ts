@@ -249,4 +249,45 @@ test.describe('Songbook UI', () => {
 
     await expect(page.locator('.song-title')).toHaveText('Old Title')
   })
+
+  test('marks a version favourite and forks it', async ({ page }) => {
+    await mockApi(page)
+    await page.goto(`/songs/${song.id}`)
+    await page.getByRole('button', { name: 'History' }).click()
+    await expect(page.locator('.history-row')).toContainText('by Test User')
+
+    const favoriteRequest = page.waitForRequest(
+      (req) =>
+        req.url().includes(`/api/songs/${song.id}/versions/1/favorite`) &&
+        req.method() === 'POST',
+    )
+    await page.locator('.history-row button[title="Favourite"]').click()
+    await favoriteRequest
+    await expect(
+      page.locator('.history-row button[title="Remove favourite"]'),
+    ).toBeVisible()
+
+    const forkRequest = page.waitForRequest(
+      (req) =>
+        req.url().includes(`/api/songs/${song.id}/versions/1/fork`) &&
+        req.method() === 'POST',
+    )
+    page.once('dialog', (dialog) => dialog.accept())
+    await page.getByRole('button', { name: 'Fork' }).click()
+    await forkRequest
+    await expect(page).toHaveURL(/44444444-4444-4444-4444-444444444444/)
+  })
+
+  test('copies a version permalink', async ({ page, context }) => {
+    await context.grantPermissions(['clipboard-read', 'clipboard-write'])
+    await mockApi(page)
+    await page.goto(`/songs/${song.id}`)
+    await page.getByRole('button', { name: 'History' }).click()
+
+    await page.getByRole('button', { name: 'Link', exact: true }).click()
+    await expect(page.locator('.notice.success')).toContainText('copied')
+
+    const copied = await page.evaluate(() => navigator.clipboard.readText())
+    expect(copied).toContain(`/songs/${song.id}/print?version=1`)
+  })
 })

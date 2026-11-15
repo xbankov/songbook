@@ -28,7 +28,20 @@ class _Session:
         self.added.append(obj)
 
     async def flush(self):
-        pass
+        now = datetime.now(timezone.utc)
+        for obj in self.added:
+            if isinstance(obj, Song):
+                if obj.id is None:
+                    obj.id = uuid4()
+                if obj.created_at is None:
+                    obj.created_at = now
+                if obj.updated_at is None:
+                    obj.updated_at = now
+            elif isinstance(obj, SongVersion):
+                if obj.id is None:
+                    obj.id = uuid4()
+                if obj.created_at is None:
+                    obj.created_at = now
 
     async def refresh(self, obj):
         pass
@@ -83,3 +96,73 @@ def test_restore_version_restores_content_as_a_new_version():
     assert body["version"] == 4
     assert db.added[0].version == 4
     assert db.added[0].body == "old body"
+
+
+def _song_and_version() -> tuple[Song, SongVersion]:
+    now = datetime.now(timezone.utc)
+    song = Song(
+        id=uuid4(),
+        title="Current title",
+        artist="Artist",
+        capo=0,
+        key="C",
+        body="current body",
+        metadata_={},
+        version=2,
+        created_at=now,
+        updated_at=now,
+    )
+    song.tags = []
+    version = SongVersion(
+        id=uuid4(),
+        song_id=song.id,
+        version=1,
+        title="Old title",
+        artist="Old artist",
+        capo=2,
+        key="G",
+        body="old body",
+        created_at=now,
+    )
+    return song, version
+
+
+def _request(path: str, db: _Session, method: str = "post"):
+    async def override_get_db():
+        yield db
+
+    app.dependency_overrides[get_db] = override_get_db
+    try:
+        client = TestClient(app)
+        headers = {"Authorization": f"Bearer {create_access_token()}"}
+        return getattr(client, method)(
+            path,
+            headers=headers,
+        )
+    finally:
+        app.dependency_overrides.clear()
+
+
+def test_favorite_version_updates_metadata():
+    song, version = _song_and_version()
+    db = _Session(song, version)
+
+    response = _request(f"/api/songs/{song.id}/versions/1/favorite", db)
+
+    assert response.status_code == 200
+    data = response.json()
+    metadata = data.get("metadata") or data.get("metadata_")
+    assert metadata["favorite_versions"] == [1]
+
+
+def test_fork_version_creates_a_new_song():
+    song, version = _song_and_version()
+    db = _Session(song, version)
+
+    response = _request(f"/api/songs/{song.id}/versions/1/fork", db)
+
+    assert response.status_code == 201
+    data = response.json()
+    assert data["title"] == "Old title (fork)"
+    assert data["body"] == "old body"
+    assert len(db.added) == 2
