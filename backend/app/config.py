@@ -14,7 +14,11 @@ class Settings(BaseSettings):
     database_url_sync: str = "postgresql://songbook:changeme@localhost:5432/songbook"
     upload_dir: str = "/uploads"
 
-    model_config = {"env_file": ".env", "env_file_encoding": "utf-8"}
+    model_config = {
+        "env_file": ".env",
+        "env_file_encoding": "utf-8",
+        "extra": "ignore",
+    }
 
 
 settings = Settings()

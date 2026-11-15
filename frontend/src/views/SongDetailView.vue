@@ -7,6 +7,7 @@ import SongDisplay from '../components/SongDisplay.vue'
 import ChordDiagram from '../components/ChordDiagram.vue'
 import AppNotice from '../components/AppNotice.vue'
 import { analyzeSong } from '../api/songs'
+import { openFile } from '../api/client'
 
 const route = useRoute()
 const router = useRouter()
@@ -18,6 +19,7 @@ const keyConfidence = ref<number | null>(null)
 const selectedChord = ref<string | null>(null)
 const hasAudio = ref(false)
 const recording = ref(false)
+const pdfError = ref('')
 let mediaRecorder: MediaRecorder | null = null
 let audioChunks: Blob[] = []
 
@@ -51,8 +53,13 @@ async function removeSong() {
   }
 }
 
-function printSong() {
-  window.open(`/api/export/song/${route.params.id}/pdf`, '_blank')
+async function printSong() {
+  pdfError.value = ''
+  try {
+    await openFile(`/api/export/song/${route.params.id}/pdf`)
+  } catch (e: unknown) {
+    pdfError.value = e instanceof Error ? e.message : 'Could not open PDF'
+  }
 }
 
 function printBrowser() {
@@ -116,6 +123,7 @@ const chords = computed(() => {
     <div v-else-if="!song" class="error">Song not found</div>
     <template v-else>
       <AppNotice v-if="successNotice" type="success" :message="successNotice" />
+      <AppNotice v-if="pdfError" type="error" :message="pdfError" />
 
       <div class="detail-actions">
         <router-link :to="`/songs/${song.id}/edit`" class="btn-secondary">Edit</router-link>

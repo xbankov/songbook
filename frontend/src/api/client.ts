@@ -55,6 +55,15 @@ export async function apiDownload(path: string): Promise<Blob> {
   return response.blob()
 }
 
+/** Download a protected file and open it in a new tab (e.g. a PDF). */
+export async function openFile(path: string): Promise<void> {
+  const blob = await apiDownload(path)
+  const url = URL.createObjectURL(blob)
+  window.open(url, '_blank', 'noopener')
+  // Keep the URL alive long enough for the new tab to load it.
+  setTimeout(() => URL.revokeObjectURL(url), 60_000)
+}
+
 export async function apiRequest<T>(path: string, options: RequestOptions = {}): Promise<T> {
   const { method = 'GET', body, headers = {}, params } = options
   const requestToken = getToken()

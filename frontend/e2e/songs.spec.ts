@@ -112,4 +112,17 @@ test.describe('Songbook UI', () => {
     await expect(page).toHaveURL(new RegExp(`/songs/${song.id}\\?created=1$`))
     await expect(page.locator('.notice.success')).toHaveText('Song created')
   })
+
+  test('requests song PDFs with the auth token', async ({ page }) => {
+    await mockApi(page)
+    await page.goto(`/songs/${song.id}`)
+
+    const requestPromise = page.waitForRequest((req) =>
+      req.url().includes(`/api/export/song/${song.id}/pdf`),
+    )
+    await page.getByRole('button', { name: 'PDF' }).click()
+    const request = await requestPromise
+
+    expect(request.headers()['authorization']).toBe('Bearer e2e-token')
+  })
 })

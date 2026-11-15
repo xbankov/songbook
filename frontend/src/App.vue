@@ -1,15 +1,23 @@
 <script setup lang="ts">
-import { onMounted } from 'vue'
+import { watch } from 'vue'
 import NavBar from './components/NavBar.vue'
 import { useTheme } from './composables/useTheme'
 import { useSettingsStore } from './stores/settings'
+import { useAuthStore } from './stores/auth'
 
 const settingsStore = useSettingsStore()
+const auth = useAuthStore()
 useTheme()
 
-onMounted(() => {
-  settingsStore.fetchSettings()
-})
+watch(
+  () => auth.isAuthenticated,
+  (authenticated) => {
+    if (authenticated) {
+      settingsStore.fetchSettings().catch(() => {})
+    }
+  },
+  { immediate: true },
+)
 </script>
 
 <template>
