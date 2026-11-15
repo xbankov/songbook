@@ -2,11 +2,20 @@
 import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useSongStore } from '../stores/songs'
-import { apiGet, apiPost } from '../api/client'
+import { apiDownload, apiGet, apiPost } from '../api/client'
 import { useDebounceFn } from '@vueuse/core'
+import AppNotice from '../components/AppNotice.vue'
 
 const router = useRouter()
 const store = useSongStore()
+
+const notice = ref<{ type: 'info' | 'success' | 'error'; message: string } | null>(null)
+
+function showNotice(type: 'info' | 'success' | 'error', message: string) {
+  // Do not let a later success hide an outstanding error from another action.
+  if (type !== 'error' && notice.value?.type === 'error') return
+  notice.value = { type, message }
+}
 
 const search = ref('')
 const artist = ref('')
@@ -45,15 +54,19 @@ async function doImport() {
   if (!importUrl.value) return
   try {
     const song = await store.importSong(importUrl.value)
-    router.push(`/songs/${song.id}`)
+    router.push(`/songs/${song.id}?imported=1`)
   } catch (e: unknown) {
-    alert(e instanceof Error ? e.message : 'Import failed')
+    showNotice('error', e instanceof Error ? e.message : 'Import failed')
   }
 }
 
 async function removeSong(id: string) {
-  if (confirm('Delete this song?')) {
+  if (!confirm('Delete this song?')) return
+  try {
     await store.deleteSong(id)
+    showNotice('success', 'Song deleted')
+  } catch (e: unknown) {
+    showNotice('error', e instanceof Error ? e.message : 'Delete failed')
   }
 }
 
@@ -61,30 +74,29 @@ async function doBulkImport() {
   if (!bulkText.value.trim()) return
   bulkImporting.value = true
   try {
-    await store.bulkImport(bulkText.value)
+    const imported = await store.bulkImport(bulkText.value)
     bulkText.value = ''
     showBulkImport.value = false
+    showNotice('success', `Imported ${imported.length} song${imported.length === 1 ? '' : 's'}`)
     await store.fetchSongs()
   } catch (e: unknown) {
-    alert(e instanceof Error ? e.message : 'Bulk import failed')
+    showNotice('error', e instanceof Error ? e.message : 'Bulk import failed')
   } finally {
     bulkImporting.value = false
   }
 }
 
 async function bulkExport(format: string) {
-  const token = localStorage.getItem('auth')
-  const headers: Record<string, string> = {}
-  if (token) {
-    try { headers['Authorization'] = `Bearer ${JSON.parse(token).accessToken}` } catch {}
+  try {
+    const blob = await apiDownload(`/api/songs/export/bulk?format=${format}`)
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url; a.download = `songs.${format}`; a.click()
+    URL.revokeObjectURL(url)
+    showNotice('success', `Exported ${format}`)
+  } catch (e: unknown) {
+    showNotice('error', e instanceof Error ? e.message : 'Export failed')
   }
-  const resp = await fetch(`/api/songs/export/bulk?format=${format}`, { headers })
-  if (!resp.ok) return
-  const blob = await resp.blob()
-  const url = URL.createObjectURL(blob)
-  const a = document.createElement('a')
-  a.href = url; a.download = `songs.${format}`; a.click()
-  URL.revokeObjectURL(url)
 }
 
 async function doSearchImport() {
@@ -108,9 +120,9 @@ async function importSearchResult(url: string) {
       artist: songData.artist,
       body: songData.body,
     })
-    router.push(`/songs/${song.id}`)
+    router.push(`/songs/${song.id}?imported=1`)
   } catch (e: unknown) {
-    alert(e instanceof Error ? e.message : 'Import failed')
+    showNotice('error', e instanceof Error ? e.message : 'Import failed')
   }
 }
 </script>
@@ -125,6 +137,8 @@ async function importSearchResult(url: string) {
       <button @click="showBulkImport = !showBulkImport" class="btn-secondary">Bulk</button>
       <button @click="bulkExport('chordpro')" class="btn-secondary" title="Export all as ChordPro">Export</button>
     </div>
+
+    <AppNotice v-if="notice" :type="notice.type" :message="notice.message" />
 
     <div v-if="showImport" class="import-bar">
       <input v-model="importUrl" placeholder="Ultimate Guitar or supermusic.sk URL..." class="search-input" />

@@ -5,6 +5,7 @@ import { useSongbookStore } from '../stores/songbooks'
 import { useSongStore } from '../stores/songs'
 import { useSettingsStore } from '../stores/settings'
 import SongDisplay from '../components/SongDisplay.vue'
+import AppNotice from '../components/AppNotice.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -14,25 +15,40 @@ const settingsStore = useSettingsStore()
 
 const addSongId = ref('')
 const expandedEntry = ref<string | null>(null)
+const error = ref('')
 
 onMounted(async () => {
-  await Promise.all([
-    store.fetchSongbook(route.params.id as string),
-    songStore.fetchSongs(),
-    settingsStore.fetchSettings(),
-  ])
+  try {
+    await Promise.all([
+      store.fetchSongbook(route.params.id as string),
+      songStore.fetchSongs(),
+      settingsStore.fetchSettings(),
+    ])
+  } catch (e: unknown) {
+    error.value = e instanceof Error ? e.message : 'Failed to load songbook'
+  }
 })
 
 const songbook = computed(() => store.current)
 
 async function addSong() {
   if (!addSongId.value) return
-  await store.addSong(route.params.id as string, addSongId.value)
-  addSongId.value = ''
+  error.value = ''
+  try {
+    await store.addSong(route.params.id as string, addSongId.value)
+    addSongId.value = ''
+  } catch (e: unknown) {
+    error.value = e instanceof Error ? e.message : 'Could not add song'
+  }
 }
 
 async function removeEntry(entryId: string) {
-  await store.removeSong(route.params.id as string, entryId)
+  error.value = ''
+  try {
+    await store.removeSong(route.params.id as string, entryId)
+  } catch (e: unknown) {
+    error.value = e instanceof Error ? e.message : 'Could not remove song'
+  }
 }
 
 function toggleExpand(entryId: string) {
@@ -46,6 +62,8 @@ function printSongbook() {
 </script>
 
 <template>
+  <AppNotice v-if="error" type="error" :message="error" />
+
   <div v-if="store.loading" class="loading">Loading...</div>
   <div v-else-if="!songbook" class="error">Songbook not found</div>
   <template v-else>

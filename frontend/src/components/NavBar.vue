@@ -2,10 +2,17 @@
 import { useAuthStore } from '../stores/auth'
 import { useTheme } from '../composables/useTheme'
 import { useOffline } from '../composables/useOffline'
+import { useRouter } from 'vue-router'
 
+const router = useRouter()
 const auth = useAuthStore()
 const { theme, toggle } = useTheme()
 const { isOnline, pendingEdits } = useOffline()
+
+async function logout() {
+  await auth.logout()
+  router.push('/login')
+}
 </script>
 
 <template>
@@ -25,7 +32,7 @@ const { isOnline, pendingEdits } = useOffline()
           <button @click="toggle" class="nav-btn theme-btn" :title="theme === 'dark' ? 'Switch to light theme' : 'Switch to dark theme'">
             {{ theme === 'dark' ? '☀' : '☾' }}
           </button>
-          <button @click="auth.logout()" class="nav-btn">Logout</button>
+          <button @click="logout" class="nav-btn">Logout</button>
         </template>
         <template v-else>
           <router-link to="/login" class="nav-link">Sign In</router-link>

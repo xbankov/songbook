@@ -36,20 +36,34 @@ export const settings = {
  */
 export async function mockApi(
   page: Page,
-  { authenticated = true }: { authenticated?: boolean } = {},
+  {
+    authenticated = true,
+    unauthorized = false,
+    seedAuthOnce = false,
+  }: { authenticated?: boolean; unauthorized?: boolean; seedAuthOnce?: boolean } = {},
 ) {
-  await page.addInitScript((isAuthenticated) => {
-    if (isAuthenticated) {
+  await page.addInitScript(
+    ({ isAuthenticated, seedOnce }) => {
+      if (!isAuthenticated) {
+        localStorage.removeItem('auth')
+        return
+      }
+      if (seedOnce && sessionStorage.getItem('e2e-auth-seeded') === '1') {
+        return
+      }
       localStorage.setItem('auth', JSON.stringify({ accessToken: 'e2e-token' }))
-    } else {
-      localStorage.removeItem('auth')
-    }
-  }, authenticated)
+      if (seedOnce) sessionStorage.setItem('e2e-auth-seeded', '1')
+    },
+    { isAuthenticated: authenticated, seedOnce: seedAuthOnce },
+  )
 
   await page.route('**/*', async (route) => {
     const url = new URL(route.request().url())
     if (!url.pathname.startsWith('/api/')) {
       return route.continue()
+    }
+    if (unauthorized) {
+      return route.fulfill({ status: 401, json: { detail: 'Not authenticated' } })
     }
     if (url.pathname === '/api/settings') {
       return route.fulfill({ json: settings })

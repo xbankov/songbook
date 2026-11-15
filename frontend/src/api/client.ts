@@ -28,16 +28,43 @@ function getToken(): string | null {
   return null
 }
 
+function handleUnauthorized(requestToken: string | null): void {
+  // A late 401 from an old request must not clear a newer token (e.g. the user
+  // just logged in again). Only clear if the failed request used the current one.
+  if (getToken() !== requestToken) return
+  localStorage.removeItem('auth')
+  if (window.location.pathname !== '/login') {
+    window.location.assign('/login')
+  }
+}
+
+export async function apiDownload(path: string): Promise<Blob> {
+  const requestToken = getToken()
+  const headers: Record<string, string> = {}
+  if (requestToken) {
+    headers['Authorization'] = `Bearer ${requestToken}`
+  }
+  const response = await fetch(buildUrl(path), { headers })
+  if (!response.ok) {
+    if (response.status === 401) {
+      handleUnauthorized(requestToken)
+    }
+    const err = await response.json().catch(() => ({ detail: response.statusText }))
+    throw new Error(err.detail || `Request failed: ${response.status}`)
+  }
+  return response.blob()
+}
+
 export async function apiRequest<T>(path: string, options: RequestOptions = {}): Promise<T> {
   const { method = 'GET', body, headers = {}, params } = options
-  const token = getToken()
+  const requestToken = getToken()
 
   const fetchHeaders: Record<string, string> = {
     'Content-Type': 'application/json',
     ...headers,
   }
-  if (token) {
-    fetchHeaders['Authorization'] = `Bearer ${token}`
+  if (requestToken) {
+    fetchHeaders['Authorization'] = `Bearer ${requestToken}`
   }
 
   const response = await fetch(buildUrl(path, params), {
@@ -47,6 +74,9 @@ export async function apiRequest<T>(path: string, options: RequestOptions = {}):
   })
 
   if (!response.ok) {
+    if (response.status === 401 && !path.startsWith('/api/auth/login')) {
+      handleUnauthorized(requestToken)
+    }
     const err = await response.json().catch(() => ({ detail: response.statusText }))
     throw new Error(err.detail || `Request failed: ${response.status}`)
   }

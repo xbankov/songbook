@@ -5,6 +5,7 @@ import { useSongStore } from '../stores/songs'
 import { useSettingsStore } from '../stores/settings'
 import SongDisplay from '../components/SongDisplay.vue'
 import ChordDiagram from '../components/ChordDiagram.vue'
+import AppNotice from '../components/AppNotice.vue'
 import { analyzeSong } from '../api/songs'
 
 const route = useRoute()
@@ -36,6 +37,12 @@ onMounted(async () => {
 })
 
 const song = computed(() => store.current)
+
+const successNotice = computed(() => {
+  if (route.query.created) return 'Song created'
+  if (route.query.imported) return 'Song imported'
+  return ''
+})
 
 async function removeSong() {
   if (confirm('Delete this song? All versions will be lost.')) {
@@ -108,6 +115,8 @@ const chords = computed(() => {
     <div v-if="store.loading" class="loading">Loading...</div>
     <div v-else-if="!song" class="error">Song not found</div>
     <template v-else>
+      <AppNotice v-if="successNotice" type="success" :message="successNotice" />
+
       <div class="detail-actions">
         <router-link :to="`/songs/${song.id}/edit`" class="btn-secondary">Edit</router-link>
         <button @click="printSong" class="btn-secondary">PDF</button>
