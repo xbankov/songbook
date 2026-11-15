@@ -9,10 +9,13 @@ on:
 
 permissions:
   contents: read
+  # dorny/paths-filter lists PR files through the API.
+  pull-requests: read
 
-# Cancel superseded PR runs; let main runs finish.
+# PRs: cancel superseded runs.
+# main: one run per SHA, so every commit can publish its own image tag.
 concurrency:
-  group: ci-${{ github.workflow }}-${{ github.ref }}
+  group: ci-${{ github.workflow }}-${{ github.event_name == 'push' && github.sha || github.ref }}
   cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 env:
@@ -27,6 +30,7 @@ jobs:
       backend: ${{ steps.filter.outputs.backend }}
       frontend: ${{ steps.filter.outputs.frontend }}
       docker: ${{ steps.filter.outputs.docker }}
+      tests: ${{ steps.filter.outputs.tests }}
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
@@ -35,11 +39,13 @@ jobs:
 
       - name: Filter changed paths
         id: filter
+        if: github.event_name != 'workflow_dispatch'
         uses: dorny/paths-filter@v3
         with:
           filters: |
             backend:
               - 'backend/**'
+              - 'tests/**'
               - 'pytest.ini'
               - 'pyproject.toml'
               - '.github/workflows/system.yaml'
@@ -49,8 +55,17 @@ jobs:
             docker:
               - 'backend/**'
               - 'frontend/**'
+              - 'tests/**'
+              - '.env.example'
               - 'nginx/**'
               - 'docker-compose.yml'
+              - 'docker-compose.ci.yml'
+              - '.github/workflows/system.yaml'
+            tests:
+              - 'tests/**'
+              - '.env.example'
+              - 'docker-compose.yml'
+              - 'docker-compose.ci.yml'
               - '.github/workflows/system.yaml'
 
   backend:
@@ -163,7 +178,7 @@ jobs:
           retention-days: 7
 
   docker:
-    name: Docker — build${{ github.event_name == 'push' && github.ref == 'refs/heads/main' && ' & push' || '' }}
+    name: Docker — build candidate
     needs: changes
     if: github.event_name == 'workflow_dispatch' || needs.changes.outputs.docker == 'true'
     runs-on: ubuntu-latest
@@ -175,6 +190,11 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+      - name: Validate Compose config
+        run: |
+          cp .env.example .env
+          docker compose -f docker-compose.yml config --quiet
+
       - name: Log in to Docker Hub
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: docker/login-action@v3
@@ -182,36 +202,53 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
 
-      # PRs: build only, never push. This catches Dockerfile errors without
-      # overwriting the production `latest` tag with unmerged code.
-      - name: Build image (pull request)
-        if: github.event_name == 'pull_request'
+      # PRs and manual runs: build only, never push.
+      - name: Build backend image (PR/manual)
+        if: github.event_name != 'push' || github.ref != 'refs/heads/main'
         uses: docker/build-push-action@v6
         with:
           context: ./backend
           file: ./backend/Dockerfile
           push: false
-          tags: songbook:ci
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          tags: songbook-backend:ci
+          cache-from: type=gha,scope=backend
+          cache-to: type=gha,scope=backend,mode=max
 
-      - name: Build and push image (main)
+      - name: Build frontend image (PR/manual)
+        if: github.event_name != 'push' || github.ref != 'refs/heads/main'
+        uses: docker/build-push-action@v6
+        with:
+          context: ./frontend
+          file: ./frontend/Dockerfile
+          push: false
+          tags: songbook-frontend:ci
+          cache-from: type=gha,scope=frontend
+          cache-to: type=gha,scope=frontend,mode=max
+
+      # Main: publish an immutable candidate tag only. `latest` is promoted
+      # by the `promote` job after the smoke test passes.
+      - name: Build and push candidate (main)
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         uses: docker/build-push-action@v6
         with:
           context: ./backend
           file: ./backend/Dockerfile
           push: true
-          tags: |
-            ${{ secrets.DOCKER_USERNAME }}/songbook:latest
-            ${{ secrets.DOCKER_USERNAME }}/songbook:${{ github.sha }}
-          cache-from: type=gha
-          cache-to: type=gha,mode=max
+          tags: ${{ secrets.DOCKER_USERNAME }}/songbook:${{ github.sha }}
+          cache-from: type=gha,scope=backend
+          cache-to: type=gha,scope=backend,mode=max
 
   smoke:
     name: Docker Compose smoke test
-    needs: changes
-    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && needs.changes.outputs.docker == 'true'
+    needs: [changes, docker]
+    if: |
+      always() &&
+      needs.docker.result == 'success' &&
+      (
+        github.event_name == 'workflow_dispatch' ||
+        (github.event_name == 'push' && github.ref == 'refs/heads/main') ||
+        (github.event_name == 'pull_request' && needs.changes.outputs.tests == 'true')
+      )
     runs-on: ubuntu-latest
     timeout-minutes: 20
     steps:
@@ -221,7 +258,25 @@ jobs:
       - name: Create environment file
         run: cp .env.example .env
 
-      - name: Start services
+      - name: Log in to Docker Hub
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      # Main: use the exact candidate image that will be promoted.
+      - name: Start services with candidate image (main)
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        env:
+          SONGBOOK_BACKEND_IMAGE: ${{ secrets.DOCKER_USERNAME }}/songbook:${{ github.sha }}
+        run: |
+          docker compose -f docker-compose.yml -f docker-compose.ci.yml build frontend
+          docker compose -f docker-compose.yml -f docker-compose.ci.yml up --no-build --detach
+
+      # Manual/PR: build from the checkout and test that.
+      - name: Start services from checkout (manual/PR)
+        if: github.event_name != 'push' || github.ref != 'refs/heads/main'
         run: docker compose -f docker-compose.yml up --build --detach
 
       - name: Wait for FastAPI
@@ -255,3 +310,41 @@ jobs:
       - name: Stop services
         if: always()
         run: docker compose -f docker-compose.yml down -v
+
+  promote:
+    name: Promote tested image to latest
+    needs: smoke
+    if: |
+      always() &&
+      github.event_name == 'push' &&
+      github.ref == 'refs/heads/main' &&
+      needs.smoke.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    concurrency:
+      group: songbook-latest
+      cancel-in-progress: false
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log in to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+
+      # Serialized and guarded: an older run must not overwrite a newer latest.
+      - name: Promote only if this SHA is current main
+        run: |
+          current_main=$(git ls-remote origin refs/heads/main | cut -f1)
+          if [ "$current_main" != "$GITHUB_SHA" ]; then
+            echo "Skipping latest: $GITHUB_SHA is not current main ($current_main)"
+            exit 0
+          fi
+          docker buildx imagetools create \
+            --tag "${{ secrets.DOCKER_USERNAME }}/songbook:latest" \
+            "${{ secrets.DOCKER_USERNAME }}/songbook:${{ github.sha }}"

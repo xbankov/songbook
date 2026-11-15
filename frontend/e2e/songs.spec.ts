@@ -26,6 +26,12 @@ test.describe('Songbook UI', () => {
     await expect(page.locator('.chord-row').first()).toContainText('G')
     await expect(page.locator('.lyric-row').first()).toContainText('Hello world')
     await expect(page.locator('.song-controls')).toBeVisible()
+
+    const chordBox = await page.locator('.chord-row').first().boundingBox()
+    const lyricBox = await page.locator('.lyric-row').first().boundingBox()
+    expect(chordBox).not.toBeNull()
+    expect(lyricBox).not.toBeNull()
+    expect(chordBox!.y).toBeLessThan(lyricBox!.y)
   })
 
   test('print mode hides controls and the version footer', async ({ page }) => {
