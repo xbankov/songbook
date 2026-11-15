@@ -232,6 +232,7 @@ function lyricRow(spans: Span[]): string {
 .chord-inline { font-weight: 700; color: var(--accent); }
 
 @media print {
+  .song-display { padding-bottom: 0 !important; }
   .song-controls { display: none !important; }
   .mode-above { font-size: 9pt !important; }
   .mode-inline { font-size: 9pt !important; }
