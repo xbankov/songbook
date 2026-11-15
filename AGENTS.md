@@ -55,10 +55,27 @@ labelled `ai:allowed` (see README), or the user asks in a session (for example
 4. Branch from an up-to-date `main`: `fix/<issue>-<topic>` or `feat/<issue>-<topic>`.
 5. Make the change, run the validation above, and fix failures.
 6. Commit with a message that references the issue. Never push to `main`.
-7. The AI maintainer pushes the branch, opens the pull request using the format
-   below, and waits for CI. In a manual session, stop after step 6 and tell the
-   user the branch is ready; the user pushes and opens the pull request.
+7. The AI maintainer pushes the branch and opens the pull request using the
+   format below. In a manual session, stop after step 6 and tell the user the
+   branch is ready; the user pushes and opens the pull request.
+8. **Wait for the Sourcery review on the latest commit.** Address every finding
+   (or reply explaining why it does not apply), push the fixes, and wait for a
+   fresh review. Do not call the PR ready until Sourcery has no blocking
+   findings and CI is green.
+
+## Review gate
+
+A pull request is ready only when all of these are true:
+
+- CI is green on the **latest** commit.
+- Sourcery has reviewed the **latest** commit (not an earlier one).
+- Every Sourcery finding is fixed or explicitly answered.
+- If a fix changes the code, wait for the next Sourcery review and repeat.
+
+Never merge while a Sourcery finding is unaddressed. Never claim a PR is ready
+just because the first CI run passed.
 
 ## Pull request format
 
-`Closes #<issue>`, then what changed, how it was validated, risk, rollback.
+`Closes #<issue>`, then what changed, how it was validated, risk, rollback, and
+**Sourcery: findings addressed / no blocking findings**.
