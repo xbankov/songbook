@@ -204,6 +204,7 @@ test.describe('Songbook UI', () => {
 
     await page.goto(`/songs/${song.id}/print`)
     await expect(page.locator('.song-title')).toHaveText(song.title)
+    await expect(page.locator('.section-label').first()).toContainText('Verse')
     await expect(page.locator('.chord-row').first()).toContainText('G')
     await expect(page.locator('.lyric-row').first()).toHaveText('Hello world')
     const chordBox = await page.locator('.chord-row').first().boundingBox()

@@ -197,7 +197,7 @@ function lyricRow(spans: Span[]): string {
 
     <div class="song-body" :class="['mode-' + displayMode, { 'double-column': doubleColumn }]">
       <div v-for="(section, si) in parsed.sections" :key="si" :class="['section', { long: section.lines.length > 10 }]">
-        <div v-if="section.label && section.label !== 'verse'" class="section-label">
+        <div v-if="section.label" class="section-label">
           {{ section.title || section.label.charAt(0).toUpperCase() + section.label.slice(1) }}
         </div>
         <template v-for="(line, li) in section.lines" :key="li">

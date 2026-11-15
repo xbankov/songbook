@@ -47,7 +47,7 @@ def _build_line_data(line_parts: list) -> dict:
 
 
 def _build_section_data(section) -> dict:
-    label = section.label if section.label and section.label != "verse" else None
+    label = section.label
     lines = [_build_line_data(line.parts) for line in section.lines]
     return {
         "label": label,
@@ -103,7 +103,7 @@ def _render_song_fpdf(pdf, song: SongModel, settings: Settings):
     font_size = settings.font_size
 
     for section in song.sections:
-        if section.label and section.label != "verse":
+        if section.label:
             label_text = (section.title or section.label.capitalize()).upper()
             pdf.set_font("DejaVu", "B", 10)
             pdf.set_text_color(139, 69, 19)
