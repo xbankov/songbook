@@ -95,7 +95,7 @@ Every roadmap item should make this loop faster, more reliable, or more enjoyabl
 | Audio record/upload/playback (#42) | Partial — no record mode/privacy |
 | Tags model + API filter (#26) | Partial — no tag/difficulty/genre UI |
 | Auth | ⚠️ Login exists, but **no API route uses `require_auth`** |
-| Migrations | Deferred — `init_db()` is fine pre-1.0.0; add Alembic (#69) before 1.0.0 |
+| Migrations | Deferred for dev/empty DBs — add the Alembic baseline (#69) before changing a schema under real data, and at the pre-1.0.0 gate |
 
 ---
 
@@ -134,18 +134,22 @@ Sizes: **S** ≈ half day, **M** ≈ 1–3 days, **L** ≈ 1–2 weeks.
 long song prints without blank/clipped pages; common UI failures show a message
 instead of a raw `alert()` or a silently broken page.
 
-> **Alembic (#69) is deliberately deferred.** `init_db()` is acceptable before
-> 1.0.0. Add the baseline migration and upgrade path in the pre-1.0.0 release
-> gate, before any schema change that must preserve user data.
+Migration is **not** a Phase 0 criterion; it is a pre-1.0.0 release gate.
+
+> **Alembic (#69) is deferred for dev/empty databases.** `init_db()` is acceptable
+> while there is no data you care about. If a schema change must preserve a real
+> library, add the baseline first. Existing `init_db()` databases must be
+> `alembic stamp`ed at the baseline, not recreated; resetting a real database
+> deletes it.
 
 ### Phase 1 — Library and songbooks
 
 | # | Issue | Size | Why |
 | --- | --- | --- | --- |
-| 7 | #26 Filter by difficulty/genre/artist/alphabet | M | A growing songbook needs retrieval |
-| 8 | #27 Pagination | M | The UI currently shows at most 50 songs |
-| 9 | #24 Songbook completion (TOC, metadata, sorting, per-entry settings) | L | The songbook is the core artifact |
-| 10 | #45 Version history UI + restore | M | Editing must be safe |
+| 6 | #26 Filter by difficulty/genre/artist/alphabet | M | A growing songbook needs retrieval |
+| 7 | #27 Pagination | M | The UI currently shows at most 50 songs |
+| 8 | #24 Songbook completion (TOC, metadata, sorting, per-entry settings) | L | The songbook is the core artifact |
+| 9 | #45 Version history UI + restore | M | Editing must be safe |
 
 **Dependency note:** #26 and #27 need a decision on whether difficulty/genre are
 real columns, tags, or JSON metadata. Decide before coding.
@@ -154,44 +158,45 @@ real columns, tags, or JSON metadata. Decide before coding.
 
 | # | Issue | Size | Why |
 | --- | --- | --- | --- |
-| 11 | #54 Download ChordPro for one/selected/all | S | Data ownership; also feeds #28 |
-| 12 | #56 Print buttons (single/selected/book) | M | The main workflow |
-| 13 | #57 Chord signs in print/PDF | S | Chords should look like chords |
-| 14 | #58 Print looks (margins, headings, page numbers) | S | Polish |
-| 15 | #44 Expand ChordPro tags | S | Starting note/rhythm are the only gaps |
+| 10 | #54 Download ChordPro for one/selected/all | S | Data ownership; also feeds #28 |
+| 11 | #56 Print buttons (single/selected/book) | M | The main workflow |
+| 12 | #57 Chord signs in print/PDF | S | Chords should look like chords |
+| 13 | #58 Print looks (margins, headings, page numbers) | S | Polish |
+| 14 | #44 Expand ChordPro tags | S | Starting note/rhythm are the only gaps |
 
 ### Phase 3 — Import ecosystem
 
 | # | Issue | Size | Why |
 | --- | --- | --- | --- |
-| 11 | #29 Batch upload (clarify paste vs file/zip) | M | Bring an existing library in at once |
-| 12 | #50 Import pisnicky-akordy.cz | M | The other site this circle uses |
-| 13 | #20 Harden Supermusic import | M | Existing generic parser needs fixtures |
-| 14 | #46 Direct lookup by name (narrow to extra sources) | S | UG flow already exists |
-| 15 | #28 Import/export a Git repo | L | Data ownership and versioned backups |
+| 15 | #29 Batch upload (clarify paste vs file/zip) | M | Bring an existing library in at once |
+| 16 | #50 Import pisnicky-akordy.cz | M | The other site this circle uses |
+| 17 | #20 Harden Supermusic import | M | Existing generic parser needs fixtures |
+| 18 | #46 Direct lookup by name (narrow to extra sources) | S | UG flow already exists |
+| 19 | #28 Import/export a Git repo | L | Data ownership and versioned backups |
 
 ### Phase 4 — Performance mode
 
 | # | Issue | Size | Why |
 | --- | --- | --- | --- |
-| 16 | #41 Play/sing view (full-screen, current-line highlight) | M | Rehearsal/gig use |
-| 17 | #42 + #43 Recordings/attachments (merge) | L | Useful, but larger |
-| 18 | #25 YouTube link | S | Small reference feature |
+| 20 | #41 Play/sing view (full-screen, current-line highlight) | M | Rehearsal/gig use |
+| 21 | #42 + #43 Recordings/attachments (merge) | L | Useful, but larger |
+| 22 | #25 YouTube link | S | Small reference feature |
 
 ### Phase 5 — Mobile offline (single-user)
 
 | # | Issue | Size | Why |
 | --- | --- | --- | --- |
-| 19 | #71 Design v1 sync protocol and change tracking | M | Correctness before UI |
-| 20 | #70 Mobile app epic | L | Umbrella; split into sub-issues |
+| 23 | #71 Design v1 sync protocol and change tracking | M | Correctness before UI |
+| 24 | #70 Mobile app epic | L | Umbrella; split into sub-issues |
 
 **Recommended stack:** reuse the Vue 3 app with **Capacitor** + **PWA**, local
 **SQLite**, and a delta sync protocol. The repo already has Capacitor packages
 and a PWA plugin.
 
-**Single-user assumption:** v1 sync may use a long-lived device token or a
-single-user API key. Per-user API keys and ownership scoping arrive with the
-multi-user layer (#75). Do not add `owner_id` or roles just for mobile.
+**Single-user assumption:** v1 sync must use a scoped, revocable per-device API
+key. Implement a minimal single-user key list (create/list/revoke, hashed at
+rest) with the mobile work; #75 later scopes keys per user. Do not add `owner_id`
+or roles just for mobile, and do not use a shared or non-revocable token.
 
 **Exit criteria:** airplane-mode read of downloaded songs; offline edits sync
 once; deletions propagate; a revoked device stops syncing; storage use is visible.
@@ -203,12 +208,12 @@ data-separation layer, not a prerequisite for the core loop.
 
 | # | Issue | Size | Why |
 | --- | --- | --- | --- |
-| 21 | #72 Multi-user epic | L | Umbrella; split into sub-issues |
-| 22 | #73 Users, roles, and ownership schema | L | Data separation |
-| 23 | #74 Admin user management | M | Create/disable users, reset passwords |
-| 24 | #75 API keys for mobile/CLI sync | M | Per-user device access |
-| 25 | Sharing (songbook view/edit, partner/whole-library) | L | Create after #72 is split |
-| 26 | Sessions/refresh/revoke + trash/restore | M | Account safety and recovery |
+| 25 | #72 Multi-user epic | L | Umbrella; split into sub-issues |
+| 26 | #73 Users, roles, and ownership schema | L | Data separation |
+| 27 | #74 Admin user management | M | Create/disable users, reset passwords |
+| 28 | #75 API keys for mobile/CLI sync | M | Per-user device access |
+| 29 | Sharing (songbook view/edit, partner/whole-library) | L | Create after #72 is split |
+| 30 | Sessions/refresh/revoke + trash/restore | M | Account safety and recovery |
 
 **Recommendation:** invite-only users; admin-created accounts; no public
 registration. Do not build quotas or billing.
@@ -233,7 +238,10 @@ the critical path.
 
 Do these before tagging 1.0.0:
 
-- #69 Add the Alembic baseline and a tested `alembic upgrade head` path.
+- #69 Add the Alembic baseline. Test both upgrade paths:
+  - fresh database: `alembic upgrade head`
+  - existing `init_db()` database: `alembic stamp head`, then upgrade
+- Never recreate or reset a database that contains real data.
 - Back up and restore a real database.
 - Export and re-import the whole library.
 - e2e + CI green; no known data-loss bugs.
@@ -247,8 +255,8 @@ Do these before tagging 1.0.0:
 
 - **Client:** Capacitor wrapper around the existing Vue app + PWA fallback.
 - **Local data:** SQLite (songs, songbooks, tags, settings, sync metadata).
-- **Auth:** v1 (single-user) uses a long-lived device token or a single-user API
-  key; per-user, revocable API keys arrive with the multi-user layer (#75).
+- **Auth:** v1 (single-user) uses a scoped, revocable per-device API key, stored
+  hashed. The key list is single-user now; #75 scopes keys per user later.
 - **Sync:** server-authoritative, delta-based, idempotent.
 - **Offline packs:** explicit download of a songbook or the whole library;
   attachments/audio are optional and size-aware.
@@ -444,9 +452,10 @@ An epic is too large for one PR. Before starting it:
 - UI: `npm run test:e2e` must pass; add a Playwright test for user-facing behavior.
 - **Single-user first:** until Phase 6, do not add `users`, `owner_id`, roles, or
   ownership checks. Multi-user is a later data-separation layer.
-- **Schema changes:** pre-1.0.0 may use `init_db()`/schema resets. Do not add
-  Alembic yet (#69 is the pre-1.0.0 release gate). If a change must preserve real
-  data, add the baseline first.
+- **Schema changes:** for dev/empty databases, `init_db()` is acceptable pre-1.0.0.
+  If the database contains data you care about, add the Alembic baseline first
+  (#69) and migrate. Never reset a real database. Existing `init_db()` databases
+  are stamped at the baseline, not recreated.
 - Tests: add or update tests for behavior changes; never weaken tests to pass.
 - Keep PRs small and focused on one issue.
 - You may edit `.github/` and `docker-compose.yml` when the task requires it;
@@ -507,7 +516,7 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-15 | `.github/` and `docker-compose.yml` may be edited when needed; never commit secrets | @xbankov |
 | 2026-11-15 | Every PR waits for the Sourcery review on the latest commit and addresses all findings before it is ready or merged | @xbankov |
 | 2026-11-15 | Single-user functionality first; multi-user/data separation is a later layer (Phase 6), started only when the single-user product is liked | @xbankov |
-| 2026-11-15 | Alembic is deferred until the pre-1.0.0 release gate; `init_db()` is acceptable before 1.0.0 | @xbankov |
+| 2026-11-15 | Alembic is deferred for dev/empty databases; it is required before changing a schema under real data and at the pre-1.0.0 release gate. Never reset a real database | @xbankov |
 
 ---
 
@@ -520,3 +529,4 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-15 | CI: removed Codacy, added path filters/caching/parallel jobs, Docker push on main only |
 | 2026-11-15 | Added the Sourcery review gate: wait for the latest review and address every finding |
 | 2026-11-15 | Reordered the roadmap: single-user library/print/import before mobile; multi-user moved to Phase 6; Alembic deferred to pre-1.0.0 |
+| 2026-11-15 | Clarified Alembic data-safety/stamp paths, required revocable per-device keys for sync, and made queue ranks unique |

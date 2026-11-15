@@ -36,9 +36,12 @@ cd frontend && npm run test:e2e
 - Do not upgrade dependencies or reformat unrelated files.
 - **Single-user first.** Until Phase 6 of the roadmap, assume one user. Do not
   add `users`, `owner_id`, roles, or ownership checks "for later".
-- **Pre-1.0.0 schema changes** may use `init_db()` and schema resets. Do not add
-  Alembic yet; #69 adds the baseline at the pre-1.0.0 release gate. Before a
-  schema change that must preserve real data, add the baseline first.
+- **Pre-1.0.0 schema changes:** do not add Alembic yet (#69 is the pre-1.0.0
+  release gate) *unless the database contains data you care about*. `init_db()`
+  does not alter existing tables, and resetting a real database deletes the
+  library. If real data exists, add the Alembic baseline first:
+  fresh DB → `alembic upgrade head`; existing `init_db()` DB → `alembic stamp
+  head`, then apply migrations. Never reset a database with real data.
 - Frontend changes must keep `npm run build` working; do not commit `dist/`.
 - UI changes must keep `npm run test:e2e` working; add a test for user-facing
   behavior.
