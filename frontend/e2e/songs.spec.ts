@@ -144,4 +144,38 @@ test.describe('Songbook UI', () => {
     const chordRow = await page.locator('.chord-row').first().textContent()
     expect(chordRow?.indexOf('C')).toBe(3)
   })
+
+  test('print view switches between one and two columns', async ({ page }) => {
+    await mockApi(page)
+    const lines = Array.from(
+      { length: 80 },
+      (_, i) => `[Em]Line ${i} [Bm]with [D]several [A]chords [B7]here`,
+    ).join('\n')
+    const body = [
+      '{title: Test Song}',
+      '{artist: Test Artist}',
+      '{start_of_verse}',
+      lines,
+      '{end_of_verse}',
+    ].join('\n')
+    await page.route(`**/api/songs/${song.id}`, (route) =>
+      route.fulfill({ json: { ...song, body } }),
+    )
+
+    await page.goto(`/songs/${song.id}/print?columns=2`)
+    await expect(page.locator('.song-controls')).toHaveCount(0)
+
+    await page.emulateMedia({ media: 'print' })
+    await expect(page.locator('.print-toolbar')).toBeHidden()
+    expect(
+      await page.locator('.song-body').evaluate((el) => getComputedStyle(el).columnCount),
+    ).toBe('2')
+
+    await page.emulateMedia({ media: 'screen' })
+    await page.getByRole('button', { name: '1', exact: true }).click()
+    await page.emulateMedia({ media: 'print' })
+    expect(
+      await page.locator('.song-body').evaluate((el) => getComputedStyle(el).columnCount),
+    ).not.toBe('2')
+  })
 })

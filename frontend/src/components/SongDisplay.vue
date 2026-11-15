@@ -11,6 +11,8 @@ const props = defineProps<{
   capo?: number
   songKey?: string | null
   suggestedKey?: string | null
+  hideControls?: boolean
+  columnsOverride?: boolean
 }>()
 
 const songDisplay = ref<HTMLElement | null>(null)
@@ -21,7 +23,9 @@ let scrollInterval: ReturnType<typeof setInterval> | null = null
 
 const transpose = computed(() => settingsStore.transpose)
 const displayMode = computed(() => settingsStore.displayMode)
-const doubleColumn = computed(() => settingsStore.doubleColumn)
+const doubleColumn = computed(() =>
+  props.columnsOverride === undefined ? settingsStore.doubleColumn : props.columnsOverride,
+)
 
 function toggleAutoScroll() {
   autoScroll.value = !autoScroll.value
@@ -137,7 +141,7 @@ function lyricRow(spans: Span[]): string {
 
 <template>
   <div ref="songDisplay" class="song-display">
-    <div class="song-controls">
+    <div v-if="!hideControls" class="song-controls">
       <div class="transpose-control">
         <button @click="settingsStore.setTranspose(Math.max(-11, transpose - 1))" class="ctrl-btn" title="Transpose down">&minus;</button>
         <span class="ctrl-label">Transpose: {{ transpose > 0 ? '+' : '' }}{{ transpose }}</span>
@@ -247,5 +251,13 @@ function lyricRow(spans: Span[]): string {
   .song-title { font-size: 14pt !important; }
   .song-artist { font-size: 11pt !important; }
   .section-label { font-size: 10pt !important; }
+  .double-column.mode-above,
+  .double-column.mode-inline {
+    column-count: 2;
+    column-gap: 10mm;
+  }
+  .section-label { break-after: avoid; }
+  .line-above,
+  .line-inline { break-inside: avoid; }
 }
 </style>

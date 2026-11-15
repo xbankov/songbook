@@ -64,7 +64,11 @@ async function printSong() {
 }
 
 function printBrowser() {
-  window.print()
+  router.push({
+    name: 'SongPrint',
+    params: { id: route.params.id },
+    query: { columns: settingsStore.doubleColumn ? '2' : '1' },
+  })
 }
 
 async function startRecording() {
