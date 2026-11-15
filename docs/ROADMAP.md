@@ -366,6 +366,18 @@ quotas/billing, public profiles.
 - Wait for maintainer approval before coding.
 - If the plan changes after approval, say so before proceeding.
 
+### 9.3.1 Review gate (Sourcery)
+
+A PR is never “ready” after the first CI run. It must pass this gate:
+
+- CI is green on the **latest** commit.
+- Sourcery has reviewed the **latest** commit.
+- Every Sourcery finding is fixed, or explicitly answered with a reason.
+- Push the fixes and wait for a fresh review; repeat until no blocking findings.
+
+If a Sourcery finding is unclear, ask the maintainer. Do not ignore, dismiss, or
+silently skip it.
+
 ### 9.4 Epics
 
 An epic is too large for one PR. Before starting it:
@@ -380,10 +392,12 @@ An epic is too large for one PR. Before starting it:
 - Branch from an up-to-date `main`: `fix/<issue>-<topic>` or `feat/<issue>-<topic>`.
 - Python: type hints, black, isort.
 - Frontend: `npm run build` must pass; do not commit `dist/`.
+- UI: `npm run test:e2e` must pass; add a Playwright test for user-facing behavior.
 - Schema changes: Alembic migration in `backend/migrations/versions/`.
 - Tests: add or update tests for behavior changes; never weaken tests to pass.
 - Keep PRs small and focused on one issue.
-- Never edit `.github/`, `.env*`, or `docker-compose.yaml`.
+- You may edit `.github/` and `docker-compose.yml` when the task requires it;
+  explain why in the PR. Never commit `.env` or secrets.
 - Do not upgrade dependencies or reformat unrelated files.
 - Never push to `main`; never merge.
 
@@ -397,10 +411,12 @@ An epic is too large for one PR. Before starting it:
   black --check backend/app
   cd backend && pytest -q app/tests
   cd frontend && npm run build
+  cd frontend && npm run test:e2e
   ```
 - Roadmap updated if order/scope/decision changed.
+- Sourcery reviewed the latest commit; every finding fixed or explicitly answered.
 - PR description follows the format: `Closes #<issue>`, what changed, validation,
-  risk, rollback.
+  risk, rollback, and Sourcery status.
 
 ### 9.7 When to stop and ask
 
@@ -433,6 +449,10 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-15 | Mobile: offline-capable app that syncs with the server | @xbankov |
 | 2026-11-15 | Multi-user eventually, modeled on Immich | @xbankov |
 | 2026-11-15 | Work issue-by-issue; discuss before implementing | @xbankov |
+| 2026-11-15 | Playwright e2e is the UI validation; remove the `.ai/validate.sh` wrapper | @xbankov |
+| 2026-11-15 | Remove Codacy from the PR pipeline; run it on main/nightly if wanted | @xbankov |
+| 2026-11-15 | `.github/` and `docker-compose.yml` may be edited when needed; never commit secrets | @xbankov |
+| 2026-11-15 | Every PR waits for the Sourcery review on the latest commit and addresses all findings before it is ready or merged | @xbankov |
 
 ---
 
@@ -441,3 +461,6 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | Date | Change |
 | --- | --- |
 | 2026-11-15 | Initial roadmap: Lane A, phase order, mobile and multi-user epics, agent rules |
+| 2026-11-15 | Removed `.ai/validate.sh`; added Playwright e2e as UI validation |
+| 2026-11-15 | CI: removed Codacy, added path filters/caching/parallel jobs, Docker push on main only |
+| 2026-11-15 | Added the Sourcery review gate: wait for the latest review and address every finding |
