@@ -77,6 +77,13 @@ export async function mockApi(
     if (url.pathname === `/api/songs/${song.id}/analyze`) {
       return route.fulfill({ json: { suggested_key: null, confidence: null } })
     }
+    if (url.pathname === `/api/export/song/${song.id}/pdf`) {
+      return route.fulfill({
+        status: 200,
+        contentType: 'application/pdf',
+        body: '%PDF-1.4\n%%EOF',
+      })
+    }
     return route.fulfill({
       status: 404,
       json: { detail: `No e2e mock for ${url.pathname}` },

@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
+import { useRoute } from 'vue-router'
 import { useSongbookStore } from '../stores/songbooks'
 import { useSongStore } from '../stores/songs'
 import { useSettingsStore } from '../stores/settings'
 import SongDisplay from '../components/SongDisplay.vue'
 import AppNotice from '../components/AppNotice.vue'
+import { openFile } from '../api/client'
 
 const route = useRoute()
-const router = useRouter()
 const store = useSongbookStore()
 const songStore = useSongStore()
 const settingsStore = useSettingsStore()
@@ -55,9 +55,13 @@ function toggleExpand(entryId: string) {
   expandedEntry.value = expandedEntry.value === entryId ? null : entryId
 }
 
-function printSongbook() {
-  const params = new URLSearchParams()
-  window.open(`/api/export/songbook/${route.params.id}/pdf?${params}`, '_blank')
+async function printSongbook() {
+  error.value = ''
+  try {
+    await openFile(`/api/export/songbook/${route.params.id}/pdf`)
+  } catch (e: unknown) {
+    error.value = e instanceof Error ? e.message : 'Could not open PDF'
+  }
 }
 </script>
 

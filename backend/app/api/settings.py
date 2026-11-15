@@ -1,22 +1,10 @@
 from app.database import get_db
-from app.models.settings import Settings
 from app.schemas.settings import SettingsOut, SettingsUpdate
+from app.services.settings import get_or_create_settings
 from fastapi import APIRouter, Depends
-from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 router = APIRouter(prefix="/api/settings", tags=["settings"])
-
-
-async def get_or_create_settings(db: AsyncSession) -> Settings:
-    result = await db.execute(select(Settings).limit(1))
-    settings = result.scalar_one_or_none()
-    if not settings:
-        settings = Settings()
-        db.add(settings)
-        await db.flush()
-        await db.refresh(settings)
-    return settings
 
 
 @router.get("", response_model=SettingsOut)
