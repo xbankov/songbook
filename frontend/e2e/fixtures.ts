@@ -70,7 +70,10 @@ export async function mockApi(
       return route.fulfill({ json: settings })
     }
     if (url.pathname === '/api/songs') {
-      return route.fulfill({ json: [song] })
+      return route.fulfill({
+        json: [song],
+        headers: { 'X-Total-Count': '1' },
+      })
     }
     if (url.pathname === `/api/songs/${song.id}`) {
       return route.fulfill({ json: song })

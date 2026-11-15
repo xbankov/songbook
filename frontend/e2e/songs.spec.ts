@@ -212,4 +212,22 @@ test.describe('Songbook UI', () => {
     await page.getByRole('button', { name: 'A', exact: true }).click()
     await letterRequest
   })
+
+  test('paginates with limit and offset', async ({ page }) => {
+    await mockApi(page)
+    await page.route('**/api/songs?*', (route) =>
+      route.fulfill({ json: [song], headers: { 'X-Total-Count': '60' } }),
+    )
+
+    await page.goto('/songs')
+    await expect(page.locator('.pagination')).toBeVisible()
+    await expect(page.locator('.pagination')).toContainText('60 songs')
+
+    const pageTwoRequest = page.waitForRequest(
+      (req) => req.url().includes('/api/songs?') && req.url().includes('offset=25'),
+    )
+    await page.getByRole('button', { name: '2', exact: true }).click()
+    await pageTwoRequest
+    await expect(page.locator('.pagination button.active')).toHaveText('2')
+  })
 })

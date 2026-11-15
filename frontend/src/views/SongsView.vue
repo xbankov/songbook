@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useSongStore } from '../stores/songs'
 import { apiDownload, apiGet, apiPost } from '../api/client'
@@ -22,6 +22,14 @@ const artist = ref('')
 const difficulty = ref('')
 const genre = ref('')
 const letter = ref('')
+const page = ref(1)
+const pageSize = 25
+const totalPages = computed(() => Math.max(1, Math.ceil(store.total / pageSize)))
+const pageNumbers = computed(() => {
+  const start = Math.max(1, page.value - 2)
+  const end = Math.min(totalPages.value, start + 4)
+  return Array.from({ length: end - start + 1 }, (_, i) => start + i)
+})
 const sortBy = ref('updated_at')
 const sortOrder = ref('desc')
 const importUrl = ref('')
@@ -43,10 +51,8 @@ interface SearchResult {
   rating: number
 }
 
-onMounted(() => store.fetchSongs())
-
-const doSearch = useDebounceFn(async () => {
-  await store.fetchSongs({
+function listParams() {
+  return {
     search: search.value || undefined,
     artist: artist.value || undefined,
     difficulty: difficulty.value || undefined,
@@ -54,8 +60,31 @@ const doSearch = useDebounceFn(async () => {
     letter: letter.value || undefined,
     sort: sortBy.value,
     order: sortOrder.value,
-  })
+    limit: pageSize,
+    offset: (page.value - 1) * pageSize,
+  }
+}
+
+async function fetchPage() {
+  await store.fetchSongs(listParams())
+  if (page.value > totalPages.value) {
+    page.value = totalPages.value
+    await store.fetchSongs(listParams())
+  }
+}
+
+onMounted(fetchPage)
+
+const doSearch = useDebounceFn(async () => {
+  page.value = 1
+  await fetchPage()
 }, 300)
+
+function goToPage(target: number) {
+  if (store.loading) return
+  page.value = Math.min(Math.max(1, target), totalPages.value)
+  void fetchPage()
+}
 
 function setLetter(value: string) {
   letter.value = letter.value === value ? '' : value
@@ -68,7 +97,8 @@ function clearFilters() {
   difficulty.value = ''
   genre.value = ''
   letter.value = ''
-  void store.fetchSongs({ sort: sortBy.value, order: sortOrder.value })
+  page.value = 1
+  void fetchPage()
 }
 
 async function doImport() {
@@ -86,6 +116,8 @@ async function removeSong(id: string) {
   try {
     await store.deleteSong(id)
     showNotice('success', 'Song deleted')
+    if (page.value > totalPages.value) page.value = totalPages.value
+    await fetchPage()
   } catch (e: unknown) {
     showNotice('error', e instanceof Error ? e.message : 'Delete failed')
   }
@@ -99,7 +131,8 @@ async function doBulkImport() {
     bulkText.value = ''
     showBulkImport.value = false
     showNotice('success', `Imported ${imported.length} song${imported.length === 1 ? '' : 's'}`)
-    await store.fetchSongs()
+    page.value = 1
+    await fetchPage()
   } catch (e: unknown) {
     showNotice('error', e instanceof Error ? e.message : 'Bulk import failed')
   } finally {
@@ -241,6 +274,23 @@ async function importSearchResult(url: string) {
           <button @click.stop="removeSong(song.id)" class="btn-danger-sm" title="Delete">×</button>
         </div>
       </div>
+    </div>
+
+    <div v-if="store.total" class="pagination">
+      <template v-if="store.total > pageSize">
+        <button :disabled="store.loading || page === 1" @click="goToPage(page - 1)">Previous</button>
+        <button
+          v-for="p in pageNumbers"
+          :key="p"
+          :disabled="store.loading"
+          :class="{ active: p === page }"
+          @click="goToPage(p)"
+        >
+          {{ p }}
+        </button>
+        <button :disabled="store.loading || page === totalPages" @click="goToPage(page + 1)">Next</button>
+      </template>
+      <span class="page-info">{{ store.total }} songs</span>
     </div>
   </div>
 </template>
@@ -401,6 +451,37 @@ async function importSearchResult(url: string) {
   font-size: 1.2rem;
   cursor: pointer;
   padding: 0 0.25rem;
+}
+.pagination {
+  display: flex;
+  align-items: center;
+  gap: 0.3rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+.pagination button {
+  min-width: 2rem;
+  padding: 0.3rem 0.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text);
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+.pagination button.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #000;
+}
+.pagination button:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.page-info {
+  margin-left: 0.5rem;
+  color: var(--text-muted);
+  font-size: 0.8rem;
 }
 .loading,
 .empty,

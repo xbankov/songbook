@@ -131,6 +131,30 @@ export function apiGet<T>(path: string, params?: Record<string, string | number 
   return apiRequest<T>(path, { params })
 }
 
+export async function apiGetWithHeaders<T>(
+  path: string,
+  params?: Record<string, string | number | undefined>,
+): Promise<{ data: T; headers: Headers }> {
+  const requestToken = getToken()
+  const headers: Record<string, string> = {}
+  if (requestToken) {
+    headers['Authorization'] = `Bearer ${requestToken}`
+  }
+  const response = await fetch(buildUrl(path, params), { headers })
+  if (!response.ok) {
+    if (response.status === 401) {
+      handleUnauthorized(requestToken)
+    }
+    const err = await response.json().catch(() => ({ detail: response.statusText }))
+    throw new Error(err.detail || `Request failed: ${response.status}`)
+  }
+  const text = await response.text()
+  return {
+    data: (text ? JSON.parse(text) : undefined) as T,
+    headers: response.headers,
+  }
+}
+
 export function apiPost<T>(path: string, body?: unknown, contentType?: string): Promise<T> {
   const headers: Record<string, string> = {}
   if (contentType) {

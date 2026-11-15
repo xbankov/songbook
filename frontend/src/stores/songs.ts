@@ -6,6 +6,7 @@ interface SongState {
   current: songsApi.SongResponse | null
   loading: boolean
   error: string | null
+  total: number
   _listRequestId: number
 }
 
@@ -15,6 +16,7 @@ export const useSongStore = defineStore('songs', {
     current: null,
     loading: false,
     error: null,
+    total: 0,
     _listRequestId: 0,
   }),
   actions: {
@@ -23,9 +25,10 @@ export const useSongStore = defineStore('songs', {
       this.loading = true
       this.error = null
       try {
-        const songs = await songsApi.listSongs(params)
+        const response = await songsApi.listSongs(params)
         if (requestId === this._listRequestId) {
-          this.songs = songs
+          this.songs = response.items
+          this.total = response.total
         }
       } catch (e: unknown) {
         if (requestId === this._listRequestId) {
@@ -49,6 +52,7 @@ export const useSongStore = defineStore('songs', {
       }
     },
     async createSong(data: songsApi.SongCreate) {
+      this._listRequestId += 1
       const song = await songsApi.createSong(data)
       this.songs.unshift(song)
       return song
@@ -61,11 +65,13 @@ export const useSongStore = defineStore('songs', {
       return song
     },
     async deleteSong(id: string) {
+      this._listRequestId += 1
       await songsApi.deleteSong(id)
       this.songs = this.songs.filter((s) => s.id !== id)
       if (this.current?.id === id) this.current = null
     },
     async importSong(url: string) {
+      this._listRequestId += 1
       const song = await songsApi.importSong(url)
       this.songs.unshift(song)
       return song
@@ -78,6 +84,7 @@ export const useSongStore = defineStore('songs', {
       return song
     },
     async bulkImport(text: string) {
+      this._listRequestId += 1
       return songsApi.bulkImport(text)
     },
   },

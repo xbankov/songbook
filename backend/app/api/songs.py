@@ -25,6 +25,7 @@ router = APIRouter(prefix="/api/songs", tags=["songs"])
 
 @router.get("", response_model=list[SongOut])
 async def list_songs(
+    response: Response,
     search: str | None = Query(None),
     artist: str | None = Query(None),
     tag: str | None = Query(None),
@@ -63,14 +64,20 @@ async def list_songs(
         query = query.where(Song.title.op("!~")("^[A-Za-z]"))
     elif letter:
         query = query.where(Song.title.ilike(f"{letter}%"))
+    total_column = func.count().over().label("total")
+    query = query.add_columns(total_column)
     sort_col = getattr(Song, sort, Song.updated_at)
     if order == "asc":
-        query = query.order_by(sort_col.asc())
+        query = query.order_by(sort_col.asc(), Song.id.asc())
     else:
-        query = query.order_by(sort_col.desc())
+        query = query.order_by(sort_col.desc(), Song.id.desc())
     query = query.offset(offset).limit(limit)
     result = await db.execute(query)
-    return result.scalars().all()
+    rows = result.all()
+    items = [row[0] for row in rows]
+    total = rows[0][1] if rows else 0
+    response.headers["X-Total-Count"] = str(total)
+    return items
 
 
 @router.post("", response_model=SongOut, status_code=status.HTTP_201_CREATED)
