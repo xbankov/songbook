@@ -1,36 +1,56 @@
 <script setup lang="ts">
-import { computed, onMounted, ref } from 'vue'
+import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { useSongStore } from '../stores/songs'
+import { getSong, type SongResponse } from '../api/songs'
 import { useSettingsStore } from '../stores/settings'
 import SongDisplay from '../components/SongDisplay.vue'
 
 const route = useRoute()
-const store = useSongStore()
 const settingsStore = useSettingsStore()
 
-const columns = ref<1 | 2>(route.query.columns === '2' ? 2 : 1)
+const song = ref<SongResponse | null>(null)
 const loading = ref(true)
 const error = ref('')
+const columns = ref<1 | 2>(route.query.columns === '2' ? 2 : 1)
+const hasExplicitColumns =
+  route.query.columns === '1' || route.query.columns === '2'
+let requestId = 0
 
-onMounted(async () => {
+async function load(id: string) {
+  const currentRequest = ++requestId
+  loading.value = true
+  error.value = ''
+  song.value = null
   try {
-    await Promise.all([
-      store.fetchSong(route.params.id as string),
+    const [loaded] = await Promise.all([
+      getSong(id),
       settingsStore.fetchSettings().catch(() => {}),
     ])
-    if (!store.current) error.value = 'Song not found'
+    if (currentRequest !== requestId) return
+    song.value = loaded
+    if (!hasExplicitColumns) {
+      columns.value = settingsStore.doubleColumn ? 2 : 1
+    }
   } catch (e: unknown) {
+    if (currentRequest !== requestId) return
     error.value = e instanceof Error ? e.message : 'Could not load song'
   } finally {
-    loading.value = false
+    if (currentRequest === requestId) loading.value = false
   }
-})
+}
 
-const song = computed(() => store.current)
+watch(
+  () => route.params.id as string,
+  (id) => {
+    void load(id)
+  },
+  { immediate: true },
+)
+
+const canPrint = computed(() => !loading.value && !error.value && !!song.value)
 
 function printPage() {
-  window.print()
+  if (canPrint.value) window.print()
 }
 </script>
 
@@ -40,7 +60,7 @@ function printPage() {
       <span class="toolbar-label">Columns:</span>
       <button :class="{ active: columns === 1 }" @click="columns = 1">1</button>
       <button :class="{ active: columns === 2 }" @click="columns = 2">2</button>
-      <button class="print-btn" @click="printPage">Print</button>
+      <button class="print-btn" :disabled="!canPrint" @click="printPage">Print</button>
       <router-link :to="`/songs/${route.params.id}`">Back</router-link>
     </div>
 
@@ -54,7 +74,7 @@ function printPage() {
       :capo="song.capo"
       :song-key="song.key"
       hide-controls
-      :columns-override="columns === 2"
+      :columns-override="columns"
     />
   </div>
 </template>
@@ -92,6 +112,10 @@ function printPage() {
   background: var(--accent);
   border-color: var(--accent);
   color: #000;
+}
+.print-toolbar button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 .print-btn {
   margin-left: auto;

@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-import { mockApi, song } from './fixtures'
+import { mockApi, settings, song } from './fixtures'
 
 test.describe('Songbook UI', () => {
   test('lists songs and opens a song', async ({ page }) => {
@@ -163,6 +163,7 @@ test.describe('Songbook UI', () => {
     )
 
     await page.goto(`/songs/${song.id}/print?columns=2`)
+    await expect(page.locator('.song-title')).toHaveText('Test Song')
     await expect(page.locator('.song-controls')).toHaveCount(0)
 
     await page.emulateMedia({ media: 'print' })
@@ -177,5 +178,19 @@ test.describe('Songbook UI', () => {
     expect(
       await page.locator('.song-body').evaluate((el) => getComputedStyle(el).columnCount),
     ).not.toBe('2')
+  })
+
+  test('direct print uses the saved column setting', async ({ page }) => {
+    await mockApi(page)
+    await page.route('**/api/settings', (route) =>
+      route.fulfill({ json: { ...settings, double_column: true } }),
+    )
+
+    await page.goto(`/songs/${song.id}/print`)
+    await expect(page.locator('.song-title')).toHaveText(song.title)
+    await page.emulateMedia({ media: 'print' })
+    expect(
+      await page.locator('.song-body').evaluate((el) => getComputedStyle(el).columnCount),
+    ).toBe('2')
   })
 })

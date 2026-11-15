@@ -67,7 +67,6 @@ function printBrowser() {
   router.push({
     name: 'SongPrint',
     params: { id: route.params.id },
-    query: { columns: settingsStore.doubleColumn ? '2' : '1' },
   })
 }
 

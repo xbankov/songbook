@@ -12,7 +12,7 @@ const props = defineProps<{
   songKey?: string | null
   suggestedKey?: string | null
   hideControls?: boolean
-  columnsOverride?: boolean
+  columnsOverride?: 1 | 2
 }>()
 
 const songDisplay = ref<HTMLElement | null>(null)
@@ -23,9 +23,11 @@ let scrollInterval: ReturnType<typeof setInterval> | null = null
 
 const transpose = computed(() => settingsStore.transpose)
 const displayMode = computed(() => settingsStore.displayMode)
-const doubleColumn = computed(() =>
-  props.columnsOverride === undefined ? settingsStore.doubleColumn : props.columnsOverride,
-)
+const doubleColumn = computed(() => {
+  if (props.columnsOverride === 1) return false
+  if (props.columnsOverride === 2) return true
+  return settingsStore.doubleColumn
+})
 
 function toggleAutoScroll() {
   autoScroll.value = !autoScroll.value
@@ -259,5 +261,14 @@ function lyricRow(spans: Span[]): string {
   .section-label { break-after: avoid; }
   .line-above,
   .line-inline { break-inside: avoid; }
+  .song-title,
+  .song-artist,
+  .song-meta,
+  .lyric-row { color: #000 !important; }
+  .chord-row,
+  .lyric-row {
+    white-space: pre-wrap;
+    overflow-wrap: anywhere;
+  }
 }
 </style>
