@@ -25,6 +25,8 @@ class SongbookEntryOut(BaseModel):
     song_id: UUID
     songbook_id: UUID
     sort_order: int
+    transpose: int
+    double_column: int
     song: SongOut | None = None
 
     model_config = {"from_attributes": True}
@@ -32,6 +34,8 @@ class SongbookEntryOut(BaseModel):
 
 class SongbookEntryUpdate(BaseModel):
     sort_order: int | None = None
+    transpose: int | None = None
+    double_column: int | None = None
 
 
 class SongbookDetailOut(SongbookOut):

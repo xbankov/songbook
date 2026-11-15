@@ -13,6 +13,7 @@ const props = defineProps<{
   suggestedKey?: string | null
   hideControls?: boolean
   columnsOverride?: 1 | 2
+  transposeOverride?: number
 }>()
 
 const songDisplay = ref<HTMLElement | null>(null)
@@ -21,7 +22,11 @@ const autoScroll = ref(false)
 const scrollSpeed = ref(1)
 let scrollInterval: ReturnType<typeof setInterval> | null = null
 
-const transpose = computed(() => settingsStore.transpose)
+const transpose = computed(() =>
+  props.transposeOverride === undefined
+    ? settingsStore.transpose
+    : props.transposeOverride,
+)
 const displayMode = computed(() => settingsStore.displayMode)
 const doubleColumn = computed(() => {
   if (props.columnsOverride === 1) return false

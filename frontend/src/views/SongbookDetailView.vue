@@ -1,14 +1,16 @@
 <script setup lang="ts">
 import { ref, onMounted, computed } from 'vue'
-import { useRoute } from 'vue-router'
+import { useRoute, useRouter } from 'vue-router'
 import { useSongbookStore } from '../stores/songbooks'
 import { useSongStore } from '../stores/songs'
 import { useSettingsStore } from '../stores/settings'
 import SongDisplay from '../components/SongDisplay.vue'
 import AppNotice from '../components/AppNotice.vue'
 import { openFile } from '../api/client'
+import type { SongbookEntryResponse } from '../api/songbooks'
 
 const route = useRoute()
+const router = useRouter()
 const store = useSongbookStore()
 const songStore = useSongStore()
 const settingsStore = useSettingsStore()
@@ -16,6 +18,9 @@ const settingsStore = useSettingsStore()
 const addSongId = ref('')
 const expandedEntry = ref<string | null>(null)
 const error = ref('')
+const editing = ref(false)
+const editName = ref('')
+const editDesc = ref('')
 
 onMounted(async () => {
   try {
@@ -55,6 +60,82 @@ function toggleExpand(entryId: string) {
   expandedEntry.value = expandedEntry.value === entryId ? null : entryId
 }
 
+function startEdit() {
+  if (!songbook.value) return
+  editName.value = songbook.value.name
+  editDesc.value = songbook.value.description || ''
+  editing.value = true
+}
+
+async function saveEdit() {
+  if (!songbook.value || !editName.value.trim()) return
+  error.value = ''
+  try {
+    await store.updateSongbook(route.params.id as string, {
+      name: editName.value.trim(),
+      description: editDesc.value,
+    })
+    editing.value = false
+  } catch (e: unknown) {
+    error.value = e instanceof Error ? e.message : 'Could not update songbook'
+  }
+}
+
+async function deleteBook() {
+  if (!confirm(`Delete "${songbook.value?.name}"? This does not delete the songs.`)) return
+  error.value = ''
+  try {
+    await store.deleteSongbook(route.params.id as string)
+    router.push('/songbooks')
+  } catch (e: unknown) {
+    error.value = e instanceof Error ? e.message : 'Could not delete songbook'
+  }
+}
+
+async function moveEntry(entry: SongbookEntryResponse, direction: number) {
+  if (!songbook.value) return
+  const entries = [...songbook.value.entries].sort((a, b) => a.sort_order - b.sort_order)
+  const index = entries.findIndex((item) => item.id === entry.id)
+  const target = index + direction
+  if (index < 0 || target < 0 || target >= entries.length) return
+  error.value = ''
+  try {
+    const first = entries[index]
+    const second = entries[target]
+    await store.updateEntry(route.params.id as string, first.id, {
+      sort_order: second.sort_order,
+    })
+    await store.updateEntry(route.params.id as string, second.id, {
+      sort_order: first.sort_order,
+    })
+    store.current?.entries.sort((a, b) => a.sort_order - b.sort_order)
+  } catch (e: unknown) {
+    error.value = e instanceof Error ? e.message : 'Could not reorder'
+  }
+}
+
+async function changeTranspose(entry: SongbookEntryResponse, delta: number) {
+  error.value = ''
+  try {
+    await store.updateEntry(route.params.id as string, entry.id, {
+      transpose: Math.max(-11, Math.min(11, entry.transpose + delta)),
+    })
+  } catch (e: unknown) {
+    error.value = e instanceof Error ? e.message : 'Could not transpose'
+  }
+}
+
+async function toggleEntryColumns(entry: SongbookEntryResponse) {
+  error.value = ''
+  try {
+    await store.updateEntry(route.params.id as string, entry.id, {
+      double_column: entry.double_column ? 0 : 1,
+    })
+  } catch (e: unknown) {
+    error.value = e instanceof Error ? e.message : 'Could not change columns'
+  }
+}
+
 async function printSongbook() {
   error.value = ''
   try {
@@ -78,8 +159,17 @@ async function printSongbook() {
       </div>
       <div class="actions">
         <button @click="printSongbook" class="btn-secondary">Print PDF</button>
+        <button @click="startEdit" class="btn-secondary">Edit</button>
+        <button @click="deleteBook" class="btn-danger">Delete</button>
         <router-link to="/songbooks" class="btn-secondary">Back</router-link>
       </div>
+    </div>
+
+    <div v-if="editing" class="edit-book">
+      <input v-model="editName" class="input" placeholder="Songbook name" />
+      <input v-model="editDesc" class="input" placeholder="Description" />
+      <button @click="saveEdit" class="btn-primary">Save</button>
+      <button @click="editing = false" class="btn-secondary">Cancel</button>
     </div>
 
     <div class="add-song">
@@ -104,6 +194,20 @@ async function printSongbook() {
             </router-link>
             <span class="entry-artist">{{ entry.song?.artist }}</span>
           </div>
+          <div class="entry-controls" @click.stop>
+            <button @click="moveEntry(entry, -1)" title="Move up">↑</button>
+            <button @click="moveEntry(entry, 1)" title="Move down">↓</button>
+            <button @click="changeTranspose(entry, -1)" title="Transpose down">−</button>
+            <span class="entry-transpose">{{ entry.transpose > 0 ? '+' : '' }}{{ entry.transpose }}</span>
+            <button @click="changeTranspose(entry, 1)" title="Transpose up">+</button>
+            <button
+              :class="['entry-columns', { active: entry.double_column }]"
+              @click="toggleEntryColumns(entry)"
+              title="Toggle 2 columns"
+            >
+              2-col
+            </button>
+          </div>
           <button @click.stop="removeEntry(entry.id)" class="btn-remove">×</button>
         </div>
         <div v-if="expandedEntry === entry.id" class="entry-detail">
@@ -114,6 +218,8 @@ async function printSongbook() {
             :artist="entry.song.artist"
             :capo="entry.song.capo"
             :song-key="entry.song.key"
+            :transpose-override="entry.transpose"
+            :columns-override="entry.double_column ? 2 : 1"
           />
         </div>
       </div>
@@ -140,6 +246,26 @@ async function printSongbook() {
 .actions {
   display: flex;
   gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.edit-book {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+.btn-danger {
+  padding: 0.4rem 0.8rem;
+  background: transparent;
+  border: 1px solid #e74c3c;
+  color: #e74c3c;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.btn-danger:hover {
+  background: #e74c3c;
+  color: #fff;
 }
 .btn-secondary {
   padding: 0.4rem 0.8rem;
@@ -194,6 +320,34 @@ async function printSongbook() {
 }
 .entry-main:hover {
   border-color: var(--accent);
+}
+.entry-controls {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  margin-left: auto;
+  margin-right: 0.5rem;
+}
+.entry-controls button {
+  min-width: 1.5rem;
+  padding: 0.15rem 0.3rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+.entry-controls button.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #000;
+}
+.entry-transpose {
+  min-width: 1.6rem;
+  text-align: center;
+  color: var(--text-muted);
+  font-size: 0.75rem;
 }
 .entry-info {
   display: flex;

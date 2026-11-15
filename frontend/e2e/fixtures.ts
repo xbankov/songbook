@@ -35,6 +35,40 @@ export const version = {
   created_at: '2025-12-01T00:00:00Z',
 }
 
+export const song2 = {
+  ...song,
+  id: '55555555-5555-5555-5555-555555555555',
+  title: 'Second Song',
+}
+
+export const songbook = {
+  id: '66666666-6666-6666-6666-666666666666',
+  name: 'My Book',
+  description: 'A test songbook',
+  created_at: '2026-01-01T00:00:00Z',
+  updated_at: '2026-01-01T00:00:00Z',
+  entries: [
+    {
+      id: '77777777-7777-7777-7777-777777777777',
+      song_id: song.id,
+      songbook_id: '66666666-6666-6666-6666-666666666666',
+      sort_order: 0,
+      transpose: 0,
+      double_column: 0,
+      song,
+    },
+    {
+      id: '88888888-8888-8888-8888-888888888888',
+      song_id: song2.id,
+      songbook_id: '66666666-6666-6666-6666-666666666666',
+      sort_order: 1,
+      transpose: 0,
+      double_column: 0,
+      song: song2,
+    },
+  ],
+}
+
 export const settings = {
   id: '22222222-2222-2222-2222-222222222222',
   transpose: 0,
@@ -96,6 +130,36 @@ export async function mockApi(
     }
     if (url.pathname === `/api/songs/${song.id}/versions`) {
       return route.fulfill({ json: [version] })
+    }
+    if (
+      url.pathname === `/api/songbooks/${songbook.id}` &&
+      route.request().method() === 'GET'
+    ) {
+      return route.fulfill({ json: songbook })
+    }
+    if (
+      url.pathname === `/api/songbooks/${songbook.id}` &&
+      route.request().method() === 'PUT'
+    ) {
+      return route.fulfill({
+        json: { ...songbook, ...route.request().postDataJSON() },
+      })
+    }
+    if (
+      url.pathname === `/api/songbooks/${songbook.id}` &&
+      route.request().method() === 'DELETE'
+    ) {
+      return route.fulfill({ status: 204, body: '' })
+    }
+    if (
+      url.pathname.startsWith(`/api/songbooks/${songbook.id}/songs/`) &&
+      route.request().method() === 'PUT'
+    ) {
+      const entryId = url.pathname.split('/').pop()
+      const entry = songbook.entries.find((item) => item.id === entryId)
+      return route.fulfill({
+        json: { ...entry, ...route.request().postDataJSON() },
+      })
     }
     if (
       url.pathname === `/api/songs/${song.id}/versions/1` &&

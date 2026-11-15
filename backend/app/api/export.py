@@ -49,14 +49,22 @@ async def export_songbook_pdf(
         raise HTTPException(status_code=404, detail="Songbook not found")
     settings = await get_global_settings(db)
     songs = []
+    per_song = []
     for entry in sorted(songbook.entries, key=lambda e: e.sort_order):
         song_model = ST.from_chordpro(entry.song.body)
         songs.append(song_model)
+        per_song.append(
+            {
+                "transpose": entry.transpose,
+                "double_column": bool(entry.double_column),
+            }
+        )
     pdf = generate_songbook_pdf(
         songs,
         settings=settings,
         title=songbook.name,
         description=songbook.description or "",
+        per_song=per_song,
     )
     return Response(
         content=pdf.getvalue(),

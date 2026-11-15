@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-import { mockApi, settings, song, version } from './fixtures'
+import { mockApi, settings, song, songbook, version } from './fixtures'
 
 test.describe('Songbook UI', () => {
   test('lists songs and opens a song', async ({ page }) => {
@@ -289,5 +289,53 @@ test.describe('Songbook UI', () => {
 
     const copied = await page.evaluate(() => navigator.clipboard.readText())
     expect(copied).toContain(`/songs/${song.id}/print?version=1`)
+  })
+
+  test('edits, reorders, and renames a songbook', async ({ page }) => {
+    await mockApi(page)
+    const firstEntry = songbook.entries[0]
+    await page.goto(`/songbooks/${songbook.id}`)
+    await expect(page.locator('.entry')).toHaveCount(2)
+
+    await page.locator('.entry').first().click()
+    await expect(page.locator('.song-display')).toBeVisible()
+
+    const transposeRequest = page.waitForRequest(
+      (req) =>
+        req.url().includes(`/api/songbooks/${songbook.id}/songs/${firstEntry.id}`) &&
+        req.method() === 'PUT' &&
+        (req.postData() || '').includes('"transpose":1'),
+    )
+    await page.locator('.entry-controls button[title="Transpose up"]').first().click()
+    await transposeRequest
+
+    const columnsRequest = page.waitForRequest(
+      (req) =>
+        req.url().includes(`/api/songbooks/${songbook.id}/songs/${firstEntry.id}`) &&
+        req.method() === 'PUT' &&
+        (req.postData() || '').includes('"double_column":1'),
+    )
+    await page.locator('.entry').first().locator('button[title="Toggle 2 columns"]').click()
+    await columnsRequest
+
+    const moveRequest = page.waitForRequest(
+      (req) =>
+        req.url().includes(`/api/songbooks/${songbook.id}/songs/`) &&
+        req.method() === 'PUT' &&
+        (req.postData() || '').includes('sort_order'),
+    )
+    await page.locator('.entry').first().locator('button[title="Move down"]').click()
+    await moveRequest
+    await expect(page.locator('.entry-title').first()).toHaveText('Second Song')
+
+    await page.getByRole('button', { name: 'Edit' }).click()
+    await page.locator('.edit-book input').first().fill('Renamed Book')
+    const renameRequest = page.waitForRequest(
+      (req) =>
+        req.url().endsWith(`/api/songbooks/${songbook.id}`) && req.method() === 'PUT',
+    )
+    await page.getByRole('button', { name: 'Save' }).click()
+    await renameRequest
+    await expect(page.locator('.header h1')).toHaveText('Renamed Book')
   })
 })

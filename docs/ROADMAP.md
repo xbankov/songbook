@@ -87,7 +87,7 @@ Every roadmap item should make this loop faster, more reliable, or more enjoyabl
 | Chord inside a word `bri[C]ght` (#15) | Parser/renderer supports it; add a regression test |
 | Separate title/artist fields (#37) | Done in the edit UI; normalize body tags on save |
 | Song view: chords above lyrics, styling, 2 columns, autoscroll (#38/#41) | Mostly done |
-| Songbooks: CRUD, add/remove, PDF (#24) | Partial — no TOC, metadata, sorting UI, per-entry settings, delete UI |
+| Songbooks: CRUD, add/remove, PDF (#24) | Done — delete/rename, reorder, per-entry transpose/columns, TOC; metadata/chordscheme → #89 |
 | Import by URL + UG search/pick/import (#46) | Mostly done for UG |
 | Bulk paste import; bulk ChordPro/text/ABC/LilyPond export (#29/#54) | Partial — no file upload, no single/selected export UI |
 | Print single song + songbook PDF (#56) | Partial — no multi-select |
@@ -148,7 +148,8 @@ Migration is **not** a Phase 0 criterion; it is a pre-1.0.0 release gate.
 | --- | --- | --- | --- |
 | 6 | #26 Filter by difficulty/genre/artist/alphabet | M | A growing songbook needs retrieval |
 | 7 | #27 Pagination | M | The UI currently shows at most 50 songs |
-| 8 | #24 Songbook completion (TOC, metadata, sorting, per-entry settings) | L | The songbook is the core artifact |
+| 8 | #24 Songbook completion (TOC, sorting, per-entry settings, delete/rename) | L | The songbook is the core artifact |
+| 9a | #89 Songbook metadata + chord-scheme selection | M | Needs a schema decision/Alembic first |
 | 9 | #45 Version history UI + restore (authors/forks/favourites → #88) | M | Editing must be safe |
 
 **Resolved:** #26 stores difficulty and genre as tags (`difficulty:*`,
@@ -521,6 +522,7 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-15 | Alembic is deferred for dev/empty databases; it is required before changing a schema under real data and at the pre-1.0.0 release gate. Never reset a real database | @xbankov |
 | 2026-11-15 | Difficulty and genre use tags (`difficulty:*`, `genre:*`); no new columns (#26) | @xbankov |
 | 2026-11-15 | Version history/restore ships now; version authors, forking, favourites, and permalinks are deferred to #88 with multi-user | @xbankov |
+| 2026-11-15 | Songbook core (delete/rename, reorder, per-entry settings, TOC) ships now; metadata/chordscheme split to #89 pending a schema decision | @xbankov |
 
 ---
 
@@ -536,3 +538,4 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-15 | Clarified Alembic data-safety/stamp paths, required revocable per-device keys for sync, and made queue ranks unique |
 | 2026-11-15 | #26 implemented with tag-based difficulty/genre filters, alphabet index, and card badges |
 | 2026-11-15 | #45 history/restore implemented; authors/forks/favourites/permalink split to #88 |
+| 2026-11-15 | #24 songbook core implemented; metadata/chordscheme split to #89 |
