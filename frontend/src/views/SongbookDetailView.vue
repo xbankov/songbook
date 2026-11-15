@@ -259,7 +259,7 @@ async function printSongbook() {
             :song-key="entry.song.key"
             :transpose-override="entry.transpose"
             :columns-override="entry.double_column ? 2 : 1"
-            hide-controls
+            hide-settings-controls
           />
         </div>
       </div>

@@ -299,6 +299,7 @@ test.describe('Songbook UI', () => {
 
     await page.locator('.entry').first().click()
     await expect(page.locator('.song-display')).toBeVisible()
+    await expect(page.getByRole('button', { name: 'Scroll' })).toBeVisible()
 
     const transposeRequest = page.waitForRequest(
       (req) =>

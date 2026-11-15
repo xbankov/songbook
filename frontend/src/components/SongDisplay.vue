@@ -12,6 +12,7 @@ const props = defineProps<{
   songKey?: string | null
   suggestedKey?: string | null
   hideControls?: boolean
+  hideSettingsControls?: boolean
   columnsOverride?: 1 | 2
   transposeOverride?: number
 }>()
@@ -147,13 +148,13 @@ function lyricRow(spans: Span[]): string {
 <template>
   <div ref="songDisplay" class="song-display">
     <div v-if="!hideControls" class="song-controls">
-      <div class="transpose-control">
+      <div v-if="!hideSettingsControls" class="transpose-control">
         <button @click="settingsStore.setTranspose(Math.max(-11, transpose - 1))" class="ctrl-btn" title="Transpose down">&minus;</button>
         <span class="ctrl-label">Transpose: {{ transpose > 0 ? '+' : '' }}{{ transpose }}</span>
         <button @click="settingsStore.setTranspose(Math.min(11, transpose + 1))" class="ctrl-btn" title="Transpose up">+</button>
         <button v-if="transpose !== 0" @click="settingsStore.setTranspose(0)" class="ctrl-btn ctrl-reset" title="Reset">Reset</button>
       </div>
-      <div class="mode-toggle">
+      <div v-if="!hideSettingsControls" class="mode-toggle">
         <button :class="['ctrl-btn', { active: displayMode === 'above' }]" @click="settingsStore.setDisplayMode('above')" title="Chords above lyrics">Above</button>
         <button :class="['ctrl-btn', { active: displayMode === 'inline' }]" @click="settingsStore.setDisplayMode('inline')" title="Chords inline with text">Inline</button>
         <button :class="['ctrl-btn', { active: doubleColumn }]" @click="settingsStore.setDoubleColumn(!doubleColumn)" title="Toggle double column">
