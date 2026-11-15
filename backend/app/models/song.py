@@ -2,6 +2,7 @@ import uuid
 from datetime import datetime, timezone
 
 from app.database import Base
+from app.models.tag import song_tags
 from sqlalchemy import (
     Column,
     DateTime,
@@ -49,6 +50,12 @@ class Song(Base):
         back_populates="song",
         lazy="selectin",
         cascade="all, delete-orphan",
+    )
+    tags = relationship(
+        "Tag",
+        secondary=song_tags,
+        back_populates="songs",
+        lazy="selectin",
     )
 
 

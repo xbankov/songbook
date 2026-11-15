@@ -8,6 +8,7 @@ export interface SongResponse {
   key: string | null
   body: string
   metadata: Record<string, unknown> & { audio_file?: string }
+  tags: string[]
   version: number
   created_at: string
   updated_at: string
@@ -19,12 +20,16 @@ export interface SongCreate {
   capo?: number
   key?: string
   body?: string
+  tags?: string[]
 }
 
 export interface ListParams {
   search?: string
   artist?: string
   tag?: string
+  difficulty?: string
+  genre?: string
+  letter?: string
   sort?: string
   order?: string
   limit?: number

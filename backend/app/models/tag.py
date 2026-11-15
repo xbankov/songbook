@@ -29,4 +29,6 @@ class Tag(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     name = Column(String(128), unique=True, nullable=False, index=True)
 
-    songs = relationship("Song", secondary=song_tags, lazy="selectin")
+    songs = relationship(
+        "Song", secondary=song_tags, back_populates="tags", lazy="selectin"
+    )

@@ -13,9 +13,10 @@ from app.services.converters import (
     parse_bulk_chordpro,
 )
 from app.services.scraper import import_from_url
+from app.services.tags import resolve_tags
 from fastapi import APIRouter, Depends, File, HTTPException, Query, UploadFile, status
 from fastapi.responses import FileResponse, PlainTextResponse, Response
-from sqlalchemy import func, select
+from sqlalchemy import exists, func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 
 router = APIRouter(prefix="/api/songs", tags=["songs"])
@@ -26,12 +27,22 @@ async def list_songs(
     search: str | None = Query(None),
     artist: str | None = Query(None),
     tag: str | None = Query(None),
+    difficulty: str | None = Query(None),
+    genre: str | None = Query(None),
+    letter: str | None = Query(None, min_length=1, max_length=1),
     sort: str = Query("updated_at"),
     order: str = Query("desc"),
     limit: int = Query(50, ge=1, le=200),
     offset: int = Query(0, ge=0),
     db: AsyncSession = Depends(get_db),
 ):
+    def has_tag(name: str):
+        return exists(
+            select(1)
+            .select_from(song_tags.join(Tag, Tag.id == song_tags.c.tag_id))
+            .where(song_tags.c.song_id == Song.id, Tag.name == name)
+        )
+
     query = select(Song)
     if search:
         query = query.where(
@@ -40,7 +51,15 @@ async def list_songs(
     if artist:
         query = query.where(Song.artist.ilike(f"%{artist}%"))
     if tag:
-        query = query.join(song_tags).join(Tag).where(Tag.name == tag)
+        query = query.where(has_tag(tag))
+    if difficulty:
+        query = query.where(has_tag(f"difficulty:{difficulty.lower()}"))
+    if genre:
+        query = query.where(has_tag(f"genre:{genre.lower()}"))
+    if letter == "#":
+        query = query.where(Song.title.op("!~")("^[A-Za-z]"))
+    elif letter:
+        query = query.where(Song.title.ilike(f"{letter}%"))
     sort_col = getattr(Song, sort, Song.updated_at)
     if order == "asc":
         query = query.order_by(sort_col.asc())
@@ -53,6 +72,7 @@ async def list_songs(
 
 @router.post("", response_model=SongOut, status_code=status.HTTP_201_CREATED)
 async def create_song(body: SongCreate, db: AsyncSession = Depends(get_db)):
+    tags = await resolve_tags(db, body.tags)
     song = Song(
         title=body.title,
         artist=body.artist,
@@ -60,6 +80,7 @@ async def create_song(body: SongCreate, db: AsyncSession = Depends(get_db)):
         key=body.key,
         body=body.body,
         metadata_=body.metadata if hasattr(body, "metadata_") else {},
+        tags=tags,
     )
     db.add(song)
     await db.flush()
@@ -138,8 +159,12 @@ async def update_song(
             status_code=status.HTTP_404_NOT_FOUND, detail="Song not found"
         )
 
-    for field, value in body.model_dump(exclude_none=True, by_alias=True).items():
+    data = body.model_dump(exclude_none=True, by_alias=True)
+    tag_names = data.pop("tags", None)
+    for field, value in data.items():
         setattr(song, field, value)
+    if tag_names is not None:
+        song.tags = await resolve_tags(db, tag_names)
 
     song.version += 1
 

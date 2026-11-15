@@ -17,6 +17,7 @@ PROTECTED_GET_PATHS = [
     "/api/settings",
     "/api/backup/list",
     "/api/search?q=ab",
+    "/api/tags",
     "/api/export/song/00000000-0000-0000-0000-000000000000/pdf",
     "/api/export/songbook/00000000-0000-0000-0000-000000000000/pdf",
 ]
@@ -104,6 +105,16 @@ def test_authenticated_request_succeeds():
     main_app.dependency_overrides[get_db] = _override_get_db
     try:
         response = TestClient(main_app).get("/api/songs", headers=auth_header())
+        assert response.status_code == 200
+        assert response.json() == []
+    finally:
+        main_app.dependency_overrides.clear()
+
+
+def test_authenticated_tags_request_succeeds():
+    main_app.dependency_overrides[get_db] = _override_get_db
+    try:
+        response = TestClient(main_app).get("/api/tags", headers=auth_header())
         assert response.status_code == 200
         assert response.json() == []
     finally:

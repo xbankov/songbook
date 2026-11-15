@@ -193,4 +193,23 @@ test.describe('Songbook UI', () => {
       await page.locator('.song-body').evaluate((el) => getComputedStyle(el).columnCount),
     ).toBe('2')
   })
+
+  test('sends tag and alphabet filters to the API', async ({ page }) => {
+    await mockApi(page)
+    await page.goto('/songs')
+    await expect(page.locator('.song-card')).toHaveCount(1)
+    await expect(page.locator('.song-tags')).toContainText('difficulty: easy')
+
+    const difficultyRequest = page.waitForRequest(
+      (req) => req.url().includes('/api/songs?') && req.url().includes('difficulty=easy'),
+    )
+    await page.selectOption('.filter-select', 'easy')
+    await difficultyRequest
+
+    const letterRequest = page.waitForRequest(
+      (req) => req.url().includes('/api/songs?') && req.url().includes('letter=A'),
+    )
+    await page.getByRole('button', { name: 'A', exact: true }).click()
+    await letterRequest
+  })
 })

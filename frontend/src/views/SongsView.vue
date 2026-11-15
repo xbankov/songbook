@@ -19,6 +19,9 @@ function showNotice(type: 'info' | 'success' | 'error', message: string) {
 
 const search = ref('')
 const artist = ref('')
+const difficulty = ref('')
+const genre = ref('')
+const letter = ref('')
 const sortBy = ref('updated_at')
 const sortOrder = ref('desc')
 const importUrl = ref('')
@@ -30,6 +33,7 @@ const showSearchImport = ref(false)
 const searchQuery = ref('')
 const searchResults = ref<SearchResult[]>([])
 const searching = ref(false)
+const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
 
 interface SearchResult {
   title: string
@@ -45,10 +49,27 @@ const doSearch = useDebounceFn(async () => {
   await store.fetchSongs({
     search: search.value || undefined,
     artist: artist.value || undefined,
+    difficulty: difficulty.value || undefined,
+    genre: genre.value || undefined,
+    letter: letter.value || undefined,
     sort: sortBy.value,
     order: sortOrder.value,
   })
 }, 300)
+
+function setLetter(value: string) {
+  letter.value = letter.value === value ? '' : value
+  void doSearch()
+}
+
+function clearFilters() {
+  search.value = ''
+  artist.value = ''
+  difficulty.value = ''
+  genre.value = ''
+  letter.value = ''
+  void store.fetchSongs({ sort: sortBy.value, order: sortOrder.value })
+}
 
 async function doImport() {
   if (!importUrl.value) return
@@ -132,10 +153,36 @@ async function importSearchResult(url: string) {
     <div class="toolbar">
       <input v-model="search" placeholder="Search songs..." @input="doSearch" class="search-input" />
       <input v-model="artist" placeholder="Filter by artist..." @input="doSearch" class="search-input" />
+      <select v-model="difficulty" @change="doSearch" class="search-input filter-select">
+        <option value="">All difficulties</option>
+        <option value="easy">Easy</option>
+        <option value="medium">Medium</option>
+        <option value="hard">Hard</option>
+      </select>
+      <input v-model="genre" placeholder="Genre" @input="doSearch" class="search-input" />
+      <button
+        v-if="search || artist || difficulty || genre || letter"
+        @click="clearFilters"
+        class="btn-secondary"
+      >
+        Clear
+      </button>
       <button @click="showImport = !showImport" class="btn-secondary">Import URL</button>
       <button @click="showSearchImport = !showSearchImport" class="btn-secondary">Search</button>
       <button @click="showBulkImport = !showBulkImport" class="btn-secondary">Bulk</button>
       <button @click="bulkExport('chordpro')" class="btn-secondary" title="Export all as ChordPro">Export</button>
+    </div>
+
+    <div class="alphabet">
+      <button
+        v-for="l in alphabet"
+        :key="l"
+        :class="{ active: letter === l }"
+        @click="setLetter(l)"
+      >
+        {{ l }}
+      </button>
+      <button :class="{ active: letter === '#' }" @click="setLetter('#')">#</button>
     </div>
 
     <AppNotice v-if="notice" :type="notice.type" :message="notice.message" />
@@ -179,6 +226,15 @@ async function importSearchResult(url: string) {
         <div class="song-card-info">
           <h3>{{ song.title }}</h3>
           <p>{{ song.artist }}</p>
+          <div v-if="song.tags?.length" class="song-tags">
+            <span
+              v-for="tag in song.tags.filter((t) => t.startsWith('difficulty:') || t.startsWith('genre:'))"
+              :key="tag"
+              class="tag"
+            >
+              {{ tag.replace(':', ': ') }}
+            </span>
+          </div>
         </div>
         <div class="song-card-meta">
           <span class="badge">v{{ song.version }}</span>
@@ -195,6 +251,45 @@ async function importSearchResult(url: string) {
   gap: 0.5rem;
   margin-bottom: 1rem;
   flex-wrap: wrap;
+}
+.filter-select {
+  flex: 0 0 auto;
+  min-width: 140px;
+}
+.alphabet {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  margin-bottom: 1rem;
+}
+.alphabet button {
+  min-width: 1.6rem;
+  padding: 0.2rem 0.35rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  cursor: pointer;
+}
+.alphabet button.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #000;
+}
+.song-tags {
+  display: flex;
+  gap: 0.25rem;
+  flex-wrap: wrap;
+  margin-top: 0.25rem;
+}
+.tag {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  padding: 0.1rem 0.35rem;
+  border-radius: 3px;
 }
 .search-input {
   flex: 1;
