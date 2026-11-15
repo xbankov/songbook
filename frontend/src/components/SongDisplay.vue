@@ -178,7 +178,7 @@ function lyricRow(spans: Span[]): string {
     </div>
 
     <div class="song-body" :class="['mode-' + displayMode, { 'double-column': doubleColumn }]">
-      <div v-for="(section, si) in parsed.sections" :key="si" class="section">
+      <div v-for="(section, si) in parsed.sections" :key="si" :class="['section', { 'keep-together': section.lines.length <= 10 }]">
         <div v-if="section.label && section.label !== 'verse'" class="section-label">
           {{ section.title || section.label.charAt(0).toUpperCase() + section.label.slice(1) }}
         </div>
@@ -259,6 +259,7 @@ function lyricRow(spans: Span[]): string {
     column-gap: 10mm;
   }
   .section-label { break-after: avoid; }
+  .section.keep-together { break-inside: avoid; }
   .line-above,
   .line-inline { break-inside: avoid; }
   .song-title,
@@ -267,8 +268,9 @@ function lyricRow(spans: Span[]): string {
   .lyric-row { color: #000 !important; }
   .chord-row,
   .lyric-row {
-    white-space: pre-wrap;
+    white-space: pre-wrap !important;
     overflow-wrap: anywhere;
+    max-width: 100%;
   }
 }
 </style>
