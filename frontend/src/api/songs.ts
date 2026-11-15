@@ -83,6 +83,26 @@ export interface SongAnalysis {
   confidence: number | null
 }
 
+export interface SongVersion {
+  id: string
+  song_id: string
+  version: number
+  title: string
+  artist: string
+  capo: number
+  key: string | null
+  body: string
+  created_at: string
+}
+
+export function listVersions(id: string): Promise<SongVersion[]> {
+  return apiGet(`/api/songs/${id}/versions`)
+}
+
+export function restoreVersion(id: string, version: number): Promise<SongResponse> {
+  return apiPost(`/api/songs/${id}/versions/${version}/restore`)
+}
+
 export function analyzeSong(id: string): Promise<SongAnalysis> {
   return apiGet(`/api/songs/${id}/analyze`)
 }

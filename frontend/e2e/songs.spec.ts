@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-import { mockApi, settings, song } from './fixtures'
+import { mockApi, settings, song, version } from './fixtures'
 
 test.describe('Songbook UI', () => {
   test('lists songs and opens a song', async ({ page }) => {
@@ -229,5 +229,24 @@ test.describe('Songbook UI', () => {
     await page.getByRole('button', { name: '2', exact: true }).click()
     await pageTwoRequest
     await expect(page.locator('.pagination button.active')).toHaveText('2')
+  })
+
+  test('shows version history and restores a version', async ({ page }) => {
+    await mockApi(page)
+    await page.goto(`/songs/${song.id}`)
+
+    await page.getByRole('button', { name: 'History' }).click()
+    await expect(page.locator('.history-row')).toContainText('v1')
+
+    page.once('dialog', (dialog) => dialog.accept())
+    const restoreRequest = page.waitForRequest(
+      (req) =>
+        req.url().includes(`/api/songs/${song.id}/versions/1/restore`) &&
+        req.method() === 'POST',
+    )
+    await page.locator('.history-row').getByRole('button', { name: 'Restore' }).click()
+    await restoreRequest
+
+    await expect(page.locator('.song-title')).toHaveText('Old Title')
   })
 })

@@ -22,6 +22,18 @@ export const song = {
   updated_at: '2026-01-01T00:00:00Z',
 }
 
+export const version = {
+  id: '33333333-3333-3333-3333-333333333333',
+  song_id: song.id,
+  version: 1,
+  title: 'Old Title',
+  artist: 'Old Artist',
+  capo: 0,
+  key: null,
+  body: '{title: Old Title}\n{artist: Old Artist}\n{start_of_verse}\n[G]Old line\n{end_of_verse}',
+  created_at: '2025-12-01T00:00:00Z',
+}
+
 export const settings = {
   id: '22222222-2222-2222-2222-222222222222',
   transpose: 0,
@@ -80,6 +92,25 @@ export async function mockApi(
     }
     if (url.pathname === `/api/songs/${song.id}/analyze`) {
       return route.fulfill({ json: { suggested_key: null, confidence: null } })
+    }
+    if (url.pathname === `/api/songs/${song.id}/versions`) {
+      return route.fulfill({ json: [version] })
+    }
+    if (
+      url.pathname === `/api/songs/${song.id}/versions/1/restore` &&
+      route.request().method() === 'POST'
+    ) {
+      return route.fulfill({
+        json: {
+          ...song,
+          title: version.title,
+          artist: version.artist,
+          capo: version.capo,
+          key: version.key,
+          body: version.body,
+          version: 2,
+        },
+      })
     }
     if (url.pathname === `/api/export/song/${song.id}/pdf`) {
       return route.fulfill({

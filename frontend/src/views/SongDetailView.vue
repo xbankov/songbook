@@ -6,7 +6,7 @@ import { useSettingsStore } from '../stores/settings'
 import SongDisplay from '../components/SongDisplay.vue'
 import ChordDiagram from '../components/ChordDiagram.vue'
 import AppNotice from '../components/AppNotice.vue'
-import { analyzeSong } from '../api/songs'
+import { analyzeSong, listVersions, restoreVersion, type SongVersion } from '../api/songs'
 import { apiDelete, apiUpload, openFile } from '../api/client'
 
 const route = useRoute()
@@ -21,6 +21,11 @@ const hasAudio = ref(false)
 const recording = ref(false)
 const pdfError = ref('')
 const audioError = ref('')
+const versions = ref<SongVersion[]>([])
+const showHistory = ref(false)
+const loadingVersions = ref(false)
+const restoringVersion = ref<number | null>(null)
+const historyError = ref('')
 let mediaRecorder: MediaRecorder | null = null
 let audioChunks: Blob[] = []
 
@@ -68,6 +73,35 @@ function printBrowser() {
     name: 'SongPrint',
     params: { id: route.params.id },
   })
+}
+
+async function toggleHistory() {
+  showHistory.value = !showHistory.value
+  if (!showHistory.value || versions.value.length) return
+  loadingVersions.value = true
+  historyError.value = ''
+  try {
+    versions.value = await listVersions(route.params.id as string)
+  } catch (e: unknown) {
+    historyError.value = e instanceof Error ? e.message : 'Could not load versions'
+  } finally {
+    loadingVersions.value = false
+  }
+}
+
+async function restore(version: SongVersion) {
+  if (!confirm(`Restore version ${version.version}? This creates a new version.`)) return
+  restoringVersion.value = version.version
+  historyError.value = ''
+  try {
+    const song = await restoreVersion(route.params.id as string, version.version)
+    store.current = song
+    versions.value = await listVersions(route.params.id as string)
+  } catch (e: unknown) {
+    historyError.value = e instanceof Error ? e.message : 'Restore failed'
+  } finally {
+    restoringVersion.value = null
+  }
 }
 
 async function startRecording() {
@@ -142,8 +176,33 @@ const chords = computed(() => {
         <router-link :to="`/songs/${song.id}/edit`" class="btn-secondary">Edit</router-link>
         <button @click="printSong" class="btn-secondary">PDF</button>
         <button @click="printBrowser" class="btn-secondary">Print</button>
+        <button @click="toggleHistory" class="btn-secondary">
+          {{ showHistory ? 'Hide History' : 'History' }}
+        </button>
         <button @click="removeSong" class="btn-danger">Delete</button>
         <router-link to="/songs" class="btn-secondary">Back</router-link>
+      </div>
+
+      <AppNotice v-if="historyError" type="error" :message="historyError" />
+
+      <div v-if="showHistory" class="history-panel">
+        <h2>Version history</h2>
+        <div v-if="loadingVersions" class="history-loading">Loading...</div>
+        <div v-else class="history-list">
+          <div v-for="v in versions" :key="v.id" class="history-row">
+            <div class="history-info">
+              <strong>v{{ v.version }}</strong>
+              <span>{{ new Date(v.created_at).toLocaleString() }}</span>
+            </div>
+            <button
+              class="btn-secondary"
+              :disabled="restoringVersion !== null"
+              @click="restore(v)"
+            >
+              {{ restoringVersion === v.version ? 'Restoring...' : 'Restore' }}
+            </button>
+          </div>
+        </div>
       </div>
 
       <div v-if="suggestedKey" class="key-suggestion">
@@ -193,6 +252,44 @@ const chords = computed(() => {
   gap: 0.5rem;
   margin-bottom: 1rem;
   flex-wrap: wrap;
+}
+.history-panel {
+  margin-bottom: 1rem;
+  padding: 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+}
+.history-panel h2 {
+  margin: 0 0 0.5rem;
+  font-size: 0.95rem;
+}
+.history-loading {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+.history-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+.history-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  padding: 0.35rem 0;
+  border-top: 1px solid var(--border);
+}
+.history-info {
+  display: flex;
+  gap: 0.75rem;
+  align-items: baseline;
+  font-size: 0.85rem;
+}
+.history-info span {
+  color: var(--text-muted);
+  font-size: 0.8rem;
 }
 .btn-secondary {
   padding: 0.4rem 0.8rem;

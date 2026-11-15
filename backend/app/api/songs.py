@@ -232,6 +232,50 @@ async def get_version(
     return version
 
 
+@router.post("/{song_id}/versions/{version_number}/restore", response_model=SongOut)
+async def restore_version(
+    song_id: uuid.UUID, version_number: int, db: AsyncSession = Depends(get_db)
+):
+    result = await db.execute(select(Song).where(Song.id == song_id))
+    song = result.scalar_one_or_none()
+    if not song:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Song not found"
+        )
+
+    result = await db.execute(
+        select(SongVersion).where(
+            SongVersion.song_id == song_id, SongVersion.version == version_number
+        )
+    )
+    version = result.scalar_one_or_none()
+    if not version:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Version not found"
+        )
+
+    song.title = version.title
+    song.artist = version.artist
+    song.capo = version.capo
+    song.key = version.key
+    song.body = version.body
+    song.version += 1
+
+    restored = SongVersion(
+        song_id=song.id,
+        version=song.version,
+        title=song.title,
+        artist=song.artist,
+        capo=song.capo,
+        key=song.key,
+        body=song.body,
+    )
+    db.add(restored)
+    await db.flush()
+    await db.refresh(song)
+    return song
+
+
 @router.get("/{song_id}/analyze")
 async def analyze_song(song_id: uuid.UUID, db: AsyncSession = Depends(get_db)):
     result = await db.execute(select(Song).where(Song.id == song_id))
