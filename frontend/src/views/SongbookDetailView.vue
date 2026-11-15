@@ -62,6 +62,8 @@ function printSongbook() {
 </script>
 
 <template>
+  <AppNotice v-if="error" type="error" :message="error" />
+
   <div v-if="store.loading" class="loading">Loading...</div>
   <div v-else-if="!songbook" class="error">Songbook not found</div>
   <template v-else>
@@ -75,8 +77,6 @@ function printSongbook() {
         <router-link to="/songbooks" class="btn-secondary">Back</router-link>
       </div>
     </div>
-
-    <AppNotice v-if="error" type="error" :message="error" />
 
     <div class="add-song">
       <select v-model="addSongId" class="input">

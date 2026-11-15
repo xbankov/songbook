@@ -9,8 +9,8 @@ const auth = useAuthStore()
 const { theme, toggle } = useTheme()
 const { isOnline, pendingEdits } = useOffline()
 
-function logout() {
-  auth.logout()
+async function logout() {
+  await auth.logout()
   router.push('/login')
 }
 </script>

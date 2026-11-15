@@ -36,15 +36,26 @@ export const settings = {
  */
 export async function mockApi(
   page: Page,
-  { authenticated = true, unauthorized = false }: { authenticated?: boolean; unauthorized?: boolean } = {},
+  {
+    authenticated = true,
+    unauthorized = false,
+    seedAuthOnce = false,
+  }: { authenticated?: boolean; unauthorized?: boolean; seedAuthOnce?: boolean } = {},
 ) {
-  await page.addInitScript((isAuthenticated) => {
-    if (isAuthenticated) {
+  await page.addInitScript(
+    ({ isAuthenticated, seedOnce }) => {
+      if (!isAuthenticated) {
+        localStorage.removeItem('auth')
+        return
+      }
+      if (seedOnce && sessionStorage.getItem('e2e-auth-seeded') === '1') {
+        return
+      }
       localStorage.setItem('auth', JSON.stringify({ accessToken: 'e2e-token' }))
-    } else {
-      localStorage.removeItem('auth')
-    }
-  }, authenticated)
+      if (seedOnce) sessionStorage.setItem('e2e-auth-seeded', '1')
+    },
+    { isAuthenticated: authenticated, seedOnce: seedAuthOnce },
+  )
 
   await page.route('**/*', async (route) => {
     const url = new URL(route.request().url())

@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useSongStore } from '../stores/songs'
 import ChordProEditor from '../components/ChordProEditor.vue'
@@ -19,6 +19,11 @@ const body = ref('')
 const saving = ref(false)
 const error = ref('')
 const saved = ref(false)
+let savedTimer: ReturnType<typeof setTimeout> | null = null
+
+onBeforeUnmount(() => {
+  if (savedTimer) clearTimeout(savedTimer)
+})
 
 onMounted(async () => {
   if (isEdit) {
@@ -47,7 +52,11 @@ async function save() {
         body: body.value,
       })
       saved.value = true
-      setTimeout(() => { saved.value = false }, 2000)
+      if (savedTimer) clearTimeout(savedTimer)
+      savedTimer = setTimeout(() => {
+        saved.value = false
+        savedTimer = null
+      }, 2000)
     } else {
       const song = await store.createSong({
         title: title.value,
@@ -56,7 +65,7 @@ async function save() {
         key: key.value || undefined,
         body: body.value,
       })
-      router.replace(`/songs/${song.id}/edit`)
+      router.replace(`/songs/${song.id}?created=1`)
     }
   } catch (e: unknown) {
     error.value = e instanceof Error ? e.message : 'Save failed'

@@ -60,10 +60,12 @@ test.describe('Songbook UI', () => {
   })
 
   test('redirects to login when the session expires', async ({ page }) => {
-    await mockApi(page, { unauthorized: true })
+    await mockApi(page, { unauthorized: true, seedAuthOnce: true })
     await page.goto('/songs')
 
     await expect(page).toHaveURL(/\/login$/)
+    const auth = await page.evaluate(() => localStorage.getItem('auth'))
+    expect(auth).toBeNull()
   })
 
   test('shows an error instead of failing silently when save fails', async ({ page }) => {
@@ -88,5 +90,26 @@ test.describe('Songbook UI', () => {
 
     await page.getByRole('button', { name: 'Logout' }).click()
     await expect(page).toHaveURL(/\/login$/)
+    const auth = await page.evaluate(() => localStorage.getItem('auth'))
+    expect(auth).toBeNull()
+  })
+
+  test('creates a song and shows a success notice', async ({ page }) => {
+    await mockApi(page)
+    await page.route('**/api/songs', async (route) => {
+      if (route.request().method() === 'POST') {
+        return route.fulfill({ status: 201, json: song })
+      }
+      return route.fallback()
+    })
+
+    await page.goto('/songs/new')
+    const inputs = page.locator('.edit-form input[type="text"]')
+    await inputs.nth(0).fill('Test Song')
+    await inputs.nth(1).fill('Test Artist')
+    await page.getByRole('button', { name: 'Save' }).click()
+
+    await expect(page).toHaveURL(new RegExp(`/songs/${song.id}\\?created=1$`))
+    await expect(page.locator('.notice.success')).toHaveText('Song created')
   })
 })

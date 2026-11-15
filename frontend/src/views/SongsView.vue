@@ -2,7 +2,7 @@
 import { onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useSongStore } from '../stores/songs'
-import { apiGet, apiPost } from '../api/client'
+import { apiDownload, apiGet, apiPost } from '../api/client'
 import { useDebounceFn } from '@vueuse/core'
 import AppNotice from '../components/AppNotice.vue'
 
@@ -12,6 +12,8 @@ const store = useSongStore()
 const notice = ref<{ type: 'info' | 'success' | 'error'; message: string } | null>(null)
 
 function showNotice(type: 'info' | 'success' | 'error', message: string) {
+  // Do not let a later success hide an outstanding error from another action.
+  if (type !== 'error' && notice.value?.type === 'error') return
   notice.value = { type, message }
 }
 
@@ -52,7 +54,7 @@ async function doImport() {
   if (!importUrl.value) return
   try {
     const song = await store.importSong(importUrl.value)
-    router.push(`/songs/${song.id}`)
+    router.push(`/songs/${song.id}?imported=1`)
   } catch (e: unknown) {
     showNotice('error', e instanceof Error ? e.message : 'Import failed')
   }
@@ -85,22 +87,16 @@ async function doBulkImport() {
 }
 
 async function bulkExport(format: string) {
-  const token = localStorage.getItem('auth')
-  const headers: Record<string, string> = {}
-  if (token) {
-    try { headers['Authorization'] = `Bearer ${JSON.parse(token).accessToken}` } catch {}
+  try {
+    const blob = await apiDownload(`/api/songs/export/bulk?format=${format}`)
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url; a.download = `songs.${format}`; a.click()
+    URL.revokeObjectURL(url)
+    showNotice('success', `Exported ${format}`)
+  } catch (e: unknown) {
+    showNotice('error', e instanceof Error ? e.message : 'Export failed')
   }
-  const resp = await fetch(`/api/songs/export/bulk?format=${format}`, { headers })
-  if (!resp.ok) {
-    showNotice('error', `Export failed (${resp.status})`)
-    return
-  }
-  const blob = await resp.blob()
-  const url = URL.createObjectURL(blob)
-  const a = document.createElement('a')
-  a.href = url; a.download = `songs.${format}`; a.click()
-  URL.revokeObjectURL(url)
-  showNotice('success', `Exported ${format}`)
 }
 
 async function doSearchImport() {
@@ -124,7 +120,7 @@ async function importSearchResult(url: string) {
       artist: songData.artist,
       body: songData.body,
     })
-    router.push(`/songs/${song.id}`)
+    router.push(`/songs/${song.id}?imported=1`)
   } catch (e: unknown) {
     showNotice('error', e instanceof Error ? e.message : 'Import failed')
   }

@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import { nextTick } from 'vue'
 import { apiPost } from '../api/client'
 
 interface AuthState {
@@ -17,8 +18,12 @@ export const useAuthStore = defineStore('auth', {
       const result = await apiPost<{ access_token: string; token_type: string }>('/api/auth/login', { username, password })
       this.accessToken = result.access_token
     },
-    logout() {
+    async logout() {
       this.accessToken = null
+      // The persisted-state plugin writes {"accessToken":null}; remove the key
+      // after that write so no auth state is left behind.
+      await nextTick()
+      localStorage.removeItem('auth')
     },
   },
   persist: true,
