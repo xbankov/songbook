@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, computed, ref } from 'vue'
+import { watch, computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useSongStore } from '../stores/songs'
 import { useSettingsStore } from '../stores/settings'
@@ -39,20 +39,35 @@ const historyNotice = ref('')
 let mediaRecorder: MediaRecorder | null = null
 let audioChunks: Blob[] = []
 
-onMounted(async () => {
+let loadRequestId = 0
+
+async function loadSong(id: string) {
+  const request = ++loadRequestId
   await Promise.all([
-    store.fetchSong(route.params.id as string),
+    store.fetchSong(id),
     settingsStore.fetchSettings().catch(() => {}),
   ])
-  if (store.current) {
+  if (request !== loadRequestId) return
+  versions.value = []
+  showHistory.value = false
+  if (store.current?.id === id) {
     hasAudio.value = !!(store.current.metadata?.audio_file)
     try {
-      const analysis = await analyzeSong(route.params.id as string)
+      const analysis = await analyzeSong(id)
+      if (request !== loadRequestId) return
       suggestedKey.value = analysis.suggested_key
       keyConfidence.value = analysis.confidence
     } catch {}
   }
-})
+}
+
+watch(
+  () => route.params.id as string,
+  (id) => {
+    void loadSong(id)
+  },
+  { immediate: true },
+)
 
 const song = computed(() => store.current)
 
@@ -86,7 +101,7 @@ function printBrowser() {
 }
 
 async function downloadChordPro() {
-  if (!song.value) return
+  if (!song.value || song.value.id !== route.params.id) return
   exportError.value = ''
   try {
     await downloadFile(

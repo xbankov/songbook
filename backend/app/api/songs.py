@@ -9,10 +9,14 @@ from app.services.converters import (
     chordpro_to_abc,
     chordpro_to_ly,
     chordpro_to_text,
+    ensure_chordpro_metadata,
     export_songs_as_chordpro,
     parse_bulk_chordpro,
+    transpose_chordpro_body,
 )
+from app.services.http import content_disposition
 from app.services.scraper import import_from_url
+from app.services.settings import get_or_create_settings as get_global_settings
 from app.services.tags import resolve_tags
 from fastapi import APIRouter, Depends, File, HTTPException, Query, UploadFile, status
 from fastapi.responses import FileResponse, PlainTextResponse, Response
@@ -487,7 +491,7 @@ async def bulk_export(
     return Response(
         content=content,
         media_type=media,
-        headers={"Content-Disposition": f"attachment; filename=songs.{format}"},
+        headers={"Content-Disposition": content_disposition(f"songs.{format}")},
     )
 
 
@@ -540,7 +544,12 @@ async def export_song_format(
         )
     from app.services.music_theory import SongModel as ST
 
+    settings = await get_global_settings(db)
     model = ST.from_chordpro(song.body)
+    model.title = song.title
+    model.artist = song.artist
+    if settings.transpose:
+        model = model.transpose(settings.transpose)
 
     if format == "text":
         content = chordpro_to_text(model)
@@ -549,13 +558,14 @@ async def export_song_format(
     elif format == "lilypond":
         content = chordpro_to_ly(model)
     else:
-        content = str(model)
+        content = transpose_chordpro_body(
+            ensure_chordpro_metadata(song.body, song.title, song.artist),
+            settings.transpose,
+        )
 
     return PlainTextResponse(
         content=content,
-        headers={
-            "Content-Disposition": f'attachment; filename="{song.title}.{format}"'
-        },
+        headers={"Content-Disposition": content_disposition(f"{song.title}.{format}")},
     )
 
 

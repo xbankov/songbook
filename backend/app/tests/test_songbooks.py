@@ -1,4 +1,5 @@
 from datetime import datetime, timezone
+from types import SimpleNamespace
 from uuid import uuid4
 
 from app.database import get_db
@@ -18,11 +19,11 @@ class _Result:
 
 
 class _Session:
-    def __init__(self, songbook: Songbook):
-        self.songbook = songbook
+    def __init__(self, songbook: Songbook | None = None, results: list | None = None):
+        self.results = results if results is not None else [songbook]
 
     async def execute(self, *args, **kwargs):
-        return _Result(self.songbook)
+        return _Result(self.results.pop(0))
 
     async def flush(self):
         pass
@@ -112,7 +113,7 @@ def test_songbook_chordpro_export_contains_entry_song():
     )
     entry.song = song
     songbook.entries = [entry]
-    db = _Session(songbook)
+    db = _Session(results=[songbook, SimpleNamespace(transpose=0)])
 
     async def override_get_db():
         yield db

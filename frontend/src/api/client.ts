@@ -85,7 +85,7 @@ export async function downloadFile(path: string, filename: string): Promise<void
   link.href = url
   link.download = filename
   link.click()
-  URL.revokeObjectURL(url)
+  setTimeout(() => URL.revokeObjectURL(url), 60_000)
 }
 
 /** Download a protected file and open it in a new tab (e.g. a PDF). */
