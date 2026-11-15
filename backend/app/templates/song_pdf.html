@@ -3,7 +3,16 @@
 <head>
 <meta charset="utf-8">
 <style>
-  @page { size: A4; margin: 15mm 20mm; }
+  @page {
+    size: A4;
+    margin: 15mm 15mm;
+    @bottom-center {
+      content: counter(page) " / " counter(pages);
+      font-family: 'DejaVu Sans', sans-serif;
+      font-size: 8pt;
+      color: #666;
+    }
+  }
   body {
     font-family: {{ font }}, 'DejaVu Sans Mono', monospace;
     font-size: {{ font_size }}pt;
@@ -31,7 +40,11 @@
     font-weight: bold;
     font-size: 10pt;
     color: #8B4513;
-    margin: 6pt 0 2pt 0;
+    margin: 8pt 0 3pt 0;
+    padding-bottom: 1pt;
+    border-bottom: 1px solid #e0d0b0;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
     font-family: 'DejaVu Sans', sans-serif;
   }
   .line-above { margin-bottom: 1pt; }

@@ -42,3 +42,6 @@ def test_songbook_pdf_has_a_toc_and_per_song_columns():
     assert 'id="song-1"' in html
     assert "song-body double-column" in html
     assert "target-counter" in html
+    assert "15mm 15mm" in html
+    assert "counter(page)" in html
+    assert "text-transform: uppercase" in html
