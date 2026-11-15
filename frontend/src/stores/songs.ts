@@ -52,9 +52,9 @@ export const useSongStore = defineStore('songs', {
       }
     },
     async createSong(data: songsApi.SongCreate) {
+      this._listRequestId += 1
       const song = await songsApi.createSong(data)
       this.songs.unshift(song)
-      this.total += 1
       return song
     },
     async updateSong(id: string, data: Partial<songsApi.SongCreate>) {
@@ -65,15 +65,15 @@ export const useSongStore = defineStore('songs', {
       return song
     },
     async deleteSong(id: string) {
+      this._listRequestId += 1
       await songsApi.deleteSong(id)
       this.songs = this.songs.filter((s) => s.id !== id)
-      this.total = Math.max(0, this.total - 1)
       if (this.current?.id === id) this.current = null
     },
     async importSong(url: string) {
+      this._listRequestId += 1
       const song = await songsApi.importSong(url)
       this.songs.unshift(song)
-      this.total += 1
       return song
     },
     async transposeSong(id: string, interval: number) {
@@ -84,9 +84,8 @@ export const useSongStore = defineStore('songs', {
       return song
     },
     async bulkImport(text: string) {
-      const songs = await songsApi.bulkImport(text)
-      this.total += songs.length
-      return songs
+      this._listRequestId += 1
+      return songsApi.bulkImport(text)
     },
   },
 })

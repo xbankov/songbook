@@ -74,11 +74,6 @@ class SongOut(BaseModel):
     model_config = {"from_attributes": True, "populate_by_name": True}
 
 
-class SongListOut(BaseModel):
-    items: list[SongOut]
-    total: int
-
-
 class SongVersionOut(BaseModel):
     id: UUID
     song_id: UUID

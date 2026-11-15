@@ -1,4 +1,4 @@
-import { apiGet, apiPost, apiPut, apiDelete } from './client'
+import { apiDelete, apiGet, apiGetWithHeaders, apiPost, apiPut } from './client'
 
 export interface SongResponse {
   id: string
@@ -41,8 +41,13 @@ export interface SongListResponse {
   total: number
 }
 
-export function listSongs(params?: ListParams): Promise<SongListResponse> {
-  return apiGet('/api/songs', params as Record<string, string | number | undefined>)
+export async function listSongs(params?: ListParams): Promise<SongListResponse> {
+  const { data, headers } = await apiGetWithHeaders<SongResponse[]>(
+    '/api/songs',
+    params as Record<string, string | number | undefined>,
+  )
+  const total = Number(headers.get('X-Total-Count') ?? data.length)
+  return { items: data, total }
 }
 
 export function getSong(id: string): Promise<SongResponse> {

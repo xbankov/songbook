@@ -216,7 +216,7 @@ test.describe('Songbook UI', () => {
   test('paginates with limit and offset', async ({ page }) => {
     await mockApi(page)
     await page.route('**/api/songs?*', (route) =>
-      route.fulfill({ json: { items: [song], total: 60 } }),
+      route.fulfill({ json: [song], headers: { 'X-Total-Count': '60' } }),
     )
 
     await page.goto('/songs')

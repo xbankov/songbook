@@ -51,8 +51,8 @@ interface SearchResult {
   rating: number
 }
 
-async function fetchPage() {
-  await store.fetchSongs({
+function listParams() {
+  return {
     search: search.value || undefined,
     artist: artist.value || undefined,
     difficulty: difficulty.value || undefined,
@@ -62,7 +62,15 @@ async function fetchPage() {
     order: sortOrder.value,
     limit: pageSize,
     offset: (page.value - 1) * pageSize,
-  })
+  }
+}
+
+async function fetchPage() {
+  await store.fetchSongs(listParams())
+  if (page.value > totalPages.value) {
+    page.value = totalPages.value
+    await store.fetchSongs(listParams())
+  }
 }
 
 onMounted(fetchPage)
@@ -73,6 +81,7 @@ const doSearch = useDebounceFn(async () => {
 }, 300)
 
 function goToPage(target: number) {
+  if (store.loading) return
   page.value = Math.min(Math.max(1, target), totalPages.value)
   void fetchPage()
 }
@@ -267,17 +276,20 @@ async function importSearchResult(url: string) {
       </div>
     </div>
 
-    <div v-if="store.total > pageSize" class="pagination">
-      <button :disabled="page === 1" @click="goToPage(page - 1)">Previous</button>
-      <button
-        v-for="p in pageNumbers"
-        :key="p"
-        :class="{ active: p === page }"
-        @click="goToPage(p)"
-      >
-        {{ p }}
-      </button>
-      <button :disabled="page === totalPages" @click="goToPage(page + 1)">Next</button>
+    <div v-if="store.total" class="pagination">
+      <template v-if="store.total > pageSize">
+        <button :disabled="store.loading || page === 1" @click="goToPage(page - 1)">Previous</button>
+        <button
+          v-for="p in pageNumbers"
+          :key="p"
+          :disabled="store.loading"
+          :class="{ active: p === page }"
+          @click="goToPage(p)"
+        >
+          {{ p }}
+        </button>
+        <button :disabled="store.loading || page === totalPages" @click="goToPage(page + 1)">Next</button>
+      </template>
       <span class="page-info">{{ store.total }} songs</span>
     </div>
   </div>

@@ -112,7 +112,8 @@ def test_authenticated_request_succeeds():
     try:
         response = TestClient(main_app).get("/api/songs", headers=auth_header())
         assert response.status_code == 200
-        assert response.json() == {"items": [], "total": 0}
+        assert response.json() == []
+        assert response.headers["X-Total-Count"] == "0"
     finally:
         main_app.dependency_overrides.clear()
 
