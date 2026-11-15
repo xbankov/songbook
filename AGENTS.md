@@ -8,16 +8,15 @@ direction, the ordered issue queue, and the rules for splitting epics.
 
 ## Validation
 
-```sh
-./.ai/validate.sh
-```
-
-It runs the same checks as CI and `.ai-loop.toml` — `isort`, `black`, `pytest`,
-and the frontend production build — and must exit 0. Install the backend
-dependencies once before the first run:
+The same checks run in CI and in `.ai-loop.toml`. They must exit 0:
 
 ```sh
 pip install -r backend/requirements.txt -r backend/requirements-dev.txt
+isort --check-only backend/app
+black --check backend/app
+pytest -q backend/app/tests
+npm ci --prefix frontend
+npm run build --prefix frontend
 ```
 
 ## Layout
