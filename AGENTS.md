@@ -17,6 +17,8 @@ black --check backend/app
 pytest -q backend/app/tests
 npm ci --prefix frontend
 npm run build --prefix frontend
+cd frontend && npx playwright install --with-deps chromium  # first run only
+cd frontend && npm run test:e2e
 ```
 
 ## Layout
@@ -29,10 +31,13 @@ npm run build --prefix frontend
 ## Rules
 
 - Python: keep type hints, follow the existing black/isort formatting.
-- Never edit `.github/`, `.env`, or `docker-compose.yml`.
+- You may edit `.github/` and `docker-compose.yml` when the task requires it;
+  explain why in the PR. Never commit `.env` or secrets.
 - Do not upgrade dependencies or reformat unrelated files.
 - Schema changes need an Alembic migration in `backend/migrations/versions/`.
 - Frontend changes must keep `npm run build` working; do not commit `dist/`.
+- UI changes must keep `npm run test:e2e` working; add a test for user-facing
+  behavior.
 - Keep pull requests small and focused on one issue.
 - Update `docs/ROADMAP.md` in the same PR when the order, scope, or a decision
   changes.
