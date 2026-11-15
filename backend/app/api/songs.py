@@ -4,7 +4,13 @@ import uuid
 from app.database import get_db
 from app.models.song import Song, SongVersion
 from app.models.tag import Tag, song_tags
-from app.schemas.song import SongCreate, SongOut, SongUpdate, SongVersionOut
+from app.schemas.song import (
+    SongCreate,
+    SongListOut,
+    SongOut,
+    SongUpdate,
+    SongVersionOut,
+)
 from app.services.converters import (
     chordpro_to_abc,
     chordpro_to_ly,
@@ -23,7 +29,7 @@ from sqlalchemy.sql.elements import ColumnElement
 router = APIRouter(prefix="/api/songs", tags=["songs"])
 
 
-@router.get("", response_model=list[SongOut])
+@router.get("", response_model=SongListOut)
 async def list_songs(
     search: str | None = Query(None),
     artist: str | None = Query(None),
@@ -63,6 +69,9 @@ async def list_songs(
         query = query.where(Song.title.op("!~")("^[A-Za-z]"))
     elif letter:
         query = query.where(Song.title.ilike(f"{letter}%"))
+    total = (
+        await db.execute(select(func.count()).select_from(query.subquery()))
+    ).scalar_one()
     sort_col = getattr(Song, sort, Song.updated_at)
     if order == "asc":
         query = query.order_by(sort_col.asc())
@@ -70,7 +79,7 @@ async def list_songs(
         query = query.order_by(sort_col.desc())
     query = query.offset(offset).limit(limit)
     result = await db.execute(query)
-    return result.scalars().all()
+    return SongListOut(items=result.scalars().all(), total=total)
 
 
 @router.post("", response_model=SongOut, status_code=status.HTTP_201_CREATED)

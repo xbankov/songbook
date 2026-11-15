@@ -36,7 +36,12 @@ export interface ListParams {
   offset?: number
 }
 
-export function listSongs(params?: ListParams): Promise<SongResponse[]> {
+export interface SongListResponse {
+  items: SongResponse[]
+  total: number
+}
+
+export function listSongs(params?: ListParams): Promise<SongListResponse> {
   return apiGet('/api/songs', params as Record<string, string | number | undefined>)
 }
 

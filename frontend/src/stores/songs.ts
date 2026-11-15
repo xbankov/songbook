@@ -6,6 +6,7 @@ interface SongState {
   current: songsApi.SongResponse | null
   loading: boolean
   error: string | null
+  total: number
   _listRequestId: number
 }
 
@@ -15,6 +16,7 @@ export const useSongStore = defineStore('songs', {
     current: null,
     loading: false,
     error: null,
+    total: 0,
     _listRequestId: 0,
   }),
   actions: {
@@ -23,9 +25,10 @@ export const useSongStore = defineStore('songs', {
       this.loading = true
       this.error = null
       try {
-        const songs = await songsApi.listSongs(params)
+        const response = await songsApi.listSongs(params)
         if (requestId === this._listRequestId) {
-          this.songs = songs
+          this.songs = response.items
+          this.total = response.total
         }
       } catch (e: unknown) {
         if (requestId === this._listRequestId) {
@@ -51,6 +54,7 @@ export const useSongStore = defineStore('songs', {
     async createSong(data: songsApi.SongCreate) {
       const song = await songsApi.createSong(data)
       this.songs.unshift(song)
+      this.total += 1
       return song
     },
     async updateSong(id: string, data: Partial<songsApi.SongCreate>) {
@@ -63,11 +67,13 @@ export const useSongStore = defineStore('songs', {
     async deleteSong(id: string) {
       await songsApi.deleteSong(id)
       this.songs = this.songs.filter((s) => s.id !== id)
+      this.total = Math.max(0, this.total - 1)
       if (this.current?.id === id) this.current = null
     },
     async importSong(url: string) {
       const song = await songsApi.importSong(url)
       this.songs.unshift(song)
+      this.total += 1
       return song
     },
     async transposeSong(id: string, interval: number) {
@@ -78,7 +84,9 @@ export const useSongStore = defineStore('songs', {
       return song
     },
     async bulkImport(text: string) {
-      return songsApi.bulkImport(text)
+      const songs = await songsApi.bulkImport(text)
+      this.total += songs.length
+      return songs
     },
   },
 })
