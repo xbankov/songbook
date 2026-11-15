@@ -125,4 +125,23 @@ test.describe('Songbook UI', () => {
 
     expect(request.headers()['authorization']).toBe('Bearer e2e-token')
   })
+
+  test('keeps a chord inside a word aligned', async ({ page }) => {
+    await mockApi(page)
+    const body = [
+      '{title: Test Song}',
+      '{artist: Test Artist}',
+      '{start_of_verse}',
+      'bri[C]ght',
+      '{end_of_verse}',
+    ].join('\n')
+    await page.route(`**/api/songs/${song.id}`, (route) =>
+      route.fulfill({ json: { ...song, body } }),
+    )
+
+    await page.goto(`/songs/${song.id}`)
+    await expect(page.locator('.lyric-row').first()).toHaveText('bright')
+    const chordRow = await page.locator('.chord-row').first().textContent()
+    expect(chordRow?.indexOf('C')).toBe(3)
+  })
 })

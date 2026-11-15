@@ -92,6 +92,20 @@ class TestLine:
         assert "[Am]" in s
         assert "Hello" in s
 
+    def test_chord_inside_word(self):
+        line = Line.from_chordpro("bri[C]ght")
+        texts = [part for part in line.parts if isinstance(part, str)]
+        assert texts == ["bri", "ght"]
+        assert str(line) == "bri[C]ght"
+
+    def test_chord_inside_word_renders_at_the_right_position(self):
+        from app.services.pdf import _build_line_data
+
+        line = Line.from_chordpro("bri[C]ght")
+        data = _build_line_data(line.parts)
+        assert data["text"] == "bright"
+        assert data["chord_line"].index("C") == 3
+
 
 class TestSongModel:
     def test_from_chordpro_simple(self):
