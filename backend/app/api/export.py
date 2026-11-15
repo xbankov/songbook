@@ -3,6 +3,7 @@ import uuid
 from app.database import get_db
 from app.models.song import Song
 from app.models.songbook import Songbook, SongbookEntry
+from app.schemas.song import SongIdsRequest
 from app.services.converters import (
     ensure_chordpro_metadata,
     transpose_chordpro_body,
@@ -11,7 +12,7 @@ from app.services.http import content_disposition
 from app.services.music_theory import SongModel as ST
 from app.services.pdf import generate_song_pdf, generate_songbook_pdf
 from app.services.settings import get_or_create_settings as get_global_settings
-from fastapi import APIRouter, Depends, HTTPException, Query
+from fastapi import APIRouter, Depends, HTTPException
 from fastapi.responses import Response
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
@@ -41,20 +42,28 @@ async def export_song_pdf(
     )
 
 
-@router.get("/selected/pdf")
+@router.post("/selected/pdf")
 async def export_selected_pdf(
-    ids: list[uuid.UUID] = Query(...),
+    body: SongIdsRequest,
     db: AsyncSession = Depends(get_db),
 ):
+    ids = list(dict.fromkeys(body.ids))
     result = await db.execute(select(Song).where(Song.id.in_(ids)))
     by_id = {str(song.id): song for song in result.scalars().all()}
-    selected = [by_id[str(song_id)] for song_id in ids if str(song_id) in by_id]
+    missing = [str(song_id) for song_id in ids if str(song_id) not in by_id]
+    if missing:
+        raise HTTPException(
+            status_code=404, detail=f"Songs not found: {', '.join(missing)}"
+        )
+    selected = [by_id[str(song_id)] for song_id in ids]
     settings = await get_global_settings(db)
     songs = []
     for song in selected:
         model = ST.from_chordpro(song.body)
         model.title = song.title
         model.artist = song.artist
+        model.capo = song.capo
+        model.key = song.key
         songs.append(model)
     per_song = [
         {"transpose": 0, "double_column": bool(settings.double_column)} for _ in songs
@@ -139,7 +148,11 @@ async def export_songbook_chordpro(
         if entry.song is None:
             continue
         body = ensure_chordpro_metadata(
-            entry.song.body, entry.song.title, entry.song.artist
+            entry.song.body,
+            entry.song.title,
+            entry.song.artist,
+            entry.song.capo,
+            entry.song.key,
         )
         songs.append(
             transpose_chordpro_body(body, settings.transpose + entry.transpose)

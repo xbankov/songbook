@@ -65,7 +65,7 @@ def test_selected_chordpro_export_keeps_selection_order():
     second = _song("Second Song", "{title: Second Song}\n[C]World")
     db = _Session(
         [
-            _ListResult([first, second]),
+            _ListResult([second, first]),
             _OneResult(SimpleNamespace(transpose=0)),
         ]
     )
@@ -75,9 +75,9 @@ def test_selected_chordpro_export_keeps_selection_order():
 
     app.dependency_overrides[get_db] = override_get_db
     try:
-        response = TestClient(app).get(
+        response = TestClient(app).post(
             "/api/songs/export/selected",
-            params=[("ids", str(first.id)), ("ids", str(second.id))],
+            json={"ids": [str(first.id), str(second.id)]},
             headers={"Authorization": f"Bearer {create_access_token()}"},
         )
     finally:

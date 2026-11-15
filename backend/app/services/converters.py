@@ -112,29 +112,46 @@ def chordpro_to_ly(song: SongModel) -> str:
 
 
 def transpose_chordpro_body(body: str, interval: int) -> str:
-    """Transpose bracketed chords without dropping unmodeled directives."""
+    """Transpose bracketed chords and the key directive without dropping tags."""
     if not interval:
         return body
 
-    def replace(match: re.Match) -> str:
+    def replace_chord(match: re.Match) -> str:
         try:
             chord = Chord.parse(match.group(1).strip())
             return f"[{chord.transpose(interval)}]"
         except Exception:
             return match.group(0)
 
-    return re.sub(r"\[([^\]]+)\]", replace, body)
+    def replace_key(match: re.Match) -> str:
+        try:
+            key = Chord.parse(match.group(1).strip())
+            return f"{{key: {key.transpose(interval)}}}"
+        except Exception:
+            return match.group(0)
+
+    body = re.sub(r"\{key:\s*([^}]+)\}", replace_key, body, flags=re.IGNORECASE)
+    return re.sub(r"\[([^\]]+)\]", replace_chord, body)
 
 
-def ensure_chordpro_metadata(body: str, title: str, artist: str) -> str:
-    lines = body.splitlines()
-    has_title = any(line.strip().startswith("{title:") for line in lines)
-    has_artist = any(line.strip().startswith("{artist:") for line in lines)
-    prefix = []
-    if not has_title:
-        prefix.append(f"{{title: {title}}}")
-    if not has_artist:
-        prefix.append(f"{{artist: {artist}}}")
+def ensure_chordpro_metadata(
+    body: str,
+    title: str,
+    artist: str,
+    capo: int = 0,
+    key: str | None = None,
+) -> str:
+    prefixes = ("{title:", "{artist:", "{capo:", "{key:")
+    lines = [
+        line
+        for line in body.splitlines()
+        if not line.strip().lower().startswith(prefixes)
+    ]
+    prefix = [f"{{title: {title}}}", f"{{artist: {artist}}}"]
+    if capo:
+        prefix.append(f"{{capo: {capo}}}")
+    if key:
+        prefix.append(f"{{key: {key}}}")
     return "\n".join(prefix + lines)
 
 

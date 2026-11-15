@@ -38,13 +38,18 @@ function handleUnauthorized(requestToken: string | null): void {
   }
 }
 
-export async function apiDownload(path: string): Promise<Blob> {
+export async function apiDownload(
+  path: string,
+  init: RequestInit = {},
+): Promise<Blob> {
   const requestToken = getToken()
-  const headers: Record<string, string> = {}
+  const headers: Record<string, string> = {
+    ...(init.headers as Record<string, string> | undefined),
+  }
   if (requestToken) {
     headers['Authorization'] = `Bearer ${requestToken}`
   }
-  const response = await fetch(buildUrl(path), { headers })
+  const response = await fetch(buildUrl(path), { ...init, headers })
   if (!response.ok) {
     if (response.status === 401) {
       handleUnauthorized(requestToken)
@@ -78,8 +83,12 @@ export async function apiUpload<T>(path: string, body: FormData): Promise<T> {
 }
 
 /** Download a protected file without opening a tab. */
-export async function downloadFile(path: string, filename: string): Promise<void> {
-  const blob = await apiDownload(path)
+export async function downloadFile(
+  path: string,
+  filename: string,
+  init: RequestInit = {},
+): Promise<void> {
+  const blob = await apiDownload(path, init)
   const url = URL.createObjectURL(blob)
   const link = document.createElement('a')
   link.href = url
@@ -89,14 +98,14 @@ export async function downloadFile(path: string, filename: string): Promise<void
 }
 
 /** Download a protected file and open it in a new tab (e.g. a PDF). */
-export async function openFile(path: string): Promise<void> {
+export async function openFile(path: string, init: RequestInit = {}): Promise<void> {
   // Open the tab synchronously, while the click still counts as user activation.
   const tab = window.open('', '_blank')
   if (!tab) {
     throw new Error('Pop-up blocked. Allow pop-ups for this site and try again.')
   }
   try {
-    const blob = await apiDownload(path)
+    const blob = await apiDownload(path, init)
     const url = URL.createObjectURL(blob)
     tab.location.href = url
     // Keep the URL alive long enough for the new tab to load it.

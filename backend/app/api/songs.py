@@ -4,7 +4,13 @@ import uuid
 from app.database import get_db
 from app.models.song import Song, SongVersion
 from app.models.tag import Tag, song_tags
-from app.schemas.song import SongCreate, SongOut, SongUpdate, SongVersionOut
+from app.schemas.song import (
+    SongCreate,
+    SongIdsRequest,
+    SongOut,
+    SongUpdate,
+    SongVersionOut,
+)
 from app.services.converters import (
     chordpro_to_abc,
     chordpro_to_ly,
@@ -530,21 +536,30 @@ async def bulk_import(
     return created
 
 
-@router.get("/export/selected")
+@router.post("/export/selected")
 async def export_selected_songs(
+    body: SongIdsRequest,
     format: str = Query("chordpro"),
-    ids: list[uuid.UUID] = Query(...),
     db: AsyncSession = Depends(get_db),
 ):
+    ids = list(dict.fromkeys(body.ids))
     result = await db.execute(select(Song).where(Song.id.in_(ids)))
     by_id = {str(song.id): song for song in result.scalars().all()}
-    selected = [by_id[str(song_id)] for song_id in ids if str(song_id) in by_id]
+    missing = [str(song_id) for song_id in ids if str(song_id) not in by_id]
+    if missing:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND,
+            detail=f"Songs not found: {', '.join(missing)}",
+        )
+    selected = [by_id[str(song_id)] for song_id in ids]
     settings = await get_global_settings(db)
 
     if format == "chordpro":
         parts = []
         for song in selected:
-            body = ensure_chordpro_metadata(song.body, song.title, song.artist)
+            body = ensure_chordpro_metadata(
+                song.body, song.title, song.artist, song.capo, song.key
+            )
             parts.append(transpose_chordpro_body(body, settings.transpose))
         content = "\n\n---\n\n".join(parts)
         extension = "cho"
@@ -556,6 +571,8 @@ async def export_selected_songs(
             model = ST.from_chordpro(song.body)
             model.title = song.title
             model.artist = song.artist
+            model.capo = song.capo
+            model.key = song.key
             if settings.transpose:
                 model = model.transpose(settings.transpose)
             models.append(model)
@@ -605,7 +622,9 @@ async def export_song_format(
         content = chordpro_to_ly(model)
     else:
         content = transpose_chordpro_body(
-            ensure_chordpro_metadata(song.body, song.title, song.artist),
+            ensure_chordpro_metadata(
+                song.body, song.title, song.artist, song.capo, song.key
+            ),
             settings.transpose,
         )
 

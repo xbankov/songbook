@@ -67,10 +67,12 @@ function toggleAll() {
   selected.value = next
 }
 
-function selectionQuery(): string {
-  return selectedIds.value
-    .map((id) => `ids=${encodeURIComponent(id)}`)
-    .join('&')
+function selectionBody(): RequestInit {
+  return {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ids: selectedIds.value }),
+  }
 }
 
 interface SearchResult {
@@ -177,8 +179,9 @@ async function exportSelected() {
   if (!selectedIds.value.length) return
   try {
     await downloadFile(
-      `/api/songs/export/selected?${selectionQuery()}`,
+      '/api/songs/export/selected',
       'selected.cho',
+      selectionBody(),
     )
     showNotice('success', `Exported ${selectedIds.value.length} songs`)
   } catch (e: unknown) {
@@ -189,7 +192,7 @@ async function exportSelected() {
 async function printSelected() {
   if (!selectedIds.value.length) return
   try {
-    await openFile(`/api/export/selected/pdf?${selectionQuery()}`)
+    await openFile('/api/export/selected/pdf', selectionBody())
   } catch (e: unknown) {
     showNotice('error', e instanceof Error ? e.message : 'Could not open PDF')
   }

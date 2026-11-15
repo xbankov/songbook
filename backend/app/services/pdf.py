@@ -150,7 +150,7 @@ def generate_song_pdf(song: SongModel, settings: Settings) -> io.BytesIO:
 
         if settings.transpose:
             song = song.transpose(settings.transpose)
-        env = Environment(loader=FileSystemLoader(str(TEMPLATE_DIR)))
+        env = Environment(loader=FileSystemLoader(str(TEMPLATE_DIR)), autoescape=True)
         template = env.get_template("song_pdf.html")
         data = _build_song_data(song)
         html = template.render(
@@ -220,7 +220,7 @@ def generate_songbook_pdf(
     try:
         from weasyprint import HTML
 
-        env = Environment(loader=FileSystemLoader(str(TEMPLATE_DIR)))
+        env = Environment(loader=FileSystemLoader(str(TEMPLATE_DIR)), autoescape=True)
         template = env.get_template("songbook_pdf.html")
         songs_data = []
         for index, song in enumerate(songs):

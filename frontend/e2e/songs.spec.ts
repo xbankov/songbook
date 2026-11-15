@@ -367,13 +367,22 @@ test.describe('Songbook UI', () => {
     await page.locator('.song-select').first().check()
     await expect(page.getByRole('button', { name: /Print selected/ })).toContainText('1')
 
+    const exportRequest = page.waitForRequest(
+      (req) =>
+        req.url().endsWith('/api/songs/export/selected') &&
+        req.method() === 'POST' &&
+        ((req.postDataJSON() as { ids: string[] }).ids || []).includes(song.id),
+    )
     const download = page.waitForEvent('download')
     await page.getByRole('button', { name: 'Export selected' }).click()
+    await exportRequest
     expect((await download).suggestedFilename()).toContain('.cho')
 
     const printRequest = page.waitForRequest(
       (req) =>
-        req.url().includes('/api/export/selected/pdf?') && req.url().includes('ids='),
+        req.url().endsWith('/api/export/selected/pdf') &&
+        req.method() === 'POST' &&
+        ((req.postDataJSON() as { ids: string[] }).ids || []).includes(song.id),
     )
     await page.getByRole('button', { name: /Print selected/ }).click()
     await printRequest
