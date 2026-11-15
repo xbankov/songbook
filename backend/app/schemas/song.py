@@ -83,6 +83,7 @@ class SongVersionOut(BaseModel):
     capo: int
     key: str | None
     body: str
+    author: str
     created_at: datetime
 
     model_config = {"from_attributes": True}

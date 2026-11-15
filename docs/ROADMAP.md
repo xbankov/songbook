@@ -91,7 +91,7 @@ Every roadmap item should make this loop faster, more reliable, or more enjoyabl
 | Import by URL + UG search/pick/import (#46) | Mostly done for UG |
 | Bulk paste import; bulk ChordPro/text/ABC/LilyPond export (#29/#54) | Partial — no file upload, no single/selected export UI |
 | Print single song + songbook PDF (#56) | Partial — no multi-select |
-| Version rows + list/get APIs (#45) | Partial — no history/restore UI |
+| Version rows + list/get APIs (#45) | Done — history + restore; authors/forks/favourites/permalink split to #88 |
 | Audio record/upload/playback (#42) | Partial — no record mode/privacy |
 | Tags model + API filter (#26) | Done — tag-based difficulty/genre filters, alphabet, badges |
 | Auth | ⚠️ Login exists, but **no API route uses `require_auth`** |
@@ -149,7 +149,7 @@ Migration is **not** a Phase 0 criterion; it is a pre-1.0.0 release gate.
 | 6 | #26 Filter by difficulty/genre/artist/alphabet | M | A growing songbook needs retrieval |
 | 7 | #27 Pagination | M | The UI currently shows at most 50 songs |
 | 8 | #24 Songbook completion (TOC, metadata, sorting, per-entry settings) | L | The songbook is the core artifact |
-| 9 | #45 Version history UI + restore | M | Editing must be safe |
+| 9 | #45 Version history UI + restore (authors/forks/favourites → #88) | M | Editing must be safe |
 
 **Resolved:** #26 stores difficulty and genre as tags (`difficulty:*`,
 `genre:*`); #27 can build pagination on the same filters.
@@ -214,6 +214,7 @@ data-separation layer, not a prerequisite for the core loop.
 | 28 | #75 API keys for mobile/CLI sync | M | Per-user device access |
 | 29 | Sharing (songbook view/edit, partner/whole-library) | L | Create after #72 is split |
 | 30 | Sessions/refresh/revoke + trash/restore | M | Account safety and recovery |
+| 31 | #88 Version authors, forking, favourites, permalinks | M | Depends on users/ownership |
 
 **Recommendation:** invite-only users; admin-created accounts; no public
 registration. Do not build quotas or billing.
@@ -519,6 +520,7 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-15 | Single-user functionality first; multi-user/data separation is a later layer (Phase 6), started only when the single-user product is liked | @xbankov |
 | 2026-11-15 | Alembic is deferred for dev/empty databases; it is required before changing a schema under real data and at the pre-1.0.0 release gate. Never reset a real database | @xbankov |
 | 2026-11-15 | Difficulty and genre use tags (`difficulty:*`, `genre:*`); no new columns (#26) | @xbankov |
+| 2026-11-15 | Version history/restore ships now; version authors, forking, favourites, and permalinks are deferred to #88 with multi-user | @xbankov |
 
 ---
 
@@ -533,3 +535,4 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-15 | Reordered the roadmap: single-user library/print/import before mobile; multi-user moved to Phase 6; Alembic deferred to pre-1.0.0 |
 | 2026-11-15 | Clarified Alembic data-safety/stamp paths, required revocable per-device keys for sync, and made queue ranks unique |
 | 2026-11-15 | #26 implemented with tag-based difficulty/genre filters, alphabet index, and card badges |
+| 2026-11-15 | #45 history/restore implemented; authors/forks/favourites/permalink split to #88 |

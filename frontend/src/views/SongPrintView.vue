@@ -1,14 +1,14 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
 import { useRoute } from 'vue-router'
-import { getSong, type SongResponse } from '../api/songs'
+import { getSong, getVersion, type SongResponse, type SongVersion } from '../api/songs'
 import { useSettingsStore } from '../stores/settings'
 import SongDisplay from '../components/SongDisplay.vue'
 
 const route = useRoute()
 const settingsStore = useSettingsStore()
 
-const song = ref<SongResponse | null>(null)
+const song = ref<SongResponse | SongVersion | null>(null)
 const loading = ref(true)
 const error = ref('')
 const columns = ref<1 | 2>(route.query.columns === '2' ? 2 : 1)
@@ -21,9 +21,10 @@ async function load(id: string) {
   loading.value = true
   error.value = ''
   song.value = null
+  const version = route.query.version ? Number(route.query.version) : null
   try {
     const [loaded] = await Promise.all([
-      getSong(id),
+      version ? getVersion(id, version) : getSong(id),
       settingsStore.fetchSettings().catch(() => {}),
     ])
     if (currentRequest !== requestId) return
@@ -40,8 +41,8 @@ async function load(id: string) {
 }
 
 watch(
-  () => route.params.id as string,
-  (id) => {
+  () => [route.params.id as string, route.query.version] as const,
+  ([id]) => {
     void load(id)
   },
   { immediate: true },
