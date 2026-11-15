@@ -1,9 +1,12 @@
 <script setup lang="ts">
 import { ref, onMounted } from 'vue'
+import { useRouter } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
 import { useSettingsStore } from '../stores/settings'
 import { apiGet, apiPost } from '../api/client'
+import AppNotice from '../components/AppNotice.vue'
 
+const router = useRouter()
 const auth = useAuthStore()
 const settingsStore = useSettingsStore()
 const backups = ref<{ filename: string; size: number; created_at: string }[]>([])
@@ -12,23 +15,38 @@ const restoring = ref(false)
 const backingUp = ref(false)
 const message = ref('')
 const saved = ref(false)
+const error = ref('')
 
 onMounted(async () => {
-  await settingsStore.fetchSettings()
+  try {
+    await settingsStore.fetchSettings()
+  } catch (e: unknown) {
+    error.value = e instanceof Error ? e.message : 'Failed to load settings'
+  }
 })
+
+function logout() {
+  auth.logout()
+  router.push('/login')
+}
 
 async function saveSettings() {
   saved.value = false
+  error.value = ''
   if (!settingsStore.settings) return
-  await settingsStore.updateSettings({
-    font: settingsStore.settings.font,
-    font_size: settingsStore.settings.font_size,
-    double_column: settingsStore.settings.double_column,
-    display_mode: settingsStore.settings.display_mode,
-    transpose: settingsStore.settings.transpose,
-  })
-  saved.value = true
-  setTimeout(() => { saved.value = false }, 2000)
+  try {
+    await settingsStore.updateSettings({
+      font: settingsStore.settings.font,
+      font_size: settingsStore.settings.font_size,
+      double_column: settingsStore.settings.double_column,
+      display_mode: settingsStore.settings.display_mode,
+      transpose: settingsStore.settings.transpose,
+    })
+    saved.value = true
+    setTimeout(() => { saved.value = false }, 2000)
+  } catch (e: unknown) {
+    error.value = e instanceof Error ? e.message : 'Could not save settings'
+  }
 }
 
 async function listBackups() {
@@ -90,6 +108,8 @@ async function restoreBackup(filename: string) {
   <div class="settings-page">
     <h1>Settings</h1>
 
+    <AppNotice v-if="error" type="error" :message="error" />
+
     <section class="section">
       <h2>Display Settings</h2>
       <div v-if="settingsStore.settings" class="display-settings">
@@ -133,7 +153,7 @@ async function restoreBackup(filename: string) {
     <section class="section">
       <h2>Account</h2>
       <p>You are signed in.</p>
-      <button @click="auth.logout()" class="btn-secondary">Sign Out</button>
+      <button @click="logout" class="btn-secondary">Sign Out</button>
     </section>
 
     <section class="section">

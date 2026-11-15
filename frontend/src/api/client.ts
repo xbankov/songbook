@@ -47,6 +47,14 @@ export async function apiRequest<T>(path: string, options: RequestOptions = {}):
   })
 
   if (!response.ok) {
+    if (response.status === 401 && !path.startsWith('/api/auth/login')) {
+      // The token is missing or expired. Drop the persisted auth state and
+      // send the user to the login page instead of leaving a broken screen.
+      localStorage.removeItem('auth')
+      if (window.location.pathname !== '/login') {
+        window.location.assign('/login')
+      }
+    }
     const err = await response.json().catch(() => ({ detail: response.statusText }))
     throw new Error(err.detail || `Request failed: ${response.status}`)
   }

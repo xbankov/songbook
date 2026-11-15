@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useSongbookStore } from '../stores/songbooks'
+import AppNotice from '../components/AppNotice.vue'
 
 const router = useRouter()
 const store = useSongbookStore()
@@ -9,16 +10,28 @@ const store = useSongbookStore()
 const showNew = ref(false)
 const newName = ref('')
 const newDesc = ref('')
+const error = ref('')
 
-onMounted(() => store.fetchSongbooks())
+onMounted(async () => {
+  try {
+    await store.fetchSongbooks()
+  } catch (e: unknown) {
+    error.value = e instanceof Error ? e.message : 'Failed to load songbooks'
+  }
+})
 
 async function create() {
   if (!newName.value) return
-  const sb = await store.createSongbook({ name: newName.value, description: newDesc.value })
-  newName.value = ''
-  newDesc.value = ''
-  showNew.value = false
-  router.push(`/songbooks/${sb.id}`)
+  error.value = ''
+  try {
+    const sb = await store.createSongbook({ name: newName.value, description: newDesc.value })
+    newName.value = ''
+    newDesc.value = ''
+    showNew.value = false
+    router.push(`/songbooks/${sb.id}`)
+  } catch (e: unknown) {
+    error.value = e instanceof Error ? e.message : 'Could not create songbook'
+  }
 }
 </script>
 
@@ -28,6 +41,8 @@ async function create() {
       <h1>Songbooks</h1>
       <button @click="showNew = !showNew" class="btn-secondary">New Songbook</button>
     </div>
+
+    <AppNotice v-if="error" type="error" :message="error" />
 
     <div v-if="showNew" class="new-form">
       <input v-model="newName" placeholder="Songbook name" class="input" />

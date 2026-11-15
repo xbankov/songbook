@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useSongStore } from '../stores/songs'
 import ChordProEditor from '../components/ChordProEditor.vue'
 import SongDisplay from '../components/SongDisplay.vue'
+import AppNotice from '../components/AppNotice.vue'
 
 const route = useRoute()
 const router = useRouter()
@@ -16,6 +17,8 @@ const capo = ref(0)
 const key = ref('')
 const body = ref('')
 const saving = ref(false)
+const error = ref('')
+const saved = ref(false)
 
 onMounted(async () => {
   if (isEdit) {
@@ -32,6 +35,8 @@ onMounted(async () => {
 
 async function save() {
   saving.value = true
+  error.value = ''
+  saved.value = false
   try {
     if (isEdit) {
       await store.updateSong(route.params.id as string, {
@@ -41,6 +46,8 @@ async function save() {
         key: key.value || undefined,
         body: body.value,
       })
+      saved.value = true
+      setTimeout(() => { saved.value = false }, 2000)
     } else {
       const song = await store.createSong({
         title: title.value,
@@ -51,6 +58,8 @@ async function save() {
       })
       router.replace(`/songs/${song.id}/edit`)
     }
+  } catch (e: unknown) {
+    error.value = e instanceof Error ? e.message : 'Save failed'
   } finally {
     saving.value = false
   }
@@ -58,14 +67,22 @@ async function save() {
 
 async function transpose(interval: number) {
   if (!isEdit) return
-  const song = await store.transposeSong(route.params.id as string, interval)
-  body.value = song.body
+  error.value = ''
+  try {
+    const song = await store.transposeSong(route.params.id as string, interval)
+    body.value = song.body
+  } catch (e: unknown) {
+    error.value = e instanceof Error ? e.message : 'Transpose failed'
+  }
 }
 </script>
 
 <template>
   <div class="edit-page">
     <h1>{{ isEdit ? 'Edit Song' : 'New Song' }}</h1>
+
+    <AppNotice v-if="error" type="error" :message="error" />
+    <AppNotice v-if="saved" type="success" message="Saved" />
 
     <form @submit.prevent="save" class="edit-form">
       <div class="form-row">

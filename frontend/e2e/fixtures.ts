@@ -36,7 +36,7 @@ export const settings = {
  */
 export async function mockApi(
   page: Page,
-  { authenticated = true }: { authenticated?: boolean } = {},
+  { authenticated = true, unauthorized = false }: { authenticated?: boolean; unauthorized?: boolean } = {},
 ) {
   await page.addInitScript((isAuthenticated) => {
     if (isAuthenticated) {
@@ -50,6 +50,9 @@ export async function mockApi(
     const url = new URL(route.request().url())
     if (!url.pathname.startsWith('/api/')) {
       return route.continue()
+    }
+    if (unauthorized) {
+      return route.fulfill({ status: 401, json: { detail: 'Not authenticated' } })
     }
     if (url.pathname === '/api/settings') {
       return route.fulfill({ json: settings })
