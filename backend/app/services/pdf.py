@@ -47,7 +47,7 @@ def _build_line_data(line_parts: list) -> dict:
 
 
 def _build_section_data(section) -> dict:
-    label = section.label if section.label and section.label != "verse" else None
+    label = section.label
     lines = [_build_line_data(line.parts) for line in section.lines]
     return {
         "label": label,
@@ -103,11 +103,14 @@ def _render_song_fpdf(pdf, song: SongModel, settings: Settings):
     font_size = settings.font_size
 
     for section in song.sections:
-        if section.label and section.label != "verse":
-            label_text = section.title or section.label.capitalize()
+        if section.label:
+            label_text = (section.title or section.label.capitalize()).upper()
             pdf.set_font("DejaVu", "B", 10)
             pdf.set_text_color(139, 69, 19)
             pdf.cell(0, 6, label_text, new_x="LMARGIN", new_y="NEXT")
+            pdf.set_draw_color(224, 208, 176)
+            pdf.line(pdf.l_margin, pdf.get_y(), pdf.w - pdf.r_margin, pdf.get_y())
+            pdf.ln(2)
 
         for line in section.lines:
             if display_mode == "above":
@@ -187,7 +190,14 @@ def generate_song_pdf(song: SongModel, settings: Settings) -> io.BytesIO:
     except ImportError:
         from fpdf import FPDF
 
-        pdf = FPDF(orientation="P", unit="mm", format="A4")
+        class NumberedPDF(FPDF):
+            def footer(self):
+                self.set_y(-15)
+                self.set_font("DejaVu", "", 8)
+                self.set_text_color(102, 102, 102)
+                self.cell(0, 10, f"{self.page_no()} / {{nb}}", align="C")
+
+        pdf = NumberedPDF(orientation="P", unit="mm", format="A4")
         pdf.set_auto_page_break(auto=True, margin=20)
         pdf.add_font(
             "DejaVu", "", "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", uni=True
