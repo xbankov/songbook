@@ -117,13 +117,24 @@ function parseChordPro(text: string, semitones: number) {
     const spans: Span[] = []
     const re = /\[([^\]]+)\]/g
     let lastIdx = 0
+    let lyricPos = 0
     let m: RegExpExecArray | null
     while ((m = re.exec(raw)) !== null) {
-      if (m.index > lastIdx) spans.push({ type: 'text', text: raw.slice(lastIdx, m.index), position: lastIdx })
-      spans.push({ type: 'chord', chord: transposeChord(m[1], semitones), position: m.index })
+      if (m.index > lastIdx) {
+        const text = raw.slice(lastIdx, m.index)
+        spans.push({ type: 'text', text, position: lyricPos })
+        lyricPos += text.length
+      }
+      spans.push({
+        type: 'chord',
+        chord: transposeChord(m[1], semitones),
+        position: lyricPos,
+      })
       lastIdx = re.lastIndex
     }
-    if (lastIdx < raw.length) spans.push({ type: 'text', text: raw.slice(lastIdx), position: lastIdx })
+    if (lastIdx < raw.length) {
+      spans.push({ type: 'text', text: raw.slice(lastIdx), position: lyricPos })
+    }
     if (spans.length > 0) currentSection.lines.push({ spans })
   }
   if (currentSection.lines.length > 0) sections.push(currentSection)

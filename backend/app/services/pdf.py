@@ -111,26 +111,45 @@ def _render_song_fpdf(pdf, song: SongModel, settings: Settings):
 
         for line in section.lines:
             if display_mode == "above":
-                chord_chars = {}
-                text_chars = []
+                text_parts = []
+                chord_positions: list[tuple[int, str]] = []
+                position = 0
                 for part in line.parts:
                     if isinstance(part, str):
-                        text_chars.append(part)
+                        text_parts.append(part)
+                        position += len(part)
                     else:
-                        chord_chars[len("".join(text_chars))] = str(part)
+                        chord_positions.append((position, str(part)))
 
-                if chord_chars:
-                    pdf.set_font(font_name, "B", font_size)
+                text_line = "".join(text_parts)
+                if chord_positions:
+                    grouped: dict[int, list[str]] = {}
+                    for chord_position, chord in chord_positions:
+                        grouped.setdefault(chord_position, []).append(chord)
+                    width = max(
+                        [len(text_line)]
+                        + [
+                            chord_position + len("/".join(chords))
+                            for chord_position, chords in grouped.items()
+                        ]
+                    )
+                    chord_line = [" "] * width
+                    for chord_position, chords in grouped.items():
+                        for offset, char in enumerate("/".join(chords)):
+                            chord_line[chord_position + offset] = char
+                    pdf.set_font("DejaVuMono", "B", font_size)
                     pdf.set_text_color(44, 82, 130)
-                    text_line = "".join(text_chars)
-                    chord_line = ""
-                    for i in range(len(text_line)):
-                        chord_line += chord_chars.get(i, " ")
-                    pdf.cell(0, 5, chord_line, new_x="LMARGIN", new_y="NEXT")
+                    pdf.cell(
+                        0,
+                        5,
+                        "".join(chord_line).rstrip() or " ",
+                        new_x="LMARGIN",
+                        new_y="NEXT",
+                    )
 
-                pdf.set_font(font_name, "", font_size)
+                pdf.set_font("DejaVuMono", "", font_size)
                 pdf.set_text_color(0, 0, 0)
-                pdf.cell(0, 5, "".join(text_chars), new_x="LMARGIN", new_y="NEXT")
+                pdf.cell(0, 5, text_line, new_x="LMARGIN", new_y="NEXT")
             else:
                 pdf.set_font(font_name, "", font_size)
                 pdf.set_text_color(0, 0, 0)
