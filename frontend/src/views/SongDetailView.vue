@@ -15,7 +15,7 @@ import {
   unfavoriteVersion,
   type SongVersion,
 } from '../api/songs'
-import { apiDelete, apiUpload, openFile } from '../api/client'
+import { apiDelete, apiUpload, downloadFile, openFile } from '../api/client'
 
 const route = useRoute()
 const router = useRouter()
@@ -29,6 +29,7 @@ const hasAudio = ref(false)
 const recording = ref(false)
 const pdfError = ref('')
 const audioError = ref('')
+const exportError = ref('')
 const versions = ref<SongVersion[]>([])
 const showHistory = ref(false)
 const loadingVersions = ref(false)
@@ -82,6 +83,19 @@ function printBrowser() {
     name: 'SongPrint',
     params: { id: route.params.id },
   })
+}
+
+async function downloadChordPro() {
+  if (!song.value) return
+  exportError.value = ''
+  try {
+    await downloadFile(
+      `/api/songs/${song.value.id}/export?format=chordpro`,
+      `${song.value.title}.cho`,
+    )
+  } catch (e: unknown) {
+    exportError.value = e instanceof Error ? e.message : 'Could not download ChordPro'
+  }
 }
 
 async function toggleHistory() {
@@ -249,10 +263,12 @@ const chords = computed(() => {
       <AppNotice v-if="successNotice" type="success" :message="successNotice" />
       <AppNotice v-if="pdfError" type="error" :message="pdfError" />
       <AppNotice v-if="audioError" type="error" :message="audioError" />
+      <AppNotice v-if="exportError" type="error" :message="exportError" />
 
       <div class="detail-actions">
         <router-link :to="`/songs/${song.id}/edit`" class="btn-secondary">Edit</router-link>
         <button @click="printSong" class="btn-secondary">PDF</button>
+        <button @click="downloadChordPro" class="btn-secondary">ChordPro</button>
         <button @click="printBrowser" class="btn-secondary">Print</button>
         <button @click="toggleHistory" class="btn-secondary">
           {{ showHistory ? 'Hide History' : 'History' }}

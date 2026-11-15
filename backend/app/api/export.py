@@ -3,6 +3,7 @@ import uuid
 from app.database import get_db
 from app.models.song import Song
 from app.models.songbook import Songbook, SongbookEntry
+from app.services.converters import export_songs_as_chordpro
 from app.services.music_theory import SongModel as ST
 from app.services.pdf import generate_song_pdf, generate_songbook_pdf
 from app.services.settings import get_or_create_settings as get_global_settings
@@ -71,4 +72,31 @@ async def export_songbook_pdf(
         content=pdf.getvalue(),
         media_type="application/pdf",
         headers={"Content-Disposition": f'inline; filename="{songbook.name}.pdf"'},
+    )
+
+
+@router.get("/songbook/{songbook_id}/chordpro")
+async def export_songbook_chordpro(
+    songbook_id: uuid.UUID,
+    db: AsyncSession = Depends(get_db),
+):
+    result = await db.execute(
+        select(Songbook)
+        .where(Songbook.id == songbook_id)
+        .options(selectinload(Songbook.entries).selectinload(SongbookEntry.song))
+    )
+    songbook = result.scalar_one_or_none()
+    if not songbook:
+        raise HTTPException(status_code=404, detail="Songbook not found")
+    songs = []
+    for entry in sorted(songbook.entries, key=lambda item: item.sort_order):
+        song = ST.from_chordpro(entry.song.body)
+        if entry.transpose:
+            song = song.transpose(entry.transpose)
+        songs.append(song)
+    content = export_songs_as_chordpro(songs)
+    return Response(
+        content=content,
+        media_type="text/plain",
+        headers={"Content-Disposition": f'attachment; filename="{songbook.name}.cho"'},
     )
