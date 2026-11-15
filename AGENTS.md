@@ -24,7 +24,7 @@ cd frontend && npm run test:e2e
 ## Layout
 
 - `backend/app/` — FastAPI application, SQLAlchemy async models
-- `backend/migrations/` — Alembic migrations; add one when models change
+- `backend/migrations/` — Alembic migrations; deferred until the pre-1.0.0 gate (#69)
 - `backend/app/tests/` — pytest suite
 - `frontend/src/` — Vue 3 + TypeScript, Vite build
 
@@ -34,7 +34,11 @@ cd frontend && npm run test:e2e
 - You may edit `.github/` and `docker-compose.yml` when the task requires it;
   explain why in the PR. Never commit `.env` or secrets.
 - Do not upgrade dependencies or reformat unrelated files.
-- Schema changes need an Alembic migration in `backend/migrations/versions/`.
+- **Single-user first.** Until Phase 6 of the roadmap, assume one user. Do not
+  add `users`, `owner_id`, roles, or ownership checks "for later".
+- **Pre-1.0.0 schema changes** may use `init_db()` and schema resets. Do not add
+  Alembic yet; #69 adds the baseline at the pre-1.0.0 release gate. Before a
+  schema change that must preserve real data, add the baseline first.
 - Frontend changes must keep `npm run build` working; do not commit `dist/`.
 - UI changes must keep `npm run test:e2e` working; add a test for user-facing
   behavior.
@@ -50,7 +54,8 @@ labelled `ai:allowed` (see README), or the user asks in a session (for example
 
 1. Read the issue and its comments. If anything is unclear, ask before coding.
 2. Check `docs/ROADMAP.md`: pick one issue from the ordered queue. Do not start
-   an epic directly; split it into sub-issues first.
+   an epic directly; split it into sub-issues first. Respect the phase order —
+   multi-user/data separation is Phase 6, not a prerequisite for single-user work.
 3. Briefly state the plan and wait for the user to confirm it.
 4. Branch from an up-to-date `main`: `fix/<issue>-<topic>` or `feat/<issue>-<topic>`.
 5. Make the change, run the validation above, and fix failures.
