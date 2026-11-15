@@ -214,74 +214,35 @@ def generate_songbook_pdf(
     settings: Settings,
     title: str = "Songbook",
     description: str = "",
+    per_song: list[dict] | None = None,
 ) -> io.BytesIO:
+    per_song = per_song or [{} for _ in songs]
     try:
         from weasyprint import HTML
 
-        if settings.transpose:
-            songs = [s.transpose(settings.transpose) for s in songs]
         env = Environment(loader=FileSystemLoader(str(TEMPLATE_DIR)))
         template = env.get_template("songbook_pdf.html")
-        songs_data = [_build_song_data(s) for s in songs]
+        songs_data = []
+        for index, song in enumerate(songs):
+            options = per_song[index]
+            if settings.transpose:
+                song = song.transpose(settings.transpose)
+            if options.get("transpose"):
+                song = song.transpose(options["transpose"])
+            data = _build_song_data(song)
+            data["double_column"] = options.get(
+                "double_column", bool(settings.double_column)
+            )
+            songs_data.append(data)
         html = template.render(
             songbook_title=title,
             songbook_description=description,
             songs=songs_data,
-            double_column=settings.double_column,
             font=settings.font,
             font_size=settings.font_size,
             display_mode=settings.display_mode,
         )
         pdf_bytes = HTML(string=html).write_pdf()
         return io.BytesIO(pdf_bytes)
-    except ImportError:
-        from fpdf import FPDF
-
-        pdf = FPDF(orientation="P", unit="mm", format="A4")
-        pdf.set_auto_page_break(auto=True, margin=20)
-        pdf.add_font(
-            "DejaVu", "", "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf", uni=True
-        )
-        pdf.add_font(
-            "DejaVu",
-            "B",
-            "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
-            uni=True,
-        )
-        pdf.add_font(
-            "DejaVuMono",
-            "",
-            "/usr/share/fonts/truetype/dejavu/DejaVuSansMono.ttf",
-            uni=True,
-        )
-        pdf.add_font(
-            "DejaVuMono",
-            "B",
-            "/usr/share/fonts/truetype/dejavu/DejaVuSansMono-Bold.ttf",
-            uni=True,
-        )
-        pdf.add_font(
-            "DejaVuSans",
-            "",
-            "/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf",
-            uni=True,
-        )
-        pdf.add_font(
-            "DejaVuSans",
-            "B",
-            "/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
-            uni=True,
-        )
-        pdf.alias_nb_pages()
-        pdf.add_page()
-        pdf.set_font("DejaVu", "B", 24)
-        pdf.ln(120)
-        pdf.cell(0, 12, title, align="C", new_x="LMARGIN", new_y="NEXT")
-        if description:
-            pdf.set_font("DejaVu", "", 12)
-            pdf.set_text_color(85, 85, 85)
-            pdf.cell(0, 8, description, align="C", new_x="LMARGIN", new_y="NEXT")
-        for song_model in songs:
-            pdf.add_page()
-            _render_song_fpdf(pdf, song_model, settings)
-        return io.BytesIO(pdf.output())
+    except ImportError as exc:
+        raise RuntimeError("WeasyPrint is required for songbook PDF export") from exc

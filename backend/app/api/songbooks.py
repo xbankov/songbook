@@ -1,4 +1,5 @@
 import uuid
+from datetime import datetime, timezone
 
 from app.database import get_db
 from app.models.song import Song
@@ -8,7 +9,9 @@ from app.schemas.songbook import (
     SongbookDetailOut,
     SongbookEntryOut,
     SongbookEntryUpdate,
+    SongbookOrderUpdate,
     SongbookOut,
+    SongbookUpdate,
 )
 from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy import select
@@ -55,12 +58,13 @@ async def get_songbook(songbook_id: uuid.UUID, db: AsyncSession = Depends(get_db
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail="Songbook not found"
         )
+    songbook.entries.sort(key=lambda entry: entry.sort_order)
     return songbook
 
 
 @router.put("/{songbook_id}", response_model=SongbookOut)
 async def update_songbook(
-    songbook_id: uuid.UUID, body: SongbookCreate, db: AsyncSession = Depends(get_db)
+    songbook_id: uuid.UUID, body: SongbookUpdate, db: AsyncSession = Depends(get_db)
 ):
     result = await db.execute(select(Songbook).where(Songbook.id == songbook_id))
     songbook = result.scalar_one_or_none()
@@ -68,8 +72,9 @@ async def update_songbook(
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail="Songbook not found"
         )
-    songbook.name = body.name
-    songbook.description = body.description
+    for field, value in body.model_dump(exclude_unset=True).items():
+        setattr(songbook, field, value)
+    songbook.updated_at = datetime.now(timezone.utc)
     await db.flush()
     await db.refresh(songbook)
     return songbook
@@ -124,10 +129,42 @@ async def add_song_to_songbook(
     entry = SongbookEntry(
         songbook_id=songbook_id, song_id=song_id, sort_order=sort_order
     )
+    songbook.updated_at = datetime.now(timezone.utc)
     db.add(entry)
     await db.flush()
     await db.refresh(entry)
     return entry
+
+
+@router.put("/{songbook_id}/order", response_model=SongbookDetailOut)
+async def reorder_songbook(
+    songbook_id: uuid.UUID,
+    body: SongbookOrderUpdate,
+    db: AsyncSession = Depends(get_db),
+):
+    result = await db.execute(
+        select(Songbook)
+        .where(Songbook.id == songbook_id)
+        .options(selectinload(Songbook.entries).selectinload(SongbookEntry.song))
+    )
+    songbook = result.scalar_one_or_none()
+    if not songbook:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Songbook not found"
+        )
+    entries = {entry.id: entry for entry in songbook.entries}
+    if len(body.entry_ids) != len(entries) or set(body.entry_ids) != set(entries):
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            detail="entry_ids must contain every entry exactly once",
+        )
+    for index, entry_id in enumerate(body.entry_ids):
+        entries[entry_id].sort_order = index
+    songbook.updated_at = datetime.now(timezone.utc)
+    await db.flush()
+    await db.refresh(songbook)
+    songbook.entries.sort(key=lambda entry: entry.sort_order)
+    return songbook
 
 
 @router.delete(
@@ -146,6 +183,9 @@ async def remove_song_from_songbook(
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail="Entry not found"
         )
+    songbook = await db.get(Songbook, songbook_id)
+    if songbook:
+        songbook.updated_at = datetime.now(timezone.utc)
     await db.delete(entry)
     await db.flush()
 
@@ -167,8 +207,14 @@ async def update_songbook_entry(
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail="Entry not found"
         )
-    for field, value in body.model_dump(exclude_none=True).items():
+    data = body.model_dump(exclude_none=True)
+    if "double_column" in data:
+        data["double_column"] = 1 if data["double_column"] else 0
+    for field, value in data.items():
         setattr(entry, field, value)
+    songbook = await db.get(Songbook, songbook_id)
+    if songbook:
+        songbook.updated_at = datetime.now(timezone.utc)
     await db.flush()
     await db.refresh(entry)
     return entry

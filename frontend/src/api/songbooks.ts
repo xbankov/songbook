@@ -14,6 +14,8 @@ export interface SongbookEntryResponse {
   song_id: string
   songbook_id: string
   sort_order: number
+  transpose: number
+  double_column: number
   song: SongResponse | null
 }
 
@@ -38,7 +40,7 @@ export function createSongbook(data: SongbookCreate): Promise<SongbookResponse> 
   return apiPost('/api/songbooks', data)
 }
 
-export function updateSongbook(id: string, data: SongbookCreate): Promise<SongbookResponse> {
+export function updateSongbook(id: string, data: { name?: string; description?: string }): Promise<SongbookResponse> {
   return apiPut(`/api/songbooks/${id}`, data)
 }
 
@@ -50,8 +52,12 @@ export function addSongToSongbook(songbookId: string, songId: string): Promise<S
   return apiPost(`/api/songbooks/${songbookId}/songs?song_id=${songId}`)
 }
 
-export function updateSongbookEntry(songbookId: string, entryId: string, data: { sort_order?: number }): Promise<SongbookEntryResponse> {
+export function updateSongbookEntry(songbookId: string, entryId: string, data: { sort_order?: number; transpose?: number; double_column?: number }): Promise<SongbookEntryResponse> {
   return apiPut(`/api/songbooks/${songbookId}/songs/${entryId}`, data)
+}
+
+export function reorderSongbook(songbookId: string, entryIds: string[]): Promise<SongbookDetailResponse> {
+  return apiPut(`/api/songbooks/${songbookId}/order`, { entry_ids: entryIds })
 }
 
 export function removeSongFromSongbook(songbookId: string, entryId: string): Promise<void> {
