@@ -194,6 +194,18 @@ test.describe('Songbook UI', () => {
     ).toBe('2')
   })
 
+  test('print view uses chords above even when inline is saved', async ({ page }) => {
+    await mockApi(page)
+    await page.route('**/api/settings', (route) =>
+      route.fulfill({ json: { ...settings, display_mode: 'inline' } }),
+    )
+
+    await page.goto(`/songs/${song.id}/print`)
+    await expect(page.locator('.song-title')).toHaveText(song.title)
+    await expect(page.locator('.chord-row').first()).toBeVisible()
+    await expect(page.locator('.lyric-row').first()).toHaveText('Hello world')
+  })
+
   test('sends tag and alphabet filters to the API', async ({ page }) => {
     await mockApi(page)
     await page.goto('/songs')

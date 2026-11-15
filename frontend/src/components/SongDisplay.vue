@@ -15,6 +15,7 @@ const props = defineProps<{
   hideSettingsControls?: boolean
   columnsOverride?: 1 | 2
   transposeOverride?: number
+  displayModeOverride?: 'above' | 'inline'
 }>()
 
 const songDisplay = ref<HTMLElement | null>(null)
@@ -26,7 +27,9 @@ let scrollInterval: ReturnType<typeof setInterval> | null = null
 const transpose = computed(
   () => settingsStore.transpose + (props.transposeOverride ?? 0),
 )
-const displayMode = computed(() => settingsStore.displayMode)
+const displayMode = computed(
+  () => props.displayModeOverride ?? settingsStore.displayMode,
+)
 const doubleColumn = computed(() => {
   if (props.columnsOverride === 1) return false
   if (props.columnsOverride === 2) return true

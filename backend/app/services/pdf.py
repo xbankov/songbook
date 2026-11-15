@@ -99,7 +99,7 @@ def _render_song_fpdf(pdf, song: SongModel, settings: Settings):
         if settings.font in ("DejaVuMono", "DejaVuSans", "DejaVu")
         else "DejaVuMono"
     )
-    display_mode = settings.display_mode
+    display_mode = "above"
     font_size = settings.font_size
 
     for section in song.sections:
@@ -161,7 +161,7 @@ def generate_song_pdf(song: SongModel, settings: Settings) -> io.BytesIO:
             double_column=settings.double_column,
             font=settings.font,
             font_size=settings.font_size,
-            display_mode=settings.display_mode,
+            display_mode="above",
         )
         pdf_bytes = HTML(string=html).write_pdf()
         return io.BytesIO(pdf_bytes)
@@ -240,7 +240,7 @@ def generate_songbook_pdf(
             songs=songs_data,
             font=settings.font,
             font_size=settings.font_size,
-            display_mode=settings.display_mode,
+            display_mode="above",
         )
         pdf_bytes = HTML(string=html).write_pdf()
         return io.BytesIO(pdf_bytes)
