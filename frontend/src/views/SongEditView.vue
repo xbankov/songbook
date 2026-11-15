@@ -16,10 +16,32 @@ const artist = ref('')
 const capo = ref(0)
 const key = ref('')
 const body = ref('')
+const difficulty = ref('')
+const genre = ref('')
 const saving = ref(false)
 const error = ref('')
 const saved = ref(false)
 let savedTimer: ReturnType<typeof setTimeout> | null = null
+
+function tagValue(tags: string[], prefix: string): string {
+  return tags.find((tag) => tag.startsWith(prefix))?.slice(prefix.length) || ''
+}
+
+function buildTags(): string[] {
+  // A new song must not inherit tags from a previously viewed song.
+  const current = isEdit ? store.current?.tags || [] : []
+  const otherTags = current.filter(
+    (tag) => !tag.startsWith('difficulty:') && !tag.startsWith('genre:'),
+  )
+  const extraDifficulties = current
+    .filter((tag) => tag.startsWith('difficulty:'))
+    .slice(1)
+  const extraGenres = current.filter((tag) => tag.startsWith('genre:')).slice(1)
+  const tags = [...otherTags, ...extraDifficulties, ...extraGenres]
+  if (difficulty.value) tags.push(`difficulty:${difficulty.value}`)
+  if (genre.value.trim()) tags.push(`genre:${genre.value.trim().toLowerCase()}`)
+  return tags
+}
 
 onBeforeUnmount(() => {
   if (savedTimer) clearTimeout(savedTimer)
@@ -34,6 +56,9 @@ onMounted(async () => {
       capo.value = store.current.capo
       key.value = store.current.key || ''
       body.value = store.current.body
+      const tags = store.current.tags || []
+      difficulty.value = tagValue(tags, 'difficulty:')
+      genre.value = tagValue(tags, 'genre:')
     }
   }
 })
@@ -50,6 +75,7 @@ async function save() {
         capo: capo.value,
         key: key.value || undefined,
         body: body.value,
+        tags: buildTags(),
       })
       saved.value = true
       if (savedTimer) clearTimeout(savedTimer)
@@ -64,6 +90,7 @@ async function save() {
         capo: capo.value,
         key: key.value || undefined,
         body: body.value,
+        tags: buildTags(),
       })
       router.replace(`/songs/${song.id}?created=1`)
     }
@@ -122,6 +149,22 @@ async function transpose(interval: number) {
         </div>
       </div>
 
+      <div class="form-row">
+        <div class="field">
+          <label>Difficulty</label>
+          <select v-model="difficulty">
+            <option value="">Not set</option>
+            <option value="easy">Easy</option>
+            <option value="medium">Medium</option>
+            <option value="hard">Hard</option>
+          </select>
+        </div>
+        <div class="field">
+          <label>Genre</label>
+          <input v-model="genre" type="text" placeholder="e.g. bluegrass" maxlength="128" />
+        </div>
+      </div>
+
       <div class="field">
         <label>ChordPro Body</label>
         <ChordProEditor v-model="body" />
@@ -166,7 +209,8 @@ async function transpose(interval: number) {
   margin-bottom: 0.25rem;
   color: var(--text-muted);
 }
-.field input {
+.field input,
+.field select {
   width: 100%;
   padding: 0.5rem;
   background: var(--surface);
@@ -175,7 +219,8 @@ async function transpose(interval: number) {
   color: var(--text);
   font-size: 0.95rem;
 }
-.field input:focus {
+.field input:focus,
+.field select:focus {
   outline: none;
   border-color: var(--accent);
 }

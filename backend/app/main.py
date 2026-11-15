@@ -2,7 +2,7 @@ from contextlib import asynccontextmanager
 
 from app.api import artists, auth, backup, export, search_import
 from app.api import settings as settings_router
-from app.api import songbooks, songs
+from app.api import songbooks, songs, tags
 from app.config import settings
 from app.database import init_db
 from app.dependencies import require_auth
@@ -43,6 +43,7 @@ app.include_router(export.router, dependencies=[Depends(require_auth)])
 app.include_router(search_import.router, dependencies=[Depends(require_auth)])
 app.include_router(backup.router, dependencies=[Depends(require_auth)])
 app.include_router(settings_router.router, dependencies=[Depends(require_auth)])
+app.include_router(tags.router, dependencies=[Depends(require_auth)])
 
 
 @app.get("/api/health")
