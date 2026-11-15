@@ -41,6 +41,39 @@ async def export_song_pdf(
     )
 
 
+@router.get("/selected/pdf")
+async def export_selected_pdf(
+    ids: list[uuid.UUID] = Query(...),
+    db: AsyncSession = Depends(get_db),
+):
+    result = await db.execute(select(Song).where(Song.id.in_(ids)))
+    by_id = {str(song.id): song for song in result.scalars().all()}
+    selected = [by_id[str(song_id)] for song_id in ids if str(song_id) in by_id]
+    settings = await get_global_settings(db)
+    songs = []
+    for song in selected:
+        model = ST.from_chordpro(song.body)
+        model.title = song.title
+        model.artist = song.artist
+        songs.append(model)
+    per_song = [
+        {"transpose": 0, "double_column": bool(settings.double_column)} for _ in songs
+    ]
+    pdf = generate_songbook_pdf(
+        songs,
+        settings=settings,
+        title="Selected songs",
+        per_song=per_song,
+    )
+    return Response(
+        content=pdf.getvalue(),
+        media_type="application/pdf",
+        headers={
+            "Content-Disposition": content_disposition("selected.pdf", inline=True)
+        },
+    )
+
+
 @router.get("/songbook/{songbook_id}/pdf")
 async def export_songbook_pdf(
     songbook_id: uuid.UUID,

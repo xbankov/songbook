@@ -530,6 +530,52 @@ async def bulk_import(
     return created
 
 
+@router.get("/export/selected")
+async def export_selected_songs(
+    format: str = Query("chordpro"),
+    ids: list[uuid.UUID] = Query(...),
+    db: AsyncSession = Depends(get_db),
+):
+    result = await db.execute(select(Song).where(Song.id.in_(ids)))
+    by_id = {str(song.id): song for song in result.scalars().all()}
+    selected = [by_id[str(song_id)] for song_id in ids if str(song_id) in by_id]
+    settings = await get_global_settings(db)
+
+    if format == "chordpro":
+        parts = []
+        for song in selected:
+            body = ensure_chordpro_metadata(song.body, song.title, song.artist)
+            parts.append(transpose_chordpro_body(body, settings.transpose))
+        content = "\n\n---\n\n".join(parts)
+        extension = "cho"
+    else:
+        from app.services.music_theory import SongModel as ST
+
+        models = []
+        for song in selected:
+            model = ST.from_chordpro(song.body)
+            model.title = song.title
+            model.artist = song.artist
+            if settings.transpose:
+                model = model.transpose(settings.transpose)
+            models.append(model)
+        if format == "text":
+            content = "\n\n".join(chordpro_to_text(model) for model in models)
+        elif format == "abc":
+            content = "\n\n".join(chordpro_to_abc(model) for model in models)
+        elif format == "lilypond":
+            content = "\n\n".join(chordpro_to_ly(model) for model in models)
+        else:
+            content = export_songs_as_chordpro(models)
+        extension = format
+
+    return Response(
+        content=content,
+        media_type="text/plain",
+        headers={"Content-Disposition": content_disposition(f"selected.{extension}")},
+    )
+
+
 @router.get("/{song_id}/export")
 async def export_song_format(
     song_id: uuid.UUID,

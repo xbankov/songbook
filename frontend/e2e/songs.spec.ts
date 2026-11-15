@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-import { mockApi, settings, song, songbook, version } from './fixtures'
+import { mockApi, settings, song, song2, songbook, version } from './fixtures'
 
 test.describe('Songbook UI', () => {
   test('lists songs and opens a song', async ({ page }) => {
@@ -351,5 +351,31 @@ test.describe('Songbook UI', () => {
     const bookDownload = page.waitForEvent('download')
     await page.getByRole('button', { name: 'ChordPro' }).click()
     expect((await bookDownload).suggestedFilename()).toContain('.cho')
+  })
+
+  test('prints and exports selected songs', async ({ page }) => {
+    await mockApi(page)
+    await page.route('**/api/songs?*', (route) =>
+      route.fulfill({
+        json: [song, song2],
+        headers: { 'X-Total-Count': '2' },
+      }),
+    )
+    await page.goto('/songs')
+    await expect(page.locator('.song-card')).toHaveCount(2)
+
+    await page.locator('.song-select').first().check()
+    await expect(page.getByRole('button', { name: /Print selected/ })).toContainText('1')
+
+    const download = page.waitForEvent('download')
+    await page.getByRole('button', { name: 'Export selected' }).click()
+    expect((await download).suggestedFilename()).toContain('.cho')
+
+    const printRequest = page.waitForRequest(
+      (req) =>
+        req.url().includes('/api/export/selected/pdf?') && req.url().includes('ids='),
+    )
+    await page.getByRole('button', { name: /Print selected/ }).click()
+    await printRequest
   })
 })
