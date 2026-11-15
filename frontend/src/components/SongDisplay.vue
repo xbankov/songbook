@@ -270,7 +270,14 @@ function lyricRow(spans: Span[]): string {
   .chord-text, .chord-inline { color: #2c5282 !important; }
   .song-title { font-size: 14pt !important; }
   .song-artist { font-size: 11pt !important; }
-  .section-label { font-size: 10pt !important; }
+  .section-label {
+    font-size: 10pt !important;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 1px solid #e0d0b0;
+    padding-bottom: 1pt;
+    margin: 8pt 0 3pt 0;
+  }
   .double-column.mode-above,
   .double-column.mode-inline {
     column-count: 2;

@@ -213,6 +213,37 @@ test.describe('Songbook UI', () => {
     expect(chordBox!.y).toBeLessThan(lyricBox!.y)
   })
 
+  test('browser print uses tighter page margins', async ({ page }) => {
+    await mockApi(page)
+    await page.goto(`/songs/${song.id}`)
+    await page.emulateMedia({ media: 'print' })
+
+    const margin = await page.evaluate(() => {
+      const walk = (rules: CSSRuleList): string => {
+        for (const rule of Array.from(rules)) {
+          if (rule.constructor.name === 'CSSPageRule') {
+            return (rule as CSSPageRule).style.margin
+          }
+          const nested = (rule as CSSGroupingRule).cssRules
+          if (nested) {
+            const found = walk(nested)
+            if (found) return found
+          }
+        }
+        return ''
+      }
+      for (const sheet of Array.from(document.styleSheets)) {
+        try {
+          const found = walk(sheet.cssRules)
+          if (found) return found
+        } catch {}
+      }
+      return ''
+    })
+
+    expect(margin).toContain('1.2cm')
+  })
+
   test('sends tag and alphabet filters to the API', async ({ page }) => {
     await mockApi(page)
     await page.goto('/songs')
