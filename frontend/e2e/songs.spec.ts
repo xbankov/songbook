@@ -24,6 +24,8 @@ test.describe('Songbook UI', () => {
     await expect(page.locator('.song-title')).toHaveText(song.title)
     await expect(page.locator('.song-artist')).toHaveText(song.artist)
     await expect(page.locator('.chord-row').first()).toContainText('G')
+    const chordRow = await page.locator('.chord-row').first().textContent()
+    expect(chordRow?.indexOf('C')).toBe(6)
     await expect(page.locator('.lyric-row').first()).toContainText('Hello world')
     await expect(page.locator('.song-controls')).toBeVisible()
 
@@ -192,6 +194,23 @@ test.describe('Songbook UI', () => {
     expect(
       await page.locator('.song-body').evaluate((el) => getComputedStyle(el).columnCount),
     ).toBe('2')
+  })
+
+  test('print view uses chords above even when inline is saved', async ({ page }) => {
+    await mockApi(page)
+    await page.route('**/api/settings', (route) =>
+      route.fulfill({ json: { ...settings, display_mode: 'inline' } }),
+    )
+
+    await page.goto(`/songs/${song.id}/print`)
+    await expect(page.locator('.song-title')).toHaveText(song.title)
+    await expect(page.locator('.chord-row').first()).toContainText('G')
+    await expect(page.locator('.lyric-row').first()).toHaveText('Hello world')
+    const chordBox = await page.locator('.chord-row').first().boundingBox()
+    const lyricBox = await page.locator('.lyric-row').first().boundingBox()
+    expect(chordBox).not.toBeNull()
+    expect(lyricBox).not.toBeNull()
+    expect(chordBox!.y).toBeLessThan(lyricBox!.y)
   })
 
   test('sends tag and alphabet filters to the API', async ({ page }) => {

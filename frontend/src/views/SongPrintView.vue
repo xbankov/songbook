@@ -76,6 +76,7 @@ function printPage() {
       :song-key="song.key"
       hide-controls
       :columns-override="columns"
+      display-mode-override="above"
     />
   </div>
 </template>
