@@ -91,14 +91,37 @@ async function toggleHistory() {
 
 async function restore(version: SongVersion) {
   if (!confirm(`Restore version ${version.version}? This creates a new version.`)) return
+  const songId = route.params.id as string
   restoringVersion.value = version.version
   historyError.value = ''
+
+  let restored
   try {
-    const song = await restoreVersion(route.params.id as string, version.version)
-    store.current = song
-    versions.value = await listVersions(route.params.id as string)
+    restored = await restoreVersion(songId, version.version)
   } catch (e: unknown) {
     historyError.value = e instanceof Error ? e.message : 'Restore failed'
+    restoringVersion.value = null
+    return
+  }
+
+  // Ignore a late response if the user navigated away or a newer edit won.
+  const isCurrentSong = route.params.id === restored.id
+  const isNewest = !store.current || restored.version >= store.current.version
+  if (isCurrentSong && isNewest) {
+    store.current = restored
+    try {
+      const analysis = await analyzeSong(songId)
+      suggestedKey.value = analysis.suggested_key
+      keyConfidence.value = analysis.confidence
+    } catch {}
+  }
+
+  try {
+    versions.value = isCurrentSong ? await listVersions(songId) : []
+  } catch {
+    // The restore itself succeeded; clear the cache so reopening retries.
+    versions.value = []
+    historyError.value = 'Restored, but could not refresh history'
   } finally {
     restoringVersion.value = null
   }

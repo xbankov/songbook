@@ -162,7 +162,7 @@ async def get_song(song_id: uuid.UUID, db: AsyncSession = Depends(get_db)):
 async def update_song(
     song_id: uuid.UUID, body: SongUpdate, db: AsyncSession = Depends(get_db)
 ):
-    result = await db.execute(select(Song).where(Song.id == song_id))
+    result = await db.execute(select(Song).where(Song.id == song_id).with_for_update())
     song = result.scalar_one_or_none()
     if not song:
         raise HTTPException(
@@ -236,7 +236,7 @@ async def get_version(
 async def restore_version(
     song_id: uuid.UUID, version_number: int, db: AsyncSession = Depends(get_db)
 ):
-    result = await db.execute(select(Song).where(Song.id == song_id))
+    result = await db.execute(select(Song).where(Song.id == song_id).with_for_update())
     song = result.scalar_one_or_none()
     if not song:
         raise HTTPException(
@@ -461,7 +461,7 @@ async def transpose_song(
     interval: int = Query(..., description="Semitones to transpose"),
     db: AsyncSession = Depends(get_db),
 ):
-    result = await db.execute(select(Song).where(Song.id == song_id))
+    result = await db.execute(select(Song).where(Song.id == song_id).with_for_update())
     song = result.scalar_one_or_none()
     if not song:
         raise HTTPException(
