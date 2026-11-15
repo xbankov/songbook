@@ -1,0 +1,7 @@
+# CI-only override: use the immutable candidate image built by the `docker` job.
+# Used with `docker compose ... up --no-build` after building the frontend.
+services:
+  backend:
+    image: ${SONGBOOK_BACKEND_IMAGE}
+  celery_worker:
+    image: ${SONGBOOK_BACKEND_IMAGE}
