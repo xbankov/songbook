@@ -4,17 +4,21 @@
 
 default_branch = "main"
 
-# Validation runs in a container, so the host needs no Python 3.10 environment.
+# Validation runs in a container, so the host needs no Python or Node
+# environment. Node is installed in the sandbox for the frontend build.
 sandbox_image = "python:3.12-slim"
 validate = [
+  "apt-get update -qq && apt-get install -y -qq --no-install-recommends nodejs npm",
   "pip install -q -r backend/requirements.txt -r backend/requirements-dev.txt",
-  "isort --check-only backend/src",
-  "black --check backend/src",
-  "pytest -q backend/src",
+  "isort --check-only backend/app",
+  "black --check backend/app",
+  "pytest -q backend/app/tests",
+  "npm ci --prefix frontend",
+  "npm run build --prefix frontend",
 ]
 
 allow = ["backend/**", "frontend/**", "tests/**", "README.md", "docs/**"]
-deny = [".github/**", ".env*", "docker-compose.yaml", "frontend/node_modules/**"]
+deny = [".github/**", ".env*", "docker-compose.yml", "frontend/node_modules/**"]
 
 [proposals]
 per_week = 4
