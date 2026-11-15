@@ -237,6 +237,20 @@ export async function mockApi(
         body: '{title: Test Song}\n[G]Hello [C]world\n',
       })
     }
+    if (url.pathname === '/api/songs/export/selected') {
+      return route.fulfill({
+        status: 200,
+        contentType: 'text/plain',
+        body: '{title: Test Song}\n[G]Hello [C]world\n',
+      })
+    }
+    if (url.pathname === '/api/export/selected/pdf') {
+      return route.fulfill({
+        status: 200,
+        contentType: 'application/pdf',
+        body: '%PDF-1.4\n%%EOF',
+      })
+    }
     if (url.pathname === `/api/export/songbook/${songbook.id}/chordpro`) {
       return route.fulfill({
         status: 200,

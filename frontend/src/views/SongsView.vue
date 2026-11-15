@@ -2,7 +2,7 @@
 import { computed, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useSongStore } from '../stores/songs'
-import { apiDownload, apiGet, apiPost } from '../api/client'
+import { apiDownload, apiGet, apiPost, downloadFile, openFile } from '../api/client'
 import { useDebounceFn } from '@vueuse/core'
 import AppNotice from '../components/AppNotice.vue'
 
@@ -42,6 +42,38 @@ const searchQuery = ref('')
 const searchResults = ref<SearchResult[]>([])
 const searching = ref(false)
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
+const selected = ref<Set<string>>(new Set())
+const selectedIds = computed(() => Array.from(selected.value))
+const allSelected = computed(
+  () =>
+    store.songs.length > 0 &&
+    store.songs.every((song) => selected.value.has(song.id)),
+)
+
+function toggleSelect(id: string) {
+  const next = new Set(selected.value)
+  if (next.has(id)) next.delete(id)
+  else next.add(id)
+  selected.value = next
+}
+
+function toggleAll() {
+  const next = new Set(selected.value)
+  if (allSelected.value) {
+    store.songs.forEach((song) => next.delete(song.id))
+  } else {
+    store.songs.forEach((song) => next.add(song.id))
+  }
+  selected.value = next
+}
+
+function selectionBody(): RequestInit {
+  return {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ ids: selectedIds.value }),
+  }
+}
 
 interface SearchResult {
   title: string
@@ -115,6 +147,9 @@ async function removeSong(id: string) {
   if (!confirm('Delete this song?')) return
   try {
     await store.deleteSong(id)
+    const next = new Set(selected.value)
+    next.delete(id)
+    selected.value = next
     showNotice('success', 'Song deleted')
     if (page.value > totalPages.value) page.value = totalPages.value
     await fetchPage()
@@ -137,6 +172,29 @@ async function doBulkImport() {
     showNotice('error', e instanceof Error ? e.message : 'Bulk import failed')
   } finally {
     bulkImporting.value = false
+  }
+}
+
+async function exportSelected() {
+  if (!selectedIds.value.length) return
+  try {
+    await downloadFile(
+      '/api/songs/export/selected',
+      'selected.cho',
+      selectionBody(),
+    )
+    showNotice('success', `Exported ${selectedIds.value.length} songs`)
+  } catch (e: unknown) {
+    showNotice('error', e instanceof Error ? e.message : 'Export failed')
+  }
+}
+
+async function printSelected() {
+  if (!selectedIds.value.length) return
+  try {
+    await openFile('/api/export/selected/pdf', selectionBody())
+  } catch (e: unknown) {
+    showNotice('error', e instanceof Error ? e.message : 'Could not open PDF')
   }
 }
 
@@ -199,6 +257,24 @@ async function importSearchResult(url: string) {
         class="btn-secondary"
       >
         Clear
+      </button>
+      <label class="select-all">
+        <input type="checkbox" :checked="allSelected" @change="toggleAll" />
+        Select all
+      </label>
+      <button
+        :disabled="!selectedIds.length"
+        @click="printSelected"
+        class="btn-secondary"
+      >
+        Print selected ({{ selectedIds.length }})
+      </button>
+      <button
+        :disabled="!selectedIds.length"
+        @click="exportSelected"
+        class="btn-secondary"
+      >
+        Export selected
       </button>
       <button @click="showImport = !showImport" class="btn-secondary">Import URL</button>
       <button @click="showSearchImport = !showSearchImport" class="btn-secondary">Search</button>
@@ -270,6 +346,13 @@ async function importSearchResult(url: string) {
           </div>
         </div>
         <div class="song-card-meta">
+          <input
+            type="checkbox"
+            class="song-select"
+            :checked="selected.has(song.id)"
+            @click.stop="toggleSelect(song.id)"
+            title="Select song"
+          />
           <span class="badge">v{{ song.version }}</span>
           <button @click.stop="removeSong(song.id)" class="btn-danger-sm" title="Delete">×</button>
         </div>
@@ -305,6 +388,20 @@ async function importSearchResult(url: string) {
 .filter-select {
   flex: 0 0 auto;
   min-width: 140px;
+}
+.select-all {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.toolbar button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.song-select {
+  cursor: pointer;
 }
 .alphabet {
   display: flex;
