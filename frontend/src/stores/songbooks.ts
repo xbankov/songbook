@@ -35,7 +35,7 @@ export const useSongbookStore = defineStore('songbooks', {
       this.songbooks.push(sb)
       return sb
     },
-    async updateSongbook(id: string, data: songbooksApi.SongbookCreate) {
+    async updateSongbook(id: string, data: { name?: string; description?: string }) {
       const sb = await songbooksApi.updateSongbook(id, data)
       const idx = this.songbooks.findIndex((item) => item.id === id)
       if (idx >= 0) this.songbooks[idx] = sb
@@ -69,6 +69,13 @@ export const useSongbookStore = defineStore('songbooks', {
         if (idx >= 0) this.current.entries[idx] = entry
       }
       return entry
+    },
+    async reorderEntries(songbookId: string, entryIds: string[]) {
+      const book = await songbooksApi.reorderSongbook(songbookId, entryIds)
+      if (this.current?.id === songbookId) {
+        this.current = book
+      }
+      return book
     },
   },
 })

@@ -22,10 +22,8 @@ const autoScroll = ref(false)
 const scrollSpeed = ref(1)
 let scrollInterval: ReturnType<typeof setInterval> | null = null
 
-const transpose = computed(() =>
-  props.transposeOverride === undefined
-    ? settingsStore.transpose
-    : props.transposeOverride,
+const transpose = computed(
+  () => settingsStore.transpose + (props.transposeOverride ?? 0),
 )
 const displayMode = computed(() => settingsStore.displayMode)
 const doubleColumn = computed(() => {
@@ -177,7 +175,7 @@ function lyricRow(spans: Span[]): string {
       <h2 class="song-artist">{{ parsed.artist }}</h2>
       <div v-if="parsed.capo || parsed.key || suggestedKey" class="song-meta">
         <span v-if="parsed.capo">Capo: {{ parsed.capo }}</span>
-        <span v-if="parsed.key">Key: {{ parsed.key }}</span>
+        <span v-if="parsed.key">Key: {{ transposeChord(parsed.key, transpose) }}</span>
         <span v-if="suggestedKey" class="suggested-key">Suggested: {{ suggestedKey }}</span>
       </div>
     </div>

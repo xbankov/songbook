@@ -320,9 +320,9 @@ test.describe('Songbook UI', () => {
 
     const moveRequest = page.waitForRequest(
       (req) =>
-        req.url().includes(`/api/songbooks/${songbook.id}/songs/`) &&
+        req.url().includes(`/api/songbooks/${songbook.id}/order`) &&
         req.method() === 'PUT' &&
-        (req.postData() || '').includes('sort_order'),
+        (req.postData() || '').includes(firstEntry.id),
     )
     await page.locator('.entry').first().locator('button[title="Move down"]').click()
     await moveRequest

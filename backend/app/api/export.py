@@ -56,7 +56,8 @@ async def export_songbook_pdf(
         per_song.append(
             {
                 "transpose": entry.transpose,
-                "double_column": bool(entry.double_column),
+                "double_column": bool(entry.double_column)
+                or bool(settings.double_column),
             }
         )
     pdf = generate_songbook_pdf(

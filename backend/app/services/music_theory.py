@@ -303,12 +303,18 @@ class SongModel(BaseModel):
         return cls(sections=sections, title=title, artist=artist, capo=capo, key=key)
 
     def transpose(self, interval: int) -> "SongModel":
+        key = self.key
+        if key:
+            try:
+                key = str(Chord.parse(key).transpose(interval))
+            except Exception:
+                key = self.key
         return SongModel(
             sections=[s.transpose(interval) for s in self.sections],
             title=self.title,
             artist=self.artist,
             capo=self.capo,
-            key=self.key,
+            key=key,
         )
 
 

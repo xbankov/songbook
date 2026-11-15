@@ -152,6 +152,17 @@ export async function mockApi(
       return route.fulfill({ status: 204, body: '' })
     }
     if (
+      url.pathname === `/api/songbooks/${songbook.id}/order` &&
+      route.request().method() === 'PUT'
+    ) {
+      const body = route.request().postDataJSON() as { entry_ids: string[] }
+      const entries = body.entry_ids.map((entryId, index) => {
+        const entry = songbook.entries.find((item) => item.id === entryId)
+        return { ...entry, sort_order: index }
+      })
+      return route.fulfill({ json: { ...songbook, entries } })
+    }
+    if (
       url.pathname.startsWith(`/api/songbooks/${songbook.id}/songs/`) &&
       route.request().method() === 'PUT'
     ) {

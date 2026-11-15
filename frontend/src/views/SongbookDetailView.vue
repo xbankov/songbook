@@ -21,6 +21,7 @@ const error = ref('')
 const editing = ref(false)
 const editName = ref('')
 const editDesc = ref('')
+const pendingEntries = ref<Record<string, boolean>>({})
 
 onMounted(async () => {
   try {
@@ -70,11 +71,17 @@ function startEdit() {
 async function saveEdit() {
   if (!songbook.value || !editName.value.trim()) return
   error.value = ''
+  const data: { name?: string; description?: string } = {}
+  if (editName.value.trim() !== songbook.value.name) {
+    data.name = editName.value.trim()
+  }
+  if (editDesc.value !== (songbook.value.description || '')) {
+    data.description = editDesc.value
+  }
   try {
-    await store.updateSongbook(route.params.id as string, {
-      name: editName.value.trim(),
-      description: editDesc.value,
-    })
+    if (Object.keys(data).length) {
+      await store.updateSongbook(route.params.id as string, data)
+    }
     editing.value = false
   } catch (e: unknown) {
     error.value = e instanceof Error ? e.message : 'Could not update songbook'
@@ -93,46 +100,53 @@ async function deleteBook() {
 }
 
 async function moveEntry(entry: SongbookEntryResponse, direction: number) {
-  if (!songbook.value) return
+  if (!songbook.value || pendingEntries.value[entry.id]) return
   const entries = [...songbook.value.entries].sort((a, b) => a.sort_order - b.sort_order)
   const index = entries.findIndex((item) => item.id === entry.id)
   const target = index + direction
   if (index < 0 || target < 0 || target >= entries.length) return
+  const ids = entries.map((item) => item.id)
+  ;[ids[index], ids[target]] = [ids[target], ids[index]]
   error.value = ''
+  pendingEntries.value[entry.id] = true
   try {
-    const first = entries[index]
-    const second = entries[target]
-    await store.updateEntry(route.params.id as string, first.id, {
-      sort_order: second.sort_order,
-    })
-    await store.updateEntry(route.params.id as string, second.id, {
-      sort_order: first.sort_order,
-    })
-    store.current?.entries.sort((a, b) => a.sort_order - b.sort_order)
+    await store.reorderEntries(route.params.id as string, ids)
   } catch (e: unknown) {
     error.value = e instanceof Error ? e.message : 'Could not reorder'
+  } finally {
+    pendingEntries.value[entry.id] = false
   }
 }
 
 async function changeTranspose(entry: SongbookEntryResponse, delta: number) {
+  if (pendingEntries.value[entry.id]) return
+  const current = songbook.value?.entries.find((item) => item.id === entry.id) || entry
   error.value = ''
+  pendingEntries.value[entry.id] = true
   try {
     await store.updateEntry(route.params.id as string, entry.id, {
-      transpose: Math.max(-11, Math.min(11, entry.transpose + delta)),
+      transpose: Math.max(-11, Math.min(11, current.transpose + delta)),
     })
   } catch (e: unknown) {
     error.value = e instanceof Error ? e.message : 'Could not transpose'
+  } finally {
+    pendingEntries.value[entry.id] = false
   }
 }
 
 async function toggleEntryColumns(entry: SongbookEntryResponse) {
+  if (pendingEntries.value[entry.id]) return
+  const current = songbook.value?.entries.find((item) => item.id === entry.id) || entry
   error.value = ''
+  pendingEntries.value[entry.id] = true
   try {
     await store.updateEntry(route.params.id as string, entry.id, {
-      double_column: entry.double_column ? 0 : 1,
+      double_column: current.double_column ? 0 : 1,
     })
   } catch (e: unknown) {
     error.value = e instanceof Error ? e.message : 'Could not change columns'
+  } finally {
+    pendingEntries.value[entry.id] = false
   }
 }
 
@@ -195,13 +209,38 @@ async function printSongbook() {
             <span class="entry-artist">{{ entry.song?.artist }}</span>
           </div>
           <div class="entry-controls" @click.stop>
-            <button @click="moveEntry(entry, -1)" title="Move up">↑</button>
-            <button @click="moveEntry(entry, 1)" title="Move down">↓</button>
-            <button @click="changeTranspose(entry, -1)" title="Transpose down">−</button>
+            <button
+              :disabled="pendingEntries[entry.id]"
+              @click="moveEntry(entry, -1)"
+              title="Move up"
+            >
+              ↑
+            </button>
+            <button
+              :disabled="pendingEntries[entry.id]"
+              @click="moveEntry(entry, 1)"
+              title="Move down"
+            >
+              ↓
+            </button>
+            <button
+              :disabled="pendingEntries[entry.id]"
+              @click="changeTranspose(entry, -1)"
+              title="Transpose down"
+            >
+              −
+            </button>
             <span class="entry-transpose">{{ entry.transpose > 0 ? '+' : '' }}{{ entry.transpose }}</span>
-            <button @click="changeTranspose(entry, 1)" title="Transpose up">+</button>
+            <button
+              :disabled="pendingEntries[entry.id]"
+              @click="changeTranspose(entry, 1)"
+              title="Transpose up"
+            >
+              +
+            </button>
             <button
               :class="['entry-columns', { active: entry.double_column }]"
+              :disabled="pendingEntries[entry.id]"
               @click="toggleEntryColumns(entry)"
               title="Toggle 2 columns"
             >
@@ -220,6 +259,7 @@ async function printSongbook() {
             :song-key="entry.song.key"
             :transpose-override="entry.transpose"
             :columns-override="entry.double_column ? 2 : 1"
+            hide-controls
           />
         </div>
       </div>
@@ -342,6 +382,10 @@ async function printSongbook() {
   background: var(--accent);
   border-color: var(--accent);
   color: #000;
+}
+.entry-controls button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 }
 .entry-transpose {
   min-width: 1.6rem;
