@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { onMounted, computed, ref } from 'vue'
+import { watch, computed, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useSongStore } from '../stores/songs'
 import { useSettingsStore } from '../stores/settings'
@@ -15,7 +15,7 @@ import {
   unfavoriteVersion,
   type SongVersion,
 } from '../api/songs'
-import { apiDelete, apiUpload, openFile } from '../api/client'
+import { apiDelete, apiUpload, downloadFile, openFile } from '../api/client'
 
 const route = useRoute()
 const router = useRouter()
@@ -29,6 +29,7 @@ const hasAudio = ref(false)
 const recording = ref(false)
 const pdfError = ref('')
 const audioError = ref('')
+const exportError = ref('')
 const versions = ref<SongVersion[]>([])
 const showHistory = ref(false)
 const loadingVersions = ref(false)
@@ -38,20 +39,35 @@ const historyNotice = ref('')
 let mediaRecorder: MediaRecorder | null = null
 let audioChunks: Blob[] = []
 
-onMounted(async () => {
+let loadRequestId = 0
+
+async function loadSong(id: string) {
+  const request = ++loadRequestId
   await Promise.all([
-    store.fetchSong(route.params.id as string),
+    store.fetchSong(id),
     settingsStore.fetchSettings().catch(() => {}),
   ])
-  if (store.current) {
+  if (request !== loadRequestId) return
+  versions.value = []
+  showHistory.value = false
+  if (store.current?.id === id) {
     hasAudio.value = !!(store.current.metadata?.audio_file)
     try {
-      const analysis = await analyzeSong(route.params.id as string)
+      const analysis = await analyzeSong(id)
+      if (request !== loadRequestId) return
       suggestedKey.value = analysis.suggested_key
       keyConfidence.value = analysis.confidence
     } catch {}
   }
-})
+}
+
+watch(
+  () => route.params.id as string,
+  (id) => {
+    void loadSong(id)
+  },
+  { immediate: true },
+)
 
 const song = computed(() => store.current)
 
@@ -82,6 +98,19 @@ function printBrowser() {
     name: 'SongPrint',
     params: { id: route.params.id },
   })
+}
+
+async function downloadChordPro() {
+  if (!song.value || song.value.id !== route.params.id) return
+  exportError.value = ''
+  try {
+    await downloadFile(
+      `/api/songs/${song.value.id}/export?format=chordpro`,
+      `${song.value.title}.cho`,
+    )
+  } catch (e: unknown) {
+    exportError.value = e instanceof Error ? e.message : 'Could not download ChordPro'
+  }
 }
 
 async function toggleHistory() {
@@ -249,10 +278,12 @@ const chords = computed(() => {
       <AppNotice v-if="successNotice" type="success" :message="successNotice" />
       <AppNotice v-if="pdfError" type="error" :message="pdfError" />
       <AppNotice v-if="audioError" type="error" :message="audioError" />
+      <AppNotice v-if="exportError" type="error" :message="exportError" />
 
       <div class="detail-actions">
         <router-link :to="`/songs/${song.id}/edit`" class="btn-secondary">Edit</router-link>
         <button @click="printSong" class="btn-secondary">PDF</button>
+        <button @click="downloadChordPro" class="btn-secondary">ChordPro</button>
         <button @click="printBrowser" class="btn-secondary">Print</button>
         <button @click="toggleHistory" class="btn-secondary">
           {{ showHistory ? 'Hide History' : 'History' }}

@@ -3,6 +3,11 @@ import uuid
 from app.database import get_db
 from app.models.song import Song
 from app.models.songbook import Songbook, SongbookEntry
+from app.services.converters import (
+    ensure_chordpro_metadata,
+    transpose_chordpro_body,
+)
+from app.services.http import content_disposition
 from app.services.music_theory import SongModel as ST
 from app.services.pdf import generate_song_pdf, generate_songbook_pdf
 from app.services.settings import get_or_create_settings as get_global_settings
@@ -30,7 +35,9 @@ async def export_song_pdf(
     return Response(
         content=pdf.getvalue(),
         media_type="application/pdf",
-        headers={"Content-Disposition": f'inline; filename="{song.title}.pdf"'},
+        headers={
+            "Content-Disposition": content_disposition(f"{song.title}.pdf", inline=True)
+        },
     )
 
 
@@ -70,5 +77,43 @@ async def export_songbook_pdf(
     return Response(
         content=pdf.getvalue(),
         media_type="application/pdf",
-        headers={"Content-Disposition": f'inline; filename="{songbook.name}.pdf"'},
+        headers={
+            "Content-Disposition": content_disposition(
+                f"{songbook.name}.pdf", inline=True
+            )
+        },
+    )
+
+
+@router.get("/songbook/{songbook_id}/chordpro")
+async def export_songbook_chordpro(
+    songbook_id: uuid.UUID,
+    db: AsyncSession = Depends(get_db),
+):
+    result = await db.execute(
+        select(Songbook)
+        .where(Songbook.id == songbook_id)
+        .options(selectinload(Songbook.entries).selectinload(SongbookEntry.song))
+    )
+    songbook = result.scalar_one_or_none()
+    if not songbook:
+        raise HTTPException(status_code=404, detail="Songbook not found")
+    settings = await get_global_settings(db)
+    songs = []
+    for entry in sorted(
+        songbook.entries, key=lambda item: (item.sort_order, str(item.id))
+    ):
+        if entry.song is None:
+            continue
+        body = ensure_chordpro_metadata(
+            entry.song.body, entry.song.title, entry.song.artist
+        )
+        songs.append(
+            transpose_chordpro_body(body, settings.transpose + entry.transpose)
+        )
+    content = "\n\n---\n\n".join(songs)
+    return Response(
+        content=content,
+        media_type="text/plain",
+        headers={"Content-Disposition": content_disposition(f"{songbook.name}.cho")},
     )

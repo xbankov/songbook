@@ -339,4 +339,17 @@ test.describe('Songbook UI', () => {
     await renameRequest
     await expect(page.locator('.header h1')).toHaveText('Renamed Book')
   })
+
+  test('downloads ChordPro for a song and a songbook', async ({ page }) => {
+    await mockApi(page)
+    await page.goto(`/songs/${song.id}`)
+    const songDownload = page.waitForEvent('download')
+    await page.getByRole('button', { name: 'ChordPro' }).click()
+    expect((await songDownload).suggestedFilename()).toContain('.cho')
+
+    await page.goto(`/songbooks/${songbook.id}`)
+    const bookDownload = page.waitForEvent('download')
+    await page.getByRole('button', { name: 'ChordPro' }).click()
+    expect((await bookDownload).suggestedFilename()).toContain('.cho')
+  })
 })

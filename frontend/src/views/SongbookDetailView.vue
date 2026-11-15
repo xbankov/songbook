@@ -6,7 +6,7 @@ import { useSongStore } from '../stores/songs'
 import { useSettingsStore } from '../stores/settings'
 import SongDisplay from '../components/SongDisplay.vue'
 import AppNotice from '../components/AppNotice.vue'
-import { openFile } from '../api/client'
+import { downloadFile, openFile } from '../api/client'
 import type { SongbookEntryResponse } from '../api/songbooks'
 
 const route = useRoute()
@@ -158,6 +158,19 @@ async function printSongbook() {
     error.value = e instanceof Error ? e.message : 'Could not open PDF'
   }
 }
+
+async function downloadChordPro() {
+  if (!songbook.value) return
+  error.value = ''
+  try {
+    await downloadFile(
+      `/api/export/songbook/${route.params.id}/chordpro`,
+      `${songbook.value.name}.cho`,
+    )
+  } catch (e: unknown) {
+    error.value = e instanceof Error ? e.message : 'Could not download ChordPro'
+  }
+}
 </script>
 
 <template>
@@ -173,6 +186,7 @@ async function printSongbook() {
       </div>
       <div class="actions">
         <button @click="printSongbook" class="btn-secondary">Print PDF</button>
+        <button @click="downloadChordPro" class="btn-secondary">ChordPro</button>
         <button @click="startEdit" class="btn-secondary">Edit</button>
         <button @click="deleteBook" class="btn-danger">Delete</button>
         <router-link to="/songbooks" class="btn-secondary">Back</router-link>

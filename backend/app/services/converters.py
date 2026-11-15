@@ -111,6 +111,33 @@ def chordpro_to_ly(song: SongModel) -> str:
     return "\n".join(ly_lines)
 
 
+def transpose_chordpro_body(body: str, interval: int) -> str:
+    """Transpose bracketed chords without dropping unmodeled directives."""
+    if not interval:
+        return body
+
+    def replace(match: re.Match) -> str:
+        try:
+            chord = Chord.parse(match.group(1).strip())
+            return f"[{chord.transpose(interval)}]"
+        except Exception:
+            return match.group(0)
+
+    return re.sub(r"\[([^\]]+)\]", replace, body)
+
+
+def ensure_chordpro_metadata(body: str, title: str, artist: str) -> str:
+    lines = body.splitlines()
+    has_title = any(line.strip().startswith("{title:") for line in lines)
+    has_artist = any(line.strip().startswith("{artist:") for line in lines)
+    prefix = []
+    if not has_title:
+        prefix.append(f"{{title: {title}}}")
+    if not has_artist:
+        prefix.append(f"{{artist: {artist}}}")
+    return "\n".join(prefix + lines)
+
+
 def export_songs_as_chordpro(songs: list[SongModel]) -> str:
     parts = []
     for song in songs:

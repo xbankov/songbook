@@ -77,6 +77,17 @@ export async function apiUpload<T>(path: string, body: FormData): Promise<T> {
   return (text ? JSON.parse(text) : undefined) as T
 }
 
+/** Download a protected file without opening a tab. */
+export async function downloadFile(path: string, filename: string): Promise<void> {
+  const blob = await apiDownload(path)
+  const url = URL.createObjectURL(blob)
+  const link = document.createElement('a')
+  link.href = url
+  link.download = filename
+  link.click()
+  setTimeout(() => URL.revokeObjectURL(url), 60_000)
+}
+
 /** Download a protected file and open it in a new tab (e.g. a PDF). */
 export async function openFile(path: string): Promise<void> {
   // Open the tab synchronously, while the click still counts as user activation.
