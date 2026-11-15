@@ -11,6 +11,8 @@ const props = defineProps<{
   capo?: number
   songKey?: string | null
   suggestedKey?: string | null
+  hideControls?: boolean
+  columnsOverride?: 1 | 2
 }>()
 
 const songDisplay = ref<HTMLElement | null>(null)
@@ -21,7 +23,11 @@ let scrollInterval: ReturnType<typeof setInterval> | null = null
 
 const transpose = computed(() => settingsStore.transpose)
 const displayMode = computed(() => settingsStore.displayMode)
-const doubleColumn = computed(() => settingsStore.doubleColumn)
+const doubleColumn = computed(() => {
+  if (props.columnsOverride === 1) return false
+  if (props.columnsOverride === 2) return true
+  return settingsStore.doubleColumn
+})
 
 function toggleAutoScroll() {
   autoScroll.value = !autoScroll.value
@@ -137,7 +143,7 @@ function lyricRow(spans: Span[]): string {
 
 <template>
   <div ref="songDisplay" class="song-display">
-    <div class="song-controls">
+    <div v-if="!hideControls" class="song-controls">
       <div class="transpose-control">
         <button @click="settingsStore.setTranspose(Math.max(-11, transpose - 1))" class="ctrl-btn" title="Transpose down">&minus;</button>
         <span class="ctrl-label">Transpose: {{ transpose > 0 ? '+' : '' }}{{ transpose }}</span>
@@ -172,7 +178,7 @@ function lyricRow(spans: Span[]): string {
     </div>
 
     <div class="song-body" :class="['mode-' + displayMode, { 'double-column': doubleColumn }]">
-      <div v-for="(section, si) in parsed.sections" :key="si" class="section">
+      <div v-for="(section, si) in parsed.sections" :key="si" :class="['section', { long: section.lines.length > 10 }]">
         <div v-if="section.label && section.label !== 'verse'" class="section-label">
           {{ section.title || section.label.charAt(0).toUpperCase() + section.label.slice(1) }}
         </div>
@@ -247,5 +253,25 @@ function lyricRow(spans: Span[]): string {
   .song-title { font-size: 14pt !important; }
   .song-artist { font-size: 11pt !important; }
   .section-label { font-size: 10pt !important; }
+  .double-column.mode-above,
+  .double-column.mode-inline {
+    column-count: 2;
+    column-gap: 10mm;
+  }
+  .section-label { break-after: avoid; }
+  .section { break-inside: avoid; }
+  .section.long { break-inside: auto; }
+  .line-above,
+  .line-inline { break-inside: avoid; }
+  .song-title,
+  .song-artist,
+  .song-meta,
+  .lyric-row { color: #000 !important; }
+  .chord-row,
+  .lyric-row {
+    white-space: pre-wrap !important;
+    overflow-wrap: anywhere;
+    max-width: 100%;
+  }
 }
 </style>

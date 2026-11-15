@@ -47,6 +47,12 @@ input, textarea, select {
 
 /* Print styles */
 @media print {
+  body,
+  #app,
+  .main-content {
+    background: #fff !important;
+    color: #000 !important;
+  }
   .navbar {
     display: none !important;
   }

@@ -64,7 +64,10 @@ async function printSong() {
 }
 
 function printBrowser() {
-  window.print()
+  router.push({
+    name: 'SongPrint',
+    params: { id: route.params.id },
+  })
 }
 
 async function startRecording() {

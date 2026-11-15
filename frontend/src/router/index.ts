@@ -22,6 +22,11 @@ const routes = [
     component: () => import('../views/SongEditView.vue'),
   },
   {
+    path: '/songs/:id/print',
+    name: 'SongPrint',
+    component: () => import('../views/SongPrintView.vue'),
+  },
+  {
     path: '/songs/:id',
     name: 'SongDetail',
     component: () => import('../views/SongDetailView.vue'),

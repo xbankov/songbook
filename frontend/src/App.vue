@@ -29,7 +29,7 @@ watch(
 <template>
   <NavBar />
   <main class="main-content">
-    <AppNotice v-if="settingsError" type="error" :message="settingsError" />
+    <AppNotice v-if="settingsError" class="settings-notice" type="error" :message="settingsError" />
     <router-view />
   </main>
 </template>
@@ -39,5 +39,10 @@ watch(
   max-width: 960px;
   margin: 0 auto;
   padding: 1rem;
+}
+@media print {
+  .settings-notice {
+    display: none !important;
+  }
 }
 </style>
