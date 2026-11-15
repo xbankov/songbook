@@ -6,6 +6,7 @@ interface SongState {
   current: songsApi.SongResponse | null
   loading: boolean
   error: string | null
+  _listRequestId: number
 }
 
 export const useSongStore = defineStore('songs', {
@@ -14,17 +15,26 @@ export const useSongStore = defineStore('songs', {
     current: null,
     loading: false,
     error: null,
+    _listRequestId: 0,
   }),
   actions: {
     async fetchSongs(params?: songsApi.ListParams) {
+      const requestId = ++this._listRequestId
       this.loading = true
       this.error = null
       try {
-        this.songs = await songsApi.listSongs(params)
+        const songs = await songsApi.listSongs(params)
+        if (requestId === this._listRequestId) {
+          this.songs = songs
+        }
       } catch (e: unknown) {
-        this.error = e instanceof Error ? e.message : 'Failed to load songs'
+        if (requestId === this._listRequestId) {
+          this.error = e instanceof Error ? e.message : 'Failed to load songs'
+        }
       } finally {
-        this.loading = false
+        if (requestId === this._listRequestId) {
+          this.loading = false
+        }
       }
     },
     async fetchSong(id: string) {

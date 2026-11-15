@@ -91,6 +91,9 @@ class _FakeResult:
     def scalars(self):
         return _FakeScalars()
 
+    def all(self):
+        return []
+
 
 class _FakeSession:
     async def execute(self, *args, **kwargs):

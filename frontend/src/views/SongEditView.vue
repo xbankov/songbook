@@ -28,12 +28,19 @@ function tagValue(tags: string[], prefix: string): string {
 }
 
 function buildTags(): string[] {
-  const existing = (store.current?.tags || []).filter(
+  // A new song must not inherit tags from a previously viewed song.
+  const current = isEdit ? store.current?.tags || [] : []
+  const otherTags = current.filter(
     (tag) => !tag.startsWith('difficulty:') && !tag.startsWith('genre:'),
   )
-  if (difficulty.value) existing.push(`difficulty:${difficulty.value}`)
-  if (genre.value.trim()) existing.push(`genre:${genre.value.trim().toLowerCase()}`)
-  return existing
+  const extraDifficulties = current
+    .filter((tag) => tag.startsWith('difficulty:'))
+    .slice(1)
+  const extraGenres = current.filter((tag) => tag.startsWith('genre:')).slice(1)
+  const tags = [...otherTags, ...extraDifficulties, ...extraGenres]
+  if (difficulty.value) tags.push(`difficulty:${difficulty.value}`)
+  if (genre.value.trim()) tags.push(`genre:${genre.value.trim().toLowerCase()}`)
+  return tags
 }
 
 onBeforeUnmount(() => {
@@ -154,7 +161,7 @@ async function transpose(interval: number) {
         </div>
         <div class="field">
           <label>Genre</label>
-          <input v-model="genre" type="text" placeholder="e.g. bluegrass" />
+          <input v-model="genre" type="text" placeholder="e.g. bluegrass" maxlength="128" />
         </div>
       </div>
 

@@ -18,6 +18,7 @@ from fastapi import APIRouter, Depends, File, HTTPException, Query, UploadFile, 
 from fastapi.responses import FileResponse, PlainTextResponse, Response
 from sqlalchemy import exists, func, select
 from sqlalchemy.ext.asyncio import AsyncSession
+from sqlalchemy.sql.elements import ColumnElement
 
 router = APIRouter(prefix="/api/songs", tags=["songs"])
 
@@ -29,14 +30,16 @@ async def list_songs(
     tag: str | None = Query(None),
     difficulty: str | None = Query(None),
     genre: str | None = Query(None),
-    letter: str | None = Query(None, min_length=1, max_length=1),
+    letter: str | None = Query(
+        None, min_length=1, max_length=1, pattern=r"^[A-Za-z#]$"
+    ),
     sort: str = Query("updated_at"),
     order: str = Query("desc"),
     limit: int = Query(50, ge=1, le=200),
     offset: int = Query(0, ge=0),
     db: AsyncSession = Depends(get_db),
 ):
-    def has_tag(name: str):
+    def has_tag(name: str) -> ColumnElement[bool]:
         return exists(
             select(1)
             .select_from(song_tags.join(Tag, Tag.id == song_tags.c.tag_id))
@@ -51,11 +54,11 @@ async def list_songs(
     if artist:
         query = query.where(Song.artist.ilike(f"%{artist}%"))
     if tag:
-        query = query.where(has_tag(tag))
+        query = query.where(has_tag(tag.strip()))
     if difficulty:
-        query = query.where(has_tag(f"difficulty:{difficulty.lower()}"))
+        query = query.where(has_tag(f"difficulty:{difficulty.strip().lower()}"))
     if genre:
-        query = query.where(has_tag(f"genre:{genre.lower()}"))
+        query = query.where(has_tag(f"genre:{genre.strip().lower()}"))
     if letter == "#":
         query = query.where(Song.title.op("!~")("^[A-Za-z]"))
     elif letter:

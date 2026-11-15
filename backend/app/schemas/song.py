@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import Any
 from uuid import UUID
 
 from pydantic import BaseModel, Field, field_validator
@@ -23,6 +24,14 @@ class SongCreate(BaseModel):
     tags: list[str] = Field(default_factory=list)
     metadata: dict = Field(default_factory=dict, alias="metadata_")
 
+    @field_validator("tags")
+    @classmethod
+    def _tags_fit_column(cls, value: list[str]) -> list[str]:
+        for tag in value:
+            if len(tag) > 128:
+                raise ValueError("Tag names must be 128 characters or fewer")
+        return value
+
 
 class SongUpdate(BaseModel):
     title: str | None = None
@@ -32,6 +41,14 @@ class SongUpdate(BaseModel):
     body: str | None = None
     tags: list[str] | None = None
     metadata: dict | None = Field(default=None, alias="metadata_")
+
+    @field_validator("tags")
+    @classmethod
+    def _tags_fit_column(cls, value: list[str] | None) -> list[str] | None:
+        for tag in value or []:
+            if len(tag) > 128:
+                raise ValueError("Tag names must be 128 characters or fewer")
+        return value
 
 
 class SongOut(BaseModel):
@@ -49,7 +66,7 @@ class SongOut(BaseModel):
 
     @field_validator("tags", mode="before")
     @classmethod
-    def _tag_names(cls, value):
+    def _tag_names(cls, value: Any) -> list[str]:
         if value is None:
             return []
         return [getattr(tag, "name", tag) for tag in value]
