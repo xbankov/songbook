@@ -7,7 +7,7 @@ import SongDisplay from '../components/SongDisplay.vue'
 import ChordDiagram from '../components/ChordDiagram.vue'
 import AppNotice from '../components/AppNotice.vue'
 import { analyzeSong } from '../api/songs'
-import { openFile } from '../api/client'
+import { apiDelete, apiUpload, openFile } from '../api/client'
 
 const route = useRoute()
 const router = useRouter()
@@ -20,13 +20,14 @@ const selectedChord = ref<string | null>(null)
 const hasAudio = ref(false)
 const recording = ref(false)
 const pdfError = ref('')
+const audioError = ref('')
 let mediaRecorder: MediaRecorder | null = null
 let audioChunks: Blob[] = []
 
 onMounted(async () => {
   await Promise.all([
     store.fetchSong(route.params.id as string),
-    settingsStore.fetchSettings(),
+    settingsStore.fetchSettings().catch(() => {}),
   ])
   if (store.current) {
     hasAudio.value = !!(store.current.metadata?.audio_file)
@@ -77,14 +78,19 @@ async function startRecording() {
       const blob = new Blob(audioChunks, { type: 'audio/webm' })
       const formData = new FormData()
       formData.append('file', blob, 'recording.webm')
+      audioError.value = ''
       try {
-        await fetch(`/api/songs/${route.params.id}/audio`, { method: 'POST', body: formData })
+        await apiUpload(`/api/songs/${route.params.id}/audio`, formData)
         hasAudio.value = true
-      } catch (e) { console.error('Upload failed', e) }
+      } catch (e: unknown) {
+        audioError.value = e instanceof Error ? e.message : 'Upload failed'
+      }
     }
     mediaRecorder.start()
     recording.value = true
-  } catch (e) { console.error('Recording failed', e) }
+  } catch (e: unknown) {
+    audioError.value = e instanceof Error ? e.message : 'Recording failed'
+  }
 }
 
 function stopRecording() {
@@ -96,10 +102,13 @@ function stopRecording() {
 
 async function deleteAudio() {
   if (!confirm('Delete audio recording?')) return
+  audioError.value = ''
   try {
-    await fetch(`/api/songs/${route.params.id}/audio`, { method: 'DELETE' })
+    await apiDelete(`/api/songs/${route.params.id}/audio`)
     hasAudio.value = false
-  } catch {}
+  } catch (e: unknown) {
+    audioError.value = e instanceof Error ? e.message : 'Could not delete recording'
+  }
 }
 
 const chords = computed(() => {
@@ -124,6 +133,7 @@ const chords = computed(() => {
     <template v-else>
       <AppNotice v-if="successNotice" type="success" :message="successNotice" />
       <AppNotice v-if="pdfError" type="error" :message="pdfError" />
+      <AppNotice v-if="audioError" type="error" :message="audioError" />
 
       <div class="detail-actions">
         <router-link :to="`/songs/${song.id}/edit`" class="btn-secondary">Edit</router-link>

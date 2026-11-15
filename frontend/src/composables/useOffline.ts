@@ -1,4 +1,5 @@
 import { ref, watch } from 'vue'
+import { apiDelete, apiRequest } from '../api/client'
 
 interface PendingEdit {
   id: string
@@ -41,19 +42,11 @@ async function syncPending() {
   for (const edit of [...pendingEdits.value]) {
     try {
       if (edit.type === 'create') {
-        await fetch('/api/songs', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(edit.data),
-        })
+        await apiRequest('/api/songs', { method: 'POST', body: edit.data })
       } else if (edit.type === 'update') {
-        await fetch(`/api/songs/${edit.id}`, {
-          method: 'PUT',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify(edit.data),
-        })
+        await apiRequest(`/api/songs/${edit.id}`, { method: 'PUT', body: edit.data })
       } else if (edit.type === 'delete') {
-        await fetch(`/api/songs/${edit.id}`, { method: 'DELETE' })
+        await apiDelete(`/api/songs/${edit.id}`)
       }
       removePendingEdit(edit.id)
     } catch {

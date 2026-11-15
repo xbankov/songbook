@@ -55,13 +55,45 @@ export async function apiDownload(path: string): Promise<Blob> {
   return response.blob()
 }
 
+export async function apiUpload<T>(path: string, body: FormData): Promise<T> {
+  const requestToken = getToken()
+  const headers: Record<string, string> = {}
+  if (requestToken) {
+    headers['Authorization'] = `Bearer ${requestToken}`
+  }
+  const response = await fetch(buildUrl(path), {
+    method: 'POST',
+    headers,
+    body,
+  })
+  if (!response.ok) {
+    if (response.status === 401) {
+      handleUnauthorized(requestToken)
+    }
+    const err = await response.json().catch(() => ({ detail: response.statusText }))
+    throw new Error(err.detail || `Request failed: ${response.status}`)
+  }
+  const text = await response.text()
+  return (text ? JSON.parse(text) : undefined) as T
+}
+
 /** Download a protected file and open it in a new tab (e.g. a PDF). */
 export async function openFile(path: string): Promise<void> {
-  const blob = await apiDownload(path)
-  const url = URL.createObjectURL(blob)
-  window.open(url, '_blank', 'noopener')
-  // Keep the URL alive long enough for the new tab to load it.
-  setTimeout(() => URL.revokeObjectURL(url), 60_000)
+  // Open the tab synchronously, while the click still counts as user activation.
+  const tab = window.open('', '_blank')
+  if (!tab) {
+    throw new Error('Pop-up blocked. Allow pop-ups for this site and try again.')
+  }
+  try {
+    const blob = await apiDownload(path)
+    const url = URL.createObjectURL(blob)
+    tab.location.href = url
+    // Keep the URL alive long enough for the new tab to load it.
+    setTimeout(() => URL.revokeObjectURL(url), 60_000)
+  } catch (e) {
+    tab.close()
+    throw e
+  }
 }
 
 export async function apiRequest<T>(path: string, options: RequestOptions = {}): Promise<T> {

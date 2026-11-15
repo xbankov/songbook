@@ -1,11 +1,11 @@
 import uuid
 
 from app.database import get_db
-from app.models.settings import Settings
 from app.models.song import Song
 from app.models.songbook import Songbook, SongbookEntry
 from app.services.music_theory import SongModel as ST
 from app.services.pdf import generate_song_pdf, generate_songbook_pdf
+from app.services.settings import get_or_create_settings as get_global_settings
 from fastapi import APIRouter, Depends, HTTPException, Query
 from fastapi.responses import Response
 from sqlalchemy import select
@@ -13,17 +13,6 @@ from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
 
 router = APIRouter(prefix="/api/export", tags=["export"])
-
-
-async def get_global_settings(db: AsyncSession) -> Settings:
-    result = await db.execute(select(Settings).limit(1))
-    settings = result.scalar_one_or_none()
-    if not settings:
-        settings = Settings()
-        db.add(settings)
-        await db.flush()
-        await db.refresh(settings)
-    return settings
 
 
 @router.get("/song/{song_id}/pdf")

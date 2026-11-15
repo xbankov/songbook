@@ -33,6 +33,8 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+# Public endpoints: /api/health and /api/auth/login.
+# Every other router below requires a bearer token.
 app.include_router(auth.router)
 app.include_router(songs.router, dependencies=[Depends(require_auth)])
 app.include_router(songbooks.router, dependencies=[Depends(require_auth)])

@@ -1,12 +1,11 @@
 import asyncio
 
 import pytest
-from app.api import artists, auth, backup, export, search_import
-from app.api import settings as settings_router
-from app.api import songbooks, songs
+from app.database import get_db
 from app.dependencies import require_auth
+from app.main import app as main_app
 from app.services.auth import create_access_token
-from fastapi import Depends, FastAPI, HTTPException
+from fastapi import HTTPException
 from fastapi.security import HTTPAuthorizationCredentials
 from fastapi.testclient import TestClient
 
@@ -23,24 +22,15 @@ PROTECTED_GET_PATHS = [
 ]
 
 
-def protected_app() -> FastAPI:
-    app = FastAPI()
-    for router in (
-        songs.router,
-        songbooks.router,
-        artists.router,
-        export.router,
-        search_import.router,
-        backup.router,
-        settings_router.router,
-    ):
-        app.include_router(router, dependencies=[Depends(require_auth)])
-    return app
-
-
 @pytest.fixture
 def client() -> TestClient:
-    return TestClient(protected_app())
+    # TestClient is used without a context manager, so the DB lifespan does not
+    # run; anonymous requests are rejected before any DB access.
+    return TestClient(main_app)
+
+
+def auth_header() -> dict[str, str]:
+    return {"Authorization": f"Bearer {create_access_token()}"}
 
 
 @pytest.mark.parametrize("path", PROTECTED_GET_PATHS)
@@ -55,15 +45,12 @@ def test_protected_post_requires_auth(client: TestClient):
     assert response.status_code == 401
 
 
-def test_login_stays_public():
-    app = FastAPI()
-    app.include_router(auth.router)
-    client = TestClient(app)
-
+def test_health_and_login_stay_public(client: TestClient):
+    assert client.get("/api/health").status_code == 200
+    # 401 comes from the login handler, not from the auth dependency.
     response = client.post(
         "/api/auth/login", json={"username": "wrong", "password": "wrong"}
     )
-    # 401 comes from the login handler, not from the auth dependency.
     assert response.status_code == 401
 
 
@@ -72,6 +59,12 @@ def test_require_auth_accepts_a_valid_token():
         scheme="Bearer", credentials=create_access_token()
     )
     assert asyncio.run(require_auth(credentials)) is None
+
+
+def test_require_auth_rejects_missing_credentials():
+    with pytest.raises(HTTPException) as exc:
+        asyncio.run(require_auth(None))
+    assert exc.value.status_code == 401
 
 
 def test_require_auth_rejects_an_invalid_token():
@@ -83,10 +76,30 @@ def test_require_auth_rejects_an_invalid_token():
     assert exc.value.status_code == 401
 
 
-def test_main_app_wires_auth_and_keeps_health_public():
-    from app.main import app as main_app
+class _FakeScalars:
+    def all(self):
+        return []
 
-    client = TestClient(main_app)
-    assert client.get("/api/health").status_code == 200
-    assert client.get("/api/songs").status_code == 401
-    assert client.get("/api/settings").status_code == 401
+
+class _FakeResult:
+    def scalars(self):
+        return _FakeScalars()
+
+
+class _FakeSession:
+    async def execute(self, *args, **kwargs):
+        return _FakeResult()
+
+
+async def _override_get_db():
+    yield _FakeSession()
+
+
+def test_authenticated_request_succeeds():
+    main_app.dependency_overrides[get_db] = _override_get_db
+    try:
+        response = TestClient(main_app).get("/api/songs", headers=auth_header())
+        assert response.status_code == 200
+        assert response.json() == []
+    finally:
+        main_app.dependency_overrides.clear()

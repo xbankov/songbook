@@ -1,19 +1,25 @@
 <script setup lang="ts">
-import { watch } from 'vue'
+import { ref, watch } from 'vue'
 import NavBar from './components/NavBar.vue'
+import AppNotice from './components/AppNotice.vue'
 import { useTheme } from './composables/useTheme'
 import { useSettingsStore } from './stores/settings'
 import { useAuthStore } from './stores/auth'
 
 const settingsStore = useSettingsStore()
 const auth = useAuthStore()
+const settingsError = ref('')
 useTheme()
 
 watch(
   () => auth.isAuthenticated,
   (authenticated) => {
     if (authenticated) {
-      settingsStore.fetchSettings().catch(() => {})
+      settingsError.value = ''
+      settingsStore.fetchSettings().catch((e: unknown) => {
+        settingsError.value =
+          e instanceof Error ? e.message : 'Could not load settings'
+      })
     }
   },
   { immediate: true },
@@ -23,6 +29,7 @@ watch(
 <template>
   <NavBar />
   <main class="main-content">
+    <AppNotice v-if="settingsError" type="error" :message="settingsError" />
     <router-view />
   </main>
 </template>
