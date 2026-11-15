@@ -1,0 +1,71 @@
+import type { Page } from '@playwright/test'
+
+export const song = {
+  id: '11111111-1111-1111-1111-111111111111',
+  title: 'Test Song',
+  artist: 'Test Artist',
+  capo: 2,
+  key: 'G',
+  body: [
+    '{title: Test Song}',
+    '{artist: Test Artist}',
+    '{capo: 2}',
+    '{key: G}',
+    '{start_of_verse}',
+    '[G]Hello [C]world',
+    '{end_of_verse}',
+  ].join('\n'),
+  metadata: {},
+  version: 1,
+  created_at: '2026-01-01T00:00:00Z',
+  updated_at: '2026-01-01T00:00:00Z',
+}
+
+export const settings = {
+  id: '22222222-2222-2222-2222-222222222222',
+  transpose: 0,
+  double_column: false,
+  font: 'DejaVu Sans Mono',
+  font_size: 9,
+  display_mode: 'above',
+}
+
+/**
+ * Mock the API so e2e tests do not need Postgres, Redis, or the FastAPI app.
+ * Only paths under `/api/` are intercepted; Vite module requests continue.
+ */
+export async function mockApi(
+  page: Page,
+  { authenticated = true }: { authenticated?: boolean } = {},
+) {
+  await page.addInitScript((isAuthenticated) => {
+    if (isAuthenticated) {
+      localStorage.setItem('auth', JSON.stringify({ accessToken: 'e2e-token' }))
+    } else {
+      localStorage.removeItem('auth')
+    }
+  }, authenticated)
+
+  await page.route('**/*', async (route) => {
+    const url = new URL(route.request().url())
+    if (!url.pathname.startsWith('/api/')) {
+      return route.continue()
+    }
+    if (url.pathname === '/api/settings') {
+      return route.fulfill({ json: settings })
+    }
+    if (url.pathname === '/api/songs') {
+      return route.fulfill({ json: [song] })
+    }
+    if (url.pathname === `/api/songs/${song.id}`) {
+      return route.fulfill({ json: song })
+    }
+    if (url.pathname === `/api/songs/${song.id}/analyze`) {
+      return route.fulfill({ json: { suggested_key: null, confidence: null } })
+    }
+    return route.fulfill({
+      status: 404,
+      json: { detail: `No e2e mock for ${url.pathname}` },
+    })
+  })
+}

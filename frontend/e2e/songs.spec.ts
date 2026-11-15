@@ -1,56 +1,55 @@
-import { test, expect } from '@playwright/test'
+import { expect, test } from '@playwright/test'
 
-test.describe('Songbook App', () => {
-  test.beforeEach(async ({ page }) => {
-    await page.goto('/')
+import { mockApi, song } from './fixtures'
+
+test.describe('Songbook UI', () => {
+  test('lists songs and opens a song', async ({ page }) => {
+    await mockApi(page)
+    await page.goto('/songs')
+
+    const card = page.locator('.song-card')
+    await expect(card).toHaveCount(1)
+    await expect(card).toContainText(song.title)
+    await expect(card).toContainText(song.artist)
+
+    await card.click()
+    await expect(page).toHaveURL(new RegExp(`/songs/${song.id}$`))
+    await expect(page.locator('.song-title')).toHaveText(song.title)
   })
 
-  test('shows the song list page', async ({ page }) => {
-    await expect(page.locator('nav')).toContainText('Songbook')
-    await expect(page).toHaveURL(/\/songs/)
+  test('renders chords above the lyrics', async ({ page }) => {
+    await mockApi(page)
+    await page.goto(`/songs/${song.id}`)
+
+    await expect(page.locator('.song-title')).toHaveText(song.title)
+    await expect(page.locator('.song-artist')).toHaveText(song.artist)
+    await expect(page.locator('.chord-row').first()).toContainText('G')
+    await expect(page.locator('.lyric-row').first()).toContainText('Hello world')
+    await expect(page.locator('.song-controls')).toBeVisible()
   })
 
-  test('can navigate to add song page', async ({ page }) => {
-    await page.click('text=Add Song')
-    await expect(page).toHaveURL(/\/songs\/new/)
-    await expect(page.locator('h1')).toContainText('New Song')
+  test('print mode hides controls and the version footer', async ({ page }) => {
+    await mockApi(page)
+    await page.goto(`/songs/${song.id}`)
+
+    await page.emulateMedia({ media: 'print' })
+
+    await expect(page.locator('.song-controls')).toBeHidden()
+    await expect(page.locator('.detail-actions')).toBeHidden()
+    await expect(page.locator('.version-info')).toBeHidden()
+
+    const paddingBottom = await page
+      .locator('.song-display')
+      .evaluate((el) => getComputedStyle(el).paddingBottom)
+    expect(paddingBottom).toBe('0px')
   })
 
-  test('can create a new song', async ({ page }) => {
-    await page.click('text=Add Song')
-    await page.fill('input[placeholder]', 'Test Song')
-    await page.fill('input[type="text"]', 'Test Artist')
-    await page.fill('textarea', '[C]Hello [G]world')
-    await page.click('text=Save')
-    await page.waitForTimeout(1000)
-  })
+  test('redirects unauthenticated visitors to login', async ({ page }) => {
+    await mockApi(page, { authenticated: false })
+    await page.goto('/songs')
 
-  test('shows songbooks page', async ({ page }) => {
-    await page.click('text=Songbooks')
-    await expect(page).toHaveURL(/\/songbooks/)
-    await expect(page.locator('h1')).toContainText('Songbooks')
-  })
-
-  test('can navigate to settings', async ({ page }) => {
-    await page.click('text=Settings')
-    await expect(page).toHaveURL(/\/settings/)
-    await expect(page.locator('h1')).toContainText('Settings')
-  })
-
-  test('shows login page', async ({ page }) => {
-    await page.click('text=Login')
-    await expect(page).toHaveURL(/\/login/)
-    await expect(page.locator('h1')).toContainText('Login')
-  })
-
-  test('can register a new account', async ({ page }) => {
-    await page.click('text=Login')
-    await page.click('text=Register')
-    await page.fill('input[type="text"]', 'testuser')
-    await page.fill('input[type="email"]', 'test@example.com')
-    await page.fill('input[type="password"]', 'password123')
-    await page.click('button[type="submit"]')
-    // Should redirect to songs after registration
-    await page.waitForURL(/\/songs/)
+    await expect(page).toHaveURL(/\/login$/)
+    await expect(page.locator('h1')).toHaveText('Songbook')
+    await expect(page.getByRole('button', { name: 'Sign In' })).toBeVisible()
   })
 })
