@@ -254,4 +254,10 @@ const chords = computed(() => {
   font-size: 1.2rem;
   cursor: pointer;
 }
+
+@media print {
+  .version-info {
+    display: none !important;
+  }
+}
 </style>
