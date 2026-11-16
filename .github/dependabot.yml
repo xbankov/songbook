@@ -3,6 +3,10 @@
 # Weekly, grouped: one PR per ecosystem for minor/patch updates, one PR per
 # major update. Security fixes are grouped too and skip the cooldown.
 #
+# open-pull-requests-limit caps version-update PRs only. Security-update PRs
+# have their own limit and can be opened on top of it, so an ecosystem may
+# briefly have more than five open Dependabot PRs.
+#
 # Docker images are intentionally not listed. They use floating tags
 # (python:3.12-slim, node:20-alpine, postgres:16-alpine, ...) so patches
 # arrive on rebuild, and runtime/major bumps need a coordinated change:
@@ -52,4 +56,8 @@ updates:
       default-days: 7
     groups:
       github-actions:
+        applies-to: version-updates
+        patterns: ["*"]
+      github-actions-security:
+        applies-to: security-updates
         patterns: ["*"]
