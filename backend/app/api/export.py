@@ -105,8 +105,9 @@ async def export_songbook_pdf(
         per_song.append(
             {
                 "transpose": entry.transpose,
-                "double_column": bool(entry.double_column)
-                or bool(settings.double_column),
+                # Each entry owns its column layout, matching the screen view;
+                # the global setting only applies to single/selected PDFs.
+                "double_column": bool(entry.double_column),
             }
         )
     pdf = generate_songbook_pdf(
