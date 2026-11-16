@@ -73,7 +73,11 @@ async def get_songbook(songbook_id: uuid.UUID, db: AsyncSession = Depends(get_db
 async def get_songbook_chords(
     songbook_id: uuid.UUID, db: AsyncSession = Depends(get_db)
 ):
-    """The songbook's chord chart (#89), exactly as the PDF draws it."""
+    """The songbook's chord chart (#89), computed with the PDF's rules.
+
+    Unlike the PDF export, a song the parser cannot read is skipped here
+    rather than failing the whole request.
+    """
     result = await db.execute(
         select(Songbook)
         .where(Songbook.id == songbook_id)
