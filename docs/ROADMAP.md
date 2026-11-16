@@ -359,7 +359,10 @@ Still open on GitHub (as of 2026-11-16) and ready to close by hand:
 
 - #2 Transposition — implemented.
 - #38 Improve song view — print parity was the remaining work; done in #57.
-- #60 / #61 — decisions recorded below and in §1; close with a link here.
+- #61 SongBook vs UG — answered by §1 (Lane A); close with a link here.
+
+Not yet: #60 (where lyrics come from) stays open until the import policy (§8.7)
+is written down.
 
 Still open; needs a small follow-up first:
 
