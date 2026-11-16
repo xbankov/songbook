@@ -97,10 +97,11 @@ function parseChordPro(text: string, semitones: number) {
       const colon = content.indexOf(':')
       const tag = colon >= 0 ? content.slice(0, colon).trim() : content
       const val = colon >= 0 ? content.slice(colon + 1).trim() : ''
-      if (tag === 'title') meta.title = val
-      else if (tag === 'artist') meta.artist = val
-      else if (tag === 'capo') { const n = parseInt(val); if (!isNaN(n)) meta.capo = n }
-      else if (tag === 'key') meta.key = val
+      // The song's fields win; an old body tag only fills an empty field (#37).
+      if (tag === 'title') meta.title = meta.title || val
+      else if (tag === 'artist') meta.artist = meta.artist || val
+      else if (tag === 'capo') { const n = parseInt(val); if (!meta.capo && !isNaN(n)) meta.capo = n }
+      else if (tag === 'key') meta.key = meta.key || val
       else if (tag.startsWith('start_of_')) {
         if (currentSection.lines.length > 0) sections.push(currentSection)
         currentSection = { label: tag.slice(9), title: val || null, lines: [] }
