@@ -22,6 +22,7 @@ const scrollSpeed = ref(1)
 const stage = ref<HTMLElement | null>(null)
 let scrollTimer: ReturnType<typeof setInterval> | null = null
 let wakeLock: { release: () => Promise<void> } | null = null
+let unmounted = false
 
 async function load(id: string) {
   loading.value = true
@@ -53,8 +54,10 @@ function step(delta: number) {
 watch(activeLine, async (index) => {
   await nextTick()
   const line = stage.value?.querySelector(`[data-line="${index}"]`)
-  // Keep the current line mid-screen so the next lines stay visible.
-  line?.scrollIntoView?.({ block: 'center', behavior: 'smooth' })
+  // Keep the current line mid-screen so the next lines stay visible. Jump
+  // instead of animating while autoscroll runs: its scrollBy ticks would
+  // cancel a smooth scroll and leave the line off-screen.
+  line?.scrollIntoView?.({ block: 'center', behavior: autoScroll.value ? 'auto' : 'smooth' })
 })
 
 function changeFont(delta: number) {
@@ -92,11 +95,22 @@ async function toggleFullscreen() {
 }
 
 function exit() {
-  router.push(`/songs/${route.params.id}`)
+  // Replace, so Back from the song page does not reopen play mode.
+  router.replace(`/songs/${route.params.id}`)
 }
 
 function onKey(event: KeyboardEvent) {
-  if (event.target instanceof HTMLInputElement) return
+  // Leave browser shortcuts (Alt+Left = back, Shift+Space, ...) alone.
+  if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return
+  const target = event.target
+  if (
+    target instanceof HTMLInputElement ||
+    target instanceof HTMLTextAreaElement ||
+    target instanceof HTMLSelectElement ||
+    (target instanceof HTMLElement && target.isContentEditable)
+  ) {
+    return
+  }
   switch (event.key) {
     case 'ArrowDown':
     case 'ArrowRight':
@@ -126,7 +140,13 @@ async function keepScreenOn() {
     const nav = navigator as Navigator & {
       wakeLock?: { request: (type: 'screen') => Promise<{ release: () => Promise<void> }> }
     }
-    wakeLock = (await nav.wakeLock?.request('screen')) ?? null
+    const sentinel = (await nav.wakeLock?.request('screen')) ?? null
+    if (unmounted) {
+      // The view closed while the request was pending.
+      void sentinel?.release().catch(() => {})
+      return
+    }
+    wakeLock = sentinel
   } catch {
     wakeLock = null
   }
@@ -144,6 +164,7 @@ onMounted(() => {
 })
 
 onBeforeUnmount(() => {
+  unmounted = true
   window.removeEventListener('keydown', onKey)
   document.removeEventListener('visibilitychange', onVisibility)
   stopScroll()
@@ -155,22 +176,27 @@ watch(() => route.params.id as string, (id) => void load(id), { immediate: true 
 
 <template>
   <div ref="stage" class="play-stage" :style="{ '--song-font-size': `${fontSize}rem` }">
-    <div class="play-toolbar">
-      <button class="play-btn" title="Exit play mode" @click="exit">✕</button>
-      <button class="play-btn" title="Previous line" @click="step(-1)">▲</button>
-      <button class="play-btn" title="Next line" @click="step(1)">▼</button>
+    <div class="play-toolbar" role="toolbar" aria-label="Play controls">
+      <button class="play-btn" title="Exit play mode" aria-label="Exit play mode" @click="exit">✕</button>
+      <button class="play-btn" title="Previous line" aria-label="Previous line" @click="step(-1)">▲</button>
+      <button class="play-btn" title="Next line" aria-label="Next line" @click="step(1)">▼</button>
       <span class="spacer" />
-      <button class="play-btn" title="Smaller text" @click="changeFont(-0.1)">A−</button>
-      <button class="play-btn" title="Larger text" @click="changeFont(0.1)">A+</button>
-      <button :class="['play-btn', { active: autoScroll }]" title="Auto-scroll" @click="toggleScroll">
+      <button class="play-btn" title="Smaller text" aria-label="Smaller text" @click="changeFont(-0.1)">A−</button>
+      <button class="play-btn" title="Larger text" aria-label="Larger text" @click="changeFont(0.1)">A+</button>
+      <button
+        :class="['play-btn', { active: autoScroll }]"
+        title="Auto-scroll"
+        :aria-pressed="autoScroll"
+        @click="toggleScroll"
+      >
         {{ autoScroll ? 'Stop' : 'Scroll' }}
       </button>
       <template v-if="autoScroll">
-        <button class="play-btn" title="Slower" @click="changeSpeed(-0.5)">−</button>
+        <button class="play-btn" title="Slower" aria-label="Slower" @click="changeSpeed(-0.5)">−</button>
         <span class="speed">{{ scrollSpeed.toFixed(1) }}</span>
-        <button class="play-btn" title="Faster" @click="changeSpeed(0.5)">+</button>
+        <button class="play-btn" title="Faster" aria-label="Faster" @click="changeSpeed(0.5)">+</button>
       </template>
-      <button class="play-btn" title="Full screen" @click="toggleFullscreen">⛶</button>
+      <button class="play-btn" title="Full screen" aria-label="Full screen" @click="toggleFullscreen">⛶</button>
     </div>
 
     <div v-if="loading" class="play-message">Loading...</div>
