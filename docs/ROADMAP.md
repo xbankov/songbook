@@ -90,18 +90,18 @@ Every roadmap item should make this loop faster, more reliable, or more enjoyabl
 | Song CRUD, ChordPro editor (highlight, validation, preview) | Done |
 | Transposition (#2), key detection, chord diagrams | Done |
 | Chord inside a word `bri[C]ght` (#15) | Done — regression test in `test_music_theory.py` |
-| Separate title/artist fields (#37) | Done in the edit UI; body tags are normalized on export only, not on save |
+| Separate title/artist fields (#37) | Done in the edit UI. Body `{title}`/`{artist}` tags are normalized only in single, selected, and per-songbook ChordPro export — **not on save and not in export-all** (`GET /songs/export/bulk`), which keeps stale body tags (known bug) |
 | Song view: chords above lyrics, styling, 2 columns, autoscroll (#38/#41) | Mostly done |
-| Songbooks: CRUD, add/remove, PDF (#24) | Done — delete/rename, reorder, per-entry transpose/columns, TOC; metadata/chordscheme → #89 |
+| Songbooks: CRUD, add/remove, PDF (#24) | Done — delete/rename, reorder, per-entry transpose/columns, TOC; metadata/chordscheme → #89. **Known bug:** the songbook PDF ORs each entry's column setting with the global 2-column setting, so an entry set to 1 column still prints in 2 when the global setting is on (the screen view respects the entry) |
 | Import by URL + UG search/pick/import (#46, #51) | Done for UG (parsing fixed in #51) |
 | Bulk import (#29) | Partial — paste only; no file/zip upload |
-| ChordPro/text/ABC/LilyPond export (#54) | Done — single, selected, all, and per-songbook |
+| Export (#54) | Done — single, selected, and all songs as ChordPro/text/ABC/LilyPond; per-songbook export is **ChordPro only** |
 | Print (#55, #56, #57, #58, #59) | Done — single/selected/songbook, 1/2-column long-song layout, chords above lyrics, margins/headings/page numbers |
 | Library pagination (#27) | Done |
 | Version rows + list/get APIs (#45) | Done — history + restore; authors/forks/favourites/permalink split to #88 |
 | Audio record/upload/playback (#42) | Partial — no record mode/privacy |
 | Tags model + API filter (#26) | Done — tag-based difficulty/genre filters, alphabet, badges |
-| Auth (#68) | Done — every API router depends on `require_auth` |
+| Auth (#68) | Done — every router except `auth` depends on `require_auth`. Public by design: `/api/health`, `/api/auth/login`, and the API docs (`/api/docs`, `/api/openapi.json`); new routes on the `auth` router are public unless they add `require_auth` themselves |
 | Migrations | Deferred for dev/empty DBs — add the Alembic baseline (#69) before changing a schema under real data, and at the pre-1.0.0 gate |
 
 ---
