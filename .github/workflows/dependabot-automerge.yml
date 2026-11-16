@@ -1,6 +1,8 @@
 name: Dependabot auto-merge
 
-# Enables GitHub auto-merge on Dependabot PRs. GitHub then merges the PR once
+# Enables GitHub auto-merge on Dependabot minor and patch updates. Major
+# updates (including grouped PRs that contain any major bump) stay open for a
+# manual review. GitHub merges an enabled PR once
 # the required checks of the "Protect main" ruleset ("CI passed" and
 # "Sourcery review") succeed. A failing check leaves the PR open for a human.
 #
@@ -27,7 +29,21 @@ jobs:
     timeout-minutes: 5
     if: github.event.pull_request.user.login == 'dependabot[bot]' && github.actor == 'dependabot[bot]'
     steps:
+      # For grouped PRs, update-type is the highest bump in the group.
+      - name: Fetch Dependabot metadata
+        id: metadata
+        uses: dependabot/fetch-metadata@v2
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Skip major updates
+        if: steps.metadata.outputs.update-type == 'version-update:semver-major'
+        run: echo "Major update; leaving the PR for a manual review."
+
       - name: Enable auto-merge (rebase)
+        if: |
+          steps.metadata.outputs.update-type == 'version-update:semver-minor' ||
+          steps.metadata.outputs.update-type == 'version-update:semver-patch'
         env:
           GH_TOKEN: ${{ secrets.AUTOMERGE_TOKEN }}
           PR_URL: ${{ github.event.pull_request.html_url }}
