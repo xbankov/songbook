@@ -572,10 +572,10 @@ test.describe('Songbook UI', () => {
     await expect(page.locator('.book-meta')).toContainText('Genre: bluegrass')
     await expect(page.locator('.book-meta')).toContainText('Date: 2026-05-01')
     await expect(page.locator('.chord-chart .chord-name')).toHaveText(['C', 'G'])
-    // C = x32010-style shape from the server: three open strings drawn as O.
+    // C = x32010 from the server: two open strings drawn as O (low E muted).
     await expect(
       page.locator('.chord-chart .chord-diagram').first().locator('text', { hasText: 'O' }),
-    ).toHaveCount(3)
+    ).toHaveCount(2)
 
     // G and C are plain major chords, so the server's "uncommon" chart is empty.
     await page.getByRole('button', { name: 'Edit' }).click()

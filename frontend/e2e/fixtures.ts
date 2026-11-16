@@ -71,7 +71,9 @@ export const songbook = {
 }
 
 export const songbookChords = [
-  { name: 'C', frets: [0, 3, 2, 0, 1, 0] },
+  // x32010: the muted low E proves the page draws the server's frets
+  // (the local fallback rule would play the open E).
+  { name: 'C', frets: [-1, 3, 2, 0, 1, 0] },
   { name: 'G', frets: [3, 2, 0, 0, 0, 3] },
 ]
 
