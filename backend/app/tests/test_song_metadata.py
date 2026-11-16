@@ -288,3 +288,74 @@ def test_transpose_chordpro_body_keeps_comments():
     out = transpose_chordpro_body("{comment: [G] intro}\n[G]La", 2)
 
     assert out == "{comment: [A] intro}\n[A]La"
+
+
+def test_split_keeps_a_mid_song_key_change():
+    body = "{title: Song}\n{key: G}\n[G]First verse\n\n{key: A}\n[A]Last verse"
+
+    clean, values = split_chordpro_metadata(body)
+
+    assert values == {"title": "Song", "key": "G"}
+    assert clean == "[G]First verse\n\n{key: A}\n[A]Last verse"
+
+
+def test_split_stops_at_the_first_section():
+    clean, values = split_chordpro_metadata(
+        "{title: Song}\n{start_of_verse}\n{key: A}\n[A]La\n{end_of_verse}"
+    )
+
+    assert values == {"title": "Song"}
+    assert clean == "{start_of_verse}\n{key: A}\n[A]La\n{end_of_verse}"
+
+
+def test_split_keeps_tags_whose_values_do_not_fit_the_fields():
+    body = "{capo: II}\n{key: G Mixolydian (modal)}\n{title: Song}\n[G]La"
+
+    clean, values = split_chordpro_metadata(body)
+
+    assert values == {"title": "Song"}
+    assert clean == "{capo: II}\n{key: G Mixolydian (modal)}\n[G]La"
+
+
+def test_split_does_not_merge_two_directives_on_one_line():
+    clean, values = split_chordpro_metadata("{title: A}{artist: B}\n[G]La")
+
+    assert values == {}
+    assert clean == "{title: A}{artist: B}\n[G]La"
+
+
+def test_create_ignores_a_key_tag_too_long_for_the_column():
+    db = _Session()
+
+    response = _call(
+        db,
+        "POST",
+        "/api/songs",
+        json={"title": "Song", "body": "{key: G Mixolydian (modal)}\n[G]La"},
+    )
+
+    assert response.status_code == 201
+    assert response.json()["key"] is None
+    assert response.json()["body"].startswith("{key: G Mixolydian (modal)}")
+
+
+def test_exports_do_not_fail_on_a_non_numeric_capo_in_an_old_body():
+    song = _song(body="{capo: II}\n[G]Hello", capo=2)
+    db = _Session([[song]])
+
+    response = _call(db, "GET", "/api/songs/export/bulk?format=text")
+
+    assert response.status_code == 200
+    assert "Capo: 2" in response.text
+
+
+def test_bulk_export_chordpro_keeps_other_directives():
+    song = _song(body="{comment: Banjo kicks off}\n{tempo: 120}\n[G]Hello")
+    db = _Session([[song]])
+
+    response = _call(db, "GET", "/api/songs/export/bulk?format=chordpro")
+
+    assert response.status_code == 200
+    assert response.text.startswith("{title: New Title}\n{artist: New Artist}")
+    assert "{comment: Banjo kicks off}" in response.text
+    assert "{tempo: 120}" in response.text
