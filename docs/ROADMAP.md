@@ -1,6 +1,6 @@
 # Songbook — Roadmap and Agent Guide
 
-> **Status:** living document. Last updated: 2026-11-15.
+> **Status:** living document. Last updated: 2026-11-16.
 > **Product lane:** A — personal/band songbook (see §1).
 > **Owner:** @xbankov. **Audience:** maintainers and AI agents.
 
@@ -84,17 +84,19 @@ Every roadmap item should make this loop faster, more reliable, or more enjoyabl
 | --- | --- |
 | Song CRUD, ChordPro editor (highlight, validation, preview) | Done |
 | Transposition (#2), key detection, chord diagrams | Done |
-| Chord inside a word `bri[C]ght` (#15) | Parser/renderer supports it; add a regression test |
-| Separate title/artist fields (#37) | Done in the edit UI; normalize body tags on save |
+| Chord inside a word `bri[C]ght` (#15) | Done — regression test in `test_music_theory.py` |
+| Separate title/artist fields (#37) | Done in the edit UI; body tags are normalized on export only, not on save |
 | Song view: chords above lyrics, styling, 2 columns, autoscroll (#38/#41) | Mostly done |
 | Songbooks: CRUD, add/remove, PDF (#24) | Done — delete/rename, reorder, per-entry transpose/columns, TOC; metadata/chordscheme → #89 |
-| Import by URL + UG search/pick/import (#46) | Mostly done for UG |
-| Bulk paste import; bulk ChordPro/text/ABC/LilyPond export (#29/#54) | Partial — no file upload, no single/selected export UI |
-| Print single song + songbook PDF (#56) | Partial — no multi-select |
+| Import by URL + UG search/pick/import (#46, #51) | Done for UG (parsing fixed in #51) |
+| Bulk import (#29) | Partial — paste only; no file/zip upload |
+| ChordPro/text/ABC/LilyPond export (#54) | Done — single, selected, all, and per-songbook |
+| Print (#55, #56, #57, #58, #59) | Done — single/selected/songbook, 1/2-column long-song layout, chords above lyrics, margins/headings/page numbers |
+| Library pagination (#27) | Done |
 | Version rows + list/get APIs (#45) | Done — history + restore; authors/forks/favourites/permalink split to #88 |
 | Audio record/upload/playback (#42) | Partial — no record mode/privacy |
 | Tags model + API filter (#26) | Done — tag-based difficulty/genre filters, alphabet, badges |
-| Auth | ⚠️ Login exists, but **no API route uses `require_auth`** |
+| Auth (#68) | Done — every API router depends on `require_auth` |
 | Migrations | Deferred for dev/empty DBs — add the Alembic baseline (#69) before changing a schema under real data, and at the pre-1.0.0 gate |
 
 ---
@@ -107,6 +109,7 @@ Every roadmap item should make this loop faster, more reliable, or more enjoyabl
 | Library & songbooks | Find, filter, paginate, curate, restore versions | #26, #27, #24, #45 |
 | Print & export | Print one/selected/all; clean multi-page PDF; ChordPro downloads | #54, #56, #57, #58, #44 |
 | Import ecosystem | Reliable import from the sites people actually use | #29, #50, #20, #46, #28 |
+| Catalog & acquisition (design) | Know which songs exist vs. which you have; a reviewable acquisition queue | #78 — epic, decisions pending (§8) |
 | Performance mode | Full-screen sing/play view and recordings | #41, #42, #43, #25 |
 | Mobile offline | Phone app with pre-downloaded songs and two-way sync | #70, #71 |
 | Multi-user (Immich-style) | Users, roles, ownership, sharing, API keys — **after** the single-user product is liked | #72, #73, #74, #75 |
@@ -121,6 +124,8 @@ Every roadmap item should make this loop faster, more reliable, or more enjoyabl
 Sizes: **S** ≈ half day, **M** ≈ 1–3 days, **L** ≈ 1–2 weeks.
 
 ### Phase 0 — Foundations (do first)
+
+**Status:** done (all closed by 2026-11-15).
 
 | # | Issue | Size | Why |
 | --- | --- | --- | --- |
@@ -144,6 +149,9 @@ Migration is **not** a Phase 0 criterion; it is a pre-1.0.0 release gate.
 
 ### Phase 1 — Library and songbooks
 
+**Status:** #26, #27, #24, #45 done; only #89 remains (blocked on a storage
+decision, §8).
+
 | # | Issue | Size | Why |
 | --- | --- | --- | --- |
 | 6 | #26 Filter by difficulty/genre/artist/alphabet | M | A growing songbook needs retrieval |
@@ -156,6 +164,9 @@ Migration is **not** a Phase 0 criterion; it is a pre-1.0.0 release gate.
 `genre:*`); #27 can build pagination on the same filters.
 
 ### Phase 2 — Print and export
+
+**Status:** #54, #56, #57, #58 done (plus #55, #59); only #44 remains (needs a
+spec for "starting note" and "rhythmic pattern"; `capo`/`key` already exist).
 
 | # | Issue | Size | Why |
 | --- | --- | --- | --- |
@@ -174,6 +185,11 @@ Migration is **not** a Phase 0 criterion; it is a pre-1.0.0 release gate.
 | 17 | #20 Harden Supermusic import | M | Existing generic parser needs fixtures |
 | 18 | #46 Direct lookup by name (narrow to extra sources) | S | UG flow already exists |
 | 19 | #28 Import/export a Git repo | L | Data ownership and versioned backups |
+
+**Not scheduled — #78 catalog & acquisition epic ("Lidarr for chord sheets").**
+A MusicBrainz-backed metadata catalog plus a reviewable acquisition queue. It is a
+design epic: resolve its open decisions (§8) and split it (§9.4) before any code.
+The issue itself recommends starting only after the Alembic baseline (#69).
 
 ### Phase 4 — Performance mode
 
@@ -339,12 +355,19 @@ quotas/billing, public profiles.
 
 ### Close/verify as done
 
+Still open on GitHub (as of 2026-11-16) and ready to close by hand:
+
 - #2 Transposition — implemented.
-- #15 Chord within a word — add a regression test, then close.
-- #37 Title/artist outside lyrics — finish tag normalization, then close.
-- #38 Improve song view — remaining work is print parity (#57).
-- #46 Direct lookup by name — UG flow exists; narrow to extra sources.
-- #33 Fix all UI bugs — stale, pre-rewrite.
+- #38 Improve song view — print parity was the remaining work; done in #57.
+- #60 / #61 — decisions recorded below and in §1; close with a link here.
+
+Still open; needs a small follow-up first:
+
+- #37 Title/artist outside lyrics — body tags are normalized on export only;
+  normalize on save too, then close.
+- #46 Direct lookup by name — UG flow exists; narrow the issue to extra sources.
+
+Closed: #15 (regression test added), #33 (re-triaged).
 
 ### Park / close as out of scope (for Lane A)
 
@@ -380,13 +403,10 @@ quotas/billing, public profiles.
 > Items marked **later** belong to the multi-user layer; do not block the
 > single-user roadmap on them.
 
-1. **#55 print layout (blocking).** The bot session on #55 asked for input but the
-   question was not written into the issue. The decision needed is:
-   - Do we print long songs in **one column** (reliable) or keep **two columns**
-     and implement proper pagination?
-   - Do chord diagrams, audio controls, and the version footer belong in print?
-   - **Recommendation:** one column for print, hide chord diagrams/audio/footer,
-     keep chord+lyric pairs together, and paginate at section boundaries.
+1. **#55 print layout (resolved).** Print layout is configurable: a dedicated
+   print view with a 1/2-column toggle (defaulting to the saved column setting),
+   app chrome hidden, chord+lyric pairs kept together, short sections (≤10
+   lines) kept whole, and long sections allowed to flow across pages (#84).
 2. **Registration model (later).** Invite-only vs open. Recommendation:
    invite-only.
 3. **Login identifier (later).** Email vs username. Recommendation: email +
@@ -400,6 +420,13 @@ quotas/billing, public profiles.
    it in the README.
 8. **Mobile stack.** Capacitor + Vue vs a separate native app. Recommendation:
    Capacitor + Vue + PWA.
+9. **#89 songbook metadata storage (blocking #89).** New `songbooks` columns vs.
+   one metadata JSON column. Columns require the Alembic baseline (#69) first if
+   the database holds a real library; a JSON column still changes the schema.
+10. **#78 catalog & acquisition (blocking #78).** Approve the catalog / library /
+    acquisition model; MusicBrainz work/recording MBIDs as canonical identity;
+    the source policy (UG manual-only, no public chord catalog); whether to retire
+    `backend/crawler.py` bulk import; and the first slice to build.
 
 ---
 
@@ -523,6 +550,7 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-15 | Difficulty and genre use tags (`difficulty:*`, `genre:*`); no new columns (#26) | @xbankov |
 | 2026-11-15 | Version history/restore ships now; version authors, forking, favourites, and permalinks are deferred to #88 with multi-user | @xbankov |
 | 2026-11-15 | Songbook core (delete/rename, reorder, per-entry settings, TOC) ships now; metadata/chordscheme split to #89 pending a schema decision | @xbankov |
+| 2026-11-15 | Long-song print layout is configurable (1/2 columns), not forced to one column (#55) | @xbankov (via #84) |
 
 ---
 
@@ -539,3 +567,4 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-15 | #26 implemented with tag-based difficulty/genre filters, alphabet index, and card badges |
 | 2026-11-15 | #45 history/restore implemented; authors/forks/favourites/permalink split to #88 |
 | 2026-11-15 | #24 songbook core implemented; metadata/chordscheme split to #89 |
+| 2026-11-16 | Housekeeping: refreshed §2 against the code; marked Phases 0–2 status; added #78 (unscheduled) and the #89/#78 decisions; resolved the #55 decision; listed issues to close |
