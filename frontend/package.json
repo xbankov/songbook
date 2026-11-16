@@ -23,7 +23,7 @@
     "vite-plugin-pwa": "^2.0.0",
     "vue-tsc": "^2.1.0",
     "typescript": "^5.5.0",
-    "@playwright/test": "^1.47.0",
+    "@playwright/test": "^1.65.0",
     "eslint": "^9.0.0",
     "eslint-plugin-vue": "^9.0.0",
     "@capacitor/core": "^6.0.0",
