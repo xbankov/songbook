@@ -95,14 +95,21 @@ async function toggleFullscreen() {
 }
 
 function exit() {
-  // Replace, so Back from the song page does not reopen play mode.
-  router.replace(`/songs/${route.params.id}`)
+  const target = `/songs/${route.params.id}`
+  // Came from the song page: go back, so history has no duplicate entry.
+  // Otherwise (opened directly) replace, so Back does not reopen play mode.
+  if (router.options.history.state.back === target) router.back()
+  else router.replace(target)
 }
 
 function onKey(event: KeyboardEvent) {
   // Leave browser shortcuts (Alt+Left = back, Shift+Space, ...) alone.
   if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return
   const target = event.target
+  // Space/Enter on a focused toolbar button press that button.
+  if (target instanceof HTMLButtonElement && (event.key === ' ' || event.key === 'Enter')) {
+    return
+  }
   if (
     target instanceof HTMLInputElement ||
     target instanceof HTMLTextAreaElement ||
@@ -146,7 +153,10 @@ async function keepScreenOn() {
       void sentinel?.release().catch(() => {})
       return
     }
+    // Overlapping requests (mount + quick tab switch): keep only the newest.
+    const previous = wakeLock
     wakeLock = sentinel
+    if (previous && previous !== sentinel) void previous.release().catch(() => {})
   } catch {
     wakeLock = null
   }
@@ -176,7 +186,7 @@ watch(() => route.params.id as string, (id) => void load(id), { immediate: true 
 
 <template>
   <div ref="stage" class="play-stage" :style="{ '--song-font-size': `${fontSize}rem` }">
-    <div class="play-toolbar" role="toolbar" aria-label="Play controls">
+    <div class="play-toolbar" role="group" aria-label="Play controls">
       <button class="play-btn" title="Exit play mode" aria-label="Exit play mode" @click="exit">✕</button>
       <button class="play-btn" title="Previous line" aria-label="Previous line" @click="step(-1)">▲</button>
       <button class="play-btn" title="Next line" aria-label="Next line" @click="step(1)">▼</button>
