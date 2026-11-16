@@ -8,7 +8,8 @@ direction, the ordered issue queue, and the rules for splitting epics.
 
 ## Validation
 
-The same checks run in CI. They must exit 0:
+CI (`.github/workflows/system.yaml`) runs these same checks, skipping jobs
+whose paths did not change. They must exit 0:
 
 ```sh
 pip install -r backend/requirements.txt -r backend/requirements-dev.txt
@@ -52,22 +53,31 @@ cd frontend && npm run test:e2e
 ## Implementing an issue
 
 Work only on issues the user asks for in a session (for example "implement
-issue #12").
+issue #12"). Do not pick issues yourself.
 
 1. Read the issue and its comments. If anything is unclear, ask before coding.
-2. Check `docs/ROADMAP.md`: pick one issue from the ordered queue. Do not start
-   an epic directly; split it into sub-issues first. Respect the phase order —
-   multi-user/data separation is Phase 6, not a prerequisite for single-user work.
+2. Check the issue against `docs/ROADMAP.md` §4. If it is out of queue order or
+   blocked, say so and let the user decide. Do not start an epic directly;
+   split it into sub-issues first. Respect the phase order — multi-user/data
+   separation is Phase 6, not a prerequisite for single-user work.
 3. Briefly state the plan and wait for the user to confirm it.
 4. Branch from an up-to-date `main`: `fix/<issue>-<topic>` or `feat/<issue>-<topic>`.
 5. Make the change, run the validation above, and fix failures.
 6. Commit with a message that references the issue. Never push to `main`.
-7. Stop after step 6 and tell the user the branch is ready; the user pushes and
-   opens the pull request using the format below.
-8. **Wait for the Sourcery review on the latest commit.** Address every finding
-   (or reply explaining why it does not apply), push the fixes, and wait for a
-   fresh review. Do not call the PR ready until Sourcery has no blocking
-   findings and CI is green.
+7. Stop and tell the user the branch is ready. The user pushes and opens the
+   pull request using the format below.
+
+## Addressing review
+
+When the user asks you to handle review on an open pull request:
+
+1. Read the Sourcery review on the **latest** commit and every inline comment.
+2. Fix each finding on the PR branch, or reply to it explaining why it does
+   not apply.
+3. Run the validation above and commit the fixes.
+4. Push only when the user asks; then wait for a fresh Sourcery review and
+   repeat. Do not call the PR ready until Sourcery has no blocking findings
+   and CI is green.
 
 ## Review gate
 
