@@ -617,8 +617,11 @@ test.describe('Songbook UI', () => {
 
   test('play view: Space on a focused toolbar button presses it', async ({ page }) => {
     await mockApi(page)
+    await page.route(`**/api/songs/${song.id}`, (route) =>
+      route.fulfill({ json: { ...song, body: '[G]One\n[C]Two\n[D]Three' } }),
+    )
     await page.goto(`/songs/${song.id}/play`)
-    await expect(page.locator('.active-line')).toHaveCount(1)
+    await expect(page.locator('[data-line]')).toHaveCount(3)
     await page.getByRole('button', { name: 'Scroll' }).focus()
     await page.keyboard.press(' ')
     await expect(page.getByRole('button', { name: 'Stop' })).toHaveAttribute('aria-pressed', 'true')
