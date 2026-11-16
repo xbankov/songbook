@@ -8,7 +8,7 @@ direction, the ordered issue queue, and the rules for splitting epics.
 
 ## Validation
 
-The same checks run in CI and in `.ai-loop.toml`. They must exit 0:
+The same checks run in CI. They must exit 0:
 
 ```sh
 pip install -r backend/requirements.txt -r backend/requirements-dev.txt
