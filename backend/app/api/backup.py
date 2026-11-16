@@ -67,13 +67,20 @@ async def list_backups():
 
 
 def _backup_path(filename: str) -> str:
-    """Path of an existing backup file inside BACKUP_DIR, or 404."""
+    """Path of an existing .sql backup directly inside BACKUP_DIR, or 404.
+
+    The path is built from the directory listing, never from the request, so
+    `../`, absolute paths and symlinks out of the directory cannot match.
+    """
     backup_dir = os.path.realpath(settings.backup_dir)
-    filepath = os.path.realpath(os.path.join(backup_dir, filename))
-    inside = filepath != backup_dir and (
-        os.path.commonpath([backup_dir, filepath]) == backup_dir
+    names = os.listdir(backup_dir) if os.path.isdir(backup_dir) else []
+    match = next(
+        (name for name in names if name == filename and name.endswith(".sql")), None
     )
-    if not inside or not os.path.isfile(filepath):
+    if match is None:
+        raise HTTPException(status_code=404, detail="Backup not found")
+    filepath = os.path.realpath(os.path.join(backup_dir, match))
+    if os.path.dirname(filepath) != backup_dir or not os.path.isfile(filepath):
         raise HTTPException(status_code=404, detail="Backup not found")
     return filepath
 
