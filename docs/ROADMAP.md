@@ -94,7 +94,7 @@ Every roadmap item should make this loop faster, more reliable, or more enjoyabl
 | Song CRUD, ChordPro editor (highlight, validation, preview) | Done |
 | Transposition (#2), key detection, chord diagrams | Done |
 | Chord inside a word `bri[C]ght` (#15) | Done — regression test in `test_music_theory.py` |
-| Separate title/artist fields (#37) | Done in the edit UI. Body `{title}`/`{artist}` tags are normalized only in single, selected, and per-songbook ChordPro export — **not on save and not in export-all** (`GET /songs/export/bulk`), which keeps stale body tags (known bug) |
+| Title/artist/capo/key fields (#37) | Done — the fields are the source of truth. Saving strips `{title}`/`{artist}`/`{capo}`/`{key}` from the body; every export and the song view use the fields; ChordPro exports add the tags back. Existing bodies are not rewritten; old tags are ignored until the next save |
 | Song view: chords above lyrics, styling, 2 columns, autoscroll (#38/#41) | Mostly done |
 | Songbooks: CRUD, add/remove, PDF (#24) | Done — delete/rename, reorder, per-entry transpose/columns, TOC; metadata/chordscheme → #89. The songbook PDF uses each entry's column setting (fixed in #96) |
 | Import by URL + UG search/pick/import (#46, #51) | Done for UG (parsing fixed in #51) |
@@ -167,7 +167,7 @@ decision, §8).
 | 7 | #27 Pagination | M | The UI currently shows at most 50 songs |
 | 8 | #24 Songbook completion (TOC, sorting, per-entry settings, delete/rename) | L | The songbook is the core artifact |
 | 9a | ~~#96 Songbook PDF ignores a per-entry single-column setting~~ (done) | S | Bug; PDF disagrees with the screen view |
-| 9b | #89 Songbook metadata + chord-scheme selection | M | Needs a schema decision/Alembic first |
+| 9b | #89 Songbook metadata + chord-scheme selection | M | Needs a schema decision; the instance holds a real library, so #69 (Alembic baseline) goes first |
 | 9 | #45 Version history UI + restore (authors/forks/favourites → #88) | M | Editing must be safe |
 
 **Resolved:** #26 stores difficulty and genre as tags (`difficulty:*`,
@@ -373,11 +373,9 @@ is written down.
 
 Still open; needs a small follow-up first:
 
-- #37 Title/artist outside lyrics — body tags are normalized on export only;
-  normalize on save too, then close.
 - #46 Direct lookup by name — UG flow exists; narrow the issue to extra sources.
 
-Closed: #15 (regression test added), #33 (re-triaged).
+Closed: #15 (regression test added), #33 (re-triaged), #37 (fields replace body tags).
 
 ### Park / close as out of scope (for Lane A)
 
@@ -430,8 +428,8 @@ Closed: #15 (regression test added), #33 (re-triaged).
 8. **Mobile stack.** Capacitor + Vue vs a separate native app. Recommendation:
    Capacitor + Vue + PWA.
 9. **#89 songbook metadata storage (blocking #89).** New `songbooks` columns vs.
-   one metadata JSON column. Columns require the Alembic baseline (#69) first if
-   the database holds a real library; a JSON column still changes the schema.
+   one metadata JSON column. Either way it is a schema change, and the running
+   instance holds a real library, so the Alembic baseline (#69) comes first.
 10. **#78 catalog & acquisition (blocking #78).** Approve the catalog / library /
     acquisition model; MusicBrainz work/recording MBIDs as canonical identity;
     the source policy (UG manual-only, no public chord catalog); whether to retire
@@ -473,6 +471,9 @@ A PR is never “ready” after the first CI run. It must pass this gate:
 
 If a Sourcery finding is unclear, ask the maintainer. Do not ignore, dismiss, or
 silently skip it.
+
+Dependabot minor/patch PRs are the exception: they auto-merge once the required checks
+"CI passed" and "Sourcery review" succeed (see the decision log).
 
 ### 9.4 Epics
 
@@ -561,6 +562,9 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-15 | Songbook core (delete/rename, reorder, per-entry settings, TOC) ships now; metadata/chordscheme split to #89 pending a schema decision | @xbankov |
 | 2026-11-15 | Long-song print layout is configurable (1/2 columns), not forced to one column (#55) | @xbankov (via #84) |
 | 2026-11-16 | Positioning: open-source, self-hosted private songbook (web + mobile, Immich-like); a global deployment is allowed but not the focus (#61) | @xbankov |
+| 2026-11-16 | Title, artist, capo and key live in song fields; body tags are stripped on save and added only on ChordPro export; stored bodies are not rewritten (#37) | @xbankov |
+| 2026-11-16 | The running instance holds a real library: #69 (Alembic baseline) precedes any schema change, starting with #89 | @xbankov |
+| 2026-11-16 | Dependabot minor/patch PRs auto-merge (rebase) once the required checks "CI passed" and "Sourcery review" succeed; majors need a manual review. This is the only exception to the human review gate (§9.3.1) | @xbankov |
 
 ---
 
@@ -581,3 +585,5 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-16 | Retired the `ai:` label workflow and `.ai-loop.toml`; agents work only on user-requested issues, the user pushes and opens PRs, and agents address Sourcery review on request |
 | 2026-11-16 | Added the #61 positioning to §1; closed #2, #38, #61 |
 | 2026-11-16 | #96 fixed: songbook PDF respects each entry's column setting |
+| 2026-11-16 | #37 done: song fields replace body metadata tags; #69 ordered before #89 |
+| 2026-11-16 | CI: added the "CI passed" gate job and Dependabot auto-merge |

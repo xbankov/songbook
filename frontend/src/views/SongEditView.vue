@@ -23,6 +23,12 @@ const error = ref('')
 const saved = ref(false)
 let savedTimer: ReturnType<typeof setTimeout> | null = null
 
+// The form as last loaded or saved, to detect unsaved edits.
+let savedSnapshot = ''
+function formSnapshot(): string {
+  return JSON.stringify([title.value, artist.value, capo.value, key.value, body.value, difficulty.value, genre.value])
+}
+
 function tagValue(tags: string[], prefix: string): string {
   return tags.find((tag) => tag.startsWith(prefix))?.slice(prefix.length) || ''
 }
@@ -59,17 +65,21 @@ onMounted(async () => {
       const tags = store.current.tags || []
       difficulty.value = tagValue(tags, 'difficulty:')
       genre.value = tagValue(tags, 'genre:')
+      savedSnapshot = formSnapshot()
     }
   }
 })
 
-async function save() {
+async function save(): Promise<boolean> {
   saving.value = true
   error.value = ''
   saved.value = false
   try {
     if (isEdit) {
-      await store.updateSong(route.params.id as string, {
+      // Snapshot what is sent, before the request: anything typed while the
+      // save is in flight must stay "unsaved".
+      const sent = formSnapshot()
+      const song = await store.updateSong(route.params.id as string, {
         title: title.value,
         artist: artist.value,
         capo: capo.value,
@@ -77,6 +87,18 @@ async function save() {
         body: body.value,
         tags: buildTags(),
       })
+      if (formSnapshot() === sent) {
+        // Show what the server stored: it strips header tags from the body
+        // and may fill empty fields from them (#37).
+        title.value = song.title
+        artist.value = song.artist
+        capo.value = song.capo
+        key.value = song.key || ''
+        body.value = song.body
+        savedSnapshot = formSnapshot()
+      } else {
+        savedSnapshot = sent
+      }
       saved.value = true
       if (savedTimer) clearTimeout(savedTimer)
       savedTimer = setTimeout(() => {
@@ -94,8 +116,10 @@ async function save() {
       })
       router.replace(`/songs/${song.id}?created=1`)
     }
+    return true
   } catch (e: unknown) {
     error.value = e instanceof Error ? e.message : 'Save failed'
+    return false
   } finally {
     saving.value = false
   }
@@ -104,9 +128,14 @@ async function save() {
 async function transpose(interval: number) {
   if (!isEdit) return
   error.value = ''
+  // The server transposes the stored song, so save unsaved edits first;
+  // otherwise the result would replace them.
+  if (formSnapshot() !== savedSnapshot && !(await save())) return
   try {
     const song = await store.transposeSong(route.params.id as string, interval)
     body.value = song.body
+    key.value = song.key || ''
+    savedSnapshot = formSnapshot()
   } catch (e: unknown) {
     error.value = e instanceof Error ? e.message : 'Transpose failed'
   }

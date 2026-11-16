@@ -88,7 +88,8 @@ function parseChordPro(text: string, semitones: number) {
   const lines = text.split('\n')
   const sections: RenderedSection[] = []
   let currentSection: RenderedSection = { label: null, title: null, lines: [] }
-  let meta = { title: props.title, artist: props.artist, capo: props.capo ?? 0, key: props.songKey ?? null as string | null }
+  // Title, artist, capo and key come from the song's fields only (#37).
+  const meta = { title: props.title, artist: props.artist, capo: props.capo ?? 0, key: props.songKey ?? null }
 
   for (const raw of lines) {
     const stripped = raw.trim()
@@ -97,11 +98,7 @@ function parseChordPro(text: string, semitones: number) {
       const colon = content.indexOf(':')
       const tag = colon >= 0 ? content.slice(0, colon).trim() : content
       const val = colon >= 0 ? content.slice(colon + 1).trim() : ''
-      if (tag === 'title') meta.title = val
-      else if (tag === 'artist') meta.artist = val
-      else if (tag === 'capo') { const n = parseInt(val); if (!isNaN(n)) meta.capo = n }
-      else if (tag === 'key') meta.key = val
-      else if (tag.startsWith('start_of_')) {
+      if (tag.startsWith('start_of_')) {
         if (currentSection.lines.length > 0) sections.push(currentSection)
         currentSection = { label: tag.slice(9), title: val || null, lines: [] }
       } else if (tag.startsWith('end_of_')) {
