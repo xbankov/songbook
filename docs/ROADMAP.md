@@ -587,3 +587,4 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-16 | #96 fixed: songbook PDF respects each entry's column setting |
 | 2026-11-16 | #37 done: song fields replace body metadata tags; #69 ordered before #89 |
 | 2026-11-16 | CI: added the "CI passed" gate job and Dependabot auto-merge |
+| 2026-11-16 | Dependabot: grouped coupled packages (pytest, celery/redis, TypeScript/vue-tsc, Capacitor, pinia, vite, eslint) across all update types; TypeScript 7 ignored until vue-tsc supports it |

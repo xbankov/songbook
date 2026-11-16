@@ -3,6 +3,11 @@
 # Weekly, grouped: one PR per ecosystem for minor/patch updates, one PR per
 # major update. Security fixes are grouped too and skip the cooldown.
 #
+# Packages that only install or build together are grouped for every update
+# type, majors included, so they arrive in one PR instead of several PRs that
+# each fail CI on their own. A dependency joins the first group it matches, so
+# these groups come before the *-minor-patch groups.
+#
 # open-pull-requests-limit caps version-update PRs only. Security-update PRs
 # have their own limit and can be opened on top of it, so an ecosystem may
 # briefly have more than five open Dependabot PRs.
@@ -25,6 +30,14 @@ updates:
       default-days: 7
     open-pull-requests-limit: 5
     groups:
+      # pytest-asyncio pins the pytest major it supports.
+      pytest:
+        applies-to: version-updates
+        patterns: ["pytest", "pytest-*"]
+      # celery[redis] pins kombu, which pins the redis client range.
+      celery:
+        applies-to: version-updates
+        patterns: ["celery", "kombu", "redis"]
       pip-minor-patch:
         applies-to: version-updates
         update-types: [minor, patch]
@@ -40,7 +53,29 @@ updates:
     cooldown:
       default-days: 7
     open-pull-requests-limit: 5
+    ignore:
+      # TypeScript 7 (native compiler) drops typescript/lib/tsc, which vue-tsc
+      # needs. Remove this once vue-tsc supports TypeScript 7.
+      - dependency-name: typescript
+        versions: [">=7"]
     groups:
+      typescript:
+        applies-to: version-updates
+        patterns: ["typescript", "vue-tsc"]
+      # core, cli and android must share a major (peer dependencies).
+      capacitor:
+        applies-to: version-updates
+        patterns: ["@capacitor/*"]
+      # The persisted-state plugin's major follows pinia's.
+      pinia:
+        applies-to: version-updates
+        patterns: ["pinia", "pinia-plugin-*"]
+      vite:
+        applies-to: version-updates
+        patterns: ["vite", "@vitejs/*", "vite-plugin-*"]
+      eslint:
+        applies-to: version-updates
+        patterns: ["eslint", "eslint-plugin-*"]
       npm-minor-patch:
         applies-to: version-updates
         update-types: [minor, patch]
