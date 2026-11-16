@@ -136,13 +136,21 @@ async def _upgrade_locked(url: str, config: Config) -> None:
     try:
         async with engine.connect() as connection:
             lock = {"key": MIGRATION_LOCK_ID}
+            logger.info("Waiting for the database migration lock")
             await connection.execute(text("SELECT pg_advisory_lock(:key)"), lock)
             try:
                 existing = await connection.run_sync(_read_columns)
                 # Alembic's env.py runs its own event loop: use a worker thread.
                 await asyncio.to_thread(_adopt_and_upgrade, config, existing)
             finally:
-                await connection.execute(text("SELECT pg_advisory_unlock(:key)"), lock)
+                try:
+                    await connection.execute(
+                        text("SELECT pg_advisory_unlock(:key)"), lock
+                    )
+                except Exception:
+                    # Closing the session releases the lock anyway; do not
+                    # hide a migration error behind an unlock error.
+                    logger.exception("Could not release the migration lock")
     finally:
         await engine.dispose()
 

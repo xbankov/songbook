@@ -66,11 +66,18 @@ async def list_backups():
     return backups
 
 
+def _backup_path(filename: str) -> str:
+    """Path of an existing backup file inside BACKUP_DIR, or 404."""
+    backup_dir = os.path.realpath(settings.backup_dir)
+    filepath = os.path.realpath(os.path.join(backup_dir, filename))
+    if not filepath.startswith(backup_dir + os.sep) or not os.path.isfile(filepath):
+        raise HTTPException(status_code=404, detail="Backup not found")
+    return filepath
+
+
 @router.get("/download/{filename}")
 async def download_backup(filename: str):
-    filepath = os.path.join(settings.backup_dir, filename)
-    if not os.path.exists(filepath) or ".." in filename:
-        raise HTTPException(status_code=404, detail="Backup not found")
+    filepath = _backup_path(filename)
     with open(filepath, "rb") as f:
         content = f.read()
     return Response(
@@ -82,17 +89,19 @@ async def download_backup(filename: str):
 
 def _dump_has_alembic_version(filepath: str) -> bool:
     with open(filepath, encoding="utf-8", errors="replace") as dump:
-        return any("alembic_version" in line for line in dump)
+        return any(
+            line.startswith("CREATE TABLE public.alembic_version") for line in dump
+        )
 
 
 @router.post("/restore")
 async def restore_backup(filename: str):
-    filepath = os.path.join(settings.backup_dir, filename)
-    if not os.path.exists(filepath) or ".." in filename:
-        raise HTTPException(status_code=404, detail="Backup not found")
+    filepath = _backup_path(filename)
     try:
         url = settings.database_url_sync
-        command = ["psql", url]
+        # One transaction that stops at the first error: a failed restore
+        # leaves the database as it was.
+        command = ["psql", url, "-v", "ON_ERROR_STOP=1", "--single-transaction"]
         if not _dump_has_alembic_version(filepath):
             # A pre-Alembic dump does not replace alembic_version; drop it so
             # the migration below re-adopts the restored schema (#69).
