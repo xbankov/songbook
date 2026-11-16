@@ -91,12 +91,7 @@ function scrollHighlighter(e: Event) {
         @input="onInput"
         @scroll="scrollHighlighter"
         class="editor-textarea"
-        placeholder="{title: Song Title}
-{artist: Artist Name}
-{capo: 2}
-{key: G}
-
-{start_of_verse}
+        placeholder="{start_of_verse}
 [Am]Hello [C]world
 [G]This is a [D]song
 {end_of_verse}

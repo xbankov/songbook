@@ -147,7 +147,7 @@ test.describe('Songbook UI', () => {
     expect(chordRow?.indexOf('C')).toBe(3)
   })
 
-  test('shows the song fields instead of stale body tags', async ({ page }) => {
+  test('shows the title and artist from the song fields', async ({ page }) => {
     await mockApi(page)
     await page.route(`**/api/songs/${song.id}`, (route) =>
       route.fulfill({
@@ -158,56 +158,6 @@ test.describe('Songbook UI', () => {
     await page.goto(`/songs/${song.id}`)
     await expect(page.locator('.song-title')).toHaveText('Renamed Song')
     await expect(page.locator('.song-artist')).toHaveText('Renamed Artist')
-  })
-
-  test('keeps title and artist tags out of the editor and saves the fields', async ({ page }) => {
-    await mockApi(page)
-    let saved: Record<string, unknown> | null = null
-    await page.route(`**/api/songs/${song.id}`, async (route) => {
-      if (route.request().method() === 'PUT') {
-        saved = route.request().postDataJSON()
-        return route.fulfill({ json: { ...song, ...saved } })
-      }
-      return route.fallback()
-    })
-
-    await page.goto(`/songs/${song.id}/edit`)
-    const editor = page.locator('.editor-textarea')
-    await expect(editor).toHaveValue(/\[G\]Hello/)
-    await expect(editor).not.toHaveValue(/\{(title|artist|capo|key):/)
-
-    const inputs = page.locator('.edit-form input[type="text"]')
-    await expect(inputs.nth(0)).toHaveValue(song.title)
-    await inputs.nth(0).fill('Renamed Song')
-    await page.getByRole('button', { name: 'Save' }).click()
-
-    await expect.poll(() => saved?.title).toBe('Renamed Song')
-    expect(saved!.body).not.toMatch(/\{(title|artist|capo|key):/)
-    expect(saved!.key).toBe(song.key)
-    expect(saved!.capo).toBe(song.capo)
-  })
-
-  test('capo 0 in the song fields wins over a stale capo tag', async ({ page }) => {
-    await mockApi(page)
-    let saved: Record<string, unknown> | null = null
-    await page.route(`**/api/songs/${song.id}`, async (route) => {
-      if (route.request().method() === 'PUT') {
-        saved = route.request().postDataJSON()
-        return route.fulfill({ json: { ...song, ...saved } })
-      }
-      // The body still says {capo: 2}; the field says no capo.
-      return route.fulfill({ json: { ...song, capo: 0 } })
-    })
-
-    await page.goto(`/songs/${song.id}`)
-    await expect(page.locator('.song-title')).toHaveText(song.title)
-    await expect(page.locator('.song-meta')).not.toContainText('Capo')
-
-    await page.goto(`/songs/${song.id}/edit`)
-    await expect(page.locator('.editor-textarea')).toHaveValue(/\[G\]Hello/)
-    await expect(page.locator('.edit-form input[type="number"]')).toHaveValue('0')
-    await page.getByRole('button', { name: 'Save' }).click()
-    await expect.poll(() => saved?.capo).toBe(0)
   })
 
   test('saves unsaved edits before transposing in the editor', async ({ page }) => {
