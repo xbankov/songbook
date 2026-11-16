@@ -516,7 +516,12 @@ async def bulk_export(
         content = "\n\n".join(chordpro_to_ly(m) for m in models)
         media = "text/plain"
     else:
-        content = export_songs_as_chordpro(models)
+        # Keep the stored body (with {comment}, {tempo}, ...) like the other
+        # ChordPro exports; only the metadata header comes from the fields.
+        content = "\n\n---\n\n".join(
+            ensure_chordpro_metadata(s.body, s.title, s.artist, s.capo, s.key)
+            for s in songs
+        )
         media = "text/plain"
 
     return Response(

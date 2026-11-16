@@ -278,7 +278,9 @@ class SongModel(BaseModel):
                 elif tag == "artist":
                     artist = content or artist
                 elif tag == "capo":
-                    capo = int(content) if content else 0
+                    # A non-numeric capo ("II", "2 (optional)") must not
+                    # break parsing; the song's capo field is what counts.
+                    capo = int(content) if content and content.isdigit() else 0
                 elif tag == "key":
                     key = content or key
                 elif tag.startswith("start_of_"):

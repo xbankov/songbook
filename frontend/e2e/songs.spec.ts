@@ -160,6 +160,61 @@ test.describe('Songbook UI', () => {
     await expect(page.locator('.song-artist')).toHaveText('Renamed Artist')
   })
 
+  test('shows what the server stored after saving', async ({ page }) => {
+    await mockApi(page)
+    await page.route(`**/api/songs/${song.id}`, async (route) => {
+      if (route.request().method() === 'PUT') {
+        // The server strips header tags and fills the empty key from them.
+        return route.fulfill({ json: { ...song, key: 'D', body: '[D]Stored line' } })
+      }
+      return route.fallback()
+    })
+
+    await page.goto(`/songs/${song.id}/edit`)
+    const editor = page.locator('.editor-textarea')
+    const keyInput = page.locator('input[placeholder="e.g. G, Am"]')
+    await keyInput.fill('')
+    await editor.fill('{key: D}\n[D]Stored line')
+    await page.getByRole('button', { name: 'Save' }).click()
+
+    await expect(editor).toHaveValue('[D]Stored line')
+    await expect(keyInput).toHaveValue('D')
+  })
+
+  test('keeps text typed while a save is in flight and saves it before transposing', async ({ page }) => {
+    await mockApi(page)
+    const puts: string[] = []
+    let release!: () => void
+    const held = new Promise<void>((resolve) => (release = resolve))
+    await page.route(`**/api/songs/${song.id}`, async (route) => {
+      if (route.request().method() === 'PUT') {
+        const sent = route.request().postDataJSON()
+        puts.push(sent.body)
+        if (puts.length === 1) await held
+        return route.fulfill({ json: { ...song, ...sent } })
+      }
+      return route.fallback()
+    })
+    await page.route(`**/api/songs/${song.id}/transpose**`, (route) =>
+      route.fulfill({ json: { ...song, key: 'G#', body: '[G#]Typed during save' } }),
+    )
+
+    await page.goto(`/songs/${song.id}/edit`)
+    const editor = page.locator('.editor-textarea')
+    await editor.fill('[G]First draft')
+    await page.getByRole('button', { name: 'Save' }).click()
+    await editor.fill('[G]Typed during save')
+    release()
+    await expect(page.locator('.notice.success')).toHaveText('Saved')
+    await expect(editor).toHaveValue('[G]Typed during save')
+
+    // The text typed during the first save is still unsaved, so transposing
+    // saves it first instead of replacing it with the server's older body.
+    await page.getByRole('button', { name: '+1' }).click()
+    await expect(editor).toHaveValue('[G#]Typed during save')
+    expect(puts).toEqual(['[G]First draft', '[G]Typed during save'])
+  })
+
   test('saves unsaved edits before transposing in the editor', async ({ page }) => {
     await mockApi(page)
     const calls: string[] = []

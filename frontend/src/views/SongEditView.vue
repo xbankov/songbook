@@ -76,7 +76,10 @@ async function save(): Promise<boolean> {
   saved.value = false
   try {
     if (isEdit) {
-      await store.updateSong(route.params.id as string, {
+      // Snapshot what is sent, before the request: anything typed while the
+      // save is in flight must stay "unsaved".
+      const sent = formSnapshot()
+      const song = await store.updateSong(route.params.id as string, {
         title: title.value,
         artist: artist.value,
         capo: capo.value,
@@ -84,7 +87,18 @@ async function save(): Promise<boolean> {
         body: body.value,
         tags: buildTags(),
       })
-      savedSnapshot = formSnapshot()
+      if (formSnapshot() === sent) {
+        // Show what the server stored: it strips header tags from the body
+        // and may fill empty fields from them (#37).
+        title.value = song.title
+        artist.value = song.artist
+        capo.value = song.capo
+        key.value = song.key || ''
+        body.value = song.body
+        savedSnapshot = formSnapshot()
+      } else {
+        savedSnapshot = sent
+      }
       saved.value = true
       if (savedTimer) clearTimeout(savedTimer)
       savedTimer = setTimeout(() => {
