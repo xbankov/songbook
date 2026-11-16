@@ -1,0 +1,89 @@
+# Deploying Songbook on your own domain (HTTPS)
+
+This guide puts a self-hosted Songbook on a domain such as
+`songs.example.com` with a free, auto-renewing certificate (#22). Caddy uses
+Let's Encrypt, with ZeroSSL as its built-in fallback.
+It uses [Caddy](https://caddyserver.com/) as the HTTPS reverse proxy through
+`docker-compose.tls.yml`.
+
+```
+browser ──HTTPS──▶ caddy :443 ──▶ frontend :80 (app + /api proxy) ──▶ backend :8000
+```
+
+## 1. Before you start
+
+- A server with Docker and Docker Compose, and ports **80** and **443** open to
+  the internet. Let's Encrypt connects to port 80 to issue the certificate.
+- A domain you control.
+- A working `.env` (copy `.env.example`). Set a strong `SECRET_KEY` and
+  `AUTH_PASSWORD`; production mode refuses the defaults.
+
+## 2. Point the domain at the server
+
+At your DNS provider, create an `A` record (and an `AAAA` record if the server
+has IPv6) for the name you want:
+
+| Type | Name | Value |
+| --- | --- | --- |
+| A | `songs` | your server's public IPv4 |
+| AAAA | `songs` | your server's public IPv6 (optional) |
+
+Check it before continuing. This should print your server's address:
+
+```bash
+dig +short songs.example.com
+```
+
+## 3. Start with HTTPS
+
+Add these to `.env`, or export them in the shell:
+
+```bash
+DOMAIN=songs.example.com
+ACME_EMAIL=you@example.com   # Let's Encrypt expiry notices
+```
+
+Then start the stack with the TLS override:
+
+```bash
+docker compose -f docker-compose.yml -f docker-compose.tls.yml up -d --build
+docker compose -f docker-compose.yml -f docker-compose.tls.yml logs -f caddy
+```
+
+When Caddy logs `certificate obtained successfully`, open
+`https://songs.example.com`. Plain HTTP redirects to HTTPS, and the certificate
+renews automatically. Caddy keeps it in the `caddy-data` volume, so do not
+delete that volume or you may hit Let's Encrypt rate limits.
+
+With the override, the backend (`8000`) and frontend (`8081`) ports are **not**
+published on the host. Everything goes through HTTPS on 443. The app calls the
+API on its own origin, so no CORS or `VITE_API_URL` change is needed.
+
+Use the same two `-f` files for every later `docker compose` command
+(`pull`, `up`, `logs`, `exec`). Without them, Compose starts the stack without
+Caddy and with the plain-HTTP ports published.
+
+## 4. Upgrades and backups
+
+Follow "Database migrations" in the README: back up, then
+`git pull && docker compose -f docker-compose.yml -f docker-compose.tls.yml up -d --build`.
+
+## Troubleshooting
+
+| Symptom | Likely cause |
+| --- | --- |
+| Caddy logs `challenge failed` / `timeout` | Port 80 is blocked by a firewall, or DNS does not point at this server yet |
+| `too many certificates already issued` | The `caddy-data` volume was deleted repeatedly; wait, or test with a different subdomain |
+| Browser shows a certificate for `localhost` | `DOMAIN` was empty or `localhost`; Caddy then issues a local, untrusted certificate |
+| `DOMAIN is required` when running Compose | Set `DOMAIN` and `ACME_EMAIL` in `.env` or the shell |
+
+## Other reverse proxies
+
+If you already run Traefik, nginx, or a Cloudflare Tunnel, skip the override
+and point your proxy at the frontend container (port `8081` on the host, or
+`frontend:80` on the `songbook-net` network), and terminate TLS there. The app
+uses relative URLs and same-origin API calls, so it needs no forwarded-header
+configuration. Note that the frontend's nginx sets `X-Forwarded-Proto` to its
+own scheme (`http`) and uvicorn only trusts proxy headers from `127.0.0.1`, so
+the backend does not see the original scheme; nothing in the app depends on it
+today.

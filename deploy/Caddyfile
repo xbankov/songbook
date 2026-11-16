@@ -1,0 +1,19 @@
+# Songbook behind Caddy: automatic HTTPS (Let's Encrypt) for $DOMAIN (#22).
+# Used by docker-compose.tls.yml; see docs/deployment.md.
+{
+	email {$ACME_EMAIL}
+}
+
+{$DOMAIN} {
+	encode zstd gzip
+
+	# The frontend container serves the app and proxies /api to the backend.
+	reverse_proxy frontend:80
+
+	header {
+		Strict-Transport-Security "max-age=31536000"
+		X-Content-Type-Options "nosniff"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		-Server
+	}
+}

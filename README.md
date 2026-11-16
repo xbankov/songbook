@@ -89,6 +89,16 @@ To add a migration after changing a model, run from `backend/` against a dev
 database: `alembic revision --autogenerate -m "<change>"`, review the file,
 and commit it. CI fails if the models and migrations disagree.
 
+### Your own domain with HTTPS
+
+To serve Songbook on a domain such as `songs.example.com` with an automatic
+Let's Encrypt certificate, see [docs/deployment.md](docs/deployment.md):
+
+```bash
+DOMAIN=songs.example.com ACME_EMAIL=you@example.com \
+  docker compose -f docker-compose.yml -f docker-compose.tls.yml up -d --build
+```
+
 ## Cloud Deployment
 
 Using MongoDB Atlas (database) and Google Cloud Run (backend)
