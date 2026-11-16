@@ -584,6 +584,62 @@ test.describe('Songbook UI', () => {
     await expect(page.locator('.chord-chart')).toHaveCount(0)
   })
 
+  test('play view highlights the current line and follows keys and taps', async ({ page }) => {
+    await mockApi(page)
+    await page.goto(`/songs/${song.id}`)
+    await page.getByRole('link', { name: 'Play' }).click()
+    await expect(page).toHaveURL(`/songs/${song.id}/play`)
+
+    // Full-screen stage: the app nav bar is covered.
+    await expect(page.locator('.play-stage')).toBeVisible()
+    await expect(page.locator('.active-line')).toHaveCount(1)
+    await expect(page.locator('.active-line')).toHaveAttribute('data-line', '0')
+
+    // The fixture song has one line, so the highlight stays in range.
+    await page.keyboard.press('PageDown')
+    await expect(page.locator('.active-line')).toHaveAttribute('data-line', '0')
+
+    const before = await page.locator('.song-body').evaluate(
+      (el) => getComputedStyle(el).fontSize,
+    )
+    await page.getByRole('button', { name: 'A+' }).click()
+    const after = await page.locator('.song-body').evaluate(
+      (el) => getComputedStyle(el).fontSize,
+    )
+    expect(parseFloat(after)).toBeGreaterThan(parseFloat(before))
+
+    await page.keyboard.press('Escape')
+    await expect(page).toHaveURL(`/songs/${song.id}`)
+  })
+
+  test('play view moves the highlight across lines', async ({ page }) => {
+    await mockApi(page)
+    await page.route(`**/api/songs/${song.id}`, (route) =>
+      route.fulfill({
+        json: {
+          ...song,
+          body: '{start_of_verse}\n[G]One\n[C]Two\n{end_of_verse}\n\n{start_of_chorus}\n[D]Three\n{end_of_chorus}',
+        },
+      }),
+    )
+    await page.goto(`/songs/${song.id}/play`)
+    await expect(page.locator('[data-line]')).toHaveCount(3)
+
+    await page.keyboard.press('ArrowDown')
+    await page.keyboard.press(' ')
+    await expect(page.locator('.active-line .lyric-row')).toHaveText('Three')
+    await page.keyboard.press('PageDown')
+    await expect(page.locator('.active-line .lyric-row')).toHaveText('Three')
+
+    await page.keyboard.press('PageUp')
+    await expect(page.locator('.active-line .lyric-row')).toHaveText('Two')
+
+    await page.locator('[data-line="0"]').click()
+    await expect(page.locator('.active-line .lyric-row')).toHaveText('One')
+    await page.getByRole('button', { name: '▼' }).click()
+    await expect(page.locator('.active-line .lyric-row')).toHaveText('Two')
+  })
+
   test('downloads ChordPro for a song and a songbook', async ({ page }) => {
     await mockApi(page)
     await page.goto(`/songs/${song.id}`)

@@ -97,6 +97,9 @@ Every roadmap item should make this loop faster, more reliable, or more enjoyabl
 | Title/artist/capo/key fields (#37) | Done — the fields are the source of truth. Saving strips `{title}`/`{artist}`/`{capo}`/`{key}` from the body; every export and the song view use the fields; ChordPro exports add the tags back. Existing bodies are not rewritten; old tags are ignored until the next save |
 | Song view: chords above lyrics, styling, 2 columns, autoscroll (#38/#41) | Mostly done |
 | Songbooks: CRUD, add/remove, PDF (#24, #89) | Done — delete/rename, reorder, per-entry transpose/columns, TOC, metadata (author/date/genre/difficulty) and a per-songbook chord chart (none/uncommon/all) on the page and in the PDF. The songbook PDF uses each entry's column setting (fixed in #96) |
+| Song view: chords above lyrics, styling, 2 columns, autoscroll (#38) | Done |
+| Play/sing view (#41) | Done — `/songs/:id/play`: full screen, adjustable text size, current-line highlight moved by tap, arrows, Space or PageUp/PageDown (page-turner pedals), autoscroll, screen wake lock. Record mode stays with #42 |
+| Songbooks: CRUD, add/remove, PDF (#24) | Done — delete/rename, reorder, per-entry transpose/columns, TOC; metadata/chordscheme → #89. The songbook PDF uses each entry's column setting (fixed in #96) |
 | Import by URL + UG search/pick/import (#46, #51) | Done for UG (parsing fixed in #51) |
 | Bulk import (#29) | Partial — paste only; no file/zip upload |
 | Export (#54) | Done — single, selected, and all songs as ChordPro/text/ABC/LilyPond; per-songbook export is **ChordPro only** |
@@ -203,7 +206,7 @@ The issue itself recommends starting only after the Alembic baseline (#69).
 
 | # | Issue | Size | Why |
 | --- | --- | --- | --- |
-| 20 | #41 Play/sing view (full-screen, current-line highlight) | M | Rehearsal/gig use |
+| 20 | ~~#41 Play/sing view (full-screen, current-line highlight)~~ (done) | M | Rehearsal/gig use |
 | 21 | #42 + #43 Recordings/attachments (merge) | L | Useful, but larger |
 | 22 | ~~#25 YouTube link~~ (done) | S | Small reference feature |
 
@@ -591,3 +594,4 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-16 | #25 done: per-song YouTube link; song API now returns `metadata` (was `metadata_`, which the UI never read) |
 | 2026-11-16 | #22 done: custom domain + automatic HTTPS via a Caddy Compose override; `docs/deployment.md` |
 | 2026-11-16 | #89 done: songbook metadata and chord-diagram selection (migration `0002`) |
+| 2026-11-16 | #41 done: play/sing view with current-line highlight and pedal keys |
