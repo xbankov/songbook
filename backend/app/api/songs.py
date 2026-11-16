@@ -12,12 +12,16 @@ from app.schemas.song import (
     SongVersionOut,
 )
 from app.services.converters import (
+    absorb_chordpro_metadata,
+    chordpro_body,
     chordpro_to_abc,
     chordpro_to_ly,
     chordpro_to_text,
     ensure_chordpro_metadata,
     export_songs_as_chordpro,
     parse_bulk_chordpro,
+    song_model_from_row,
+    split_chordpro_metadata,
     transpose_chordpro_body,
 )
 from app.services.http import content_disposition
@@ -93,12 +97,21 @@ async def list_songs(
 @router.post("", response_model=SongOut, status_code=status.HTTP_201_CREATED)
 async def create_song(body: SongCreate, db: AsyncSession = Depends(get_db)):
     tags = await resolve_tags(db, body.tags)
+    clean_body, fields = absorb_chordpro_metadata(
+        body.body,
+        {
+            "title": body.title.strip() or None,
+            "artist": (None if body.artist.strip() in ("", "Unknown") else body.artist),
+            "capo": body.capo or None,
+            "key": body.key or None,
+        },
+    )
     song = Song(
-        title=body.title,
-        artist=body.artist,
-        capo=body.capo,
-        key=body.key,
-        body=body.body,
+        title=fields["title"] or "Unknown",
+        artist=fields["artist"] or "Unknown",
+        capo=fields["capo"] or 0,
+        key=fields["key"],
+        body=clean_body,
         metadata_=body.metadata if hasattr(body, "metadata_") else {},
         tags=tags,
     )
@@ -129,7 +142,7 @@ async def import_song(url: str, db: AsyncSession = Depends(get_db)):
             status_code=status.HTTP_400_BAD_REQUEST,
             detail="Failed to import song from URL",
         )
-    body = str(song_model)
+    body = chordpro_body(song_model)
     song = Song(
         title=song_model.title,
         artist=song_model.artist,
@@ -180,6 +193,17 @@ async def update_song(
         )
 
     data = body.model_dump(exclude_none=True, by_alias=True)
+    for field in ("title", "artist"):
+        if field in data and not data[field].strip():
+            del data[field]
+    if "body" in data:
+        # Fields sent with the request win; a tag in the body only fills a
+        # field the request left out.
+        data["body"], from_tags = absorb_chordpro_metadata(
+            data["body"],
+            {tag: data.get(tag) for tag in ("title", "artist", "capo", "key")},
+        )
+        data.update({k: v for k, v in from_tags.items() if v is not None})
     tag_names = data.pop("tags", None)
     for field, value in data.items():
         setattr(song, field, value)
@@ -268,7 +292,7 @@ async def restore_version(
     song.artist = version.artist
     song.capo = version.capo
     song.key = version.key
-    song.body = version.body
+    song.body = split_chordpro_metadata(version.body)[0]
     song.version += 1
 
     restored = SongVersion(
@@ -365,7 +389,7 @@ async def fork_version(
         artist=version.artist,
         capo=version.capo,
         key=version.key,
-        body=version.body,
+        body=split_chordpro_metadata(version.body)[0],
         metadata_={
             "forked_from": str(song.id),
             "forked_version": version_number,
@@ -477,9 +501,7 @@ async def bulk_export(
 ):
     result = await db.execute(select(Song).order_by(Song.artist, Song.title))
     songs = result.scalars().all()
-    from app.services.music_theory import SongModel as ST
-
-    models = [ST.from_chordpro(s.body) for s in songs]
+    models = [song_model_from_row(s) for s in songs]
 
     if format == "text":
         content = "\n\n".join(chordpro_to_text(m) for m in models)
@@ -516,7 +538,7 @@ async def bulk_import(
             artist=m.artist,
             capo=m.capo,
             key=m.key,
-            body=str(m),
+            body=chordpro_body(m),
         )
         db.add(song)
         await db.flush()
@@ -564,15 +586,9 @@ async def export_selected_songs(
         content = "\n\n---\n\n".join(parts)
         extension = "cho"
     else:
-        from app.services.music_theory import SongModel as ST
-
         models = []
         for song in selected:
-            model = ST.from_chordpro(song.body)
-            model.title = song.title
-            model.artist = song.artist
-            model.capo = song.capo
-            model.key = song.key
+            model = song_model_from_row(song)
             if settings.transpose:
                 model = model.transpose(settings.transpose)
             models.append(model)
@@ -605,12 +621,8 @@ async def export_song_format(
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail="Song not found"
         )
-    from app.services.music_theory import SongModel as ST
-
     settings = await get_global_settings(db)
-    model = ST.from_chordpro(song.body)
-    model.title = song.title
-    model.artist = song.artist
+    model = song_model_from_row(song)
     if settings.transpose:
         model = model.transpose(settings.transpose)
 
@@ -646,11 +658,9 @@ async def transpose_song(
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail="Song not found"
         )
-    from app.services.music_theory import SongModel as ST
-
-    model = ST.from_chordpro(song.body)
-    transposed = model.transpose(interval)
-    song.body = str(transposed)
+    transposed = song_model_from_row(song).transpose(interval)
+    song.body = chordpro_body(transposed)
+    song.key = transposed.key
     song.version += 1
     version = SongVersion(
         song_id=song.id,

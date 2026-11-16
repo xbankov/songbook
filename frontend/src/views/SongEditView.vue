@@ -5,6 +5,7 @@ import { useSongStore } from '../stores/songs'
 import ChordProEditor from '../components/ChordProEditor.vue'
 import SongDisplay from '../components/SongDisplay.vue'
 import AppNotice from '../components/AppNotice.vue'
+import { splitChordProMetadata } from '../utils/chordpro'
 
 const route = useRoute()
 const router = useRouter()
@@ -51,11 +52,15 @@ onMounted(async () => {
   if (isEdit) {
     await store.fetchSong(route.params.id as string)
     if (store.current) {
-      title.value = store.current.title
-      artist.value = store.current.artist
-      capo.value = store.current.capo
-      key.value = store.current.key || ''
-      body.value = store.current.body
+      // Older songs may still carry {title}/{artist}/{capo}/{key} in the body.
+      // Keep them out of the editor; they only fill fields that are empty.
+      const { body: cleanBody, values } = splitChordProMetadata(store.current.body)
+      const parsedCapo = parseInt(values.capo ?? '')
+      title.value = store.current.title || values.title || ''
+      artist.value = store.current.artist || values.artist || ''
+      capo.value = store.current.capo || (isNaN(parsedCapo) ? 0 : parsedCapo)
+      key.value = store.current.key || values.key || ''
+      body.value = cleanBody
       const tags = store.current.tags || []
       difficulty.value = tagValue(tags, 'difficulty:')
       genre.value = tagValue(tags, 'genre:')
@@ -107,6 +112,7 @@ async function transpose(interval: number) {
   try {
     const song = await store.transposeSong(route.params.id as string, interval)
     body.value = song.body
+    key.value = song.key || ''
   } catch (e: unknown) {
     error.value = e instanceof Error ? e.message : 'Transpose failed'
   }
@@ -183,7 +189,7 @@ async function transpose(interval: number) {
 
     <div v-if="body" class="preview">
       <h2>Preview</h2>
-      <SongDisplay :chordpro="body" :title="title || 'Preview'" :artist="artist || 'Artist'" :capo="capo || 0" :song-key="key || null" />
+      <SongDisplay :chordpro="body" :title="title" :artist="artist" :capo="capo || 0" :song-key="key || null" />
     </div>
   </div>
 </template>

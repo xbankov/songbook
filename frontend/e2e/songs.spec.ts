@@ -147,6 +147,46 @@ test.describe('Songbook UI', () => {
     expect(chordRow?.indexOf('C')).toBe(3)
   })
 
+  test('shows the song fields instead of stale body tags', async ({ page }) => {
+    await mockApi(page)
+    await page.route(`**/api/songs/${song.id}`, (route) =>
+      route.fulfill({
+        json: { ...song, title: 'Renamed Song', artist: 'Renamed Artist' },
+      }),
+    )
+
+    await page.goto(`/songs/${song.id}`)
+    await expect(page.locator('.song-title')).toHaveText('Renamed Song')
+    await expect(page.locator('.song-artist')).toHaveText('Renamed Artist')
+  })
+
+  test('keeps title and artist tags out of the editor and saves the fields', async ({ page }) => {
+    await mockApi(page)
+    let saved: Record<string, unknown> | null = null
+    await page.route(`**/api/songs/${song.id}`, async (route) => {
+      if (route.request().method() === 'PUT') {
+        saved = route.request().postDataJSON()
+        return route.fulfill({ json: { ...song, ...saved } })
+      }
+      return route.fallback()
+    })
+
+    await page.goto(`/songs/${song.id}/edit`)
+    const editor = page.locator('.editor-textarea')
+    await expect(editor).toHaveValue(/\[G\]Hello/)
+    await expect(editor).not.toHaveValue(/\{(title|artist|capo|key):/)
+
+    const inputs = page.locator('.edit-form input[type="text"]')
+    await expect(inputs.nth(0)).toHaveValue(song.title)
+    await inputs.nth(0).fill('Renamed Song')
+    await page.getByRole('button', { name: 'Save' }).click()
+
+    await expect.poll(() => saved?.title).toBe('Renamed Song')
+    expect(saved!.body).not.toMatch(/\{(title|artist|capo|key):/)
+    expect(saved!.key).toBe(song.key)
+    expect(saved!.capo).toBe(song.capo)
+  })
+
   test('print view switches between one and two columns', async ({ page }) => {
     await mockApi(page)
     const lines = Array.from(

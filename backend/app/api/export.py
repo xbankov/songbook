@@ -6,10 +6,10 @@ from app.models.songbook import Songbook, SongbookEntry
 from app.schemas.song import SongIdsRequest
 from app.services.converters import (
     ensure_chordpro_metadata,
+    song_model_from_row,
     transpose_chordpro_body,
 )
 from app.services.http import content_disposition
-from app.services.music_theory import SongModel as ST
 from app.services.pdf import generate_song_pdf, generate_songbook_pdf
 from app.services.settings import get_or_create_settings as get_global_settings
 from fastapi import APIRouter, Depends, HTTPException
@@ -31,7 +31,7 @@ async def export_song_pdf(
     if not song:
         raise HTTPException(status_code=404, detail="Song not found")
     settings = await get_global_settings(db)
-    song_model = ST.from_chordpro(song.body)
+    song_model = song_model_from_row(song)
     pdf = generate_song_pdf(song_model, settings=settings)
     return Response(
         content=pdf.getvalue(),
@@ -57,14 +57,7 @@ async def export_selected_pdf(
         )
     selected = [by_id[str(song_id)] for song_id in ids]
     settings = await get_global_settings(db)
-    songs = []
-    for song in selected:
-        model = ST.from_chordpro(song.body)
-        model.title = song.title
-        model.artist = song.artist
-        model.capo = song.capo
-        model.key = song.key
-        songs.append(model)
+    songs = [song_model_from_row(song) for song in selected]
     per_song = [
         {"transpose": 0, "double_column": bool(settings.double_column)} for _ in songs
     ]
@@ -100,7 +93,7 @@ async def export_songbook_pdf(
     songs = []
     per_song = []
     for entry in sorted(songbook.entries, key=lambda e: e.sort_order):
-        song_model = ST.from_chordpro(entry.song.body)
+        song_model = song_model_from_row(entry.song)
         songs.append(song_model)
         per_song.append(
             {

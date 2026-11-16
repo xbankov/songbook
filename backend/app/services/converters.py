@@ -1,4 +1,5 @@
 import re
+from typing import Any
 
 from app.services.music_theory import Chord, Line, Section, SongModel
 
@@ -134,6 +135,93 @@ def transpose_chordpro_body(body: str, interval: int) -> str:
     return re.sub(r"\[([^\]]+)\]", replace_chord, body)
 
 
+METADATA_TAGS = ("title", "artist", "capo", "key")
+_METADATA_LINE = re.compile(
+    r"^\s*\{\s*(title|artist|capo|key)\s*:(.*)\}\s*$", re.IGNORECASE
+)
+
+
+def split_chordpro_metadata(body: str) -> tuple[str, dict[str, str]]:
+    """Remove ``{title}``, ``{artist}``, ``{capo}`` and ``{key}`` lines.
+
+    Returns the body without those lines and the first value found for each
+    tag. Title, artist, capo and key live in the song's own fields (#37); the
+    tags are only added back when a song is exported as ChordPro.
+    """
+    values: dict[str, str] = {}
+    kept: list[str] = []
+    for line in body.replace("\r", "").split("\n"):
+        match = _METADATA_LINE.match(line)
+        if match:
+            values.setdefault(match.group(1).lower(), match.group(2).strip())
+        else:
+            kept.append(line)
+    while kept and not kept[0].strip():
+        kept.pop(0)
+    return "\n".join(kept), values
+
+
+def parse_capo(value: str | None) -> int | None:
+    try:
+        return int(value) if value else None
+    except ValueError:
+        return None
+
+
+def absorb_chordpro_metadata(
+    body: str, fields: dict[str, Any]
+) -> tuple[str, dict[str, Any]]:
+    """Strip metadata tags from ``body`` and fill unset fields from them.
+
+    ``fields`` maps tag names to values the caller already has; a value of
+    ``None`` means "not provided" and is filled from the matching tag, if any.
+    Provided values always win over tags.
+    """
+    clean, tags = split_chordpro_metadata(body)
+    resolved = dict(fields)
+    for tag in METADATA_TAGS:
+        if tag not in resolved or resolved[tag] is not None or not tags.get(tag):
+            continue
+        resolved[tag] = parse_capo(tags[tag]) if tag == "capo" else tags[tag]
+    return clean, resolved
+
+
+def song_model_from_fields(
+    body: str,
+    title: str,
+    artist: str,
+    capo: int | None = 0,
+    key: str | None = None,
+) -> SongModel:
+    """Parse ``body`` but take title/artist/capo/key from the song's fields.
+
+    Older songs may still carry metadata tags in their body; the fields win,
+    and a tag is only used when the matching field is empty.
+    """
+    model = SongModel.from_chordpro(body)
+    _, tags = split_chordpro_metadata(body)
+    return model.model_copy(
+        update={
+            "title": title or tags.get("title") or model.title,
+            "artist": artist or tags.get("artist") or model.artist,
+            "capo": capo or parse_capo(tags.get("capo")) or 0,
+            "key": key or tags.get("key") or None,
+        }
+    )
+
+
+def song_model_from_row(song: Any) -> SongModel:
+    """Build a ``SongModel`` from a ``Song`` (or ``SongVersion``) row."""
+    return song_model_from_fields(
+        song.body, song.title, song.artist, song.capo, song.key
+    )
+
+
+def chordpro_body(model: SongModel) -> str:
+    """Serialize a model's sections as a stored body, without metadata tags."""
+    return split_chordpro_metadata(str(model))[0]
+
+
 def ensure_chordpro_metadata(
     body: str,
     title: str,
@@ -141,12 +229,7 @@ def ensure_chordpro_metadata(
     capo: int = 0,
     key: str | None = None,
 ) -> str:
-    prefixes = ("{title:", "{artist:", "{capo:", "{key:")
-    lines = [
-        line
-        for line in body.splitlines()
-        if not line.strip().lower().startswith(prefixes)
-    ]
+    lines = split_chordpro_metadata(body)[0].split("\n")
     prefix = [f"{{title: {title}}}", f"{{artist: {artist}}}"]
     if capo:
         prefix.append(f"{{capo: {capo}}}")
