@@ -106,7 +106,7 @@ Every roadmap item should make this loop faster, more reliable, or more enjoyabl
 | Audio record/upload/playback (#42) | Partial — no record mode/privacy |
 | Tags model + API filter (#26) | Done — tag-based difficulty/genre filters, alphabet, badges |
 | Auth (#68) | Done — every router except `auth` depends on `require_auth`. Public by design: `/api/health`, `/api/auth/login`, and the API docs (`/api/docs`, `/api/openapi.json`); new routes on the `auth` router are public unless they add `require_auth` themselves |
-| Migrations | Deferred for dev/empty DBs — add the Alembic baseline (#69) before changing a schema under real data, and at the pre-1.0.0 gate |
+| Migrations (#69) | Done — Alembic baseline `0001`; the backend migrates on startup and adopts (stamps) an existing `init_db()` database after a schema check; CI runs upgrade/downgrade on a clean Postgres and fails on model/migration drift |
 
 ---
 
@@ -124,7 +124,7 @@ Every roadmap item should make this loop faster, more reliable, or more enjoyabl
 | Multi-user (Immich-style) | Users, roles, ownership, sharing, API keys — **after** the single-user product is liked | #72, #73, #74, #75 |
 | AI lab (parked) | LLM parsing, annotations, translations, recommendations | #34, #1, #36, #40, #39, #35, #62, #49, #53 |
 | Operations | Domain, deployment, backups | #22 |
-| Pre-1.0.0 release gate | Alembic baseline, backup/restore, export/import, e2e | #69 |
+| Pre-1.0.0 release gate | Alembic baseline (done), backup/restore, export/import, e2e | #69 |
 
 ---
 
@@ -150,16 +150,14 @@ instead of a raw `alert()` or a silently broken page.
 
 Migration is **not** a Phase 0 criterion; it is a pre-1.0.0 release gate.
 
-> **Alembic (#69) is deferred for dev/empty databases.** `init_db()` is acceptable
-> while there is no data you care about. If a schema change must preserve a real
-> library, add the baseline first. Existing `init_db()` databases must be
-> `alembic stamp`ed at the baseline, not recreated; resetting a real database
-> deletes it.
+> **Alembic (#69) is done.** Every schema change ships as a migration. The
+> backend migrates on startup; an existing `init_db()` database is checked and
+> stamped at the baseline, never recreated.
 
 ### Phase 1 — Library and songbooks
 
-**Status:** #26, #27, #24, #45 done; only #89 remains (blocked on a storage
-decision, §8).
+**Status:** #26, #27, #24, #45 done; only #89 remains (storage decision, §8;
+the #69 prerequisite is done).
 
 | # | Issue | Size | Why |
 | --- | --- | --- | --- |
@@ -167,7 +165,7 @@ decision, §8).
 | 7 | #27 Pagination | M | The UI currently shows at most 50 songs |
 | 8 | #24 Songbook completion (TOC, sorting, per-entry settings, delete/rename) | L | The songbook is the core artifact |
 | 9a | ~~#96 Songbook PDF ignores a per-entry single-column setting~~ (done) | S | Bug; PDF disagrees with the screen view |
-| 9b | #89 Songbook metadata + chord-scheme selection | M | Needs a schema decision; the instance holds a real library, so #69 (Alembic baseline) goes first |
+| 9b | #89 Songbook metadata + chord-scheme selection | M | Needs a schema decision; ships as an Alembic migration (#69 done) |
 | 9 | #45 Version history UI + restore (authors/forks/favourites → #88) | M | Editing must be safe |
 
 **Resolved:** #26 stores difficulty and genre as tags (`difficulty:*`,
@@ -266,9 +264,9 @@ the critical path.
 
 Do these before tagging 1.0.0:
 
-- #69 Add the Alembic baseline. Test both upgrade paths:
+- ~~#69 Add the Alembic baseline~~ (done; both upgrade paths are tested in CI):
   - fresh database: `alembic upgrade head`
-  - existing `init_db()` database: `alembic stamp head`, then upgrade
+  - existing `init_db()` database: checked, stamped at `0001`, then upgraded
 - Never recreate or reset a database that contains real data.
 - Back up and restore a real database.
 - Export and re-import the whole library.
@@ -492,10 +490,9 @@ An epic is too large for one PR. Before starting it:
 - UI: `npm run test:e2e` must pass; add a Playwright test for user-facing behavior.
 - **Single-user first:** until Phase 6, do not add `users`, `owner_id`, roles, or
   ownership checks. Multi-user is a later data-separation layer.
-- **Schema changes:** for dev/empty databases, `init_db()` is acceptable pre-1.0.0.
-  If the database contains data you care about, add the Alembic baseline first
-  (#69) and migrate. Never reset a real database. Existing `init_db()` databases
-  are stamped at the baseline, not recreated.
+- **Schema changes:** ship an Alembic migration (`alembic revision
+  --autogenerate`, reviewed) that preserves data and downgrades. Never reset a
+  real database.
 - Tests: add or update tests for behavior changes; never weaken tests to pass.
 - Keep PRs small and focused on one issue.
 - You may edit `.github/` and `docker-compose.yml` when the task requires it;
@@ -588,3 +585,4 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-16 | #37 done: song fields replace body metadata tags; #69 ordered before #89 |
 | 2026-11-16 | CI: added the "CI passed" gate job and Dependabot auto-merge |
 | 2026-11-16 | Dependabot: grouped coupled packages (pytest, celery/redis, TypeScript/vue-tsc, Capacitor, pinia, vite, eslint) across all update types; TypeScript 7 ignored until vue-tsc supports it |
+| 2026-11-16 | #69 done: Alembic baseline `0001`, startup migration with `init_db()` adoption, CI migration checks |

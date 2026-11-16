@@ -1,3 +1,5 @@
+import asyncio
+
 from app.config import settings
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 from sqlalchemy.orm import DeclarativeBase
@@ -24,6 +26,9 @@ async def get_db():
             await session.close()
 
 
-async def init_db():
-    async with engine.begin() as conn:
-        await conn.run_sync(Base.metadata.create_all)
+async def init_db() -> None:
+    """Migrate the schema to the latest Alembic revision (see app.migrate)."""
+    from app.migrate import upgrade_database
+
+    # Alembic's env.py runs its own event loop, so use a worker thread.
+    await asyncio.to_thread(upgrade_database)
