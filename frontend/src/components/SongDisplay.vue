@@ -17,6 +17,13 @@ const props = defineProps<{
   columnsOverride?: 1 | 2
   transposeOverride?: number
   displayModeOverride?: 'above' | 'inline'
+  /** Play view (#41): index of the highlighted line across all sections. */
+  activeLine?: number | null
+}>()
+
+const emit = defineEmits<{
+  /** A line was clicked; the index counts lines across all sections. */
+  (e: 'line-select', index: number): void
 }>()
 
 const songDisplay = ref<HTMLElement | null>(null)
@@ -129,6 +136,25 @@ function parseChordPro(text: string, semitones: number) {
 
 const parsed = computed(() => parseChordPro(props.chordpro, transpose.value))
 
+// First flat line index of each section, for activeLine / line-select.
+const sectionOffsets = computed(() => {
+  const offsets: number[] = []
+  let total = 0
+  for (const section of parsed.value.sections) {
+    offsets.push(total)
+    total += section.lines.length
+  }
+  return offsets
+})
+
+function lineIndex(sectionIndex: number, lineIndexInSection: number): number {
+  return sectionOffsets.value[sectionIndex] + lineIndexInSection
+}
+
+function lineClasses(base: string, si: number, li: number) {
+  return [base, { 'active-line': props.activeLine === lineIndex(si, li) }]
+}
+
 function chordRow(spans: Span[]): string {
   const chars: string[] = []
   for (const span of spans) {
@@ -187,11 +213,21 @@ function lyricRow(spans: Span[]): string {
           {{ section.title || section.label.charAt(0).toUpperCase() + section.label.slice(1) }}
         </div>
         <template v-for="(line, li) in section.lines" :key="li">
-          <div v-if="displayMode === 'above'" class="line-above">
+          <div
+            v-if="displayMode === 'above'"
+            :class="lineClasses('line-above', si, li)"
+            :data-line="lineIndex(si, li)"
+            @click="emit('line-select', lineIndex(si, li))"
+          >
             <div class="chord-row"><span class="chord-text">{{ chordRow(line.spans) }}</span></div>
             <div class="lyric-row"><span>{{ lyricRow(line.spans) }}</span></div>
           </div>
-          <div v-else class="line-inline">
+          <div
+            v-else
+            :class="lineClasses('line-inline', si, li)"
+            :data-line="lineIndex(si, li)"
+            @click="emit('line-select', lineIndex(si, li))"
+          >
             <span v-for="(span, pi) in line.spans" :key="pi" :class="span.type === 'chord' ? 'chord-inline' : ''">
               {{ span.type === 'chord' ? '[' + span.chord + ']' : span.text }}
             </span>
@@ -235,7 +271,7 @@ function lyricRow(spans: Span[]): string {
 }
 
 /* Above mode */
-.mode-above { font-family: 'Courier New', 'Consolas', 'Liberation Mono', monospace; font-size: 1rem; }
+.mode-above { font-family: 'Courier New', 'Consolas', 'Liberation Mono', monospace; font-size: var(--song-font-size, 1rem); }
 .double-column.mode-above { column-count: 2; column-gap: 2rem; }
 .double-column.mode-inline { column-count: 2; column-gap: 2rem; }
 .line-above { margin-bottom: 0.15rem; }
@@ -244,7 +280,8 @@ function lyricRow(spans: Span[]): string {
 .lyric-row { white-space: pre; overflow: visible; color: var(--text); margin-top: -0.05rem; }
 
 /* Inline mode */
-.mode-inline { font-family: 'Courier New', 'Consolas', 'Liberation Mono', monospace; font-size: 1rem; line-height: 1.6; }
+.mode-inline { font-family: 'Courier New', 'Consolas', 'Liberation Mono', monospace; font-size: var(--song-font-size, 1rem); line-height: 1.6; }
+.active-line { background: color-mix(in srgb, var(--accent) 22%, transparent); border-radius: 3px; box-shadow: -0.4rem 0 0 var(--accent); }
 .line-inline { white-space: pre-wrap; word-break: break-word; }
 .chord-inline { font-weight: 700; color: var(--accent); }
 

@@ -1,0 +1,252 @@
+<script setup lang="ts">
+import { nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+import { getSong, type SongResponse } from '../api/songs'
+import { useSettingsStore } from '../stores/settings'
+import SongDisplay from '../components/SongDisplay.vue'
+
+// Play/sing view (#41): full screen, large text, a highlighted current line
+// that follows taps, arrow keys, Space, and page-turner pedals (PageUp/Down).
+
+const route = useRoute()
+const router = useRouter()
+const settingsStore = useSettingsStore()
+
+const song = ref<SongResponse | null>(null)
+const loading = ref(true)
+const error = ref('')
+const activeLine = ref(0)
+const fontSize = ref(1.4)
+const autoScroll = ref(false)
+const scrollSpeed = ref(1)
+const stage = ref<HTMLElement | null>(null)
+let scrollTimer: ReturnType<typeof setInterval> | null = null
+let wakeLock: { release: () => Promise<void> } | null = null
+
+async function load(id: string) {
+  loading.value = true
+  error.value = ''
+  try {
+    const [loaded] = await Promise.all([
+      getSong(id),
+      settingsStore.fetchSettings().catch(() => {}),
+    ])
+    song.value = loaded
+    activeLine.value = 0
+  } catch (e: unknown) {
+    error.value = e instanceof Error ? e.message : 'Could not load song'
+  } finally {
+    loading.value = false
+  }
+}
+
+function selectLine(index: number) {
+  const total = stage.value?.querySelectorAll('[data-line]').length ?? 0
+  if (total === 0) return
+  activeLine.value = Math.max(0, Math.min(total - 1, index))
+}
+
+function step(delta: number) {
+  selectLine(activeLine.value + delta)
+}
+
+watch(activeLine, async (index) => {
+  await nextTick()
+  const line = stage.value?.querySelector(`[data-line="${index}"]`)
+  // Keep the current line mid-screen so the next lines stay visible.
+  line?.scrollIntoView?.({ block: 'center', behavior: 'smooth' })
+})
+
+function changeFont(delta: number) {
+  fontSize.value = Math.round(Math.max(0.8, Math.min(3, fontSize.value + delta)) * 10) / 10
+}
+
+function stopScroll() {
+  if (scrollTimer) clearInterval(scrollTimer)
+  scrollTimer = null
+}
+
+function startScroll() {
+  stopScroll()
+  scrollTimer = setInterval(() => stage.value?.scrollBy(0, scrollSpeed.value), 100)
+}
+
+function toggleScroll() {
+  autoScroll.value = !autoScroll.value
+  if (autoScroll.value) startScroll()
+  else stopScroll()
+}
+
+function changeSpeed(delta: number) {
+  scrollSpeed.value = Math.max(0.5, Math.min(10, scrollSpeed.value + delta))
+  if (autoScroll.value) startScroll()
+}
+
+async function toggleFullscreen() {
+  try {
+    if (document.fullscreenElement) await document.exitFullscreen()
+    else await stage.value?.requestFullscreen()
+  } catch {
+    // Not supported (e.g. iOS Safari): the view already fills the window.
+  }
+}
+
+function exit() {
+  router.push(`/songs/${route.params.id}`)
+}
+
+function onKey(event: KeyboardEvent) {
+  if (event.target instanceof HTMLInputElement) return
+  switch (event.key) {
+    case 'ArrowDown':
+    case 'ArrowRight':
+    case 'PageDown':
+    case ' ':
+      event.preventDefault()
+      step(1)
+      break
+    case 'ArrowUp':
+    case 'ArrowLeft':
+    case 'PageUp':
+      event.preventDefault()
+      step(-1)
+      break
+    case 'Home':
+      event.preventDefault()
+      selectLine(0)
+      break
+    case 'Escape':
+      if (!document.fullscreenElement) exit()
+      break
+  }
+}
+
+async function keepScreenOn() {
+  try {
+    const nav = navigator as Navigator & {
+      wakeLock?: { request: (type: 'screen') => Promise<{ release: () => Promise<void> }> }
+    }
+    wakeLock = (await nav.wakeLock?.request('screen')) ?? null
+  } catch {
+    wakeLock = null
+  }
+}
+
+function onVisibility() {
+  // The browser drops the wake lock when the tab is hidden.
+  if (document.visibilityState === 'visible') void keepScreenOn()
+}
+
+onMounted(() => {
+  window.addEventListener('keydown', onKey)
+  document.addEventListener('visibilitychange', onVisibility)
+  void keepScreenOn()
+})
+
+onBeforeUnmount(() => {
+  window.removeEventListener('keydown', onKey)
+  document.removeEventListener('visibilitychange', onVisibility)
+  stopScroll()
+  void wakeLock?.release().catch(() => {})
+})
+
+watch(() => route.params.id as string, (id) => void load(id), { immediate: true })
+</script>
+
+<template>
+  <div ref="stage" class="play-stage" :style="{ '--song-font-size': `${fontSize}rem` }">
+    <div class="play-toolbar">
+      <button class="play-btn" title="Exit play mode" @click="exit">✕</button>
+      <button class="play-btn" title="Previous line" @click="step(-1)">▲</button>
+      <button class="play-btn" title="Next line" @click="step(1)">▼</button>
+      <span class="spacer" />
+      <button class="play-btn" title="Smaller text" @click="changeFont(-0.1)">A−</button>
+      <button class="play-btn" title="Larger text" @click="changeFont(0.1)">A+</button>
+      <button :class="['play-btn', { active: autoScroll }]" title="Auto-scroll" @click="toggleScroll">
+        {{ autoScroll ? 'Stop' : 'Scroll' }}
+      </button>
+      <template v-if="autoScroll">
+        <button class="play-btn" title="Slower" @click="changeSpeed(-0.5)">−</button>
+        <span class="speed">{{ scrollSpeed.toFixed(1) }}</span>
+        <button class="play-btn" title="Faster" @click="changeSpeed(0.5)">+</button>
+      </template>
+      <button class="play-btn" title="Full screen" @click="toggleFullscreen">⛶</button>
+    </div>
+
+    <div v-if="loading" class="play-message">Loading...</div>
+    <div v-else-if="error" class="play-message" role="alert">{{ error }}</div>
+    <SongDisplay
+      v-else-if="song"
+      class="play-song"
+      :chordpro="song.body"
+      :title="song.title"
+      :artist="song.artist"
+      :capo="song.capo"
+      :song-key="song.key"
+      :columns-override="1"
+      :active-line="activeLine"
+      hide-controls
+      @line-select="selectLine"
+    />
+  </div>
+</template>
+
+<style scoped>
+/* Covers the nav bar and page chrome without changing the app layout. */
+.play-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  overflow-y: auto;
+  background: var(--bg);
+  color: var(--text);
+  padding: 0 1rem 50vh;
+}
+.play-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  padding: 0.5rem 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+.spacer {
+  flex: 1;
+}
+.play-btn {
+  min-width: 2.4rem;
+  min-height: 2.4rem;
+  padding: 0.3rem 0.6rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 1rem;
+  cursor: pointer;
+}
+.play-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #000;
+}
+.speed {
+  min-width: 2rem;
+  text-align: center;
+  color: var(--text-muted);
+}
+.play-message {
+  padding: 2rem;
+  text-align: center;
+  color: var(--text-muted);
+}
+.play-song {
+  max-width: 1100px;
+  margin: 0 auto;
+  cursor: pointer;
+}
+</style>

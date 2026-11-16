@@ -323,6 +323,7 @@ const chords = computed(() => {
       <AppNotice v-if="exportError" type="error" :message="exportError" />
 
       <div class="detail-actions">
+        <router-link :to="`/songs/${song.id}/play`" class="btn-secondary">Play</router-link>
         <router-link :to="`/songs/${song.id}/edit`" class="btn-secondary">Edit</router-link>
         <button @click="printSong" class="btn-secondary">PDF</button>
         <button @click="downloadChordPro" class="btn-secondary">ChordPro</button>
