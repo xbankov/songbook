@@ -61,12 +61,12 @@ http://localhost:8000/docs
 ### Database migrations
 
 The schema is managed with Alembic (`backend/migrations/`). The backend
-migrates the database on startup, so upgrading is: back up, pull the new
-images, and restart.
+migrates the database on startup, so upgrading is: back up, update the code,
+and rebuild.
 
 ```bash
 docker compose exec postgres pg_dump -U songbook songbook > songbook-backup.sql
-docker compose pull && docker compose up -d
+git pull && docker compose up -d --build
 ```
 
 - **Empty database:** the backend runs `alembic upgrade head`.
@@ -74,8 +74,14 @@ docker compose pull && docker compose up -d
   checks that it matches the baseline schema, stamps it at revision `0001`, and
   upgrades. No rows are touched. If the schema does not match, the backend
   refuses to start and changes nothing.
-- **Manual run:** `docker compose exec backend alembic upgrade head` (or
-  `python -m app.migrate`, which includes the adoption step above).
+- **Manual run:** `docker compose exec backend python -m app.migrate`. Use this
+  rather than a plain `alembic upgrade head` for the first run on a pre-Alembic
+  database: plain Alembic does not adopt it and fails with "relation already
+  exists" (nothing is changed).
+- **Restoring a backup** (`/api/backup/restore`) migrates the restored schema
+  to the current revision, including backups taken before Alembic.
+- **Never run `alembic downgrade base` on a real database:** it drops every
+  table, including the whole library.
 
 To add a migration after changing a model, run from `backend/` against a dev
 database: `alembic revision --autogenerate -m "<change>"`, review the file,

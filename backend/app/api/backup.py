@@ -4,6 +4,7 @@ import subprocess
 from datetime import datetime, timezone
 
 from app.config import settings
+from app.database import init_db
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import Response
 
@@ -79,6 +80,11 @@ async def download_backup(filename: str):
     )
 
 
+def _dump_has_alembic_version(filepath: str) -> bool:
+    with open(filepath, encoding="utf-8", errors="replace") as dump:
+        return any("alembic_version" in line for line in dump)
+
+
 @router.post("/restore")
 async def restore_backup(filename: str):
     filepath = os.path.join(settings.backup_dir, filename)
@@ -86,8 +92,13 @@ async def restore_backup(filename: str):
         raise HTTPException(status_code=404, detail="Backup not found")
     try:
         url = settings.database_url_sync
+        command = ["psql", url]
+        if not _dump_has_alembic_version(filepath):
+            # A pre-Alembic dump does not replace alembic_version; drop it so
+            # the migration below re-adopts the restored schema (#69).
+            command += ["-c", "DROP TABLE IF EXISTS alembic_version"]
         result = subprocess.run(
-            ["psql", url, "-f", filepath],
+            command + ["-f", filepath],
             capture_output=True,
             text=True,
             timeout=300,
@@ -97,6 +108,8 @@ async def restore_backup(filename: str):
             raise HTTPException(
                 status_code=500, detail=f"Restore failed: {result.stderr}"
             )
+        # Bring an older backup's schema up to the current revision.
+        await init_db()
         return {"status": "ok", "message": f"Restored from {filename}"}
     except FileNotFoundError:
         raise HTTPException(status_code=500, detail="psql not found on server")

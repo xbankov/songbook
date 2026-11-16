@@ -7,6 +7,7 @@ recreates the public schema, so never point it at a real database.
 
 import asyncio
 import os
+from concurrent.futures import ThreadPoolExecutor
 from uuid import uuid4
 
 import pytest
@@ -158,3 +159,21 @@ def create_unversioned_baseline() -> None:
     """Create the baseline schema as an old init_db() left it: no alembic_version."""
     command.upgrade(alembic_config(DATABASE_URL), BASELINE_REVISION)
     _run(lambda connection: connection.execute(text("DROP TABLE alembic_version")))
+
+
+def test_alembic_config_keeps_percent_escapes_in_url():
+    url = "postgresql+asyncpg://songbook:p%40ss%25word@db:5432/songbook"
+
+    assert alembic_config(url).get_main_option("sqlalchemy.url") == url
+
+
+@needs_postgres
+def test_concurrent_migrations_are_serialised(clean_db):
+    create_unversioned_baseline()
+
+    with ThreadPoolExecutor(max_workers=3) as pool_:
+        futures = [pool_.submit(upgrade_database, DATABASE_URL) for _ in range(3)]
+        for future in futures:
+            future.result()
+
+    assert _run(_current_revision) == _head()
