@@ -27,6 +27,7 @@ VIDEO = "dQw4w9WgXcQ"
         f"https://www.youtube.com/embed/{VIDEO}",
         f"https://www.youtube-nocookie.com/embed/{VIDEO}",
         f"  https://www.youtube.com/live/{VIDEO}  ",
+        f"https://www.youtube.com/watch/?v={VIDEO}",
     ],
 )
 def test_video_id_from_common_url_forms(url):
@@ -40,6 +41,7 @@ def test_video_id_from_common_url_forms(url):
         f"https://evil.example/watch?v={VIDEO}",
         f"https://youtube.com.evil.example/watch?v={VIDEO}",
         "https://www.youtube.com/watch?v=short",
+        f"https://www.youtube.com/watch?v={VIDEO}%0A",
         "https://www.youtube.com/channel/UC123",
         f"javascript:alert(1)//youtu.be/{VIDEO}",
         "",
