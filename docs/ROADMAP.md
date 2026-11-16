@@ -162,8 +162,8 @@ decision, §8).
 | 6 | #26 Filter by difficulty/genre/artist/alphabet | M | A growing songbook needs retrieval |
 | 7 | #27 Pagination | M | The UI currently shows at most 50 songs |
 | 8 | #24 Songbook completion (TOC, sorting, per-entry settings, delete/rename) | L | The songbook is the core artifact |
-| 9b | #96 Songbook PDF ignores a per-entry single-column setting | S | Bug; PDF disagrees with the screen view |
-| 9a | #89 Songbook metadata + chord-scheme selection | M | Needs a schema decision/Alembic first |
+| 9a | #96 Songbook PDF ignores a per-entry single-column setting | S | Bug; PDF disagrees with the screen view |
+| 9b | #89 Songbook metadata + chord-scheme selection | M | Needs a schema decision/Alembic first |
 | 9 | #45 Version history UI + restore (authors/forks/favourites → #88) | M | Editing must be safe |
 
 **Resolved:** #26 stores difficulty and genre as tags (`difficulty:*`,
