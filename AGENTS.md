@@ -51,9 +51,8 @@ cd frontend && npm run test:e2e
 
 ## Implementing an issue
 
-Work only on issues a maintainer allows: the AI maintainer picks up issues
-labelled `ai:allowed` (see README), or the user asks in a session (for example
-"implement issue #12").
+Work only on issues the user asks for in a session (for example "implement
+issue #12").
 
 1. Read the issue and its comments. If anything is unclear, ask before coding.
 2. Check `docs/ROADMAP.md`: pick one issue from the ordered queue. Do not start
@@ -63,9 +62,8 @@ labelled `ai:allowed` (see README), or the user asks in a session (for example
 4. Branch from an up-to-date `main`: `fix/<issue>-<topic>` or `feat/<issue>-<topic>`.
 5. Make the change, run the validation above, and fix failures.
 6. Commit with a message that references the issue. Never push to `main`.
-7. The AI maintainer pushes the branch and opens the pull request using the
-   format below. In a manual session, stop after step 6 and tell the user the
-   branch is ready; the user pushes and opens the pull request.
+7. Stop after step 6 and tell the user the branch is ready; the user pushes and
+   opens the pull request using the format below.
 8. **Wait for the Sourcery review on the latest commit.** Address every finding
    (or reply explaining why it does not apply), push the fixes, and wait for a
    fresh review. Do not call the PR ready until Sourcery has no blocking

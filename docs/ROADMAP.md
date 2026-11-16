@@ -30,7 +30,7 @@ If the two disagree, fix this document in the same PR that changes the issue.
 6. Update this roadmap in the same PR if the order, scope, or a decision changed
    (§10).
 
-If anything is unclear, stop and ask. Use the `ai:waiting-for-input` label.
+If anything is unclear, stop and ask.
 
 ---
 
@@ -449,7 +449,6 @@ Closed: #15 (regression test added), #33 (re-triaged).
 - Work on **one issue at a time**, from the top of §4.
 - Do not skip ahead unless the maintainer says so.
 - Do not start an **epic** directly; split it first.
-- If the issue has `ai:allowed`, it is eligible. `ai:queued` means it is next.
 - If the issue is blocked, ask; do not guess.
 
 ### 9.3 Plan and approval
@@ -523,7 +522,7 @@ An epic is too large for one PR. Before starting it:
 - You need a product decision (§8).
 - Tests fail for reasons unrelated to your change.
 
-Use `ai:waiting-for-input` and link the session.
+Ask in the session or on the issue.
 
 ### 9.8 Roadmap maintenance
 
