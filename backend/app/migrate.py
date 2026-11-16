@@ -7,6 +7,9 @@ Run as ``python -m app.migrate``; the API also runs it at startup.
   ``alembic_version`` table: the schema is checked against the baseline,
   stamped at the baseline revision, and then upgraded. No data is touched.
 * Database already under Alembic: ``alembic upgrade head``.
+
+A PostgreSQL advisory lock serialises concurrent runs (API startup, seed.py,
+crawler.py, several workers).
 """
 
 import asyncio
@@ -16,7 +19,7 @@ from pathlib import Path
 from alembic import command
 from alembic.config import Config
 from app.config import settings
-from sqlalchemy import inspect, pool
+from sqlalchemy import inspect, pool, text
 from sqlalchemy.engine import Connection
 from sqlalchemy.ext.asyncio import create_async_engine
 
@@ -24,6 +27,8 @@ logger = logging.getLogger(__name__)
 
 BACKEND_DIR = Path(__file__).resolve().parent.parent
 BASELINE_REVISION = "0001"
+# Arbitrary constant key for pg_advisory_lock ("songbook" in ASCII hex).
+MIGRATION_LOCK_ID = 0x736F6E67626F6F6B
 
 # The schema `init_db()` created before Alembic (revision 0001). Used only to
 # check that an existing database can be safely stamped at the baseline.
@@ -80,7 +85,9 @@ class BaselineMismatchError(RuntimeError):
 def alembic_config(url: str | None = None) -> Config:
     config = Config(str(BACKEND_DIR / "alembic.ini"))
     config.set_main_option("script_location", str(BACKEND_DIR / "migrations"))
-    config.set_main_option("sqlalchemy.url", url or settings.database_url)
+    # ConfigParser treats "%" as interpolation; escape it (e.g. %40 in passwords).
+    url = url or settings.database_url
+    config.set_main_option("sqlalchemy.url", url.replace("%", "%%"))
     return config
 
 
@@ -90,15 +97,6 @@ def _read_columns(connection: Connection) -> dict[str, set[str]]:
         table: {column["name"] for column in inspector.get_columns(table)}
         for table in inspector.get_table_names()
     }
-
-
-async def _existing_columns(url: str) -> dict[str, set[str]]:
-    engine = create_async_engine(url, poolclass=pool.NullPool)
-    try:
-        async with engine.connect() as connection:
-            return await connection.run_sync(_read_columns)
-    finally:
-        await engine.dispose()
 
 
 def check_baseline(existing: dict[str, set[str]]) -> None:
@@ -120,11 +118,7 @@ def check_baseline(existing: dict[str, set[str]]) -> None:
         )
 
 
-def upgrade_database(url: str | None = None) -> None:
-    """Adopt an ``init_db()`` database if needed, then upgrade to head."""
-    url = url or settings.database_url
-    config = alembic_config(url)
-    existing = asyncio.run(_existing_columns(url))
+def _adopt_and_upgrade(config: Config, existing: dict[str, set[str]]) -> None:
     if "alembic_version" not in existing and existing.keys() & BASELINE_COLUMNS:
         check_baseline(existing)
         logger.warning(
@@ -133,6 +127,30 @@ def upgrade_database(url: str | None = None) -> None:
         )
         command.stamp(config, BASELINE_REVISION)
     command.upgrade(config, "head")
+
+
+async def _upgrade_locked(url: str, config: Config) -> None:
+    engine = create_async_engine(
+        url, poolclass=pool.NullPool, isolation_level="AUTOCOMMIT"
+    )
+    try:
+        async with engine.connect() as connection:
+            lock = {"key": MIGRATION_LOCK_ID}
+            await connection.execute(text("SELECT pg_advisory_lock(:key)"), lock)
+            try:
+                existing = await connection.run_sync(_read_columns)
+                # Alembic's env.py runs its own event loop: use a worker thread.
+                await asyncio.to_thread(_adopt_and_upgrade, config, existing)
+            finally:
+                await connection.execute(text("SELECT pg_advisory_unlock(:key)"), lock)
+    finally:
+        await engine.dispose()
+
+
+def upgrade_database(url: str | None = None) -> None:
+    """Adopt an ``init_db()`` database if needed, then upgrade to head."""
+    url = url or settings.database_url
+    asyncio.run(_upgrade_locked(url, alembic_config(url)))
 
 
 if __name__ == "__main__":
