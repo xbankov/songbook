@@ -12,6 +12,7 @@ from app.schemas.song import (
     SongVersionOut,
 )
 from app.services.converters import (
+    METADATA_TAGS,
     absorb_chordpro_metadata,
     chordpro_body,
     chordpro_to_abc,
@@ -20,9 +21,11 @@ from app.services.converters import (
     ensure_chordpro_metadata,
     export_songs_as_chordpro,
     parse_bulk_chordpro,
+    resolve_song_metadata,
+    song_metadata_from_row,
     song_model_from_row,
-    split_chordpro_metadata,
     transpose_chordpro_body,
+    transpose_key,
 )
 from app.services.http import content_disposition
 from app.services.scraper import import_from_url
@@ -97,20 +100,12 @@ async def list_songs(
 @router.post("", response_model=SongOut, status_code=status.HTTP_201_CREATED)
 async def create_song(body: SongCreate, db: AsyncSession = Depends(get_db)):
     tags = await resolve_tags(db, body.tags)
-    clean_body, fields = absorb_chordpro_metadata(
-        body.body,
-        {
-            "title": body.title.strip() or None,
-            "artist": (None if body.artist.strip() in ("", "Unknown") else body.artist),
-            "capo": body.capo or None,
-            "key": body.key or None,
-        },
+    # The request's default capo 0 means "not set", so a {capo} tag may fill it.
+    clean_body, fields = resolve_song_metadata(
+        body.body, body.title, body.artist, body.capo or None, body.key
     )
     song = Song(
-        title=fields["title"] or "Unknown",
-        artist=fields["artist"] or "Unknown",
-        capo=fields["capo"] or 0,
-        key=fields["key"],
+        **fields,
         body=clean_body,
         metadata_=body.metadata if hasattr(body, "metadata_") else {},
         tags=tags,
@@ -197,13 +192,13 @@ async def update_song(
         if field in data and not data[field].strip():
             del data[field]
     if "body" in data:
-        # Fields sent with the request win; a tag in the body only fills a
-        # field the request left out.
-        data["body"], from_tags = absorb_chordpro_metadata(
+        # Fields sent with the request win, then the song's stored fields; a
+        # tag in the body only fills a field that is still unset (#37).
+        data["body"], resolved = absorb_chordpro_metadata(
             data["body"],
-            {tag: data.get(tag) for tag in ("title", "artist", "capo", "key")},
+            {tag: data.get(tag, getattr(song, tag)) for tag in METADATA_TAGS},
         )
-        data.update({k: v for k, v in from_tags.items() if v is not None})
+        data.update({k: v for k, v in resolved.items() if v is not None})
     tag_names = data.pop("tags", None)
     for field, value in data.items():
         setattr(song, field, value)
@@ -288,11 +283,10 @@ async def restore_version(
             status_code=status.HTTP_404_NOT_FOUND, detail="Version not found"
         )
 
-    song.title = version.title
-    song.artist = version.artist
-    song.capo = version.capo
-    song.key = version.key
-    song.body = split_chordpro_metadata(version.body)[0]
+    # Old versions may keep metadata in body tags; move it into the fields.
+    song.body, fields = song_metadata_from_row(version)
+    for field, value in fields.items():
+        setattr(song, field, value)
     song.version += 1
 
     restored = SongVersion(
@@ -384,12 +378,13 @@ async def fork_version(
             status_code=status.HTTP_404_NOT_FOUND, detail="Version not found"
         )
 
+    forked_body, fields = song_metadata_from_row(version)
     forked = Song(
-        title=f"{version.title} (fork)",
-        artist=version.artist,
-        capo=version.capo,
-        key=version.key,
-        body=split_chordpro_metadata(version.body)[0],
+        title=f"{fields['title']} (fork)",
+        artist=fields["artist"],
+        capo=fields["capo"],
+        key=fields["key"],
+        body=forked_body,
         metadata_={
             "forked_from": str(song.id),
             "forked_version": version_number,
@@ -658,9 +653,13 @@ async def transpose_song(
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail="Song not found"
         )
-    transposed = song_model_from_row(song).transpose(interval)
-    song.body = chordpro_body(transposed)
-    song.key = transposed.key
+    # Transpose the stored text instead of round-tripping it through SongModel,
+    # which drops directives such as {comment} and {tempo}.
+    clean, fields = song_metadata_from_row(song)
+    for field, value in fields.items():
+        setattr(song, field, value)
+    song.body = transpose_chordpro_body(clean, interval)
+    song.key = transpose_key(song.key, interval)
     song.version += 1
     version = SongVersion(
         song_id=song.id,
