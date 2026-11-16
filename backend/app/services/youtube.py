@@ -3,7 +3,7 @@
 import re
 from urllib.parse import parse_qs, urlparse
 
-VIDEO_ID = re.compile(r"^[A-Za-z0-9_-]{11}$")
+VIDEO_ID = re.compile(r"[A-Za-z0-9_-]{11}")
 YOUTUBE_HOSTS = {"youtube.com", "m.youtube.com", "music.youtube.com"}
 PATH_PREFIXES = ("/embed/", "/shorts/", "/live/", "/v/")
 
@@ -21,14 +21,14 @@ def youtube_video_id(url: str) -> str | None:
     if host == "youtu.be":
         candidate = parsed.path.lstrip("/").split("/")[0]
     elif host in YOUTUBE_HOSTS or host == "youtube-nocookie.com":
-        if parsed.path == "/watch":
+        if parsed.path.rstrip("/") == "/watch":
             candidate = (parse_qs(parsed.query).get("v") or [""])[0]
         else:
             for prefix in PATH_PREFIXES:
                 if parsed.path.startswith(prefix):
                     candidate = parsed.path[len(prefix) :].split("/")[0]
                     break
-    if candidate and VIDEO_ID.match(candidate):
+    if candidate and VIDEO_ID.fullmatch(candidate):
         return candidate
     return None
 

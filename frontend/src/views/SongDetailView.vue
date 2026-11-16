@@ -37,14 +37,18 @@ const loadingVersions = ref(false)
 const restoringVersion = ref<number | null>(null)
 const historyError = ref('')
 const historyNotice = ref('')
-const youtubeUrl = computed(() => {
+const storedYoutubeUrl = computed(() => {
   const value = store.current?.metadata?.youtube_url
   return typeof value === 'string' ? value : ''
 })
 const youtubeId = computed(() => {
-  const match = youtubeUrl.value.match(/[?&]v=([A-Za-z0-9_-]{11})/)
+  const match = storedYoutubeUrl.value.match(/[?&]v=([A-Za-z0-9_-]{11})(?:&|$)/)
   return match ? match[1] : ''
 })
+// Rebuilt from the id, so the link can only ever point at youtube.com.
+const youtubeUrl = computed(() =>
+  youtubeId.value ? `https://www.youtube.com/watch?v=${youtubeId.value}` : '',
+)
 const showVideo = ref(false)
 const editingYoutube = ref(false)
 const youtubeInput = ref('')
@@ -168,18 +172,23 @@ async function toggleFavorite(version: SongVersion) {
 }
 
 function startYoutubeEdit() {
-  youtubeInput.value = youtubeUrl.value
+  youtubeInput.value = storedYoutubeUrl.value
   youtubeError.value = ''
   editingYoutube.value = true
 }
 
 async function saveYoutube(url: string | null) {
   youtubeError.value = ''
+  const songId = route.params.id as string
   try {
-    store.current = await setYoutubeLink(route.params.id as string, url)
+    const updated = await setYoutubeLink(songId, url)
+    // Ignore a late response after navigating to another song.
+    if (route.params.id !== songId) return
+    store.current = updated
     editingYoutube.value = false
     showVideo.value = false
   } catch (e: unknown) {
+    if (route.params.id !== songId) return
     youtubeError.value = e instanceof Error ? e.message : 'Could not save the YouTube link'
   }
 }
@@ -380,7 +389,8 @@ const chords = computed(() => {
           <input
             v-model="youtubeInput"
             class="youtube-input"
-            type="url"
+            type="text"
+            inputmode="url"
             placeholder="https://www.youtube.com/watch?v=…"
             aria-label="YouTube link"
           />
