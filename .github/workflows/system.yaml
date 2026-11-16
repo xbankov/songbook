@@ -315,6 +315,27 @@ jobs:
         if: always()
         run: docker compose -f docker-compose.yml down -v
 
+  # Single required status check for the "Protect main" ruleset. Path-filtered
+  # jobs report "skipped", which counts as passing; failure/cancel does not.
+  ci-passed:
+    name: CI passed
+    needs: [changes, backend, frontend, e2e, docker, smoke]
+    if: always()
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Check job results
+        env:
+          RESULTS: ${{ join(needs.*.result, ' ') }}
+        run: |
+          echo "Job results: $RESULTS"
+          for result in $RESULTS; do
+            case "$result" in
+              success|skipped) ;;
+              *) echo "A required job did not pass ($result)" >&2; exit 1 ;;
+            esac
+          done
+
   promote:
     name: Promote tested image to latest
     needs: smoke

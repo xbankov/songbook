@@ -472,6 +472,9 @@ A PR is never “ready” after the first CI run. It must pass this gate:
 If a Sourcery finding is unclear, ask the maintainer. Do not ignore, dismiss, or
 silently skip it.
 
+Dependabot PRs are the exception: they auto-merge once the required checks
+"CI passed" and "Sourcery review" succeed (see the decision log).
+
 ### 9.4 Epics
 
 An epic is too large for one PR. Before starting it:
@@ -561,6 +564,7 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-16 | Positioning: open-source, self-hosted private songbook (web + mobile, Immich-like); a global deployment is allowed but not the focus (#61) | @xbankov |
 | 2026-11-16 | Title, artist, capo and key live in song fields; body tags are stripped on save and added only on ChordPro export; stored bodies are not rewritten (#37) | @xbankov |
 | 2026-11-16 | The running instance holds a real library: #69 (Alembic baseline) precedes any schema change, starting with #89 | @xbankov |
+| 2026-11-16 | Dependabot PRs auto-merge (rebase) once the required checks "CI passed" and "Sourcery review" succeed; this is the only exception to the human review gate (§9.3.1) | @xbankov |
 
 ---
 
@@ -582,3 +586,4 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-16 | Added the #61 positioning to §1; closed #2, #38, #61 |
 | 2026-11-16 | #96 fixed: songbook PDF respects each entry's column setting |
 | 2026-11-16 | #37 done: song fields replace body metadata tags; #69 ordered before #89 |
+| 2026-11-16 | CI: added the "CI passed" gate job and Dependabot auto-merge |

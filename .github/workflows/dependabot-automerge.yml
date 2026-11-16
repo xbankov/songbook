@@ -1,0 +1,39 @@
+name: Dependabot auto-merge
+
+# Enables GitHub auto-merge on Dependabot PRs. GitHub then merges the PR once
+# the required checks of the "Protect main" ruleset ("CI passed" and
+# "Sourcery review") succeed. A failing check leaves the PR open for a human.
+#
+# This workflow never checks out or runs PR code.
+#
+# AUTOMERGE_TOKEN is a fine-grained PAT (this repository only; Contents and
+# Pull requests: read and write) stored as a *Dependabot* secret, because
+# Dependabot-triggered runs cannot read Actions secrets. A PAT is required:
+# a merge made with GITHUB_TOKEN does not trigger the push-to-main CI run, so
+# no image would be built or promoted to :latest.
+
+on:
+  pull_request:
+    branches: ["main"]
+    types: [opened, reopened, synchronize]
+
+permissions:
+  contents: read
+
+jobs:
+  automerge:
+    name: Enable auto-merge
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    if: github.event.pull_request.user.login == 'dependabot[bot]' && github.actor == 'dependabot[bot]'
+    steps:
+      - name: Enable auto-merge (rebase)
+        env:
+          GH_TOKEN: ${{ secrets.AUTOMERGE_TOKEN }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+        run: |
+          if [ -z "$GH_TOKEN" ]; then
+            echo "AUTOMERGE_TOKEN Dependabot secret is not set" >&2
+            exit 1
+          fi
+          gh pr merge --auto --rebase "$PR_URL"
