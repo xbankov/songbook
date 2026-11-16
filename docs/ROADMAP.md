@@ -41,6 +41,11 @@ If anything is unclear, stop and ask. Use the `ai:waiting-for-input` label.
 > them into songbooks/setlists, then print a reliable book/PDF or play from a
 > tablet or phone — online or offline.
 
+**Positioning:** an **open-source, self-hosted** home for your private songbook —
+a **web + mobile app, similar to Immich**. Self-hosting is the focus. Running it
+as a globally deployed instance is allowed and should stay possible (don't
+hard-code single-host assumptions), but it is not what we optimize for (#61).
+
 ### Target user
 
 - You, your band, and a few friends.
@@ -355,11 +360,8 @@ quotas/billing, public profiles.
 
 ### Close/verify as done
 
-Still open on GitHub (as of 2026-11-16) and ready to close by hand:
-
-- #2 Transposition — implemented.
-- #38 Improve song view — print parity was the remaining work; done in #57.
-- #61 SongBook vs UG — answered by §1 (Lane A); close with a link here.
+Closed 2026-11-16: #2 Transposition (implemented), #38 Improve song view
+(implemented), #61 SongBook vs UG (answered by §1).
 
 Not yet: #60 (where lyrics come from) stays open until the import policy (§8.7)
 is written down.
@@ -384,7 +386,6 @@ Closed: #15 (regression test added), #33 (re-triaged).
 - #42 Social/video record mode — keep only the “attach a recording” part (#43).
 - #22 Domain name — ops checklist, not code.
 - #60 Where do lyrics come from? — policy decision; document and close.
-- #61 SongBook vs UG — answered by §1 (Lane A); record the decision and close.
 
 ### Needs a written spec before coding
 
@@ -397,7 +398,7 @@ Closed: #15 (regression test added), #33 (re-triaged).
 - #40 Translations — languages, source, licensing.
 - #53 LLM parsing — acceptance criteria and cost.
 - #62 Recommendations — which signals (favourites, history, tags).
-- #60/#61 — decisions, not features.
+- #60 — a decision, not a feature.
 
 ---
 
@@ -554,6 +555,7 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-15 | Version history/restore ships now; version authors, forking, favourites, and permalinks are deferred to #88 with multi-user | @xbankov |
 | 2026-11-15 | Songbook core (delete/rename, reorder, per-entry settings, TOC) ships now; metadata/chordscheme split to #89 pending a schema decision | @xbankov |
 | 2026-11-15 | Long-song print layout is configurable (1/2 columns), not forced to one column (#55) | @xbankov (via #84) |
+| 2026-11-16 | Positioning: open-source, self-hosted private songbook (web + mobile, Immich-like); a global deployment is allowed but not the focus (#61) | @xbankov |
 
 ---
 
@@ -571,3 +573,4 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-15 | #45 history/restore implemented; authors/forks/favourites/permalink split to #88 |
 | 2026-11-15 | #24 songbook core implemented; metadata/chordscheme split to #89 |
 | 2026-11-16 | Housekeeping: refreshed §2 against the code; marked Phases 0–2 status; added #78 (unscheduled) and the #89/#78 decisions; resolved the #55 decision; listed issues to close |
+| 2026-11-16 | Added the #61 positioning to §1; closed #2, #38, #61 |
