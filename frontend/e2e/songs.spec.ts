@@ -602,7 +602,7 @@ test.describe('Songbook UI', () => {
     const before = await page.locator('.song-body').evaluate(
       (el) => getComputedStyle(el).fontSize,
     )
-    await page.getByRole('button', { name: 'A+' }).click()
+    await page.getByRole('button', { name: 'Larger text' }).click()
     const after = await page.locator('.song-body').evaluate(
       (el) => getComputedStyle(el).fontSize,
     )
@@ -610,6 +610,9 @@ test.describe('Songbook UI', () => {
 
     await page.keyboard.press('Escape')
     await expect(page).toHaveURL(`/songs/${song.id}`)
+    // Exit replaces the play entry, so Back leaves the song page.
+    await page.goBack()
+    await expect(page).not.toHaveURL(/\/play$/)
   })
 
   test('play view moves the highlight across lines', async ({ page }) => {
@@ -636,8 +639,33 @@ test.describe('Songbook UI', () => {
 
     await page.locator('[data-line="0"]').click()
     await expect(page.locator('.active-line .lyric-row')).toHaveText('One')
-    await page.getByRole('button', { name: '▼' }).click()
+    await page.getByRole('button', { name: 'Next line' }).click()
     await expect(page.locator('.active-line .lyric-row')).toHaveText('Two')
+
+    // Modified keys are browser shortcuts, not line steps. Blur the button
+    // first: Space on a focused button presses it natively.
+    await page.evaluate(() => (document.activeElement as HTMLElement | null)?.blur())
+    await page.keyboard.press('Shift+Space')
+    await page.keyboard.press('Alt+ArrowDown')
+    await expect(page.locator('.active-line .lyric-row')).toHaveText('Two')
+  })
+
+  test('play view keeps the current line visible while autoscrolling', async ({ page }) => {
+    await mockApi(page)
+    const lines = Array.from({ length: 60 }, (_, i) => `[G]Line ${i + 1}`).join('\n')
+    await page.route(`**/api/songs/${song.id}`, (route) =>
+      route.fulfill({ json: { ...song, body: lines } }),
+    )
+    await page.setViewportSize({ width: 800, height: 600 })
+    await page.goto(`/songs/${song.id}/play`)
+    await expect(page.locator('[data-line]')).toHaveCount(60)
+
+    await page.getByRole('button', { name: 'Scroll' }).click()
+    await page.locator('body').click({ position: { x: 5, y: 590 } })
+    for (let i = 0; i < 40; i++) await page.keyboard.press('ArrowDown')
+
+    await expect(page.locator('.active-line .lyric-row')).toHaveText('Line 41')
+    await expect(page.locator('.active-line')).toBeInViewport()
   })
 
   test('downloads ChordPro for a song and a songbook', async ({ page }) => {
