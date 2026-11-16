@@ -92,7 +92,7 @@ Every roadmap item should make this loop faster, more reliable, or more enjoyabl
 | Chord inside a word `bri[C]ght` (#15) | Done — regression test in `test_music_theory.py` |
 | Separate title/artist fields (#37) | Done in the edit UI. Body `{title}`/`{artist}` tags are normalized only in single, selected, and per-songbook ChordPro export — **not on save and not in export-all** (`GET /songs/export/bulk`), which keeps stale body tags (known bug) |
 | Song view: chords above lyrics, styling, 2 columns, autoscroll (#38/#41) | Mostly done |
-| Songbooks: CRUD, add/remove, PDF (#24) | Done — delete/rename, reorder, per-entry transpose/columns, TOC; metadata/chordscheme → #89. **Known bug:** the songbook PDF ORs each entry's column setting with the global 2-column setting, so an entry set to 1 column still prints in 2 when the global setting is on (the screen view respects the entry) |
+| Songbooks: CRUD, add/remove, PDF (#24) | Done — delete/rename, reorder, per-entry transpose/columns, TOC; metadata/chordscheme → #89. **Known bug (#96):** the songbook PDF ORs each entry's column setting with the global 2-column setting, so an entry set to 1 column still prints in 2 when the global setting is on (the screen view respects the entry) |
 | Import by URL + UG search/pick/import (#46, #51) | Done for UG (parsing fixed in #51) |
 | Bulk import (#29) | Partial — paste only; no file/zip upload |
 | Export (#54) | Done — single, selected, and all songs as ChordPro/text/ABC/LilyPond; per-songbook export is **ChordPro only** |
@@ -162,6 +162,7 @@ decision, §8).
 | 6 | #26 Filter by difficulty/genre/artist/alphabet | M | A growing songbook needs retrieval |
 | 7 | #27 Pagination | M | The UI currently shows at most 50 songs |
 | 8 | #24 Songbook completion (TOC, sorting, per-entry settings, delete/rename) | L | The songbook is the core artifact |
+| 9b | #96 Songbook PDF ignores a per-entry single-column setting | S | Bug; PDF disagrees with the screen view |
 | 9a | #89 Songbook metadata + chord-scheme selection | M | Needs a schema decision/Alembic first |
 | 9 | #45 Version history UI + restore (authors/forks/favourites → #88) | M | Editing must be safe |
 
