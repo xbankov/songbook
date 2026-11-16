@@ -44,7 +44,7 @@ async def test_restore_migrates_and_handles_pre_alembic_dumps(
 
 
 @pytest.mark.parametrize(
-    "filename", ["../secret.sql", "link.sql", "missing.sql", "", "."]
+    "filename", ["../secret.sql", "link.sql", "missing.sql", "", ".", "notes.txt"]
 )
 async def test_backup_paths_must_stay_inside_the_backup_dir(
     tmp_path, monkeypatch, filename
@@ -54,6 +54,7 @@ async def test_backup_paths_must_stay_inside_the_backup_dir(
     # Real files outside the backup dir, reachable via ../ or a symlink.
     (tmp_path / "secret.sql").write_text("secret")
     (backups / "link.sql").symlink_to(tmp_path / "secret.sql")
+    (backups / "notes.txt").write_text("not a backup")
     monkeypatch.setattr(backup_api.settings, "backup_dir", str(backups))
 
     for endpoint in (backup_api.restore_backup, backup_api.download_backup):
