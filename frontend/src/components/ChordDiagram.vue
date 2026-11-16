@@ -3,6 +3,8 @@ import { computed } from 'vue'
 
 const props = defineProps<{
   chord: string
+  /** Server-computed shape, low E first (0 open, -1 muted); skips the local rule. */
+  frets?: number[]
 }>()
 
 const chromatic = ['C', 'C#', 'D', 'D#', 'E', 'F', 'F#', 'G', 'G#', 'A', 'A#', 'B']
@@ -32,6 +34,11 @@ interface FretPos {
 }
 
 const positions = computed<FretPos[]>(() => {
+  if (props.frets) {
+    return props.frets
+      .map((fret, string) => ({ string, fret }))
+      .filter((pos) => pos.fret >= 0)
+  }
   const match = props.chord.match(/^([A-G][#b]?)(.*)$/)
   if (!match) return []
   const rootTone = match[1]

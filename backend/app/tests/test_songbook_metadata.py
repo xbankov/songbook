@@ -250,3 +250,85 @@ def test_songbook_pdf_export_passes_metadata_and_mode(monkeypatch):
     assert response.status_code == 200
     assert captured["metadata"] == [("Author", "Jane")]
     assert captured["chord_diagrams"] == "all"
+
+
+class _QueuedSession:
+    def __init__(self, *results):
+        self.results = list(results)
+
+    async def execute(self, *args, **kwargs):
+        return _Result(self.results.pop(0))
+
+
+def _entry(songbook: Songbook, body: str, transpose: int = 0):
+    from app.models.song import Song
+    from app.models.songbook import SongbookEntry
+
+    now = datetime.now(timezone.utc)
+    song = Song(
+        id=uuid4(),
+        title="S",
+        artist="A",
+        capo=0,
+        key=None,
+        body=body,
+        metadata_={},
+        version=1,
+        created_at=now,
+        updated_at=now,
+    )
+    song.tags = []
+    entry = SongbookEntry(
+        id=uuid4(),
+        songbook_id=songbook.id,
+        song_id=song.id,
+        sort_order=0,
+        transpose=transpose,
+        double_column=0,
+    )
+    entry.song = song
+    return entry
+
+
+def _get_chords(songbook: Songbook, global_transpose: int = 0):
+    async def override_get_db():
+        yield _QueuedSession(songbook, SimpleNamespace(transpose=global_transpose))
+
+    app.dependency_overrides[get_db] = override_get_db
+    try:
+        return TestClient(app).get(
+            f"/api/songbooks/{songbook.id}/chords",
+            headers={"Authorization": f"Bearer {create_access_token()}"},
+        )
+    finally:
+        app.dependency_overrides.clear()
+
+
+def test_chords_endpoint_matches_pdf_rules_with_transpose():
+    songbook = _songbook(chord_diagrams="uncommon")
+    songbook.entries = [
+        _entry(songbook, "[Bb]a [G/B]b [Amin]c [E7]d [Chorus]e", transpose=1),
+        _entry(songbook, "[N.C.] cannot be parsed [D]x"),
+    ]
+
+    response = _get_chords(songbook, global_transpose=1)
+
+    assert response.status_code == 200
+    # +2 in total: Bb->C and Amin->Bm are basic; G/B->A/C#, E7->F#7.
+    assert [c["name"] for c in response.json()] == ["A/C#", "F#7"]
+    assert response.json()[1]["frets"] == chord_shape(Chord.parse("F#7"))
+
+
+def test_chords_endpoint_is_empty_for_none():
+    songbook = _songbook(chord_diagrams="none")
+    songbook.entries = [_entry(songbook, "[E7]x")]
+
+    assert _get_chords(songbook).json() == []
+
+
+def test_unknown_stored_chord_diagram_mode_reads_as_none():
+    from app.schemas.songbook import SongbookOut
+
+    out = SongbookOut.model_validate(_songbook(chord_diagrams="bogus"))
+
+    assert out.chord_diagrams == "none"

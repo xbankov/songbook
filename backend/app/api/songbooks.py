@@ -1,3 +1,4 @@
+import logging
 import uuid
 from datetime import datetime, timezone
 
@@ -5,6 +6,7 @@ from app.database import get_db
 from app.models.song import Song
 from app.models.songbook import Songbook, SongbookEntry
 from app.schemas.songbook import (
+    ChordShapeOut,
     SongbookCreate,
     SongbookDetailOut,
     SongbookEntryOut,
@@ -13,10 +15,15 @@ from app.schemas.songbook import (
     SongbookOut,
     SongbookUpdate,
 )
+from app.services.chord_diagrams import chord_chart
+from app.services.converters import song_model_from_row
+from app.services.settings import get_or_create_settings
 from fastapi import APIRouter, Depends, HTTPException, Query, status
 from sqlalchemy import select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.orm import selectinload
+
+logger = logging.getLogger(__name__)
 
 router = APIRouter(prefix="/api/songbooks", tags=["songbooks"])
 
@@ -60,6 +67,39 @@ async def get_songbook(songbook_id: uuid.UUID, db: AsyncSession = Depends(get_db
         )
     songbook.entries.sort(key=lambda entry: entry.sort_order)
     return songbook
+
+
+@router.get("/{songbook_id}/chords", response_model=list[ChordShapeOut])
+async def get_songbook_chords(
+    songbook_id: uuid.UUID, db: AsyncSession = Depends(get_db)
+):
+    """The songbook's chord chart (#89), exactly as the PDF draws it."""
+    result = await db.execute(
+        select(Songbook)
+        .where(Songbook.id == songbook_id)
+        .options(selectinload(Songbook.entries).selectinload(SongbookEntry.song))
+    )
+    songbook = result.scalar_one_or_none()
+    if not songbook:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Songbook not found"
+        )
+    mode = songbook.chord_diagrams or "none"
+    if mode == "none":
+        return []
+    settings = await get_or_create_settings(db)
+    songs = []
+    for entry in songbook.entries:
+        if entry.song is None:
+            continue
+        try:
+            model = song_model_from_row(entry.song)
+        except Exception:
+            # e.g. a non-chord bracket such as [N.C.]: chart the other songs.
+            logger.warning("Skipping unparsable song %s in chord chart", entry.song_id)
+            continue
+        songs.append(model.transpose((settings.transpose or 0) + entry.transpose))
+    return chord_chart(songs, mode)
 
 
 @router.put("/{songbook_id}", response_model=SongbookOut)

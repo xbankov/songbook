@@ -51,8 +51,9 @@ class SongbookOut(BaseModel):
     @field_validator("chord_diagrams", mode="before")
     @classmethod
     def _default_chord_diagrams(cls, value: str | None) -> str:
-        # Rows built in memory have no server default yet.
-        return value or "none"
+        # Rows built in memory have no server default yet; a value written
+        # outside the API must not break every songbook response.
+        return value if value in ("none", "uncommon", "all") else "none"
 
     model_config = {"from_attributes": True}
 
@@ -77,6 +78,12 @@ class SongbookEntryUpdate(BaseModel):
 
 class SongbookOrderUpdate(BaseModel):
     entry_ids: list[UUID]
+
+
+class ChordShapeOut(BaseModel):
+    name: str
+    # Fret per string, low E first; 0 = open, -1 = muted.
+    frets: list[int]
 
 
 class SongbookDetailOut(SongbookOut):
