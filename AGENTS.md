@@ -15,7 +15,8 @@ whose paths did not change. They must exit 0:
 pip install -r backend/requirements.txt -r backend/requirements-dev.txt
 isort --check-only backend/app
 black --check backend/app
-pytest -q backend/app/tests
+pytest -q backend/app/tests  # set MIGRATION_TEST_DATABASE_URL to a throwaway
+                             # Postgres to also run the migration tests
 npm ci --prefix frontend
 npm run build --prefix frontend
 cd frontend && npx playwright install --with-deps chromium  # first run only
@@ -25,7 +26,7 @@ cd frontend && npm run test:e2e
 ## Layout
 
 - `backend/app/` — FastAPI application, SQLAlchemy async models
-- `backend/migrations/` — Alembic migrations; deferred until the pre-1.0.0 gate (#69)
+- `backend/migrations/` — Alembic migrations (applied at startup by `app/migrate.py`)
 - `backend/app/tests/` — pytest suite
 - `frontend/src/` — Vue 3 + TypeScript, Vite build
 
@@ -37,12 +38,11 @@ cd frontend && npm run test:e2e
 - Do not upgrade dependencies or reformat unrelated files.
 - **Single-user first.** Until Phase 6 of the roadmap, assume one user. Do not
   add `users`, `owner_id`, roles, or ownership checks "for later".
-- **Pre-1.0.0 schema changes:** do not add Alembic yet (#69 is the pre-1.0.0
-  release gate) *unless the database contains data you care about*. `init_db()`
-  does not alter existing tables, and resetting a real database deletes the
-  library. If real data exists, add the Alembic baseline first:
-  fresh DB → `alembic upgrade head`; existing `init_db()` DB → `alembic stamp
-  head`, then apply migrations. Never reset a database with real data.
+- **Schema changes need an Alembic migration.** Change the model, then run
+  `alembic revision --autogenerate -m "<change>"` in `backend/` against a dev
+  database, review the file, and commit it. Migrations must preserve data (the
+  running instance holds a real library) and must downgrade. The backend
+  migrates on startup (`app/migrate.py`); never reset a database with real data.
 - Frontend changes must keep `npm run build` working; do not commit `dist/`.
 - UI changes must keep `npm run test:e2e` working; add a test for user-facing
   behavior.

@@ -58,6 +58,29 @@ You can access API documentation:
 http://localhost:8000/docs
 ```
 
+### Database migrations
+
+The schema is managed with Alembic (`backend/migrations/`). The backend
+migrates the database on startup, so upgrading is: back up, pull the new
+images, and restart.
+
+```bash
+docker compose exec postgres pg_dump -U songbook songbook > songbook-backup.sql
+docker compose pull && docker compose up -d
+```
+
+- **Empty database:** the backend runs `alembic upgrade head`.
+- **Database created before Alembic** (by the old `init_db()`): the backend
+  checks that it matches the baseline schema, stamps it at revision `0001`, and
+  upgrades. No rows are touched. If the schema does not match, the backend
+  refuses to start and changes nothing.
+- **Manual run:** `docker compose exec backend alembic upgrade head` (or
+  `python -m app.migrate`, which includes the adoption step above).
+
+To add a migration after changing a model, run from `backend/` against a dev
+database: `alembic revision --autogenerate -m "<change>"`, review the file,
+and commit it. CI fails if the models and migrations disagree.
+
 ## Cloud Deployment
 
 Using MongoDB Atlas (database) and Google Cloud Run (backend)
