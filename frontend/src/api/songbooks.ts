@@ -1,7 +1,16 @@
 import { apiGet, apiPost, apiPut, apiDelete } from './client'
 import type { SongResponse } from './songs'
+import type { ChordDiagramMode } from '../utils/chords'
 
-export interface SongbookResponse {
+export interface SongbookMetadata {
+  author: string | null
+  date: string | null
+  genre: string | null
+  difficulty: string | null
+  chord_diagrams: ChordDiagramMode
+}
+
+export interface SongbookResponse extends SongbookMetadata {
   id: string
   name: string
   description: string | null
@@ -40,7 +49,9 @@ export function createSongbook(data: SongbookCreate): Promise<SongbookResponse> 
   return apiPost('/api/songbooks', data)
 }
 
-export function updateSongbook(id: string, data: { name?: string; description?: string }): Promise<SongbookResponse> {
+export type SongbookUpdate = Partial<SongbookMetadata> & { name?: string; description?: string }
+
+export function updateSongbook(id: string, data: SongbookUpdate): Promise<SongbookResponse> {
   return apiPut(`/api/songbooks/${id}`, data)
 }
 

@@ -35,7 +35,7 @@ export const useSongbookStore = defineStore('songbooks', {
       this.songbooks.push(sb)
       return sb
     },
-    async updateSongbook(id: string, data: { name?: string; description?: string }) {
+    async updateSongbook(id: string, data: songbooksApi.SongbookUpdate) {
       const sb = await songbooksApi.updateSongbook(id, data)
       const idx = this.songbooks.findIndex((item) => item.id === id)
       if (idx >= 0) this.songbooks[idx] = sb

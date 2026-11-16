@@ -541,6 +541,35 @@ test.describe('Songbook UI', () => {
     expect(saved).toEqual(['https://youtu.be/dQw4w9WgXcQ', null])
   })
 
+  test('edits songbook metadata and shows the chosen chord diagrams', async ({ page }) => {
+    await mockApi(page)
+    await page.goto(`/songbooks/${songbook.id}`)
+    await expect(page.locator('.book-meta')).toContainText('Author: Jane')
+    await expect(page.locator('.chord-chart')).toHaveCount(0)
+
+    await page.getByRole('button', { name: 'Edit' }).click()
+    await page.getByLabel('Genre').fill('bluegrass')
+    await page.getByLabel('Date').fill('2026-05-01')
+    await page.getByLabel('Chord diagrams').selectOption('all')
+    const saveRequest = page.waitForRequest(
+      (req) =>
+        req.url().endsWith(`/api/songbooks/${songbook.id}`) && req.method() === 'PUT',
+    )
+    await page.getByRole('button', { name: 'Save' }).click()
+    const body = (await saveRequest).postDataJSON()
+    expect(body).toEqual({ date: '2026-05-01', genre: 'bluegrass', chord_diagrams: 'all' })
+
+    await expect(page.locator('.book-meta')).toContainText('Genre: bluegrass')
+    await expect(page.locator('.book-meta')).toContainText('Date: 2026-05-01')
+    await expect(page.locator('.chord-chart .chord-name')).toHaveText(['C', 'G'])
+
+    // G and C are plain major chords, so "uncommon" hides them.
+    await page.getByRole('button', { name: 'Edit' }).click()
+    await page.getByLabel('Chord diagrams').selectOption('uncommon')
+    await page.getByRole('button', { name: 'Save' }).click()
+    await expect(page.locator('.chord-chart')).toHaveCount(0)
+  })
+
   test('downloads ChordPro for a song and a songbook', async ({ page }) => {
     await mockApi(page)
     await page.goto(`/songs/${song.id}`)

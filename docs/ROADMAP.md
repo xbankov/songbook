@@ -96,7 +96,7 @@ Every roadmap item should make this loop faster, more reliable, or more enjoyabl
 | Chord inside a word `bri[C]ght` (#15) | Done — regression test in `test_music_theory.py` |
 | Title/artist/capo/key fields (#37) | Done — the fields are the source of truth. Saving strips `{title}`/`{artist}`/`{capo}`/`{key}` from the body; every export and the song view use the fields; ChordPro exports add the tags back. Existing bodies are not rewritten; old tags are ignored until the next save |
 | Song view: chords above lyrics, styling, 2 columns, autoscroll (#38/#41) | Mostly done |
-| Songbooks: CRUD, add/remove, PDF (#24) | Done — delete/rename, reorder, per-entry transpose/columns, TOC; metadata/chordscheme → #89. The songbook PDF uses each entry's column setting (fixed in #96) |
+| Songbooks: CRUD, add/remove, PDF (#24, #89) | Done — delete/rename, reorder, per-entry transpose/columns, TOC, metadata (author/date/genre/difficulty) and a per-songbook chord chart (none/uncommon/all) on the page and in the PDF. The songbook PDF uses each entry's column setting (fixed in #96) |
 | Import by URL + UG search/pick/import (#46, #51) | Done for UG (parsing fixed in #51) |
 | Bulk import (#29) | Partial — paste only; no file/zip upload |
 | Export (#54) | Done — single, selected, and all songs as ChordPro/text/ABC/LilyPond; per-songbook export is **ChordPro only** |
@@ -157,8 +157,7 @@ Migration is **not** a Phase 0 criterion; it is a pre-1.0.0 release gate.
 
 ### Phase 1 — Library and songbooks
 
-**Status:** #26, #27, #24, #45 done; only #89 remains (storage decision, §8;
-the #69 prerequisite is done).
+**Status:** done (#26, #27, #24, #45, #96, #89).
 
 | # | Issue | Size | Why |
 | --- | --- | --- | --- |
@@ -166,7 +165,7 @@ the #69 prerequisite is done).
 | 7 | #27 Pagination | M | The UI currently shows at most 50 songs |
 | 8 | #24 Songbook completion (TOC, sorting, per-entry settings, delete/rename) | L | The songbook is the core artifact |
 | 9a | ~~#96 Songbook PDF ignores a per-entry single-column setting~~ (done) | S | Bug; PDF disagrees with the screen view |
-| 9b | #89 Songbook metadata + chord-scheme selection | M | Needs a schema decision; ships as an Alembic migration (#69 done) |
+| 9b | ~~#89 Songbook metadata + chord-scheme selection~~ (done) | M | Columns on `songbooks` via migration `0002` |
 | 9 | #45 Version history UI + restore (authors/forks/favourites → #88) | M | Editing must be safe |
 
 **Resolved:** #26 stores difficulty and genre as tags (`difficulty:*`,
@@ -426,9 +425,10 @@ Closed: #15 (regression test added), #33 (re-triaged), #37 (fields replace body 
    it in the README.
 8. **Mobile stack.** Capacitor + Vue vs a separate native app. Recommendation:
    Capacitor + Vue + PWA.
-9. **#89 songbook metadata storage (blocking #89).** New `songbooks` columns vs.
-   one metadata JSON column. Either way it is a schema change, and the running
-   instance holds a real library, so the Alembic baseline (#69) comes first.
+9. **#89 songbook metadata storage (resolved).** Dedicated nullable columns
+   (`author`, `date`, `genre`, `difficulty`) plus `chord_diagrams`
+   (`none`/`uncommon`/`all`, where `uncommon` hides plain major/minor triads),
+   added by migration `0002`.
 10. **#78 catalog & acquisition (blocking #78).** Approve the catalog / library /
     acquisition model; MusicBrainz work/recording MBIDs as canonical identity;
     the source policy (UG manual-only, no public chord catalog); whether to retire
@@ -563,6 +563,7 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-16 | Title, artist, capo and key live in song fields; body tags are stripped on save and added only on ChordPro export; stored bodies are not rewritten (#37) | @xbankov |
 | 2026-11-16 | The running instance holds a real library: #69 (Alembic baseline) precedes any schema change, starting with #89 | @xbankov |
 | 2026-11-16 | Dependabot minor/patch PRs auto-merge (rebase) once the required checks "CI passed" and "Sourcery review" succeed; majors need a manual review. This is the only exception to the human review gate (§9.3.1) | @xbankov |
+| 2026-11-16 | #89: songbook metadata in dedicated columns; chord chart per songbook (none/uncommon/all) on the page and in the PDF, using the same open-position shape rule on both | agent (user asked to continue the roadmap) |
 
 ---
 
@@ -589,3 +590,4 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-16 | #69 done: Alembic baseline `0001`, startup migration with `init_db()` adoption, CI migration checks |
 | 2026-11-16 | #25 done: per-song YouTube link; song API now returns `metadata` (was `metadata_`, which the UI never read) |
 | 2026-11-16 | #22 done: custom domain + automatic HTTPS via a Caddy Compose override; `docs/deployment.md` |
+| 2026-11-16 | #89 done: songbook metadata and chord-diagram selection (migration `0002`) |
