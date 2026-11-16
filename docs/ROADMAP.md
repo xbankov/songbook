@@ -259,7 +259,7 @@ the critical path.
 
 ### Phase 8 — Operations
 
-#22 Custom domain + TLS. This is an ops checklist, not application code.
+~~#22 Custom domain + TLS~~ (done): `docker-compose.tls.yml` adds Caddy with automatic Let's Encrypt HTTPS; guide in [`docs/deployment.md`](deployment.md).
 
 ### Pre-1.0.0 release gate
 
@@ -386,7 +386,7 @@ Closed: #15 (regression test added), #33 (re-triaged), #37 (fields replace body 
 - #39 AI-generated graphics — cosmetic. Park.
 - #35 Creative mode — too vague. Park.
 - #42 Social/video record mode — keep only the “attach a recording” part (#43).
-- #22 Domain name — ops checklist, not code.
+- ~~#22 Domain name~~ — done as an ops guide + Caddy override.
 - #60 Where do lyrics come from? — policy decision; document and close.
 
 ### Needs a written spec before coding
@@ -588,3 +588,4 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-16 | Dependabot: grouped coupled packages (pytest, celery/redis, TypeScript/vue-tsc, Capacitor, pinia, vite, eslint) across all update types; TypeScript 7 ignored until vue-tsc supports it |
 | 2026-11-16 | #69 done: Alembic baseline `0001`, startup migration with `init_db()` adoption, CI migration checks |
 | 2026-11-16 | #25 done: per-song YouTube link; song API now returns `metadata` (was `metadata_`, which the UI never read) |
+| 2026-11-16 | #22 done: custom domain + automatic HTTPS via a Caddy Compose override; `docs/deployment.md` |

@@ -60,6 +60,8 @@ jobs:
               - 'nginx/**'
               - 'docker-compose.yml'
               - 'docker-compose.ci.yml'
+              - 'docker-compose.tls.yml'
+              - 'deploy/**'
               - '.github/workflows/system.yaml'
             tests:
               - 'tests/**'
@@ -221,6 +223,11 @@ jobs:
         run: |
           cp .env.example .env
           docker compose -f docker-compose.yml config --quiet
+          DOMAIN=songs.example.com ACME_EMAIL=ci@example.com \
+            docker compose -f docker-compose.yml -f docker-compose.tls.yml config --quiet
+          docker run --rm -e DOMAIN=songs.example.com -e ACME_EMAIL=ci@example.com \
+            -v "$PWD/deploy/Caddyfile:/etc/caddy/Caddyfile:ro" \
+            caddy:2.10-alpine caddy validate --config /etc/caddy/Caddyfile
 
       - name: Log in to Docker Hub
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'

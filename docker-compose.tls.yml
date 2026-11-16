@@ -1,0 +1,37 @@
+# Public deployment on your own domain with automatic HTTPS (#22).
+#
+#   DOMAIN=songs.example.com ACME_EMAIL=you@example.com \
+#     docker compose -f docker-compose.yml -f docker-compose.tls.yml up -d --build
+#
+# Caddy terminates TLS on 80/443 and forwards to the frontend container. The
+# backend and frontend ports are no longer published on the host, so the API
+# is only reachable through HTTPS. See docs/deployment.md.
+services:
+  caddy:
+    image: caddy:2.10-alpine
+    restart: unless-stopped
+    networks:
+      - songbook-net
+    environment:
+      DOMAIN: ${DOMAIN:?DOMAIN is required, e.g. songs.example.com}
+      ACME_EMAIL: ${ACME_EMAIL:?ACME_EMAIL is required for Let's Encrypt}
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy-data:/data
+      - caddy-config:/config
+    depends_on:
+      - frontend
+
+  backend:
+    ports: !reset []
+
+  frontend:
+    ports: !reset []
+
+volumes:
+  caddy-data:
+  caddy-config:
