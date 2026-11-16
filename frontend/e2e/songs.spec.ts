@@ -610,9 +610,19 @@ test.describe('Songbook UI', () => {
 
     await page.keyboard.press('Escape')
     await expect(page).toHaveURL(`/songs/${song.id}`)
-    // Exit replaces the play entry, so Back leaves the song page.
+    // Exit went back to the song page, so Back leaves it (no play entry).
     await page.goBack()
-    await expect(page).not.toHaveURL(/\/play$/)
+    await expect(page).not.toHaveURL(/\/songs\//)
+  })
+
+  test('play view: Space on a focused toolbar button presses it', async ({ page }) => {
+    await mockApi(page)
+    await page.goto(`/songs/${song.id}/play`)
+    await expect(page.locator('.active-line')).toHaveCount(1)
+    await page.getByRole('button', { name: 'Scroll' }).focus()
+    await page.keyboard.press(' ')
+    await expect(page.getByRole('button', { name: 'Stop' })).toHaveAttribute('aria-pressed', 'true')
+    await expect(page.locator('.active-line')).toHaveAttribute('data-line', '0')
   })
 
   test('play view moves the highlight across lines', async ({ page }) => {
