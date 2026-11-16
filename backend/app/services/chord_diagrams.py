@@ -2,7 +2,11 @@
 
 Shapes follow the same rule as the web view (frontend ChordDiagram.vue): on
 each guitar string, play the lowest fret (0-5) that sounds a chord tone;
-a string with no chord tone in that range is muted (-1).
+a string with no chord tone in that range is muted (-1). A slash chord is
+drawn as its upper chord (G/B looks like G); the bass note is not fingered.
+
+The web page renders the shapes this module computes (GET
+/api/songbooks/{id}/chords), so the page and the PDF always agree.
 """
 
 from app.services.music_theory import (

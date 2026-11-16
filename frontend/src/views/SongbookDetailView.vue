@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, computed } from 'vue'
+import { ref, onMounted, computed, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useSongbookStore } from '../stores/songbooks'
 import { useSongStore } from '../stores/songs'
@@ -8,8 +8,13 @@ import SongDisplay from '../components/SongDisplay.vue'
 import ChordDiagram from '../components/ChordDiagram.vue'
 import AppNotice from '../components/AppNotice.vue'
 import { downloadFile, openFile } from '../api/client'
-import type { SongbookEntryResponse, SongbookUpdate } from '../api/songbooks'
-import { chordChart, type ChordDiagramMode } from '../utils/chords'
+import {
+  getSongbookChords,
+  type ChordShape,
+  type SongbookEntryResponse,
+  type SongbookUpdate,
+} from '../api/songbooks'
+import type { ChordDiagramMode } from '../utils/chords'
 
 const route = useRoute()
 const router = useRouter()
@@ -55,18 +60,32 @@ const metadataLine = computed(() => {
   ].filter(Boolean) as string[]
 })
 
-// Chords as played: global transpose plus each entry's transpose, like the PDF.
-const chartChords = computed(() => {
+// The chart comes from the server so it matches the PDF exactly (#89).
+// Refetch when anything that changes it changes.
+const chartChords = ref<ChordShape[]>([])
+let chartRequest = 0
+const chartKey = computed(() => {
   const book = songbook.value
-  if (!book) return []
-  const songs = book.entries
-    .filter((entry) => entry.song)
-    .map((entry) => ({
-      body: entry.song!.body,
-      transpose: settingsStore.transpose + entry.transpose,
-    }))
-  return chordChart(songs, book.chord_diagrams ?? 'none')
+  if (!book) return ''
+  const entries = book.entries.map((entry) => `${entry.id}:${entry.transpose}`)
+  return [book.id, book.chord_diagrams, settingsStore.transpose, ...entries].join('|')
 })
+
+watch(chartKey, async () => {
+  const book = songbook.value
+  const request = ++chartRequest
+  if (!book || (book.chord_diagrams ?? 'none') === 'none') {
+    chartChords.value = []
+    return
+  }
+  try {
+    const chart = await getSongbookChords(book.id)
+    if (request === chartRequest) chartChords.value = chart
+  } catch {
+    // The chart is optional; the rest of the page still works.
+    if (request === chartRequest) chartChords.value = []
+  }
+}, { immediate: true })
 
 async function addSong() {
   if (!addSongId.value) return
@@ -268,7 +287,12 @@ async function downloadChordPro() {
     <section v-if="chartChords.length" class="chord-chart" aria-label="Chord chart">
       <h2>Chords</h2>
       <div class="chord-chart-items">
-        <ChordDiagram v-for="chord in chartChords" :key="chord" :chord="chord" />
+        <ChordDiagram
+          v-for="chord in chartChords"
+          :key="chord.name"
+          :chord="chord.name"
+          :frets="chord.frets"
+        />
       </div>
     </section>
 

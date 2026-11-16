@@ -55,6 +55,17 @@ export function updateSongbook(id: string, data: SongbookUpdate): Promise<Songbo
   return apiPut(`/api/songbooks/${id}`, data)
 }
 
+export interface ChordShape {
+  name: string
+  /** Fret per string, low E first; 0 = open, -1 = muted. */
+  frets: number[]
+}
+
+/** The songbook's chord chart, computed by the server exactly as in the PDF. */
+export function getSongbookChords(id: string): Promise<ChordShape[]> {
+  return apiGet(`/api/songbooks/${id}/chords`)
+}
+
 export function deleteSongbook(id: string): Promise<void> {
   return apiDelete(`/api/songbooks/${id}`)
 }

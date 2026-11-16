@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-import { mockApi, settings, song, song2, songbook, version } from './fixtures'
+import { mockApi, settings, song, song2, songbook, songbookChords, version } from './fixtures'
 
 test.describe('Songbook UI', () => {
   test('lists songs and opens a song', async ({ page }) => {
@@ -543,6 +543,16 @@ test.describe('Songbook UI', () => {
 
   test('edits songbook metadata and shows the chosen chord diagrams', async ({ page }) => {
     await mockApi(page)
+    // The server computes the chart; serve it per the last saved mode.
+    let mode = 'none'
+    page.on('request', (req) => {
+      if (req.method() === 'PUT' && req.url().endsWith(`/api/songbooks/${songbook.id}`)) {
+        mode = (req.postDataJSON() as { chord_diagrams?: string }).chord_diagrams ?? mode
+      }
+    })
+    await page.route(`**/api/songbooks/${songbook.id}/chords`, (route) =>
+      route.fulfill({ json: mode === 'all' ? songbookChords : [] }),
+    )
     await page.goto(`/songbooks/${songbook.id}`)
     await expect(page.locator('.book-meta')).toContainText('Author: Jane')
     await expect(page.locator('.chord-chart')).toHaveCount(0)
@@ -562,8 +572,12 @@ test.describe('Songbook UI', () => {
     await expect(page.locator('.book-meta')).toContainText('Genre: bluegrass')
     await expect(page.locator('.book-meta')).toContainText('Date: 2026-05-01')
     await expect(page.locator('.chord-chart .chord-name')).toHaveText(['C', 'G'])
+    // C = x32010-style shape from the server: three open strings drawn as O.
+    await expect(
+      page.locator('.chord-chart .chord-diagram').first().locator('text', { hasText: 'O' }),
+    ).toHaveCount(3)
 
-    // G and C are plain major chords, so "uncommon" hides them.
+    // G and C are plain major chords, so the server's "uncommon" chart is empty.
     await page.getByRole('button', { name: 'Edit' }).click()
     await page.getByLabel('Chord diagrams').selectOption('uncommon')
     await page.getByRole('button', { name: 'Save' }).click()
