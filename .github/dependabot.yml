@@ -1,0 +1,55 @@
+# Dependabot version and security updates.
+#
+# Weekly, grouped: one PR per ecosystem for minor/patch updates, one PR per
+# major update. Security fixes are grouped too and skip the cooldown.
+#
+# Docker images are intentionally not listed. They use floating tags
+# (python:3.12-slim, node:20-alpine, postgres:16-alpine, ...) so patches
+# arrive on rebuild, and runtime/major bumps need a coordinated change:
+# Python/Node versions are also pinned in .github/workflows/system.yaml, and a
+# Postgres major upgrade needs a data migration (pg_upgrade).
+
+version: 2
+
+updates:
+  - package-ecosystem: pip
+    directory: /backend
+    schedule:
+      interval: weekly
+      day: monday
+    cooldown:
+      default-days: 7
+    open-pull-requests-limit: 5
+    groups:
+      pip-minor-patch:
+        applies-to: version-updates
+        update-types: [minor, patch]
+      pip-security:
+        applies-to: security-updates
+        patterns: ["*"]
+
+  - package-ecosystem: npm
+    directory: /frontend
+    schedule:
+      interval: weekly
+      day: monday
+    cooldown:
+      default-days: 7
+    open-pull-requests-limit: 5
+    groups:
+      npm-minor-patch:
+        applies-to: version-updates
+        update-types: [minor, patch]
+      npm-security:
+        applies-to: security-updates
+        patterns: ["*"]
+
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: monthly
+    cooldown:
+      default-days: 7
+    groups:
+      github-actions:
+        patterns: ["*"]
