@@ -76,6 +76,17 @@ async def export_selected_pdf(
     )
 
 
+def songbook_metadata(songbook: Songbook) -> list[tuple[str, str]]:
+    """(label, value) pairs for the songbook PDF cover, skipping blanks."""
+    fields = [
+        ("Author", songbook.author),
+        ("Date", songbook.date.isoformat() if songbook.date else None),
+        ("Genre", songbook.genre),
+        ("Difficulty", songbook.difficulty),
+    ]
+    return [(label, value) for label, value in fields if value]
+
+
 @router.get("/songbook/{songbook_id}/pdf")
 async def export_songbook_pdf(
     songbook_id: uuid.UUID,
@@ -109,6 +120,8 @@ async def export_songbook_pdf(
         title=songbook.name,
         description=songbook.description or "",
         per_song=per_song,
+        metadata=songbook_metadata(songbook),
+        chord_diagrams=songbook.chord_diagrams or "none",
     )
     return Response(
         content=pdf.getvalue(),

@@ -2,6 +2,7 @@ import io
 from pathlib import Path
 
 from app.models.settings import Settings
+from app.services.chord_diagrams import chord_chart
 from app.services.music_theory import SongModel
 from jinja2 import Environment, FileSystemLoader
 
@@ -244,7 +245,14 @@ def generate_songbook_pdf(
     title: str = "Songbook",
     description: str = "",
     per_song: list[dict] | None = None,
+    metadata: list[tuple[str, str]] | None = None,
+    chord_diagrams: str = "none",
 ) -> io.BytesIO:
+    """Render a songbook PDF.
+
+    ``metadata`` is a list of (label, value) pairs for the cover;
+    ``chord_diagrams`` (none/uncommon/all) adds a chord chart after the contents.
+    """
     per_song = per_song or [{} for _ in songs]
     try:
         from weasyprint import HTML
@@ -252,12 +260,14 @@ def generate_songbook_pdf(
         env = Environment(loader=FileSystemLoader(str(TEMPLATE_DIR)), autoescape=True)
         template = env.get_template("songbook_pdf.html")
         songs_data = []
+        played_songs = []
         for index, song in enumerate(songs):
             options = per_song[index]
             if settings.transpose:
                 song = song.transpose(settings.transpose)
             if options.get("transpose"):
                 song = song.transpose(options["transpose"])
+            played_songs.append(song)
             data = _build_song_data(song)
             data["double_column"] = options.get(
                 "double_column", bool(settings.double_column)
@@ -266,6 +276,8 @@ def generate_songbook_pdf(
         html = template.render(
             songbook_title=title,
             songbook_description=description,
+            songbook_metadata=metadata or [],
+            chord_chart=chord_chart(played_songs, chord_diagrams),
             songs=songs_data,
             font=settings.font,
             font_size=settings.font_size,

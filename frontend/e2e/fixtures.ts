@@ -41,6 +41,11 @@ export const songbook = {
   id: '66666666-6666-6666-6666-666666666666',
   name: 'My Book',
   description: 'A test songbook',
+  author: 'Jane',
+  date: null as string | null,
+  genre: null as string | null,
+  difficulty: null as string | null,
+  chord_diagrams: 'none',
   created_at: '2026-01-01T00:00:00Z',
   updated_at: '2026-01-01T00:00:00Z',
   entries: [

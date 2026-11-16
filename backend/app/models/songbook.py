@@ -2,7 +2,7 @@ import uuid
 from datetime import datetime, timezone
 
 from app.database import Base
-from sqlalchemy import Column, DateTime, ForeignKey, Integer, String, Text
+from sqlalchemy import Column, Date, DateTime, ForeignKey, Integer, String, Text
 from sqlalchemy.dialects.postgresql import UUID
 from sqlalchemy.orm import relationship
 
@@ -13,6 +13,15 @@ class Songbook(Base):
     id = Column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     name = Column(String(512), nullable=False)
     description = Column(Text, nullable=True, default="")
+    # Songbook metadata (#89), shown on the songbook page and the PDF cover.
+    author = Column(String(256), nullable=True)
+    date = Column(Date, nullable=True)
+    genre = Column(String(128), nullable=True)
+    difficulty = Column(String(64), nullable=True)
+    # Which chord diagrams the songbook shows: none, uncommon, or all.
+    chord_diagrams = Column(
+        String(16), nullable=False, default="none", server_default="none"
+    )
     created_at = Column(
         DateTime(timezone=True),
         nullable=False,

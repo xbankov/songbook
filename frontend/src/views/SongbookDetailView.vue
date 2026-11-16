@@ -5,9 +5,11 @@ import { useSongbookStore } from '../stores/songbooks'
 import { useSongStore } from '../stores/songs'
 import { useSettingsStore } from '../stores/settings'
 import SongDisplay from '../components/SongDisplay.vue'
+import ChordDiagram from '../components/ChordDiagram.vue'
 import AppNotice from '../components/AppNotice.vue'
 import { downloadFile, openFile } from '../api/client'
-import type { SongbookEntryResponse } from '../api/songbooks'
+import type { SongbookEntryResponse, SongbookUpdate } from '../api/songbooks'
+import { chordChart, type ChordDiagramMode } from '../utils/chords'
 
 const route = useRoute()
 const router = useRouter()
@@ -21,6 +23,11 @@ const error = ref('')
 const editing = ref(false)
 const editName = ref('')
 const editDesc = ref('')
+const editAuthor = ref('')
+const editDate = ref('')
+const editGenre = ref('')
+const editDifficulty = ref('')
+const editChordDiagrams = ref<ChordDiagramMode>('none')
 const pendingEntries = ref<Record<string, boolean>>({})
 
 onMounted(async () => {
@@ -36,6 +43,30 @@ onMounted(async () => {
 })
 
 const songbook = computed(() => store.current)
+
+const metadataLine = computed(() => {
+  const book = songbook.value
+  if (!book) return []
+  return [
+    book.author && `Author: ${book.author}`,
+    book.date && `Date: ${book.date}`,
+    book.genre && `Genre: ${book.genre}`,
+    book.difficulty && `Difficulty: ${book.difficulty}`,
+  ].filter(Boolean) as string[]
+})
+
+// Chords as played: global transpose plus each entry's transpose, like the PDF.
+const chartChords = computed(() => {
+  const book = songbook.value
+  if (!book) return []
+  const songs = book.entries
+    .filter((entry) => entry.song)
+    .map((entry) => ({
+      body: entry.song!.body,
+      transpose: settingsStore.transpose + entry.transpose,
+    }))
+  return chordChart(songs, book.chord_diagrams ?? 'none')
+})
 
 async function addSong() {
   if (!addSongId.value) return
@@ -65,18 +96,37 @@ function startEdit() {
   if (!songbook.value) return
   editName.value = songbook.value.name
   editDesc.value = songbook.value.description || ''
+  editAuthor.value = songbook.value.author || ''
+  editDate.value = songbook.value.date || ''
+  editGenre.value = songbook.value.genre || ''
+  editDifficulty.value = songbook.value.difficulty || ''
+  editChordDiagrams.value = songbook.value.chord_diagrams ?? 'none'
   editing.value = true
 }
 
 async function saveEdit() {
   if (!songbook.value || !editName.value.trim()) return
   error.value = ''
-  const data: { name?: string; description?: string } = {}
-  if (editName.value.trim() !== songbook.value.name) {
+  const book = songbook.value
+  const data: SongbookUpdate = {}
+  if (editName.value.trim() !== book.name) {
     data.name = editName.value.trim()
   }
-  if (editDesc.value !== (songbook.value.description || '')) {
+  if (editDesc.value !== (book.description || '')) {
     data.description = editDesc.value
+  }
+  // Blank text clears a metadata field (sent as null).
+  const metadata = [
+    ['author', editAuthor.value.trim(), book.author],
+    ['date', editDate.value, book.date],
+    ['genre', editGenre.value.trim(), book.genre],
+    ['difficulty', editDifficulty.value.trim(), book.difficulty],
+  ] as const
+  for (const [field, value, current] of metadata) {
+    if (value !== (current || '')) data[field] = value || null
+  }
+  if (editChordDiagrams.value !== (book.chord_diagrams ?? 'none')) {
+    data.chord_diagrams = editChordDiagrams.value
   }
   try {
     if (Object.keys(data).length) {
@@ -183,6 +233,9 @@ async function downloadChordPro() {
       <div>
         <h1>{{ songbook.name }}</h1>
         <p v-if="songbook.description" class="desc">{{ songbook.description }}</p>
+        <p v-if="metadataLine.length" class="book-meta">
+          <span v-for="item in metadataLine" :key="item">{{ item }}</span>
+        </p>
       </div>
       <div class="actions">
         <button @click="printSongbook" class="btn-secondary">Print PDF</button>
@@ -196,9 +249,28 @@ async function downloadChordPro() {
     <div v-if="editing" class="edit-book">
       <input v-model="editName" class="input" placeholder="Songbook name" />
       <input v-model="editDesc" class="input" placeholder="Description" />
+      <input v-model="editAuthor" class="input" placeholder="Author" aria-label="Author" />
+      <input v-model="editDate" class="input" type="date" aria-label="Date" />
+      <input v-model="editGenre" class="input" placeholder="Genre" aria-label="Genre" />
+      <input v-model="editDifficulty" class="input" placeholder="Difficulty" aria-label="Difficulty" />
+      <label class="field">
+        Chord diagrams
+        <select v-model="editChordDiagrams" class="input">
+          <option value="none">None</option>
+          <option value="uncommon">Uncommon chords only (hide plain major/minor)</option>
+          <option value="all">All chords</option>
+        </select>
+      </label>
       <button @click="saveEdit" class="btn-primary">Save</button>
       <button @click="editing = false" class="btn-secondary">Cancel</button>
     </div>
+
+    <section v-if="chartChords.length" class="chord-chart" aria-label="Chord chart">
+      <h2>Chords</h2>
+      <div class="chord-chart-items">
+        <ChordDiagram v-for="chord in chartChords" :key="chord" :chord="chord" />
+      </div>
+    </section>
 
     <div class="add-song">
       <select v-model="addSongId" class="input">
@@ -296,6 +368,33 @@ async function downloadChordPro() {
   margin: 0.25rem 0 0;
   color: var(--text-muted);
   font-size: 0.9rem;
+}
+.book-meta {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  margin: 0.25rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+.field {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+.chord-chart {
+  margin-bottom: 1rem;
+}
+.chord-chart h2 {
+  font-size: 1rem;
+  margin: 0 0 0.5rem;
+}
+.chord-chart-items {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
 }
 .actions {
   display: flex;

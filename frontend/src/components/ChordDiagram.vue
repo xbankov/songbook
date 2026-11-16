@@ -77,8 +77,9 @@ const positions = computed<FretPos[]>(() => {
     for (const note of notes) {
       const noteIdx = tones[note]
       if (noteIdx === undefined) continue
-      let f = (noteIdx - openIdx + 12) % 12
-      if (f === 0) f = 12
+      // Lowest fret (open string included) that sounds a chord tone; the
+      // songbook PDF chord chart uses the same rule (backend chord_diagrams.py).
+      const f = (noteIdx - openIdx + 12) % 12
       if (f <= frets) {
         if (bestFret === -1 || f < bestFret) bestFret = f
       }

@@ -39,7 +39,7 @@ async def list_songbooks(
 
 @router.post("", response_model=SongbookOut, status_code=status.HTTP_201_CREATED)
 async def create_songbook(body: SongbookCreate, db: AsyncSession = Depends(get_db)):
-    songbook = Songbook(name=body.name, description=body.description)
+    songbook = Songbook(**body.model_dump())
     db.add(songbook)
     await db.flush()
     await db.refresh(songbook)
@@ -72,7 +72,12 @@ async def update_songbook(
         raise HTTPException(
             status_code=status.HTTP_404_NOT_FOUND, detail="Songbook not found"
         )
-    for field, value in body.model_dump(exclude_unset=True).items():
+    changes = body.model_dump(exclude_unset=True)
+    for field in ("name", "chord_diagrams"):
+        # Required columns: an explicit null means "leave unchanged".
+        if changes.get(field, "") is None:
+            changes.pop(field)
+    for field, value in changes.items():
         setattr(songbook, field, value)
     songbook.updated_at = datetime.now(timezone.utc)
     await db.flush()
