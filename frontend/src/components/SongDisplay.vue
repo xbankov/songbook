@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, ref } from 'vue'
 import { useSettingsStore } from '../stores/settings'
-import { resolveMetadata } from '../utils/chordpro'
 
 const settingsStore = useSettingsStore()
 
@@ -86,17 +85,11 @@ interface RenderedLine { spans: Span[] }
 interface RenderedSection { label: string | null; title: string | null; lines: RenderedLine[] }
 
 function parseChordPro(text: string, semitones: number) {
-  // The song's fields win; an old body tag only fills an unset field (#37).
-  const resolved = resolveMetadata(text, {
-    title: props.title,
-    artist: props.artist,
-    capo: props.capo,
-    key: props.songKey,
-  })
-  const lines = resolved.body.split('\n')
+  const lines = text.split('\n')
   const sections: RenderedSection[] = []
   let currentSection: RenderedSection = { label: null, title: null, lines: [] }
-  const meta = { ...resolved.meta, key: resolved.meta.key || null }
+  // Title, artist, capo and key come from the song's fields only (#37).
+  const meta = { title: props.title, artist: props.artist, capo: props.capo ?? 0, key: props.songKey ?? null }
 
   for (const raw of lines) {
     const stripped = raw.trim()

@@ -191,11 +191,11 @@ def is_unset_field(tag: str, value: Any) -> bool:
 def absorb_chordpro_metadata(
     body: str, fields: dict[str, Any]
 ) -> tuple[str, dict[str, Any]]:
-    """Strip metadata tags from ``body`` and fill unset fields from them.
+    """Strip metadata tags from an incoming ``body`` and fill unset fields.
 
+    Used when a song is saved: a pasted body may carry ``{title}`` etc.
     ``fields`` maps tag names to the values the caller already has. A tag only
-    fills a field that is unset (see ``is_unset_field``); real values always
-    win over tags.
+    fills a field that is unset (see ``is_unset_field``); real values win.
     """
     clean, tags = split_chordpro_metadata(body)
     resolved = dict(fields)
@@ -208,59 +208,22 @@ def absorb_chordpro_metadata(
     return clean, resolved
 
 
-def resolve_song_metadata(
-    body: str,
-    title: str | None,
-    artist: str | None,
-    capo: int | None = 0,
-    key: str | None = None,
-) -> tuple[str, dict[str, Any]]:
-    """Return the body without metadata tags and the song's metadata.
-
-    The song's fields win; an old body tag only fills an unset field (#37).
-    Missing values fall back to ``Unknown``/``Unknown``/0/``None``.
-    """
-    clean, meta = absorb_chordpro_metadata(
-        body, {"title": title, "artist": artist, "capo": capo, "key": key}
-    )
-    return clean, {
-        "title": (
-            meta["title"] if not is_unset_field("title", meta["title"]) else "Unknown"
-        ),
-        "artist": (
-            meta["artist"]
-            if not is_unset_field("artist", meta["artist"])
-            else "Unknown"
-        ),
-        "capo": meta["capo"] or 0,
-        "key": meta["key"] if not is_unset_field("key", meta["key"]) else None,
-    }
-
-
 def song_model_from_fields(
     body: str,
-    title: str | None,
-    artist: str | None,
+    title: str,
+    artist: str,
     capo: int | None = 0,
     key: str | None = None,
 ) -> SongModel:
     """Parse ``body`` but take title/artist/capo/key from the song's fields."""
-    clean, meta = resolve_song_metadata(body, title, artist, capo, key)
-    # Parse the body without its metadata tags: SongModel.from_chordpro would
-    # fail on a non-numeric {capo} tag.
-    return SongModel.from_chordpro(clean).model_copy(update=meta)
+    return SongModel.from_chordpro(body).model_copy(
+        update={"title": title, "artist": artist, "capo": capo or 0, "key": key or None}
+    )
 
 
 def song_model_from_row(song: Any) -> SongModel:
     """Build a ``SongModel`` from a ``Song`` (or ``SongVersion``) row."""
     return song_model_from_fields(
-        song.body, song.title, song.artist, song.capo, song.key
-    )
-
-
-def song_metadata_from_row(song: Any) -> tuple[str, dict[str, Any]]:
-    """``resolve_song_metadata`` for a ``Song`` (or ``SongVersion``) row."""
-    return resolve_song_metadata(
         song.body, song.title, song.artist, song.capo, song.key
     )
 
@@ -277,14 +240,13 @@ def ensure_chordpro_metadata(
     capo: int = 0,
     key: str | None = None,
 ) -> str:
-    # Same precedence as every other export: fields first, then old tags.
-    clean, meta = resolve_song_metadata(body, title, artist, capo, key)
-    prefix = [f"{{title: {meta['title']}}}", f"{{artist: {meta['artist']}}}"]
-    if meta["capo"]:
-        prefix.append(f"{{capo: {meta['capo']}}}")
-    if meta["key"]:
-        prefix.append(f"{{key: {meta['key']}}}")
-    return "\n".join(prefix + clean.split("\n"))
+    lines = split_chordpro_metadata(body)[0].split("\n")
+    prefix = [f"{{title: {title}}}", f"{{artist: {artist}}}"]
+    if capo:
+        prefix.append(f"{{capo: {capo}}}")
+    if key:
+        prefix.append(f"{{key: {key}}}")
+    return "\n".join(prefix + lines)
 
 
 def export_songs_as_chordpro(songs: list[SongModel]) -> str:

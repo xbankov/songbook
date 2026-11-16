@@ -5,7 +5,6 @@ import { useSongStore } from '../stores/songs'
 import ChordProEditor from '../components/ChordProEditor.vue'
 import SongDisplay from '../components/SongDisplay.vue'
 import AppNotice from '../components/AppNotice.vue'
-import { resolveMetadata } from '../utils/chordpro'
 
 const route = useRoute()
 const router = useRouter()
@@ -58,14 +57,11 @@ onMounted(async () => {
   if (isEdit) {
     await store.fetchSong(route.params.id as string)
     if (store.current) {
-      // Older songs may still carry {title}/{artist}/{capo}/{key} in the body.
-      // Keep them out of the editor; they only fill fields that are unset.
-      const { body: cleanBody, meta } = resolveMetadata(store.current.body, store.current)
-      title.value = meta.title
-      artist.value = meta.artist
-      capo.value = meta.capo
-      key.value = meta.key
-      body.value = cleanBody
+      title.value = store.current.title
+      artist.value = store.current.artist
+      capo.value = store.current.capo
+      key.value = store.current.key || ''
+      body.value = store.current.body
       const tags = store.current.tags || []
       difficulty.value = tagValue(tags, 'difficulty:')
       genre.value = tagValue(tags, 'genre:')

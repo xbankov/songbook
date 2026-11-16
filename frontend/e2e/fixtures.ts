@@ -7,10 +7,6 @@ export const song = {
   capo: 2,
   key: 'G',
   body: [
-    '{title: Test Song}',
-    '{artist: Test Artist}',
-    '{capo: 2}',
-    '{key: G}',
     '{start_of_verse}',
     '[G]Hello [C]world',
     '{end_of_verse}',
@@ -30,7 +26,7 @@ export const version = {
   artist: 'Old Artist',
   capo: 0,
   key: null,
-  body: '{title: Old Title}\n{artist: Old Artist}\n{start_of_verse}\n[G]Old line\n{end_of_verse}',
+  body: '{start_of_verse}\n[G]Old line\n{end_of_verse}',
   author: 'Test User',
   created_at: '2025-12-01T00:00:00Z',
 }
