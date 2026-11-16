@@ -58,7 +58,9 @@ class SongOut(BaseModel):
     capo: int
     key: str | None
     body: str
-    metadata: dict = Field(alias="metadata_")
+    # Read from the ORM attribute `metadata_`, but serialise as `metadata`,
+    # the key the frontend reads (an output alias would emit `metadata_`).
+    metadata: dict = Field(validation_alias="metadata_")
     version: int
     created_at: datetime
     updated_at: datetime
@@ -72,6 +74,11 @@ class SongOut(BaseModel):
         return [getattr(tag, "name", tag) for tag in value]
 
     model_config = {"from_attributes": True, "populate_by_name": True}
+
+
+class YoutubeLinkUpdate(BaseModel):
+    # None or "" removes the link.
+    url: str | None = Field(None, max_length=2048)
 
 
 class SongIdsRequest(BaseModel):

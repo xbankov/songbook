@@ -104,6 +104,7 @@ Every roadmap item should make this loop faster, more reliable, or more enjoyabl
 | Library pagination (#27) | Done |
 | Version rows + list/get APIs (#45) | Done — history + restore; authors/forks/favourites/permalink split to #88 |
 | Audio record/upload/playback (#42) | Partial — no record mode/privacy |
+| YouTube link (#25) | Done — one link per song in song metadata (no new version); the privacy-enhanced player loads only on request |
 | Tags model + API filter (#26) | Done — tag-based difficulty/genre filters, alphabet, badges |
 | Auth (#68) | Done — every router except `auth` depends on `require_auth`. Public by design: `/api/health`, `/api/auth/login`, and the API docs (`/api/docs`, `/api/openapi.json`); new routes on the `auth` router are public unless they add `require_auth` themselves |
 | Migrations (#69) | Done — Alembic baseline `0001`; the backend migrates on startup and adopts (stamps) an existing `init_db()` database after a schema check; CI runs upgrade/downgrade on a clean Postgres and fails on model/migration drift |
@@ -205,7 +206,7 @@ The issue itself recommends starting only after the Alembic baseline (#69).
 | --- | --- | --- | --- |
 | 20 | #41 Play/sing view (full-screen, current-line highlight) | M | Rehearsal/gig use |
 | 21 | #42 + #43 Recordings/attachments (merge) | L | Useful, but larger |
-| 22 | #25 YouTube link | S | Small reference feature |
+| 22 | ~~#25 YouTube link~~ (done) | S | Small reference feature |
 
 ### Phase 5 — Mobile offline (single-user)
 
@@ -586,3 +587,4 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-16 | CI: added the "CI passed" gate job and Dependabot auto-merge |
 | 2026-11-16 | Dependabot: grouped coupled packages (pytest, celery/redis, TypeScript/vue-tsc, Capacitor, pinia, vite, eslint) across all update types; TypeScript 7 ignored until vue-tsc supports it |
 | 2026-11-16 | #69 done: Alembic baseline `0001`, startup migration with `init_db()` adoption, CI migration checks |
+| 2026-11-16 | #25 done: per-song YouTube link; song API now returns `metadata` (was `metadata_`, which the UI never read) |

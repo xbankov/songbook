@@ -7,7 +7,7 @@ export interface SongResponse {
   capo: number
   key: string | null
   body: string
-  metadata: Record<string, unknown> & { audio_file?: string }
+  metadata: Record<string, unknown> & { audio_file?: string; youtube_url?: string }
   tags: string[]
   version: number
   created_at: string
@@ -118,6 +118,11 @@ export function unfavoriteVersion(id: string, version: number): Promise<SongResp
 
 export function forkVersion(id: string, version: number): Promise<SongResponse> {
   return apiPost(`/api/songs/${id}/versions/${version}/fork`)
+}
+
+/** Set or clear (null) the song's YouTube link (#25); no new version. */
+export function setYoutubeLink(id: string, url: string | null): Promise<SongResponse> {
+  return apiPut(`/api/songs/${id}/youtube`, { url })
 }
 
 export function analyzeSong(id: string): Promise<SongAnalysis> {
