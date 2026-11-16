@@ -12,6 +12,7 @@ from app.services.converters import (
     ensure_chordpro_metadata,
     song_model_from_fields,
     split_chordpro_metadata,
+    transpose_chordpro_body,
 )
 from fastapi.testclient import TestClient
 
@@ -143,8 +144,34 @@ def test_song_model_prefers_fields_over_stale_body_tags():
     model = song_model_from_fields(STALE_BODY, "New Title", "New Artist", 0, "A")
 
     assert (model.title, model.artist, model.key) == ("New Title", "New Artist", "A")
-    # An empty field still falls back to an old body tag.
-    assert model.capo == 3
+    # Capo 0 is a real value ("no capo"), so a stale {capo} tag does not win.
+    assert model.capo == 0
+
+
+def test_song_model_fills_unset_fields_from_body_tags():
+    model = song_model_from_fields(STALE_BODY, "Unknown", "", None, None)
+
+    assert (model.title, model.artist) == ("Old Title", "Old Artist")
+    assert (model.capo, model.key) == (3, "G")
+
+
+def test_song_model_ignores_a_non_numeric_capo_tag():
+    model = song_model_from_fields("{capo: II}\n[G]La", "Song", "Band", 0, None)
+
+    assert model.capo == 0
+    assert model.sections
+
+
+def test_ensure_metadata_fills_an_unset_key_from_a_body_tag():
+    # ChordPro export uses the same precedence as the other formats.
+    out = ensure_chordpro_metadata(STALE_BODY, "New Title", "New Artist", 0, None)
+
+    assert out.splitlines()[:3] == [
+        "{title: New Title}",
+        "{artist: New Artist}",
+        "{key: G}",
+    ]
+    assert "{capo:" not in out
 
 
 def test_ensure_metadata_writes_each_tag_once_from_the_fields():
@@ -196,7 +223,7 @@ def test_update_strips_tags_and_keeps_the_sent_fields():
     assert response.status_code == 200
     data = response.json()
     assert (data["title"], data["artist"], data["capo"]) == ("Renamed", "New Artist", 0)
-    # The request left the key out, so the body tag fills it.
+    # The request left the key out, so the stored key stays.
     assert data["key"] == "G"
     assert "{title" not in data["body"] and "{key" not in data["body"]
     version = next(obj for obj in db.added if isinstance(obj, SongVersion))
@@ -257,3 +284,83 @@ def test_restore_strips_tags_from_an_old_version_body():
     data = response.json()
     assert (data["title"], data["capo"], data["key"]) == ("Old Title", 3, "G")
     assert data["body"] == "{start_of_verse}\n[G]Hello [C]world\n{end_of_verse}"
+
+
+def test_update_with_only_a_body_keeps_the_stored_fields():
+    song = _song(capo=2, key="D")
+    db = _Session([song])
+
+    response = _call(db, "PUT", f"/api/songs/{song.id}", json={"body": STALE_BODY})
+
+    assert response.status_code == 200
+    data = response.json()
+    assert (data["title"], data["artist"]) == ("New Title", "New Artist")
+    assert (data["capo"], data["key"]) == (2, "D")
+    assert "{title" not in data["body"]
+
+
+def test_update_fills_only_unset_stored_fields_from_body_tags():
+    song = _song(artist="Unknown", key=None)
+    db = _Session([song])
+
+    response = _call(db, "PUT", f"/api/songs/{song.id}", json={"body": STALE_BODY})
+
+    assert response.status_code == 200
+    data = response.json()
+    assert (data["title"], data["artist"], data["key"]) == (
+        "New Title",
+        "Old Artist",
+        "G",
+    )
+    assert data["capo"] == 0
+
+
+def test_restore_fills_unset_fields_from_old_version_tags():
+    song = _song(body="[C]current", version=2)
+    old = SongVersion(
+        id=uuid4(),
+        song_id=song.id,
+        version=1,
+        title="Old Title",
+        artist="Old Artist",
+        capo=0,
+        key=None,
+        body=STALE_BODY,
+        created_at=datetime.now(timezone.utc),
+    )
+    db = _Session([song, old])
+
+    response = _call(db, "POST", f"/api/songs/{song.id}/versions/1/restore")
+
+    assert response.status_code == 200
+    data = response.json()
+    assert (data["title"], data["capo"], data["key"]) == ("Old Title", 0, "G")
+    assert "{key" not in data["body"]
+
+
+def test_transpose_keeps_other_directives_and_fills_an_unset_key():
+    body = "{key: G}\n{comment: Slow intro}\n{tempo: 90}\n[G]Hello [C]world"
+    song = _song(body=body, key=None)
+    db = _Session([song])
+
+    response = _call(db, "GET", f"/api/songs/{song.id}/transpose?interval=2")
+
+    assert response.status_code == 200
+    data = response.json()
+    assert data["key"] == "A"
+    assert data["body"] == "{comment: Slow intro}\n{tempo: 90}\n[A]Hello [D]world"
+
+
+def test_transpose_chordpro_body_keeps_comments():
+    out = transpose_chordpro_body("{comment: [G] intro}\n[G]La", 2)
+
+    assert out == "{comment: [A] intro}\n[A]La"
+
+
+def test_bulk_export_survives_a_non_numeric_capo_tag():
+    db = _Session([[_song(body="{capo: II}\n[G]Hello")]])
+
+    response = _call(db, "GET", "/api/songs/export/bulk?format=text")
+
+    assert response.status_code == 200
+    assert response.text.startswith("New Title - New Artist")

@@ -5,7 +5,7 @@ import { useSongStore } from '../stores/songs'
 import ChordProEditor from '../components/ChordProEditor.vue'
 import SongDisplay from '../components/SongDisplay.vue'
 import AppNotice from '../components/AppNotice.vue'
-import { splitChordProMetadata } from '../utils/chordpro'
+import { resolveMetadata } from '../utils/chordpro'
 
 const route = useRoute()
 const router = useRouter()
@@ -23,6 +23,12 @@ const saving = ref(false)
 const error = ref('')
 const saved = ref(false)
 let savedTimer: ReturnType<typeof setTimeout> | null = null
+
+// The form as last loaded or saved, to detect unsaved edits.
+let savedSnapshot = ''
+function formSnapshot(): string {
+  return JSON.stringify([title.value, artist.value, capo.value, key.value, body.value, difficulty.value, genre.value])
+}
 
 function tagValue(tags: string[], prefix: string): string {
   return tags.find((tag) => tag.startsWith(prefix))?.slice(prefix.length) || ''
@@ -53,22 +59,22 @@ onMounted(async () => {
     await store.fetchSong(route.params.id as string)
     if (store.current) {
       // Older songs may still carry {title}/{artist}/{capo}/{key} in the body.
-      // Keep them out of the editor; they only fill fields that are empty.
-      const { body: cleanBody, values } = splitChordProMetadata(store.current.body)
-      const parsedCapo = parseInt(values.capo ?? '')
-      title.value = store.current.title || values.title || ''
-      artist.value = store.current.artist || values.artist || ''
-      capo.value = store.current.capo || (isNaN(parsedCapo) ? 0 : parsedCapo)
-      key.value = store.current.key || values.key || ''
+      // Keep them out of the editor; they only fill fields that are unset.
+      const { body: cleanBody, meta } = resolveMetadata(store.current.body, store.current)
+      title.value = meta.title
+      artist.value = meta.artist
+      capo.value = meta.capo
+      key.value = meta.key
       body.value = cleanBody
       const tags = store.current.tags || []
       difficulty.value = tagValue(tags, 'difficulty:')
       genre.value = tagValue(tags, 'genre:')
+      savedSnapshot = formSnapshot()
     }
   }
 })
 
-async function save() {
+async function save(): Promise<boolean> {
   saving.value = true
   error.value = ''
   saved.value = false
@@ -82,6 +88,7 @@ async function save() {
         body: body.value,
         tags: buildTags(),
       })
+      savedSnapshot = formSnapshot()
       saved.value = true
       if (savedTimer) clearTimeout(savedTimer)
       savedTimer = setTimeout(() => {
@@ -99,8 +106,10 @@ async function save() {
       })
       router.replace(`/songs/${song.id}?created=1`)
     }
+    return true
   } catch (e: unknown) {
     error.value = e instanceof Error ? e.message : 'Save failed'
+    return false
   } finally {
     saving.value = false
   }
@@ -109,10 +118,14 @@ async function save() {
 async function transpose(interval: number) {
   if (!isEdit) return
   error.value = ''
+  // The server transposes the stored song, so save unsaved edits first;
+  // otherwise the result would replace them.
+  if (formSnapshot() !== savedSnapshot && !(await save())) return
   try {
     const song = await store.transposeSong(route.params.id as string, interval)
     body.value = song.body
     key.value = song.key || ''
+    savedSnapshot = formSnapshot()
   } catch (e: unknown) {
     error.value = e instanceof Error ? e.message : 'Transpose failed'
   }
@@ -189,7 +202,7 @@ async function transpose(interval: number) {
 
     <div v-if="body" class="preview">
       <h2>Preview</h2>
-      <SongDisplay :chordpro="body" :title="title" :artist="artist" :capo="capo || 0" :song-key="key || null" />
+      <SongDisplay :chordpro="body" :title="title || 'Preview'" :artist="artist || 'Artist'" :capo="capo || 0" :song-key="key || null" />
     </div>
   </div>
 </template>

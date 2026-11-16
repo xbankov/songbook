@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { computed, onBeforeUnmount, ref } from 'vue'
 import { useSettingsStore } from '../stores/settings'
+import { resolveMetadata } from '../utils/chordpro'
 
 const settingsStore = useSettingsStore()
 
@@ -85,10 +86,17 @@ interface RenderedLine { spans: Span[] }
 interface RenderedSection { label: string | null; title: string | null; lines: RenderedLine[] }
 
 function parseChordPro(text: string, semitones: number) {
-  const lines = text.split('\n')
+  // The song's fields win; an old body tag only fills an unset field (#37).
+  const resolved = resolveMetadata(text, {
+    title: props.title,
+    artist: props.artist,
+    capo: props.capo,
+    key: props.songKey,
+  })
+  const lines = resolved.body.split('\n')
   const sections: RenderedSection[] = []
   let currentSection: RenderedSection = { label: null, title: null, lines: [] }
-  let meta = { title: props.title, artist: props.artist, capo: props.capo ?? 0, key: props.songKey ?? null as string | null }
+  const meta = { ...resolved.meta, key: resolved.meta.key || null }
 
   for (const raw of lines) {
     const stripped = raw.trim()
@@ -97,12 +105,7 @@ function parseChordPro(text: string, semitones: number) {
       const colon = content.indexOf(':')
       const tag = colon >= 0 ? content.slice(0, colon).trim() : content
       const val = colon >= 0 ? content.slice(colon + 1).trim() : ''
-      // The song's fields win; an old body tag only fills an empty field (#37).
-      if (tag === 'title') meta.title = meta.title || val
-      else if (tag === 'artist') meta.artist = meta.artist || val
-      else if (tag === 'capo') { const n = parseInt(val); if (!meta.capo && !isNaN(n)) meta.capo = n }
-      else if (tag === 'key') meta.key = meta.key || val
-      else if (tag.startsWith('start_of_')) {
+      if (tag.startsWith('start_of_')) {
         if (currentSection.lines.length > 0) sections.push(currentSection)
         currentSection = { label: tag.slice(9), title: val || null, lines: [] }
       } else if (tag.startsWith('end_of_')) {

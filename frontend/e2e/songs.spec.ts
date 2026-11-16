@@ -187,6 +187,74 @@ test.describe('Songbook UI', () => {
     expect(saved!.capo).toBe(song.capo)
   })
 
+  test('capo 0 in the song fields wins over a stale capo tag', async ({ page }) => {
+    await mockApi(page)
+    let saved: Record<string, unknown> | null = null
+    await page.route(`**/api/songs/${song.id}`, async (route) => {
+      if (route.request().method() === 'PUT') {
+        saved = route.request().postDataJSON()
+        return route.fulfill({ json: { ...song, ...saved } })
+      }
+      // The body still says {capo: 2}; the field says no capo.
+      return route.fulfill({ json: { ...song, capo: 0 } })
+    })
+
+    await page.goto(`/songs/${song.id}`)
+    await expect(page.locator('.song-title')).toHaveText(song.title)
+    await expect(page.locator('.song-meta')).not.toContainText('Capo')
+
+    await page.goto(`/songs/${song.id}/edit`)
+    await expect(page.locator('.editor-textarea')).toHaveValue(/\[G\]Hello/)
+    await expect(page.locator('.edit-form input[type="number"]')).toHaveValue('0')
+    await page.getByRole('button', { name: 'Save' }).click()
+    await expect.poll(() => saved?.capo).toBe(0)
+  })
+
+  test('saves unsaved edits before transposing in the editor', async ({ page }) => {
+    await mockApi(page)
+    const calls: string[] = []
+    let saved: Record<string, unknown> | null = null
+    await page.route(`**/api/songs/${song.id}`, async (route) => {
+      if (route.request().method() === 'PUT') {
+        calls.push('save')
+        saved = route.request().postDataJSON()
+        return route.fulfill({ json: { ...song, ...saved } })
+      }
+      return route.fallback()
+    })
+    await page.route(`**/api/songs/${song.id}/transpose**`, (route) => {
+      calls.push('transpose')
+      return route.fulfill({
+        json: { ...song, key: 'G#', body: '[G#]Edited [C#]line' },
+      })
+    })
+
+    await page.goto(`/songs/${song.id}/edit`)
+    const editor = page.locator('.editor-textarea')
+    await expect(editor).toHaveValue(/\[G\]Hello/)
+    await editor.fill('[G]Edited [C]line')
+    await page.getByRole('button', { name: '+1' }).click()
+
+    await expect(editor).toHaveValue('[G#]Edited [C#]line')
+    expect(calls).toEqual(['save', 'transpose'])
+    expect(saved!.body).toBe('[G]Edited [C]line')
+    await expect(page.locator('.edit-form input[placeholder="e.g. G, Am"]')).toHaveValue('G#')
+
+    // Nothing unsaved now, so the next transpose does not save again.
+    await page.getByRole('button', { name: '+1' }).click()
+    await expect.poll(() => calls.length).toBe(3)
+    expect(calls[2]).toBe('transpose')
+  })
+
+  test('new song preview shows placeholders until the fields are filled', async ({ page }) => {
+    await mockApi(page)
+    await page.goto('/songs/new')
+    await page.locator('.editor-textarea').fill('[G]Hello')
+
+    await expect(page.locator('.preview .song-title')).toHaveText('Preview')
+    await expect(page.locator('.preview .song-artist')).toHaveText('Artist')
+  })
+
   test('print view switches between one and two columns', async ({ page }) => {
     await mockApi(page)
     const lines = Array.from(

@@ -24,3 +24,47 @@ export function splitChordProMetadata(body: string): {
   while (kept.length && !kept[0].trim()) kept.shift()
   return { body: kept.join('\n'), values }
 }
+
+export interface SongMetadata {
+  title: string
+  artist: string
+  capo: number
+  key: string
+}
+
+// Mirrors is_unset_field in the backend: blank values and the "Unknown"
+// placeholder are unset; capo 0 means "no capo", so only a missing capo is.
+function isUnset(tag: MetadataTag, value: string | number | null | undefined): boolean {
+  if (value === null || value === undefined) return true
+  if (tag === 'capo') return false
+  const text = String(value).trim()
+  return !text || ((tag === 'title' || tag === 'artist') && text === 'Unknown')
+}
+
+// The song's fields win; an old body tag only fills a field that is unset.
+// Mirrors resolve_song_metadata in the backend (#37).
+export function resolveMetadata(
+  body: string,
+  fields: {
+    title?: string | null
+    artist?: string | null
+    capo?: number | null
+    key?: string | null
+  },
+): { body: string; meta: SongMetadata } {
+  const { body: clean, values } = splitChordProMetadata(body)
+  const pick = (tag: 'title' | 'artist' | 'key'): string => {
+    const value = fields[tag]
+    if (!isUnset(tag, value)) return String(value)
+    return values[tag] || (value ?? '')
+  }
+  let capo = fields.capo
+  if (isUnset('capo', capo)) {
+    const parsed = parseInt(values.capo ?? '')
+    capo = isNaN(parsed) ? 0 : parsed
+  }
+  return {
+    body: clean,
+    meta: { title: pick('title'), artist: pick('artist'), capo: capo ?? 0, key: pick('key') },
+  }
+}
