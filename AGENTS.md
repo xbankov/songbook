@@ -91,10 +91,10 @@ A pull request is ready only when all of these are true:
 Never merge while a Sourcery finding is unaddressed. Never claim a PR is ready
 just because the first CI run passed.
 
-**Exception — Dependabot PRs** merge themselves: `dependabot-automerge.yml`
+**Exception — Dependabot minor/patch PRs** merge themselves: `dependabot-automerge.yml`
 enables auto-merge, and GitHub merges once the required checks "CI passed" and
 "Sourcery review" succeed. A Dependabot PR with failing CI stays open; fix it
-like any other PR.
+like any other PR. Major updates are never auto-merged; review them by hand.
 
 ## Pull request format
 
