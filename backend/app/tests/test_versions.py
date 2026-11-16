@@ -151,8 +151,9 @@ def test_favorite_version_updates_metadata():
 
     assert response.status_code == 200
     data = response.json()
-    metadata = data.get("metadata") or data.get("metadata_")
-    assert metadata["favorite_versions"] == [1]
+    # The frontend reads `metadata`, not the ORM attribute name `metadata_`.
+    assert "metadata_" not in data
+    assert data["metadata"]["favorite_versions"] == [1]
 
 
 def test_fork_version_creates_a_new_song():

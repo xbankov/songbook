@@ -10,6 +10,7 @@ from app.schemas.song import (
     SongOut,
     SongUpdate,
     SongVersionOut,
+    YoutubeLinkUpdate,
 )
 from app.services.converters import (
     METADATA_TAGS,
@@ -29,6 +30,7 @@ from app.services.http import content_disposition
 from app.services.scraper import import_from_url
 from app.services.settings import get_or_create_settings as get_global_settings
 from app.services.tags import resolve_tags
+from app.services.youtube import canonical_youtube_url
 from fastapi import APIRouter, Depends, File, HTTPException, Query, UploadFile, status
 from fastapi.responses import FileResponse, PlainTextResponse, Response
 from sqlalchemy import exists, func, select
@@ -495,6 +497,37 @@ async def delete_audio(song_id: uuid.UUID, db: AsyncSession = Depends(get_db)):
             os.remove(filepath)
     await db.flush()
     return {"status": "ok"}
+
+
+@router.put("/{song_id}/youtube", response_model=SongOut)
+async def set_youtube_link(
+    song_id: uuid.UUID, body: YoutubeLinkUpdate, db: AsyncSession = Depends(get_db)
+):
+    """Set or clear the song's YouTube link (#25).
+
+    The link lives in song metadata, so it does not create a new version.
+    """
+    result = await db.execute(select(Song).where(Song.id == song_id))
+    song = result.scalar_one_or_none()
+    if not song:
+        raise HTTPException(
+            status_code=status.HTTP_404_NOT_FOUND, detail="Song not found"
+        )
+    meta = dict(song.metadata_ or {})
+    if body.url and body.url.strip():
+        url = canonical_youtube_url(body.url)
+        if url is None:
+            raise HTTPException(
+                status_code=status.HTTP_422_UNPROCESSABLE_ENTITY,
+                detail="Not a YouTube video link",
+            )
+        meta["youtube_url"] = url
+    else:
+        meta.pop("youtube_url", None)
+    song.metadata_ = meta
+    await db.flush()
+    await db.refresh(song)
+    return song
 
 
 @router.get("/export/bulk")

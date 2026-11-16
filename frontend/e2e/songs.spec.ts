@@ -504,6 +504,43 @@ test.describe('Songbook UI', () => {
     await expect(page.locator('.header h1')).toHaveText('Renamed Book')
   })
 
+  test('adds a YouTube link and loads the player only on request', async ({ page }) => {
+    await mockApi(page)
+    const canonical = 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+    const saved: (string | null)[] = []
+    await page.route(`**/api/songs/${song.id}/youtube`, async (route) => {
+      const { url } = route.request().postDataJSON() as { url: string | null }
+      saved.push(url)
+      const metadata = url ? { youtube_url: canonical } : {}
+      await route.fulfill({ json: { ...song, metadata } })
+    })
+    let playerRequests = 0
+    await page.route('https://www.youtube-nocookie.com/**', (route) => {
+      playerRequests += 1
+      return route.fulfill({ contentType: 'text/html', body: '<html></html>' })
+    })
+
+    await page.goto(`/songs/${song.id}`)
+    await page.getByRole('button', { name: 'Add YouTube link' }).click()
+    await page.getByLabel('YouTube link').fill('https://youtu.be/dQw4w9WgXcQ')
+    await page.getByRole('button', { name: 'Save' }).click()
+
+    await expect(page.getByRole('link', { name: 'Open on YouTube' })).toHaveAttribute('href', canonical)
+    expect(saved).toEqual(['https://youtu.be/dQw4w9WgXcQ'])
+    await expect(page.locator('.youtube-player iframe')).toHaveCount(0)
+    expect(playerRequests).toBe(0)
+
+    await page.getByRole('button', { name: 'Show video' }).click()
+    await expect(page.locator('.youtube-player iframe')).toHaveAttribute(
+      'src',
+      'https://www.youtube-nocookie.com/embed/dQw4w9WgXcQ',
+    )
+
+    await page.getByRole('button', { name: 'Remove YouTube link' }).click()
+    await expect(page.getByRole('button', { name: 'Add YouTube link' })).toBeVisible()
+    expect(saved).toEqual(['https://youtu.be/dQw4w9WgXcQ', null])
+  })
+
   test('downloads ChordPro for a song and a songbook', async ({ page }) => {
     await mockApi(page)
     await page.goto(`/songs/${song.id}`)

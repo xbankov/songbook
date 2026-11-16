@@ -12,6 +12,7 @@ import {
   forkVersion,
   listVersions,
   restoreVersion,
+  setYoutubeLink,
   unfavoriteVersion,
   type SongVersion,
 } from '../api/songs'
@@ -36,6 +37,18 @@ const loadingVersions = ref(false)
 const restoringVersion = ref<number | null>(null)
 const historyError = ref('')
 const historyNotice = ref('')
+const youtubeUrl = computed(() => {
+  const value = store.current?.metadata?.youtube_url
+  return typeof value === 'string' ? value : ''
+})
+const youtubeId = computed(() => {
+  const match = youtubeUrl.value.match(/[?&]v=([A-Za-z0-9_-]{11})/)
+  return match ? match[1] : ''
+})
+const showVideo = ref(false)
+const editingYoutube = ref(false)
+const youtubeInput = ref('')
+const youtubeError = ref('')
 let mediaRecorder: MediaRecorder | null = null
 let audioChunks: Blob[] = []
 
@@ -50,6 +63,9 @@ async function loadSong(id: string) {
   if (request !== loadRequestId) return
   versions.value = []
   showHistory.value = false
+  showVideo.value = false
+  editingYoutube.value = false
+  youtubeError.value = ''
   if (store.current?.id === id) {
     hasAudio.value = !!(store.current.metadata?.audio_file)
     try {
@@ -148,6 +164,23 @@ async function toggleFavorite(version: SongVersion) {
     store.current = song
   } catch (e: unknown) {
     historyError.value = e instanceof Error ? e.message : 'Could not update favourite'
+  }
+}
+
+function startYoutubeEdit() {
+  youtubeInput.value = youtubeUrl.value
+  youtubeError.value = ''
+  editingYoutube.value = true
+}
+
+async function saveYoutube(url: string | null) {
+  youtubeError.value = ''
+  try {
+    store.current = await setYoutubeLink(route.params.id as string, url)
+    editingYoutube.value = false
+    showVideo.value = false
+  } catch (e: unknown) {
+    youtubeError.value = e instanceof Error ? e.message : 'Could not save the YouTube link'
   }
 }
 
@@ -341,6 +374,40 @@ const chords = computed(() => {
         </template>
       </div>
 
+      <div class="youtube-section">
+        <AppNotice v-if="youtubeError" type="error" :message="youtubeError" />
+        <form v-if="editingYoutube" class="youtube-form" @submit.prevent="saveYoutube(youtubeInput.trim() || null)">
+          <input
+            v-model="youtubeInput"
+            class="youtube-input"
+            type="url"
+            placeholder="https://www.youtube.com/watch?v=…"
+            aria-label="YouTube link"
+          />
+          <button type="submit" class="btn-secondary">Save</button>
+          <button type="button" class="btn-secondary" @click="editingYoutube = false">Cancel</button>
+        </form>
+        <template v-else-if="youtubeId">
+          <!-- Load the player only on request: no third-party request per view. -->
+          <button class="btn-secondary" @click="showVideo = !showVideo">
+            {{ showVideo ? 'Hide video' : 'Show video' }}
+          </button>
+          <a :href="youtubeUrl" target="_blank" rel="noopener noreferrer" class="youtube-link">Open on YouTube</a>
+          <button class="btn-secondary" @click="startYoutubeEdit">Change</button>
+          <button class="btn-danger-sm" title="Remove YouTube link" aria-label="Remove YouTube link" @click="saveYoutube(null)">×</button>
+        </template>
+        <button v-else class="btn-secondary" @click="startYoutubeEdit">Add YouTube link</button>
+        <div v-if="showVideo && youtubeId" class="youtube-player">
+          <iframe
+            :src="`https://www.youtube-nocookie.com/embed/${youtubeId}`"
+            title="YouTube video"
+            allow="encrypted-media; picture-in-picture; fullscreen"
+            referrerpolicy="strict-origin-when-cross-origin"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+
       <div v-if="chords.length" class="chord-diagrams">
         <ChordDiagram
           v-for="c in chords"
@@ -495,6 +562,48 @@ const chords = computed(() => {
   background: var(--surface);
   border: 1px solid var(--border);
   border-radius: 4px;
+}
+.youtube-section {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+.youtube-form {
+  display: flex;
+  flex: 1;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+.youtube-input {
+  flex: 1;
+  min-width: 220px;
+  padding: 0.4rem 0.5rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  color: var(--text);
+}
+.youtube-link {
+  color: var(--accent);
+  font-size: 0.85rem;
+}
+.youtube-player {
+  flex-basis: 100%;
+  max-width: 640px;
+  aspect-ratio: 16 / 9;
+}
+.youtube-player iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 4px;
+}
+@media print {
+  .youtube-section {
+    display: none !important;
+  }
 }
 .audio-player {
   flex: 1;
