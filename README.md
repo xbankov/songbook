@@ -78,8 +78,10 @@ git pull && docker compose up -d --build
   rather than a plain `alembic upgrade head` for the first run on a pre-Alembic
   database: plain Alembic does not adopt it and fails with "relation already
   exists" (nothing is changed).
-- **Restoring a backup** (`/api/backup/restore`) migrates the restored schema
-  to the current revision, including backups taken before Alembic.
+- **Restoring a backup** (`/api/backup/restore`) runs in one transaction,
+  then migrates the restored schema to the current revision, including
+  backups taken before Alembic. If the restore fails (for example, an old
+  dump cannot drop a table a newer version references), nothing is changed.
 - **Never run `alembic downgrade base` on a real database:** it drops every
   table, including the whole library.
 

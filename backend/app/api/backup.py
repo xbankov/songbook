@@ -70,7 +70,10 @@ def _backup_path(filename: str) -> str:
     """Path of an existing backup file inside BACKUP_DIR, or 404."""
     backup_dir = os.path.realpath(settings.backup_dir)
     filepath = os.path.realpath(os.path.join(backup_dir, filename))
-    if not filepath.startswith(backup_dir + os.sep) or not os.path.isfile(filepath):
+    inside = filepath != backup_dir and (
+        os.path.commonpath([backup_dir, filepath]) == backup_dir
+    )
+    if not inside or not os.path.isfile(filepath):
         raise HTTPException(status_code=404, detail="Backup not found")
     return filepath
 

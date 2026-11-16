@@ -43,14 +43,29 @@ async def test_restore_migrates_and_handles_pre_alembic_dumps(
     assert "--single-transaction" in commands[0]
 
 
-@pytest.mark.parametrize("filename", ["../etc/passwd", "/etc/passwd", "missing.sql"])
-async def test_restore_rejects_paths_outside_the_backup_dir(
+@pytest.mark.parametrize(
+    "filename", ["../secret.sql", "link.sql", "missing.sql", "", "."]
+)
+async def test_backup_paths_must_stay_inside_the_backup_dir(
     tmp_path, monkeypatch, filename
 ):
-    monkeypatch.setattr(backup_api.settings, "backup_dir", str(tmp_path / "b"))
-    (tmp_path / "b").mkdir()
+    backups = tmp_path / "b"
+    backups.mkdir()
+    # Real files outside the backup dir, reachable via ../ or a symlink.
+    (tmp_path / "secret.sql").write_text("secret")
+    (backups / "link.sql").symlink_to(tmp_path / "secret.sql")
+    monkeypatch.setattr(backup_api.settings, "backup_dir", str(backups))
 
-    with pytest.raises(HTTPException) as error:
-        await backup_api.restore_backup(filename)
+    for endpoint in (backup_api.restore_backup, backup_api.download_backup):
+        with pytest.raises(HTTPException) as error:
+            await endpoint(filename)
+        assert error.value.status_code == 404
 
-    assert error.value.status_code == 404
+
+async def test_download_returns_a_backup_inside_the_dir(tmp_path, monkeypatch):
+    (tmp_path / "ok.sql").write_text("dump")
+    monkeypatch.setattr(backup_api.settings, "backup_dir", str(tmp_path))
+
+    response = await backup_api.download_backup("ok.sql")
+
+    assert response.body == b"dump"
