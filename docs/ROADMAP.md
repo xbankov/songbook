@@ -1,6 +1,6 @@
 # Songbook — Roadmap and Agent Guide
 
-> **Status:** living document. Last updated: 2026-11-16.
+> **Status:** living document. Last updated: 2026-11-17.
 > **Product lane:** A — personal/band songbook (see §1).
 > **Owner:** @xbankov. **Audience:** maintainers and AI agents.
 
@@ -101,7 +101,7 @@ Every roadmap item should make this loop faster, more reliable, or more enjoyabl
 | Play/sing view (#41) | Done — `/songs/:id/play`: full screen, adjustable text size, current-line highlight moved by tap, arrows, Space or PageUp/PageDown (page-turner pedals), autoscroll, screen wake lock. Record mode stays with #42 |
 | Songbooks: CRUD, add/remove, PDF (#24) | Done — delete/rename, reorder, per-entry transpose/columns, TOC; metadata/chordscheme → #89. The songbook PDF uses each entry's column setting (fixed in #96) |
 | Import by URL + UG search/pick/import (#46, #51, #132) | Done for UG: chords merged into lyrics, sections and capo kept, one polite fetch path (#132); supermusic blocks automated access (#133) |
-| Bulk import (#29) | Partial — paste only; no file/zip upload |
+| Bulk import (#29) | Done — paste, plus files/one zip with a dry run and selective import |
 | Export (#54) | Done — single, selected, and all songs as ChordPro/text/ABC/LilyPond; per-songbook export is **ChordPro only** |
 | Print (#55, #56, #57, #58, #59) | Done — single/selected/songbook, 1/2-column long-song layout, chords above lyrics, margins/headings/page numbers |
 | Library pagination (#27) | Done |
@@ -191,7 +191,7 @@ spec for "starting note" and "rhythmic pattern"; `capo`/`key` already exist).
 
 | # | Issue | Size | Why |
 | --- | --- | --- | --- |
-| 15 | #29 Batch upload (clarify paste vs file/zip) | M | Bring an existing library in at once |
+| 15 | ~~#29 Batch upload: files and one zip, dry run then import~~ (done) | M | Bring an existing library in at once; base for #134 |
 | 15a | ~~#132 UG import: merge chords into lyrics, keep sections and capo~~ (done) | M | UG is the main import source |
 | 16 | #50 Import pisnicky-akordy.cz | M | The other site this circle uses |
 | 17 | #20 Harden Supermusic import (~~#133 anti-bot stub → clear error~~ done) | M | Song pages sit behind a JS proof-of-work challenge we will not solve; paste is the fallback |
@@ -394,7 +394,6 @@ Closed: #15 (regression test added), #33 (re-triaged), #37 (fields replace body 
 
 ### Needs a written spec before coding
 
-- #29 Batch upload — paste (already done) or file/zip upload?
 - #43 Attachments — which file types, storage, privacy?
 - #44 Expand ChordPro — semantics of “starting note” and “rhythmic pattern”.
 - #23 User management — superseded by the multi-user epic (#72).
@@ -568,6 +567,7 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-16 | The running instance holds a real library: #69 (Alembic baseline) precedes any schema change, starting with #89 | @xbankov |
 | 2026-11-16 | Dependabot minor/patch PRs auto-merge (rebase) once the required checks "CI passed" and "Sourcery review" succeed; majors need a manual review. This is the only exception to the human review gate (§9.3.1) | @xbankov |
 | 2026-11-16 | #89: songbook metadata in dedicated columns; chord chart per songbook (none/uncommon/all) on the page and in the PDF, using the same open-position shape rule on both | agent (user asked to continue the roadmap) |
+| 2026-11-17 | #29: file/zip batch upload is two calls over the same files — a dry run that lists songs, duplicates and errors, then an import of the selected entries. ChordPro keeps non-metadata directives; plain text uses the UG parser; archives are read in memory with limits and never extracted to disk. Titles fall back to the file name | agent (user approved the spec in session) |
 
 ---
 
@@ -598,3 +598,4 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-16 | #41 done: play/sing view with current-line highlight and pedal keys |
 | 2026-11-17 | #133 fixed: supermusic's anti-bot stub gives a clear import error instead of an empty song |
 | 2026-11-17 | #132 fixed: UG import merges chord lines into lyrics, maps sections, saves capo/key, lists only importable search results, and uses one rate-limited fetch path |
+| 2026-11-17 | #29 done: batch upload of files or one zip, with a dry run, duplicate flags, selective import, and zip-safety limits |

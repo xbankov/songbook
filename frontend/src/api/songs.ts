@@ -1,4 +1,4 @@
-import { apiDelete, apiGet, apiGetWithHeaders, apiPost, apiPut } from './client'
+import { apiDelete, apiGet, apiGetWithHeaders, apiPost, apiPut, apiUpload } from './client'
 
 export interface SongResponse {
   id: string
@@ -76,6 +76,46 @@ export function transposeSong(id: string, interval: number): Promise<SongRespons
 
 export function bulkImport(text: string): Promise<SongResponse[]> {
   return apiPost('/api/songs/import/bulk', text, 'text/plain')
+}
+
+export interface BatchEntry {
+  index: number
+  filename: string
+  title: string
+  artist: string
+  capo: number
+  key: string | null
+  duplicate: boolean
+  error: string | null
+}
+
+export interface BatchImportResult {
+  imported: SongResponse[]
+  skipped: { index: number; reason: string }[]
+}
+
+function batchForm(files: File[]): FormData {
+  const form = new FormData()
+  files.forEach((file) => form.append('files', file))
+  return form
+}
+
+/** Dry run: what each uploaded file (or zip member) would become. */
+export function previewImportFiles(
+  files: File[],
+): Promise<{ entries: BatchEntry[] }> {
+  return apiUpload('/api/songs/import/files?dry_run=true', batchForm(files))
+}
+
+export function importFiles(
+  files: File[],
+  selected: number[],
+): Promise<BatchImportResult> {
+  const query = selected.join(',')
+  return apiUpload(
+    `/api/songs/import/files?dry_run=false&selected=${query}`,
+    batchForm(files),
+  )
 }
 
 export interface SongAnalysis {
