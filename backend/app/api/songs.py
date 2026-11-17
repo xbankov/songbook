@@ -36,6 +36,7 @@ from fastapi.responses import FileResponse, PlainTextResponse, Response
 from sqlalchemy import exists, func, select
 from sqlalchemy.ext.asyncio import AsyncSession
 from sqlalchemy.sql.elements import ColumnElement
+from starlette.concurrency import run_in_threadpool
 
 router = APIRouter(prefix="/api/songs", tags=["songs"])
 
@@ -142,7 +143,7 @@ async def create_song(body: SongCreate, db: AsyncSession = Depends(get_db)):
 @router.post("/import", response_model=SongOut, status_code=status.HTTP_201_CREATED)
 async def import_song(url: str, db: AsyncSession = Depends(get_db)):
     try:
-        song_model = import_from_url(url)
+        song_model = await run_in_threadpool(import_from_url, url)
     except SongImportError as e:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST, detail=str(e)

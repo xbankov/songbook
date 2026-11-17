@@ -133,6 +133,37 @@ test.describe('Songbook UI', () => {
     await expect(page).toHaveURL(/\/songs$/)
   })
 
+  test('imports a search result through the URL importer', async ({ page }) => {
+    const tabUrl = 'https://tabs.ultimate-guitar.com/tab/misc-traditional/song-chords-1'
+    await mockApi(page)
+    await page.route('**/api/search?*', (route) =>
+      route.fulfill({
+        json: {
+          query: 'song',
+          results: [
+            { title: 'Song', artist: 'Trad', url: tabUrl, source: 'ultimate-guitar', type: 'Chords', rating: 5, votes: 1 },
+          ],
+        },
+      }),
+    )
+    let importedUrl = ''
+    await page.route('**/api/songs/import?*', (route) => {
+      importedUrl = new URL(route.request().url()).searchParams.get('url') ?? ''
+      return route.fulfill({ status: 201, json: song })
+    })
+
+    await page.goto('/songs')
+    await page.getByRole('button', { name: 'Search', exact: true }).click()
+    await page.getByPlaceholder('Search for songs to import...').fill('song')
+    await page.getByRole('button', { name: 'Search', exact: true }).last().click()
+    const result = page.locator('.search-result')
+    await expect(result).toContainText('Chords')
+    await result.getByRole('button', { name: 'Import' }).click()
+
+    await expect(page).toHaveURL(new RegExp(`/songs/${song.id}\\?imported=1$`))
+    expect(importedUrl).toBe(tabUrl)
+  })
+
   test('requests song PDFs with the auth token', async ({ page }) => {
     await mockApi(page)
     await page.goto(`/songs/${song.id}`)

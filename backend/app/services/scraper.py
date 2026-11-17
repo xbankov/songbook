@@ -1,7 +1,9 @@
 import logging
+from urllib.parse import urlparse
 
 import requests
-from app.services.music_theory import SongModel, parse_ultimate_guitar_html
+from app.services import ultimate_guitar
+from app.services.music_theory import SongModel
 from bs4 import BeautifulSoup
 
 logger = logging.getLogger(__name__)
@@ -38,13 +40,11 @@ def has_lyrics(song: SongModel) -> bool:
     return any(str(line).strip() for section in song.sections for line in section.lines)
 
 
-def scrape_ultimate_guitar(url: str) -> SongModel | None:
+def scrape_ultimate_guitar(url: str) -> SongModel:
     try:
-        html = fetch_url(url)
-        return parse_ultimate_guitar_html(html)
-    except Exception as e:
-        logger.error(f"Failed to scrape Ultimate Guitar URL: {url}: {e}")
-        return None
+        return ultimate_guitar.import_tab(url)
+    except ultimate_guitar.UltimateGuitarError as e:
+        raise SongImportError(str(e)) from e
 
 
 def parse_supermusic_html(html: str) -> SongModel:
@@ -77,10 +77,18 @@ def scrape_supermusic(url: str) -> SongModel:
     return parse_supermusic_html(html)
 
 
+def is_supermusic_url(url: str) -> bool:
+    host = (urlparse(url).hostname or "").lower()
+    return any(
+        host == domain or host.endswith(f".{domain}")
+        for domain in ("supermusic.cz", "supermusic.sk")
+    )
+
+
 def detect_source(url: str) -> str:
-    if "ultimate-guitar" in url:
+    if ultimate_guitar.is_ultimate_guitar_url(url):
         return "ultimate-guitar"
-    elif "supermusic" in url:
+    elif is_supermusic_url(url):
         return "supermusic"
     return "unknown"
 
@@ -97,8 +105,6 @@ def import_from_url(url: str) -> SongModel:
         raise SongImportError(
             "Unsupported site: import works for Ultimate Guitar and supermusic URLs."
         )
-    if song is None:
-        raise SongImportError("Failed to import song from URL")
     if not has_lyrics(song):
         raise SongImportError("No song text found at that URL.")
     return song
