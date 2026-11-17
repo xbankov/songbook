@@ -121,7 +121,6 @@ async def export_songbook_pdf(
         description=songbook.description or "",
         per_song=per_song,
         metadata=songbook_metadata(songbook),
-        chord_diagrams=songbook.chord_diagrams or "none",
     )
     return Response(
         content=pdf.getvalue(),

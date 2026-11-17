@@ -1,6 +1,6 @@
 import { expect, test } from '@playwright/test'
 
-import { mockApi, settings, song, song2, songbook, songbookChords, version } from './fixtures'
+import { mockApi, settings, song, song2, songbook, version } from './fixtures'
 
 test.describe('Songbook UI', () => {
   test('lists songs and opens a song', async ({ page }) => {
@@ -632,46 +632,27 @@ test.describe('Songbook UI', () => {
     expect(saved).toEqual(['https://youtu.be/dQw4w9WgXcQ', null])
   })
 
-  test('edits songbook metadata and shows the chosen chord diagrams', async ({ page }) => {
+  test('edits songbook metadata without a chord chart', async ({ page }) => {
     await mockApi(page)
-    // The server computes the chart; serve it per the last saved mode.
-    let mode = 'none'
-    page.on('request', (req) => {
-      if (req.method() === 'PUT' && req.url().endsWith(`/api/songbooks/${songbook.id}`)) {
-        mode = (req.postDataJSON() as { chord_diagrams?: string }).chord_diagrams ?? mode
-      }
-    })
-    await page.route(`**/api/songbooks/${songbook.id}/chords`, (route) =>
-      route.fulfill({ json: mode === 'all' ? songbookChords : [] }),
-    )
     await page.goto(`/songbooks/${songbook.id}`)
     await expect(page.locator('.book-meta')).toContainText('Author: Jane')
     await expect(page.locator('.chord-chart')).toHaveCount(0)
 
     await page.getByRole('button', { name: 'Edit' }).click()
+    await expect(page.getByLabel('Chord diagrams')).toHaveCount(0)
     await page.getByLabel('Genre').fill('bluegrass')
     await page.getByLabel('Date').fill('2026-05-01')
-    await page.getByLabel('Chord diagrams').selectOption('all')
     const saveRequest = page.waitForRequest(
       (req) =>
         req.url().endsWith(`/api/songbooks/${songbook.id}`) && req.method() === 'PUT',
     )
     await page.getByRole('button', { name: 'Save' }).click()
     const body = (await saveRequest).postDataJSON()
-    expect(body).toEqual({ date: '2026-05-01', genre: 'bluegrass', chord_diagrams: 'all' })
+    expect(body).toEqual({ date: '2026-05-01', genre: 'bluegrass' })
 
     await expect(page.locator('.book-meta')).toContainText('Genre: bluegrass')
     await expect(page.locator('.book-meta')).toContainText('Date: 2026-05-01')
-    await expect(page.locator('.chord-chart .chord-name')).toHaveText(['C', 'G'])
-    // C = x32010 from the server: two open strings drawn as O (low E muted).
-    await expect(
-      page.locator('.chord-chart .chord-diagram').first().locator('text', { hasText: 'O' }),
-    ).toHaveCount(2)
-
-    // G and C are plain major chords, so the server's "uncommon" chart is empty.
-    await page.getByRole('button', { name: 'Edit' }).click()
-    await page.getByLabel('Chord diagrams').selectOption('uncommon')
-    await page.getByRole('button', { name: 'Save' }).click()
+    // The chart stays gone even for a songbook that stored a chart mode.
     await expect(page.locator('.chord-chart')).toHaveCount(0)
   })
 

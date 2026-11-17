@@ -1,13 +1,9 @@
 from datetime import date as Date
 from datetime import datetime
-from typing import Literal
 from uuid import UUID
 
 from app.schemas.song import SongOut
 from pydantic import BaseModel, Field, field_validator
-
-# none: no diagrams; uncommon: hide plain major/minor chords; all: every chord.
-ChordDiagrams = Literal["none", "uncommon", "all"]
 
 
 class SongbookMetadata(BaseModel):
@@ -27,13 +23,11 @@ class SongbookMetadata(BaseModel):
 class SongbookCreate(SongbookMetadata):
     name: str
     description: str = ""
-    chord_diagrams: ChordDiagrams = "none"
 
 
 class SongbookUpdate(SongbookMetadata):
     name: str | None = None
     description: str | None = None
-    chord_diagrams: ChordDiagrams | None = None
 
 
 class SongbookOut(BaseModel):
@@ -44,16 +38,8 @@ class SongbookOut(BaseModel):
     date: Date | None = None
     genre: str | None = None
     difficulty: str | None = None
-    chord_diagrams: ChordDiagrams = "none"
     created_at: datetime
     updated_at: datetime
-
-    @field_validator("chord_diagrams", mode="before")
-    @classmethod
-    def _default_chord_diagrams(cls, value: str | None) -> str:
-        # Rows built in memory have no server default yet; a value written
-        # outside the API must not break every songbook response.
-        return value if value in ("none", "uncommon", "all") else "none"
 
     model_config = {"from_attributes": True}
 
@@ -78,12 +64,6 @@ class SongbookEntryUpdate(BaseModel):
 
 class SongbookOrderUpdate(BaseModel):
     entry_ids: list[UUID]
-
-
-class ChordShapeOut(BaseModel):
-    name: str
-    # Fret per string, low E first; 0 = open, -1 = muted.
-    frets: list[int]
 
 
 class SongbookDetailOut(SongbookOut):
