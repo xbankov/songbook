@@ -286,6 +286,11 @@ assist for what the rules cannot catch.
 
 ~~#22 Custom domain + TLS~~ (done): `docker-compose.tls.yml` adds Caddy with automatic Let's Encrypt HTTPS; guide in [`docs/deployment.md`](deployment.md).
 
+~~Auto-deploy tagged releases~~ (done): the private `home-server` repository
+holds the app as a submodule and a self-hosted GitHub Actions runner deploys
+the newest `v*` tag every ten minutes, with a pre-deploy `pg_dump` and a
+health-check rollback; guide in [`docs/deployment.md`](deployment.md#5-releases-and-auto-deploy-home-server).
+
 ### Pre-1.0.0 release gate
 
 Do these before tagging 1.0.0:
@@ -603,6 +608,7 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-17 | #149: a UG tab drops its leading title/artist/URL/textual-capo header, tab staff lines, chord `*`/`xN` markers, and the trailing notes/alternate-chord block. The capo comes from the metadata; no network in tests | agent (user asked to continue the roadmap) |
 | 2026-11-17 | #161: UG search keeps version/total versions, rating/votes, key, difficulty, update date, verified and type label; rows deduplicate identical URLs and default to a vote-weighted best order, with local best/votes/newest sorting | agent (user asked to continue the roadmap) |
 | 2026-11-18 | #151 is the container epic for import v2 (sub-issues #152–#155); #156/#157 are Phase 7 AI follow-ups, with #157 on-demand and preview-first | agent (user asked to continue the roadmap) |
+| 2026-11-17 | Releases are `v*` tags on `main`; production runs on the home server from the private `home-server` repo (submodule + own Compose project) and a self-hosted runner deploys the newest tag with a pre-deploy `pg_dump` and a health-check rollback | agent (user chose in session) |
 
 ---
 
@@ -639,4 +645,8 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-17 | #143 done: removed the songbook chord chart from the page, PDF and API; the column stays for existing data |
 | 2026-11-17 | #149 done: UG imports drop the tab header, textual capo, staff lines, trailing notes/alternate-chord blocks, and chord markers |
 | 2026-11-17 | #161 done: UG search rows show type, version, rating/votes, key, difficulty, update year and verified state, with a source link and best/votes/newest sort |
+<<<<<<< HEAD
 | 2026-11-18 | Added the #151 Import v2 epic notes and the #156/#157 AI follow-ups; #141/#142 scheduled next in Phase 4 |
+=======
+| 2026-11-17 | Auto-deploy: tagged releases are rolled out to the home server by a self-hosted runner (submodule + own Compose project); guide in docs/deployment.md §5 |
+>>>>>>> 745d8b2 (Document tagged releases and auto-deploy)

@@ -68,6 +68,49 @@ Caddy and with the plain-HTTP ports published.
 Follow "Database migrations" in the README: back up, then
 `git pull && docker compose -f docker-compose.yml -f docker-compose.tls.yml up -d --build`.
 
+The home server's instance upgrades itself on release tags; see §5.
+
+## 5. Releases and auto-deploy (home server)
+
+The home server runs Songbook as its own Compose project from the private
+[`home-server`](https://github.com/xbankov/home-server) repository: the app is
+the `services/songbook/app` git submodule and the stack is
+`services/songbook/compose.yaml`. A self-hosted GitHub Actions runner in that
+repository checks for a new release every ten minutes and deploys it.
+
+A **release** is an annotated `v*` tag on `main`:
+
+```bash
+git tag -a v2.0.1 -m "Songbook 2.0.1"
+git push origin v2.0.1
+```
+
+Tag only a commit whose CI is green. Until the first tag exists, the runner
+deploys the tip of `main`.
+
+A deploy:
+- resets the deployment checkout to `main` and updates the submodule;
+- checks out the newest `v*` tag;
+- takes a `pg_dump` into `SONGBOOK_DATA_DIR/backups` (the last 10 are kept);
+- rebuilds and recreates the stack, then waits for `/api/health`;
+- rolls back to the previous tag when the health check fails.
+
+Manual deploy or rollback on the server:
+
+```bash
+cd /home/ubuntu/songbook-deploy
+git fetch origin main && git reset --hard origin/main
+git submodule update --init --recursive
+./scripts/songbook-deploy.sh                 # the newest tag
+./scripts/songbook-deploy.sh v2.0.0          # a specific tag
+SONGBOOK_FORCE=1 ./scripts/songbook-deploy.sh  # rebuild the current tag
+```
+
+Data lives outside the checkout (`SONGBOOK_DATA_DIR`, set to
+`/home/ubuntu/songbook-data` on the home server), so resets and rebuilds never
+touch it. The instance is on the LAN at `http://192.168.178.50:8081`; the
+runner, secrets and stack are documented in the home-server README.
+
 ## Troubleshooting
 
 | Symptom | Likely cause |
