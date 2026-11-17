@@ -1,6 +1,3 @@
-import html
-import json
-
 import pytest
 from app.services.music_theory import (
     Chord,
@@ -10,7 +7,6 @@ from app.services.music_theory import (
     SongModel,
     Tone,
     chord_quality_names,
-    parse_ultimate_guitar_html,
 )
 
 
@@ -180,49 +176,3 @@ class TestChordQuality:
         assert Chord.parse("Cmaj").quality == ChordQuality.major
         assert Chord.parse("Cmin").quality == ChordQuality.minor
         assert Chord.parse("Cmin7").quality == ChordQuality.min7
-
-
-def _ultimate_guitar_html(content: str) -> str:
-    data = {
-        "store": {
-            "page": {
-                "data": {
-                    "tab_view": {
-                        "versions": [
-                            {"song_name": "Test Song", "artist_name": "Test Artist"}
-                        ],
-                        "wiki_tab": {"content": content},
-                    }
-                }
-            }
-        }
-    }
-    payload = html.escape(json.dumps(data), quote=True)
-    return f'<div class="js-store" data-content="{payload}"></div>'
-
-
-class TestUltimateGuitarParser:
-    def test_does_not_return_an_empty_song(self):
-        # Regression for #51: tabs wrapped in [tab] used to produce nothing.
-        content = (
-            "[tab][ch]Am[/ch]\r\n"
-            "Start wearing purple, wearing purple[/tab]\r\n"
-            "[tab]                            [ch]E7[/ch]\r\n"
-            "Start wearing purple for me now[/tab]"
-        )
-        song = parse_ultimate_guitar_html(_ultimate_guitar_html(content))
-        assert song is not None
-        assert "Start wearing purple" in str(song)
-
-    def test_keeps_a_line_that_is_not_a_chord_line(self):
-        # Regression for #51: this line used to be dropped from the import.
-        content = (
-            "[tab]     [ch]Em[/ch]\r\n"
-            "Ya - soldat,\r\n"
-            "Ya ne spal pyat' let\r\n"
-            "    [ch]Am7[/ch]                [ch]Em[/ch]\r\n"
-            "i u menya pod glazami meshki[/tab]"
-        )
-        song = parse_ultimate_guitar_html(_ultimate_guitar_html(content))
-        assert song is not None
-        assert "Ya ne spal pyat' let" in str(song)

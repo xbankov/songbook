@@ -100,7 +100,7 @@ Every roadmap item should make this loop faster, more reliable, or more enjoyabl
 | Song view: chords above lyrics, styling, 2 columns, autoscroll (#38) | Done |
 | Play/sing view (#41) | Done — `/songs/:id/play`: full screen, adjustable text size, current-line highlight moved by tap, arrows, Space or PageUp/PageDown (page-turner pedals), autoscroll, screen wake lock. Record mode stays with #42 |
 | Songbooks: CRUD, add/remove, PDF (#24) | Done — delete/rename, reorder, per-entry transpose/columns, TOC; metadata/chordscheme → #89. The songbook PDF uses each entry's column setting (fixed in #96) |
-| Import by URL + UG search/pick/import (#46, #51) | Done for UG (parsing fixed in #51) |
+| Import by URL + UG search/pick/import (#46, #51, #132) | Done for UG: chords merged into lyrics, sections and capo kept, one polite fetch path (#132); supermusic blocks automated access (#133) |
 | Bulk import (#29) | Partial — paste only; no file/zip upload |
 | Export (#54) | Done — single, selected, and all songs as ChordPro/text/ABC/LilyPond; per-songbook export is **ChordPro only** |
 | Print (#55, #56, #57, #58, #59) | Done — single/selected/songbook, 1/2-column long-song layout, chords above lyrics, margins/headings/page numbers |
@@ -192,6 +192,7 @@ spec for "starting note" and "rhythmic pattern"; `capo`/`key` already exist).
 | # | Issue | Size | Why |
 | --- | --- | --- | --- |
 | 15 | #29 Batch upload (clarify paste vs file/zip) | M | Bring an existing library in at once |
+| 15a | ~~#132 UG import: merge chords into lyrics, keep sections and capo~~ (done) | M | UG is the main import source |
 | 16 | #50 Import pisnicky-akordy.cz | M | The other site this circle uses |
 | 17 | #20 Harden Supermusic import (~~#133 anti-bot stub → clear error~~ done) | M | Song pages sit behind a JS proof-of-work challenge we will not solve; paste is the fallback |
 | 18 | #46 Direct lookup by name (narrow to extra sources) | S | UG flow already exists |
@@ -596,3 +597,4 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-16 | #89 done: songbook metadata and chord-diagram selection (migration `0002`) |
 | 2026-11-16 | #41 done: play/sing view with current-line highlight and pedal keys |
 | 2026-11-17 | #133 fixed: supermusic's anti-bot stub gives a clear import error instead of an empty song |
+| 2026-11-17 | #132 fixed: UG import merges chord lines into lyrics, maps sections, saves capo/key, lists only importable search results, and uses one rate-limited fetch path |

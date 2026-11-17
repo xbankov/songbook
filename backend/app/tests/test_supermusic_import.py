@@ -8,11 +8,10 @@ from uuid import uuid4
 
 import pytest
 import requests
-from app.api import search_import
 from app.database import get_db
 from app.main import app
 from app.models.song import Song
-from app.services import scraper
+from app.services import scraper, ultimate_guitar
 from app.services.auth import create_access_token
 from app.services.scraper import (
     SUPERMUSIC_BLOCKED,
@@ -180,39 +179,32 @@ def _ug_page(content: str) -> str:
     return f'<div class="js-store" data-content="{payload}"></div>'
 
 
-class _Response:
-    def __init__(self, text):
-        self.text = text
+UG_URL = "https://tabs.ultimate-guitar.com/tab/a/b-chords-1"
 
 
-@pytest.mark.parametrize("path", ["/api/songs/import", "/api/search/import"])
-def test_ultimate_guitar_song_still_imports(serve, session, monkeypatch, path):
+@pytest.mark.parametrize(
+    "path, status", [("/api/songs/import", 201), ("/api/search/import", 200)]
+)
+def test_ultimate_guitar_song_still_imports(session, monkeypatch, path, status):
     page = _ug_page("[tab][ch]G[/ch]\nHello world[/tab]")
-    serve(page)
-    monkeypatch.setattr(
-        search_import.requests, "get", lambda *args, **kwargs: _Response(page)
-    )
+    monkeypatch.setattr(ultimate_guitar, "fetch", lambda url: page)
 
-    response = _post(path, "https://tabs.ultimate-guitar.com/tab/a/b-chords-1")
+    response = _post(path, UG_URL)
 
-    assert response.status_code in (200, 201)
+    assert response.status_code == status
     if path == "/api/songs/import":
-        assert "Hello world" in session.added[0].body
+        assert "[G]Hello world" in session.added[0].body
     else:
-        assert "Hello world" in response.json()["body"]
+        assert "[G]Hello world" in response.json()["body"]
 
 
 @pytest.mark.parametrize("path", ["/api/songs/import", "/api/search/import"])
-def test_ultimate_guitar_page_without_lyrics_is_rejected(
-    serve, session, monkeypatch, path
-):
+def test_ultimate_guitar_page_without_lyrics_is_rejected(session, monkeypatch, path):
     page = _ug_page("")
-    serve(page)
-    monkeypatch.setattr(
-        search_import.requests, "get", lambda *args, **kwargs: _Response(page)
-    )
+    monkeypatch.setattr(ultimate_guitar, "fetch", lambda url: page)
 
-    response = _post(path, "https://tabs.ultimate-guitar.com/tab/a/b-chords-1")
+    response = _post(path, UG_URL)
 
     assert response.status_code == 400
+    assert "No song text" in response.json()["detail"]
     assert session.added == []

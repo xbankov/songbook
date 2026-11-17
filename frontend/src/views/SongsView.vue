@@ -2,7 +2,7 @@
 import { computed, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useSongStore } from '../stores/songs'
-import { apiDownload, apiGet, apiPost, downloadFile, openFile } from '../api/client'
+import { apiDownload, apiGet, downloadFile, openFile } from '../api/client'
 import { useDebounceFn } from '@vueuse/core'
 import AppNotice from '../components/AppNotice.vue'
 
@@ -80,6 +80,7 @@ interface SearchResult {
   artist: string
   url: string
   source: string
+  type: string
   rating: number
 }
 
@@ -226,12 +227,8 @@ async function doSearchImport() {
 
 async function importSearchResult(url: string) {
   try {
-    const songData = await apiPost<{ title: string; artist: string; body: string }>(`/api/search/import?url=${encodeURIComponent(url)}`)
-    const song = await store.createSong({
-      title: songData.title,
-      artist: songData.artist,
-      body: songData.body,
-    })
+    // Same import as "Import URL": keeps capo, key, and the source link.
+    const song = await store.importSong(url)
     router.push(`/songs/${song.id}?imported=1`)
   } catch (e: unknown) {
     showNotice('error', e instanceof Error ? e.message : 'Import failed')
@@ -310,7 +307,7 @@ async function importSearchResult(url: string) {
         <div v-for="r in searchResults" :key="r.url" class="search-result">
           <div class="result-info">
             <strong>{{ r.title }}</strong> — {{ r.artist }}
-            <span class="badge">{{ r.source }}</span>
+            <span class="badge">{{ r.type }}</span>
           </div>
           <button @click="importSearchResult(r.url)" class="btn-sm">Import</button>
         </div>
