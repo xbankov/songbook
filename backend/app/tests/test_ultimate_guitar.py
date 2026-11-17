@@ -35,12 +35,17 @@ def _fixture(name: str) -> str:
     return (FIXTURES / name).read_text()
 
 
-def _page(content: str, meta: dict | None = None) -> str:
+def _page(
+    content: str,
+    meta: dict | None = None,
+    title: str = "Song",
+    artist: str = "Artist",
+) -> str:
     data = {
         "store": {
             "page": {
                 "data": {
-                    "tab": {"song_name": "Song", "artist_name": "Artist"},
+                    "tab": {"song_name": title, "artist_name": artist},
                     "tab_view": {"meta": meta or {}, "wiki_tab": {"content": content}},
                 }
             }
@@ -75,9 +80,14 @@ def test_line_with_an_unparsable_chord_is_kept_whole():
     assert _body("[ch]N.C.[/ch]   [ch]G[/ch]\nStop and go") == "N.C.   [G]\nStop and go"
 
 
-def test_trailing_mark_on_a_chord_line_still_merges():
+def test_trailing_mark_on_a_chord_line_merges_and_is_dropped():
     body = _body("     [ch]A[/ch]   [ch]D[/ch] *\nI've seen trouble")
-    assert body == "I've [A]seen[D] trouble  *"
+    assert body == "I've [A]seen[D] trouble"
+
+
+def test_marker_between_chords_is_dropped_without_shifting_them():
+    body = _body("[ch]G[/ch]*  [ch]D[/ch] x2\nla la")
+    assert body == "[G]la [D]la"
 
 
 def test_unmerged_chord_line_keeps_its_indent():
@@ -116,9 +126,9 @@ def test_chord_line_before_a_blank_line_stays_a_chord_line():
     assert _body("[ch]Am[/ch]  [ch]E[/ch]\n\nWords") == "[Am]  [E]\nWords"
 
 
-def test_chord_line_is_not_merged_into_a_tab_staff():
+def test_tab_staff_lines_are_dropped():
     body = _body("    [ch]G7[/ch]\ne|-----|\nB|--3--|")
-    assert body == "    [G7]\ne|-----|\nB|--3--|"
+    assert body == "    [G7]"
 
 
 # --- sections ----------------------------------------------------------------
@@ -159,8 +169,58 @@ def test_bracketed_line_that_is_not_a_section_is_text():
 
 
 def test_text_before_the_first_header_has_no_section():
-    sections = parse_content("Capo III\n[Verse]\nla")
+    sections = parse_content("Intro talk\n[Verse]\nla")
     assert [s.label for s in sections] == [None, "verse"]
+
+
+def test_textual_capo_before_the_first_section_is_dropped():
+    sections = parse_content("Capo III\n[Verse]\nla")
+
+    assert [s.label for s in sections] == ["verse"]
+
+
+def test_leading_tab_header_is_dropped():
+    content = (
+        "Song Title chords\n"
+        "Artist Name 1988 (Album)***\n"
+        "https://example.com/song\n"
+        "Capo II **\n"
+        "\n"
+        "[Verse]\n"
+        "[ch]G[/ch]\n"
+        "la la"
+    )
+    song = parse_tab_html(_page(content, title="Song Title", artist="Artist Name"))
+    body = str(song)
+
+    assert "Song Title chords" not in body
+    assert "Artist Name 1988" not in body
+    assert "https://example.com/song" not in body
+    assert "Capo II" not in body
+    assert "{start_of_verse}\n[G]la la\n{end_of_verse}" in body
+
+
+def test_trailing_notes_and_alternate_chords_are_dropped():
+    content = (
+        "[Verse]\n"
+        "la\n"
+        "\n"
+        "* add a Dsus4\n"
+        "\n"
+        "*** Alternates:\n"
+        "Capo I\n"
+        "[ch]D[/ch] = [ch]E[/ch]"
+    )
+    assert _body(content) == "{start_of_verse}\nla\n{end_of_verse}"
+
+
+def test_notes_block_ends_at_the_next_section():
+    content = "[Verse]\nla\n* note\nD = E\n[Chorus]\nla"
+
+    assert _body(content) == (
+        "{start_of_verse}\nla\n{end_of_verse}\n\n"
+        "{start_of_chorus}\nla\n{end_of_chorus}"
+    )
 
 
 # --- whole pages (real fixtures) ---------------------------------------------
@@ -180,18 +240,29 @@ def test_amazing_grace_page():
     assert "{start_of_verse: Verse 1}" in body
     assert "A[G]mazing [G7]Grace, how [C]sweet the [G]sound" in body
     assert "That saved a [A]wretch like [D]me!" in body
-    # The chord diagram at the top stays a chord line above its tab staff.
-    assert "[G7]\ne|-----|" in body
+    # The diagram's chord line stays; its tab staff is dropped (#149).
+    assert "[G7]" in body
+    assert "e|" not in body
 
 
 def test_capo_and_key_come_from_the_tab_metadata():
     song = parse_tab_html(_fixture("ug_constant_sorrow_capo_chords.html"))
 
+    body = str(song)
+
     assert song.capo == 3
     assert song.key == "F"
-    assert "[D]I Am A Man Of Constant [G]Sorrow" in str(song)
-    # This chord line ends in "*": it still merges, and the mark is kept.
-    assert "I've seen [A]trouble all my [D]day.  *" in str(song)
+    assert "[D]I Am A Man Of Constant [G]Sorrow" in body
+    # This chord line ends in "*": it merges, but the marker is dropped.
+    assert "I've seen [A]trouble all my [D]day." in body
+    # The tab header and its trailing notes/alternate-chord block are gone.
+    assert "Man Of Constant Sorrow chords" not in body
+    assert "Soggy Bottom Boys" not in body
+    assert "https://" not in body
+    assert "Capo III" not in body
+    assert "To spice this song up" not in body
+    assert "Alternates:" not in body
+    assert "Set8" not in body
 
 
 def test_intro_bars_and_parenthesised_lines_are_kept():
