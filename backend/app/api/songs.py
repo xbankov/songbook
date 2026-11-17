@@ -12,6 +12,14 @@ from app.schemas.song import (
     SongVersionOut,
     YoutubeLinkUpdate,
 )
+from app.services.batch_import import (
+    MAX_UPLOAD_BYTES,
+    BatchImportError,
+    Upload,
+    collect_entries,
+    mark_duplicates,
+    parse_selection,
+)
 from app.services.converters import (
     METADATA_TAGS,
     absorb_chordpro_metadata,
@@ -598,6 +606,91 @@ async def bulk_import(
         await db.refresh(song)
         created.append(song)
     return created
+
+
+async def _read_uploads(files: list[UploadFile]) -> list[Upload]:
+    """Read the request in chunks so one huge file cannot fill the memory."""
+    uploads = []
+    received = 0
+    for file in files:
+        chunks = []
+        while chunk := await file.read(64 * 1024):
+            received += len(chunk)
+            if received > MAX_UPLOAD_BYTES:
+                raise HTTPException(
+                    status_code=status.HTTP_400_BAD_REQUEST,
+                    detail=(
+                        "The upload is too large "
+                        f"(max {MAX_UPLOAD_BYTES // (1024 * 1024)} MB)."
+                    ),
+                )
+            chunks.append(chunk)
+        uploads.append(Upload(name=file.filename or "song", data=b"".join(chunks)))
+    return uploads
+
+
+@router.post("/import/files")
+async def import_files(
+    response: Response,
+    files: list[UploadFile] = File(...),
+    dry_run: bool = Query(True),
+    selected: str | None = Query(None),
+    db: AsyncSession = Depends(get_db),
+):
+    """Preview (default) or import uploaded ChordPro/text files and zips (#29).
+
+    The dry run lists every song found, its duplicates and errors, and saves
+    nothing. The import reads the same upload again and creates only the
+    selected entries; an entry with an error is reported, not saved.
+    """
+    uploads = await _read_uploads(files)
+    try:
+        entries = await run_in_threadpool(collect_entries, uploads)
+        chosen = parse_selection(selected, len(entries))
+    except BatchImportError as e:
+        raise HTTPException(
+            status_code=status.HTTP_400_BAD_REQUEST, detail=str(e)
+        ) from e
+
+    songs = await db.execute(select(Song.title, Song.artist))
+    mark_duplicates(entries, songs.all())
+
+    if dry_run:
+        return {"entries": [entry.preview() for entry in entries]}
+
+    response.status_code = status.HTTP_201_CREATED
+    imported = []
+    skipped = []
+    for entry in entries:
+        if entry.index not in chosen:
+            continue
+        if entry.error:
+            skipped.append({"index": entry.index, "reason": entry.error})
+            continue
+        song = Song(
+            title=entry.title,
+            artist=entry.artist or "Unknown",
+            capo=entry.capo,
+            key=entry.key,
+            body=entry.body,
+            metadata_={"imported_from": entry.filename},
+        )
+        db.add(song)
+        await db.flush()
+        version = SongVersion(
+            song_id=song.id,
+            version=1,
+            title=song.title,
+            artist=song.artist,
+            capo=song.capo,
+            key=song.key,
+            body=song.body,
+        )
+        db.add(version)
+        await db.flush()
+        await db.refresh(song)
+        imported.append(SongOut.model_validate(song))
+    return {"imported": imported, "skipped": skipped}
 
 
 @router.post("/export/selected")

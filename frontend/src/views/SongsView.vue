@@ -2,6 +2,7 @@
 import { computed, onMounted, ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useSongStore } from '../stores/songs'
+import { importFiles, previewImportFiles, type BatchEntry } from '../api/songs'
 import { apiDownload, apiGet, downloadFile, openFile } from '../api/client'
 import { useDebounceFn } from '@vueuse/core'
 import AppNotice from '../components/AppNotice.vue'
@@ -37,6 +38,12 @@ const showImport = ref(false)
 const showBulkImport = ref(false)
 const bulkText = ref('')
 const bulkImporting = ref(false)
+const batchInput = ref<HTMLInputElement | null>(null)
+const batchFiles = ref<File[]>([])
+const batchEntries = ref<BatchEntry[]>([])
+const batchSelected = ref<Set<number>>(new Set())
+const batchPreviewing = ref(false)
+const batchImporting = ref(false)
 const showSearchImport = ref(false)
 const searchQuery = ref('')
 const searchResults = ref<SearchResult[]>([])
@@ -173,6 +180,71 @@ async function doBulkImport() {
     showNotice('error', e instanceof Error ? e.message : 'Bulk import failed')
   } finally {
     bulkImporting.value = false
+  }
+}
+
+function resetBatchImport() {
+  batchFiles.value = []
+  batchEntries.value = []
+  batchSelected.value = new Set()
+  if (batchInput.value) batchInput.value.value = ''
+}
+
+async function onBatchFiles(event: Event) {
+  const input = event.target as HTMLInputElement
+  batchFiles.value = Array.from(input.files ?? [])
+  batchEntries.value = []
+  batchSelected.value = new Set()
+  if (!batchFiles.value.length) return
+  batchPreviewing.value = true
+  try {
+    const data = await previewImportFiles(batchFiles.value)
+    batchEntries.value = data.entries
+    // Duplicates and unreadable files are listed but not imported by default.
+    batchSelected.value = new Set(
+      data.entries
+        .filter((entry) => !entry.error && !entry.duplicate)
+        .map((entry) => entry.index),
+    )
+    if (!data.entries.length) {
+      resetBatchImport()
+      showNotice('info', 'No song files found in this upload')
+    }
+  } catch (e: unknown) {
+    resetBatchImport()
+    showNotice('error', e instanceof Error ? e.message : 'Could not read the files')
+  } finally {
+    batchPreviewing.value = false
+  }
+}
+
+function toggleBatchEntry(index: number) {
+  const next = new Set(batchSelected.value)
+  if (next.has(index)) next.delete(index)
+  else next.add(index)
+  batchSelected.value = next
+}
+
+async function doBatchImport() {
+  if (!batchFiles.value.length || !batchSelected.value.size) return
+  batchImporting.value = true
+  try {
+    const selected = Array.from(batchSelected.value).sort((a, b) => a - b)
+    const result = await importFiles(batchFiles.value, selected)
+    const count = result.imported.length
+    const skipped = result.skipped.length
+    resetBatchImport()
+    showNotice(
+      'success',
+      `Imported ${count} song${count === 1 ? '' : 's'}` +
+        (skipped ? `, skipped ${skipped} unreadable` : ''),
+    )
+    page.value = 1
+    await fetchPage()
+  } catch (e: unknown) {
+    showNotice('error', e instanceof Error ? e.message : 'Import failed')
+  } finally {
+    batchImporting.value = false
   }
 }
 
@@ -319,6 +391,74 @@ async function importSearchResult(url: string) {
       <button @click="doBulkImport" class="btn-primary" :disabled="bulkImporting">
         {{ bulkImporting ? 'Importing...' : 'Bulk Import' }}
       </button>
+
+      <div class="batch-files">
+        <label class="btn-secondary batch-file-label">
+          Choose files or a .zip
+          <input
+            ref="batchInput"
+            class="batch-file-input"
+            type="file"
+            multiple
+            accept=".cho,.crd,.pro,.chordpro,.txt,.zip"
+            @change="onBatchFiles"
+          />
+        </label>
+        <span class="batch-hint">
+          {{
+            batchPreviewing
+              ? 'Reading files...'
+              : 'ChordPro or chords-over-lyrics text, as files or one .zip'
+          }}
+        </span>
+      </div>
+
+      <div v-if="batchEntries.length" class="batch-preview">
+        <table class="batch-table">
+          <thead>
+            <tr>
+              <th></th>
+              <th>Title</th>
+              <th>Artist</th>
+              <th>File</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr
+              v-for="entry in batchEntries"
+              :key="entry.index"
+              :class="{ 'batch-row-error': entry.error }"
+            >
+              <td>
+                <input
+                  type="checkbox"
+                  :checked="batchSelected.has(entry.index)"
+                  :disabled="!!entry.error"
+                  @change="toggleBatchEntry(entry.index)"
+                />
+              </td>
+              <td>
+                <strong>{{ entry.title }}</strong>
+                <span v-if="entry.duplicate" class="badge batch-badge">duplicate</span>
+                <span v-if="entry.error" class="batch-error">{{ entry.error }}</span>
+              </td>
+              <td>{{ entry.artist }}</td>
+              <td class="batch-file">{{ entry.filename }}</td>
+            </tr>
+          </tbody>
+        </table>
+        <button
+          @click="doBatchImport"
+          class="btn-primary"
+          :disabled="batchImporting || !batchSelected.size"
+        >
+          {{
+            batchImporting
+              ? 'Importing...'
+              : `Import ${batchSelected.size} song${batchSelected.size === 1 ? '' : 's'}`
+          }}
+        </button>
+      </div>
     </div>
 
     <div v-if="store.loading" class="loading">Loading...</div>
@@ -489,6 +629,57 @@ async function importSearchResult(url: string) {
   font-family: monospace;
   font-size: 0.85rem;
   resize: vertical;
+}
+.batch-files {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+.batch-file-label {
+  display: inline-block;
+}
+.batch-file-input {
+  display: none;
+}
+.batch-hint {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+.batch-preview {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.batch-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+}
+.batch-table th,
+.batch-table td {
+  padding: 0.35rem 0.5rem;
+  border-bottom: 1px solid var(--border);
+  text-align: left;
+}
+.batch-table th {
+  font-weight: 500;
+  opacity: 0.7;
+}
+.batch-file {
+  font-size: 0.8rem;
+  opacity: 0.7;
+}
+.batch-badge {
+  margin-left: 0.5rem;
+}
+.batch-row-error td {
+  background: rgba(224, 82, 82, 0.06);
+}
+.batch-error {
+  display: block;
+  color: #e05252;
+  font-size: 0.8rem;
 }
 .search-import {
   margin-bottom: 1rem;

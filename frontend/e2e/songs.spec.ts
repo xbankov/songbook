@@ -133,6 +133,48 @@ test.describe('Songbook UI', () => {
     await expect(page).toHaveURL(/\/songs$/)
   })
 
+  test('previews uploaded files and imports only the chosen songs', async ({ page }) => {
+    await mockApi(page)
+    const entries = [
+      { index: 0, filename: 'wagon-wheel.txt', title: 'Wagon Wheel', artist: 'Unknown', capo: 0, key: null, duplicate: false, error: null },
+      { index: 1, filename: 'test-song.cho', title: 'Test Song', artist: 'Test Artist', capo: 0, key: null, duplicate: true, error: null },
+      { index: 2, filename: 'broken.doc', title: 'broken', artist: 'Unknown', capo: 0, key: null, duplicate: false, error: 'Unsupported file type .doc' },
+    ]
+    let selected = ''
+    await page.route('**/api/songs/import/files?*', (route) => {
+      const url = new URL(route.request().url())
+      if (url.searchParams.get('dry_run') === 'true') {
+        return route.fulfill({ json: { entries } })
+      }
+      selected = url.searchParams.get('selected') ?? ''
+      return route.fulfill({ status: 201, json: { imported: [song], skipped: [] } })
+    })
+
+    await page.goto('/songs')
+    await page.getByRole('button', { name: 'Bulk', exact: true }).click()
+    await page.locator('.batch-file-input').setInputFiles([
+      { name: 'wagon-wheel.txt', mimeType: 'text/plain', buffer: Buffer.from('G\nLa la') },
+      { name: 'test-song.cho', mimeType: 'text/plain', buffer: Buffer.from('[G]La la') },
+      { name: 'broken.doc', mimeType: 'text/plain', buffer: Buffer.from('La la') },
+    ])
+
+    const rows = page.locator('.batch-table tbody tr')
+    await expect(rows).toHaveCount(3)
+    // A new song is selected; a duplicate is not; a broken file cannot be.
+    await expect(rows.nth(0).locator('input[type="checkbox"]')).toBeChecked()
+    await expect(rows.nth(1).locator('input[type="checkbox"]')).not.toBeChecked()
+    await expect(rows.nth(1)).toContainText('duplicate')
+    await expect(rows.nth(2).locator('.batch-error')).toHaveText(
+      'Unsupported file type .doc',
+    )
+    await expect(rows.nth(2).locator('input[type="checkbox"]')).toBeDisabled()
+
+    await page.getByRole('button', { name: 'Import 1 song' }).click()
+
+    await expect(page.locator('.notice.success')).toHaveText('Imported 1 song')
+    expect(selected).toBe('0')
+  })
+
   test('imports a search result through the URL importer', async ({ page }) => {
     const tabUrl = 'https://tabs.ultimate-guitar.com/tab/misc-traditional/song-chords-1'
     await mockApi(page)
