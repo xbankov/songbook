@@ -754,6 +754,41 @@ test.describe('Songbook UI', () => {
     await expect(page.locator('.active-line .lyric-row')).toHaveText('Two')
   })
 
+  test('autoscroll moves smoothly, steps speed by 0.1 and stops', async ({ page }) => {
+    await mockApi(page)
+    const lines = Array.from({ length: 80 }, (_, i) => `[G]Line ${i + 1}`).join('\n')
+    await page.route(`**/api/songs/${song.id}`, (route) =>
+      route.fulfill({ json: { ...song, body: lines } }),
+    )
+    await page.setViewportSize({ width: 800, height: 600 })
+    await page.goto(`/songs/${song.id}`)
+    const speed = page.locator('.autoscroll-controls .ctrl-label')
+    const start = await page.evaluate(() => window.scrollY)
+
+    await page.getByRole('button', { name: 'Scroll' }).click()
+    await expect(speed).toHaveText('1.0')
+    await page.waitForTimeout(400)
+    expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(start)
+
+    await page.getByRole('button', { name: 'Faster' }).click()
+    await expect(speed).toHaveText('1.1')
+    await page.getByRole('button', { name: 'Slower' }).click()
+    await expect(speed).toHaveText('1.0')
+    await page.getByRole('button', { name: 'Faster' }).click()
+    await expect(speed).toHaveText('1.1')
+
+    // The speed survives switching to performance mode.
+    await page.goto(`/songs/${song.id}/play`)
+    await page.getByRole('button', { name: 'Scroll' }).click()
+    await expect(page.locator('.speed')).toHaveText('1.1')
+    await page.getByRole('button', { name: 'Stop' }).click()
+    const stopped = await page.evaluate(() => (document.querySelector('.play-stage') as HTMLElement).scrollTop)
+    await page.waitForTimeout(300)
+    expect(
+      await page.evaluate(() => (document.querySelector('.play-stage') as HTMLElement).scrollTop),
+    ).toBe(stopped)
+  })
+
   test('play view keeps the current line visible while autoscrolling', async ({ page }) => {
     await mockApi(page)
     const lines = Array.from({ length: 60 }, (_, i) => `[G]Line ${i + 1}`).join('\n')

@@ -3,6 +3,7 @@ import { nextTick, onBeforeUnmount, onMounted, ref, watch } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { getSong, type SongResponse } from '../api/songs'
 import { useSettingsStore } from '../stores/settings'
+import { useAutoScroll } from '../composables/useAutoScroll'
 import SongDisplay from '../components/SongDisplay.vue'
 
 // Play/sing view (#41): full screen, large text, a highlighted current line
@@ -17,10 +18,17 @@ const loading = ref(true)
 const error = ref('')
 const activeLine = ref(0)
 const fontSize = ref(1.4)
-const autoScroll = ref(false)
-const scrollSpeed = ref(1)
 const stage = ref<HTMLElement | null>(null)
-let scrollTimer: ReturnType<typeof setInterval> | null = null
+const {
+  autoScroll,
+  speed: scrollSpeed,
+  toggle: toggleScroll,
+  stop: stopScroll,
+  changeSpeed,
+} = useAutoScroll(stage)
+// Keep line jumps instant while autoscroll runs, and honour reduced motion.
+const reduceMotion =
+  window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false
 let wakeLock: { release: () => Promise<void> } | null = null
 let unmounted = false
 
@@ -55,34 +63,16 @@ watch(activeLine, async (index) => {
   await nextTick()
   const line = stage.value?.querySelector(`[data-line="${index}"]`)
   // Keep the current line mid-screen so the next lines stay visible. Jump
-  // instead of animating while autoscroll runs: its scrollBy ticks would
-  // cancel a smooth scroll and leave the line off-screen.
-  line?.scrollIntoView?.({ block: 'center', behavior: autoScroll.value ? 'auto' : 'smooth' })
+  // instead of animating while autoscroll runs: its frames would cancel a
+  // smooth scroll and leave the line off-screen.
+  line?.scrollIntoView?.({
+    block: 'center',
+    behavior: autoScroll.value || reduceMotion ? 'auto' : 'smooth',
+  })
 })
 
 function changeFont(delta: number) {
   fontSize.value = Math.round(Math.max(0.8, Math.min(3, fontSize.value + delta)) * 10) / 10
-}
-
-function stopScroll() {
-  if (scrollTimer) clearInterval(scrollTimer)
-  scrollTimer = null
-}
-
-function startScroll() {
-  stopScroll()
-  scrollTimer = setInterval(() => stage.value?.scrollBy(0, scrollSpeed.value), 100)
-}
-
-function toggleScroll() {
-  autoScroll.value = !autoScroll.value
-  if (autoScroll.value) startScroll()
-  else stopScroll()
-}
-
-function changeSpeed(delta: number) {
-  scrollSpeed.value = Math.max(0.5, Math.min(10, scrollSpeed.value + delta))
-  if (autoScroll.value) startScroll()
 }
 
 async function toggleFullscreen() {
@@ -202,9 +192,9 @@ watch(() => route.params.id as string, (id) => void load(id), { immediate: true 
         {{ autoScroll ? 'Stop' : 'Scroll' }}
       </button>
       <template v-if="autoScroll">
-        <button class="play-btn" title="Slower" aria-label="Slower" @click="changeSpeed(-0.5)">−</button>
+        <button class="play-btn" title="Slower" aria-label="Slower" @click="changeSpeed(-0.1)">−</button>
         <span class="speed">{{ scrollSpeed.toFixed(1) }}</span>
-        <button class="play-btn" title="Faster" aria-label="Faster" @click="changeSpeed(0.5)">+</button>
+        <button class="play-btn" title="Faster" aria-label="Faster" @click="changeSpeed(0.1)">+</button>
       </template>
       <button class="play-btn" title="Full screen" aria-label="Full screen" @click="toggleFullscreen">⛶</button>
     </div>
