@@ -70,9 +70,24 @@ def test_chord_past_the_end_of_the_lyric_is_kept():
     assert merge_chord_line("[ch]D[/ch]        [ch]A[/ch]", "Oh") == "[D]Oh       [A]"
 
 
-def test_merge_skips_a_chord_the_model_cannot_parse():
-    merged = merge_chord_line("[ch]N.C.[/ch]   [ch]G[/ch]", "Stop and go")
-    assert merged == "Stop an[G]d go"
+def test_line_with_an_unparsable_chord_is_kept_whole():
+    # Merging would lose "N.C."; keep the chord line and the lyric instead.
+    assert _body("[ch]N.C.[/ch]   [ch]G[/ch]\nStop and go") == "N.C.   [G]\nStop and go"
+
+
+def test_trailing_mark_on_a_chord_line_still_merges():
+    body = _body("     [ch]A[/ch]   [ch]D[/ch] *\nI've seen trouble")
+    assert body == "I've [A]seen[D] trouble  *"
+
+
+def test_unmerged_chord_line_keeps_its_indent():
+    assert _body("    [ch]G[/ch]  [ch]C[/ch] | x2") == "    [G]  [C] | x2"
+
+
+def test_tabs_and_decomposed_accents_do_not_shift_chords():
+    assert _body("\t[ch]G[/ch]\nHello world wide") == "Hello wo[G]rld wide"
+    # "Za" + combining acute is one character after NFC normalisation.
+    assert _body("       [ch]G[/ch]\nZa\u0301hrada je") == "Záhrada[G] je"
 
 
 def test_brackets_in_lyrics_do_not_become_chords():
@@ -85,9 +100,10 @@ def test_chord_only_line_keeps_bars_and_unknown_chords_as_text():
     assert chord_only_line(line) == "| [D]   | N.C.   |"
 
 
-def test_chord_line_with_bars_or_repeat_marks_is_not_merged():
+def test_chord_line_with_a_trailing_mark_merges_but_bars_do_not():
+    # A trailing mark is moved behind the lyric; bars between chords are not.
     assert _body("[ch]G[/ch]  [ch]C[/ch]  (x2)\nSing along") == (
-        "[G]  [C]  (x2)\nSing along"
+        "[G]Sin[C]g along  (x2)"
     )
     assert _body("| [ch]D[/ch] | [ch]G[/ch] |\nSing along") == (
         "| [D] | [G] |\nSing along"
@@ -100,7 +116,7 @@ def test_chord_line_before_a_blank_line_stays_a_chord_line():
 
 def test_chord_line_is_not_merged_into_a_tab_staff():
     body = _body("    [ch]G7[/ch]\ne|-----|\nB|--3--|")
-    assert body == "[G7]\ne|-----|\nB|--3--|"
+    assert body == "    [G7]\ne|-----|\nB|--3--|"
 
 
 # --- sections ----------------------------------------------------------------
@@ -122,6 +138,18 @@ def test_chord_line_is_not_merged_into_a_tab_staff():
 def test_section_headers_map_to_chordpro_sections(header, label, title):
     (section,) = parse_content(f"[{header}]\n[ch]G[/ch]\nla la")
     assert (section.label, section.title) == (label, title)
+
+
+def test_bare_header_is_kept_as_a_repeat_cue():
+    body = _body("[Verse 1]\nla\n\n[Chorus]\n\n[Verse 2]\nlo\n[Chorus]")
+    assert body == (
+        "{start_of_verse: Verse 1}\nla\n{end_of_verse}\n\n(Chorus)\n\n"
+        "{start_of_verse: Verse 2}\nlo\n{end_of_verse}\n\n(Chorus)"
+    )
+
+
+def test_bracketed_line_that_is_not_a_section_is_text():
+    assert _body("[Verse]\nla\n[x2]") == ("{start_of_verse}\nla\n(x2)\n{end_of_verse}")
 
 
 def test_text_before_the_first_header_has_no_section():
@@ -156,6 +184,8 @@ def test_capo_and_key_come_from_the_tab_metadata():
     assert song.capo == 3
     assert song.key == "F"
     assert "[D]I Am A Man Of Constant [G]Sorrow" in str(song)
+    # This chord line ends in "*": it still merges, and the mark is kept.
+    assert "I've seen [A]trouble all my [D]day.  *" in str(song)
 
 
 def test_intro_bars_and_parenthesised_lines_are_kept():
@@ -176,6 +206,54 @@ def test_missing_or_bad_capo_is_zero(capo):
 def test_page_without_store_is_an_error():
     with pytest.raises(UltimateGuitarError, match="no Ultimate Guitar song data"):
         parse_tab_html("<html><body>Not found</body></html>")
+
+
+def _raw(data) -> str:
+    payload = html.escape(json.dumps({"store": {"page": {"data": data}}}), quote=True)
+    return f'<div class="js-store" data-content="{payload}"></div>'
+
+
+@pytest.mark.parametrize(
+    "data",
+    [
+        None,
+        [],
+        {"tab_view": None},
+        {"tab_view": {"wiki_tab": {"content": 5}}},
+        {"tab_view": {"wiki_tab": None}},
+    ],
+)
+def test_malformed_tab_page_is_a_clean_error(data):
+    with pytest.raises(UltimateGuitarError):
+        parse_tab_html(_raw(data))
+
+
+def test_odd_metadata_values_do_not_crash():
+    data = {
+        "tab": {"song_name": 5, "artist_name": None, "tonality_name": 7},
+        "tab_view": {
+            "versions": [None],
+            "meta": {"capo": "2", "tonality": ["G"]},
+            "wiki_tab": {"content": "[ch]G[/ch]\nla"},
+        },
+    }
+    song = parse_tab_html(_raw(data))
+    assert (song.title, song.artist, song.capo, song.key) == (
+        "Unknown",
+        "Unknown",
+        2,
+        None,
+    )
+
+
+@pytest.mark.parametrize(
+    "data", [None, [], {"results": None}, {"results": [None, 5, {"tab_url": 3}]}]
+)
+def test_malformed_search_page_gives_no_results_or_a_clean_error(data):
+    try:
+        assert parse_search_html(_raw(data)) == []
+    except UltimateGuitarError:
+        pass
 
 
 # Regressions for #51, moved from test_music_theory.py.
@@ -300,7 +378,7 @@ def test_fetch_identifies_itself_with_a_timeout_and_spaces_requests(
     ultimate_guitar.fetch("https://www.ultimate-guitar.com/a")
     ultimate_guitar.fetch("https://www.ultimate-guitar.com/b")
 
-    assert [call[1] for call in calls] == [20, 20]
+    assert [call[1] for call in calls] == [(5, 20), (5, 20)]
     assert all(
         call[2]["User-Agent"].startswith("Songbook/") for call in calls
     ), "identifying User-Agent"

@@ -10,6 +10,7 @@ import logging
 import re
 import threading
 import time
+import unicodedata
 from typing import Any
 from urllib.parse import quote, urlparse
 
@@ -20,7 +21,9 @@ from bs4 import BeautifulSoup
 logger = logging.getLogger(__name__)
 
 USER_AGENT = "Songbook/1.0 (self-hosted chord sheet importer)"
-TIMEOUT_SECONDS = 20
+# (connect, read) seconds. The read timeout is per read, so a very slow server
+# can hold the fetch lock longer; fine for a single-user instance.
+TIMEOUT_SECONDS = (5, 20)
 MIN_INTERVAL_SECONDS = 3.0
 SEARCH_URL = "https://www.ultimate-guitar.com/search.php"
 SEARCH_LIMIT = 10
@@ -31,6 +34,28 @@ _CHORD = re.compile(r"\[ch\](.*?)\[/ch\]")
 # A tablature staff line such as "e|--3--|" or "G|-4-5h7-|".
 _STAFF = re.compile(r"\s*[A-Ga-g][#b]?\s*\|[-\w|/\\~*.() ]*")
 _HEADER = re.compile(r"\[([A-Za-z][^\[\]]*)\]")
+# Words that start a section header; other bracketed lines ("[x2]") are text.
+_SECTION_WORDS = (
+    "verse",
+    "chorus",
+    "refrain",
+    "bridge",
+    "intro",
+    "outro",
+    "solo",
+    "instrumental",
+    "interlude",
+    "pre-chorus",
+    "pre chorus",
+    "prechorus",
+    "post-chorus",
+    "coda",
+    "hook",
+    "break",
+    "ending",
+    "riff",
+    "tag",
+)
 # What may sit on a chord line besides chords: bars, dashes, repeat marks.
 _CHORD_LINE_EXTRAS = re.compile(r"(?i)[\s|/\\\-.,()*:~]|\bx\d+\b|\b\d+x\b")
 
@@ -76,9 +101,24 @@ def _page_data(html: str) -> dict[str, Any]:
     if store is None or not store.get("data-content"):
         raise UltimateGuitarError("That page has no Ultimate Guitar song data.")
     try:
-        return json.loads(store["data-content"])["store"]["page"]["data"]
+        data = json.loads(store["data-content"])["store"]["page"]["data"]
     except (ValueError, KeyError, TypeError) as e:
         raise UltimateGuitarError("Could not read the Ultimate Guitar page.") from e
+    if not isinstance(data, dict):
+        raise UltimateGuitarError("Could not read the Ultimate Guitar page.")
+    return data
+
+
+def _dict(value: Any) -> dict[str, Any]:
+    return value if isinstance(value, dict) else {}
+
+
+def _text(*values: Any) -> str:
+    """The first non-empty string among ``values``, else "Unknown"."""
+    for value in values:
+        if isinstance(value, str) and value.strip():
+            return value.strip()
+    return "Unknown"
 
 
 # --- search -----------------------------------------------------------------
@@ -86,16 +126,21 @@ def _page_data(html: str) -> dict[str, Any]:
 
 def parse_search_html(html: str) -> list[dict[str, Any]]:
     results = []
-    for tab in _page_data(html).get("results") or []:
+    found = _page_data(html).get("results")
+    for tab in found if isinstance(found, list) else []:
+        if not isinstance(tab, dict):
+            continue
         url = tab.get("tab_url") or ""
+        if not isinstance(url, str):
+            continue
         if tab.get("type") not in IMPORTABLE_TYPES or not is_ultimate_guitar_url(url):
             continue
         if urlparse(url).path.startswith("/pro"):
             continue
         results.append(
             {
-                "title": tab.get("song_name") or "Unknown",
-                "artist": tab.get("artist_name") or "Unknown",
+                "title": _text(tab.get("song_name")),
+                "artist": _text(tab.get("artist_name")),
                 "url": url,
                 "source": "ultimate-guitar",
                 "type": tab["type"],
@@ -131,14 +176,14 @@ def _is_chord_line(line: str) -> bool:
 
 
 def _chord_columns(line: str) -> list[tuple[int, str]]:
-    """Each chord's column in the line as displayed (markup removed)."""
+    """Each chord's column in the line as displayed (markup removed, tabs expanded)."""
     columns = []
-    column = 0
+    shown = ""
     position = 0
     for match in _CHORD.finditer(line):
-        column += match.start() - position
-        columns.append((column, match.group(1).strip()))
-        column += len(match.group(1))
+        shown = (shown + line[position : match.start()]).expandtabs()
+        columns.append((len(shown), match.group(1).strip()))
+        shown += match.group(1)
         position = match.end()
     return columns
 
@@ -156,23 +201,38 @@ def _inline(name: str) -> str:
 
 def merge_chord_line(chords: str, lyrics: str) -> str:
     """Put the chords of ``chords`` into ``lyrics`` at the same columns."""
-    merged = _plain(lyrics)
+    merged = _plain(lyrics.expandtabs())
     for column, name in reversed(_chord_columns(chords)):
-        if not _valid_chord(name):
-            continue
         merged = merged.ljust(column)
         merged = f"{merged[:column]}[{name}]{merged[column:]}"
+    annotation = _CHORD.split(chords)[-1].strip()
+    if annotation:
+        merged = f"{merged.rstrip()}  {_plain(annotation)}"
     return merged.rstrip()
 
 
-def chord_only_line(line: str) -> str:
+def _mergeable(chords: str) -> bool:
+    """Bare chords, optionally followed by a mark such as "*" or "x2".
+
+    Bars between chords have no place inside a lyric, and a chord the model
+    cannot parse ("N.C.") would be lost, so such lines stay as they are.
+    """
+    parts = _CHORD.split(chords)
+    texts, names = parts[0:-1:2], parts[1::2]
+    return all(not text.strip() for text in texts) and all(
+        _valid_chord(name.strip()) for name in names
+    )
+
+
+def chord_only_line(line: str, keep_indent: bool = False) -> str:
     """Convert a line in place: ``[ch]X[/ch]`` becomes ``[X]``, the rest is text."""
     parts = _CHORD.split(line)
     # re.split with one group alternates text, chord, text, ...
-    return "".join(
+    converted = "".join(
         _inline(part.strip()) if index % 2 else _plain(part)
         for index, part in enumerate(parts)
-    ).strip()
+    )
+    return converted.rstrip() if keep_indent else converted.strip()
 
 
 def _section_for(header: str) -> tuple[str, str | None]:
@@ -198,14 +258,19 @@ def _is_lyric(line: str) -> bool:
 
 def _header(line: str) -> str | None:
     match = _HEADER.fullmatch(line.strip())
-    return match.group(1).strip() if match and "[ch]" not in line else None
+    if not match or "[ch]" in line:
+        return None
+    header = match.group(1).strip()
+    return header if header.lower().startswith(_SECTION_WORDS) else None
 
 
 def parse_content(content: str) -> list[Section]:
     """Turn UG ``wiki_tab`` markup into sections of inline-ChordPro lines."""
-    text = content.replace("\r", "").replace("[tab]", "").replace("[/tab]", "")
+    text = unicodedata.normalize("NFC", content).replace("\r", "")
+    text = text.replace("[tab]", "").replace("[/tab]", "")
     lines = [line.rstrip() for line in text.split("\n")]
     sections: list[Section] = []
+    header: str | None = None
     label: str | None = None
     title: str | None = None
     current: list[str] = []
@@ -219,6 +284,9 @@ def parse_content(content: str) -> list[Section]:
                     title=title,
                 )
             )
+        elif header is not None:
+            # A bare "[Chorus]" means "repeat the chorus here": keep the cue.
+            sections.append(Section(lines=[Line.from_chordpro(f"({header})")]))
 
     index = 0
     while index < len(lines):
@@ -226,20 +294,19 @@ def parse_content(content: str) -> list[Section]:
         index += 1
         if not line.strip():
             continue
-        header = _header(line)
-        if header is not None:
+        next_header = _header(line)
+        if next_header is not None:
             close()
+            header = next_header
             label, title = _section_for(header)
             current = []
         elif _is_chord_line(line):
             following = lines[index] if index < len(lines) else ""
-            # Merge only a line of bare chords: bars or repeat marks ("x2")
-            # have no place inside a lyric, so such a line stays as it is.
-            if not _CHORD.sub("", line).strip() and _is_lyric(following):
+            if _mergeable(line) and _is_lyric(following):
                 current.append(merge_chord_line(line, following))
                 index += 1
             else:
-                current.append(chord_only_line(line))
+                current.append(chord_only_line(line, keep_indent=True))
         else:
             # Lyrics without chords, or text with chords inline already.
             current.append(chord_only_line(line))
@@ -256,30 +323,33 @@ def _capo(meta: dict[str, Any]) -> int:
 
 
 def _key(meta: dict[str, Any], tab: dict[str, Any]) -> str | None:
-    key = (meta.get("tonality") or tab.get("tonality_name") or "").strip()
+    key = meta.get("tonality") or tab.get("tonality_name") or ""
+    key = key.strip() if isinstance(key, str) else ""
     return key if key and _valid_chord(key) else None
 
 
 def parse_tab_html(html: str) -> SongModel:
     data = _page_data(html)
-    view = data.get("tab_view") or {}
-    tab = data.get("tab") or {}
-    first_version = (view.get("versions") or [{}])[0]
-    meta = view.get("meta") or {}
+    view = _dict(data.get("tab_view"))
+    tab = _dict(data.get("tab"))
+    versions = view.get("versions")
+    first_version = _dict(
+        versions[0] if isinstance(versions, list) and versions else None
+    )
+    meta = _dict(view.get("meta"))
+    content = _dict(view.get("wiki_tab")).get("content")
+    if not isinstance(content, str):
+        raise UltimateGuitarError("That Ultimate Guitar page has no song text.")
     try:
-        content = view["wiki_tab"]["content"]
-    except (KeyError, TypeError) as e:
-        raise UltimateGuitarError("That Ultimate Guitar page has no song text.") from e
-    try:
-        sections = parse_content(content or "")
-    except (KeyError, IndexError, ValueError) as e:
+        sections = parse_content(content)
+    except (KeyError, IndexError, ValueError, TypeError, AttributeError) as e:
         raise UltimateGuitarError(
             "Could not read the Ultimate Guitar song text."
         ) from e
     return SongModel(
         sections=sections,
-        title=tab.get("song_name") or first_version.get("song_name") or "Unknown",
-        artist=tab.get("artist_name") or first_version.get("artist_name") or "Unknown",
+        title=_text(tab.get("song_name"), first_version.get("song_name")),
+        artist=_text(tab.get("artist_name"), first_version.get("artist_name")),
         capo=_capo(meta),
         key=_key(meta, tab),
     )
