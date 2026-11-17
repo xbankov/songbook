@@ -27,7 +27,7 @@ from app.services.converters import (
     transpose_key,
 )
 from app.services.http import content_disposition
-from app.services.scraper import import_from_url
+from app.services.scraper import SongImportError, import_from_url
 from app.services.settings import get_or_create_settings as get_global_settings
 from app.services.tags import resolve_tags
 from app.services.youtube import canonical_youtube_url
@@ -141,12 +141,12 @@ async def create_song(body: SongCreate, db: AsyncSession = Depends(get_db)):
 
 @router.post("/import", response_model=SongOut, status_code=status.HTTP_201_CREATED)
 async def import_song(url: str, db: AsyncSession = Depends(get_db)):
-    song_model = import_from_url(url)
-    if song_model is None:
+    try:
+        song_model = import_from_url(url)
+    except SongImportError as e:
         raise HTTPException(
-            status_code=status.HTTP_400_BAD_REQUEST,
-            detail="Failed to import song from URL",
-        )
+            status_code=status.HTTP_400_BAD_REQUEST, detail=str(e)
+        ) from e
     body = chordpro_body(song_model)
     song = Song(
         title=song_model.title,

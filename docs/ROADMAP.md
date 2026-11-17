@@ -193,7 +193,7 @@ spec for "starting note" and "rhythmic pattern"; `capo`/`key` already exist).
 | --- | --- | --- | --- |
 | 15 | #29 Batch upload (clarify paste vs file/zip) | M | Bring an existing library in at once |
 | 16 | #50 Import pisnicky-akordy.cz | M | The other site this circle uses |
-| 17 | #20 Harden Supermusic import | M | Existing generic parser needs fixtures |
+| 17 | #20 Harden Supermusic import (~~#133 anti-bot stub → clear error~~ done) | M | Song pages sit behind a JS proof-of-work challenge we will not solve; paste is the fallback |
 | 18 | #46 Direct lookup by name (narrow to extra sources) | S | UG flow already exists |
 | 19 | #28 Import/export a Git repo | L | Data ownership and versioned backups |
 
@@ -595,3 +595,4 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-16 | #22 done: custom domain + automatic HTTPS via a Caddy Compose override; `docs/deployment.md` |
 | 2026-11-16 | #89 done: songbook metadata and chord-diagram selection (migration `0002`) |
 | 2026-11-16 | #41 done: play/sing view with current-line highlight and pedal keys |
+| 2026-11-17 | #133 fixed: supermusic's anti-bot stub gives a clear import error instead of an empty song |

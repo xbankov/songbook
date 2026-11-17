@@ -115,6 +115,24 @@ test.describe('Songbook UI', () => {
     await expect(page.locator('.notice.success')).toHaveText('Song created')
   })
 
+  test('explains when a site blocks URL import', async ({ page }) => {
+    const detail =
+      'Supermusic blocks automatic import: its song pages need a browser check first. ' +
+      'Open the song in your browser, copy the text, and paste it into a new song or Bulk import.'
+    await mockApi(page)
+    await page.route('**/api/songs/import?*', (route) =>
+      route.fulfill({ status: 400, json: { detail } }),
+    )
+
+    await page.goto('/songs')
+    await page.getByRole('button', { name: 'Import URL' }).click()
+    await page.getByPlaceholder(/supermusic/).fill('https://supermusic.cz/piesen.php?id=1')
+    await page.getByRole('button', { name: 'Import Song' }).click()
+
+    await expect(page.locator('.notice.error')).toHaveText(detail)
+    await expect(page).toHaveURL(/\/songs$/)
+  })
+
   test('requests song PDFs with the auth token', async ({ page }) => {
     await mockApi(page)
     await page.goto(`/songs/${song.id}`)
