@@ -7,6 +7,7 @@ site embeds; chord lines above lyric lines are merged into inline ChordPro.
 
 import json
 import logging
+import math
 import re
 import threading
 import time
@@ -145,14 +146,63 @@ def _text(*values: Any) -> str:
 # --- search -----------------------------------------------------------------
 
 
+def _optional_text(value: Any) -> str | None:
+    if isinstance(value, bool):
+        return None
+    if isinstance(value, (str, int, float)):
+        text = str(value).strip()
+        return text or None
+    return None
+
+
+def _optional_int(value: Any) -> int | None:
+    if isinstance(value, bool):
+        return None
+    try:
+        return int(value)
+    except (TypeError, ValueError, OverflowError):
+        return None
+
+
+def _number(value: Any) -> float:
+    try:
+        number = float(value)
+    except (TypeError, ValueError, OverflowError):
+        return 0.0
+    return number if math.isfinite(number) else 0.0
+
+
+def _flag(value: Any) -> bool:
+    if isinstance(value, bool):
+        return value
+    if isinstance(value, str):
+        return value.strip().lower() in ("1", "true", "yes")
+    return value == 1
+
+
+def _best_score(result: dict[str, Any]) -> float:
+    """Rating weighted by votes so a 4.9 with 53 votes does not beat 4.78/1171."""
+    rating = result["rating"]
+    if not rating:
+        return 0.0
+    return rating * math.log10(result["votes"] + 10)
+
+
 def parse_search_html(html: str) -> list[dict[str, Any]]:
+    """Importable search rows, best first.
+
+    The search page carries version, rating, key and difficulty for each tab;
+    keep them so the UI can tell ten rows with the same title apart (#161).
+    Identical URLs are listed once, but different versions are never collapsed.
+    """
     results = []
+    seen_urls: set[str] = set()
     found = _page_data(html).get("results")
     for tab in found if isinstance(found, list) else []:
         if not isinstance(tab, dict):
             continue
         url = tab.get("tab_url") or ""
-        if not isinstance(url, str):
+        if not isinstance(url, str) or url in seen_urls:
             continue
         kind = tab.get("type")
         if not isinstance(kind, str) or kind not in IMPORTABLE_TYPES:
@@ -161,19 +211,31 @@ def parse_search_html(html: str) -> list[dict[str, Any]]:
             continue
         if urlparse(url).path.startswith("/pro"):
             continue
+        seen_urls.add(url)
         results.append(
             {
                 "title": _text(tab.get("song_name")),
                 "artist": _text(tab.get("artist_name")),
                 "url": url,
                 "source": "ultimate-guitar",
-                "type": tab["type"],
-                "rating": tab.get("rating") or 0,
-                "votes": tab.get("votes") or 0,
+                "type": kind,
+                "type_label": _optional_text(tab.get("typeLabel")) or kind,
+                "rating": _number(tab.get("rating")),
+                "votes": int(_number(tab.get("votes"))),
+                "version": _optional_int(tab.get("version")),
+                "version_count": _optional_int(tab.get("tp_version")),
+                "version_description": _optional_text(tab.get("version_description")),
+                "key": _optional_text(tab.get("tonality_name")),
+                "difficulty": _optional_text(
+                    tab.get("difficulty") or tab.get("ug_difficulty")
+                ),
+                "updated": _optional_text(tab.get("date_update") or tab.get("date")),
+                "verified": _flag(tab.get("verified")),
             }
         )
         if len(results) == SEARCH_LIMIT:
             break
+    results.sort(key=_best_score, reverse=True)
     return results
 
 

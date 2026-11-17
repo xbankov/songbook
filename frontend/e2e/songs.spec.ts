@@ -175,15 +175,63 @@ test.describe('Songbook UI', () => {
     expect(selected).toBe('0')
   })
 
-  test('imports a search result through the URL importer', async ({ page }) => {
+  test('distinguishes search results and imports the chosen one', async ({ page }) => {
     const tabUrl = 'https://tabs.ultimate-guitar.com/tab/misc-traditional/song-chords-1'
+    const newestUrl = 'https://tabs.ultimate-guitar.com/tab/misc-traditional/song-chords-2'
     await mockApi(page)
     await page.route('**/api/search?*', (route) =>
       route.fulfill({
         json: {
           query: 'song',
           results: [
-            { title: 'Song', artist: 'Trad', url: tabUrl, source: 'ultimate-guitar', type: 'Chords', rating: 5, votes: 1 },
+            {
+              title: 'Song',
+              artist: 'Trad',
+              url: tabUrl,
+              source: 'ultimate-guitar',
+              type: 'Chords',
+              type_label: 'Chords',
+              rating: 4.8,
+              votes: 1000,
+              version: 3,
+              version_count: 8,
+              key: 'G',
+              difficulty: 'intermediate',
+              updated: '2024-03-01',
+              verified: true,
+            },
+            {
+              title: 'Song',
+              artist: 'Trad',
+              url: newestUrl,
+              source: 'ultimate-guitar',
+              type: 'Chords',
+              type_label: 'Chords',
+              rating: 4.5,
+              votes: 10,
+              version: 1,
+              version_count: 2,
+              key: 'A',
+              difficulty: 'advanced',
+              updated: '2025-02-01',
+              verified: false,
+            },
+            {
+              title: 'Song',
+              artist: 'Trad',
+              url: 'https://tabs.ultimate-guitar.com/tab/misc-traditional/song-tabs-3',
+              source: 'ultimate-guitar',
+              type: 'Tabs',
+              type_label: 'Tabs',
+              rating: 4.2,
+              votes: 200,
+              version: 2,
+              version_count: 3,
+              key: 'C',
+              difficulty: 'novice',
+              updated: '2023-01-01',
+              verified: false,
+            },
           ],
         },
       }),
@@ -198,9 +246,31 @@ test.describe('Songbook UI', () => {
     await page.getByRole('button', { name: 'Search', exact: true }).click()
     await page.getByPlaceholder('Search for songs to import...').fill('song')
     await page.getByRole('button', { name: 'Search', exact: true }).last().click()
-    const result = page.locator('.search-result')
-    await expect(result).toContainText('Chords')
-    await result.getByRole('button', { name: 'Import' }).click()
+    const rows = page.locator('.search-result')
+    await expect(rows).toHaveCount(3)
+    const first = rows.first()
+    await expect(first).toContainText('Best')
+    await expect(first).toContainText('Chords')
+    await expect(first).toContainText('v3 of 8')
+    await expect(first).toContainText('4.8★ (1,000 votes)')
+    await expect(first).toContainText('Key G')
+    await expect(first).toContainText('intermediate')
+    await expect(first).toContainText('updated 2024')
+    await expect(first).toContainText('verified')
+    await expect(first.getByRole('link', { name: 'Source: Ultimate Guitar' })).toHaveAttribute(
+      'href',
+      tabUrl,
+    )
+
+    // Most votes keeps the first row; Newest swaps the 2025 version first.
+    await page.getByLabel('Sort search results').selectOption('votes')
+    await expect(rows.first()).toContainText('v3 of 8')
+    await page.getByLabel('Sort search results').selectOption('newest')
+    await expect(rows.first()).toContainText('v1 of 2')
+    await page.getByLabel('Sort search results').selectOption('best')
+    await expect(rows.first()).toContainText('v3 of 8')
+
+    await first.getByRole('button', { name: 'Import' }).click()
 
     await expect(page).toHaveURL(new RegExp(`/songs/${song.id}\\?imported=1$`))
     expect(importedUrl).toBe(tabUrl)
