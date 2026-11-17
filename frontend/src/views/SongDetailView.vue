@@ -1,8 +1,9 @@
 <script setup lang="ts">
-import { watch, computed, ref } from 'vue'
+import { watch, computed, nextTick, onBeforeUnmount, onMounted, ref } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useSongStore } from '../stores/songs'
 import { useSettingsStore } from '../stores/settings'
+import { useAutoScroll } from '../composables/useAutoScroll'
 import SongDisplay from '../components/SongDisplay.vue'
 import ChordDiagram from '../components/ChordDiagram.vue'
 import AppNotice from '../components/AppNotice.vue'
@@ -56,6 +57,25 @@ const youtubeError = ref('')
 let mediaRecorder: MediaRecorder | null = null
 let audioChunks: Blob[] = []
 
+// Performance mode (#140): the song page itself becomes the full-screen,
+// large-text, highlighted-line view. The old /songs/:id/play route redirects
+// here with ?performance=1.
+const performance = ref(false)
+const activeLine = ref(0)
+const fontSize = ref(1.4)
+const stage = ref<HTMLElement | null>(null)
+const {
+  autoScroll,
+  speed: scrollSpeed,
+  toggle: toggleScroll,
+  stop: stopScroll,
+  changeSpeed,
+} = useAutoScroll(stage)
+const reduceMotion =
+  window.matchMedia?.('(prefers-reduced-motion: reduce)').matches ?? false
+let wakeLock: { release: () => Promise<void> } | null = null
+let unmounted = false
+
 let loadRequestId = 0
 
 async function loadSong(id: string) {
@@ -70,8 +90,10 @@ async function loadSong(id: string) {
   showVideo.value = false
   editingYoutube.value = false
   youtubeError.value = ''
+  activeLine.value = 0
   if (store.current?.id === id) {
     hasAudio.value = !!(store.current.metadata?.audio_file)
+    if (performance.value) void requestPerformanceFullscreen()
     try {
       const analysis = await analyzeSong(id)
       if (request !== loadRequestId) return
@@ -90,6 +112,177 @@ watch(
 )
 
 const song = computed(() => store.current)
+
+function setPerformanceQuery(on: boolean) {
+  const query = { ...route.query }
+  if (on) query.performance = '1'
+  else delete query.performance
+  void router.replace({ query })
+}
+
+async function requestPerformanceFullscreen() {
+  await nextTick()
+  const element = stage.value
+  if (!element || document.fullscreenElement) return
+  try {
+    await element.requestFullscreen()
+  } catch {
+    // Not supported (e.g. iOS Safari): the fixed stage still fills the window.
+  }
+}
+
+async function keepScreenOn() {
+  try {
+    const nav = navigator as Navigator & {
+      wakeLock?: { request: (type: 'screen') => Promise<{ release: () => Promise<void> }> }
+    }
+    const sentinel = (await nav.wakeLock?.request('screen')) ?? null
+    if (unmounted || !performance.value) {
+      void sentinel?.release().catch(() => {})
+      return
+    }
+    // Overlapping requests (mount + quick toggle): keep only the newest.
+    const previous = wakeLock
+    wakeLock = sentinel
+    if (previous && previous !== sentinel) void previous.release().catch(() => {})
+  } catch {
+    wakeLock = null
+  }
+}
+
+async function enterPerformance(updateQuery = true) {
+  if (performance.value) return
+  performance.value = true
+  activeLine.value = 0
+  if (updateQuery) setPerformanceQuery(true)
+  void keepScreenOn()
+  await requestPerformanceFullscreen()
+}
+
+async function exitPerformance(updateQuery = true) {
+  if (!performance.value) return
+  performance.value = false
+  stopScroll()
+  void wakeLock?.release().catch(() => {})
+  wakeLock = null
+  if (updateQuery) setPerformanceQuery(false)
+  if (document.fullscreenElement) {
+    try {
+      await document.exitFullscreen()
+    } catch {
+      // The browser already left full screen.
+    }
+  }
+}
+
+function togglePerformance() {
+  if (performance.value) void exitPerformance()
+  else void enterPerformance()
+}
+
+function selectLine(index: number) {
+  const total = stage.value?.querySelectorAll('[data-line]').length ?? 0
+  if (total === 0) return
+  activeLine.value = Math.max(0, Math.min(total - 1, index))
+}
+
+function step(delta: number) {
+  selectLine(activeLine.value + delta)
+}
+
+function changeFont(delta: number) {
+  fontSize.value = Math.round(Math.max(0.8, Math.min(3, fontSize.value + delta)) * 10) / 10
+}
+
+watch(activeLine, async (index) => {
+  if (!performance.value) return
+  await nextTick()
+  const line = stage.value?.querySelector(`[data-line="${index}"]`)
+  // Keep the current line mid-screen. Jump rather than animate while
+  // autoscroll runs, so its frames do not fight the line scroll.
+  line?.scrollIntoView?.({
+    block: 'center',
+    behavior: autoScroll.value || reduceMotion ? 'auto' : 'smooth',
+  })
+})
+
+watch(
+  () => route.query.performance,
+  (value) => {
+    const on = value === '1'
+    if (on && !performance.value) void enterPerformance(false)
+    else if (!on && performance.value) void exitPerformance(false)
+  },
+)
+
+function onKey(event: KeyboardEvent) {
+  if (!performance.value) return
+  // Leave browser shortcuts (Alt+Left = back, Shift+Space, ...) alone.
+  if (event.altKey || event.ctrlKey || event.metaKey || event.shiftKey) return
+  const target = event.target
+  // Space/Enter on a focused toolbar button press that button.
+  if (target instanceof HTMLButtonElement && (event.key === ' ' || event.key === 'Enter')) {
+    return
+  }
+  if (
+    target instanceof HTMLInputElement ||
+    target instanceof HTMLTextAreaElement ||
+    target instanceof HTMLSelectElement ||
+    (target instanceof HTMLElement && target.isContentEditable)
+  ) {
+    return
+  }
+  switch (event.key) {
+    case 'ArrowDown':
+    case 'ArrowRight':
+    case 'PageDown':
+    case ' ':
+      event.preventDefault()
+      step(1)
+      break
+    case 'ArrowUp':
+    case 'ArrowLeft':
+    case 'PageUp':
+      event.preventDefault()
+      step(-1)
+      break
+    case 'Home':
+      event.preventDefault()
+      selectLine(0)
+      break
+    case 'Escape':
+      event.preventDefault()
+      void exitPerformance()
+      break
+  }
+}
+
+function onFullscreenChange() {
+  // Esc or the browser's own control left full screen: leave performance too.
+  if (!document.fullscreenElement && performance.value) void exitPerformance()
+}
+
+function onVisibility() {
+  // The browser drops the wake lock when the tab is hidden.
+  if (document.visibilityState === 'visible' && performance.value) void keepScreenOn()
+}
+
+onMounted(() => {
+  window.addEventListener('keydown', onKey)
+  document.addEventListener('visibilitychange', onVisibility)
+  document.addEventListener('fullscreenchange', onFullscreenChange)
+  if (route.query.performance === '1') void enterPerformance(false)
+})
+
+onBeforeUnmount(() => {
+  unmounted = true
+  window.removeEventListener('keydown', onKey)
+  document.removeEventListener('visibilitychange', onVisibility)
+  document.removeEventListener('fullscreenchange', onFullscreenChange)
+  stopScroll()
+  void wakeLock?.release().catch(() => {})
+  if (document.fullscreenElement) void document.exitFullscreen().catch(() => {})
+})
 
 const successNotice = computed(() => {
   if (route.query.created) return 'Song created'
@@ -316,6 +509,48 @@ const chords = computed(() => {
   <div class="detail-page">
     <div v-if="store.loading" class="loading">Loading...</div>
     <div v-else-if="!song" class="error">Song not found</div>
+    <div
+      v-else-if="performance"
+      ref="stage"
+      class="play-stage"
+      :style="{ '--song-font-size': `${fontSize}rem` }"
+    >
+      <div class="play-toolbar" role="group" aria-label="Performance controls">
+        <button class="play-btn" title="Exit performance mode" aria-label="Exit performance mode" @click="exitPerformance()">✕</button>
+        <button class="play-btn" title="Previous line" aria-label="Previous line" @click="step(-1)">▲</button>
+        <button class="play-btn" title="Next line" aria-label="Next line" @click="step(1)">▼</button>
+        <span class="spacer" />
+        <button class="play-btn" title="Smaller text" aria-label="Smaller text" @click="changeFont(-0.1)">A−</button>
+        <button class="play-btn" title="Larger text" aria-label="Larger text" @click="changeFont(0.1)">A+</button>
+        <button
+          :class="['play-btn', { active: autoScroll }]"
+          title="Auto-scroll"
+          :aria-pressed="autoScroll"
+          @click="toggleScroll"
+        >
+          {{ autoScroll ? 'Stop' : 'Scroll' }}
+        </button>
+        <template v-if="autoScroll">
+          <button class="play-btn" title="Slower" aria-label="Slower" @click="changeSpeed(-0.1)">−</button>
+          <span class="speed">{{ scrollSpeed.toFixed(1) }}</span>
+          <button class="play-btn" title="Faster" aria-label="Faster" @click="changeSpeed(0.1)">+</button>
+        </template>
+      </div>
+
+      <SongDisplay
+        :chordpro="song.body"
+        :title="song.title"
+        :artist="song.artist"
+        :capo="song.capo"
+        :song-key="song.key"
+        :suggested-key="suggestedKey"
+        :columns-override="1"
+        :active-line="activeLine"
+        hide-controls
+        class="play-song"
+        @line-select="selectLine"
+      />
+    </div>
     <template v-else>
       <AppNotice v-if="successNotice" type="success" :message="successNotice" />
       <AppNotice v-if="pdfError" type="error" :message="pdfError" />
@@ -323,7 +558,7 @@ const chords = computed(() => {
       <AppNotice v-if="exportError" type="error" :message="exportError" />
 
       <div class="detail-actions">
-        <router-link :to="`/songs/${song.id}/play`" class="btn-secondary">Play</router-link>
+        <button @click="togglePerformance" class="btn-secondary" :aria-pressed="performance">Performance</button>
         <router-link :to="`/songs/${song.id}/edit`" class="btn-secondary">Edit</router-link>
         <button @click="printSong" class="btn-secondary">PDF</button>
         <button @click="downloadChordPro" class="btn-secondary">ChordPro</button>
@@ -447,6 +682,59 @@ const chords = computed(() => {
 </template>
 
 <style scoped>
+/* Performance mode covers the nav bar and page chrome without changing the
+   app layout (the old play view's stage, now on the song page). */
+.play-stage {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  overflow-y: auto;
+  background: var(--bg);
+  color: var(--text);
+  padding: 0 1rem 50vh;
+}
+.play-toolbar {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  flex-wrap: wrap;
+  padding: 0.5rem 0;
+  background: var(--bg);
+  border-bottom: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+.spacer {
+  flex: 1;
+}
+.play-btn {
+  min-width: 2.4rem;
+  min-height: 2.4rem;
+  padding: 0.3rem 0.6rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  color: var(--text);
+  font-size: 1rem;
+  cursor: pointer;
+}
+.play-btn.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #000;
+}
+.speed {
+  min-width: 2rem;
+  text-align: center;
+  color: var(--text-muted);
+}
+.play-song {
+  max-width: 1100px;
+  margin: 0 auto;
+  cursor: pointer;
+}
 .detail-actions {
   display: flex;
   gap: 0.5rem;

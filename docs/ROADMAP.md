@@ -98,7 +98,7 @@ Every roadmap item should make this loop faster, more reliable, or more enjoyabl
 | Song view: chords above lyrics, styling, 2 columns, autoscroll (#38/#41) | Mostly done |
 | Songbooks: CRUD, add/remove, PDF (#24, #89) | Done — delete/rename, reorder, per-entry transpose/columns, TOC, metadata (author/date/genre/difficulty) and a per-songbook chord chart (none/uncommon/all) on the page and in the PDF. The songbook PDF uses each entry's column setting (fixed in #96) |
 | Song view: chords above lyrics, styling, 2 columns, autoscroll (#38) | Done |
-| Play/sing view (#41) | Done — `/songs/:id/play`: full screen, adjustable text size, current-line highlight moved by tap, arrows, Space or PageUp/PageDown (page-turner pedals), smooth shared autoscroll (#144), screen wake lock. Record mode stays with #42 |
+| Play/sing view (#41, #140) | Done — the song page has a Performance toggle: full screen, adjustable text size, current-line highlight moved by tap, arrows, Space or PageUp/PageDown (page-turner pedals), smooth shared autoscroll (#144), screen wake lock. `/songs/:id/play` redirects with `?performance=1`. Record mode stays with #42 |
 | Songbooks: CRUD, add/remove, PDF (#24) | Done — delete/rename, reorder, per-entry transpose/columns, TOC; metadata/chordscheme → #89. The songbook PDF uses each entry's column setting (fixed in #96) |
 | Import by URL + UG search/pick/import (#46, #51, #132) | Done for UG: chords merged into lyrics, sections and capo kept, one polite fetch path (#132); supermusic blocks automated access (#133) |
 | Bulk import (#29) | Done — paste, plus files/one zip with a dry run and selective import |
@@ -209,6 +209,7 @@ The issue itself recommends starting only after the Alembic baseline (#69).
 | --- | --- | --- | --- |
 | 20 | ~~#41 Play/sing view (full-screen, current-line highlight)~~ (done) | M | Rehearsal/gig use |
 | 21 | #42 + #43 Recordings/attachments (merge) | L | Useful, but larger |
+| 21a | ~~#140 Merge play mode into the song view (Performance toggle)~~ (done) | M | One reading surface; `/songs/:id/play` redirects |
 | 21b | ~~#144 Smooth autoscroll with finer speed~~ (done) | S | One shared animation loop; no 10 Hz jumps |
 | 22 | ~~#25 YouTube link~~ (done) | S | Small reference feature |
 
@@ -437,6 +438,9 @@ Closed: #15 (regression test added), #33 (re-triaged), #37 (fields replace body 
     acquisition model; MusicBrainz work/recording MBIDs as canonical identity;
     the source policy (UG manual-only, no public chord catalog); whether to retire
     `backend/crawler.py` bulk import; and the first slice to build.
+11. **Play mode (#140) (resolved).** Fold the separate play view into the song
+    page as a Performance toggle, and redirect `/songs/:id/play` to
+    `/songs/:id?performance=1` so old links and bookmarks keep working.
 
 ---
 
@@ -570,6 +574,7 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-16 | #89: songbook metadata in dedicated columns; chord chart per songbook (none/uncommon/all) on the page and in the PDF, using the same open-position shape rule on both | agent (user asked to continue the roadmap) |
 | 2026-11-17 | #29: file/zip batch upload is two calls over the same files — a dry run that lists songs, duplicates and errors, then an import of the selected entries. ChordPro keeps non-metadata directives; plain text uses the UG parser; archives are read in memory with limits and never extracted to disk. Titles fall back to the file name | agent (user approved the spec in session) |
 | 2026-11-17 | #144: the song view and performance mode share one `requestAnimationFrame` autoscroll with fractional pixels, 0.1 speed steps (0.1–10, default 1), a persisted speed, and a stop at the end | agent (user asked to continue the roadmap) |
+| 2026-11-17 | #140: performance mode is a toggle on the song page; `/songs/:id/play` redirects to `?performance=1` rather than 404ing old links | @xbankov (asked in session) |
 
 ---
 
@@ -602,3 +607,4 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-17 | #132 fixed: UG import merges chord lines into lyrics, maps sections, saves capo/key, lists only importable search results, and uses one rate-limited fetch path |
 | 2026-11-17 | #29 done: batch upload of files or one zip, with a dry run, duplicate flags, selective import, and zip-safety limits |
 | 2026-11-17 | #144 done: smooth shared autoscroll in the song and play views, 0.1 speed steps, shared/persisted speed, and a stop at the end |
+| 2026-11-17 | #140 done: play mode folded into the song page as a Performance toggle; `/songs/:id/play` redirects; one SongDisplay and one autoscroll implementation |

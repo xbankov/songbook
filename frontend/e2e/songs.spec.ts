@@ -675,11 +675,11 @@ test.describe('Songbook UI', () => {
     await expect(page.locator('.chord-chart')).toHaveCount(0)
   })
 
-  test('play view highlights the current line and follows keys and taps', async ({ page }) => {
+  test('performance mode highlights the current line and follows keys and taps', async ({ page }) => {
     await mockApi(page)
     await page.goto(`/songs/${song.id}`)
-    await page.getByRole('link', { name: 'Play' }).click()
-    await expect(page).toHaveURL(`/songs/${song.id}/play`)
+    await page.getByRole('button', { name: 'Performance' }).click()
+    await expect(page).toHaveURL(`/songs/${song.id}?performance=1`)
 
     // Full-screen stage: the app nav bar is covered.
     await expect(page.locator('.play-stage')).toBeVisible()
@@ -701,9 +701,14 @@ test.describe('Songbook UI', () => {
 
     await page.keyboard.press('Escape')
     await expect(page).toHaveURL(`/songs/${song.id}`)
-    // Exit went back to the song page, so Back leaves it (no play entry).
-    await page.goBack()
-    await expect(page).not.toHaveURL(/\/songs\//)
+    await expect(page.locator('.play-stage')).toHaveCount(0)
+
+    // Old play-mode links still work and land in performance mode.
+    await page.goto(`/songs/${song.id}/play`)
+    await expect(page).toHaveURL(`/songs/${song.id}?performance=1`)
+    await expect(page.locator('.play-stage')).toBeVisible()
+    await page.getByRole('button', { name: 'Exit performance mode' }).click()
+    await expect(page).toHaveURL(`/songs/${song.id}`)
   })
 
   test('play view: Space on a focused toolbar button presses it', async ({ page }) => {
