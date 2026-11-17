@@ -55,7 +55,14 @@ _SECTION_WORDS = (
     "ending",
     "riff",
     "tag",
+    # Czech/Slovak: refrén = chorus, sloka/strofa = verse.
+    "ref",
+    "sloka",
+    "strofa",
 )
+_CHORUS_WORDS = ("chorus", "refrain", "ref")
+# "[R]", "[R:]", "[R2:]": the usual Czech/Slovak chorus marker.
+_CHORUS_MARK = re.compile(r"(?i)r\d*:?")
 # What may sit on a chord line besides chords: bars, dashes, repeat marks.
 _CHORD_LINE_EXTRAS = re.compile(r"(?i)[\s|/\\\-.,()*:~]|\bx\d+\b|\b\d+x\b")
 
@@ -133,7 +140,10 @@ def parse_search_html(html: str) -> list[dict[str, Any]]:
         url = tab.get("tab_url") or ""
         if not isinstance(url, str):
             continue
-        if tab.get("type") not in IMPORTABLE_TYPES or not is_ultimate_guitar_url(url):
+        kind = tab.get("type")
+        if not isinstance(kind, str) or kind not in IMPORTABLE_TYPES:
+            continue
+        if not is_ultimate_guitar_url(url):
             continue
         if urlparse(url).path.startswith("/pro"):
             continue
@@ -196,7 +206,7 @@ def _plain(text: str) -> str:
 def _inline(name: str) -> str:
     # A chord we cannot parse ("N.C.") would break the song model; keep it
     # visible as text instead.
-    return f"[{name}]" if _valid_chord(name) else name
+    return f"[{name}]" if _valid_chord(name) else _plain(name)
 
 
 def merge_chord_line(chords: str, lyrics: str) -> str:
@@ -237,7 +247,7 @@ def chord_only_line(line: str, keep_indent: bool = False) -> str:
 
 def _section_for(header: str) -> tuple[str, str | None]:
     lowered = header.lower()
-    if lowered.startswith(("chorus", "refrain")):
+    if lowered.startswith(_CHORUS_WORDS) or _CHORUS_MARK.fullmatch(lowered):
         label = "chorus"
     elif lowered.startswith("bridge"):
         label = "bridge"
@@ -261,7 +271,10 @@ def _header(line: str) -> str | None:
     if not match or "[ch]" in line:
         return None
     header = match.group(1).strip()
-    return header if header.lower().startswith(_SECTION_WORDS) else None
+    lowered = header.lower()
+    if lowered.startswith(_SECTION_WORDS) or _CHORUS_MARK.fullmatch(lowered):
+        return header
+    return None
 
 
 def parse_content(content: str) -> list[Section]:
@@ -317,7 +330,7 @@ def parse_content(content: str) -> list[Section]:
 def _capo(meta: dict[str, Any]) -> int:
     try:
         capo = int(meta.get("capo") or 0)
-    except (TypeError, ValueError):
+    except (TypeError, ValueError, OverflowError):
         return 0
     return capo if 0 <= capo <= 12 else 0
 
