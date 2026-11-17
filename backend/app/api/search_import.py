@@ -3,6 +3,7 @@ import re
 
 import requests
 from app.services.music_theory import SongModel, parse_ultimate_guitar_html
+from app.services.scraper import SongImportError, has_lyrics, import_from_url
 from bs4 import BeautifulSoup
 from fastapi import APIRouter, HTTPException, Query
 
@@ -52,24 +53,20 @@ def search_ultimate_guitar(query: str) -> list[dict]:
     return results
 
 
-def fetch_song_page(url: str) -> SongModel | None:
+def fetch_song_page(url: str) -> SongModel:
+    if "ultimate-guitar" not in url:
+        return import_from_url(url)
     try:
         html = requests.get(url, timeout=30, headers={"User-Agent": "Mozilla/5.0"}).text
-        if "ultimate-guitar" in url:
-            return parse_ultimate_guitar_html(html)
-        else:
-            soup = BeautifulSoup(html, "lxml")
-            title_el = soup.select_one("h1")
-            artist_el = soup.select_one("h2")
-            body_el = soup.select_one(".chord-text, pre, .chord")
-            if body_el:
-                title = title_el.get_text(strip=True) if title_el else "Unknown"
-                artist = artist_el.get_text(strip=True) if artist_el else "Unknown"
-                body = body_el.get_text(strip=True)
-                return SongModel.from_chordpro(body)
+        song = parse_ultimate_guitar_html(html)
     except Exception as e:
         logger.error(f"Failed to fetch song page {url}: {e}")
-    return None
+        song = None
+    if song is None:
+        raise SongImportError("Failed to fetch song from URL")
+    if not has_lyrics(song):
+        raise SongImportError("No song text found at that URL.")
+    return song
 
 
 @router.get("")
@@ -85,9 +82,10 @@ async def search_songs(
 
 @router.post("/import")
 async def import_searched_song(url: str = Query(...)):
-    song = fetch_song_page(url)
-    if song is None:
-        raise HTTPException(status_code=400, detail="Failed to fetch song from URL")
+    try:
+        song = fetch_song_page(url)
+    except SongImportError as e:
+        raise HTTPException(status_code=400, detail=str(e)) from e
     return {
         "title": song.title,
         "artist": song.artist,
