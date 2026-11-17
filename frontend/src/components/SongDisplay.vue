@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, ref } from 'vue'
+import { computed, ref } from 'vue'
 import { useSettingsStore } from '../stores/settings'
+import { useAutoScroll } from '../composables/useAutoScroll'
 import { transposeChord } from '../utils/chords'
 
 const settingsStore = useSettingsStore()
@@ -28,9 +29,12 @@ const emit = defineEmits<{
 
 const songDisplay = ref<HTMLElement | null>(null)
 
-const autoScroll = ref(false)
-const scrollSpeed = ref(1)
-let scrollInterval: ReturnType<typeof setInterval> | null = null
+const {
+  autoScroll,
+  speed: scrollSpeed,
+  toggle: toggleAutoScroll,
+  changeSpeed: setSpeed,
+} = useAutoScroll()
 
 const transpose = computed(
   () => settingsStore.transpose + (props.transposeOverride ?? 0),
@@ -42,35 +46,6 @@ const doubleColumn = computed(() => {
   if (props.columnsOverride === 1) return false
   if (props.columnsOverride === 2) return true
   return settingsStore.doubleColumn
-})
-
-function toggleAutoScroll() {
-  autoScroll.value = !autoScroll.value
-  if (autoScroll.value) {
-    scrollInterval = setInterval(() => {
-      window.scrollBy(0, scrollSpeed.value)
-    }, 100)
-  } else if (scrollInterval) {
-    clearInterval(scrollInterval)
-    scrollInterval = null
-  }
-}
-
-function setSpeed(s: number) {
-  scrollSpeed.value = s
-  if (autoScroll.value) {
-    if (scrollInterval) clearInterval(scrollInterval)
-    scrollInterval = setInterval(() => {
-      window.scrollBy(0, scrollSpeed.value)
-    }, 100)
-  }
-}
-
-onBeforeUnmount(() => {
-  if (scrollInterval) {
-    clearInterval(scrollInterval)
-    scrollInterval = null
-  }
 })
 
 interface ChordSpan { type: 'chord'; chord: string; position: number }
@@ -191,9 +166,9 @@ function lyricRow(spans: Span[]): string {
         <button :class="['ctrl-btn', { active: autoScroll }]" @click="toggleAutoScroll" title="Auto-scroll">
           {{ autoScroll ? 'Stop' : 'Scroll' }}
         </button>
-        <button v-if="autoScroll" @click="setSpeed(scrollSpeed - 0.5)" class="ctrl-btn ctrl-sm" title="Slower">−</button>
+        <button v-if="autoScroll" @click="setSpeed(-0.1)" class="ctrl-btn ctrl-sm" title="Slower" aria-label="Slower">−</button>
         <span v-if="autoScroll" class="ctrl-label">{{ scrollSpeed.toFixed(1) }}</span>
-        <button v-if="autoScroll" @click="setSpeed(scrollSpeed + 0.5)" class="ctrl-btn ctrl-sm" title="Faster">+</button>
+        <button v-if="autoScroll" @click="setSpeed(0.1)" class="ctrl-btn ctrl-sm" title="Faster" aria-label="Faster">+</button>
       </div>
     </div>
 
