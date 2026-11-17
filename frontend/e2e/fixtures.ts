@@ -45,7 +45,6 @@ export const songbook = {
   date: null as string | null,
   genre: null as string | null,
   difficulty: null as string | null,
-  chord_diagrams: 'none',
   created_at: '2026-01-01T00:00:00Z',
   updated_at: '2026-01-01T00:00:00Z',
   entries: [
@@ -69,13 +68,6 @@ export const songbook = {
     },
   ],
 }
-
-export const songbookChords = [
-  // x32010: the muted low E proves the page draws the server's frets
-  // (the local fallback rule would play the open E).
-  { name: 'C', frets: [-1, 3, 2, 0, 1, 0] },
-  { name: 'G', frets: [3, 2, 0, 0, 0, 3] },
-]
 
 export const settings = {
   id: '22222222-2222-2222-2222-222222222222',
@@ -144,9 +136,6 @@ export async function mockApi(
       route.request().method() === 'GET'
     ) {
       return route.fulfill({ json: songbook })
-    }
-    if (url.pathname === `/api/songbooks/${songbook.id}/chords`) {
-      return route.fulfill({ json: songbookChords })
     }
     if (
       url.pathname === `/api/songbooks/${songbook.id}` &&

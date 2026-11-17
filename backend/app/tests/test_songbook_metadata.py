@@ -1,23 +1,20 @@
-"""Songbook metadata and chord-diagram selection (#89)."""
+"""Songbook metadata (#89); the chord chart was removed in #143."""
 
 from datetime import date, datetime, timezone
 from io import BytesIO
 from types import SimpleNamespace
 from uuid import uuid4
 
-import pytest
 from app.api import export as export_api
 from app.api.export import songbook_metadata
 from app.database import get_db
 from app.main import app
 from app.models.songbook import Songbook
-from app.schemas.songbook import SongbookCreate, SongbookUpdate
+from app.schemas.songbook import SongbookUpdate
 from app.services.auth import create_access_token
-from app.services.chord_diagrams import chord_chart, chord_shape, is_basic_chord
-from app.services.music_theory import Chord, SongModel
+from app.services.music_theory import SongModel
 from app.services.pdf import generate_songbook_pdf
 from fastapi.testclient import TestClient
-from pydantic import ValidationError
 
 
 class _Result:
@@ -73,47 +70,7 @@ def _put(songbook: Songbook, payload: dict):
         app.dependency_overrides.clear()
 
 
-@pytest.mark.parametrize(
-    ("name", "frets"),
-    [
-        ("G", [3, 2, 0, 0, 0, 3]),
-        ("C", [0, 3, 2, 0, 1, 0]),
-        ("Am", [0, 0, 2, 2, 1, 0]),
-        ("E7", [0, 2, 0, 1, 0, 0]),
-    ],
-)
-def test_chord_shape_uses_open_positions(name, frets):
-    assert chord_shape(Chord.parse(name)) == frets
-
-
-def test_chord_shape_unknown_quality_has_no_diagram():
-    assert chord_shape(Chord.parse("Cxyz")) is None
-
-
-def test_basic_chords_are_plain_major_and_minor_without_bass():
-    assert is_basic_chord(Chord.parse("G"))
-    assert is_basic_chord(Chord.parse("Am"))
-    assert not is_basic_chord(Chord.parse("E7"))
-    assert not is_basic_chord(Chord.parse("C/G"))
-
-
-def test_chord_chart_modes():
-    songs = [
-        SongModel.from_chordpro("[G]one [Am]two [E7]three"),
-        SongModel.from_chordpro("[G]again [Dsus4]four [Cxyz]odd"),
-    ]
-
-    assert chord_chart(songs, "none") == []
-    assert [c["name"] for c in chord_chart(songs, "all")] == [
-        "Am",
-        "Dsus4",
-        "E7",
-        "G",
-    ]
-    assert [c["name"] for c in chord_chart(songs, "uncommon")] == ["Dsus4", "E7"]
-
-
-def test_songbook_pdf_shows_metadata_and_transposed_chord_chart(monkeypatch):
+def test_songbook_pdf_shows_metadata_and_no_chord_chart(monkeypatch):
     rendered: dict = {}
 
     class _HTML:
@@ -136,48 +93,20 @@ def test_songbook_pdf_shows_metadata_and_transposed_chord_chart(monkeypatch):
         title="Book",
         per_song=[{"transpose": 2}],
         metadata=[("Author", "Jane"), ("Genre", "bluegrass")],
-        chord_diagrams="uncommon",
     )
 
     html = rendered["html"]
     assert "Author:</span> Jane" in html
     assert "Genre:</span> bluegrass" in html
-    # Chords are charted after the per-entry transpose (E7 + 2 = F#7).
-    assert '<div class="diagram-name">F#7</div>' in html
-    assert '<div class="diagram-name">A</div>' not in html
-
-
-def test_songbook_pdf_without_chart_has_no_chord_page(monkeypatch):
-    rendered: dict = {}
-
-    class _HTML:
-        def __init__(self, string: str):
-            rendered["html"] = string
-
-        def write_pdf(self) -> bytes:
-            return b"%PDF-1.4"
-
-    import weasyprint
-
-    monkeypatch.setattr(weasyprint, "HTML", _HTML)
-    settings = SimpleNamespace(
-        transpose=0, double_column=0, font="DejaVu Sans Mono", font_size=9
-    )
-    generate_songbook_pdf([SongModel.from_chordpro("[E7]x")], settings)
-
-    assert 'class="chord-chart"' not in rendered["html"]
-    assert 'class="songbook-meta"' not in rendered["html"]
+    # The per-songbook chord chart was removed in #143.
+    assert 'class="chord-chart"' not in html
+    assert ">Chords<" not in html
 
 
 def test_songbook_metadata_skips_blank_fields():
     songbook = _songbook(author="Jane", date=date(2026, 5, 1), genre=None)
 
     assert songbook_metadata(songbook) == [("Author", "Jane"), ("Date", "2026-05-01")]
-
-
-def test_schema_rejects_unknown_chord_diagram_mode():
-    with pytest.raises(ValidationError):
-        SongbookCreate(name="Book", chord_diagrams="some")
 
 
 def test_schema_turns_blank_metadata_into_null():
@@ -187,7 +116,7 @@ def test_schema_turns_blank_metadata_into_null():
     assert update.genre == "folk"
 
 
-def test_update_songbook_saves_metadata_and_chord_diagrams():
+def test_update_songbook_saves_metadata():
     songbook = _songbook()
 
     response = _put(
@@ -197,7 +126,6 @@ def test_update_songbook_saves_metadata_and_chord_diagrams():
             "date": "2026-05-01",
             "genre": "bluegrass",
             "difficulty": "easy",
-            "chord_diagrams": "uncommon",
         },
     )
 
@@ -207,21 +135,41 @@ def test_update_songbook_saves_metadata_and_chord_diagrams():
     assert body["date"] == "2026-05-01"
     assert body["genre"] == "bluegrass"
     assert body["difficulty"] == "easy"
-    assert body["chord_diagrams"] == "uncommon"
     assert body["name"] == "Book"
 
 
 def test_update_songbook_ignores_null_for_required_fields():
-    songbook = _songbook(chord_diagrams="all")
+    songbook = _songbook()
 
-    response = _put(songbook, {"name": None, "chord_diagrams": None, "author": None})
+    response = _put(songbook, {"name": None, "author": None})
 
     assert response.status_code == 200
     assert response.json()["name"] == "Book"
-    assert response.json()["chord_diagrams"] == "all"
+    assert response.json()["author"] is None
 
 
-def test_songbook_pdf_export_passes_metadata_and_mode(monkeypatch):
+def test_update_songbook_ignores_the_removed_chord_diagram_setting():
+    # The column stays for existing data (#143); the API no longer reads or
+    # returns it, so a stale client cannot change it.
+    songbook = _songbook(chord_diagrams="all")
+
+    response = _put(songbook, {"chord_diagrams": "none"})
+
+    assert response.status_code == 200
+    assert "chord_diagrams" not in response.json()
+    assert songbook.chord_diagrams == "all"
+
+
+def test_songbook_has_no_chord_chart_endpoint():
+    response = TestClient(app).get(
+        f"/api/songbooks/{uuid4()}/chords",
+        headers={"Authorization": f"Bearer {create_access_token()}"},
+    )
+
+    assert response.status_code == 404
+
+
+def test_songbook_pdf_export_passes_metadata(monkeypatch):
     songbook = _songbook(author="Jane", chord_diagrams="all")
     captured: dict = {}
 
@@ -249,86 +197,5 @@ def test_songbook_pdf_export_passes_metadata_and_mode(monkeypatch):
 
     assert response.status_code == 200
     assert captured["metadata"] == [("Author", "Jane")]
-    assert captured["chord_diagrams"] == "all"
-
-
-class _QueuedSession:
-    def __init__(self, *results):
-        self.results = list(results)
-
-    async def execute(self, *args, **kwargs):
-        return _Result(self.results.pop(0))
-
-
-def _entry(songbook: Songbook, body: str, transpose: int = 0):
-    from app.models.song import Song
-    from app.models.songbook import SongbookEntry
-
-    now = datetime.now(timezone.utc)
-    song = Song(
-        id=uuid4(),
-        title="S",
-        artist="A",
-        capo=0,
-        key=None,
-        body=body,
-        metadata_={},
-        version=1,
-        created_at=now,
-        updated_at=now,
-    )
-    song.tags = []
-    entry = SongbookEntry(
-        id=uuid4(),
-        songbook_id=songbook.id,
-        song_id=song.id,
-        sort_order=0,
-        transpose=transpose,
-        double_column=0,
-    )
-    entry.song = song
-    return entry
-
-
-def _get_chords(songbook: Songbook, global_transpose: int = 0):
-    async def override_get_db():
-        yield _QueuedSession(songbook, SimpleNamespace(transpose=global_transpose))
-
-    app.dependency_overrides[get_db] = override_get_db
-    try:
-        return TestClient(app).get(
-            f"/api/songbooks/{songbook.id}/chords",
-            headers={"Authorization": f"Bearer {create_access_token()}"},
-        )
-    finally:
-        app.dependency_overrides.clear()
-
-
-def test_chords_endpoint_matches_pdf_rules_with_transpose():
-    songbook = _songbook(chord_diagrams="uncommon")
-    songbook.entries = [
-        _entry(songbook, "[Bb]a [G/B]b [Amin]c [E7]d [Chorus]e", transpose=1),
-        _entry(songbook, "[N.C.] cannot be parsed [D]x"),
-    ]
-
-    response = _get_chords(songbook, global_transpose=1)
-
-    assert response.status_code == 200
-    # +2 in total: Bb->C and Amin->Bm are basic; G/B->A/C#, E7->F#7.
-    assert [c["name"] for c in response.json()] == ["A/C#", "F#7"]
-    assert response.json()[1]["frets"] == chord_shape(Chord.parse("F#7"))
-
-
-def test_chords_endpoint_is_empty_for_none():
-    songbook = _songbook(chord_diagrams="none")
-    songbook.entries = [_entry(songbook, "[E7]x")]
-
-    assert _get_chords(songbook).json() == []
-
-
-def test_unknown_stored_chord_diagram_mode_reads_as_none():
-    from app.schemas.songbook import SongbookOut
-
-    out = SongbookOut.model_validate(_songbook(chord_diagrams="bogus"))
-
-    assert out.chord_diagrams == "none"
+    # The stored column no longer affects the PDF.
+    assert "chord_diagrams" not in captured

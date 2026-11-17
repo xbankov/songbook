@@ -1,26 +1,17 @@
 <script setup lang="ts">
-import { ref, onMounted, computed, watch } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 import { useSongbookStore } from '../stores/songbooks'
 import { useSongStore } from '../stores/songs'
-import { useSettingsStore } from '../stores/settings'
 import SongDisplay from '../components/SongDisplay.vue'
-import ChordDiagram from '../components/ChordDiagram.vue'
 import AppNotice from '../components/AppNotice.vue'
 import { downloadFile, openFile } from '../api/client'
-import {
-  getSongbookChords,
-  type ChordShape,
-  type SongbookEntryResponse,
-  type SongbookUpdate,
-} from '../api/songbooks'
-import type { ChordDiagramMode } from '../utils/chords'
+import type { SongbookEntryResponse, SongbookUpdate } from '../api/songbooks'
 
 const route = useRoute()
 const router = useRouter()
 const store = useSongbookStore()
 const songStore = useSongStore()
-const settingsStore = useSettingsStore()
 
 const addSongId = ref('')
 const expandedEntry = ref<string | null>(null)
@@ -32,7 +23,6 @@ const editAuthor = ref('')
 const editDate = ref('')
 const editGenre = ref('')
 const editDifficulty = ref('')
-const editChordDiagrams = ref<ChordDiagramMode>('none')
 const pendingEntries = ref<Record<string, boolean>>({})
 
 onMounted(async () => {
@@ -40,7 +30,6 @@ onMounted(async () => {
     await Promise.all([
       store.fetchSongbook(route.params.id as string),
       songStore.fetchSongs(),
-      settingsStore.fetchSettings(),
     ])
   } catch (e: unknown) {
     error.value = e instanceof Error ? e.message : 'Failed to load songbook'
@@ -59,33 +48,6 @@ const metadataLine = computed(() => {
     book.difficulty && `Difficulty: ${book.difficulty}`,
   ].filter(Boolean) as string[]
 })
-
-// The chart comes from the server so it matches the PDF exactly (#89).
-// Refetch when anything that changes it changes.
-const chartChords = ref<ChordShape[]>([])
-let chartRequest = 0
-const chartKey = computed(() => {
-  const book = songbook.value
-  if (!book) return ''
-  const entries = book.entries.map((entry) => `${entry.id}:${entry.transpose}`)
-  return [book.id, book.chord_diagrams, settingsStore.transpose, ...entries].join('|')
-})
-
-watch(chartKey, async () => {
-  const book = songbook.value
-  const request = ++chartRequest
-  if (!book || (book.chord_diagrams ?? 'none') === 'none') {
-    chartChords.value = []
-    return
-  }
-  try {
-    const chart = await getSongbookChords(book.id)
-    if (request === chartRequest) chartChords.value = chart
-  } catch {
-    // The chart is optional; the rest of the page still works.
-    if (request === chartRequest) chartChords.value = []
-  }
-}, { immediate: true })
 
 async function addSong() {
   if (!addSongId.value) return
@@ -119,7 +81,6 @@ function startEdit() {
   editDate.value = songbook.value.date || ''
   editGenre.value = songbook.value.genre || ''
   editDifficulty.value = songbook.value.difficulty || ''
-  editChordDiagrams.value = songbook.value.chord_diagrams ?? 'none'
   editing.value = true
 }
 
@@ -143,9 +104,6 @@ async function saveEdit() {
   ] as const
   for (const [field, value, current] of metadata) {
     if (value !== (current || '')) data[field] = value || null
-  }
-  if (editChordDiagrams.value !== (book.chord_diagrams ?? 'none')) {
-    data.chord_diagrams = editChordDiagrams.value
   }
   try {
     if (Object.keys(data).length) {
@@ -272,29 +230,9 @@ async function downloadChordPro() {
       <input v-model="editDate" class="input" type="date" aria-label="Date" />
       <input v-model="editGenre" class="input" placeholder="Genre" aria-label="Genre" />
       <input v-model="editDifficulty" class="input" placeholder="Difficulty" aria-label="Difficulty" />
-      <label class="field">
-        Chord diagrams
-        <select v-model="editChordDiagrams" class="input">
-          <option value="none">None</option>
-          <option value="uncommon">Uncommon chords only (hide plain major/minor)</option>
-          <option value="all">All chords</option>
-        </select>
-      </label>
       <button @click="saveEdit" class="btn-primary">Save</button>
       <button @click="editing = false" class="btn-secondary">Cancel</button>
     </div>
-
-    <section v-if="chartChords.length" class="chord-chart" aria-label="Chord chart">
-      <h2>Chords</h2>
-      <div class="chord-chart-items">
-        <ChordDiagram
-          v-for="chord in chartChords"
-          :key="chord.name"
-          :chord="chord.name"
-          :frets="chord.frets"
-        />
-      </div>
-    </section>
 
     <div class="add-song">
       <select v-model="addSongId" class="input">
@@ -400,25 +338,6 @@ async function downloadChordPro() {
   margin: 0.25rem 0 0;
   color: var(--text-muted);
   font-size: 0.85rem;
-}
-.field {
-  display: flex;
-  align-items: center;
-  gap: 0.4rem;
-  color: var(--text-muted);
-  font-size: 0.85rem;
-}
-.chord-chart {
-  margin-bottom: 1rem;
-}
-.chord-chart h2 {
-  font-size: 1rem;
-  margin: 0 0 0.5rem;
-}
-.chord-chart-items {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
 }
 .actions {
   display: flex;

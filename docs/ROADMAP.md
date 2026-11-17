@@ -96,7 +96,7 @@ Every roadmap item should make this loop faster, more reliable, or more enjoyabl
 | Chord inside a word `bri[C]ght` (#15) | Done — regression test in `test_music_theory.py` |
 | Title/artist/capo/key fields (#37) | Done — the fields are the source of truth. Saving strips `{title}`/`{artist}`/`{capo}`/`{key}` from the body; every export and the song view use the fields; ChordPro exports add the tags back. Existing bodies are not rewritten; old tags are ignored until the next save |
 | Song view: chords above lyrics, styling, 2 columns, autoscroll (#38/#41) | Mostly done |
-| Songbooks: CRUD, add/remove, PDF (#24, #89) | Done — delete/rename, reorder, per-entry transpose/columns, TOC, metadata (author/date/genre/difficulty) and a per-songbook chord chart (none/uncommon/all) on the page and in the PDF. The songbook PDF uses each entry's column setting (fixed in #96) |
+| Songbooks: CRUD, add/remove, PDF (#24, #89) | Done — delete/rename, reorder, per-entry transpose/columns, TOC, and metadata (author/date/genre/difficulty). The per-songbook chord chart was removed in #143; the songbook PDF uses each entry's column setting (fixed in #96) |
 | Song view: chords above lyrics, styling, 2 columns, autoscroll (#38) | Done |
 | Play/sing view (#41, #140) | Done — the song page has a Performance toggle: full screen, adjustable text size, current-line highlight moved by tap, arrows, Space or PageUp/PageDown (page-turner pedals), smooth shared autoscroll (#144), screen wake lock. `/songs/:id/play` redirects with `?performance=1`. Record mode stays with #42 |
 | Songbooks: CRUD, add/remove, PDF (#24) | Done — delete/rename, reorder, per-entry transpose/columns, TOC; metadata/chordscheme → #89. The songbook PDF uses each entry's column setting (fixed in #96) |
@@ -176,8 +176,9 @@ Migration is **not** a Phase 0 criterion; it is a pre-1.0.0 release gate.
 
 ### Phase 2 — Print and export
 
-**Status:** #54, #56, #57, #58 done (plus #55, #59); only #44 remains (needs a
-spec for "starting note" and "rhythmic pattern"; `capo`/`key` already exist).
+**Status:** #54, #56, #57, #58 done (plus #55, #59, #143); only #44 remains
+(needs a spec for "starting note" and "rhythmic pattern"; `capo`/`key` already
+exist).
 
 | # | Issue | Size | Why |
 | --- | --- | --- | --- |
@@ -186,6 +187,7 @@ spec for "starting note" and "rhythmic pattern"; `capo`/`key` already exist).
 | 12 | #57 Chord signs in print/PDF | S | Chords should look like chords |
 | 13 | #58 Print looks (margins, headings, page numbers) | S | Polish |
 | 14 | #44 Expand ChordPro tags | S | Starting note/rhythm are the only gaps |
+| 14a | ~~#143 Remove the end-of-songbook chord chart~~ (done) | S | Redundant once chords are clickable; shorter printed books |
 
 ### Phase 3 — Import ecosystem
 
@@ -431,9 +433,9 @@ Closed: #15 (regression test added), #33 (re-triaged), #37 (fields replace body 
 8. **Mobile stack.** Capacitor + Vue vs a separate native app. Recommendation:
    Capacitor + Vue + PWA.
 9. **#89 songbook metadata storage (resolved).** Dedicated nullable columns
-   (`author`, `date`, `genre`, `difficulty`) plus `chord_diagrams`
-   (`none`/`uncommon`/`all`, where `uncommon` hides plain major/minor triads),
-   added by migration `0002`.
+   (`author`, `date`, `genre`, `difficulty`) added by migration `0002`. The
+   `chord_diagrams` column from the same migration is kept for existing data
+   but is no longer read or exposed: the chart was removed in #143.
 10. **#78 catalog & acquisition (blocking #78).** Approve the catalog / library /
     acquisition model; MusicBrainz work/recording MBIDs as canonical identity;
     the source policy (UG manual-only, no public chord catalog); whether to retire
@@ -575,6 +577,7 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-17 | #29: file/zip batch upload is two calls over the same files — a dry run that lists songs, duplicates and errors, then an import of the selected entries. ChordPro keeps non-metadata directives; plain text uses the UG parser; archives are read in memory with limits and never extracted to disk. Titles fall back to the file name | agent (user approved the spec in session) |
 | 2026-11-17 | #144: the song view and performance mode share one `requestAnimationFrame` autoscroll with fractional pixels, 0.1 speed steps (0.1–10, default 1), a persisted speed, and a stop at the end | agent (user asked to continue the roadmap) |
 | 2026-11-17 | #140: performance mode is a toggle on the song page; `/songs/:id/play` redirects to `?performance=1` rather than 404ing old links | @xbankov (asked in session) |
+| 2026-11-17 | #143: remove the end-of-songbook chord chart from the page, PDF and API; keep the `chord_diagrams` column for existing data. Reverses the chart part of the #89 decision | agent (user asked to continue the roadmap) |
 
 ---
 
@@ -608,3 +611,4 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-17 | #29 done: batch upload of files or one zip, with a dry run, duplicate flags, selective import, and zip-safety limits |
 | 2026-11-17 | #144 done: smooth shared autoscroll in the song and play views, 0.1 speed steps, shared/persisted speed, and a stop at the end |
 | 2026-11-17 | #140 done: play mode folded into the song page as a Performance toggle; `/songs/:id/play` redirects; one SongDisplay and one autoscroll implementation |
+| 2026-11-17 | #143 done: removed the songbook chord chart from the page, PDF and API; the column stays for existing data |
