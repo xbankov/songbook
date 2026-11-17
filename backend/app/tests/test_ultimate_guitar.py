@@ -98,6 +98,8 @@ def test_brackets_in_lyrics_do_not_become_chords():
 def test_chord_only_line_keeps_bars_and_unknown_chords_as_text():
     line = "| [ch]D[/ch]   | [ch]N.C.[/ch]   |"
     assert chord_only_line(line) == "| [D]   | N.C.   |"
+    # A bracketed "chord" must not turn back into ChordPro chord syntax.
+    assert chord_only_line("[ch][x][/ch] [ch]G[/ch]") == "(x) [G]"
 
 
 def test_chord_line_with_a_trailing_mark_merges_but_bars_do_not():
@@ -133,6 +135,10 @@ def test_chord_line_is_not_merged_into_a_tab_staff():
         ("Bridge", "bridge", None),
         ("Intro", "verse", "Intro"),
         ("Pre-Chorus", "verse", "Pre-Chorus"),
+        ("Refrén", "chorus", "Refrén"),
+        ("R:", "chorus", "R:"),
+        ("R2", "chorus", "R2"),
+        ("Sloka 1", "verse", "Sloka 1"),
     ],
 )
 def test_section_headers_map_to_chordpro_sections(header, label, title):
@@ -197,7 +203,7 @@ def test_intro_bars_and_parenthesised_lines_are_kept():
     assert "[D]I am a [D7]man of constant [G]sorrow" in body
 
 
-@pytest.mark.parametrize("capo", [None, "", "x", -1, 40])
+@pytest.mark.parametrize("capo", [None, "", "x", -1, 40, float("inf")])
 def test_missing_or_bad_capo_is_zero(capo):
     song = parse_tab_html(_page("[ch]G[/ch]\nla", {"capo": capo}))
     assert song.capo == 0
@@ -246,14 +252,18 @@ def test_odd_metadata_values_do_not_crash():
     )
 
 
+@pytest.mark.parametrize("data", [None, []])
+def test_search_page_without_data_is_a_clean_error(data):
+    with pytest.raises(UltimateGuitarError):
+        parse_search_html(_raw(data))
+
+
 @pytest.mark.parametrize(
-    "data", [None, [], {"results": None}, {"results": [None, 5, {"tab_url": 3}]}]
+    "results",
+    [None, 5, [None, 5, {"tab_url": 3}, {"type": [], "tab_url": "x"}]],
 )
-def test_malformed_search_page_gives_no_results_or_a_clean_error(data):
-    try:
-        assert parse_search_html(_raw(data)) == []
-    except UltimateGuitarError:
-        pass
+def test_malformed_search_results_are_skipped(results):
+    assert parse_search_html(_raw({"results": results})) == []
 
 
 # Regressions for #51, moved from test_music_theory.py.
