@@ -47,6 +47,7 @@ const batchImporting = ref(false)
 const showSearchImport = ref(false)
 const searchQuery = ref('')
 const searchResults = ref<SearchResult[]>([])
+const searchSort = ref<'best' | 'votes' | 'newest'>('best')
 const searching = ref(false)
 const alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'.split('')
 const selected = ref<Set<string>>(new Set())
@@ -88,8 +89,29 @@ interface SearchResult {
   url: string
   source: string
   type: string
+  type_label?: string | null
   rating: number
+  votes: number
+  version?: number | null
+  version_count?: number | null
+  version_description?: string | null
+  key?: string | null
+  difficulty?: string | null
+  updated?: string | null
+  verified?: boolean
 }
+
+// The server returns the best-weighted order; the other two sorts are local.
+const sortedSearchResults = computed(() => {
+  const results = [...searchResults.value]
+  if (searchSort.value === 'votes') {
+    return results.sort((a, b) => b.votes - a.votes || b.rating - a.rating)
+  }
+  if (searchSort.value === 'newest') {
+    return results.sort((a, b) => (b.updated ?? '').localeCompare(a.updated ?? ''))
+  }
+  return results
+})
 
 function listParams() {
   return {
@@ -374,14 +396,37 @@ async function importSearchResult(url: string) {
       <div class="search-bar">
         <input v-model="searchQuery" placeholder="Search for songs to import..." class="search-input" @keyup.enter="doSearchImport" />
         <button @click="doSearchImport" class="btn-primary" :disabled="searching">{{ searching ? 'Searching...' : 'Search' }}</button>
+        <select v-model="searchSort" class="search-input sort-select" aria-label="Sort search results">
+          <option value="best">Best</option>
+          <option value="votes">Most votes</option>
+          <option value="newest">Newest</option>
+        </select>
       </div>
       <div v-if="searchResults.length" class="search-results">
-        <div v-for="r in searchResults" :key="r.url" class="search-result">
+        <div v-for="(r, index) in sortedSearchResults" :key="r.url" class="search-result">
           <div class="result-info">
-            <strong>{{ r.title }}</strong> — {{ r.artist }}
-            <span class="badge">{{ r.type }}</span>
+            <div class="result-title">
+              <strong>{{ r.title }}</strong> — {{ r.artist }}
+              <span v-if="searchSort === 'best' && index === 0" class="badge badge-best">Best</span>
+            </div>
+            <div class="result-meta">
+              <span class="badge">{{ r.type_label || r.type }}</span>
+              <span v-if="r.version != null">
+                v{{ r.version }}<template v-if="r.version_count"> of {{ r.version_count }}</template>
+              </span>
+              <span>{{ r.rating.toFixed(1) }}★ ({{ r.votes.toLocaleString() }} votes)</span>
+              <span v-if="r.key">Key {{ r.key }}</span>
+              <span v-if="r.difficulty">{{ r.difficulty }}</span>
+              <span v-if="r.updated">updated {{ r.updated.slice(0, 4) }}</span>
+              <span v-if="r.verified" class="verified">verified</span>
+            </div>
           </div>
-          <button @click="importSearchResult(r.url)" class="btn-sm">Import</button>
+          <div class="result-actions">
+            <a :href="r.url" target="_blank" rel="noopener noreferrer" class="source-link">
+              Source: {{ r.source === 'ultimate-guitar' ? 'Ultimate Guitar' : r.source }}
+            </a>
+            <button @click="importSearchResult(r.url)" class="btn-sm">Import</button>
+          </div>
         </div>
       </div>
     </div>
@@ -698,8 +743,9 @@ async function importSearchResult(url: string) {
 }
 .search-result {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   justify-content: space-between;
+  gap: 0.75rem;
   padding: 0.5rem 0.75rem;
   border-bottom: 1px solid var(--border);
   font-size: 0.85rem;
@@ -709,9 +755,37 @@ async function importSearchResult(url: string) {
 }
 .result-info {
   display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  min-width: 0;
+}
+.result-title {
+  display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.4rem;
   flex-wrap: wrap;
+}
+.result-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  flex-wrap: wrap;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+}
+.result-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-shrink: 0;
+}
+.source-link {
+  color: var(--accent);
+  font-size: 0.75rem;
+  text-decoration: none;
+}
+.source-link:hover {
+  text-decoration: underline;
 }
 .badge {
   font-size: 0.7rem;
@@ -719,6 +793,17 @@ async function importSearchResult(url: string) {
   background: var(--hover);
   border-radius: 3px;
   color: var(--accent);
+}
+.badge-best {
+  background: var(--accent);
+  color: #000;
+}
+.verified {
+  color: #2e8b57;
+}
+.sort-select {
+  flex: 0 0 auto;
+  min-width: 110px;
 }
 .btn-sm {
   padding: 0.25rem 0.5rem;

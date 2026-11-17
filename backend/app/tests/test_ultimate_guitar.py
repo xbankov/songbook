@@ -403,20 +403,59 @@ def test_lyric_line_without_chords_is_kept():
 # --- search --------------------------------------------------------------------
 
 
-def test_search_lists_only_importable_tabs():
+def test_search_lists_only_importable_tabs_best_first():
     results = parse_search_html(_fixture("ug_search_amazing_grace.html"))
 
-    assert [r["type"] for r in results] == ["Chords", "Tabs"]
+    # Best-weighted order, no pro tabs, and the duplicate URL listed once.
+    assert [r["type"] for r in results] == ["Chords", "Ukulele Chords", "Tabs"]
     assert all("/pro/" not in r["url"] for r in results)
+    assert len({r["url"] for r in results}) == 3
     assert results[0] == {
         "title": "Amazing Grace",
         "artist": "Misc Praise Songs",
         "url": "https://tabs.ultimate-guitar.com/tab/misc-praise-songs/amazing-grace-chords-66733",
         "source": "ultimate-guitar",
         "type": "Chords",
+        "type_label": "Chords",
         "rating": 4.80747,
         "votes": 2379,
+        "version": 3,
+        "version_count": 8,
+        "version_description": "Chords",
+        "key": "G",
+        "difficulty": "intermediate",
+        "updated": "2024-03-01",
+        "verified": True,
     }
+    assert results[1]["key"] == "C"
+    assert results[2]["version"] == 1
+
+
+def test_search_result_without_extra_fields_has_safe_defaults():
+    results = parse_search_html(
+        _raw(
+            {
+                "results": [
+                    {
+                        "tab_url": "https://tabs.ultimate-guitar.com/tab/a/b-chords-1",
+                        "song_name": "Song",
+                        "artist_name": "Artist",
+                        "type": "Chords",
+                    }
+                ]
+            }
+        )
+    )
+
+    (result,) = results
+    assert result["rating"] == 0
+    assert result["votes"] == 0
+    assert result["version"] is None
+    assert result["version_count"] is None
+    assert result["key"] is None
+    assert result["difficulty"] is None
+    assert result["updated"] is None
+    assert result["verified"] is False
 
 
 def test_search_endpoint_uses_the_shared_fetch(monkeypatch):
@@ -434,7 +473,7 @@ def test_search_endpoint_uses_the_shared_fetch(monkeypatch):
     )
 
     assert response.status_code == 200
-    assert len(response.json()["results"]) == 2
+    assert len(response.json()["results"]) == 3
     assert requested == [
         "https://www.ultimate-guitar.com/search.php"
         "?search_type=title&value=amazing%20grace"

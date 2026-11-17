@@ -100,7 +100,7 @@ Every roadmap item should make this loop faster, more reliable, or more enjoyabl
 | Song view: chords above lyrics, styling, 2 columns, autoscroll (#38) | Done |
 | Play/sing view (#41, #140) | Done — the song page has a Performance toggle: full screen, adjustable text size, current-line highlight moved by tap, arrows, Space or PageUp/PageDown (page-turner pedals), smooth shared autoscroll (#144), screen wake lock. `/songs/:id/play` redirects with `?performance=1`. Record mode stays with #42 |
 | Songbooks: CRUD, add/remove, PDF (#24) | Done — delete/rename, reorder, per-entry transpose/columns, TOC; metadata → #89; the chord chart was removed in #143. The songbook PDF uses each entry's column setting (fixed in #96) |
-| Import by URL + UG search/pick/import (#46, #51, #132) | Done for UG: chords merged into lyrics, sections and capo kept, one polite fetch path (#132), and no page chrome or footnotes in the body (#149); supermusic blocks automated access (#133) |
+| Import by URL + UG search/pick/import (#46, #51, #132) | Done for UG: chords merged into lyrics, sections and capo kept, one polite fetch path (#132), no page chrome or footnotes in the body (#149), and search rows show version, rating, key and difficulty (#161); supermusic blocks automated access (#133) |
 | Bulk import (#29) | Done — paste, plus files/one zip with a dry run and selective import |
 | Export (#54) | Done — single, selected, and all songs as ChordPro/text/ABC/LilyPond; per-songbook export is **ChordPro only** |
 | Print (#55, #56, #57, #58, #59) | Done — single/selected/songbook, 1/2-column long-song layout, chords above lyrics, margins/headings/page numbers |
@@ -196,6 +196,7 @@ exist).
 | 15 | ~~#29 Batch upload: files and one zip, dry run then import~~ (done) | M | Bring an existing library in at once; base for #134 |
 | 15a | ~~#132 UG import: merge chords into lyrics, keep sections and capo~~ (done) | M | UG is the main import source |
 | 15b | ~~#149 UG import: strip the tab header, textual capo and footnote/tab blocks~~ (done) | S | Imports still carried page chrome |
+| 15c | ~~#161 Import search: version, rating, key, difficulty and source link~~ (done) | S | Ten identical rows cannot be told apart |
 | 16 | #50 Import pisnicky-akordy.cz | M | The other site this circle uses |
 | 17 | #20 Harden Supermusic import (~~#133 anti-bot stub → clear error~~ done) | M | Song pages sit behind a JS proof-of-work challenge we will not solve; paste is the fallback |
 | 18 | #46 Direct lookup by name (narrow to extra sources) | S | UG flow already exists |
@@ -580,6 +581,7 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-17 | #140: performance mode is a toggle on the song page; `/songs/:id/play` redirects to `?performance=1` rather than 404ing old links | @xbankov (asked in session) |
 | 2026-11-17 | #143: remove the end-of-songbook chord chart from the page, PDF and API; keep the `chord_diagrams` column for existing data. Reverses the chart part of the #89 decision | agent (user asked to continue the roadmap) |
 | 2026-11-17 | #149: a UG tab drops its leading title/artist/URL/textual-capo header, tab staff lines, chord `*`/`xN` markers, and the trailing notes/alternate-chord block. The capo comes from the metadata; no network in tests | agent (user asked to continue the roadmap) |
+| 2026-11-17 | #161: UG search keeps version/total versions, rating/votes, key, difficulty, update date, verified and type label; rows deduplicate identical URLs and default to a vote-weighted best order, with local best/votes/newest sorting | agent (user asked to continue the roadmap) |
 
 ---
 
@@ -615,3 +617,4 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-17 | #140 done: play mode folded into the song page as a Performance toggle; `/songs/:id/play` redirects; one SongDisplay and one autoscroll implementation |
 | 2026-11-17 | #143 done: removed the songbook chord chart from the page, PDF and API; the column stays for existing data |
 | 2026-11-17 | #149 done: UG imports drop the tab header, textual capo, staff lines, trailing notes/alternate-chord blocks, and chord markers |
+| 2026-11-17 | #161 done: UG search rows show type, version, rating/votes, key, difficulty, update year and verified state, with a source link and best/votes/newest sort |
