@@ -136,9 +136,9 @@ test.describe('Songbook UI', () => {
   test('previews uploaded files and imports only the chosen songs', async ({ page }) => {
     await mockApi(page)
     const entries = [
-      { index: 0, filename: 'wagon-wheel.txt', title: 'Wagon Wheel', artist: 'Unknown', capo: 0, key: null, duplicate: false, error: null },
-      { index: 1, filename: 'test-song.cho', title: 'Test Song', artist: 'Test Artist', capo: 0, key: null, duplicate: true, error: null },
-      { index: 2, filename: 'broken.doc', title: 'broken', artist: 'Unknown', capo: 0, key: null, duplicate: false, error: 'Unsupported file type .doc' },
+      { index: 0, filename: 'upload-new.txt', title: 'Wagon Wheel', artist: 'Unknown', capo: 0, key: null, duplicate: false, error: null },
+      { index: 1, filename: 'upload-duplicate.cho', title: 'Test Song', artist: 'Test Artist', capo: 0, key: null, duplicate: true, error: null },
+      { index: 2, filename: 'upload-broken.doc', title: 'broken', artist: 'Unknown', capo: 0, key: null, duplicate: false, error: 'Unsupported file type .doc' },
     ]
     let selected = ''
     await page.route('**/api/songs/import/files?*', (route) => {
@@ -153,9 +153,9 @@ test.describe('Songbook UI', () => {
     await page.goto('/songs')
     await page.getByRole('button', { name: 'Bulk', exact: true }).click()
     await page.locator('.batch-file-input').setInputFiles([
-      { name: 'wagon-wheel.txt', mimeType: 'text/plain', buffer: Buffer.from('G\nLa la') },
-      { name: 'test-song.cho', mimeType: 'text/plain', buffer: Buffer.from('[G]La la') },
-      { name: 'broken.doc', mimeType: 'text/plain', buffer: Buffer.from('La la') },
+      'e2e/uploads/upload-new.txt',
+      'e2e/uploads/upload-duplicate.cho',
+      'e2e/uploads/upload-broken.doc',
     ])
 
     const rows = page.locator('.batch-table tbody tr')
