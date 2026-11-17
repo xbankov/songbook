@@ -129,7 +129,7 @@ test.describe('Songbook UI', () => {
     await page.getByPlaceholder(/supermusic/).fill('https://supermusic.cz/piesen.php?id=1')
     await page.getByRole('button', { name: 'Import Song' }).click()
 
-    await expect(page.locator('.notice.error')).toHaveText(detail)
+    await expect(page.locator('.notice.error')).toContainText(/blocks automatic import.*paste/)
     await expect(page).toHaveURL(/\/songs$/)
   })
 

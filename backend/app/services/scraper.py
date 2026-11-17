@@ -13,6 +13,10 @@ SUPERMUSIC_BLOCKED = (
 )
 
 
+# Statuses an anti-bot layer answers with instead of the page.
+BLOCKED_STATUSES = {403, 429, 503}
+
+
 class SongImportError(Exception):
     """A URL could not be turned into a song; the message is shown to the user."""
 
@@ -45,17 +49,28 @@ def scrape_ultimate_guitar(url: str) -> SongModel | None:
 
 def parse_supermusic_html(html: str) -> SongModel:
     soup = BeautifulSoup(html, "lxml")
-    if is_supermusic_challenge(soup):
-        raise SongImportError(SUPERMUSIC_BLOCKED)
     body_el = soup.select_one(".chord-text, pre, .chord")
     if body_el is None:
+        if is_supermusic_challenge(soup):
+            raise SongImportError(SUPERMUSIC_BLOCKED)
         raise SongImportError("No song text found on that supermusic page.")
-    return SongModel.from_chordpro(body_el.get_text(strip=True))
+    try:
+        return SongModel.from_chordpro(body_el.get_text(strip=True))
+    except (KeyError, IndexError, ValueError) as e:
+        # Bracketed text that is not a chord, such as "[R:]" or "[x]".
+        raise SongImportError(
+            "Could not read the song text on that supermusic page."
+        ) from e
 
 
 def scrape_supermusic(url: str) -> SongModel:
     try:
         html = fetch_url(url)
+    except requests.HTTPError as e:
+        logger.error(f"Supermusic refused {url}: {e}")
+        if e.response is not None and e.response.status_code in BLOCKED_STATUSES:
+            raise SongImportError(SUPERMUSIC_BLOCKED) from e
+        raise SongImportError("Could not download that supermusic page.") from e
     except requests.RequestException as e:
         logger.error(f"Failed to fetch supermusic URL: {url}: {e}")
         raise SongImportError("Could not download that supermusic page.") from e
