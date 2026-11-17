@@ -1,7 +1,7 @@
-import { createRouter, createWebHistory } from 'vue-router'
+import { createRouter, createWebHistory, type RouteRecordRaw } from 'vue-router'
 import { useAuthStore } from '../stores/auth'
 
-const routes = [
+const routes: RouteRecordRaw[] = [
   {
     path: '/login',
     name: 'Login',
@@ -27,9 +27,14 @@ const routes = [
     component: () => import('../views/SongPrintView.vue'),
   },
   {
+    // Old play-mode links and bookmarks land on the song page in performance
+    // mode (#140).
     path: '/songs/:id/play',
-    name: 'SongPlay',
-    component: () => import('../views/SongPlayView.vue'),
+    redirect: (to) => ({
+      name: 'SongDetail',
+      params: { id: to.params.id },
+      query: { ...to.query, performance: '1' },
+    }),
   },
   {
     path: '/songs/:id',
