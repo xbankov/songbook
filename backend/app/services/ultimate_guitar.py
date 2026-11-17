@@ -34,6 +34,16 @@ _CHORD = re.compile(r"\[ch\](.*?)\[/ch\]")
 # A tablature staff line such as "e|--3--|" or "G|-4-5h7-|".
 _STAFF = re.compile(r"\s*[A-Ga-g][#b]?\s*\|[-\w|/\\~*.() ]*")
 _HEADER = re.compile(r"\[([A-Za-z][^\[\]]*)\]")
+# Page chrome at the top of a UG tab; the capo comes from the metadata.
+_URL = re.compile(r"(?i)^\s*(?:https?://|www\.)\S+\s*$")
+_CAPO_TEXT = re.compile(r"(?i)^\s*capo\s*(?:[:=]?\s*(?:\d{1,2}|[ivxlcdm]+))?\s*\**\s*$")
+# A footnote that starts a trailing notes/alternate-chord block.
+_NOTES = re.compile(r"^\s*\*{1,3}\s*\S")
+# The first line of a tab header, e.g. "Song Title chords".
+_TITLE_LIKE = re.compile(r"(?i)^.+\s+(?:chords?|tabs?)\s*\**\s*$")
+# Markers such as "*" or "x2" that may sit after a chord; "(x2)" is a repeat
+# annotation, not a marker, so it is kept.
+_CHORD_MARK = re.compile(r"(?i)\*+|\b(?<!\()x\d+(?!\))\b|\b\d+x\b")
 # Words that start a section header; other bracketed lines ("[x2]") are text.
 _SECTION_WORDS = (
     "verse",
@@ -209,8 +219,18 @@ def _inline(name: str) -> str:
     return f"[{name}]" if _valid_chord(name) else _plain(name)
 
 
+def _strip_chord_marks(line: str) -> str:
+    """Remove "*"/"x2" markers outside the chord tags of a chord line."""
+    parts = _CHORD.split(line)
+    return "".join(
+        f"[ch]{part}[/ch]" if index % 2 else _CHORD_MARK.sub("", part)
+        for index, part in enumerate(parts)
+    )
+
+
 def merge_chord_line(chords: str, lyrics: str) -> str:
     """Put the chords of ``chords`` into ``lyrics`` at the same columns."""
+    chords = _strip_chord_marks(chords)
     merged = _plain(lyrics.expandtabs())
     for column, name in reversed(_chord_columns(chords)):
         merged = merged.ljust(column)
@@ -227,7 +247,7 @@ def _mergeable(chords: str) -> bool:
     Bars between chords have no place inside a lyric, and a chord the model
     cannot parse ("N.C.") would be lost, so such lines stay as they are.
     """
-    parts = _CHORD.split(chords)
+    parts = _CHORD.split(_strip_chord_marks(chords))
     texts, names = parts[0:-1:2], parts[1::2]
     return all(not text.strip() for text in texts) and all(
         _valid_chord(name.strip()) for name in names
@@ -277,15 +297,77 @@ def _header(line: str) -> str | None:
     return None
 
 
-def parse_content(content: str) -> list[Section]:
+def _matches_name(line: str, name: str | None, extra_ok: bool = False) -> bool:
+    """Whether a header line names the tab's title or artist."""
+    if not name or name == "Unknown":
+        return False
+    line = " ".join(line.split()).casefold()
+    wanted = " ".join(name.split()).casefold()
+    if line == wanted:
+        return True
+    if extra_ok:
+        # UG artist lines often add a year, album or footnote.
+        return line.startswith(f"{wanted} ")
+    return line in (
+        f"{wanted} chord",
+        f"{wanted} chords",
+        f"{wanted} tab",
+        f"{wanted} tabs",
+    )
+
+
+def _drop_leading_header(
+    lines: list[str], title: str | None, artist: str | None
+) -> list[str]:
+    """Drop the title, artist, URL and textual capo before the first real line."""
+    index = 0
+    artist_expected = False
+    while index < len(lines):
+        line = lines[index].strip()
+        if not line:
+            artist_expected = False
+            index += 1
+            continue
+        if _URL.fullmatch(line) or _CAPO_TEXT.fullmatch(line):
+            artist_expected = False
+            index += 1
+            continue
+        if _matches_name(line, title) or _TITLE_LIKE.fullmatch(line):
+            # UG's header title is not always the same as the tab metadata.
+            artist_expected = True
+            index += 1
+            continue
+        if _matches_name(line, artist, extra_ok=True):
+            artist_expected = False
+            index += 1
+            continue
+        if (
+            artist_expected
+            and _header(line) is None
+            and not _is_chord_line(line)
+            and not _STAFF.fullmatch(line)
+        ):
+            # The line after the title is the header artist, even when it
+            # carries a year/album annotation the metadata does not have.
+            artist_expected = False
+            index += 1
+            continue
+        break
+    return lines[index:]
+
+
+def parse_content(
+    content: str, title: str | None = None, artist: str | None = None
+) -> list[Section]:
     """Turn UG ``wiki_tab`` markup into sections of inline-ChordPro lines."""
     text = unicodedata.normalize("NFC", content).replace("\r", "")
     text = text.replace("[tab]", "").replace("[/tab]", "")
     lines = [line.rstrip() for line in text.split("\n")]
+    lines = _drop_leading_header(lines, title, artist)
     sections: list[Section] = []
     header: str | None = None
     label: str | None = None
-    title: str | None = None
+    section_title: str | None = None
     current: list[str] = []
 
     def close() -> None:
@@ -294,7 +376,7 @@ def parse_content(content: str) -> list[Section]:
                 Section(
                     lines=[Line.from_chordpro(line) for line in current],
                     label=label,
-                    title=title,
+                    title=section_title,
                 )
             )
         elif header is not None:
@@ -307,12 +389,20 @@ def parse_content(content: str) -> list[Section]:
         index += 1
         if not line.strip():
             continue
+        if _NOTES.match(line) and (sections or current):
+            # Footnotes and the alternate-chord/tab lines that follow run
+            # until the next section, or to the end of the tab.
+            while index < len(lines) and _header(lines[index]) is None:
+                index += 1
+            continue
         next_header = _header(line)
         if next_header is not None:
             close()
             header = next_header
-            label, title = _section_for(header)
+            label, section_title = _section_for(header)
             current = []
+        elif _STAFF.fullmatch(line):
+            continue
         elif _is_chord_line(line):
             following = lines[index] if index < len(lines) else ""
             if _mergeable(line) and _is_lyric(following):
@@ -353,16 +443,18 @@ def parse_tab_html(html: str) -> SongModel:
     content = _dict(view.get("wiki_tab")).get("content")
     if not isinstance(content, str):
         raise UltimateGuitarError("That Ultimate Guitar page has no song text.")
+    title = _text(tab.get("song_name"), first_version.get("song_name"))
+    artist = _text(tab.get("artist_name"), first_version.get("artist_name"))
     try:
-        sections = parse_content(content)
+        sections = parse_content(content, title=title, artist=artist)
     except (KeyError, IndexError, ValueError, TypeError, AttributeError) as e:
         raise UltimateGuitarError(
             "Could not read the Ultimate Guitar song text."
         ) from e
     return SongModel(
         sections=sections,
-        title=_text(tab.get("song_name"), first_version.get("song_name")),
-        artist=_text(tab.get("artist_name"), first_version.get("artist_name")),
+        title=title,
+        artist=artist,
         capo=_capo(meta),
         key=_key(meta, tab),
     )
