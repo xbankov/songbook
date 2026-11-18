@@ -126,7 +126,17 @@ export async function mockApi(
       return route.fulfill({ json: song })
     }
     if (url.pathname === `/api/songs/${song.id}/analyze`) {
-      return route.fulfill({ json: { suggested_key: null, confidence: null } })
+      return route.fulfill({
+        json: {
+          suggested_key: null,
+          confidence: null,
+          method: null,
+          key_type: null,
+          chord_count: 0,
+          key_chords: [],
+          chords: [],
+        },
+      })
     }
     if (url.pathname === `/api/songs/${song.id}/versions`) {
       return route.fulfill({ json: [version] })

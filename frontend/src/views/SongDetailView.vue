@@ -15,6 +15,8 @@ import {
   restoreVersion,
   setYoutubeLink,
   unfavoriteVersion,
+  type KeyChord,
+  type SongAnalysis,
   type SongVersion,
 } from '../api/songs'
 import { apiDelete, apiUpload, downloadFile, openFile } from '../api/client'
@@ -26,6 +28,17 @@ const settingsStore = useSettingsStore()
 
 const suggestedKey = ref<string | null>(null)
 const keyConfidence = ref<number | null>(null)
+const keyMethod = ref<string | null>(null)
+const keyType = ref<'major' | 'minor' | null>(null)
+const keyChordCount = ref(0)
+const keyChords = ref<string[]>([])
+const keyEvidence = ref<KeyChord[]>([])
+const keyPanelOpen = ref(false)
+const keyPanel = ref<HTMLElement | null>(null)
+const keyToggle = ref<HTMLButtonElement | null>(null)
+const applyingKey = ref(false)
+const keyError = ref('')
+const keyNotice = ref('')
 const selectedChord = ref<string | null>(null)
 const hasAudio = ref(false)
 const recording = ref(false)
@@ -90,6 +103,8 @@ async function loadSong(id: string) {
   showVideo.value = false
   editingYoutube.value = false
   youtubeError.value = ''
+  keyNotice.value = ''
+  keyPanelOpen.value = false
   activeLine.value = 0
   if (store.current?.id === id) {
     hasAudio.value = !!(store.current.metadata?.audio_file)
@@ -97,8 +112,7 @@ async function loadSong(id: string) {
     try {
       const analysis = await analyzeSong(id)
       if (request !== loadRequestId) return
-      suggestedKey.value = analysis.suggested_key
-      keyConfidence.value = analysis.confidence
+      setAnalysis(analysis)
     } catch {}
   }
 }
@@ -112,6 +126,70 @@ watch(
 )
 
 const song = computed(() => store.current)
+
+function setAnalysis(analysis: SongAnalysis | null) {
+  suggestedKey.value = analysis?.suggested_key ?? null
+  keyConfidence.value = analysis?.confidence ?? null
+  keyMethod.value = analysis?.method ?? null
+  keyType.value = analysis?.key_type ?? null
+  keyChordCount.value = analysis?.chord_count ?? 0
+  keyChords.value = analysis?.key_chords ?? []
+  keyEvidence.value = analysis?.chords ?? []
+}
+
+const keyInKeyCount = computed(() =>
+  keyEvidence.value
+    .filter((chord) => chord.in_key)
+    .reduce((total, chord) => total + chord.count, 0),
+)
+
+function closeKeyPanel() {
+  if (!keyPanelOpen.value) return
+  keyPanelOpen.value = false
+  keyToggle.value?.focus()
+}
+
+function toggleKeyPanel() {
+  if (!keyPanelOpen.value) keyError.value = ''
+  keyPanelOpen.value = !keyPanelOpen.value
+}
+
+function onKeyPanelPointerDown(event: PointerEvent) {
+  const target = event.target as Node
+  if (keyPanel.value?.contains(target) || keyToggle.value?.contains(target)) return
+  closeKeyPanel()
+}
+
+function onKeyPanelKeydown(event: KeyboardEvent) {
+  if (event.key === 'Escape') closeKeyPanel()
+}
+
+watch(keyPanelOpen, (open) => {
+  if (open) {
+    document.addEventListener('pointerdown', onKeyPanelPointerDown)
+    document.addEventListener('keydown', onKeyPanelKeydown)
+  } else {
+    document.removeEventListener('pointerdown', onKeyPanelPointerDown)
+    document.removeEventListener('keydown', onKeyPanelKeydown)
+  }
+})
+
+async function applySuggestedKey() {
+  if (!suggestedKey.value || !song.value) return
+  const key = suggestedKey.value
+  if (!confirm(`Use ${key} as the song key? This creates a new version.`)) return
+  applyingKey.value = true
+  keyError.value = ''
+  try {
+    const updated = await store.updateSong(song.value.id, { key })
+    keyNotice.value = `Song key set to ${updated.key ?? key} (version ${updated.version})`
+    closeKeyPanel()
+  } catch (e: unknown) {
+    keyError.value = e instanceof Error ? e.message : 'Could not set the song key'
+  } finally {
+    applyingKey.value = false
+  }
+}
 
 function setPerformanceQuery(on: boolean) {
   const query = { ...route.query }
@@ -279,6 +357,8 @@ onBeforeUnmount(() => {
   window.removeEventListener('keydown', onKey)
   document.removeEventListener('visibilitychange', onVisibility)
   document.removeEventListener('fullscreenchange', onFullscreenChange)
+  document.removeEventListener('pointerdown', onKeyPanelPointerDown)
+  document.removeEventListener('keydown', onKeyPanelKeydown)
   stopScroll()
   void wakeLock?.release().catch(() => {})
   if (document.fullscreenElement) void document.exitFullscreen().catch(() => {})
@@ -430,8 +510,7 @@ async function restore(version: SongVersion) {
     store.current = restored
     try {
       const analysis = await analyzeSong(songId)
-      suggestedKey.value = analysis.suggested_key
-      keyConfidence.value = analysis.confidence
+      setAnalysis(analysis)
     } catch {}
   }
 
@@ -572,6 +651,7 @@ const chords = computed(() => {
 
       <AppNotice v-if="historyError" type="error" :message="historyError" />
       <AppNotice v-if="historyNotice" type="success" :message="historyNotice" />
+      <AppNotice v-if="keyNotice" type="success" :message="keyNotice" />
 
       <div v-if="showHistory" class="history-panel">
         <h2>Version history</h2>
@@ -606,8 +686,53 @@ const chords = computed(() => {
       </div>
 
       <div v-if="suggestedKey" class="key-suggestion">
-        Suggested key: <strong>{{ suggestedKey }}</strong>
-        <span v-if="keyConfidence !== null" class="confidence">({{ keyConfidence }}% confidence)</span>
+        <button
+          ref="keyToggle"
+          class="key-suggestion-toggle"
+          :aria-expanded="keyPanelOpen"
+          aria-controls="key-analysis"
+          @click="toggleKeyPanel"
+        >
+          <span>Suggested key: <strong>{{ suggestedKey }}</strong></span>
+          <span v-if="keyConfidence !== null" class="confidence">{{ keyConfidence }}% confidence</span>
+          <span class="key-details">{{ keyPanelOpen ? 'Hide details' : 'Details' }}</span>
+        </button>
+
+        <div
+          v-if="keyPanelOpen"
+          id="key-analysis"
+          ref="keyPanel"
+          class="key-panel"
+          role="dialog"
+          aria-label="Suggested key details"
+          tabindex="-1"
+        >
+          <h2>{{ suggestedKey }} · {{ keyType || 'key' }} · {{ keyConfidence }}% confidence</h2>
+          <p class="key-method">
+            Detected by {{ keyMethod || 'chord analysis' }}:
+            {{ keyInKeyCount }} of {{ keyChordCount }} chord occurrences belong to this key.
+          </p>
+          <p v-if="keyChords.length" class="key-scale">
+            Key chords: {{ keyChords.join(' · ') }}
+          </p>
+          <h3>Strongest chords</h3>
+          <ul class="key-evidence">
+            <li v-for="chord in keyEvidence.slice(0, 6)" :key="chord.name">
+              <span class="key-chord-name">{{ chord.name }}</span>
+              <span class="key-chord-count">×{{ chord.count }}</span>
+              <span :class="['key-chord-tag', { outside: !chord.in_key }]">
+                {{ chord.in_key ? 'in key' : 'outside' }}
+              </span>
+            </li>
+          </ul>
+          <AppNotice v-if="keyError" type="error" :message="keyError" />
+          <div class="key-panel-actions">
+            <button class="btn-primary" :disabled="applyingKey" @click="applySuggestedKey">
+              {{ applyingKey ? 'Applying...' : 'Use as song key' }}
+            </button>
+            <button class="btn-secondary" @click="closeKeyPanel">Cancel</button>
+          </div>
+        </div>
       </div>
 
       <div class="audio-section">
@@ -810,6 +935,19 @@ const chords = computed(() => {
   background: #e74c3c;
   color: #fff;
 }
+.btn-primary {
+  padding: 0.4rem 0.8rem;
+  background: var(--accent);
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+.btn-primary:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
 .loading,
 .error {
   text-align: center;
@@ -825,19 +963,103 @@ const chords = computed(() => {
 }
 .key-suggestion {
   margin-bottom: 0.75rem;
-  padding: 0.5rem 0.75rem;
   background: var(--surface);
   border: 1px solid var(--accent);
   border-radius: 4px;
   font-size: 0.85rem;
   color: var(--text);
+  overflow: hidden;
 }
 .key-suggestion strong {
   color: var(--accent);
 }
+.key-suggestion-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  background: none;
+  border: none;
+  color: var(--text);
+  font: inherit;
+  font-size: 0.85rem;
+  text-align: left;
+  cursor: pointer;
+}
+.key-suggestion-toggle:hover {
+  background: var(--hover);
+}
+.key-suggestion-toggle:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+.key-details {
+  margin-left: auto;
+  color: var(--accent);
+  white-space: nowrap;
+}
 .confidence {
   color: var(--text-muted);
   font-size: 0.8rem;
+}
+.key-panel {
+  padding: 0.5rem 0.75rem 0.75rem;
+  border-top: 1px solid var(--border);
+}
+.key-panel:focus {
+  outline: none;
+}
+.key-panel h2 {
+  margin: 0 0 0.25rem;
+  font-size: 1rem;
+}
+.key-panel h3 {
+  margin: 0.75rem 0 0.35rem;
+  font-size: 0.9rem;
+}
+.key-method,
+.key-scale {
+  margin: 0.25rem 0;
+  color: var(--text-muted);
+  font-size: 0.82rem;
+}
+.key-evidence {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.key-evidence li {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.82rem;
+}
+.key-chord-name {
+  min-width: 3rem;
+  font-weight: 600;
+}
+.key-chord-count {
+  color: var(--text-muted);
+}
+.key-chord-tag {
+  font-size: 0.7rem;
+  padding: 0.05rem 0.3rem;
+  border-radius: 3px;
+  background: var(--hover);
+  color: var(--accent);
+}
+.key-chord-tag.outside {
+  color: #e05252;
+}
+.key-panel-actions {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.75rem;
+  flex-wrap: wrap;
 }
 .chord-diagrams {
   display: flex;

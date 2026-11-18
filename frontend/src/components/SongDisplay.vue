@@ -178,7 +178,7 @@ function lyricRow(spans: Span[]): string {
       <div v-if="parsed.capo || parsed.key || suggestedKey" class="song-meta">
         <span v-if="parsed.capo">Capo: {{ parsed.capo }}</span>
         <span v-if="parsed.key">Key: {{ transposeChord(parsed.key, transpose) }}</span>
-        <span v-if="suggestedKey" class="suggested-key">Suggested: {{ suggestedKey }}</span>
+        <span v-if="suggestedKey && suggestedKey !== parsed.key" class="suggested-key">Suggested: {{ suggestedKey }}</span>
       </div>
     </div>
 

@@ -726,6 +726,74 @@ test.describe('Songbook UI', () => {
     await expect(page.locator('.chord-chart')).toHaveCount(0)
   })
 
+  test('opens the suggested-key analysis, closes it, and applies the key', async ({ page }) => {
+    await mockApi(page)
+    await page.route(`**/api/songs/${song.id}/analyze`, (route) =>
+      route.fulfill({
+        json: {
+          suggested_key: 'A',
+          confidence: 82.5,
+          method: 'diatonic chord match',
+          key_type: 'major',
+          chord_count: 11,
+          key_chords: ['A', 'D', 'E', 'F#m', 'Bm', 'C#m'],
+          chords: [
+            { name: 'A', count: 5, in_key: true },
+            { name: 'D', count: 3, in_key: true },
+            { name: 'E', count: 2, in_key: true },
+            { name: 'G', count: 1, in_key: false },
+          ],
+        },
+      }),
+    )
+    await page.route(`**/api/songs/${song.id}`, (route) => {
+      if (route.request().method() === 'PUT') {
+        return route.fulfill({ json: { ...song, key: 'A', version: 2 } })
+      }
+      return route.fulfill({ json: song })
+    })
+
+    await page.goto(`/songs/${song.id}`)
+    const toggle = page.getByRole('button', { name: /Suggested key: A/ })
+    const panel = page.getByRole('dialog', { name: 'Suggested key details' })
+    await expect(toggle).toHaveAttribute('aria-expanded', 'false')
+
+    await toggle.click()
+    await expect(toggle).toHaveAttribute('aria-expanded', 'true')
+    await expect(panel).toContainText('A · major · 82.5% confidence')
+    await expect(panel).toContainText('10 of 11 chord occurrences belong to this key')
+    await expect(panel).toContainText('A×5')
+    await expect(panel).toContainText('outside')
+
+    // Outside click closes it.
+    await page.locator('.song-title').click()
+    await expect(panel).toHaveCount(0)
+
+    // Escape closes it; Cancel leaves the song untouched.
+    await toggle.click()
+    await expect(panel).toBeVisible()
+    await page.keyboard.press('Escape')
+    await expect(panel).toHaveCount(0)
+    await toggle.click()
+    await panel.getByRole('button', { name: 'Cancel' }).click()
+    await expect(panel).toHaveCount(0)
+
+    await toggle.click()
+    const saveRequest = page.waitForRequest(
+      (req) => req.url().endsWith(`/api/songs/${song.id}`) && req.method() === 'PUT',
+    )
+    page.once('dialog', async (dialog) => {
+      expect(dialog.message()).toContain('Use A as the song key?')
+      await dialog.accept()
+    })
+    await panel.getByRole('button', { name: 'Use as song key' }).click()
+    expect((await saveRequest).postDataJSON()).toEqual({ key: 'A' })
+
+    await expect(panel).toHaveCount(0)
+    await expect(page.locator('.song-meta')).toContainText('Key: A')
+    await expect(page.locator('.notice.success')).toContainText('Song key set to A (version 2)')
+  })
+
   test('performance mode highlights the current line and follows keys and taps', async ({ page }) => {
     await mockApi(page)
     await page.goto(`/songs/${song.id}`)

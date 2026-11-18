@@ -6,8 +6,58 @@ from app.services.music_theory import (
     Section,
     SongModel,
     Tone,
+    analyze_key,
     chord_quality_names,
+    detect_key,
 )
+
+
+class TestKeyAnalysis:
+    def test_analysis_includes_the_chords_behind_the_suggestion(self):
+        song = SongModel.from_chordpro("[C]a [C]b [F]c [G]d [Am]e")
+
+        analysis = analyze_key(song)
+
+        assert analysis == {
+            "suggested_key": "C",
+            "confidence": 100.0,
+            "method": "diatonic chord match",
+            "key_type": "major",
+            "chord_count": 5,
+            "key_chords": ["C", "F", "G", "Am", "Dm", "Em"],
+            "chords": [
+                {"name": "C", "count": 2, "in_key": True},
+                {"name": "A", "count": 1, "in_key": True},
+                {"name": "F", "count": 1, "in_key": True},
+                {"name": "G", "count": 1, "in_key": True},
+            ],
+        }
+        assert detect_key(song) == ("C", 100.0)
+
+    def test_analysis_marks_chords_outside_the_key(self):
+        song = SongModel.from_chordpro("[C] [F] [G] [B]")
+
+        analysis = analyze_key(song)
+
+        assert analysis["suggested_key"] == "C"
+        assert analysis["confidence"] == 75.0
+        assert {"name": "C", "count": 1, "in_key": True} in analysis["chords"]
+        assert {"name": "B", "count": 1, "in_key": False} in analysis["chords"]
+
+    def test_flat_chords_match_a_flat_key(self):
+        song = SongModel.from_chordpro("[F] [Bb] [C]")
+
+        analysis = analyze_key(song)
+
+        assert analysis["suggested_key"] == "F"
+        assert analysis["confidence"] == 100.0
+        assert {"name": "A#", "count": 1, "in_key": True} in analysis["chords"]
+
+    def test_no_chords_means_no_analysis(self):
+        song = SongModel.from_chordpro("just words")
+
+        assert analyze_key(song) is None
+        assert detect_key(song) is None
 
 
 class TestTone:
