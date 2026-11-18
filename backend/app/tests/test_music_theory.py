@@ -53,6 +53,17 @@ class TestKeyAnalysis:
         assert analysis["confidence"] == 100.0
         assert {"name": "A#", "count": 1, "in_key": True} in analysis["chords"]
 
+    def test_extensions_must_fit_the_key_scale(self):
+        # C7 contains Bb: it is V7 in F, not a C-major chord.
+        song = SongModel.from_chordpro("[C7] [F] [G]")
+
+        analysis = analyze_key(song)
+
+        assert analysis["suggested_key"] == "C"
+        assert analysis["confidence"] == 66.7
+        assert {"name": "C7", "count": 1, "in_key": False} in analysis["chords"]
+        assert {"name": "F", "count": 1, "in_key": True} in analysis["chords"]
+
     def test_minor_key_is_not_reported_as_its_relative_major(self):
         song = SongModel.from_chordpro("[Am] [Dm] [Em]")
 
