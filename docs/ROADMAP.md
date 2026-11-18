@@ -645,8 +645,5 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-17 | #143 done: removed the songbook chord chart from the page, PDF and API; the column stays for existing data |
 | 2026-11-17 | #149 done: UG imports drop the tab header, textual capo, staff lines, trailing notes/alternate-chord blocks, and chord markers |
 | 2026-11-17 | #161 done: UG search rows show type, version, rating/votes, key, difficulty, update year and verified state, with a source link and best/votes/newest sort |
-<<<<<<< HEAD
 | 2026-11-18 | Added the #151 Import v2 epic notes and the #156/#157 AI follow-ups; #141/#142 scheduled next in Phase 4 |
-=======
 | 2026-11-17 | Auto-deploy: tagged releases are rolled out to the home server by a self-hosted runner (submodule + own Compose project); guide in docs/deployment.md §5 |
->>>>>>> 745d8b2 (Document tagged releases and auto-deploy)
