@@ -1,4 +1,5 @@
 from enum import Enum
+from typing import Any
 
 from pydantic import BaseModel
 
@@ -320,7 +321,7 @@ class SongModel(BaseModel):
         )
 
 
-def detect_key(song: SongModel) -> tuple[str, float] | None:
+def _chord_counts(song: SongModel) -> dict[str, int]:
     chord_counts: dict[str, int] = {}
     for section in song.sections:
         for line in section.lines:
@@ -328,10 +329,17 @@ def detect_key(song: SongModel) -> tuple[str, float] | None:
                 if isinstance(part, Chord):
                     name = str(part.root)
                     chord_counts[name] = chord_counts.get(name, 0) + 1
+    return chord_counts
 
-    if not chord_counts:
+
+def _pitch_class(name: str) -> int | None:
+    try:
+        return Chord.parse(name).root.value
+    except (KeyError, IndexError, ValueError):
         return None
 
+
+def _key_schemes() -> tuple[dict[str, list[str]], dict[str, list[str]]]:
     major_keys = {
         "C": ["C", "F", "G", "Am", "Dm", "Em"],
         "G": ["G", "C", "D", "Em", "Am", "Bm"],
@@ -352,23 +360,59 @@ def detect_key(song: SongModel) -> tuple[str, float] | None:
         "Gm": ["Gm", "Cm", "Dm", "Bb", "Eb", "F"],
         "Cm": ["Cm", "Fm", "Gm", "Eb", "Ab", "Bb"],
     }
+    return major_keys, minor_keys
 
+
+def analyze_key(song: SongModel) -> dict[str, Any] | None:
+    """Key suggestion plus the chord evidence behind it (#141)."""
+    chord_counts = _chord_counts(song)
+    if not chord_counts:
+        return None
+
+    major_keys, minor_keys = _key_schemes()
     total = sum(chord_counts.values())
     best_key = None
     best_score = 0
 
     for key, diatonic in {**major_keys, **minor_keys}.items():
-        score = 0
-        for chord_name, count in chord_counts.items():
-            chord_root = chord_name
-            for d in diatonic:
-                if d.startswith(chord_root):
-                    score += count
-                    break
+        diatonic_pitches = {_pitch_class(d) for d in diatonic}
+        score = sum(
+            count
+            for chord_name, count in chord_counts.items()
+            if _pitch_class(chord_name) in diatonic_pitches
+        )
         if score > best_score:
             best_score = score
             best_key = key
 
-    if best_key and total > 0:
-        return (best_key, round(best_score / total * 100, 1))
-    return None
+    if not best_key or total == 0:
+        return None
+
+    diatonic = {**major_keys, **minor_keys}[best_key]
+    diatonic_pitches = {_pitch_class(d) for d in diatonic}
+    chords = [
+        {
+            "name": name,
+            "count": count,
+            "in_key": _pitch_class(name) in diatonic_pitches,
+        }
+        for name, count in sorted(
+            chord_counts.items(), key=lambda item: (-item[1], item[0])
+        )
+    ]
+    return {
+        "suggested_key": best_key,
+        "confidence": round(best_score / total * 100, 1),
+        "method": "diatonic chord match",
+        "key_type": "major" if best_key in major_keys else "minor",
+        "chord_count": total,
+        "key_chords": diatonic,
+        "chords": chords,
+    }
+
+
+def detect_key(song: SongModel) -> tuple[str, float] | None:
+    analysis = analyze_key(song)
+    if analysis is None:
+        return None
+    return analysis["suggested_key"], analysis["confidence"]

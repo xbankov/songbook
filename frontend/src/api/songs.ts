@@ -118,9 +118,20 @@ export function importFiles(
   )
 }
 
+export interface KeyChord {
+  name: string
+  count: number
+  in_key: boolean
+}
+
 export interface SongAnalysis {
   suggested_key: string | null
   confidence: number | null
+  method: string | null
+  key_type: 'major' | 'minor' | null
+  chord_count: number
+  key_chords: string[]
+  chords: KeyChord[]
 }
 
 export interface SongVersion {

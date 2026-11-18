@@ -112,6 +112,39 @@ def _call(db: _Session, method: str, url: str, **kwargs):
         app.dependency_overrides.clear()
 
 
+def test_analyze_returns_key_and_evidence():
+    song = _song(body="[C]a [C]b [F]c [G]d [Am]e")
+
+    response = _call(_Session([song]), "GET", f"/api/songs/{song.id}/analyze")
+
+    assert response.status_code == 200
+    analysis = response.json()
+    assert analysis["suggested_key"] == "C"
+    assert analysis["confidence"] == 100
+    assert analysis["method"] == "diatonic chord match"
+    assert analysis["key_type"] == "major"
+    assert analysis["chord_count"] == 5
+    assert analysis["chords"][0] == {"name": "C", "count": 2, "in_key": True}
+    assert "Am" in analysis["key_chords"]
+
+
+def test_analyze_without_chords_returns_empty_evidence():
+    song = _song(body="just words")
+
+    response = _call(_Session([song]), "GET", f"/api/songs/{song.id}/analyze")
+
+    assert response.status_code == 200
+    assert response.json() == {
+        "suggested_key": None,
+        "confidence": None,
+        "method": None,
+        "key_type": None,
+        "chord_count": 0,
+        "key_chords": [],
+        "chords": [],
+    }
+
+
 def test_split_removes_metadata_lines_and_keeps_other_directives():
     body = "\n".join(
         [

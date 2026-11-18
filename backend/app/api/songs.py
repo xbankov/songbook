@@ -437,11 +437,21 @@ async def analyze_song(song_id: uuid.UUID, db: AsyncSession = Depends(get_db)):
             status_code=status.HTTP_404_NOT_FOUND, detail="Song not found"
         )
     from app.services.music_theory import SongModel as ST
-    from app.services.music_theory import detect_key
+    from app.services.music_theory import analyze_key
 
     model = ST.from_chordpro(song.body)
-    k = detect_key(model)
-    return {"suggested_key": k[0] if k else None, "confidence": k[1] if k else None}
+    analysis = analyze_key(model)
+    if analysis is None:
+        return {
+            "suggested_key": None,
+            "confidence": None,
+            "method": None,
+            "key_type": None,
+            "chord_count": 0,
+            "key_chords": [],
+            "chords": [],
+        }
+    return analysis
 
 
 @router.post("/{song_id}/audio", status_code=status.HTTP_200_OK)
