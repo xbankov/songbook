@@ -347,19 +347,24 @@ def _drop_leading_header(
             artist_expected = False
             index += 1
             continue
-        if (
-            artist_expected
-            and _ARTIST_CREDIT.search(line)
-            and _header(line) is None
-            and not _is_chord_line(line)
-            and not _STAFF.fullmatch(line)
-        ):
-            # The line after the title can be the header artist with a
-            # year/album annotation the metadata does not have. Without such a
-            # marker it may be the first lyric, so keep it.
-            artist_expected = False
-            index += 1
-            continue
+        if artist_expected and _ARTIST_CREDIT.search(line):
+            following = next(
+                (item.strip() for item in lines[index + 1 :] if item.strip()), ""
+            )
+            # Only a header artist is followed by page chrome or a section.
+            # A lyric with a year ("I was born (1984)") is followed by another
+            # lyric, so it stays.
+            if (
+                not following
+                or _URL.fullmatch(following)
+                or _CAPO_TEXT.fullmatch(following)
+                or _header(following) is not None
+                or _is_chord_line(following)
+                or _STAFF.fullmatch(following)
+            ):
+                artist_expected = False
+                index += 1
+                continue
         break
     return lines[index:]
 
