@@ -157,8 +157,22 @@ function lyricRow(spans: Span[]): string {
   return spans.map(s => s.type === 'text' ? s.text : '').join('')
 }
 
-function chordSpans(spans: Span[]): ChordSpan[] {
-  return spans.filter((span): span is ChordSpan => span.type === 'chord')
+interface RenderedChord {
+  chord: string
+  /** Rendered column after earlier chords at the same lyric position. */
+  column: number
+}
+
+function chordColumns(spans: Span[]): RenderedChord[] {
+  let cursor = 0
+  const rendered: RenderedChord[] = []
+  for (const span of spans) {
+    if (span.type !== 'chord') continue
+    cursor = Math.max(cursor, span.position)
+    rendered.push({ chord: span.chord, column: cursor })
+    cursor += span.chord.length
+  }
+  return rendered
 }
 
 const chordVariants = computed(() => {
@@ -228,9 +242,10 @@ function onChordKeydown(event: KeyboardEvent) {
   }
 }
 
-function openChord(chord: string, event: MouseEvent) {
+function openChord(chord: string, line: number, event: MouseEvent) {
   const trigger = event.currentTarget
   if (!(trigger instanceof HTMLElement)) return
+  emit('line-select', line)
   if (activeChord.value === chord && chordPopover.value) {
     closeChord()
     return
@@ -313,15 +328,15 @@ onBeforeUnmount(() => {
             <div class="chord-row">
               <span class="chord-text" aria-hidden="true">{{ chordRow(line.spans) }}</span>
               <button
-                v-for="(chord, ci) in chordSpans(line.spans)"
-                :key="`${chord.chord}-${chord.position}-${ci}`"
+                v-for="(chord, ci) in chordColumns(line.spans)"
+                :key="`${chord.chord}-${chord.column}-${ci}`"
                 type="button"
                 class="chord-btn chord-above-btn"
-                :style="{ left: `${chord.position}ch`, width: `${chord.chord.length}ch` }"
+                :style="{ left: `${chord.column}ch`, width: `${chord.chord.length}ch` }"
                 :aria-label="chord.chord"
                 aria-haspopup="dialog"
                 :aria-expanded="activeChord === chord.chord"
-                @click.stop="openChord(chord.chord, $event)"
+                @click.stop="openChord(chord.chord, lineIndex(si, li), $event)"
               />
             </div>
             <div class="lyric-row"><span>{{ lyricRow(line.spans) }}</span></div>
@@ -340,7 +355,7 @@ onBeforeUnmount(() => {
                 :aria-label="span.chord"
                 aria-haspopup="dialog"
                 :aria-expanded="activeChord === span.chord"
-                @click.stop="openChord(span.chord, $event)"
+                @click.stop="openChord(span.chord, lineIndex(si, li), $event)"
               >
                 [{{ span.chord }}]
               </button>
@@ -441,9 +456,12 @@ onBeforeUnmount(() => {
 }
 .chord-above-btn {
   position: absolute;
-  top: 0;
-  height: 100%;
+  top: 50%;
+  height: 1.5rem;
+  min-width: 1.5rem;
+  transform: translateY(-50%);
   border-radius: 3px;
+  touch-action: manipulation;
 }
 .chord-above-btn:hover,
 .chord-above-btn:focus-visible {

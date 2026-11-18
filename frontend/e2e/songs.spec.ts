@@ -45,6 +45,7 @@ test.describe('Songbook UI', () => {
     await aboveChord.focus()
     await page.keyboard.press('Enter')
     await expect(dialog).toBeVisible()
+    await expect(dialog).toBeFocused()
     await expect(dialog).toContainText('G')
     await expect(dialog.locator('.chord-diagram')).toBeVisible()
     await dialog.getByRole('button', { name: 'G7' }).click()
@@ -69,6 +70,25 @@ test.describe('Songbook UI', () => {
     await page.keyboard.press('Escape')
     await expect(dialog).toHaveCount(0)
     await expect(page).toHaveURL(`/songs/${song.id}?performance=1`)
+  })
+
+  test('adjacent chords keep separate clickable columns', async ({ page }) => {
+    await mockApi(page)
+    await page.route(`**/api/songs/${song.id}`, (route) =>
+      route.fulfill({ json: { ...song, body: '[G][C]Hello' } }),
+    )
+    await page.goto(`/songs/${song.id}`)
+
+    const buttons = page.locator('.chord-row .chord-above-btn')
+    await expect(buttons).toHaveCount(2)
+    const first = await buttons.nth(0).boundingBox()
+    const second = await buttons.nth(1).boundingBox()
+    expect(first).not.toBeNull()
+    expect(second).not.toBeNull()
+    expect(second!.x).toBeGreaterThan(first!.x)
+
+    await buttons.nth(1).click()
+    await expect(page.getByRole('dialog', { name: 'Chord reference' })).toContainText('C')
   })
 
   test('print mode hides controls and the version footer', async ({ page }) => {
