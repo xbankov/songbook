@@ -93,6 +93,8 @@ let loadRequestId = 0
 
 async function loadSong(id: string) {
   const request = ++loadRequestId
+  // Never show the previous song's key evidence while the next one loads.
+  setAnalysis(null)
   await Promise.all([
     store.fetchSong(id),
     settingsStore.fetchSettings().catch(() => {}),
