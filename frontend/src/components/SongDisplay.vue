@@ -1,8 +1,10 @@
 <script setup lang="ts">
-import { computed, ref } from 'vue'
+import { computed, onBeforeUnmount, ref } from 'vue'
 import { useSettingsStore } from '../stores/settings'
 import { useAutoScroll } from '../composables/useAutoScroll'
+import { getChordShape } from '../api/chords'
 import { transposeChord } from '../utils/chords'
+import ChordDiagram from './ChordDiagram.vue'
 
 const settingsStore = useSettingsStore()
 
@@ -35,6 +37,16 @@ const {
   toggle: toggleAutoScroll,
   changeSpeed: setSpeed,
 } = useAutoScroll()
+
+// One chord popover for the whole display (#142): only one can be open.
+const activeChord = ref<string | null>(null)
+const activeFrets = ref<number[] | undefined>(undefined)
+const chordLoading = ref(false)
+const chordError = ref('')
+const chordPopover = ref<HTMLElement | null>(null)
+const chordTrigger = ref<HTMLElement | null>(null)
+const popoverStyle = ref<Record<string, string>>({})
+let chordRequest = 0
 
 const transpose = computed(
   () => settingsStore.transpose + (props.transposeOverride ?? 0),
@@ -144,6 +156,109 @@ function chordRow(spans: Span[]): string {
 function lyricRow(spans: Span[]): string {
   return spans.map(s => s.type === 'text' ? s.text : '').join('')
 }
+
+function chordSpans(spans: Span[]): ChordSpan[] {
+  return spans.filter((span): span is ChordSpan => span.type === 'chord')
+}
+
+const chordVariants = computed(() => {
+  const chord = activeChord.value
+  if (!chord) return []
+  const match = chord.match(/^([A-G][#b]?)/)
+  if (!match) return [chord]
+  const root = match[1]
+  const bass = root === 'G' ? 'C' : 'G'
+  return [...new Set([
+    chord,
+    root,
+    `${root}m`,
+    `${root}7`,
+    `${root}maj7`,
+    `${root}m7`,
+    `${root}sus4`,
+    `${root}/${bass}`,
+  ])]
+})
+
+async function loadChordShape(chord: string) {
+  const request = ++chordRequest
+  activeFrets.value = undefined
+  chordError.value = ''
+  chordLoading.value = true
+  try {
+    const shape = await getChordShape(chord)
+    if (request === chordRequest && activeChord.value === chord) {
+      activeFrets.value = shape.frets
+    }
+  } catch {
+    if (request === chordRequest && activeChord.value === chord) {
+      chordError.value = 'Showing a local shape'
+    }
+  } finally {
+    if (request === chordRequest) chordLoading.value = false
+  }
+}
+
+function closeChord(restoreFocus = true) {
+  activeChord.value = null
+  activeFrets.value = undefined
+  chordLoading.value = false
+  chordError.value = ''
+  chordRequest += 1
+  document.removeEventListener('pointerdown', onChordPointerDown)
+  document.removeEventListener('keydown', onChordKeydown, true)
+  const trigger = chordTrigger.value
+  chordTrigger.value = null
+  if (restoreFocus) trigger?.focus()
+}
+
+function onChordPointerDown(event: PointerEvent) {
+  const target = event.target as Element
+  if (chordPopover.value?.contains(target) || chordTrigger.value?.contains(target)) return
+  // Another chord replaces the current popover; let its click handler do it.
+  if (target.closest?.('.chord-btn')) return
+  closeChord()
+}
+
+function onChordKeydown(event: KeyboardEvent) {
+  if (event.key === 'Escape') {
+    // Capture phase: close the reference before performance mode exits.
+    event.stopPropagation()
+    closeChord()
+  }
+}
+
+function openChord(chord: string, event: MouseEvent) {
+  const trigger = event.currentTarget
+  if (!(trigger instanceof HTMLElement)) return
+  if (activeChord.value === chord && chordPopover.value) {
+    closeChord()
+    return
+  }
+  activeChord.value = chord
+  chordTrigger.value = trigger
+  const width = 300
+  const rect = trigger.getBoundingClientRect()
+  popoverStyle.value = {
+    top: `${Math.max(8, Math.min(rect.bottom + 6, window.innerHeight - 330))}px`,
+    left: `${Math.max(8, Math.min(rect.left, window.innerWidth - width - 8))}px`,
+  }
+  document.removeEventListener('pointerdown', onChordPointerDown)
+  document.addEventListener('pointerdown', onChordPointerDown)
+  document.removeEventListener('keydown', onChordKeydown, true)
+  document.addEventListener('keydown', onChordKeydown, true)
+  void loadChordShape(chord)
+}
+
+function chooseVariant(chord: string) {
+  activeChord.value = chord
+  void loadChordShape(chord)
+}
+
+onBeforeUnmount(() => {
+  document.removeEventListener('pointerdown', onChordPointerDown)
+  document.removeEventListener('keydown', onChordKeydown, true)
+})
 </script>
 
 <template>
@@ -194,7 +309,20 @@ function lyricRow(spans: Span[]): string {
             :data-line="lineIndex(si, li)"
             @click="emit('line-select', lineIndex(si, li))"
           >
-            <div class="chord-row"><span class="chord-text">{{ chordRow(line.spans) }}</span></div>
+            <div class="chord-row">
+              <span class="chord-text" aria-hidden="true">{{ chordRow(line.spans) }}</span>
+              <button
+                v-for="(chord, ci) in chordSpans(line.spans)"
+                :key="`${chord.chord}-${chord.position}-${ci}`"
+                type="button"
+                class="chord-btn chord-above-btn"
+                :style="{ left: `${chord.position}ch`, width: `${chord.chord.length}ch` }"
+                :aria-label="chord.chord"
+                aria-haspopup="dialog"
+                :aria-expanded="activeChord === chord.chord"
+                @click.stop="openChord(chord.chord, $event)"
+              />
+            </div>
             <div class="lyric-row"><span>{{ lyricRow(line.spans) }}</span></div>
           </div>
           <div
@@ -203,12 +331,58 @@ function lyricRow(spans: Span[]): string {
             :data-line="lineIndex(si, li)"
             @click="emit('line-select', lineIndex(si, li))"
           >
-            <span v-for="(span, pi) in line.spans" :key="pi" :class="span.type === 'chord' ? 'chord-inline' : ''">
-              {{ span.type === 'chord' ? '[' + span.chord + ']' : span.text }}
-            </span>
+            <template v-for="(span, pi) in line.spans" :key="pi">
+              <button
+                v-if="span.type === 'chord'"
+                type="button"
+                class="chord-btn chord-inline"
+                :aria-label="span.chord"
+                aria-haspopup="dialog"
+                :aria-expanded="activeChord === span.chord"
+                @click.stop="openChord(span.chord, $event)"
+              >
+                [{{ span.chord }}]
+              </button>
+              <span v-else>{{ span.text }}</span>
+            </template>
           </div>
         </template>
       </div>
+    </div>
+
+    <div
+      v-if="activeChord"
+      ref="chordPopover"
+      class="chord-popover"
+      role="dialog"
+      aria-label="Chord reference"
+      :style="popoverStyle"
+    >
+      <div class="chord-popover-header">
+        <strong>{{ activeChord }}</strong>
+        <button
+          type="button"
+          class="chord-popover-close"
+          aria-label="Close chord reference"
+          @click="closeChord()"
+        >
+          ×
+        </button>
+      </div>
+      <ChordDiagram :chord="activeChord" :frets="activeFrets" />
+      <div class="chord-variants">
+        <button
+          v-for="variant in chordVariants"
+          :key="variant"
+          type="button"
+          :class="['chord-variant', { active: variant === activeChord }]"
+          @click="chooseVariant(variant)"
+        >
+          {{ variant }}
+        </button>
+      </div>
+      <p v-if="chordLoading" class="chord-note">Loading shape...</p>
+      <p v-else-if="chordError" class="chord-note">{{ chordError }}</p>
     </div>
   </div>
 </template>
@@ -250,9 +424,92 @@ function lyricRow(spans: Span[]): string {
 .double-column.mode-above { column-count: 2; column-gap: 2rem; }
 .double-column.mode-inline { column-count: 2; column-gap: 2rem; }
 .line-above { margin-bottom: 0.15rem; }
-.chord-row { white-space: pre; overflow: visible; min-height: 1.2em; }
+.chord-row { position: relative; white-space: pre; overflow: visible; min-height: 1.2em; }
 .chord-text { font-weight: 700; color: var(--accent); }
 .lyric-row { white-space: pre; overflow: visible; color: var(--text); margin-top: -0.05rem; }
+
+/* Clickable chords and their reference popover (#142). */
+.chord-btn {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+.chord-above-btn {
+  position: absolute;
+  top: 0;
+  height: 100%;
+  border-radius: 3px;
+}
+.chord-above-btn:hover,
+.chord-above-btn:focus-visible {
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  outline: 1px solid var(--accent);
+}
+.chord-inline:hover,
+.chord-inline:focus-visible {
+  background: color-mix(in srgb, var(--accent) 22%, transparent);
+  outline: none;
+  text-decoration: underline;
+}
+.chord-popover {
+  position: fixed;
+  z-index: 1200;
+  width: 300px;
+  max-height: calc(100vh - 16px);
+  overflow-y: auto;
+  padding: 0.75rem;
+  background: var(--surface);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  box-shadow: 0 8px 24px rgb(0 0 0 / 35%);
+}
+.chord-popover-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+.chord-popover-header strong {
+  color: var(--accent);
+  font-size: 1.05rem;
+}
+.chord-popover-close {
+  background: none;
+  border: 0;
+  color: var(--text-muted);
+  font-size: 1.2rem;
+  line-height: 1;
+  cursor: pointer;
+}
+.chord-variants {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.3rem;
+  margin-top: 0.5rem;
+}
+.chord-variant {
+  padding: 0.2rem 0.45rem;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  color: var(--text-muted);
+  font-size: 0.78rem;
+  cursor: pointer;
+}
+.chord-variant.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #000;
+}
+.chord-note {
+  margin: 0.4rem 0 0;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+}
 
 /* Inline mode */
 .mode-inline { font-family: 'Courier New', 'Consolas', 'Liberation Mono', monospace; font-size: var(--song-font-size, 1rem); line-height: 1.6; }
@@ -263,9 +520,10 @@ function lyricRow(spans: Span[]): string {
 @media print {
   .song-display { padding-bottom: 0 !important; }
   .song-controls { display: none !important; }
+  .chord-popover { display: none !important; }
   .mode-above { font-size: 9pt !important; }
   .mode-inline { font-size: 9pt !important; }
-  .chord-text, .chord-inline { color: #2c5282 !important; }
+  .chord-text, .chord-inline, .chord-btn { color: #2c5282 !important; }
   .song-title { font-size: 14pt !important; }
   .song-artist { font-size: 11pt !important; }
   .section-label {

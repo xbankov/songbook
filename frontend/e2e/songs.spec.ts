@@ -36,6 +36,41 @@ test.describe('Songbook UI', () => {
     expect(chordBox!.y).toBeLessThan(lyricBox!.y)
   })
 
+  test('opens and closes a chord reference in above, inline and performance modes', async ({ page }) => {
+    await mockApi(page)
+    await page.goto(`/songs/${song.id}`)
+    const dialog = page.getByRole('dialog', { name: 'Chord reference' })
+
+    const aboveChord = page.getByRole('button', { name: 'G', exact: true }).first()
+    await aboveChord.focus()
+    await page.keyboard.press('Enter')
+    await expect(dialog).toBeVisible()
+    await expect(dialog).toContainText('G')
+    await expect(dialog.locator('.chord-diagram')).toBeVisible()
+    await dialog.getByRole('button', { name: 'G7' }).click()
+    await expect(dialog).toContainText('G7')
+    await expect(dialog.locator('.chord-diagram')).toBeVisible()
+
+    await page.keyboard.press('Escape')
+    await expect(dialog).toHaveCount(0)
+
+    await page.getByRole('button', { name: 'Inline' }).click()
+    await page.getByRole('button', { name: 'G', exact: true }).first().click()
+    await expect(dialog).toBeVisible()
+    await page.locator('.song-title').click()
+    await expect(dialog).toHaveCount(0)
+
+    // The same component and popover work in performance mode; Escape closes
+    // the chord before it would exit performance mode.
+    await page.getByRole('button', { name: 'Performance' }).click()
+    await expect(page.locator('.play-stage')).toBeVisible()
+    await page.getByRole('button', { name: 'G', exact: true }).first().click()
+    await expect(dialog).toBeVisible()
+    await page.keyboard.press('Escape')
+    await expect(dialog).toHaveCount(0)
+    await expect(page).toHaveURL(`/songs/${song.id}?performance=1`)
+  })
+
   test('print mode hides controls and the version footer', async ({ page }) => {
     await mockApi(page)
     await page.goto(`/songs/${song.id}`)

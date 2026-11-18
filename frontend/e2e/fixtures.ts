@@ -125,6 +125,15 @@ export async function mockApi(
     if (url.pathname === `/api/songs/${song.id}`) {
       return route.fulfill({ json: song })
     }
+    if (url.pathname === '/api/chords') {
+      const chord = url.searchParams.get('chord') ?? ''
+      const shapes: Record<string, number[]> = {
+        G: [3, 2, 0, 0, 0, 3],
+        C: [0, 3, 2, 0, 1, 0],
+        G7: [3, 2, 0, 0, 0, 1],
+      }
+      return route.fulfill({ json: { name: chord, frets: shapes[chord] ?? [0, 3, 2, 0, 1, 0] } })
+    }
     if (url.pathname === `/api/songs/${song.id}/analyze`) {
       return route.fulfill({
         json: {
