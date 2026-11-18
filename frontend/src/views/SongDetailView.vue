@@ -346,11 +346,6 @@ function onKey(event: KeyboardEvent) {
   }
 }
 
-function onFullscreenChange() {
-  // Esc or the browser's own control left full screen: leave performance too.
-  if (!document.fullscreenElement && performance.value) void exitPerformance()
-}
-
 function onVisibility() {
   // The browser drops the wake lock when the tab is hidden.
   if (document.visibilityState === 'visible' && performance.value) void keepScreenOn()
@@ -359,7 +354,6 @@ function onVisibility() {
 onMounted(() => {
   window.addEventListener('keydown', onKey)
   document.addEventListener('visibilitychange', onVisibility)
-  document.addEventListener('fullscreenchange', onFullscreenChange)
   if (route.query.performance === '1') void enterPerformance(false)
 })
 
@@ -367,7 +361,6 @@ onBeforeUnmount(() => {
   unmounted = true
   window.removeEventListener('keydown', onKey)
   document.removeEventListener('visibilitychange', onVisibility)
-  document.removeEventListener('fullscreenchange', onFullscreenChange)
   document.removeEventListener('pointerdown', onKeyPanelPointerDown)
   document.removeEventListener('keydown', onKeyPanelKeydown)
   stopScroll()

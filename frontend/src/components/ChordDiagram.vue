@@ -39,7 +39,8 @@ const positions = computed<FretPos[]>(() => {
       .map((fret, string) => ({ string, fret }))
       .filter((pos) => pos.fret >= 0)
   }
-  const match = props.chord.match(/^([A-G][#b]?)(.*)$/)
+  // Ignore a slash bass, matching the server rule (G/B is drawn as G).
+  const match = props.chord.match(/^([A-G][#b]?)([^/]*)/)
   if (!match) return []
   const rootTone = match[1]
   const quality = match[2].toLowerCase()
