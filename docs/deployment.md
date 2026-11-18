@@ -91,12 +91,16 @@ deploys the tip of `main`.
 A deploy:
 - resets the deployment checkout to `main` and updates the submodule;
 - checks out the newest `v*` tag;
+- stops the app containers so no write can land after the dump;
 - takes a `pg_dump` into `SONGBOOK_DATA_DIR/backups` (the last 10 are kept)
   and keeps the new dump until the health check passes;
 - rebuilds and recreates the stack, then waits for `/api/health`;
 - on a failed health check after migrations ran, stops the stack, restores
   that pre-deploy dump and starts the previous tag. The dump is never deleted
   before a successful health check.
+
+The only downtime is the dump plus rebuild and health check; the app is not
+serving while the backup is taken, so a save cannot be lost by a rollback.
 
 Manual deploy or rollback on the server:
 
@@ -108,6 +112,12 @@ git submodule update --init --recursive
 ./scripts/songbook-deploy.sh v2.0.0          # a specific tag
 SONGBOOK_FORCE=1 ./scripts/songbook-deploy.sh  # rebuild the current tag
 ```
+
+A release that ran a database migration **cannot** be rolled back by switching
+the tag alone. Stop the stack, restore the dump taken immediately before that
+deploy, then start the previous tag. Do not delete that dump until the release
+has been healthy (and a fresh backup exists). The home-server README documents
+the restore command for its Compose project.
 
 Data lives outside the checkout (`SONGBOOK_DATA_DIR`, set to
 `/home/ubuntu/songbook-data` on the home server), so resets and rebuilds never
