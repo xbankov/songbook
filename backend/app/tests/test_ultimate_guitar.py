@@ -200,6 +200,23 @@ def test_leading_tab_header_is_dropped():
     assert "{start_of_verse}\n[G]la la\n{end_of_verse}" in body
 
 
+def test_title_like_text_without_metadata_does_not_eat_the_next_line():
+    # Batch import passes no title/artist: a first line ending in "chords" is
+    # not enough evidence to drop it or the lyric after it.
+    body = _body("Song Title chords\nFirst lyric\nSecond lyric")
+
+    assert "Song Title chords" in body
+    assert "First lyric" in body
+    assert "Second lyric" in body
+
+
+def test_star_lyric_does_not_start_a_notes_block():
+    body = _body("*When the morning comes\nSecond lyric")
+
+    assert "*When the morning comes" in body
+    assert "Second lyric" in body
+
+
 def test_trailing_notes_and_alternate_chords_are_dropped():
     content = (
         "[Verse]\n"
