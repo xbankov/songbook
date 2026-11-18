@@ -115,9 +115,10 @@ SONGBOOK_FORCE=1 ./scripts/songbook-deploy.sh  # rebuild the current tag
 
 A release that ran a database migration **cannot** be rolled back by switching
 the tag alone. Stop the stack, restore the dump taken immediately before that
-deploy, then start the previous tag. Do not delete that dump until the release
-has been healthy (and a fresh backup exists). The home-server README documents
-the restore command for its Compose project.
+deploy, then start the previous tag. The deploy script already stops the app
+before taking the dump, so there are no writes to lose. Do not delete that dump
+until the release has been healthy (and a fresh backup exists). The home-server
+README documents the restore command for its Compose project.
 
 Data lives outside the checkout (`SONGBOOK_DATA_DIR`, set to
 `/home/ubuntu/songbook-data` on the home server), so resets and rebuilds never
