@@ -99,7 +99,7 @@ Every roadmap item should make this loop faster, more reliable, or more enjoyabl
 | Songbooks: CRUD, add/remove, PDF (#24, #89) | Done — delete/rename, reorder, per-entry transpose/columns, TOC, and metadata (author/date/genre/difficulty). The per-songbook chord chart was removed in #143; the songbook PDF uses each entry's column setting (fixed in #96) |
 | Song view: chords above lyrics, styling, 2 columns, autoscroll (#38) | Done |
 | Play/sing view (#41, #140) | Done — the song page has a Performance toggle: full screen, adjustable text size, current-line highlight moved by tap, arrows, Space or PageUp/PageDown (page-turner pedals), smooth shared autoscroll (#144), screen wake lock. `/songs/:id/play` redirects with `?performance=1`. Record mode stays with #42 |
-| Songbooks: CRUD, add/remove, PDF (#24) | Done — delete/rename, reorder, per-entry transpose/columns, TOC; metadata/chordscheme → #89. The songbook PDF uses each entry's column setting (fixed in #96) |
+| Songbooks: CRUD, add/remove, PDF (#24) | Done — delete/rename, reorder, per-entry transpose/columns, TOC; metadata → #89; the chord chart was removed in #143. The songbook PDF uses each entry's column setting (fixed in #96) |
 | Import by URL + UG search/pick/import (#46, #51, #132) | Done for UG: chords merged into lyrics, sections and capo kept, one polite fetch path (#132); supermusic blocks automated access (#133) |
 | Bulk import (#29) | Done — paste, plus files/one zip with a dry run and selective import |
 | Export (#54) | Done — single, selected, and all songs as ChordPro/text/ABC/LilyPond; per-songbook export is **ChordPro only** |
