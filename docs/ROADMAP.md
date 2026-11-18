@@ -93,6 +93,7 @@ Every roadmap item should make this loop faster, more reliable, or more enjoyabl
 | --- | --- |
 | Song CRUD, ChordPro editor (highlight, validation, preview) | Done |
 | Transposition (#2), key detection, chord diagrams | Done |
+| Suggested key analysis (#141) | Done — clickable panel with confidence, method and chord evidence; applies the key as a normal edit with a version row |
 | Chord inside a word `bri[C]ght` (#15) | Done — regression test in `test_music_theory.py` |
 | Title/artist/capo/key fields (#37) | Done — the fields are the source of truth. Saving strips `{title}`/`{artist}`/`{capo}`/`{key}` from the body; every export and the song view use the fields; ChordPro exports add the tags back. Existing bodies are not rewritten; old tags are ignored until the next save |
 | Song view: chords above lyrics, styling, 2 columns, autoscroll (#38/#41) | Mostly done |
@@ -224,12 +225,12 @@ The issue itself recommends starting only after the Alembic baseline (#69).
 | 21 | #42 + #43 Recordings/attachments (merge) | L | Useful, but larger |
 | 21a | ~~#140 Merge play mode into the song view (Performance toggle)~~ (done) | M | One reading surface; `/songs/:id/play` redirects |
 | 21b | ~~#144 Smooth autoscroll with finer speed~~ (done) | S | One shared animation loop; no 10 Hz jumps |
-| 21c | #141 Suggested key: explain and apply it | S | The suggestion is opaque |
+| 21c | ~~#141 Suggested key: explain and apply it~~ (done) | S | The suggestion is opaque |
 | 21d | #142 Clickable chords with a chord-scheme dropdown | M | Diagrams where the player looks |
 | 22 | ~~#25 YouTube link~~ (done) | S | Small reference feature |
 
-**Performance follow-ups:** #141, then #142; both build on the merged #140/#144
-song view. #143 removed the end-of-book chart that #142 replaces.
+**Next:** #142, building on the merged #140/#144 song view and #141 analysis.
+#143 removed the end-of-book chart that #142 replaces.
 
 ### Phase 5 — Mobile offline (single-user)
 
@@ -608,6 +609,7 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-17 | #149: a UG tab drops its leading title/artist/URL/textual-capo header, tab staff lines, chord `*`/`xN` markers, and the trailing notes/alternate-chord block. The capo comes from the metadata; no network in tests | agent (user asked to continue the roadmap) |
 | 2026-11-17 | #161: UG search keeps version/total versions, rating/votes, key, difficulty, update date, verified and type label; rows deduplicate identical URLs and default to a vote-weighted best order, with local best/votes/newest sorting | agent (user asked to continue the roadmap) |
 | 2026-11-18 | #151 is the container epic for import v2 (sub-issues #152–#155); #156/#157 are Phase 7 AI follow-ups, with #157 on-demand and preview-first | agent (user asked to continue the roadmap) |
+| 2026-11-18 | #141: the suggested-key panel explains confidence/method/chord evidence and applies the key as a normal edit, creating a version row | agent (user asked to continue the roadmap) |
 | 2026-11-17 | Releases are `v*` tags on `main`; production runs on the home server from the private `home-server` repo (submodule + own Compose project) and a self-hosted runner deploys the newest tag with a pre-deploy `pg_dump` and a health-check rollback | agent (user chose in session) |
 
 ---
@@ -646,4 +648,5 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-17 | #149 done: UG imports drop the tab header, textual capo, staff lines, trailing notes/alternate-chord blocks, and chord markers |
 | 2026-11-17 | #161 done: UG search rows show type, version, rating/votes, key, difficulty, update year and verified state, with a source link and best/votes/newest sort |
 | 2026-11-18 | Added the #151 Import v2 epic notes and the #156/#157 AI follow-ups; #141/#142 scheduled next in Phase 4 |
+| 2026-11-18 | #141 done: suggested-key panel with confidence, method, chord evidence, and an apply action that creates a version |
 | 2026-11-17 | Auto-deploy: tagged releases are rolled out to the home server by a self-hosted runner (submodule + own Compose project); guide in docs/deployment.md §5 |
