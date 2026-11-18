@@ -208,7 +208,8 @@ import → provenance. Sub-issues so far: #152 (pipeline/provenance), #153
 (reference lists), #154 (Spotify playlists), #155 (refresh from source). It is a
 discuss epic: resolve its decisions and schedule the sub-issues before coding.
 Related tracks that stay in their own phases: #156 (AI chord acquisition, Phase
-7), #157 (AI cleanup, Phase 7), #158 (AI setlists), #159 (practice toolbox).
+7), #157 (AI cleanup, Phase 7), #158 (AI setlists, Phase 7), #159 (practice
+toolbox).
 
 **Not scheduled — #78 catalog & acquisition epic ("Lidarr for chord sheets").**
 A MusicBrainz-backed metadata catalog plus a reviewable acquisition queue. It is a
@@ -227,8 +228,8 @@ The issue itself recommends starting only after the Alembic baseline (#69).
 | 21d | #142 Clickable chords with a chord-scheme dropdown | M | Diagrams where the player looks |
 | 22 | ~~#25 YouTube link~~ (done) | S | Small reference feature |
 
-**Next:** #141, then #142; both build on the merged #140/#144 song view. #143
-removed the end-of-book chart that #142 replaces.
+**Performance follow-ups:** #141, then #142; both build on the merged #140/#144
+song view. #143 removed the end-of-book chart that #142 replaces.
 
 ### Phase 5 — Mobile offline (single-user)
 
@@ -275,7 +276,7 @@ baseline (#69) first.
 #34 (chord validation + hover diagrams) → #1 (chord schemes/blacklist) →
 #36 annotations → #40 translations → #39 AI graphics → #35 creative mode →
 #62 recommendations → #49 auto-transcribe → #53 LLM parsing → #156 AI chord
-acquisition → #157 AI cleanup of imported ChordPro.
+acquisition → #157 AI cleanup of imported ChordPro → #158 AI setlist generation.
 
 Treat these as experiments: time-boxed, behind a flag if possible, and never on
 the critical path. #149 (deterministic import cleanup) is done; #157 is the LLM
