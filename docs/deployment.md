@@ -91,9 +91,12 @@ deploys the tip of `main`.
 A deploy:
 - resets the deployment checkout to `main` and updates the submodule;
 - checks out the newest `v*` tag;
-- takes a `pg_dump` into `SONGBOOK_DATA_DIR/backups` (the last 10 are kept);
+- takes a `pg_dump` into `SONGBOOK_DATA_DIR/backups` (the last 10 are kept)
+  and keeps the new dump until the health check passes;
 - rebuilds and recreates the stack, then waits for `/api/health`;
-- rolls back to the previous tag when the health check fails.
+- on a failed health check after migrations ran, stops the stack, restores
+  that pre-deploy dump and starts the previous tag. The dump is never deleted
+  before a successful health check.
 
 Manual deploy or rollback on the server:
 
