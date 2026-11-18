@@ -339,23 +339,22 @@ def _chord_counts(chords: list[Chord]) -> dict[str, int]:
     return chord_counts
 
 
-def _chord_family(chord: Chord) -> str | None:
-    intervals = chord_quality_scheme.get(chord.quality)
-    if not intervals:
-        return None
-    if 4 in intervals:
-        return "major"
-    if 3 in intervals:
-        return "minor"
-    return None
+_MAJOR_SCALE = (0, 2, 4, 5, 7, 9, 11)
+_MINOR_SCALE = (0, 2, 3, 5, 7, 8, 10)
 
 
-def _chord_matches(chord: Chord, scheme: Chord) -> bool:
-    if chord.root.value != scheme.root.value:
+def _chord_in_key(chord: Chord, tonic: Chord, key_type: str) -> bool:
+    """Whether every chord tone belongs to the key's scale.
+
+    This keeps extensions honest: C7 is in F major (Bb is in the scale) but not
+    in C major, even though both share the C major triad.
+    """
+    intervals = _MAJOR_SCALE if key_type == "major" else _MINOR_SCALE
+    scale = {(tonic.root.value + interval) % 12 for interval in intervals}
+    chord_tones = chord_quality_scheme.get(chord.quality)
+    if not chord_tones:
         return False
-    family = _chord_family(chord)
-    scheme_family = _chord_family(scheme)
-    return family is None or scheme_family is None or family == scheme_family
+    return all((chord.root.value + interval) % 12 in scale for interval in chord_tones)
 
 
 def _key_schemes() -> tuple[dict[str, list[str]], dict[str, list[str]]]:
@@ -402,13 +401,13 @@ def analyze_key(song: SongModel) -> dict[str, Any] | None:
     best_rank: tuple[int, int, int, int] | None = None
 
     for key, diatonic in {**major_keys, **minor_keys}.items():
-        scheme = [Chord.parse(name) for name in diatonic]
+        key_type = "major" if key in major_keys else "minor"
+        tonic = Chord.parse(key)
         score = sum(
             count
             for name, count in chord_counts.items()
-            if any(_chord_matches(parsed[name], candidate) for candidate in scheme)
+            if _chord_in_key(parsed[name], tonic, key_type)
         )
-        tonic = Chord.parse(key)
         tonic_count = sum(
             count
             for name, count in chord_counts.items()
@@ -429,14 +428,13 @@ def analyze_key(song: SongModel) -> dict[str, Any] | None:
         return None
 
     diatonic = {**major_keys, **minor_keys}[best_key]
-    scheme = [Chord.parse(name) for name in diatonic]
+    key_type = "major" if best_key in major_keys else "minor"
+    tonic = Chord.parse(best_key)
     chords = [
         {
             "name": name,
             "count": count,
-            "in_key": any(
-                _chord_matches(parsed[name], candidate) for candidate in scheme
-            ),
+            "in_key": _chord_in_key(parsed[name], tonic, key_type),
         }
         for name, count in sorted(
             chord_counts.items(), key=lambda item: (-item[1], item[0])
@@ -446,7 +444,7 @@ def analyze_key(song: SongModel) -> dict[str, Any] | None:
         "suggested_key": best_key,
         "confidence": round(best_score / total * 100, 1),
         "method": "diatonic chord match",
-        "key_type": "major" if best_key in major_keys else "minor",
+        "key_type": key_type,
         "chord_count": total,
         "key_chords": diatonic,
         "chords": chords,
