@@ -34,7 +34,7 @@ export function useAutoScroll(target?: Ref<HTMLElement | null>) {
   const autoScroll = ref(false)
   let frame: number | null = null
   let lastTime = 0
-  let carriedPixels = 0
+  let position: number | null = null
 
   function scroller(): HTMLElement | null {
     return target?.value ?? (document.scrollingElement as HTMLElement | null)
@@ -59,13 +59,15 @@ export function useAutoScroll(target?: Ref<HTMLElement | null>) {
       return
     }
 
-    // Speed 1 means the old 1px per 100ms (10px per second).
-    carriedPixels += speed.value * 10 * seconds
-    const pixels = Math.floor(carriedPixels)
-    if (pixels > 0) {
-      carriedPixels -= pixels
-      element.scrollTop = Math.min(element.scrollTop + pixels, maxScroll)
+    // Keep a fractional position so every frame can move the page by a
+    // fraction of a pixel; flooring would fall back to ~10 jumps per second.
+    // Re-sync if the user scrolled by more than rounding noise.
+    if (position === null || Math.abs(element.scrollTop - position) > 1.5) {
+      position = element.scrollTop
     }
+    // Speed 1 means the old 1px per 100ms (10px per second).
+    position = Math.min(position + speed.value * 10 * seconds, maxScroll)
+    element.scrollTop = position
     frame = requestAnimationFrame(tick)
   }
 
@@ -73,7 +75,7 @@ export function useAutoScroll(target?: Ref<HTMLElement | null>) {
     if (autoScroll.value) return
     autoScroll.value = true
     lastTime = 0
-    carriedPixels = 0
+    position = null
     frame = requestAnimationFrame(tick)
   }
 
@@ -82,7 +84,7 @@ export function useAutoScroll(target?: Ref<HTMLElement | null>) {
     if (frame !== null) cancelAnimationFrame(frame)
     frame = null
     lastTime = 0
-    carriedPixels = 0
+    position = null
   }
 
   function toggle() {
