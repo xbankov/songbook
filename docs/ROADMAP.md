@@ -126,7 +126,7 @@ Every roadmap item should make this loop faster, more reliable, or more enjoyabl
 | Performance mode | Full-screen sing/play view and recordings | #41, #42, #43, #25 |
 | Mobile offline | Phone app with pre-downloaded songs and two-way sync | #70, #71 |
 | Multi-user (Immich-style) | Users, roles, ownership, sharing, API keys — **after** the single-user product is liked | #72, #73, #74, #75 |
-| AI lab (parked) | LLM parsing, annotations, translations, recommendations | #34, #1, #36, #40, #39, #35, #62, #49, #53 |
+| AI lab (parked) | LLM parsing, annotations, translations, recommendations | #34, #1, #36, #40, #39, #35, #62, #49, #53, #156, #157 |
 | Operations | Domain, deployment, backups | #22 |
 | Pre-1.0.0 release gate | Alembic baseline (done), backup/restore, export/import, e2e | #69 |
 
@@ -202,6 +202,14 @@ exist).
 | 18 | #46 Direct lookup by name (narrow to extra sources) | S | UG flow already exists |
 | 19 | #28 Import/export a Git repo | L | Data ownership and versioned backups |
 
+**In progress — #151 Import v2 epic (lists, playlists, bookmarks, refresh).**
+A container for the import rework: reference → match → acquisition → review →
+import → provenance. Sub-issues so far: #152 (pipeline/provenance), #153
+(reference lists), #154 (Spotify playlists), #155 (refresh from source). It is a
+discuss epic: resolve its decisions and schedule the sub-issues before coding.
+Related tracks that stay in their own phases: #156 (AI chord acquisition, Phase
+7), #157 (AI cleanup, Phase 7), #158 (AI setlists), #159 (practice toolbox).
+
 **Not scheduled — #78 catalog & acquisition epic ("Lidarr for chord sheets").**
 A MusicBrainz-backed metadata catalog plus a reviewable acquisition queue. It is a
 design epic: resolve its open decisions (§8) and split it (§9.4) before any code.
@@ -215,7 +223,12 @@ The issue itself recommends starting only after the Alembic baseline (#69).
 | 21 | #42 + #43 Recordings/attachments (merge) | L | Useful, but larger |
 | 21a | ~~#140 Merge play mode into the song view (Performance toggle)~~ (done) | M | One reading surface; `/songs/:id/play` redirects |
 | 21b | ~~#144 Smooth autoscroll with finer speed~~ (done) | S | One shared animation loop; no 10 Hz jumps |
+| 21c | #141 Suggested key: explain and apply it | S | The suggestion is opaque |
+| 21d | #142 Clickable chords with a chord-scheme dropdown | M | Diagrams where the player looks |
 | 22 | ~~#25 YouTube link~~ (done) | S | Small reference feature |
+
+**Next:** #141, then #142; both build on the merged #140/#144 song view. #143
+removed the end-of-book chart that #142 replaces.
 
 ### Phase 5 — Mobile offline (single-user)
 
@@ -261,10 +274,12 @@ baseline (#69) first.
 
 #34 (chord validation + hover diagrams) → #1 (chord schemes/blacklist) →
 #36 annotations → #40 translations → #39 AI graphics → #35 creative mode →
-#62 recommendations → #49 auto-transcribe → #53 LLM parsing.
+#62 recommendations → #49 auto-transcribe → #53 LLM parsing → #156 AI chord
+acquisition → #157 AI cleanup of imported ChordPro.
 
 Treat these as experiments: time-boxed, behind a flag if possible, and never on
-the critical path.
+the critical path. #149 (deterministic import cleanup) is done; #157 is the LLM
+assist for what the rules cannot catch.
 
 ### Phase 8 — Operations
 
@@ -445,6 +460,10 @@ Closed: #15 (regression test added), #33 (re-triaged), #37 (fields replace body 
 11. **Play mode (#140) (resolved).** Fold the separate play view into the song
     page as a Performance toggle, and redirect `/songs/:id/play` to
     `/songs/:id?performance=1` so old links and bookmarks keep working.
+12. **AI cleanup (#157).** Provider (OpenAI-compatible vs a specific vendor),
+    key storage (env vs DB), on-demand vs automatic, preview, privacy/cost, and
+    whether to pull it into Phase 3 after #149. Recommendation: on-demand,
+    preview always, Phase 7 unless #149 leaves too much garbage.
 
 ---
 
@@ -582,6 +601,7 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-17 | #143: remove the end-of-songbook chord chart from the page, PDF and API; keep the `chord_diagrams` column for existing data. Reverses the chart part of the #89 decision | agent (user asked to continue the roadmap) |
 | 2026-11-17 | #149: a UG tab drops its leading title/artist/URL/textual-capo header, tab staff lines, chord `*`/`xN` markers, and the trailing notes/alternate-chord block. The capo comes from the metadata; no network in tests | agent (user asked to continue the roadmap) |
 | 2026-11-17 | #161: UG search keeps version/total versions, rating/votes, key, difficulty, update date, verified and type label; rows deduplicate identical URLs and default to a vote-weighted best order, with local best/votes/newest sorting | agent (user asked to continue the roadmap) |
+| 2026-11-18 | #151 is the container epic for import v2 (sub-issues #152–#155); #156/#157 are Phase 7 AI follow-ups, with #157 on-demand and preview-first | agent (user asked to continue the roadmap) |
 
 ---
 
@@ -618,3 +638,4 @@ Keep the changelog at the bottom current. Do not rewrite history; append.
 | 2026-11-17 | #143 done: removed the songbook chord chart from the page, PDF and API; the column stays for existing data |
 | 2026-11-17 | #149 done: UG imports drop the tab header, textual capo, staff lines, trailing notes/alternate-chord blocks, and chord markers |
 | 2026-11-17 | #161 done: UG search rows show type, version, rating/votes, key, difficulty, update year and verified state, with a source link and best/votes/newest sort |
+| 2026-11-18 | Added the #151 Import v2 epic notes and the #156/#157 AI follow-ups; #141/#142 scheduled next in Phase 4 |
