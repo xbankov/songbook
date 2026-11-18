@@ -353,14 +353,12 @@ def _drop_leading_header(
             )
             # Only a header artist is followed by page chrome or a section.
             # A lyric with a year ("I was born (1984)") is followed by another
-            # lyric, so it stays.
+            # lyric or a chord line, so it stays.
             if (
                 not following
                 or _URL.fullmatch(following)
                 or _CAPO_TEXT.fullmatch(following)
                 or _header(following) is not None
-                or _is_chord_line(following)
-                or _STAFF.fullmatch(following)
             ):
                 artist_expected = False
                 index += 1

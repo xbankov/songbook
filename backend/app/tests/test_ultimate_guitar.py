@@ -219,6 +219,15 @@ def test_year_in_a_lyric_after_the_title_is_kept():
     assert "Second lyric" in body
 
 
+def test_year_in_a_lyric_before_a_chord_line_is_kept():
+    content = "Song Title chords\nI was born (1984)\n[ch]G[/ch]\nSecond lyric"
+    song = parse_tab_html(_page(content, title="Song Title", artist="Other Artist"))
+
+    body = str(song)
+    assert "I was born (1984)" in body
+    assert "[G]" in body
+
+
 def test_star_lyric_does_not_start_a_notes_block():
     body = _body("*When the morning comes\nSecond lyric")
 
