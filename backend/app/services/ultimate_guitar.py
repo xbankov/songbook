@@ -37,8 +37,12 @@ _HEADER = re.compile(r"\[([A-Za-z][^\[\]]*)\]")
 # Page chrome at the top of a UG tab; the capo comes from the metadata.
 _URL = re.compile(r"(?i)^\s*(?:https?://|www\.)\S+\s*$")
 _CAPO_TEXT = re.compile(r"(?i)^\s*capo\s*(?:[:=]?\s*(?:\d{1,2}|[ivxlcdm]+))?\s*\**\s*$")
-# A footnote that starts a trailing notes/alternate-chord block.
-_NOTES = re.compile(r"^\s*\*{1,3}\s*\S")
+# A footnote that starts a trailing notes/alternate-chord block. Require a
+# column-0 marker and whitespace so a lyric such as "*When the morning comes"
+# is not mistaken for a note.
+_NOTES = re.compile(r"^\*{1,3}\s+\S")
+# A header artist line often carries a year or a trailing footnote.
+_ARTIST_CREDIT = re.compile(r"(?i)(?:\b(?:19|20)\d{2}\b|\*+\s*$)")
 # The first line of a tab header, e.g. "Song Title chords".
 _TITLE_LIKE = re.compile(r"(?i)^.+\s+(?:chords?|tabs?)\s*\**\s*$")
 # Markers such as "*" or "x2" that may sit after a chord; "(x2)" is a repeat
@@ -332,7 +336,9 @@ def _drop_leading_header(
             artist_expected = False
             index += 1
             continue
-        if _matches_name(line, title) or _TITLE_LIKE.fullmatch(line):
+        if _matches_name(line, title) or (
+            title and title != "Unknown" and _TITLE_LIKE.fullmatch(line)
+        ):
             # UG's header title is not always the same as the tab metadata.
             artist_expected = True
             index += 1
@@ -343,12 +349,14 @@ def _drop_leading_header(
             continue
         if (
             artist_expected
+            and _ARTIST_CREDIT.search(line)
             and _header(line) is None
             and not _is_chord_line(line)
             and not _STAFF.fullmatch(line)
         ):
-            # The line after the title is the header artist, even when it
-            # carries a year/album annotation the metadata does not have.
+            # The line after the title can be the header artist with a
+            # year/album annotation the metadata does not have. Without such a
+            # marker it may be the first lyric, so keep it.
             artist_expected = False
             index += 1
             continue
