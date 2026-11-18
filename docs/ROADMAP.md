@@ -1,6 +1,6 @@
 # Songbook — Roadmap and Agent Guide
 
-> **Status:** living document. Last updated: 2026-11-17.
+> **Status:** living document. Last updated: 2026-11-18.
 > **Product lane:** A — personal/band songbook (see §1).
 > **Owner:** @xbankov. **Audience:** maintainers and AI agents.
 
