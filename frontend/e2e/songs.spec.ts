@@ -753,7 +753,9 @@ test.describe('Songbook UI', () => {
         set(value: number) {
           writes += 1
           ;(window as unknown as { __scrollWrites: number }).__scrollWrites = writes
-          descriptor.set!.call(this, value)
+          // Some browsers round scrollTop; the fractional accumulator must
+          // still make progress.
+          descriptor.set!.call(this, Math.round(value))
         },
       })
     })
@@ -784,6 +786,16 @@ test.describe('Songbook UI', () => {
     await page.mouse.wheel(0, 20)
     await page.waitForTimeout(120)
     expect(await page.evaluate(() => window.scrollY)).toBeGreaterThanOrEqual(beforeWheel + 15)
+
+    // Hovering (no button held) must not reset the fractional position and
+    // stall the scroll on browsers that round scrollTop.
+    const beforeHover = await page.evaluate(() => window.scrollY)
+    for (let i = 0; i < 20; i++) {
+      await page.mouse.move(100 + i * 2, 120)
+      await page.waitForTimeout(16)
+    }
+    await page.waitForTimeout(100)
+    expect(await page.evaluate(() => window.scrollY)).toBeGreaterThanOrEqual(beforeHover + 2)
 
     await page.getByRole('button', { name: 'Faster' }).click()
     await expect(speed).toHaveText('1.1')
