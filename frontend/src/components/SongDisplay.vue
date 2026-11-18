@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, onBeforeUnmount, ref } from 'vue'
+import { computed, nextTick, onBeforeUnmount, ref } from 'vue'
 import { useSettingsStore } from '../stores/settings'
 import { useAutoScroll } from '../composables/useAutoScroll'
 import { getChordShape } from '../api/chords'
@@ -237,7 +237,7 @@ function openChord(chord: string, event: MouseEvent) {
   }
   activeChord.value = chord
   chordTrigger.value = trigger
-  const width = 300
+  const width = Math.min(300, window.innerWidth - 16)
   const rect = trigger.getBoundingClientRect()
   popoverStyle.value = {
     top: `${Math.max(8, Math.min(rect.bottom + 6, window.innerHeight - 330))}px`,
@@ -248,6 +248,7 @@ function openChord(chord: string, event: MouseEvent) {
   document.removeEventListener('keydown', onChordKeydown, true)
   document.addEventListener('keydown', onChordKeydown, true)
   void loadChordShape(chord)
+  void nextTick(() => chordPopover.value?.focus())
 }
 
 function chooseVariant(chord: string) {
@@ -356,6 +357,7 @@ onBeforeUnmount(() => {
       class="chord-popover"
       role="dialog"
       aria-label="Chord reference"
+      tabindex="-1"
       :style="popoverStyle"
     >
       <div class="chord-popover-header">
@@ -457,7 +459,7 @@ onBeforeUnmount(() => {
 .chord-popover {
   position: fixed;
   z-index: 1200;
-  width: 300px;
+  width: min(300px, calc(100vw - 16px));
   max-height: calc(100vh - 16px);
   overflow-y: auto;
   padding: 0.75rem;
@@ -465,6 +467,9 @@ onBeforeUnmount(() => {
   border: 1px solid var(--accent);
   border-radius: 6px;
   box-shadow: 0 8px 24px rgb(0 0 0 / 35%);
+}
+.chord-popover:focus {
+  outline: none;
 }
 .chord-popover-header {
   display: flex;
