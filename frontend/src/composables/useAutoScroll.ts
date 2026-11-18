@@ -48,11 +48,17 @@ export function useAutoScroll(target?: Ref<HTMLElement | null>) {
     position = null
   }
 
+  function markPointerDrag(event: PointerEvent) {
+    // Hovering must not reset the fractional position every frame; only a
+    // held button/active touch is scrolling.
+    if (event.buttons !== 0) position = null
+  }
+
   function listenForManualScroll() {
     window.addEventListener('wheel', markManualScroll, { passive: true })
     window.addEventListener('touchstart', markManualScroll, { passive: true })
     window.addEventListener('pointerdown', markManualScroll, { passive: true })
-    window.addEventListener('pointermove', markManualScroll, { passive: true })
+    window.addEventListener('pointermove', markPointerDrag, { passive: true })
     window.addEventListener('keydown', markManualScroll)
   }
 
@@ -60,7 +66,7 @@ export function useAutoScroll(target?: Ref<HTMLElement | null>) {
     window.removeEventListener('wheel', markManualScroll)
     window.removeEventListener('touchstart', markManualScroll)
     window.removeEventListener('pointerdown', markManualScroll)
-    window.removeEventListener('pointermove', markManualScroll)
+    window.removeEventListener('pointermove', markPointerDrag)
     window.removeEventListener('keydown', markManualScroll)
   }
 
