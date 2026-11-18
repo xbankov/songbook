@@ -431,6 +431,87 @@ def test_search_lists_only_importable_tabs_best_first():
     assert results[2]["version"] == 1
 
 
+def test_search_ignores_booleans_and_clamps_negative_votes():
+    results = parse_search_html(
+        _raw(
+            {
+                "results": [
+                    {
+                        "tab_url": "https://tabs.ultimate-guitar.com/tab/a/one-chords-1",
+                        "type": "Chords",
+                        "song_name": "One",
+                        "artist_name": "A",
+                        "rating": True,
+                        "votes": True,
+                    },
+                    {
+                        "tab_url": "https://tabs.ultimate-guitar.com/tab/a/two-chords-2",
+                        "type": "Chords",
+                        "song_name": "Two",
+                        "artist_name": "A",
+                        "rating": 4.5,
+                        "votes": -10,
+                    },
+                ]
+            }
+        )
+    )
+
+    by_title = {r["title"]: r for r in results}
+    assert by_title["One"]["rating"] == 0
+    assert by_title["One"]["votes"] == 0
+    assert by_title["Two"]["votes"] == 0
+
+
+def test_search_limits_after_sorting_not_before():
+    candidates = [
+        {
+            "tab_url": f"https://tabs.ultimate-guitar.com/tab/a/song-chords-{i}",
+            "type": "Chords",
+            "song_name": f"Song {i}",
+            "artist_name": "A",
+            "rating": 4.0,
+            "votes": i,
+        }
+        for i in range(10)
+    ]
+    candidates.append(
+        {
+            "tab_url": "https://tabs.ultimate-guitar.com/tab/a/best-chords-99",
+            "type": "Chords",
+            "song_name": "Best",
+            "artist_name": "A",
+            "rating": 5,
+            "votes": 10000,
+        }
+    )
+
+    results = parse_search_html(_raw({"results": candidates}))
+
+    assert len(results) == 10
+    assert results[0]["title"] == "Best"
+
+
+def test_search_ignores_non_finite_dates():
+    (result,) = parse_search_html(
+        _raw(
+            {
+                "results": [
+                    {
+                        "tab_url": "https://tabs.ultimate-guitar.com/tab/a/b-chords-1",
+                        "type": "Chords",
+                        "song_name": "Song",
+                        "artist_name": "Artist",
+                        "date_update": float("nan"),
+                    }
+                ]
+            }
+        )
+    )
+
+    assert result["updated"] is None
+
+
 def test_search_result_without_extra_fields_has_safe_defaults():
     results = parse_search_html(
         _raw(
