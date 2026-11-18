@@ -321,22 +321,41 @@ class SongModel(BaseModel):
         )
 
 
-def _chord_counts(song: SongModel) -> dict[str, int]:
+def _chord_sequence(song: SongModel) -> list[Chord]:
+    return [
+        part
+        for section in song.sections
+        for line in section.lines
+        for part in line.parts
+        if isinstance(part, Chord)
+    ]
+
+
+def _chord_counts(chords: list[Chord]) -> dict[str, int]:
     chord_counts: dict[str, int] = {}
-    for section in song.sections:
-        for line in section.lines:
-            for part in line.parts:
-                if isinstance(part, Chord):
-                    name = str(part.root)
-                    chord_counts[name] = chord_counts.get(name, 0) + 1
+    for chord in chords:
+        name = str(chord)
+        chord_counts[name] = chord_counts.get(name, 0) + 1
     return chord_counts
 
 
-def _pitch_class(name: str) -> int | None:
-    try:
-        return Chord.parse(name).root.value
-    except (KeyError, IndexError, ValueError):
+def _chord_family(chord: Chord) -> str | None:
+    intervals = chord_quality_scheme.get(chord.quality)
+    if not intervals:
         return None
+    if 4 in intervals:
+        return "major"
+    if 3 in intervals:
+        return "minor"
+    return None
+
+
+def _chord_matches(chord: Chord, scheme: Chord) -> bool:
+    if chord.root.value != scheme.root.value:
+        return False
+    family = _chord_family(chord)
+    scheme_family = _chord_family(scheme)
+    return family is None or scheme_family is None or family == scheme_family
 
 
 def _key_schemes() -> tuple[dict[str, list[str]], dict[str, list[str]]]:
@@ -364,37 +383,60 @@ def _key_schemes() -> tuple[dict[str, list[str]], dict[str, list[str]]]:
 
 
 def analyze_key(song: SongModel) -> dict[str, Any] | None:
-    """Key suggestion plus the chord evidence behind it (#141)."""
-    chord_counts = _chord_counts(song)
-    if not chord_counts:
+    """Key suggestion plus the chord evidence behind it (#141).
+
+    Chords are compared by root and quality, so relative major/minor keys do
+    not collapse into the same set. Ties prefer the key whose tonic is present
+    and, then, the key the song starts and ends on.
+    """
+    sequence = _chord_sequence(song)
+    if not sequence:
         return None
+    chord_counts = _chord_counts(sequence)
+    parsed = {name: Chord.parse(name) for name in chord_counts}
+    total = len(sequence)
 
     major_keys, minor_keys = _key_schemes()
-    total = sum(chord_counts.values())
     best_key = None
     best_score = 0
+    best_rank: tuple[int, int, int, int] | None = None
 
     for key, diatonic in {**major_keys, **minor_keys}.items():
-        diatonic_pitches = {_pitch_class(d) for d in diatonic}
+        scheme = [Chord.parse(name) for name in diatonic]
         score = sum(
             count
-            for chord_name, count in chord_counts.items()
-            if _pitch_class(chord_name) in diatonic_pitches
+            for name, count in chord_counts.items()
+            if any(_chord_matches(parsed[name], candidate) for candidate in scheme)
         )
-        if score > best_score:
+        tonic = Chord.parse(key)
+        tonic_count = sum(
+            count
+            for name, count in chord_counts.items()
+            if parsed[name].root.value == tonic.root.value
+        )
+        rank = (
+            score,
+            tonic_count,
+            int(sequence[0].root.value == tonic.root.value),
+            int(sequence[-1].root.value == tonic.root.value),
+        )
+        if best_rank is None or rank > best_rank:
+            best_rank = rank
             best_score = score
             best_key = key
 
-    if not best_key or total == 0:
+    if not best_key or best_score == 0:
         return None
 
     diatonic = {**major_keys, **minor_keys}[best_key]
-    diatonic_pitches = {_pitch_class(d) for d in diatonic}
+    scheme = [Chord.parse(name) for name in diatonic]
     chords = [
         {
             "name": name,
             "count": count,
-            "in_key": _pitch_class(name) in diatonic_pitches,
+            "in_key": any(
+                _chord_matches(parsed[name], candidate) for candidate in scheme
+            ),
         }
         for name, count in sorted(
             chord_counts.items(), key=lambda item: (-item[1], item[0])

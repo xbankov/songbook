@@ -152,8 +152,13 @@ function closeKeyPanel() {
 }
 
 function toggleKeyPanel() {
-  if (!keyPanelOpen.value) keyError.value = ''
-  keyPanelOpen.value = !keyPanelOpen.value
+  if (keyPanelOpen.value) {
+    closeKeyPanel()
+    return
+  }
+  keyError.value = ''
+  keyPanelOpen.value = true
+  void nextTick(() => keyPanel.value?.focus())
 }
 
 function onKeyPanelPointerDown(event: PointerEvent) {
@@ -179,14 +184,18 @@ watch(keyPanelOpen, (open) => {
 async function applySuggestedKey() {
   if (!suggestedKey.value || !song.value) return
   const key = suggestedKey.value
+  const songId = song.value.id
   if (!confirm(`Use ${key} as the song key? This creates a new version.`)) return
   applyingKey.value = true
   keyError.value = ''
   try {
-    const updated = await store.updateSong(song.value.id, { key })
+    const updated = await store.updateSong(songId, { key })
+    // Ignore a late response after navigating to another song.
+    if (route.params.id !== songId) return
     keyNotice.value = `Song key set to ${updated.key ?? key} (version ${updated.version})`
     closeKeyPanel()
   } catch (e: unknown) {
+    if (route.params.id !== songId) return
     keyError.value = e instanceof Error ? e.message : 'Could not set the song key'
   } finally {
     applyingKey.value = false
