@@ -27,7 +27,7 @@ class TestKeyAnalysis:
             "key_chords": ["C", "F", "G", "Am", "Dm", "Em"],
             "chords": [
                 {"name": "C", "count": 2, "in_key": True},
-                {"name": "A", "count": 1, "in_key": True},
+                {"name": "Am", "count": 1, "in_key": True},
                 {"name": "F", "count": 1, "in_key": True},
                 {"name": "G", "count": 1, "in_key": True},
             ],
@@ -52,6 +52,27 @@ class TestKeyAnalysis:
         assert analysis["suggested_key"] == "F"
         assert analysis["confidence"] == 100.0
         assert {"name": "A#", "count": 1, "in_key": True} in analysis["chords"]
+
+    def test_minor_key_is_not_reported_as_its_relative_major(self):
+        song = SongModel.from_chordpro("[Am] [Dm] [Em]")
+
+        analysis = analyze_key(song)
+
+        assert analysis["suggested_key"] == "Am"
+        assert analysis["key_type"] == "minor"
+        assert analysis["confidence"] == 100.0
+        assert {"name": "Am", "count": 1, "in_key": True} in analysis["chords"]
+        assert detect_key(song) == ("Am", 100.0)
+
+    def test_same_root_different_quality_is_not_in_key(self):
+        song = SongModel.from_chordpro("[C] [Cm] [G]")
+
+        analysis = analyze_key(song)
+
+        assert analysis["suggested_key"] == "C"
+        assert analysis["confidence"] == 66.7
+        assert {"name": "C", "count": 1, "in_key": True} in analysis["chords"]
+        assert {"name": "Cm", "count": 1, "in_key": False} in analysis["chords"]
 
     def test_no_chords_means_no_analysis(self):
         song = SongModel.from_chordpro("just words")
