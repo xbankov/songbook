@@ -149,6 +149,8 @@ def _text(*values: Any) -> str:
 def _optional_text(value: Any) -> str | None:
     if isinstance(value, bool):
         return None
+    if isinstance(value, float) and not math.isfinite(value):
+        return None
     if isinstance(value, (str, int, float)):
         text = str(value).strip()
         return text or None
@@ -165,6 +167,8 @@ def _optional_int(value: Any) -> int | None:
 
 
 def _number(value: Any) -> float:
+    if isinstance(value, bool):
+        return 0.0
     try:
         number = float(value)
     except (TypeError, ValueError, OverflowError):
@@ -185,7 +189,7 @@ def _best_score(result: dict[str, Any]) -> float:
     rating = result["rating"]
     if not rating:
         return 0.0
-    return rating * math.log10(result["votes"] + 10)
+    return rating * math.log10(max(0, result["votes"]) + 10)
 
 
 def parse_search_html(html: str) -> list[dict[str, Any]]:
@@ -221,7 +225,7 @@ def parse_search_html(html: str) -> list[dict[str, Any]]:
                 "type": kind,
                 "type_label": _optional_text(tab.get("typeLabel")) or kind,
                 "rating": _number(tab.get("rating")),
-                "votes": int(_number(tab.get("votes"))),
+                "votes": max(0, int(_number(tab.get("votes")))),
                 "version": _optional_int(tab.get("version")),
                 "version_count": _optional_int(tab.get("tp_version")),
                 "version_description": _optional_text(tab.get("version_description")),
@@ -233,10 +237,10 @@ def parse_search_html(html: str) -> list[dict[str, Any]]:
                 "verified": _flag(tab.get("verified")),
             }
         )
-        if len(results) == SEARCH_LIMIT:
-            break
+    # Sort every candidate before applying the UI limit, so a better later
+    # row is not discarded unseen.
     results.sort(key=_best_score, reverse=True)
-    return results
+    return results[:SEARCH_LIMIT]
 
 
 def search(query: str) -> list[dict[str, Any]]:
