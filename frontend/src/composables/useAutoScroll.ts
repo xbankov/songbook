@@ -37,7 +37,31 @@ export function useAutoScroll(target?: Ref<HTMLElement | null>) {
   let position: number | null = null
 
   function scroller(): HTMLElement | null {
-    return target?.value ?? (document.scrollingElement as HTMLElement | null)
+    // An explicit target that is temporarily null must not fall back to the
+    // document (e.g. the performance stage disappearing mid-route-change).
+    if (target) return target.value
+    return document.scrollingElement as HTMLElement | null
+  }
+
+  function markManualScroll() {
+    // Start the next frame from where the user left the page.
+    position = null
+  }
+
+  function listenForManualScroll() {
+    window.addEventListener('wheel', markManualScroll, { passive: true })
+    window.addEventListener('touchstart', markManualScroll, { passive: true })
+    window.addEventListener('pointerdown', markManualScroll, { passive: true })
+    window.addEventListener('pointermove', markManualScroll, { passive: true })
+    window.addEventListener('keydown', markManualScroll)
+  }
+
+  function stopListeningForManualScroll() {
+    window.removeEventListener('wheel', markManualScroll)
+    window.removeEventListener('touchstart', markManualScroll)
+    window.removeEventListener('pointerdown', markManualScroll)
+    window.removeEventListener('pointermove', markManualScroll)
+    window.removeEventListener('keydown', markManualScroll)
   }
 
   function tick(now: number) {
@@ -61,10 +85,8 @@ export function useAutoScroll(target?: Ref<HTMLElement | null>) {
 
     // Keep a fractional position so every frame can move the page by a
     // fraction of a pixel; flooring would fall back to ~10 jumps per second.
-    // Re-sync if the user scrolled by more than rounding noise.
-    if (position === null || Math.abs(element.scrollTop - position) > 1.5) {
-      position = element.scrollTop
-    }
+    // User input resets it, so a manual scroll is never overwritten.
+    if (position === null) position = element.scrollTop
     // Speed 1 means the old 1px per 100ms (10px per second).
     position = Math.min(position + speed.value * 10 * seconds, maxScroll)
     element.scrollTop = position
@@ -76,6 +98,7 @@ export function useAutoScroll(target?: Ref<HTMLElement | null>) {
     autoScroll.value = true
     lastTime = 0
     position = null
+    listenForManualScroll()
     frame = requestAnimationFrame(tick)
   }
 
@@ -85,6 +108,7 @@ export function useAutoScroll(target?: Ref<HTMLElement | null>) {
     frame = null
     lastTime = 0
     position = null
+    stopListeningForManualScroll()
   }
 
   function toggle() {

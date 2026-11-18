@@ -741,6 +741,22 @@ test.describe('Songbook UI', () => {
   })
 
   test('autoscroll moves smoothly, steps speed by 0.1 and stops', async ({ page }) => {
+    await page.addInitScript(() => {
+      const descriptor = Object.getOwnPropertyDescriptor(Element.prototype, 'scrollTop')
+      if (!descriptor?.get || !descriptor?.set) return
+      let writes = 0
+      Object.defineProperty(Element.prototype, 'scrollTop', {
+        configurable: true,
+        get() {
+          return descriptor.get!.call(this)
+        },
+        set(value: number) {
+          writes += 1
+          ;(window as unknown as { __scrollWrites: number }).__scrollWrites = writes
+          descriptor.set!.call(this, value)
+        },
+      })
+    })
     await mockApi(page)
     const lines = Array.from({ length: 80 }, (_, i) => `[G]Line ${i + 1}`).join('\n')
     await page.route(`**/api/songs/${song.id}`, (route) =>
@@ -751,10 +767,23 @@ test.describe('Songbook UI', () => {
     const speed = page.locator('.autoscroll-controls .ctrl-label')
     const start = await page.evaluate(() => window.scrollY)
 
+    await page.evaluate(() => {
+      ;(window as unknown as { __scrollWrites: number }).__scrollWrites = 0
+    })
     await page.getByRole('button', { name: 'Scroll' }).click()
     await expect(speed).toHaveText('1.0')
     await page.waitForTimeout(400)
     expect(await page.evaluate(() => window.scrollY)).toBeGreaterThan(start)
+    // The old whole-pixel loop wrote ~4 times in 400ms; rAF now writes per frame.
+    expect(
+      await page.evaluate(() => (window as unknown as { __scrollWrites: number }).__scrollWrites),
+    ).toBeGreaterThan(10)
+
+    // A wheel scroll must not be immediately undone by the virtual position.
+    const beforeWheel = await page.evaluate(() => window.scrollY)
+    await page.mouse.wheel(0, 20)
+    await page.waitForTimeout(120)
+    expect(await page.evaluate(() => window.scrollY)).toBeGreaterThanOrEqual(beforeWheel + 15)
 
     await page.getByRole('button', { name: 'Faster' }).click()
     await expect(speed).toHaveText('1.1')
