@@ -9,7 +9,7 @@ asyncpg==0.32.0
 alembic==1.20.1
 
 # Auth
-bcrypt==4.0.1
+bcrypt==5.0.0
 python-jose[cryptography]==3.5.0
 python-multipart==0.0.33
 
